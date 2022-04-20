@@ -109,33 +109,7 @@
 			<version>1.2</version>
 		</dependency>
 		
-		<!-- mybatis s 2022.02.13 -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.5.7</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-			<version>2.0.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-dbcp2</artifactId>
-		    <version>2.9.0</version>
-		</dependency>
-		<!-- mybatis e 2022.02.13 -->
+		
 		
 		<!-- for ajax s 2022.03.12 -->
 		<dependency>
@@ -155,7 +129,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.13.0</version>
 		</dependency>
-		<!-- for ajax s 2022.03.12 -->	
+		<!-- for ajax e 2022.03.12 -->	
 		
 		<!-- @Resource in DAO: multi db connection : s 2022.02.13 -->
 		<dependency>
