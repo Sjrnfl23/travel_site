@@ -162,7 +162,8 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>  
+		</dependency> 
+		 
 		<!-- mybatis s 2022.02.13 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -243,13 +244,7 @@
 </dependency>
 <!-- fileupload e 2022.03.30 -->
 	
-		<!-- Test -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
-		</dependency>        
+		     
 	</dependencies>
     <build>
         <plugins>
