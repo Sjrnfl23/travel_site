@@ -28,6 +28,7 @@
 </head>
 
 <body>
+	<!--============================= 공통부분 헤더 시작 =============================-->
     <!--============================= HEADER =============================-->
     <div class="nav-menu sticky-top">
         <div class="bg transition">
@@ -35,51 +36,31 @@
                 <div class="row">
                     <div class="col-md-12">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                            <a class="navbar-brand" href="index.html"><img src="images/nowTravel_logo.jpg" alt="logo"></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="ti-menu"></span>
               </button>
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="listing.html">Explore</a>
+                                        <a class="nav-link" href="listing.html">유연한검색</a>
                                     </li>
 
                                     <li class="nav-item dropdown">
                                         <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Pages
+                    회원정보
                     <span class="ti-angle-down"></span>
                   </a>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="index-two.html">Home Style Two</a>
-                                            <a class="dropdown-item" href="listing.html">Listing</a>
-                                            <a class="dropdown-item" href="detail.html">Listing Detail</a>
-                                            <a class="dropdown-item" href="add-listing.html">Add new Listing</a>
-                                            <a class="dropdown-item" href="payment-method.html">Payment Method</a>
-                                            <a class="dropdown-item" href="thank-you.html">Thank You</a>
-                                            <a class="dropdown-item" href="contact.html">Contact</a>
-                                            <a class="dropdown-item" href="pricing.html">Pricing</a>
-                                            <a class="dropdown-item" href="404.html">404</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="contact.html">Help</a>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Blog
-                    <span class="ti-angle-down"></span>
-                  </a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="blog.html">Blog Listing</a>
-                                            <a class="dropdown-item" href="blog-two.html">Blog Layout Two</a>
-                                            <a class="dropdown-item" href="blog-detail.html">Blog Detail</a>
+                                            <a class="dropdown-item" href="index-two.html">예약내역</a>
+                                            <a class="dropdown-item" href="listing.html">여행지도</a>
+                                            <a class="dropdown-item" href="listing.html">회원정보 수정</a>
                                         </div>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="login.html" data-toggle="modal" data-target="#exampleModal">Login</a>
                                     </li>
-                                    <li><a href="add-listing.html" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span> Add Listing</a></li>
+                                    <li><a href="add-listing.html" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>호스트 되기</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -102,7 +83,7 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="login">
                         <div class="modal-header">
                             <h5 class="modal-title"><img src="images/logo.png" alt="logo"></h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -123,9 +104,9 @@
                             <button type="button" class="btn btn-primary">LOG IN</button>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel">
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="sign-up">
                         <div class="modal-header">
-                            <h5 class="modal-title"><img src="images/logo.png" alt="logo"></h5>
+                            <h5 class="modal-title" id="exampleModalLabel"><img src="images/logo.png" alt="logo"></h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span class="ti-close"></span>
         </button>
@@ -156,14 +137,18 @@
     </div>
     <!--// Log In & Signup -->
     <!--//END HEADER -->
+    <!--=============================// 공통부분 헤더 끝 =============================-->
+    
+    <!--============================= 컨텐츠시작 =============================-->
+    
     <!--============================= SUBPAGE HEADER BG =============================-->
     <section class="subpage-bg">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="titile-block title-block_subpage">
-                        <h2>Choose Payment Option</h2>
-                        <p> <a href="index.html"> Home</a> / Payment Method</p>
+                        <h2>예약요청</h2>
+                        <p> <a href="index.html"><u>이전으로</u></a> / 결제방법을 선택해주세요.</p>
                     </div>
                 </div>
             </div>
@@ -180,7 +165,67 @@
                     <div class="row">
                         <div class="col-md-8">
                             <form method="post">
-                                <!-- General Information -->
+                            
+                                <!-- 예약정보 -->
+                                <div class="payment-wrap">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="payment-title">
+                                                <span class="ti-files"></span>
+                                                <h4><b>예약정보</b></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div>
+                                                <span style="font-size:20px;"><b>날짜</b></span>
+                                                <p style="font-size : 18px;">8월 26일 ~ 9월 2일</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" style="text-align: right; vertical-align: bottom;">
+                                            <p><u>수정하기</u></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div>
+                                                <span style="font-size:20px;"><b>게스트</b></span>
+                                                <p style="font-size : 18px;">성인 1명</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" style="text-align: right; vertical-align: bottom;">
+                                            <p><u>수정하기</u></p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--// 예약정보 -->
+                                
+                                <!-- 환불정책 -->
+                                <div class="payment-wrap">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="payment-title">
+                                                <span class="ti-files"></span>
+                                                <h4><b>환불정책</b></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span style="font-size:18px;">
+                                            	7월 27일 오후 12:00 전에 예약을 취소하면 요금이 전액 환불됩니다.<br>
+                                            	코로나19로 인한 여행 문제에는 정상참작이 가능한 상황 정책이 적용되지 않습니다.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--// 환불정책 -->
+ 
+<!--  
+                                
+                                General Information
 
                                 <div class="payment-wrap">
                                     <div class="row">
@@ -221,51 +266,26 @@
                                     </div>
 
                                 </div>
-                                <!--// General Information -->
+                                // General Information
 
-                                <!-- Payment method -->
+ -->
+
+                                <!-- 결제수단 -->
                                 <div class="payment-wrap">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="payment-title">
                                                 <span class="ti-credit-card"></span>
-                                                <h4>Payment Method</h4>
+                                                <h4>결제수단</h4>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div id="accordion" class="payment-method-collapse">
-
-                                                <div class="card">
-                                                    <div class="card-header btn btn-link collapsed" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo">
-                                                        <h5 class="mb-0">PayPal</h5>
-                                                        <img src="images/paypal.png" class="img-fluid" alt="#">
-                                                    </div>
-                                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                                        <div class="card-body">
-
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>Full Name</label>
-                                                                        <input type="text" class="form-control add-listing_form">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>PayPal Email</label>
-                                                                        <input type="email" class="form-control add-listing_form">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="card">
                                                     <div class="card-header btn btn-link collapsed" id="headingThree" data-toggle="collapse" data-target="#collapseThree">
-                                                        <h5 class="mb-0">Credit / Debit Card</h5>
+                                                        <h5 class="mb-0"><b>신용카드 / 체크카드</b></h5>
                                                         <img src="images/credit.png" class="img-fluid" alt="#">
                                                     </div>
                                                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
@@ -274,13 +294,13 @@
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label>Card Holder Name</label>
+                                                                        <label>이름</label>
                                                                         <input type="text" class="form-control add-listing_form" placeholder="Michael">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label>Card No.</label>
+                                                                        <label>카드번호</label>
                                                                         <input type="number" class="form-control add-listing_form" placeholder="1235 4785 4758 1458">
                                                                     </div>
                                                                 </div>
@@ -288,19 +308,19 @@
                                                             <div class="row">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
-                                                                        <label>Expire Month</label>
+                                                                        <label>유효기간 월</label>
                                                                         <input type="number" class="form-control add-listing_form" placeholder="05">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
-                                                                        <label>Expire Year</label>
+                                                                        <label>유효기간 년</label>
                                                                         <input type="number" class="form-control add-listing_form" placeholder="2020">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
-                                                                        <label>CCV Code</label>
+                                                                        <label>CCV</label>
                                                                         <input type="number" class="form-control add-listing_form" placeholder="533">
                                                                     </div>
                                                                 </div>
@@ -312,37 +332,35 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">CONFIRM NOW</button>
+
+                                    <button type="submit" class="btn btn-primary">결제하기</button>
                                 </div>
                             </form>
-                            <!--// Payment method -->
+                            <!--// 결제수단 -->
                         </div>
 
                         <div class="col-md-4">
                             <div class="booking-summary_block">
-                                <img src="images/featured-img1.jpg" class="img-fluid" alt="#">
+                                <img src="images/payment.png" class="img-fluid" alt="#">
                                 <div class="booking-summary-box">
-                                    <h6>Pizza Hutt</h6>
-                                    <span>Bishop Avenue, New York</span>
+                                    <h4>퀄리티&인테리어, 특별한 독채팬션_[봄보름] #해수욕장5분.돌집독채.월풀.바베큐</h4>
+                                    <span style="font-size: 18px;">제주도, 제주시</span>
 
                                     <div class="booking-summary_contact">
-                                        <p>807-502-5867</p>
-                                        <p>www.mysitelink.com</p>
+                                        <p style="font-size: 18px;">070-5022-5867</p>
                                     </div>
 
                                     <div class="booking-summary_deatail">
-                                        <h5>Booking Summary</h5>
+                                        <h5>예약 정보</h5>
                                         <div class="booking-cost">
-                                            <span>Reservation Details</span>
-                                            <p>Date <span>12 Jan 2019</span></p>
-                                            <p>Time <span>7pm to 9pm</span></p>
+                                            <p style="font-size: 16px;">날짜 <span style="font-size: 16px;">8월 26일 ~ 9월 2일</span></p>
+                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;">성인 1명</span></p>
                                         </div>
-                                        <div class="booking-cost">
-                                            <span>Pricing Details</span>
-                                            <p>Dining <span>$200.00</span></p>
-                                            <p>Reservation <span>$30.00</span></p>
-                                            <p>Tax <span>$26.00</span></p>
-                                            <p>Total Cost <span class="total-red">$256.00</span></p>
+                                        <div class="booking-cost" >
+                                            <h5>요금 정보</h5>
+                                            <p style="font-size: 16px;"><u>280,000 x 7박</u> <span style="font-size: 18px;">1,960,000원</span></p>
+                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
+                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,156,000원</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -355,6 +373,9 @@
         </div>
     </section>
     <!--//END PAYMENT METHORD -->
+    <!--============================= 컨텐츠 끝 =============================-->
+    
+ 	<!--============================= 공통부분 푸터 시작 =============================-->
     <!--============================= FOOTER =============================-->
     <footer class="main-block gray">
         <div class="container-fluid">
@@ -362,12 +383,12 @@
                 <div class="col-md-4 responsive-wrap">
                     <div class="location">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <p>503 Sylvan Ave, Mountain View<br> CA 94041, United States</p>
+                        <p>서울특별시 서초구 서초4 서초대로77길 55동<br> 서초동, 에이프로스퀘어 3층</p>
                     </div>
                 </div>
                 <div class="col-md-4 responsive-wrap">
                     <div class="footer-logo_wrap">
-                        <img src="images/footer-logo.png" alt="#" class="img-fluid">
+                        <img src="images/nowTravel_logo_bottom.jpg" alt="#" class="img-fluid" width="200px">
                     </div>
                 </div>
                 <div class="col-md-4 responsive-wrap">
@@ -383,15 +404,14 @@
             <div class="row mt-5">
                 <div class="col-md-12">
                     <div class="copyright">
-                        <p>Copyright © 2017 Listed Inc. All rights reserved</p>
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
+                        <p>Copyright © 2022 now travel Inc. All rights reserved</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
     <!--//END FOOTER -->
+	<!--=============================// 공통부분 푸터 끝 =============================-->
 
 
 
