@@ -165,7 +165,7 @@
  
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid" style="width: 600px;">
+                <div class="container-fluid" style="float: left;">
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">쿠폰 수정</h1>
@@ -178,44 +178,45 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                            <tr>
-                            <td>
-								<form>
-								  <div class="mb-3">
-								    <label for="couponName" class="form-label">호스트ID</label>
-								    <input type="text" class="form-control" id="couponName" style="width: 500px;" placeholder="travel_jeju" readonly>
-								  </div>
-								  <div class="mb-3">
-								    <label for="couponName" class="form-label">숙소이름</label>
-								    <input type="text" class="form-control" id="couponName" style="width: 500px;" placeholder="제주하르방" readonly>
-								  </div>
-								  <div class="mb-3">
-								    <label for="couponName" class="form-label">쿠폰명</label>
-								    <input type="text" class="form-control" id="couponName" style="width: 500px;" placeholder="봄맞이쿠폰">
-								  </div>
-								  <div class="mb-3">
-								    <label for="couponDate" class="form-label">금액</label>
-								    <input type="text" class="form-control" id="couponDate" style="width: 500px;" placeholder="30,000원">
-								  </div>  
-								  <div class="mb-3">
-								    <label for="couponDate" class="form-label">시작일</label>
-								    <input type="text" class="form-control" id="couponDate" style="width: 500px;" placeholder="2022-04-28">
-								  </div>
-								  <div class="mb-3">
-								    <label for="couponDate" class="form-label">종료일</label>
-								    <input type="text" class="form-control" id="couponDate" style="width: 500px;" placeholder="2022-05-30">
-								  </div>
-								</form>
-								</td>
-							</tr>
+                            <table class="table" id="" width="100%" cellspacing="0">
+                        
+                            	<tbody>
+	                            	<tr>
+	                            		<th style="width: 200px;">호스트ID</th>
+									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="travel_jeju" readonly></td>
+									    <th style="width: 200px;">숙소이름</th>
+									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="제주하르방" readonly></td>
+									</tr>
+	                            	<tr>
+	
+									</tr>
+	                            	<tr>
+	                            		<th>쿠폰명</th>
+									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="봄맞이쿠폰"></td>
+	                            		<th>금액</th>
+									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="30,000원"></td>								    
+									</tr>
+	                            	<tr>
+	
+									</tr>
+	                            	<tr style="border-bottom: 1px solid #E3E6F0;">
+	                            		<th>시작일</th>
+									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="2022-04-28"></td>
+	                            		<th>종료일</th>
+									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="2022-05-30"></td>
+									</tr>
+								</tbody>
+							</table>
                             </div>
+                            쿠폰 요청일 : 2022-04-26
+                            <br>
                             <br>
                             
                             <!-- 취소버튼 -->
-                            <button type="button" class="btn btn-danger">취소</button>
+                            <button type="button" class="btn btn-danger" style="float: right;">취소</button>
                             
                             <!-- 저장버튼 -->
-                            <button type="button" class="btn btn-primary" style="float: right">저장</button>
+                            <button type="button" class="btn btn-primary" style="float: right; margin-right: 10px;">저장</button>
                         </div>
                         
                     </div>
