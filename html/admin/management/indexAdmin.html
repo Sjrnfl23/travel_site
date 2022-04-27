@@ -35,7 +35,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="indexAdmin.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -263,45 +263,45 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">숙소관리</h1>
-                    <p class="mb-4">현재 등록된 숙소 리스트를 관리하세요.</p>
+                    <h1 class="h3 mb-2 text-gray-800">요청된 쿠폰 리스트</h1>
+                    <p class="mb-4">요청된 쿠폰 리스트를 관리하세요.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">등록된 숙소</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">요청된 쿠폰</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="width: 10px;">
-												<div class="form-check" style="margin-bottom: 40%; margin-left: 25%;">
+                                            <th style="width: 30px;">
+												<div class="form-check" style="margin-bottom: 70%; margin-left: 30%;">
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </th>
-                                            <th style="width: 30px;">No.</th>
-                                            <th>카테고리</th>
+                                            <th>요청일</th>
+                                            <th>호스트ID</th>
                                             <th>숙소이름</th>
-                                            <th>호스트</th>
-                                            <th>주소</th>
-                                            <th>전화번호</th>
-                                            <th>최대인원</th>
-                                            <th>등록일</th>
+                                            <th>쿠폰이름</th>
+                                            <th>금액</th>
+                                            <th>시작일</th>
+                                            <th>종료일</th>
+                                            <th>승인/거절</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th></th>
-                                            <th>No.</th>
-                                            <th>카테고리</th>
+                                            <th>요청일</th>
+                                            <th>쿠폰이름</th>
+                                            <th>호스트ID</th>
                                             <th>숙소이름</th>
-                                            <th>호스트</th>
-                                            <th>주소</th>
-                                            <th>전화번호</th>
-                                            <th>최대인원</th>
-                                            <th>등록일</th>
+                                            <th>금액</th>
+                                            <th>시작일</th>
+                                            <th>종료일</th>
+                                            <th>승인/거절</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -311,14 +311,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="lodgingView.html">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -326,14 +329,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -341,14 +347,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -356,14 +365,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -371,14 +383,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -386,14 +401,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -401,14 +419,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -416,14 +437,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -431,14 +455,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -446,14 +473,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -461,14 +491,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -476,14 +509,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -491,14 +527,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -506,14 +545,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -521,14 +563,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -536,14 +581,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -551,14 +599,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -566,14 +617,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -581,14 +635,17 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <td>
@@ -596,69 +653,33 @@
 												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 												</div>                                             
                                             </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
                                             <td>2022-04-26</td>
+                                            <td>popcorn</td>
+                                            <td>팝콘풀빌라</td>
+                                            <td>새단장쿠폰</td>
+                                            <td>1,000,000원</td>
+                                            <td>2022-04-30</td>
+                                            <td>2022-05-30</td>
+                                            <th style="text-align: center;">
+                                            	<button type="button" class="btn btn-primary btn-sm">승인</button>
+                                            	<button type="button" class="btn btn-danger btn-sm">거절</button>
+                                            </th>
                                         </tr>
-                                        <tr>
-                                            <td>
-												<div class="form-check" style="margin-bottom: 50%; margin-left: 20%;">
-												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-												</div>                                             
-                                            </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
-                                            <td>2022-04-26</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-												<div class="form-check" style="margin-bottom: 50%; margin-left: 20%;">
-												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-												</div>                                             
-                                            </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
-                                            <td>2022-04-26</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-												<div class="form-check" style="margin-bottom: 50%; margin-left: 20%;">
-												  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-												</div>                                             
-                                            </td>
-                                            <td>1</td>
-                                            <td><a href="">제주하르방</a></td>
-                                            <td>해변근처</td>
-                                            <td>jeju@gmail.com</td>
-                                            <td>제주특별자치도 서귀포시 안덕면 사계북로 120</td>
-                                            <td>010-1234-1234</td>
-                                            <td>8인</td>
-                                            <td>2022-04-26</td>
-                                        </tr>
+
+ 
+ 
                                     </tbody>
                                 </table>
                             </div>
                             <br>
                             
+                            <!-- 승인버튼 -->
+                            <button type="button" class="btn btn-primary">선택 승인</button>    
+                                                    
+                            <!-- 거절버튼 -->
+                            <button type="button" class="btn btn-danger">선택 거절</button>
                             
-                            <!-- 삭제버튼 -->
-                          <button type="button" class="btn btn-danger">선택삭제</button></a>
-                           
+
                         </div>
                         
                     </div>
