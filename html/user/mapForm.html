@@ -192,7 +192,21 @@
                                 <form action="php/contact.php" id="phpcontactform" method="post">
                                 	<div class="form-group">
                                         <label>여행 사진</label>
-                                        <input type="file" name="message" class="form-control" rows="3">
+                                        <div class="row">
+			                                <div class="col-md-12">
+			                                    <div class="custom-file">
+			                                        <div class="add-gallery-text">
+			                                            <i class="ti-gallery"></i>
+			                                            <span>추억을 넣어보세요!</span>
+			                                        </div>
+			                                        <input type="file" class="custom-file-input" id="customFile">
+			                                    </div>
+			                                </div>
+                            			</div>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>여행 제목</label>
+                                    	<input type="text" name="title" class="form-control" rows="3">
                                     </div>
                                     <div class="form-group">
                                         <label>여행 스토리</label>
