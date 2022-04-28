@@ -35,10 +35,13 @@
         averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
         minLevel: 10 // 클러스터 할 최소 지도 레벨 
     });
-     
-    var positions = [
-        {"lat":"37.5041457952342","lng":"126.75670653635","imageSrco":"/infra/resource/ph1.jpg"},
-		 {"lat":"37.5025416520547","lng":"126.775312407757","imageSrco":"/infra/resource/ph2.jpg"},
+    
+    /* var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    */ 
+    
+    
+     var positions = [
+         {"lat":"37.5041457952342","lng":"126.75670653635","imageSrco":"/infra/resources/mapimg/ph1.jpg"},
+		 {"lat":"37.5025416520547","lng":"126.775312407757","imageSrco":"/infra/resources/mapimg/ph2.jpg"},
 		 {"lat":"37.4840369248427","lng":"126.782649695027","imageSrco":"/infra/resource/ph3.jpg"},
 		 {"lat":"37.5063910880502","lng":"126.754135635056","imageSrco":"/infra/resource/ph4.jpg"},
 		 {"lat":"37.5040647136354","lng":"126.763949321773","imageSrco":"/infra/resource/ph5.jpg"},
@@ -47,17 +50,27 @@
 		 {"lat":"37.5043220835774","lng":"126.755031466805","imageSrco":"/infra/resource/ph8.jpg"},
 		 {"lat":"37.5043180280618","lng":"126.762084138624","imageSrco":"/infra/resource/ph9.jpg"},
 		 {"lat":"37.5158442051041","lng":"126.802410566976","imageSrco":"/infra/resource/ph10.jpg"}
-		 ];
+		 ];                  
     
-
     var markers =[];	//markers 배열 생성
+
     for(var i = 0; i < positions.length; i++) {	//for문으로 position배열 안에 있는 좌표에 마커 입력
     	          	
-       var markerPosition  = new kakao.maps.LatLng(positions[i].lat,positions[i].lng); 
+       var markerPosition  = new kakao.maps.LatLng(positions[i].lat,positions[i].lng);
+    
+       var imageSrc = positions[i].imageSrco; // 마커이미지 주소
+       imageSize = new kakao.maps.Size(35, 35);                // 마커이미지의 크기
+       imageOption = {offset: new kakao.maps.Point(17, 36)};   // 마커의 좌표와 일치시킬 이미지 안에서의 좌표설정
+       
+	   // 마커의 이미지정보를 가지고 있는 마커이미지를 생성
+	   var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+    
         var marker	= new kakao.maps.Marker({
     		position: markerPosition,
+    		image: markerImage,
     		map: map
     	});
+        
         markers.push(marker);	//marker객체를 markers에 추가
     }
     clusterer.addMarkers(markers);
