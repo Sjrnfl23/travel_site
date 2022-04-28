@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--============================= 공통부분 헤드 시작 =============================-->
+
 <head>
 
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <link rel="shortcut icon" href="img/nowTravel_logo_browser.jpg" type="image/x-icon" />
-    <title id="ctl00_headerTitle">now travel 호스트페이지</title> 
+    <title id="ctl00_headerTitle">now travel 관리자 예약관리 페이지</title> 
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -20,10 +20,10 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-<<<<<<< HEAD
-    <link href="css/sb-host-2.css" rel="stylesheet">
-<style>
-    body {
+    
+    <style>
+    
+        body {
   min-height: 100vh;
   background-image: url('img/bgmg1.jpg'); 
   background-repeat: no-repeat;
@@ -45,12 +45,9 @@
       -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
       box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
     }
-  </style>
-=======
     
-    <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">    
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -62,7 +59,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="indexHost.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="indexAdmin.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -87,13 +84,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <span>쿠폰관리</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Coupon Management</h6>
+                        <h6 class="collapse-header">Cupon Management</h6>
                         <a class="collapse-item" href="couponList.html">쿠폰 목록</a>
                         <a class="collapse-item" href="couponListPermit.html">쿠폰 승인</a>
                         <a class="collapse-item" href="couponListBak.html">쿠폰 내역</a>
@@ -103,16 +100,23 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapse active" href="reservationList.html" >
+                <a class="nav-link collapsed" href="reservationList.html" >
                     <span>예약관리</span>
                 </a>
-            </li> <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
-                    <span>DM</span>
-                </a>
-              
             </li>
-              
+              <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <span>회원 관리</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Member Management</h6>
+                        <a class="collapse-item" href="login.html">호스트 관리</a>
+                        <a class="collapse-item" href="register.html">사용자 관리</a>
+                    </div>
+                </div>
+            </li>
 
             <!-- Divider -->
 
@@ -144,19 +148,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -165,7 +157,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">호스트</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -189,100 +181,78 @@
                 </nav>
                 <!-- End of Topbar -->
 
-	<!--=============================// 공통부분 헤드 종료 =============================-->
-
-
-	<!--============================= 컨텐츠시작 =============================-->
-                <!-- Begin Page Content -->
- 
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid" style="width: 80%; float: left;">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">예약 상세</h1>
-                    <p class="mb-4">현재 호스트님의 숙소에 예약된 예약을 관리하세요.</p>
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">예약 상세</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                            <table class="table" id="" width= 100% cellspacing="0">
-                        
-                            	<tbody>
-	                            	<tr>
-	                            		<th style="width: 30%;">예약 코드</th>
-									    <td>ABCDEFG12345</td>
-									    <th>숙소</th>
-									    <td>제주하르방</td>
-									</tr>
-	                            	<tr>
-	
-									</tr>
-	                            	<tr>
-	                            		<th>사용자</th>
-									    <td>윤이나</td>
-	                            		<th>인원</th>
-									    <td>성인 1명</td>								    
-									</tr>
-	                            	<tr>
-									</tr>
-									<tr>
-	                            		<th>연락처</th>
-									    <td>010-1234-1234</td>	
-									    <th>체크인 시간</th>
-									    <td>16:00</td>							    
-									</tr>
-									<tr style="border-bottom: 1px solid #E3E6F0;">
-	                            		<th>예약일자</th>
-									    <td>2022-05-01 ~ 2022-05-03</td>	
-									    <th>가격</th>
-									    <td>350,000원</td>					    
-									</tr>
-
-								</tbody>
-							</table>
-                            </div>
-                            예약 등록일 : 2022-04-26
-                            <br>
-                            <br>
-                            
-                            <!-- 삭제버튼 -->
-                            <a href="reservationList.html"><button type="button" class="btn btn-danger">삭제</button></a>
-                            
-                            <!-- 목록버튼 -->
-                            <a href="reservationList.html"><button type="button" class="btn btn-outline-secondary" style="float: right">목록</button></a>
-                            
-                            <!-- 수정버튼 -->
-                            <a href="reservationForm.html"><button type="button" class="btn btn-primary" style="float: right; margin-right: 10px;">수정</button></a>
-                        </div>
-                        
-                    </div>
-								
-                </div>
-                <!-- /.container-fluid -->
-
-
-
-
+  <!-- Main Content -->
+   <div class="container">
+    <div class="input-form-backgroud row">
+      <div class="input-form col-md-12 mx-auto">
+        <h2 class="mb-3 text-center"><strong>예약 수정</strong></h2>
+        <form class="validation-form" novalidate>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="name">예약 코드</label>
+              <input type="text" class="form-control" id="Id" placeholder="예약 코드" value="#@553#$@#66232" >
             </div>
+            <div class="col-md-6 mb-3">
+              <label for="nickname">숙박명</label>
+              <input type="text" class="form-control" id="Password" placeholder="숙박명" value="가평 빠지" >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="name">예약 상품명</label>
+              <input type="text" class="form-control" id="Id" placeholder="예약 상품명" value="목조주택 14평 1번" >
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="nickname">예약자</label>
+              <input type="text" class="form-control" id="Password" placeholder="숙박명" value="김도현" >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="name">체크인 시간</label>
+              <input type="datetime-local" class="form-control" id="Id" placeholder="예약 코드" value="2018-06-07T00:00" >
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="nickname">체크아웃 시간</label>
+              <input type="datetime-local" class="form-control" id="Password" placeholder="숙박명" value="2018-06-07T00:00" >
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="email">이메일</label>
+            <input type="email" class="form-control" id="email" placeholder="admin@example.com" >
+            <div class="invalid-feedback">
+              이메일을 입력해주세요.
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="name">등록일</label>
+              <input type="date" class="form-control" id="Id" placeholder="예약 코드" value="2018-06-07T00:00" >
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="nickname">수정일</label>
+              <input type="date" class="form-control" id="Password" placeholder="숙박명" value="2018-06-07T00:00" >
+            </div>
+           
+          </div>
+           <a href="reservationView.html" class="btn btn-warning float-right">수정</a>
+        </form>
+      </div>
+    </div>
             <!-- End of Main Content -->
-			<!--============================= // 컨텐츠 종료 =============================-->
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Your Website 2021</span>
                     </div>
                 </div>
             </footer>
             <!-- End of Footer -->
 
-        </div>
+        
         <!-- End of Content Wrapper -->
 
     </div>
@@ -324,11 +294,13 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    
+
 
 </body>
 
