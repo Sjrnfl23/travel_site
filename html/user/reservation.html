@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="#">
     <!-- Page Title -->
     <link rel="shortcut icon" href="images/nowTravel_logo_browser.jpg" type="image/x-icon" />
-    <title id="ctl00_headerTitle">사용자 얘약내역 페이지</title>    
+    <title id="ctl00_headerTitle">여행을 떠나요. now travel!</title>    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Google Fonts -->
@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.html"><img src="images/nowTravel_logo.jpg" alt="logo"></a>
+                            <a class="navbar-brand" href="mainView.html"><img src="images/nowTravel_logo.jpg" alt="logo"></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="ti-menu"></span>
               </button>
@@ -142,43 +142,183 @@
     <!--=============================// 공통부분 헤더 끝 =============================-->
     
     <!--============================= 컨텐츠시작 =============================-->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <br><br><br><!-- 이 부분에 컨텐츠를 넣으세요 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ <section class="gray-dark reserve">
+        <div class="container-fluid">
+            <div class="row">
+                <div class=col-md-2>
+                	<br>
+                	<br>
+                	<br>
+                	<a href="reservation.html"><h5>현재 예약 내역</h5></a>
+                	<br>
+                	<a href="reservation.html"><h5>지난 예약 내역</h5></a>
+                	
+                </div>
+                
+                <div class=col-md-10>
+                <div class="main-content">
+                <div class="my-items table-responsive">
+                <br>
+                <br>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>숙소</th>
+                            <th>추천여부</th>
+                            <th>방문</th>
+                            <th>리뷰</th>
+                            <th>별점</th>
+                            <th>숙박일정</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="my-item">
+                            <td>
+                                <div class="image-wrapper">
+                                    <a href="images/reserve1.png" class="image">
+                                        <img src="images/reserve1.png">
+                                    </a>
+                                </div>
+                                <div class="info">
+                                	<br>
+                                    <a href="lodgingView.html"><h3>봄보름풀빌라</h3></a>
+                                    <figure class="location">제주도</figure>
+                                    <figure class="label label-info">풀빌라</figure>
+                                    <div class="meta">
+                                        <span><i class="fa fa-bed"></i>365일 숙박 가능</span>
+                                        <span class="price-info">100만원 부터</span>
+                                    </div>
+                                    <!--end meta-->
+                                </div>
+                                <!--end info-->
+                            </td>
+                            <td><div class="featured yes"><i class="fa fa-check"></i><aside></aside></div></td>
+                            <td class="views">426</td>
+                            <td class="reviews">45</td>
+                            <td class="rating">9.3</td>
+                            <td class="last-reservation">2022년 5월 2일 15:00 체크인 예정
+                                <div class="edit-options">
+                                    <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
+                                    <a href="reviews.html" class="link icon"><i class="fa fa-comment"></i>리뷰</a>
+                                    <a href="reservation.html" class="link icon delete"><i class="fa fa-trash"></i>삭제</a>
+                                </div>
+                                <!--end edit-options-->
+                            </td>
+                        </tr>
+                        <!--end my-item-->
+                        <tr class="my-item">
+                            <td>
+                                <div class="image-wrapper">
+                                <a href="images/reserve2.jpg" class="image">
+                                        <img src="images/reserve2.jpg">
+                                    </a>
+                                </div>
+                                <div class="info">
+                                <br>
+                                    <a href="lodgingView.html"><h3>부산웨스틴조선호텔</h3></a>
+                                    <figure class="location">부산</figure>
+                                    <figure class="label label-info">호텔</figure>
+                                   <div class="meta">
+                                        <span><i class="fa fa-bed"></i>365일 숙박 가능</span>
+                                        <span class="price-info">200만원 부터</span>
+                                    </div>
+                                    <!--end meta-->
+                                </div>
+                                <!--end info-->
+                            </td>
+                            <td class="featured"><i class="fa fa-times"></i></td>
+                            <td class="views">230</td>
+                            <td class="reviews">28</td>
+                            <td class="rating">9.9</td>
+                            <td class="last-reservation">2022년 5월 1일 15:00 체크인
+                          		<div class="edit-options">
+                                    <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
+                                    <a href="reviews.html" class="link icon"><i class="fa fa-comment"></i>리뷰</a>
+                                    <a href="reservation.html" class="link icon delete"><i class="fa fa-trash"></i>삭제</a>
+                                </div>
+                                <!--end edit-options-->
+                            </td>
+                        </tr>
+                        <!--end my-item-->
+                        <tr class="my-item">
+                            <td>
+                                <div class="image-wrapper">
+                                  <a href="images/reserve3.jfif" class="image">
+                                        <img src="images/reserve3.jfif">
+                                    </a>
+                                </div>
+                                <div class="info">
+                                <br>
+                                    <a href="lodgingView.html"><h3>서울 신라호텔</h3></a>
+                                    <figure class="location">서울</figure>
+                                    <figure class="label label-info">호텔</figure>
+                                   <div class="meta">
+                                        <span><i class="fa fa-bed"></i>365일 숙박 가능</span>
+                                        <span class="price-info">300만원 부터</span>
+                                    </div>
+                                    <!--end meta-->
+                                </div>
+                                <!--end info-->
+                            </td>
+                            <td class="featured"><i class="fa fa-times"></i></td>
+                            <td class="views">230</td>
+                            <td class="reviews">28</td>
+                            <td class="rating">9.9</td>
+                            <td class="last-reservation">2022년 4월 1일 15:00 체크인
+                               <div class="edit-options">
+                                    <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
+                                    <a href="reviews.html" class="link icon"><i class="fa fa-comment"></i>리뷰</a>
+                                    <a href="reservation.html" class="link icon delete"><i class="fa fa-trash"></i>삭제</a>
+                                </div>
+                                <!--end edit-options-->
+                            </td>
+                        </tr>
+                        <!--end my-item-->
+                        <tr class="my-item">
+                            <td>
+                                <div class="image-wrapper">
+                                  <a href="images/reserve4.jfif" class="image">
+                                        <img src="images/reserve4.jfif">
+                                    </a>
+                                </div>
+                                <div class="info">
+                                <br>
+                                    <a href="lodgingView.html"><h3>제주 힘난다펜션</h3></a>
+                                    <figure class="location">제주도</figure>
+                                    <figure class="label label-info">펜션 전체</figure>
+                                  <div class="meta">
+                                        <span><i class="fa fa-bed"></i>365일 숙박 가능</span>
+                                        <span class="price-info">400만원 부터</span>
+                                    </div>
+                                    <!--end meta-->
+                                </div>
+                                <!--end info-->
+                            </td>
+                            <td class="featured"><i class="fa fa-times"></i></td>
+                            <td class="views">230</td>
+                            <td class="reviews">28</td>
+                            <td class="rating">9.9</td>
+                            <td class="last-reservation">2022년 3월 1일 15:00 체크인
+                               <div class="edit-options">
+                                    <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
+                                    <a href="reviews.html" class="link icon"><i class="fa fa-comment"></i>리뷰</a>
+                                    <a href="reservation.html" class="link icon delete"><i class="fa fa-trash"></i>삭제</a>
+                                </div>
+                                <!--end edit-options-->
+                            </td>
+                        </tr>
+                        <!--end my-item-->
+                        </tbody>
+                    </table>
+                </div>
+                <!--end my-items-->
+            </div>
+            <!--end main-content-->
+                </div>
+            </div>    
+  		</div>  
+ </section>   
+
     <!--=============================//컨텐츠 끝 =============================-->
     
     
