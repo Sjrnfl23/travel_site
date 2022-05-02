@@ -190,44 +190,163 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                            <table class="table" id="" width="100%" cellspacing="0">
-                        
-                            	<tbody>
-	                            	<tr>
-	                            		<th>카테고리</th>
-									    <td>
-											<select class="form-select  form-select-lg mb-3" aria-label="Default select example">
-											  <option>::카테고리::</option>
-											  <option value="1">농장</option>
-											  <option value="2">멋진 수영장</option>
-											  <option value="3" selected>해변 근처</option>
-											  <option value="4" selected>호텔</option>
-											  <option value="5" selected>펜션</option>
-											</select>									    
-									    </td>
-									    <th>숙소이름</th>
-									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="제주하르방"></td>
-									</tr>
-	                            	<tr>
-	
-									</tr>
-	                            	<tr>
-	                            		<th>호스트</th>
-									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="jeju@gmail.com" readonly></td>
-	                            		<th>주소</th>
-									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="제주특별자치도 서귀포시 안덕면 사계북로 120"></td>								    
-									</tr>
-	                            	<tr>
-	
-									</tr>
-	                            	<tr style="border-bottom: 1px solid #E3E6F0;">
-	                            		<th>전화번호</th>
-									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="010-1234-1234"></td>
+                            <table class="table" id="" width=100% cellspacing="0">
+
+									<tbody>
+										<tr>
+											<th>숙소명</th>
+											<td colspan="3"><input type="text" class="form-control" id=""
+												style="width: 300px;" value="제주 하르방" readonly></td>
+											<th>숙소 타이틀</th>
+											<td colspan="3"><input type="text" class="form-control" id=""
+												style="width: 300px;" value="제주도 편안한 집, 공항[5분거리]"></td>
+										</tr>
+
+										<tr>
+											<th>숙소사진 등록</th>
+											<td colspan="3">
+												
+													<label class="input-file-button" for="input-file">
+  업로드
+</label>
+		<input type="file" multiple  id="input-file" > 
+
+												
+											</td>
+											<th>카테고리</th>
+											<td colspan="3">
+									
+    
+		
+											 <select style="width:180px;" class="form-control">
+													<option>호텔
+													<option>아파트
+													<option>펜션
+													<option>모텔
+											</select> 
+											
+											</td>
+										</tr>
+
+										<tr>
+
+											<th>주소</th>
+
+											<td colspan="3">
+												<div class="input-group mb-3" style="width: 300px;">
+
+
+													<input type="text" class="form-control" id="ifmaAddress1"
+														name="ifmaAddress1" placeholder="주소">
+													<div class="input-group-append">
+														<button onClick="sample4_execDaumPostcode()"
+															class="btn btn-outline-secondary" type="button">주소검색</button>
+
+
+													</div>
+
+												</div> <input style="width: 300px;" type="text"
+												class="form-control" id="ifmaAddress1" name="ifmaAddress1"
+												placeholder="상세주소(카테고리가 가정집일 경우)">
+											</td>
+											<th>금액</th>
+											<td colspan="3"><label for="rcvordAm">1박 기준</label> <input
+												type="text" style="width: 300px;" id="rcvordAm"
+												name="rcvordAm" class="form-control"
+												numberOnlyMinComma="true" koreanCurrency="true" value=""></td>
+
+
+										</tr>
+
+										<tr style="border-bottom: 1px solid #E3E6F0;">
+											<th >숙소 소개</th>
+											<td colspan="3">
+												<div class="col" style="width: 300px; padding: 0;">
+													<textArea class="form-control" placeholder="최대 80자"
+														rows="3"></textArea>
+												</div>
+											</td>
+											
+											<th>
+												방 정보 등록
+											</th>
+											
+											
+											<td>
+											
+											<button class="btn btn-primary">방 추가</button>
+											
+											</td>
+											
+											
+											
+										</tr>
+										
+									<tr>
+										
+										<th>
+										체크인 시간
+										</th>
+										
+										<td colspan="2">
+										
+										<div class="col-4" style="width:200px; padding:0;">
+										
+										<label for="time1" >체크인</label>
+										<br>
+										<input type="text" class="form-control" name="time1" value="" placeholder="시간선택"  id="time1" required size="8" maxlength="5">
+								
+								
+								</div>
+								
+							
+					
+										
+										</td>
+										
+									
+										<td colspan="1" >
+											
+										<div class="col-4" style="width:200px; padding:0;">
+									<label for="time2" >체크아웃</label>
+										
+										<input type="text" class="form-control" name="time2" value="" placeholder="시간선택"  id="time2" required size="8" maxlength="5">
+										
+										</div>
+										</td>
+										
+										<td>
+										
+										</td>
+										
+										
+										</tr> 
+										
+										<tr>
+										
 										<th>최대인원</th>
-										<td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="8인"></td>
-									</tr>
-								</tbody>
-							</table>
+										<td colspan="1">
+									<input style="width:100px;" type="number" class="form-control" value="1">
+										</td>
+										
+										<th>방 갯수</th>
+										<td >
+									<input style="width:100px;" type="number" class="form-control" value="1">
+										</td>
+										<th>욕실 갯수</th>
+										<td>
+									<input style="width:100px;" type="number" class="form-control" value="1">
+										</td>
+										<th>침대 갯수</th>
+										<td>
+									<input style="width:100px;" type="number" class="form-control" value="1">
+										</td>
+										
+										</tr>
+										
+										
+									</tbody>
+								</table>
                             </div>
                             등록일 : 2022-04-26
                             <br>
