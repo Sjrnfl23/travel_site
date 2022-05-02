@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>Dashboard | webadmin - Admin & Dashboard Template</title>
+        <title>now travel 관리자페이지</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
@@ -62,7 +62,7 @@
 
                         <!-- start page title -->
                         <div class="page-title-box align-self-center d-none d-md-block">
-                            <h4 class="page-title mb-0">Hi, Welcome Back!</h4>
+                            <h4 class="page-title mb-0">관리자님, 환영합니다!</h4>
                         </div>
                         <!-- end page title -->
 
@@ -241,10 +241,10 @@
                 <div class="navbar-brand-box">
                     <a href="index.html" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="assets/images/logo-dark-sm.png" alt="" height="26">
+                            <img src="assets/images/nowtravel_logo_180.jpg" alt="" height="26">
                         </span>
                         <span class="logo-lg">
-                            <img src="assets/images/logo-dark.png" alt="" height="28">
+                            <img src="assets/images/nowtravel_logo_180.jpg" alt="">
                         </span>
                     </a>
 
@@ -268,39 +268,60 @@
                     <div id="sidebar-menu">
                         <!-- Left Menu Start -->
                         <ul class="metismenu list-unstyled" id="side-menu">
-                            <li class="menu-title" data-key="t-menu">Dashboard</li>
-
-                           <li>
-                                <a href="javascript: void(0);">
-                                    <i class="bx bx-home-alt icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-dashboard">Dashboard</span>
-                                    <span class="badge rounded-pill bg-primary">2</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="index.html" data-key="t-ecommerce">Ecommerce</a></li>
-                                    <li><a href="dashboard-sales.html" data-key="t-sales">Sales</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="menu-title" data-key="t-applications">Applications</li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i class="bx bx-envelope icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-email">Email</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="email-inbox.html" data-key="t-inbox">Inbox</a></li>
-                                    <li><a href="email-read.html" data-key="t-read-email">Read Email</a></li>
-                                </ul>
-                            </li>
+                            <li class="menu-title" data-key="t-menu">Home</li>
 
                             <li>
                                 <a href="apps-calendar.html">
-                                    <i class="bx bx-calendar-event icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-calendar">Calendar</span>
+                                    <i class="bx bx-home-alt icon nav-icon"></i>
+                                    <span class="menu-item" data-key="t-dashboard">Home</span>
                                 </a>
                             </li>
+
+
+                            <li class="menu-title" data-key="t-applications">MANAGEMENT</li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i class="bx bx-store icon nav-icon"></i>
+                                    <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="ecommerce-products.html" data-key="t-products">숙소 리스트</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i class="bx bx-receipt icon nav-icon"></i>
+                                    <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="invoices-list.html" data-key="t-invoice-list">쿠폰 리스트</a></li>
+                                    <li><a href="invoices-detail.html" data-key="t-invoice-detail">쿠폰 승인</a></li>
+                                    <li><a href="invoices-detail.html" data-key="t-invoice-detail">쿠폰 내역</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <a href="apps-calendar.html">
+                                    <i class="bx bx-calendar-event icon nav-icon"></i>
+                                    <span class="menu-item" data-key="t-calendar">예약관리</span>
+                                </a>
+                            </li>
+
+                            <li class="menu-title" data-key="t-applications">MEMBER</li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">
+                                    <i class="bx bx-user-circle icon nav-icon"></i>
+                                    <span class="menu-item" data-key="t-contacts">회원관리</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="contacts-grid.html" data-key="t-user-grid">호스트 관리</a></li>
+                                    <li><a href="contacts-list.html" data-key="t-user-list">사용자 관리</a></li>
+                                </ul>
+                            </li>
+
 
                             <li>
                                 <a href="apps-todo.html">
