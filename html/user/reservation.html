@@ -26,6 +26,8 @@
     <link href="css/set1.css" rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- BootStrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     
 <style type="text/css">		
 
@@ -184,6 +186,7 @@
                         <thead>
                         <tr>
                             <th>숙소</th>
+                            <th>숙소비용</th>                            
                             <th>추천여부</th>
                             <th>방문</th>
                             <th>리뷰</th>
@@ -195,27 +198,77 @@
                         <tr class="my-item">
                             <td>
                                 <div class="info">
-                                	<br>
                                     <a href="lodgingView.html"><h3>봄보름풀빌라</h3></a>
-                                    <figure class="location">제주도</figure>
-                                    <figure class="label label-info">풀빌라</figure>
+                                    <figure class="location">제주도 풀빌라 <span><i class="fa fa-bed"></i> 365일 숙박가능</span> 100만원 부터</figure>
+                                   <!--  <figure class="label label-info">풀빌라</figure>
                                     <div class="meta">
                                         <span><i class="fa fa-bed"></i>365일 숙박 가능</span>
                                         <span class="price-info">100만원 부터</span>
-                                    </div>
+                                    </div> -->
                                     <!--end meta-->
                                 </div>
                                 <!--end info-->
                             </td>
+                            <td class="price">100만원</td>
                             <td><div class="featured yes"><i class="fa fa-check"></i><aside></aside></div></td>
                             <td class="views">426</td>
                             <td class="reviews">45</td>
                             <td class="rating">9.3</td>
                             <td class="last-reservation">2022년 5월 2일 15:00 체크인 예정
                                 <div class="edit-options">
-                                    <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
-                                    <a href="reviews.html" class="link icon"><i class="fa fa-comment"></i>리뷰</a>
-                                    <a href="reservation.html" class="link icon delete"><i class="fa fa-trash"></i>삭제</a>
+                                   <a href="reservation.html"><button type="button" class="btn btn-info">수정</button></a>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal10" data-bs-whatever="@리뷰">리뷰</button>
+                                    
+                                    <div class="modal fade" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">리뷰 작성하기</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        <form>
+									          <div class="mb-3">
+									            <label for="recipient-name" class="col-form-label">보내는 사람</label>
+									            <input type="text" class="form-control" id="recipient-name">
+									          </div>
+									          <div class="mb-3">
+									            <label for="message-text" class="col-form-label">보낼 메시지:</label>
+									            <textarea class="form-control" id="message-text"></textarea>
+									          </div>
+									        </form>
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-primary">보내기</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                    
+                                    <!-- Button trigger modal -->
+									<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal20">
+									  삭제
+									</button>
+									
+									<!-- Modal -->
+									<div class="modal fade" id="exampleModal20" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">예약내역삭제</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									       삭제 하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <a href="reservation.html"><button type="button" class="btn btn-primary">삭제하기</button></a>
+									      </div>
+									    </div>
+									  </div>
+									</div>
                                 </div>
                                 <!--end edit-options-->
                             </td>
@@ -224,8 +277,7 @@
                         <tr class="my-item">
                             <td>
                                 <div class="info">
-                                <br>
-                                    <a href="lodgingView.html"><h3>부산웨스틴조선호텔</h3></a>
+                                  <a href="lodgingView.html"><h3>부산웨스틴조선호텔</h3></a>
                                     <figure class="location">부산</figure>
                                     <figure class="label label-info">호텔</figure>
                                    <div class="meta">
@@ -236,6 +288,7 @@
                                 </div>
                                 <!--end info-->
                             </td>
+                            <td class="price">200만원</td>
                             <td class="featured"><i class="fa fa-times"></i></td>
                             <td class="views">230</td>
                             <td class="reviews">28</td>
@@ -253,8 +306,7 @@
                         <tr class="my-item">
                             <td>
                                 <div class="info">
-                                <br>
-                                    <a href="lodgingView.html"><h3>서울 신라호텔</h3></a>
+                            		<a href="lodgingView.html"><h3>서울 신라호텔</h3></a>
                                     <figure class="location">서울</figure>
                                     <figure class="label label-info">호텔</figure>
                                    <div class="meta">
@@ -265,6 +317,7 @@
                                 </div>
                                 <!--end info-->
                             </td>
+                            <td class="price">300만원</td>
                             <td class="featured"><i class="fa fa-times"></i></td>
                             <td class="views">230</td>
                             <td class="reviews">28</td>
@@ -282,7 +335,6 @@
                         <tr class="my-item">
                             <td>
                                 <div class="info">
-                                <br>
                                     <a href="lodgingView.html"><h3>제주 힘난다펜션</h3></a>
                                     <figure class="location">제주도</figure>
                                     <figure class="label label-info">펜션 전체</figure>
@@ -294,6 +346,7 @@
                                 </div>
                                 <!--end info-->
                             </td>
+                            <td class="price">400만원</td>
                             <td class="featured"><i class="fa fa-times"></i></td>
                             <td class="views">230</td>
                             <td class="reviews">28</td>
@@ -363,10 +416,12 @@
 	<!--=============================// 공통부분 푸터 끝 =============================-->
 
     <!-- jQuery, Bootstrap JS. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
 	<script>
 	var exampleModal = document.getElementById('exampleModal')
 	exampleModal.addEventListener('show.bs.modal', function (event) {
