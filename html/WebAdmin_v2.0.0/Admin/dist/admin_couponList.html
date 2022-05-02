@@ -65,7 +65,7 @@
 
                         <!-- start page title -->
                         <div class="page-title-box align-self-center d-none d-md-block">
-                            <h4 class="page-title mb-0">숙소 리스트</h4>
+                            <h4 class="page-title mb-0">쿠폰 리스트</h4>
                         </div>
                         <!-- end page title -->
 
@@ -222,18 +222,20 @@
                                     <i class="bx bx-store icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
-                                <ul class="sub-menu mm-active" aria-expanded="false">
+                                <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="admin_lodgingList.html" data-key="t-products">숙소 리스트</a></li>
                                 </ul>
                             </li>
 
-                            <li>
+                            <li class="mm-active">
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i class="bx bx-receipt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="admin_couponList.html" data-key="t-invoice-list">쿠폰 리스트</a></li>
+                                <ul class="sub-menu mm-collapse mm-show" aria-expanded="false">
+                                    <li class="mm-active">
+                                    	<a href="admin_couponList.html" data-key="t-invoice-list" class="active">쿠폰 리스트</a>
+                                    </li>
                                     <li><a href="invoices-detail.html" data-key="t-invoice-detail">쿠폰 승인</a></li>
                                     <li><a href="invoices-detail.html" data-key="t-invoice-detail">쿠폰 내역</a></li>
                                 </ul>
@@ -296,7 +298,7 @@
                                                 <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">선택 삭제</button>
                                             </div>
                                         </div>
-                                        <!-- js/pages/admin_lodgingList.init.js 파일에 테이블 데이터있음 -->
+                                        <!-- js/pages/admin_couponList.init.js 파일에 테이블 데이터있음 -->
                                         <div id="table-ecommerce-orders"></div>
                                     </div>
                                 </div>
@@ -693,7 +695,7 @@
         <!-- datepicker js -->
         <script src="assets/libs/flatpickr/flatpickr.min.js"></script>
 
-        <script src="assets/js/pages/admin_lodgingList.init.js"></script>
+        <script src="assets/js/pages/admin_couponList.init.js"></script>
 
         <script src="assets/js/app.js"></script>
 

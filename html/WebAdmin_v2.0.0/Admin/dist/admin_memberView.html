@@ -65,7 +65,7 @@
 
                         <!-- start page title -->
                         <div class="page-title-box align-self-center d-none d-md-block">
-                            <h4 class="page-title mb-0">숙소 리스트</h4>
+                            <h4 class="page-title mb-0">사용자 상세</h4>
                         </div>
                         <!-- end page title -->
 
@@ -222,7 +222,7 @@
                                     <i class="bx bx-store icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
-                                <ul class="sub-menu mm-active" aria-expanded="false">
+                                <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="admin_lodgingList.html" data-key="t-products">숙소 리스트</a></li>
                                 </ul>
                             </li>
@@ -232,7 +232,7 @@
                                     <i class="bx bx-receipt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
+                                <ul class="sub-menu " aria-expanded="false">
                                     <li><a href="admin_couponList.html" data-key="t-invoice-list">쿠폰 리스트</a></li>
                                     <li><a href="invoices-detail.html" data-key="t-invoice-detail">쿠폰 승인</a></li>
                                     <li><a href="invoices-detail.html" data-key="t-invoice-detail">쿠폰 내역</a></li>
@@ -248,14 +248,14 @@
 
                             <li class="menu-title" data-key="t-applications">MEMBER</li>
 
-                            <li>
+                            <li class="mm-active">
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i class="bx bx-user-circle icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-contacts">회원관리</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
+                                <ul class="sub-menu  mm-collapse mm-show" aria-expanded="false">
                                     <li><a href="admin_hostList.html" data-key="t-user-grid">호스트 관리</a></li>
-                                    <li><a href="admin_memberList.html" data-key="t-user-list">사용자 관리</a></li>
+                                    <li><a href="admin_memberList.html" data-key="t-user-list" class="active">사용자 관리</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -286,224 +286,125 @@
             <div class="main-content">
                 <div class="page-content">
                     <div class="container-fluid">
-                        <br>
+
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-xxl-5">
                                 <div class="card">
-                                    <div class="card-body">
-                                        <div class="position-relative">
-                                            <div class="modal-button mt-2">
-                                                <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">선택 삭제</button>
+                                    <div class="card-body p-0">
+                                        <div class="user-profile-img">
+                                            <img src="assets/images/pattern-bg.jpg"
+                                                class="profile-img profile-foreground-img rounded-top" style="height: 120px;"
+                                                alt="">
+
                                             </div>
                                         </div>
-                                        <!-- js/pages/admin_lodgingList.init.js 파일에 테이블 데이터있음 -->
-                                        <div id="table-ecommerce-orders"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end row -->
-                       
+                                        <!-- end user-profile-img -->
 
-                    </div>
-                    <!-- container-fluid -->
-                </div>
-                <br>
-                
 
-<!--                  Extra Large modal example
-                <div class="modal fade add-new-order" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="myExtraLargeModalLabel">Add New Order</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                               <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="AddOrder-Product">Choose Product</label>
-                                        <select class="form-select">
-                                            <option  selected> Select Product </option>
-                                            <option>Adidas Running Shoes</option>
-                                            <option>Puma P103 Shoes</option>
-                                            <option>Adidas AB23 Shoes</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                   <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Billing-Name">Billing Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter Billing Name" id="AddOrder-Billing-Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label">Date</label>
-                                            <input type="text" class="form-control" placeholder="Select Date" id="order-date">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Total">Total</label>
-                                            <input type="text" class="form-control" placeholder="$565" id="AddOrder-Total">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Payment-Status">Payment Status</label>
-                                            <select class="form-select">
-                                                <option  selected> Select Card Type </option>
-                                                <option>Paid</option>
-                                                <option>Chargeback</option>
-                                                <option>Refund</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Payment-Method">Payment Method</label>
-                                            <select class="form-select">
-                                                <option  selected> Select Payment Method </option>
-                                                <option> Mastercard</option>
-                                                <option>Visa</option>
-                                                <option>Paypal</option>
-                                                <option>COD</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                               </div>
-                               <div class="row mt-2">
-                                <div class="col-12 text-end">
-                                    <button type="button" class="btn btn-danger me-1" data-bs-dismiss="modal"><i class="bx bx-x me-1"></i> Cancel</button>
-                                    <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#success-btn" id="btn-save-event"><i class="bx bx-check me-1"></i> Confirm</button>
-                                </div>
-                            </div>
+                                        <div class="p-4 pt-0">
+                                            
+                                            <div class="mt-n5 position-relative text-center border-bottom pb-3">
+                                                <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-xl rounded-circle img-thumbnail">
+                                              
+                                                <div class="mt-3">
+                                                   <h5 class="mb-1">김이젠</h5>
+                                                    <p class="text-muted mb-0">
+                                                        <i class="bx bxs-star text-warning font-size-14"></i>
+                                                        <i class="bx bxs-star text-warning font-size-14"></i>
+                                                        <i class="bx bxs-star text-warning font-size-14"></i>
+                                                        <i class="bx bxs-star text-warning font-size-14"></i>
+                                                        <i class="bx bxs-star-half text-warning font-size-14"></i>
+                                                    </p>
+                                                </div>
 
-                            </div>
-                        </div>/.modal-content
-                    </div>/.modal-dialog
-                </div>/.modal
+                                            </div>
 
- -->
-<!--                  successfully modal 
-                <div id="success-btn" class="modal fade" tabindex="-1" aria-labelledby="success-btnLabel" aria-hidden="true" data-bs-scroll="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                               <div class="text-center">
-                                   <i class="bx bx-check-circle display-1 text-success"></i>
-                                   <h4 class="mt-3">Order Completed Successfully</h4>
-                               </div>
-                            </div>
-                        </div>/.modal-content
-                    </div>/.modal-dialog
-                </div>/.modal -->
+                                            <div class="table-responsive mt-3 border-bottom pb-3">
+                                                <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="fw-bold">
+                                                                이름 :</th>
+                                                            <td class="text-muted">김이젠</td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">
+                                                                이메일 :</th>
+                                                            <td class="text-muted">ejenit@google.com</td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">
+                                                                전화번호 :</th>
+                                                            <td class="text-muted">010-1234-1234</td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">주소 :</th>
+                                                            <td class="text-muted">제주특별자치도 서귀포시 안덕면 사계북로 120</td>
+                                                        </tr>
+                                                        <!-- end tr -->
 
-                <!-- Modal -->
-                <div class="modal fade orderdetailsModal" tabindex="-1" role="dialog" aria-labelledby=orderdetailsModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="orderdetailsModalLabel">Order Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p class="mb-2">Product id: <span class="text-primary">#SK2540</span></p>
-                                <p class="mb-4">Billing Name: <span class="text-primary">Martin Gurley</span></p>
+                                                        <tr>
+                                                            <th class="fw-bold">생년월일 :</th>
+                                                            <td class="text-muted">1999-09-09</td>
+                                                        </tr>
+                                                        <!-- end tr -->
 
-                                <div class="table-responsive">
-                                    <table class="table align-middle table-nowrap">
-                                        <thead>
-                                            <tr>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Product Name</th>
-                                            <th scope="col">Price</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div>
-                                                        <img src="assets/images/product/img-1.png" alt="" class="rounded avatar-md">
+                                                        <tr>
+                                                            <th class="fw-bold">등록일 :</th>
+                                                            <td class="text-muted">2022-04-26</td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                    </tbody><!-- end tbody -->
+                                                </table>
+                                            </div>
+
+                                            
+
+                                            <div class="p-3 mt-3">
+                                                <div class="row text-center">
+                                                    <div class="col-12">
+                                                        <div class="p-1">
+                                                            <h5 class="mb-1" style="text-align: left;">소개</h5>
+                                                            <p class="text-muted mb-0" style="text-align: left;">.....</p>
+                                                        </div>
                                                     </div>
-                                                </th>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="text-truncate font-size-14">Home & Office Chair Crime</h5>
-                                                        <p class="text-muted mb-0">$ 225 x 1</p>
-                                                    </div>
-                                                </td>
-                                                <td>$ 255</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div>
-                                                        <img src="assets/images/product/img-2.png" alt="" class="rounded avatar-md">
-                                                    </div>
-                                                </th>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="text-truncate font-size-14">Tuition Classes Chair Crime</h5>
-                                                        <p class="text-muted mb-0">$ 145 x 1</p>
-                                                    </div>
-                                                </td>
-                                                <td>$ 145</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Sub Total:</h6>
-                                                </td>
-                                                <td>
-                                                    $ 400
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Shipping:</h6>
-                                                </td>
-                                                <td>
-                                                    Free
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Total:</h6>
-                                                </td>
-                                                <td>
-                                                    $ 400
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="pt-2 text-center border-bottom pb-4">
+                                                <a href="" class="btn btn-primary waves-effect waves-light btn-sm">메시지 전송<i class="bx bx-send ms-1 align-middle"></i></a>
+                                            </div>
+
+                                            <div class="mt-3 pt-1 text-center">
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                       <a href="admin_memberEdit.html">
+                                                     		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
+                                                       </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                    	<a href="admin_memberList.html">
+                                                       		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">목록</button>
+                                                    	</a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                    	<a href="admin_memberList.html">
+                                                       		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
+                                                    	</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end modal -->
-
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © now travel.
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="text-sm-end d-none d-sm-block">
-                                    Created <i class="mdi mdi-heart text-danger"></i> by <a href="https://Themesdesign.com/" target="_blank" class="text-reset">살려조</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-            <!-- end main content-->
-
+						</div>
+					</div>
+				</div>
         </div>
         <!-- END layout-wrapper -->
 
