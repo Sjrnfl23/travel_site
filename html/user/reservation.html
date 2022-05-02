@@ -31,6 +31,10 @@
     
 <style type="text/css">		
 
+a {
+  text-decoration-line: none;
+  color: inherit;	
+}
 
 </style>    
 </head>
@@ -199,15 +203,14 @@
                             <td>
                                 <div class="info">
                                     <a href="lodgingView.html"><h3>봄보름풀빌라</h3></a>
-                                    <figure class="location">제주도 풀빌라 <span><i class="fa fa-bed"></i> 365일 숙박가능</span> 100만원 부터</figure>
-                                   <!--  <figure class="label label-info">풀빌라</figure>
-                                    <div class="meta">
+                                    <figure class="location">제주도 풀빌라</figure>
+                                    <!--end info-->
+                                </div>
+                                 <div class="meta">
                                         <span><i class="fa fa-bed"></i>365일 숙박 가능</span>
                                         <span class="price-info">100만원 부터</span>
-                                    </div> -->
-                                    <!--end meta-->
-                                </div>
-                                <!--end info-->
+                                    </div>
+                                <!--end meta-->
                             </td>
                             <td class="price">100만원</td>
                             <td><div class="featured yes"><i class="fa fa-check"></i><aside></aside></div></td>
@@ -216,9 +219,11 @@
                             <td class="rating">9.3</td>
                             <td class="last-reservation">2022년 5월 2일 15:00 체크인 예정
                                 <div class="edit-options">
-                                   <a href="reservation.html"><button type="button" class="btn btn-info">수정</button></a>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal10" data-bs-whatever="@리뷰">리뷰</button>
-                                    
+                                
+                                    <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
+                                    <a href="reservation.html" class="link icon" data-bs-toggle="modal" data-bs-target="#exampleModal10" data-bs-whatever="@리뷰"><i class="fa fa-comment"></i>리뷰</a>
+                                
+
                                     <div class="modal fade" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									  <div class="modal-dialog">
 									    <div class="modal-content">
@@ -246,12 +251,9 @@
 									  </div>
 									</div>
                                     
-                                    <!-- Button trigger modal -->
-									<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal20">
-									  삭제
-									</button>
-									
-									<!-- Modal -->
+                           			 <a href="reservation.html" class="link icon delete" data-bs-toggle="modal" data-bs-target="#exampleModal20" data-bs-whatever="@리뷰"><i class="fa fa-trash"></i>삭제</a>
+                            		
+								<!-- Modal -->
 									<div class="modal fade" id="exampleModal20" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									  <div class="modal-dialog">
 									    <div class="modal-content">
