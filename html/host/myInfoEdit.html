@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <link rel="shortcut icon" href="img/nowTravel_logo_browser.jpg" type="image/x-icon" />
-    <title id="ctl00_headerTitle">now travel 관리자페이지</title> 
+    <title id="ctl00_headerTitle">now travel 호스트페이지</title> 
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -52,6 +52,7 @@
                 Management
             </div>
 
+
             <!-- Nav Item - Pages Collapse Menu -->
             
            <li class="nav-item">
@@ -64,10 +65,10 @@
                     aria-expanded="true" aria-controls="collapseTwo">
                     <span>쿠폰관리</span>
                 </a>
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Coupon Management</h6>
-                        <a class="collapse-item active" href="couponList.html">쿠폰 목록</a>
+                        <a class="collapse-item" href="couponList.html">쿠폰 목록</a>
                         <a class="collapse-item" href="couponListPermit.html">쿠폰 승인</a>
                         <a class="collapse-item" href="couponListBak.html">쿠폰 내역</a>
                     </div>
@@ -86,8 +87,6 @@
                 </a>
               
             </li>
-
-            <!-- Divider -->
 
 
             <!-- Divider -->
@@ -173,69 +172,55 @@
                 <div class="container-fluid" style="width: 80%; float: left;">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">쿠폰 등록</h1>
-                    <p class="mb-4">새로운 쿠폰을 등록하세요.</p>
-
+                    <h1 class="h3 mb-2 text-gray-800">정보 수정</h1>
+                    <!-- <p class="mb-4">현재 등록된 쿠폰 리스트를 관리하세요.</p> -->
+				<br>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">쿠폰 등록</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">정보 수정</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                            <table class="table" id="" width= 100% ==cellspacing="0">
+                            <table class="table" id="" width="100%" cellspacing="0">
                         
                             	<tbody>
 	                            	<tr>
-	                            		<th>숙소</th>
-									    <td>
-										     <select style="width:300px; " class="form-control">
-										    	<option>::선택::</option>
-										    	<option>a 호텔</option>
-										     </select>  
-									     </td>
-									     <th></th>
-									     <td></td>
+	                            		<th>이름</th>
+									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="김이젠" readonly></td>
+									    <th>숙소갯수</th>
+									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="15" readonly></td>
 									</tr>
-	                            	
 	                            	<tr>
-	                            	
-	                            		<th>쿠폰명</th>
-										<td><input type="text" class="form-control" id="" style="width: 300px;"></td>
-	                            		<th>금액</th>
-										<td><input type="text" class="form-control" id="" style="width: 300px;"></td>
-
-	                            						    
+	
 									</tr>
-	                            	
+	                            	<tr>
+	                            		<th>전화번호</th>
+									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="010-5555-4567"></td>
+	                            		<th>이메일</th>
+									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="ejenit@google.com"></td>								    
+									</tr>
+	                            	<tr>
+	
+									</tr>
 	                            	<tr style="border-bottom: 1px solid #E3E6F0;">
-	                            		<th>유효기간</th>
-									    <td>
-								    		<div class="col" style="width: 300px; padding: 0;">
-											    <label for="1">시작일</label>
-											    <input type="date" class="form-control" id="1" style="width: 300px;">
-											</div>
-										</td>
-										<td colspan="2">
-											<div class="col" style="width: 300px; padding: 0;">
-									   		  <label for="2">종료일</label>
-									  		  <input type="date" class="form-control" id="2" style="width: 300px;">
-									  		</div>
-										</td>
-										<td></td>
+	                            		<th>주소</th>
+									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="서울시 서초구 서초길 234"></td>
+										<th>별칭</th>
+										<td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="힐튼님"></td>
 									</tr>
 								</tbody>
 							</table>
                             </div>
-                            
+                            등록일 : 2022-04-26
                             <br>
                             <br>
                             
-                            <!-- 목록버튼 -->
-                            <a href="couponList.html"><button type="button" class="btn btn-outline-secondary" style="float: right">목록</button></a>
+                            <!-- 취소버튼 -->
+                            <a href="hostView.html"><button type="button" class="btn btn-danger" style="float: right;">취소</button></a>
                             
-                            <!-- 수정버튼 -->
-                            <a href="couponEdit.html"><button type="button" class="btn btn-primary" style="float: right; margin-right: 10px;">등록</button></a>
+                            <!-- 저장버튼 -->
+                            <a href="hostView.html"><button type="button" class="btn btn-primary" style="float: right; margin-right: 10px;">저장</button></a>
                         </div>
                         
                     </div>
