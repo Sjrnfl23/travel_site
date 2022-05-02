@@ -28,14 +28,7 @@
     <link rel="stylesheet" href="css/style.css">
     
 <style type="text/css">		
-	#jb-sidebar {
-        width: 250px;
-        padding: 20px;
-        margin-bottom: 20px;
-        float: left;
-        border: 1px solid #bcbcbc;
-        background-color:white;
-      }
+
 
 </style>    
 </head>
@@ -154,23 +147,35 @@
     <!--=============================// 공통부분 헤더 끝 =============================-->
     
     <!--============================= 컨텐츠시작 =============================-->
- <section class="gray-dark reserve">
+ <section class="reserve">
         <div class="container-fluid">
             <div class="row">
-                <div class=col-md-2 id="jb-sidebar">
-              		<br>
-              		<h3>예약관리</h3>
-               		<br>
-               		<ul>
-                		<li><a href="reservation.html"><h5>현재 예약 내역</h5></a></li>	
-                		<br>
-                		<li><a href="reservation.html"><h5>지난 예약 내역</h5></a></li>
-                		<br>
-                		<li><a href="reservation.html"><h5>DM</h5></a></li>
-                	</ul>
-                </div>
-                
-                <div class=col-md-10>
+             <div class="col-md-12 responsive-wrap">
+            	 <div class="row detail-checkbox-wrap" style="margin: 20px;">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="reserve-option">
+                            	<div class="row">
+	                            	<div class="col">
+		                                <div class="md-nowreserve">
+		                                  <a href="reservation.html"><h4>현재 예약 내역</h4></a>
+		                                </div>
+	                                </div>
+	                            	<div class="col">
+		                                <div class="md-pastreserve">
+		                                  <a href="reservation.html"><h4>이전 예약 내역</h4></a>
+		                                </div>
+	                                </div>
+	                            	<div class="col">
+		                                <div class="md-dm">
+		                                  <a href=""><h4>DM</h4></a>
+		                                </div>
+	                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="row">
+                <div class=col-md-12>
                 <div class="main-content">
                 <div class="my-items table-responsive">
                 <br>
@@ -189,11 +194,6 @@
                         <tbody>
                         <tr class="my-item">
                             <td>
-                                <div class="image-wrapper">
-                                    <a href="images/reserve1.png" class="image">
-                                        <img src="images/reserve1.png">
-                                    </a>
-                                </div>
                                 <div class="info">
                                 	<br>
                                     <a href="lodgingView.html"><h3>봄보름풀빌라</h3></a>
@@ -223,11 +223,6 @@
                         <!--end my-item-->
                         <tr class="my-item">
                             <td>
-                                <div class="image-wrapper">
-                                <a href="images/reserve2.jpg" class="image">
-                                        <img src="images/reserve2.jpg">
-                                    </a>
-                                </div>
                                 <div class="info">
                                 <br>
                                     <a href="lodgingView.html"><h3>부산웨스틴조선호텔</h3></a>
@@ -257,11 +252,6 @@
                         <!--end my-item-->
                         <tr class="my-item">
                             <td>
-                                <div class="image-wrapper">
-                                  <a href="images/reserve3.jfif" class="image">
-                                        <img src="images/reserve3.jfif">
-                                    </a>
-                                </div>
                                 <div class="info">
                                 <br>
                                     <a href="lodgingView.html"><h3>서울 신라호텔</h3></a>
@@ -291,11 +281,6 @@
                         <!--end my-item-->
                         <tr class="my-item">
                             <td>
-                                <div class="image-wrapper">
-                                  <a href="images/reserve4.jfif" class="image">
-                                        <img src="images/reserve4.jfif">
-                                    </a>
-                                </div>
                                 <div class="info">
                                 <br>
                                     <a href="lodgingView.html"><h3>제주 힘난다펜션</h3></a>
@@ -330,8 +315,10 @@
             </div>
             <!--end main-content-->
                 </div>
-            </div>    
-  		</div>  
+            </div> 
+            </div>   
+  		</div> 
+  		</div> 
  </section>   
 
     <!--=============================//컨텐츠 끝 =============================-->
