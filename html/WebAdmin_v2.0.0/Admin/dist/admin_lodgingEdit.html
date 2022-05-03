@@ -13,6 +13,9 @@
 
         <link rel="stylesheet" href="assets/libs/gridjs/theme/mermaid.min.css">
 
+        <!-- Plugins css -->
+        <link href="assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" /> 
+
         <!-- datepicker css -->
         <link rel="stylesheet" href="assets/libs/flatpickr/flatpickr.min.css">
 
@@ -223,7 +226,7 @@
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
                                 <ul class="sub-menu mm-collapse mm-show" aria-expanded="false">
-                                    <li><a href="admin_lodgingList.html" data-key="t-products" class="active">숙소 리스트</a></li>
+                                    <li class="mm-active"><a href="admin_lodgingList.html" data-key="t-products" class="active">숙소 리스트</a></li>
                                 </ul>
                             </li>
 
@@ -240,7 +243,7 @@
                             </li>
                             
                             <li>
-                                <a href="apps-calendar.html">
+                                <a href="admin_reservationList.html">
                                     <i class="bx bx-calendar-event icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-calendar">예약관리</span>
                                 </a>
@@ -308,7 +311,7 @@
                                               
                                                 <div class="mt-3">
                                                    <h5 class="mb-1">
-                                                   <input type="text" class="form-control" placeholder="제주하르방">
+                                                   제주하르방
                                                    </h5>
                                                     <p class="text-muted mb-0">
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
@@ -318,12 +321,54 @@
                                                         <i class="bx bxs-star-half text-warning font-size-14"></i>
                                                     </p>
                                                 </div>
-
+							                        <div class="row">
+							                            <div class="col-12">
+							                                <div class="card">
+							                                    <div class="card-body">
+							                                        <div>
+							                                            <form action="#" class="dropzone">
+							                                                <div class="fallback">
+							                                                    <input name="file" type="file" multiple="multiple">
+							                                                </div>
+							                                                <div class="dz-message needsclick">
+							                                                    <div class="mb-3">
+							                                                        <i class="display-4 text-muted mdi mdi-cloud-upload"></i>
+							                                                    </div>
+							                                                    
+							                                                    <h4>Drop files here or click to upload.</h4>
+							                                                </div>
+							                                            </form>
+							                                        </div>
+							        
+							                                        <div class="text-center mt-4">
+							                                            <button type="button" class="btn btn-primary waves-effect waves-light">사진첨부</button>
+							                                        </div>
+							                                    </div>
+							                                </div>
+							                            </div> <!-- end col -->
+							                        </div> <!-- end row -->
                                             </div>
 
                                             <div class="table-responsive mt-3 border-bottom pb-3">
                                                 <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
                                                     <tbody>
+                                                        <tr>
+                                                            <th class="fw-bold">
+                                                                호스트 :</th>
+                                                            <td class="text-muted">
+                                                            	jeju@gmail.com
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr --> 
+                                                        <tr>
+                                                            <th class="fw-bold">
+                                                                숙소이름 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="제주하르방">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->                                                                                                           
+                                                    
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 카테고리 :</th>
@@ -340,14 +385,7 @@
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">
-                                                                호스트 :</th>
-                                                            <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="jeju@gmail.com">
-                                                            </td>
-                                                        </tr>
-                                                        <!-- end tr -->
+
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 주소 :</th>
@@ -367,14 +405,63 @@
                                                         <tr>
                                                             <th class="fw-bold">최대인원 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="8">
+                                                            	<input type="text" class="form-control" placeholder="8인">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
-
+                                                        <tr>
+                                                            <th class="fw-bold">방 수 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="거실1/욕실1/방2">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">욕실 수 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="1">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">침대 수 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="2">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">금액(1박 기준) :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="500,000원">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">체크인 시간 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="15:00">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="fw-bold">체크아웃 시간 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="11:00">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">영업시간 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="09:00~18:00">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
-                                                            <td class="text-muted">2022-04-26</td>
+                                                            <td class="text-muted">
+                                                            	2022-04-26
+                                                            </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                     </tbody><!-- end tbody -->
@@ -421,176 +508,7 @@
         </div>
         <!-- END layout-wrapper -->
 
-        <!-- Right Sidebar -->
-        <a href="#" class="right-bar-toggle layout-setting-btn" id="right-bar-toggle">
-            <i class="bx bx-cog icon-sm font-size-18"></i> <span>Settings</span>
-        </a>
 
-        <!-- Right Sidebar -->
-        <div class="right-bar">
-            <div data-simplebar class="h-100">
-                <div class="rightbar-title d-flex align-items-center bg-dark p-3">
-
-                    <h5 class="m-0 me-2 text-white">Theme Customizer</h5>
-
-                    <a href="javascript:void(0);" class="right-bar-toggle-close ms-auto">
-                        <i class="mdi mdi-close noti-icon"></i>
-                    </a>
-                </div>
-
-                <!-- Settings -->
-                <hr class="m-0" />
-
-                <div class="p-4">
-                    <h6 class="mb-3">Layout</h6>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout"
-                            id="layout-vertical" value="vertical">
-                        <label class="form-check-label" for="layout-vertical">Vertical</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout"
-                            id="layout-horizontal" value="horizontal">
-                        <label class="form-check-label" for="layout-horizontal">Horizontal</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3">Layout Mode</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-mode"
-                            id="layout-mode-light" value="light">
-                        <label class="form-check-label" for="layout-mode-light">Light</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-mode"
-                            id="layout-mode-dark" value="dark">
-                        <label class="form-check-label" for="layout-mode-dark">Dark</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-mode"
-                            id="layout-mode-bordered" value="bordered">
-                        <label class="form-check-label" for="layout-mode-bordered">Bordered</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3">Layout Width</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-width"
-                            id="layout-width-fluid" value="fluid" onchange="document.body.setAttribute('data-layout-size', 'fluid')">
-                        <label class="form-check-label" for="layout-width-fluid">Fluid</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-width"
-                            id="layout-width-boxed" value="boxed" onchange="document.body.setAttribute('data-layout-size', 'boxed')">
-                        <label class="form-check-label" for="layout-width-boxed">Boxed</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3">Layout Position</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-position"
-                            id="layout-position-fixed" value="fixed" onchange="document.body.setAttribute('data-layout-scrollable', 'false')">
-                        <label class="form-check-label" for="layout-position-fixed">Fixed</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-position"
-                            id="layout-position-scrollable" value="scrollable" onchange="document.body.setAttribute('data-layout-scrollable', 'true')">
-                        <label class="form-check-label" for="layout-position-scrollable">Scrollable</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3">Topbar Type</h6>
-
-            
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="topbar-color"
-                            id="topbar-color-light" value="light" onchange="document.body.setAttribute('data-topbar', 'light')">
-                        <label class="form-check-label" for="topbar-color-light">Light</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="topbar-color"
-                            id="topbar-color-dark" value="dark" onchange="document.body.setAttribute('data-topbar', 'dark')">
-                        <label class="form-check-label" for="topbar-color-dark">Dark</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="topbar-color"
-                            id="topbar-type-hidden" value="hidden" onchange="document.body.setAttribute('data-topbar', 'hidden')">
-                        <label class="form-check-label" for="topbar-type-hidden">Hidden</label>
-                    </div>
-            
-
-                    <div id="sidebar-setting">
-                    <h6 class="mt-4 mb-3 sidebar-setting">Sidebar Size</h6>
-
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-size"
-                            id="sidebar-size-default" value="default" onchange="document.body.setAttribute('data-sidebar-size', 'lg')">
-                        <label class="form-check-label" for="sidebar-size-default">Default</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-size"
-                            id="sidebar-size-compact" value="compact" onchange="document.body.setAttribute('data-sidebar-size', 'md')">
-                        <label class="form-check-label" for="sidebar-size-compact">Compact</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-size"
-                            id="sidebar-size-small" value="small" onchange="document.body.setAttribute('data-sidebar-size', 'sm')">
-                        <label class="form-check-label" for="sidebar-size-small">Small (Icon View)</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3 sidebar-setting">Sidebar Color</h6>
-
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-color"
-                            id="sidebar-color-light" value="light" onchange="document.body.setAttribute('data-sidebar', 'light')">
-                        <label class="form-check-label" for="sidebar-color-light">Light</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-color"
-                            id="sidebar-color-dark" value="dark" onchange="document.body.setAttribute('data-sidebar', 'dark')">
-                        <label class="form-check-label" for="sidebar-color-dark">Dark</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-color"
-                            id="sidebar-color-brand" value="brand" onchange="document.body.setAttribute('data-sidebar', 'brand')">
-                        <label class="form-check-label" for="sidebar-color-brand">Brand</label>
-                    </div>
-                </div>
-
-                    <h6 class="mt-4 mb-3">Direction</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-direction"
-                            id="layout-direction-ltr" value="ltr">
-                        <label class="form-check-label" for="layout-direction-ltr">LTR</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-direction"
-                            id="layout-direction-rtl" value="rtl">
-                        <label class="form-check-label" for="layout-direction-rtl">RTL</label>
-                    </div>
-
-                </div>
-
-            </div> <!-- end slimscroll-menu-->
-        </div>
-        <!-- /Right-bar -->
-
-        <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div>
-
-        <!-- chat offcanvas -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasActivity" aria-labelledby="offcanvasActivityLabel">
-            <div class="offcanvas-header border-bottom">
-              <h5 id="offcanvasActivityLabel">Offcanvas right</h5>
-              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              ...
-            </div>
-        </div>
 
         <!-- JAVASCRIPT -->
         <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -611,7 +529,8 @@
 
         <script src="assets/js/app.js"></script>
 
-
+        <!-- Plugins js -->
+        <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
 
     </body>
 

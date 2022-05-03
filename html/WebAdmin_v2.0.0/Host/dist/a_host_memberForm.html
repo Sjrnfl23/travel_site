@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>Login | webadmin - Admin & Dashboard Template</title>
+        <title>now travel 호스트페이지</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
@@ -42,49 +42,85 @@
                         <div class="card">
                             <div class="card-body p-4"> 
                                 <div class="text-center mt-2">
-                                    <h5>환영합니다 !</h5>
-                                    <p class="text-muted">관리자 페이지 사용을 위해 로그인해주세요.</p>
+                                    <h5>회원가입</h5>
+                                    <p class="text-muted">호스트 계정을 만들어보세요.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="admin_mainView.html">
+                                    <form action="a_host_loginForm.html">
+
         
                                         <div class="mb-3">
-                                            <label class="form-label" for="username">ID</label>
+                                            <label class="form-label" for="username">이름</label>
                                             <div class="position-relative input-custom-icon">
-                                                <input type="text" class="form-control" id="username" placeholder="아이디를 입력해주세요">
+                                                <input type="text" class="form-control" id="username" placeholder="이름을 입력해주세요.">
                                                  <span class="bx bx-user"></span>
                                             </div>
                                         </div>
-                
                                         <div class="mb-3">
-                                            <div class="float-end">
-                                                <a href="admin_password.html" class="text-muted text-decoration-underline">비밀번호 찾기</a>
-                                            </div>
-                                            <label class="form-label" for="password-input">Password</label>
+                                            <label class="form-label" for="useremail">이메일주소</label>
+                                            <div class="position-relative input-custom-icon">
+                                                <input type="email" class="form-control" id="useremail" placeholder="이메일주소를 입력해주세요.">  
+                                                <span class="bx bx-mail-send"></span>
+                                            </div>     
+                                        </div>                
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">비밀번호</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
-                                                <input type="password" class="form-control" id="password-input" placeholder="비밀번호를 입력해주세요">
-                                                <button type="button" class="btn btn-link position-absolute h-100 end-0 top-0" id="password-addon">
-                                                    <i class="mdi mdi-eye-outline font-size-18 text-muted"></i>
-                                                </button>
+                                                <input type="password" class="form-control" id="password-input" placeholder="비밀번호를 입력해주세요.">
                                             </div>
                                         </div>
-                
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">비밀번호 확인</label>
+                                            <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                                                <span class="bx bx-lock-alt"></span>
+                                                <input type="password" class="form-control" id="password-input" placeholder="비밀번호를 입력해주세요.">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">전화번호</label>
+                                            <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                                                <span class="bx bx-lock-alt"></span>
+                                                <input type="password" class="form-control" id="password-input" placeholder="전화번호를 입력해주세요.">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">주소</label>
+                                            <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                                                <span class="bx bx-lock-alt"></span>
+                                                <input type="password" class="form-control" id="password-input" placeholder="주소를 입력해주세요.">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">생년월일</label>
+                                            <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                                                <span class="bx bx-lock-alt"></span>
+                                                <input type="date" class="form-control" id="password-input" placeholder="전화번호를 입력해주세요.">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">사용 언어</label>
+                                            <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                                                <span class="bx bx-lock-alt"></span>
+                                                <input type="password" class="form-control" id="password-input" placeholder="사용언어를 입력해주세요.">
+                                            </div>
+                                        </div>
+
                                         <div class="form-check py-1">
-                                            <input type="checkbox" class="form-check-input" id="auth-remember-check">
-                                            <label class="form-check-label" for="auth-remember-check">아이디 저장하기</label>
+                                            <input type="checkbox" class="form-check-input" id="auth-terms-condition-check">
+                                            <label class="form-check-label" for="auth-terms-condition-check">now travel의 <a href="">회원약관</a>에 동의합니다.</label>
                                         </div>
                                         
                                         <div class="mt-3">
-                                           <a href="admin_mainView.html"><button class="btn btn-primary w-100 waves-effect waves-light" type="submit">로그인</button></a>
+                                            <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">가입완료</button>
                                         </div>
 
                                         <div class="mt-4 text-center">
                                             <div class="signin-other-title">
-                                                <h5 class="font-size-14 mb-3 mt-2 title"> Sign in with </h5>
+                                                <h5 class="font-size-14 mb-3 mt-2 title"></h5>
                                             </div>
             
-                                            <ul class="list-inline mt-2">
+<!--                                            <ul class="list-inline mt-2">
                                                 <li class="list-inline-item">
                                                     <a href="javascript:void()" class="social-list-item bg-primary text-white border-primary">
                                                         <i class="bx bxl-facebook"></i>
@@ -100,11 +136,11 @@
                                                         <i class="bx bxl-google"></i>
                                                     </a>
                                                 </li>
-                                            </ul>
+                                            </ul> -->
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <p class="mb-0">계정이 없으신가요? <a href="auth-register.html" class="fw-medium text-primary"> 회원가입 </a> </p>
+                                            <p class="mb-0">이미 계정이 존재합니까 ? <a href="auth-login.html" class="fw-medium text-primary">로그인하기</a></p>
                                         </div>
                                     </form>
                                 </div>
@@ -133,8 +169,6 @@
         <script src="assets/libs/metismenujs/metismenujs.min.js"></script>
         <script src="assets/libs/simplebar/simplebar.min.js"></script>
         <script src="assets/libs/eva-icons/eva.min.js"></script>
-
-        <script src="assets/js/pages/pass-addon.init.js"></script>
 
     </body>
 

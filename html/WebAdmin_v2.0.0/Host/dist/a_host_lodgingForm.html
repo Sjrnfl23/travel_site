@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>now travel 관리자페이지</title>
+        <title>now travel 호스트페이지</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
@@ -12,6 +12,9 @@
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
         <link rel="stylesheet" href="assets/libs/gridjs/theme/mermaid.min.css">
+
+        <!-- Plugins css -->
+        <link href="assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />        
 
         <!-- datepicker css -->
         <link rel="stylesheet" href="assets/libs/flatpickr/flatpickr.min.css">
@@ -40,7 +43,7 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="admin_mainView.html" class="logo logo-dark">
+                            <a href="a_host_mainView.html" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="assets/images/logo-dark-sm.png" alt="" height="26">
                                 </span>
@@ -49,7 +52,7 @@
                                 </span>
                             </a>
 
-                            <a href="admin_mainView.html" class="logo logo-light">
+                            <a href="a_host_mainView.html" class="logo logo-light">
                                 <span class="logo-lg">
                                     <img src="assets/images/logo-light.png" alt="" height="30">
                                 </span>
@@ -65,7 +68,7 @@
 
                         <!-- start page title -->
                         <div class="page-title-box align-self-center d-none d-md-block">
-                            <h4 class="page-title mb-0">예약 상세</h4>
+                            <h4 class="page-title mb-0">숙소 등록</h4>
                         </div>
                         <!-- end page title -->
 
@@ -155,14 +158,14 @@
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-3.jpg"
                                 alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-2 fw-medium font-size-15">관리자</span>
+                                <span class="d-none d-xl-inline-block ms-2 fw-medium font-size-15">호스트</span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end pt-0">
                                 <div class="p-3 border-bottom">
                                     <h6 class="mb-0">관리자</h6>
                                     <p class="mb-0 font-size-11 text-muted">admin@nowtravel.com</p>
                                 </div>
-                                <a class="dropdown-item" href="contacts-profile.html"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
+                                <a class="dropdown-item" href="a_host_memberView.html"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="auth-logout.html"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
@@ -176,7 +179,7 @@
 
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="admin_mainView.html" class="logo logo-dark">
+                    <a href="a_host_mainView.html" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="assets/images/logo-dark-sm.png" alt="" height="26">
                         </span>
@@ -185,7 +188,7 @@
                         </span>
                     </a>
 
-                    <a href="admin_mainView.html" class="logo logo-light">
+                    <a href="a_host_mainView.html" class="logo logo-light">
                         <span class="logo-lg">
                             <img src="assets/images/logo-light-sm.png" alt="" height="26">
                         </span>
@@ -217,13 +220,14 @@
 
                             <li class="menu-title" data-key="t-applications">MANAGEMENT</li>
 
-                            <li>
+                            <li class="mm-active">
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i class="bx bx-store icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="admin_lodgingList.html" data-key="t-products">숙소 리스트</a></li>
+                                <ul class="sub-menu mm-collapse mm-show" aria-expanded="false">
+                                    <li><a href="a_host_lodgingList.html" data-key="t-products">숙소 리스트</a></li>
+                                    <li class="mm-active"><a href="a_host_lodgingForm.html" data-key="t-products"  class="active">숙소 등록</a></li>
                                 </ul>
                             </li>
 
@@ -232,33 +236,28 @@
                                     <i class="bx bx-receipt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li ">
-                                    	<a href="admin_couponList.html" data-key="t-invoice-list" >쿠폰 리스트</a>
-                                    </li>
-                                    <li><a href="admin_couponListPermit.html" data-key="t-invoice-detail">쿠폰 승인</a></li>
-                                    <li><a href="admin_couponListBak.html" data-key="t-invoice-detail">쿠폰 내역</a></li>
+                                <ul class="sub-menu " aria-expanded="false">
+                                    <li><a href="a_host_couponList.html" data-key="t-invoice-list">쿠폰 리스트</a></li>
+                                    <li><a href="a_host_couponForm.html" data-key="t-invoice-list">쿠폰 등록</a></li>
+                                    <li><a href="a_host_couponListPermit.html" data-key="t-invoice-detail">쿠폰 승인</a></li>
+                                    <li><a href="a_host_couponListBak.html" data-key="t-invoice-detail">쿠폰 내역</a></li>
                                 </ul>
                             </li>
                             
-                            <li class="mm-active">
-                                <a href="admin_reservationList.html">
+                            <li>
+                                <a href="a_host_reservationList.html">
                                     <i class="bx bx-calendar-event icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-calendar" class="active">예약관리</span>
+                                    <span class="menu-item" data-key="t-calendar">예약관리</span>
                                 </a>
                             </li>
 
-                            <li class="menu-title" data-key="t-applications">MEMBER</li>
+                            <li class="menu-title" data-key="t-applications">MESSENGER</li>
 
                             <li>
-                                <a href="javascript: void(0);" class="has-arrow">
+                                <a href="a_host_dm.html">
                                     <i class="bx bx-user-circle icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-contacts">회원관리</span>
+                                    <span class="menu-item" data-key="t">문의관리</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="admin_hostList.html" data-key="t-user-grid">호스트 관리</a></li>
-                                    <li><a href="admin_memberList.html" data-key="t-user-list">사용자 관리</a></li>
-                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -285,7 +284,7 @@
             <!-- ============================================================== -->
 
            
-           <div class="main-content">
+            <div class="main-content">
                 <div class="page-content">
                     <div class="container-fluid">
 
@@ -306,123 +305,175 @@
                                         <div class="p-4 pt-0">
                                             
                                             <div class="mt-n5 position-relative text-center border-bottom pb-3">
-                                                <br><br><br>
-                                              
+                                                <img src="assets/images/favicon.ico" alt="" class="avatar-xl rounded-circle img-thumbnail">
                                                 <div class="mt-3">
-                                                   <h5 class="mb-1">예약 내역</h5>
-                                                    <p class="text-muted mb-0">
-                                                    </p>
+							                        <div class="row">
+							                            <div class="col-12">
+							                                <div class="card">
+							                                    <div class="card-body">
+							                                        <div>
+							                                            <form action="#" class="dropzone">
+							                                                <div class="fallback">
+							                                                    <input name="file" type="file" multiple="multiple">
+							                                                </div>
+							                                                <div class="dz-message needsclick">
+							                                                    <div class="mb-3">
+							                                                        <i class="display-4 text-muted mdi mdi-cloud-upload"></i>
+							                                                    </div>
+							                                                    
+							                                                    <h4>Drop files here or click to upload.</h4>
+							                                                </div>
+							                                            </form>
+							                                        </div>
+							        
+							                                        <div class="text-center mt-4">
+							                                            <button type="button" class="btn btn-primary waves-effect waves-light">사진첨부</button>
+							                                        </div>
+							                                    </div>
+							                                </div>
+							                            </div> <!-- end col -->
+							                        </div> <!-- end row -->
                                                 </div>
-
                                             </div>
 
                                             <div class="table-responsive mt-3 border-bottom pb-3">
                                                 <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
                                                     <tbody>
                                                         <tr>
-                                                            <th class="fw-bold" style="width: 130px;">
-                                                               예약번호 :</th>
-                                                            <td class="text-muted">202205020001</td>
+                                                            <th class="fw-bold">
+                                                                호스트 :</th>
+                                                            <td class="text-muted">
+                                                            	jeju@gmail.com
+                                                            </td>
                                                         </tr>
-                                                        <!-- end tr -->
+                                                        <!-- end tr --> 
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 숙소이름 :</th>
-                                                            <td class="text-muted">제주하르방</td>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="">
+                                                            </td>
                                                         </tr>
-                                                        <!-- end tr -->
+                                                        <!-- end tr -->                                                                                                           
+                                                    
                                                         <tr>
                                                             <th class="fw-bold">
-                                                                호스트 :</th>
-                                                            <td class="text-muted">jeju@jeju.com</td>
-                                                        </tr>
-                                                        <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">
-                                                                호스트 연락처 :</th>
-                                                            <td class="text-muted">010-1234-1234</td>
-                                                        </tr>
-                                                        <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">
-                                                                사용자 :</th>
-                                                            <td class="text-muted">ina@naver.com</td>
-                                                        </tr>
-                                                        <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">사용자이름 :</th>
-                                                            <td class="text-muted">윤이나</td>
-                                                        </tr>
-                                                        <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">사용자 연락처 :</th>
-                                                            <td class="text-muted">010-4561-4567</td>
+                                                                카테고리 :</th>
+                                                            <td class="text-muted">
+                                                            	<select class="form-select" id="">
+                                                            		<option>::카테고리::</option>
+                                                            		<option>농장</option>
+                                                            		<option>멋진 수영장</option>
+                                                            		<option>해변 근처</option>
+                                                            		<option>호텔</option>
+                                                            		<option>펜션</option>
+                                                            		<option>전통한옥</option>
+                                                            	</select>
+                                                            </td>
                                                         </tr>
                                                         <!-- end tr -->
 
                                                         <tr>
-                                                            <th class="fw-bold">인원 :</th>
-                                                            <td class="text-muted">성인 1명</td>
+                                                            <th class="fw-bold">
+                                                                주소 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">전화번호 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="">
+                                                            </td>
                                                         </tr>
                                                         <!-- end tr -->
 
                                                         <tr>
-                                                            <th class="fw-bold">시작일 :</th>
-                                                            <td class="text-muted">2022-05-28</td>
+                                                            <th class="fw-bold">최대인원 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="">
+                                                            </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
-                                                            <th class="fw-bold">종료일 :</th>
-                                                            <td class="text-muted">2022-05-30</td>
+                                                            <th class="fw-bold">방 수 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="거실 1개 / 침실 2개">
+                                                            </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
-                                                            <th class="fw-bold">가격 :</th>
-                                                            <td class="text-muted">350,000원</td>
+                                                            <th class="fw-bold">욕실 수 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="">
+                                                            </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
-                                                            <th class="fw-bold">등록일 :</th>
-                                                            <td class="text-muted">2022-05-02</td>
+                                                            <th class="fw-bold">침대 수 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">금액(1박 기준) :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">체크인 시간 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="fw-bold">체크아웃 시간 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">영업시간 :</th>
+                                                            <td class="text-muted">
+                                                            	<input type="text" class="form-control" placeholder="09:00~18:00">
+                                                            </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                     </tbody><!-- end tbody -->
                                                 </table>
                                             </div>
 
-                                            
 
                                             <div class="p-3 mt-3">
                                                 <div class="row text-center">
                                                     <div class="col-12">
                                                         <div class="p-1">
-                                                            <h5 class="mb-1" style="text-align: left;">요청사항</h5>
-                                                            <p class="text-muted mb-0" style="text-align: left;">저녁 11시에 체크인 예정입니다.</p>
+                                                            <h5 class="mb-1" style="text-align: left;">소개</h5>
+                                                            <p class="text-muted mb-0" style="text-align: left;">
+                                                            	<textarea class="form-control" placeholder=""></textarea>
+                                                            </p>
                                                         </div>
                                                     </div>
 
                                                 </div>
                                             </div>
 
-                                            <div class="pt-2 text-center border-bottom pb-4">
-                                                <a href="" class=""><i class="bx ms-1 align-middle"></i></a>
-                                            </div>
 
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="admin_reservationEdit.html">
+                                                       <a href="a_host_lodgingView.html">
                                                      		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
                                                        </a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="admin_reservationList.html">
-                                                       		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">목록</button>
-                                                    	</a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                    	<a href="admin_reservationList.html">
-                                                       		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
+                                                    	<a href="a_host_lodgingView.html">
+                                                       		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">취소</button>
                                                     	</a>
                                                     </li>
                                                 </ul>
@@ -435,170 +486,11 @@
 					</div>
 				</div>
         </div>
-            <!-- end main content-->
-
-        </div>
         <!-- END layout-wrapper -->
 
-        <!-- Right Sidebar -->
-        <a href="#" class="right-bar-toggle layout-setting-btn" id="right-bar-toggle">
-            <i class="bx bx-cog icon-sm font-size-18"></i> <span>Settings</span>
-        </a>
 
-        <!-- Right Sidebar -->
-        <div class="right-bar">
-            <div data-simplebar class="h-100">
-                <div class="rightbar-title d-flex align-items-center bg-dark p-3">
 
-                    <h5 class="m-0 me-2 text-white">Theme Customizer</h5>
 
-                    <a href="javascript:void(0);" class="right-bar-toggle-close ms-auto">
-                        <i class="mdi mdi-close noti-icon"></i>
-                    </a>
-                </div>
-
-                <!-- Settings -->
-                <hr class="m-0" />
-
-                <div class="p-4">
-                    <h6 class="mb-3">Layout</h6>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout"
-                            id="layout-vertical" value="vertical">
-                        <label class="form-check-label" for="layout-vertical">Vertical</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout"
-                            id="layout-horizontal" value="horizontal">
-                        <label class="form-check-label" for="layout-horizontal">Horizontal</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3">Layout Mode</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-mode"
-                            id="layout-mode-light" value="light">
-                        <label class="form-check-label" for="layout-mode-light">Light</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-mode"
-                            id="layout-mode-dark" value="dark">
-                        <label class="form-check-label" for="layout-mode-dark">Dark</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-mode"
-                            id="layout-mode-bordered" value="bordered">
-                        <label class="form-check-label" for="layout-mode-bordered">Bordered</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3">Layout Width</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-width"
-                            id="layout-width-fluid" value="fluid" onchange="document.body.setAttribute('data-layout-size', 'fluid')">
-                        <label class="form-check-label" for="layout-width-fluid">Fluid</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-width"
-                            id="layout-width-boxed" value="boxed" onchange="document.body.setAttribute('data-layout-size', 'boxed')">
-                        <label class="form-check-label" for="layout-width-boxed">Boxed</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3">Layout Position</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-position"
-                            id="layout-position-fixed" value="fixed" onchange="document.body.setAttribute('data-layout-scrollable', 'false')">
-                        <label class="form-check-label" for="layout-position-fixed">Fixed</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-position"
-                            id="layout-position-scrollable" value="scrollable" onchange="document.body.setAttribute('data-layout-scrollable', 'true')">
-                        <label class="form-check-label" for="layout-position-scrollable">Scrollable</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3">Topbar Type</h6>
-
-            
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="topbar-color"
-                            id="topbar-color-light" value="light" onchange="document.body.setAttribute('data-topbar', 'light')">
-                        <label class="form-check-label" for="topbar-color-light">Light</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="topbar-color"
-                            id="topbar-color-dark" value="dark" onchange="document.body.setAttribute('data-topbar', 'dark')">
-                        <label class="form-check-label" for="topbar-color-dark">Dark</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="topbar-color"
-                            id="topbar-type-hidden" value="hidden" onchange="document.body.setAttribute('data-topbar', 'hidden')">
-                        <label class="form-check-label" for="topbar-type-hidden">Hidden</label>
-                    </div>
-            
-
-                    <div id="sidebar-setting">
-                    <h6 class="mt-4 mb-3 sidebar-setting">Sidebar Size</h6>
-
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-size"
-                            id="sidebar-size-default" value="default" onchange="document.body.setAttribute('data-sidebar-size', 'lg')">
-                        <label class="form-check-label" for="sidebar-size-default">Default</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-size"
-                            id="sidebar-size-compact" value="compact" onchange="document.body.setAttribute('data-sidebar-size', 'md')">
-                        <label class="form-check-label" for="sidebar-size-compact">Compact</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-size"
-                            id="sidebar-size-small" value="small" onchange="document.body.setAttribute('data-sidebar-size', 'sm')">
-                        <label class="form-check-label" for="sidebar-size-small">Small (Icon View)</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3 sidebar-setting">Sidebar Color</h6>
-
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-color"
-                            id="sidebar-color-light" value="light" onchange="document.body.setAttribute('data-sidebar', 'light')">
-                        <label class="form-check-label" for="sidebar-color-light">Light</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-color"
-                            id="sidebar-color-dark" value="dark" onchange="document.body.setAttribute('data-sidebar', 'dark')">
-                        <label class="form-check-label" for="sidebar-color-dark">Dark</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio" name="sidebar-color"
-                            id="sidebar-color-brand" value="brand" onchange="document.body.setAttribute('data-sidebar', 'brand')">
-                        <label class="form-check-label" for="sidebar-color-brand">Brand</label>
-                    </div>
-                </div>
-
-                    <h6 class="mt-4 mb-3">Direction</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-direction"
-                            id="layout-direction-ltr" value="ltr">
-                        <label class="form-check-label" for="layout-direction-ltr">LTR</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="layout-direction"
-                            id="layout-direction-rtl" value="rtl">
-                        <label class="form-check-label" for="layout-direction-rtl">RTL</label>
-                    </div>
-
-                </div>
-
-            </div> <!-- end slimscroll-menu-->
-        </div>
-        <!-- /Right-bar -->
-
-        <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div>
 
         <!-- chat offcanvas -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasActivity" aria-labelledby="offcanvasActivityLabel">
@@ -626,11 +518,12 @@
         <!-- datepicker js -->
         <script src="assets/libs/flatpickr/flatpickr.min.js"></script>
 
-        <script src="assets/js/pages/admin_couponList.init.js"></script>
+        <script src="assets/js/pages/a_host_lodgingList.init.js"></script>
 
         <script src="assets/js/app.js"></script>
 
-
+        <!-- Plugins js -->
+        <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
 
     </body>
 
