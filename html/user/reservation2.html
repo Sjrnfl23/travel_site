@@ -12,7 +12,6 @@
     <!-- Favicons -->
     <link rel="shortcut icon" href="#">
     <!-- Page Title -->
-    
     <link rel="shortcut icon" href="images/nowTravel_logo_browser.jpg" type="image/x-icon" />
     <title id="ctl00_headerTitle">여행을 떠나요. now travel!</title> 
     <!-- Bootstrap CSS -->
@@ -27,11 +26,24 @@
     <link href="css/set1.css" rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
+    
+        <link rel="stylesheet" href="assets/libs/gridjs/theme/mermaid.min.css">
+
+        <!-- datepicker css -->
+        <link rel="stylesheet" href="assets/libs/flatpickr/flatpickr.min.css">
+
+        <!-- Bootstrap Css -->
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    
 </head>
 
-<body>
+<body style="background-color: white;">
     <!--============================= HEADER =============================-->
-   <div class="nav-menu sticky-top">
+    <div class="nav-menu sticky-top">
         <div class="bg transition">
             <div class="container-fluid fixed">
                 <div class="row">
@@ -138,103 +150,76 @@
     </div>
     <!--// Log In & Signup -->
     <!--//END HEADER -->
-    <!--============================= SUBPAGE HEADER BG =============================-->
-  <!--   <section class="subpage-bg">
+    <!--=============================// 공통부분 헤더 끝 =============================-->
+    
+    <!--============================= 컨텐츠시작 =============================-->
+    <section class="subpage-bg">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="titile-block title-block_subpage">
-                        <h2>정보 확인</h2>
-                        <p> <a href="index.html"> Home</a> / Add Listing</p>
+                        <h2>예약 내역</h2>
+                        <p> <a href="index.html">예약중</a> / <a href="index.html">지난예약</a></p>
                     </div>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!--// SUBPAGE HEADER BG -->
     <!--============================= ADD LISTING =============================-->
     <section class="main-block">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="listing-wrap">
                         <form action="#">
                             <!-- General Information -->
                             <div class="listing-title">
-                                <span class="ti-files"></span>
-                                <h4>내 정보 수정</h4>
-                                <!-- <p>Write Something General Information About Your Listing</p> -->
+                                <span class="ti-gift"></span>
+                                <h4>예약중</h4>
+                                <p>현재 예약된 내역을 확인하세요.</p>
                             </div>
-
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>이름</label>
-                                        <input type="text" class="form-control" value="김이젠"> 
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>전화번호</label>
-                                          <input type="text" class="form-control" value="010-2324-2342" >  
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>비밀번호</label>
-                                          <input type="password" class="form-control" value="010-2324-2342" >  
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>비밀번호 확인</label>
-                                          <input type="password" class="form-control" value="010-2324-2342" >  
-                                    </div>
-                                </div>
-                                 <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>이메일</label>
-                                        <input type="text" class="form-control" value="ezen@gmail.com"> 
-                                    </div>
-                                </div>
-                                 <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>주소</label>
-                                        <div class="input-group mb-3" >
-											<input type="text" class="form-control" id="ifmaAddress1" name="ifmaAddress1" placeholder="서울시 서초구 서초로 234">
-											<button onClick="sample4_execDaumPostcode()" class="btn btn-outline-secondary" type="button">주소검색</button>
-										</div>
-											<input  type="text"	class="form-control" id="ifmaAddress1" name="ifmaAddress1"	placeholder="상세주소"> 
-                                    </div>
-                                </div>
-                                 <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>생년월일</label>
-                                         <input type="date" class="form-control" value="1969-09-09"> 
-                                    </div>
-                                    
-                                       <a href="memberView.html"  style="margin-top:10px;" class="btn btn-primary float-right">수정</a>
-                                </div>
-                             
-                            </div>
-
-                         
-                            <!--//End General Information -->
-                            <!-- Add Location -->
-                           
-
-                          </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                            <!--//End Opening Hours -->
-
-                     
+	                        <div class="row">
+	                            <div class="col-12">
+	                                <div class="card">
+	                                    <div class="card-body">
+	                                        <!-- js/pages/reservationList.init.js 파일에 테이블 데이터있음 -->
+	                                        <div id="table-ecommerce-orders"></div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+                        <!-- end row -->
+                    <!-- container-fluid -->
+                        </form>
                     </div>
-             
+                    <br>
+                    
+                    <div class="listing-wrap">
+                        <form action="#">
+                            <!-- General Information -->
+                            <div class="listing-title">
+                                <span class="ti-time"></span>
+                                <h4>지난예약</h4>
+                                <p>지난 예약 내역을 확인하세요.</p>
+                            </div>
+	                        <div class="row">
+	                            <div class="col-12">
+	                                <div class="card">
+	                                    <div class="card-body">
+	                                        <!-- js/pages/reservationList.init.js 파일에 테이블 데이터있음 -->
+	                                        <div id="table-ecommerce-orders2"></div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+                        <!-- end row -->
+                    <!-- container-fluid -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!--//END ADD LISTING -->
     <!--=============================// 컨텐츠 끝 =============================-->
@@ -287,6 +272,24 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
+        <!-- JAVASCRIPT -->
+        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/libs/metismenujs/metismenujs.min.js"></script>
+        <script src="assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="assets/libs/eva-icons/eva.min.js"></script>
+
+        <!-- apexcharts -->
+        <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+
+        <!-- gridjs js -->
+        <script src="assets/libs/gridjs/gridjs.umd.js"></script>
+
+        <!-- datepicker js -->
+        <script src="assets/libs/flatpickr/flatpickr.min.js"></script>
+
+        <script src="assets/js/pages/reservationList.init.js"></script>
+
+        <script src="assets/js/app.js"></script>
 
 
 </body>
