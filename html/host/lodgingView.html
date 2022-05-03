@@ -12,7 +12,7 @@
 
 <link rel="shortcut icon" href="img/nowTravel_logo_browser.jpg"
 	type="image/x-icon" />
-<title id="ctl00_headerTitle">now travel 관리자페이지</title>
+<title id="ctl00_headerTitle">now travel 호스트페이지</title>
 
 <!-- Custom fonts for this template-->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -43,7 +43,7 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="indexAdmin.html">
+				href="index.html">
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-laugh-wink"></i>
 				</div>
@@ -60,7 +60,7 @@
 
 			<!-- Nav Item - Pages Collapse Menu -->
 
-			<li class="nav-item"><a class="nav-link collapse active"
+			<li class="nav-item"><a class="nav-link collapsed"
 				href="lodgingList.html"> <span>숙소관리</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
@@ -78,22 +78,12 @@
 				</div></li>
 
 			<!-- Nav Item - Utilities Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#">
-					<span>예약관리</span>
+			<li class="nav-item"><a class="nav-link collapsed"
+				href="reservationList.html"> <span>예약관리</span>
 			</a></li>
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				data-toggle="collapse" data-target="#collapsePages"
-				aria-expanded="true" aria-controls="collapsePages"> <span>회원
-						관리</span>
-			</a>
-				<div id="collapsePages" class="collapse"
-					aria-labelledby="headingPages" data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Member Management</h6>
-						<a class="collapse-item" href="hostList.html">호스트 관리</a> <a
-							class="collapse-item" href="memberList.html">사용자 관리</a>
-					</div>
-				</div></li>
+			<li class="nav-item"><a class="nav-link collapsed" href="#">
+					<span>DM</span>
+			</a></li>
 
 			<!-- Divider -->
 
@@ -149,7 +139,7 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span> <img
+								class="mr-2 d-none d-lg-inline text-gray-600 small">호스트</span> <img
 								class="img-profile rounded-circle" src="img/undraw_profile.svg">
 						</a> <!-- Dropdown - User Information -->
 							<div
@@ -192,7 +182,7 @@
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<table class="table" id="" width=100% cellspacing="0">
+								<table class="table" id="" width=100% cellspacing="0" >
 
 									<tbody>
 										<tr>
@@ -201,16 +191,16 @@
 												<p>제주하르방</p>
 											</td>
 											<th>숙소 타이틀</th>
-											<td><p>제주도 편안한 집, 공항[5분거리]</p></td>
+											<td colspan="3"><p>제주도 편안한 집, 공항[5분거리]</p></td>
 										</tr>
 
 										<tr>
 											<th>숙소사진 보기</th>
-											<td colspan="3">
+											<td colspan="3>
 												<button class="btn btn-primary">보기</button>
 											</td>
 											<th>카테고리</th>
-											<td><p>펜션</p></td>
+											<td colspan="3"><p>펜션</p></td>
 											
 										</tr>
 
@@ -222,7 +212,7 @@
 												<p>제주도 서귀포시 표선면 29-3</p>
 											</td>
 											<th>금액</th>
-											<td><p>1박 50,000원</p></td>
+											<td colspan="3"><p>1박 50,000원</p></td>
 
 
 										</tr>
@@ -238,7 +228,7 @@
 											<th>방 정보 등록</th>
 
 
-											<td>
+											<td colspan="3">
 
 												<button class="btn btn-primary">방 보기</button>
 
@@ -252,45 +242,40 @@
 
 											<th>체크인 시간</th>
 
-											<td colspan="2">
+											<td colspan="1">
 
-												<div class="col-4" style="width: 200px; padding: 0;">
+												
 
 													<label for="time1">체크인</label> <br> 
 													<p>15:00</p>
 
 
-												</div>
+												
 
-												<div class="col-2" style="width: 120px; padding: 0;">
-
-
-
-
-												</div>
+											
 
 
 											</td>
 
  
-											<td colspan="1">
+											<td colspan="6">
 
-												<div class="col-4" style="width: 200px; padding: 0;">
+												
 													<label for="time2">체크아웃</label> <p>11:00</p>
 
-												</div>
+												
 											</td>
 
-											<td></td>
+											
 
 
 										</tr>
 
 										<tr>
-
-											<th>최대인원</th>
-											<td colspan="1"><p>4</p></td>
-
+											
+											<th >최대인원</th>
+											
+											<td ><p>4</p></td>
 											<th>방 갯수</th>
 											<td><p>3</p></td>
 											<th>욕실 갯수</th>

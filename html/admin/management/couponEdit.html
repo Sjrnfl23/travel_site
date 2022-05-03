@@ -23,7 +23,8 @@
     
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">    
-
+    
+	<link href="./css/jquery.timepicker.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -206,16 +207,19 @@
 	                            		<th>쿠폰명</th>
 									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="봄맞이쿠폰"></td>
 	                            		<th>금액</th>
-									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="30,000원"></td>								    
+									    <td><input
+												type="text" style="width: 300px;" id="rcvordAm"
+												name="rcvordAm" class="form-control"
+												numberOnlyMinComma="true" koreanCurrency="true" value="30000"></td>								    
 									</tr>
 	                            	<tr>
 	
 									</tr>
 	                            	<tr style="border-bottom: 1px solid #E3E6F0;">
 	                            		<th>시작일</th>
-									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="2022-04-28"></td>
+									    <td><input type="date" class="form-control" id="couponName" style="width: 300px;" placeholder="2022-04-28"></td>
 	                            		<th>종료일</th>
-									    <td><input type="text" class="form-control" id="couponName" style="width: 300px;" placeholder="2022-05-30"></td>
+									    <td><input type="date" class="form-control" id="couponName" style="width: 300px;" placeholder="2022-05-30"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -300,7 +304,105 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+<script type="text/javascript">
+		$(document)
+				.on(
+						"keyup",
+						"input:text[numberOnlyMinComma]",
+						function() {
+							var strVal = $(this).val();
 
+							event = event || window.event;
+							var keyID = (event.which) ? event.which
+									: event.keyCode;
+
+							if ((keyID >= 48 && keyID <= 57)
+									|| (keyID >= 96 && keyID <= 105)
+									|| keyID == 46 || keyID == 8
+									|| keyID == 109 || keyID == 189
+									|| keyID == 9 || keyID == 37 || keyID == 39) {
+
+								if (strVal.length > 1
+										&& (keyID == 109 || keyID == 189)) {
+									return false;
+								} else {
+									return;
+								}
+							} else {
+								return false;
+							}
+						});
+
+		$(document).on(
+				"keyup",
+				"input:text[numberOnlyMinComma]",
+				function() {
+					$(this).val($(this).val().replace(/[^-\.0-9]/gi, ""));
+					$(this).val(
+							$(this).val().replace(/(\d)(?=(\d\d\d)+(?!\d))/g,
+									"$1,"));
+				});
+
+		$(document).on(
+				"focusout",
+				"input:text[koreanCurrency]",
+				function() {
+					$(this).val($(this).val().replace(",", ""));
+					$(this).val($(this).val().replace(/[^-\.0-9]/gi, ""));
+					$(this).val(
+							$(this).val().replace(/(\d)(?=(\d\d\d)+(?!\d))/g,
+									"$1,"));
+					if ($(this).val() != '') {
+						$(this).val($(this).val() + '원');
+					}
+				});
+
+		$(document).on("focus", "input:text[koreanCurrency]", function() {
+			$(this).val($(this).val().replace("원", ""));
+		});
+	</script>
+	<script type="text/javascript">
+	
+	$("#time1").timepicker({
+
+		step: 30,            //시간간격 : 5분
+
+		timeFormat: "H:i"    //시간:분 으로표시
+
+		
+
+	});
+	$("#time2").timepicker({
+
+		step: 30,            //시간간격 : 5분
+
+		timeFormat: "H:i"    //시간:분 으로표시
+
+		
+
+	});
+
+
+
+
+	</script>
+	 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <script>
+  
+  $( function() {
+    $( "#speed" ).selectmenu();
+ 
+    $( "#files" ).selectmenu();
+ 
+    $( "#number" )
+      .selectmenu()
+      .selectmenu( "menuWidget" )
+        .addClass( "overflow" );
+ 
+    $( "#salutation" ).selectmenu();
+  } );
+  </script>
 </body>
 
 </html>
