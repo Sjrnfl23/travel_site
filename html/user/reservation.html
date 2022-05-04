@@ -298,8 +298,56 @@ a {
                             <td class="last-reservation">2022년 5월 1일 15:00 체크인
                           		<div class="edit-options">
                                     <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
-                                    <a href="reviews.html" class="link icon"><i class="fa fa-comment"></i>리뷰</a>
-                                    <a href="reservation.html" class="link icon delete"><i class="fa fa-trash"></i>삭제</a>
+                                    <a href="reservation.html" class="link icon" data-bs-toggle="modal" data-bs-target="#exampleModal10" data-bs-whatever="@리뷰"><i class="fa fa-comment"></i>리뷰</a>
+                                
+
+                                    <div class="modal fade" id="exampleModal30" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">리뷰 작성하기</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        <form>
+									          <div class="mb-3">
+									            <label for="recipient-name" class="col-form-label">보내는 사람</label>
+									            <input type="text" class="form-control" id="recipient-name">
+									          </div>
+									          <div class="mb-3">
+									            <label for="message-text" class="col-form-label">보낼 메시지:</label>
+									            <textarea class="form-control" id="message-text"></textarea>
+									          </div>
+									        </form>
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-primary">보내기</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                    
+                           			 <a href="reservation.html" class="link icon delete" data-bs-toggle="modal" data-bs-target="#exampleModal20" data-bs-whatever="@리뷰"><i class="fa fa-trash"></i>삭제</a>
+                            		
+								<!-- Modal -->
+									<div class="modal fade" id="exampleModal40" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">예약내역삭제</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									       삭제 하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <a href="reservation.html"><button type="button" class="btn btn-primary">삭제하기</button></a>
+									      </div>
+									    </div>
+									  </div>
+									</div>
                                 </div>
                                 <!--end edit-options-->
                             </td>
@@ -327,9 +375,58 @@ a {
                             <td class="last-reservation">2022년 4월 1일 15:00 체크인
                                <div class="edit-options">
                                     <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
-                                    <a href="reviews.html" class="link icon"><i class="fa fa-comment"></i>리뷰</a>
-                                    <a href="reservation.html" class="link icon delete"><i class="fa fa-trash"></i>삭제</a>
+                                    <a href="reservation.html" class="link icon" data-bs-toggle="modal" data-bs-target="#exampleModal10" data-bs-whatever="@리뷰"><i class="fa fa-comment"></i>리뷰</a>
+                                
+
+                                    <div class="modal fade" id="exampleModal50" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">리뷰 작성하기</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        <form>
+									          <div class="mb-3">
+									            <label for="recipient-name" class="col-form-label">보내는 사람</label>
+									            <input type="text" class="form-control" id="recipient-name">
+									          </div>
+									          <div class="mb-3">
+									            <label for="message-text" class="col-form-label">보낼 메시지:</label>
+									            <textarea class="form-control" id="message-text"></textarea>
+									          </div>
+									        </form>
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-primary">보내기</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                    
+                           			 <a href="reservation.html" class="link icon delete" data-bs-toggle="modal" data-bs-target="#exampleModal20" data-bs-whatever="@리뷰"><i class="fa fa-trash"></i>삭제</a>
+                            		
+								<!-- Modal -->
+									<div class="modal fade" id="exampleModal60" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">예약내역삭제</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									       삭제 하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <a href="reservation.html"><button type="button" class="btn btn-primary">삭제하기</button></a>
+									      </div>
+									    </div>
+									  </div>
+									</div>
                                 </div>
+                               
                                 <!--end edit-options-->
                             </td>
                         </tr>
@@ -356,8 +453,56 @@ a {
                             <td class="last-reservation">2022년 3월 1일 15:00 체크인
                                <div class="edit-options">
                                     <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
-                                    <a href="reviews.html" class="link icon"><i class="fa fa-comment"></i>리뷰</a>
-                                    <a href="reservation.html" class="link icon delete"><i class="fa fa-trash"></i>삭제</a>
+                                    <a href="reservation.html" class="link icon" data-bs-toggle="modal" data-bs-target="#exampleModal10" data-bs-whatever="@리뷰"><i class="fa fa-comment"></i>리뷰</a>
+                                
+
+                                    <div class="modal fade" id="exampleModal70" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">리뷰 작성하기</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        <form>
+									          <div class="mb-3">
+									            <label for="recipient-name" class="col-form-label">보내는 사람</label>
+									            <input type="text" class="form-control" id="recipient-name">
+									          </div>
+									          <div class="mb-3">
+									            <label for="message-text" class="col-form-label">보낼 메시지:</label>
+									            <textarea class="form-control" id="message-text"></textarea>
+									          </div>
+									        </form>
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-primary">보내기</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                    
+                           			 <a href="reservation.html" class="link icon delete" data-bs-toggle="modal" data-bs-target="#exampleModal20" data-bs-whatever="@리뷰"><i class="fa fa-trash"></i>삭제</a>
+                            		
+								<!-- Modal -->
+									<div class="modal fade" id="exampleModal80" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">예약내역삭제</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									       삭제 하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <a href="reservation.html"><button type="button" class="btn btn-primary">삭제하기</button></a>
+									      </div>
+									    </div>
+									  </div>
+									</div>
                                 </div>
                                 <!--end edit-options-->
                             </td>
