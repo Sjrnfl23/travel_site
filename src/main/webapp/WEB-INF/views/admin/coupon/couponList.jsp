@@ -222,7 +222,7 @@
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="../lodging/lodgingList" data-key="t-products">숙소 리스트</a></li>
+                                    <li><a href="/admin/lodgingList" data-key="t-products">숙소 리스트</a></li>
                                 </ul>
                             </li>
 
@@ -233,15 +233,15 @@
                                 </a>
                                 <ul class="sub-menu mm-collapse mm-show" aria-expanded="false">
                                     <li class="mm-active">
-                                    	<a href="couponList" data-key="t-invoice-list" class="active">쿠폰 리스트</a>
+                                    	<a href="/admin/couponList" data-key="t-invoice-list" class="active">쿠폰 리스트</a>
                                     </li>
-                                    <li><a href="couponListPermit" data-key="t-invoice-detail">쿠폰 승인</a></li>
-                                    <li><a href="couponListBak" data-key="t-invoice-detail">쿠폰 내역</a></li>
+                                    <li><a href="/admin/couponListPermit" data-key="t-invoice-detail">쿠폰 승인</a></li>
+                                    <li><a href="/admin/couponListBak" data-key="t-invoice-detail">쿠폰 내역</a></li>
                                 </ul>
                             </li>
                             
                             <li>
-                                <a href="../reservation/reservationList">
+                                <a href="/admin/reservationList">
                                     <i class="bx bx-calendar-event icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-calendar">예약관리</span>
                                 </a>
@@ -255,8 +255,8 @@
                                     <span class="menu-item" data-key="t-contacts">회원관리</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="../host/hostList" data-key="t-user-grid">호스트 관리</a></li>
-                                    <li><a href="../member/memberList" data-key="t-user-list">사용자 관리</a></li>
+                                    <li><a href="/admin/hostList" data-key="t-user-grid">호스트 관리</a></li>
+                                    <li><a href="/admin/memberList" data-key="t-user-list">사용자 관리</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -537,7 +537,7 @@
         <!-- datepicker js -->
         <script src="../../../../resources/admin/assets/libs/flatpickr/flatpickr.min.js"></script>
 
-        <script src="../../../../resources/admin/assets/js/pages/admin_couponList.init.js"></script>
+        <script src="/resources/admin/assets/js/pages/couponList.init.js"></script>
 
         <script src="../../../../resources/admin/assets/js/app.js"></script>
 
