@@ -53,7 +53,7 @@
                                     <p class="text-muted">호스트 페이지 사용을 위해 로그인해주세요.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="a_host_mainView.html">
+                                    <form action="mainView.html">
         
                                         <div class="mb-3">
                                             <label class="form-label" for="username">이메일</label>
