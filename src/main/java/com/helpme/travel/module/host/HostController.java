@@ -144,12 +144,12 @@ public class HostController {
 
 		return "/host/main/hostInfoView";
 	}
-	@RequestMapping(value = "/host/main/hostInfoForm")
-	public String hostInfoForm() throws Exception {
+	@RequestMapping(value = "/host/main/signUpForm")
+	public String signUpForm() throws Exception {
 
 		
 
-		return "/host/main/hostInfoForm";
+		return "/host/main/signUpForm";
 	}
 	@RequestMapping(value = "/host/main/hostInfoEdit")
 	public String hostInfoEdit() throws Exception {
