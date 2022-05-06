@@ -60,7 +60,12 @@ public class AdminController {
 	
 	
 	/* ※host--------------------------------------------------------------------*/
-
+	
+	@RequestMapping(value = "/admin/hostEdit")
+	public String AdminHostEdit(Model model) throws Exception {
+		
+		return "admin/host/hostEdit";
+	}
 	
 	
 	
