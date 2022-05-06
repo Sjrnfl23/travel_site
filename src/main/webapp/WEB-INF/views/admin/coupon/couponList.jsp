@@ -47,7 +47,7 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="mainView.jsp" class="logo logo-dark">
+                            <a href="../mainView.jsp" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="/resources/admin/assets/images/logo-dark-sm.png" alt="" height="26">
                                 </span>
@@ -56,7 +56,7 @@
                                 </span>
                             </a>
 
-                            <a href="mainView.jsp" class="logo logo-light">
+                            <a href="../mainView.jsp" class="logo logo-light">
                                 <span class="logo-lg">
                                     <img src="/resources/admin/assets/images/logo-light.png" alt="" height="30">
                                 </span>
@@ -183,7 +183,7 @@
 
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="mainView.jsp" class="logo logo-dark">
+                    <a href="../mainView.jsp" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="/resources/admin/assets/images/logo-dark-sm.png" alt="" height="26">
                         </span>
@@ -192,7 +192,7 @@
                         </span>
                     </a>
 
-                    <a href="mainView.jsp" class="logo logo-light">
+                    <a href="../mainView.jsp" class="logo logo-light">
                         <span class="logo-lg">
                             <img src="/resources/admin/assets/images/logo-light-sm.png" alt="" height="26">
                         </span>
@@ -214,14 +214,6 @@
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li class="menu-title" data-key="t-menu">Home</li>
 
-                            <li>
-                                <a href="apps-calendar.html">
-                                    <i class="bx bx-home-alt icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-dashboard">Home</span>
-                                </a>
-                            </li>
-
-
                             <li class="menu-title" data-key="t-applications">MANAGEMENT</li>
 
                             <li>
@@ -230,7 +222,7 @@
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="lodgingList.jsp" data-key="t-products">숙소 리스트</a></li>
+                                    <li><a href="../lodging/lodgingList.jsp" data-key="t-products">숙소 리스트</a></li>
                                 </ul>
                             </li>
 
@@ -249,7 +241,7 @@
                             </li>
                             
                             <li>
-                                <a href="reservationList.jsp">
+                                <a href="../reservation/reservationList.jsp">
                                     <i class="bx bx-calendar-event icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-calendar">예약관리</span>
                                 </a>
@@ -263,8 +255,8 @@
                                     <span class="menu-item" data-key="t-contacts">회원관리</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="hostList.jsp" data-key="t-user-grid">호스트 관리</a></li>
-                                    <li><a href="memberList.jsp" data-key="t-user-list">사용자 관리</a></li>
+                                    <li><a href="../host/hostList.jsp" data-key="t-user-grid">호스트 관리</a></li>
+                                    <li><a href="../member/memberList.jsp" data-key="t-user-list">사용자 관리</a></li>
                                 </ul>
                             </li>
                         </ul>
