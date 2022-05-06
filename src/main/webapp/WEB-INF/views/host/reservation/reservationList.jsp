@@ -543,10 +543,9 @@
         <!-- datepicker js -->
         <script src="../../resources/host/libs/flatpickr/flatpickr.min.js"></script>
 
-        <script src="../../resources/host/js/pages/a_host_reservationList.init.js"></script>
+        <script src="/resources/host/js/pages/host_reservationList.init.js"></script>
 
         <script src="../../resources/host/js/app.js"></script>
-
 
 
     </body>
