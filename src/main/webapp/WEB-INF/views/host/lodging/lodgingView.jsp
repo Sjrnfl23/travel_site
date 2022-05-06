@@ -171,7 +171,7 @@
                                     <h6 class="mb-0">관리자</h6>
                                     <p class="mb-0 font-size-11 text-muted">@nowtravel.com</p>
                                 </div>
-                                <a class="dropdown-item" href="hostInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
+                                <a class="dropdown-item" href="../main/hostInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="auth-logout.html"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
