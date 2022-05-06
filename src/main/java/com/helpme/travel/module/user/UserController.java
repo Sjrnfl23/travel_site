@@ -20,23 +20,23 @@ public class UserController {
 	 */
 	
 	// User
-	@RequestMapping(value = "/user/member/loginForm") 
+	@RequestMapping(value = "/user/loginForm") 
 	public String UserLoginProc(Model model) throws Exception {
 
 		return "user/member/loginForm";
 	}
 	
-	@RequestMapping(value = "/user/member/signupForm")
+	@RequestMapping(value = "/user/signupForm")
 	public String UserSignupForm(Model model) throws Exception {
 
 		return "user/member/signupForm";
 	}
-	@RequestMapping(value = "/user/member/userInfoView")
+	@RequestMapping(value = "/user/userInfoView")
 	public String UserSignupView(Model model) throws Exception {
 		
 		return "user/member/userInfoView";
 	}
-	@RequestMapping(value = "/user/member/userInfoEdit")
+	@RequestMapping(value = "/user/userInfoEdit")
 	public String UserSignupEdit(Model model) throws Exception {
 		
 		return "user/member/userInfoEdit";
@@ -50,12 +50,12 @@ public class UserController {
 	
 
 	// Search
-	@RequestMapping(value = "/user/lodging/search")
+	@RequestMapping(value = "/user/search")
 	public String UserSearch(Model model) throws Exception {
 		
 		return "user/lodging/search";
 	}
-	@RequestMapping(value = "/user/lodging/searchFlex")
+	@RequestMapping(value = "/user/searchFlex")
 	public String UserSearchFlex(Model model) throws Exception {
 		
 		return "user/lodging/searchFlex";
@@ -63,23 +63,23 @@ public class UserController {
 	
 	// Lodging
 	
-	@RequestMapping(value = "/user/lodging/mainView")
+	@RequestMapping(value = "/user/mainView")
 	public String mainView(Model model) throws Exception {
 		
 		return "user/lodging/mainView";
 	}
 	
-	@RequestMapping(value = "/user/lodging/lodgingView")
+	@RequestMapping(value = "/user/lodgingView")
 	public String UserLodgingView(Model model) throws Exception {
 		
 		return "user/lodging/lodgingView";
 	}
-	@RequestMapping(value = "/user/lodging/payment")
+	@RequestMapping(value = "/user/payment")
 	public String UserPayment(Model model) throws Exception {
 		
 		return "user/lodging/payment";
 	}
-	@RequestMapping(value = "/user/lodging/reservation")
+	@RequestMapping(value = "/user/reservation")
 	public String UserReservation(Model model) throws Exception {
 		
 		return "user/lodging/reservation";
@@ -87,17 +87,17 @@ public class UserController {
 	
 	
 	// Map
-	@RequestMapping(value = "/user/map/mapList")
+	@RequestMapping(value = "/user/mapList")
 	public String UserMapList(Model model) throws Exception {
 		
 		return "user/map/mapList";
 	}
-	@RequestMapping(value = "/user/map/mapForm")
+	@RequestMapping(value = "/user/mapForm")
 	public String UserMapForm(Model model) throws Exception {
 		
 		return "user/map/mapForm";
 	}
-	@RequestMapping(value = "/user/map/mapEdit")
+	@RequestMapping(value = "/user/mapEdit")
 	public String UserMapEdit(Model model) throws Exception {
 		
 		return "user/map/mapEdit";
