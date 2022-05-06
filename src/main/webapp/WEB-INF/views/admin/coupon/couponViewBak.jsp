@@ -47,7 +47,7 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="../mainView.jsp" class="logo logo-dark">
+                            <a href="../mainView" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="/resources/admin/assets/images/logo-dark-sm.png" alt="" height="26">
                                 </span>
@@ -56,7 +56,7 @@
                                 </span>
                             </a>
 
-                            <a href="../mainView.jsp" class="logo logo-light">
+                            <a href="../mainView" class="logo logo-light">
                                 <span class="logo-lg">
                                     <img src="/resources/admin/assets/images/logo-light.png" alt="" height="30">
                                 </span>
@@ -183,7 +183,7 @@
 
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="../mainView.jsp" class="logo logo-dark">
+                    <a href="../mainView" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="/resources/admin/assets/images/logo-dark-sm.png" alt="" height="26">
                         </span>
@@ -192,7 +192,7 @@
                         </span>
                     </a>
 
-                    <a href="../mainView.jsp" class="logo logo-light">
+                    <a href="../mainView" class="logo logo-light">
                         <span class="logo-lg">
                             <img src="/resources/admin/assets/images/logo-light-sm.png" alt="" height="26">
                         </span>
@@ -222,7 +222,7 @@
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="../lodging/lodgingList.jsp" data-key="t-products">숙소 리스트</a></li>
+                                    <li><a href="../lodging/lodgingList" data-key="t-products">숙소 리스트</a></li>
                                 </ul>
                             </li>
 
@@ -233,15 +233,15 @@
                                 </a>
                                 <ul class="sub-menu mm-collapse mm-show" aria-expanded="false">
                                     <li >
-                                    	<a href="couponList.jsp" data-key="t-invoice-list">쿠폰 리스트</a>
+                                    	<a href="couponList" data-key="t-invoice-list">쿠폰 리스트</a>
                                     </li>
-                                    <li><a href="couponListPermit.jsp" data-key="t-invoice-detail">쿠폰 승인</a></li>
-                                    <li class="mm-active"><a href="couponListBak.jsp" data-key="t-invoice-detail" class="active">쿠폰 내역</a></li>
+                                    <li><a href="couponListPermit" data-key="t-invoice-detail">쿠폰 승인</a></li>
+                                    <li class="mm-active"><a href="couponListBak" data-key="t-invoice-detail" class="active">쿠폰 내역</a></li>
                                 </ul>
                             </li>
                             
                             <li>
-                                <a href="../reservation/reservationList.jsp">
+                                <a href="../reservation/reservationList">
                                     <i class="bx bx-calendar-event icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-calendar">예약관리</span>
                                 </a>
@@ -255,8 +255,8 @@
                                     <span class="menu-item" data-key="t-contacts">회원관리</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="../host/hostList.jsp" data-key="t-user-grid">호스트 관리</a></li>
-                                    <li><a href="../member/memberList.jsp" data-key="t-user-list">사용자 관리</a></li>
+                                    <li><a href="../host/hostList" data-key="t-user-grid">호스트 관리</a></li>
+                                    <li><a href="../member/memberList" data-key="t-user-list">사용자 관리</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -384,12 +384,12 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                    	<a href="couponListBak.jsp">
+                                                    	<a href="couponListBak">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">목록</button>
                                                     	</a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="couponListBak.jsp">
+                                                    	<a href="couponListBak">
                                                        		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
                                                     	</a>
                                                     </li>

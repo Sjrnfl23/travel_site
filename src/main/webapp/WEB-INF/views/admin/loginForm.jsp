@@ -40,7 +40,7 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
 
                         <div class="mb-4 pb-2">
-                            <a href="loginForm.jsp" class="d-block auth-logo">
+                            <a href="loginForm" class="d-block auth-logo">
                                 <img src="assets/images/nowTravel_logo_200.jpg" alt="" class="auth-logo-dark me-start">
                                 <img src="assets/images/logo-light.png" alt="" height="30" class="auth-logo-light me-start">
                             </a>
@@ -65,7 +65,7 @@
                 
                                         <div class="mb-3">
                                             <div class="float-end">
-                                                <a href="password.jsp" class="text-muted text-decoration-underline">비밀번호 찾기</a>
+                                                <a href="password" class="text-muted text-decoration-underline">비밀번호 찾기</a>
                                             </div>
                                             <label class="form-label" for="password-input">Password</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
@@ -83,7 +83,7 @@
                                         </div>
                                         
                                         <div class="mt-3">
-                                           <a href="mainView.jsp"><button class="btn btn-primary w-100 waves-effect waves-light" type="submit">로그인</button></a>
+                                           <a href="mainView"><button class="btn btn-primary w-100 waves-effect waves-light" type="submit">로그인</button></a>
                                         </div>
 
                                         <div class="mt-4 text-center">

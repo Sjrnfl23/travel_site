@@ -40,7 +40,7 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
 
                         <div class="mb-4 pb-2">
-                            <a href="loginForm.jsp" class="d-block auth-logo">
+                            <a href="loginForm" class="d-block auth-logo">
                                 <img src="/resources/admin/assets/images/nowTravel_logo_200.jpg" alt="" class="auth-logo-dark me-start">
                                 <img src="/resources/admin/assets/images/logo-light.png" alt="" height="30" class="auth-logo-light me-start">
                             </a>
@@ -73,7 +73,7 @@
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <p class="mb-0">비밀번호가 기억났나요? <a href="loginForm.jsp" class="fw-medium text-primary"> Login </a></p>
+                                            <p class="mb-0">비밀번호가 기억났나요? <a href="loginForm" class="fw-medium text-primary"> Login </a></p>
                                         </div>
                                     </form>
                                 </div>
