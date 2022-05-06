@@ -15,28 +15,28 @@ public class HostController {
 
 	//coupon
 	
-	@RequestMapping(value = "/host/coupon/couponList")
+	@RequestMapping(value = "/host/couponList")
 	public String CouponList() throws Exception {
 
 		
 
 		return "/host/coupon/couponList";
 	}
-	@RequestMapping(value = "/host/coupon/couponForm")
+	@RequestMapping(value = "/host/couponForm")
 	public String CouponForm() throws Exception {
 
 		
 
 		return "/host/coupon/couponForm";
 	}
-	@RequestMapping(value = "/host/coupon/couponEdit")
+	@RequestMapping(value = "/host/couponEdit")
 	public String CouponEdit() throws Exception {
 
 		
 
 		return "/host/coupon/couponEdit";
 	}
-	@RequestMapping(value = "/host/coupon/couponView")
+	@RequestMapping(value = "/host/couponView")
 	public String CouponView() throws Exception {
 
 		
@@ -44,21 +44,21 @@ public class HostController {
 		return "/host/coupon/couponView";
 	}
 	
-	@RequestMapping(value = "/host/coupon/couponListPermit")
+	@RequestMapping(value = "/host/couponListPermit")
 	public String couponListPermit() throws Exception {
 
 		
 
 		return "/host/coupon/couponListPermit";
 	}
-	@RequestMapping(value = "/host/coupon/couponListBak")
+	@RequestMapping(value = "/host/couponListBak")
 	public String couponListBak() throws Exception {
 
 		
 
 		return "/host/coupon/couponListBak";
 	}
-	@RequestMapping(value = "/host/coupon/couponViewBak")
+	@RequestMapping(value = "/host/couponViewBak")
 	public String couponViewBak() throws Exception {
 
 		
@@ -69,7 +69,7 @@ public class HostController {
 	
 	
 	//dm
-	@RequestMapping(value = "/host/dm/hostDm")
+	@RequestMapping(value = "/host/hostDm")
 	public String hostDm() throws Exception {
 
 		
@@ -82,7 +82,7 @@ public class HostController {
 	
 	// lodging
 	
-	@RequestMapping(value = "/host/lodging/lodgingList")
+	@RequestMapping(value = "/host/lodgingList")
 	public String LodgingList() throws Exception {
 
 		
@@ -90,7 +90,7 @@ public class HostController {
 		return "/host/lodging/lodgingList";
 	}
 	
-	@RequestMapping(value = "/host/lodging/lodgingView")
+	@RequestMapping(value = "/host/lodgingView")
 	public String LodgingView() throws Exception {
 
 		
@@ -98,14 +98,14 @@ public class HostController {
 		return "/host/lodging/lodgingView";
 	}
 	
-	@RequestMapping(value = "/host/lodging/lodgingForm")
+	@RequestMapping(value = "/host/lodgingForm")
 	public String LodgingForm() throws Exception {
 
 		
 
 		return "/host/lodging/lodgingForm";
 	}
-	@RequestMapping(value = "/host/lodging/lodgingEdit")
+	@RequestMapping(value = "/host/lodgingEdit")
 	public String LodgingEdit() throws Exception {
 
 		
@@ -115,7 +115,7 @@ public class HostController {
 	
 	
 	//main
-	@RequestMapping(value = "/host/main/mainView")
+	@RequestMapping(value = "/host/mainView")
 	public String mainView() throws Exception {
 
 		
@@ -123,35 +123,35 @@ public class HostController {
 		return "/host/main/mainView";
 	}
 	
-	@RequestMapping(value = "/host/main/password")
+	@RequestMapping(value = "/host/password")
 	public String password() throws Exception {
 
 		
 
 		return "/host/main/password";
 	}
-	@RequestMapping(value = "/host/main/loginForm")
+	@RequestMapping(value = "/host/loginForm")
 	public String loginForm() throws Exception {
 
 		
 
 		return "/host/main/loginForm";
 	}
-	@RequestMapping(value = "/host/main/hostInfoView")
+	@RequestMapping(value = "/host/hostInfoView")
 	public String hostInfoView() throws Exception {
 
 		
 
 		return "/host/main/hostInfoView";
 	}
-	@RequestMapping(value = "/host/main/signUpForm")
+	@RequestMapping(value = "/host/signUpForm")
 	public String signUpForm() throws Exception {
 
 		
 
 		return "/host/main/signUpForm";
 	}
-	@RequestMapping(value = "/host/main/hostInfoEdit")
+	@RequestMapping(value = "/host/hostInfoEdit")
 	public String hostInfoEdit() throws Exception {
 
 		
@@ -162,21 +162,21 @@ public class HostController {
 	
 	
 	//reservation
-	@RequestMapping(value = "/host/reservation/reservationEdit")
+	@RequestMapping(value = "/host/reservationEdit")
 	public String reservationEdit() throws Exception {
 
 		
 
 		return "/host/reservation/reservationEdit";
 	}
-	@RequestMapping(value = "/host/reservation/reservationList")
+	@RequestMapping(value = "/host/reservationList")
 	public String reservationList() throws Exception {
 
 		
 
 		return "/host/reservation/reservationList";
 	}
-	@RequestMapping(value = "/host/reservation/reservationView")
+	@RequestMapping(value = "/host/reservationView")
 	public String reservationView() throws Exception {
 
 		
