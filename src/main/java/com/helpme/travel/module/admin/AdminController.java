@@ -67,58 +67,131 @@ public class AdminController {
 		return "admin/host/hostEdit";
 	}
 	
+	@RequestMapping(value = "/admin/hostForm")
+	public String AdminHostForm(Model model) throws Exception {
+		
+		return "admin/host/hostForm";
+	}
 	
+	@RequestMapping(value = "/admin/hostList")
+	public String AdminHostList(Model model) throws Exception {
+		
+		return "admin/host/hostList";
+	}
 	
+	@RequestMapping(value = "/admin/hostView")
+	public String AdminHostView(Model model) throws Exception {
+		
+		return "admin/host/hostView";
+	}
 	
 	/*---------------------------------------------------------------------------*/
 	
 	
 	/* ※lodging--------------------------------------------------------------------*/
 
+	@RequestMapping(value = "/admin/lodgingEdit")
+	public String AdminLodgingEdit(Model model) throws Exception {
+		
+		return "admin/lodging/lodgingEdit";
+	}
 	
+	@RequestMapping(value = "/admin/lodgingList")
+	public String AdminLodgingList(Model model) throws Exception {
+		
+		return "admin/lodging/lodgingList";
+	}
 	
-	
-	
+	@RequestMapping(value = "/admin/lodgingView")
+	public String AdminLodgingView(Model model) throws Exception {
+		
+		return "admin/lodging/lodgingView";
+	}
 	
 	/*---------------------------------------------------------------------------*/
 	
 	
 	/* ※member--------------------------------------------------------------------*/
 
+	@RequestMapping(value = "/admin/memberEdit")
+	public String AdminMemberEdit(Model model) throws Exception {
+		
+		return "admin/member/memberEdit";
+	}
 	
+	@RequestMapping(value = "/admin/memberForm")
+	public String AdminMemberForm(Model model) throws Exception {
+		
+		return "admin/member/memberForm";
+	}
 	
+	@RequestMapping(value = "/admin/memberList")
+	public String AdminMemberList(Model model) throws Exception {
+		
+		return "admin/member/memberList";
+	}
 	
-	
+	@RequestMapping(value = "/admin/memberView")
+	public String AdminMemberView(Model model) throws Exception {
+		
+		return "admin/member/memberView";
+	}
 	
 	/*---------------------------------------------------------------------------*/
 	
 	
 	/* ※reservation--------------------------------------------------------------------*/
 
+	@RequestMapping(value = "/admin/reservationEdit")
+	public String AdminReservationEdit(Model model) throws Exception {
+		
+		return "admin/reservation/reservationEdit";
+	}
 	
+	@RequestMapping(value = "/admin/reservationList")
+	public String AdminReservationList(Model model) throws Exception {
+		
+		return "admin/reservation/reservationList";
+	}
 	
-	
+	@RequestMapping(value = "/admin/reservationView")
+	public String AdminReservationView(Model model) throws Exception {
+		
+		return "admin/reservation/reservationView";
+	}
 	
 	/*---------------------------------------------------------------------------*/
 	
 	
 	/* ※loginForm--------------------------------------------------------------------*/
 
-	
+	@RequestMapping(value = "/admin/loginForm")
+	public String AdminLoginForm(Model model) throws Exception {
+		
+		return "admin/loginForm";
+	}
 	
 	/*---------------------------------------------------------------------------*/
 	
 	
 	/* ※mainView--------------------------------------------------------------------*/
 
-	
+	@RequestMapping(value = "/admin/mainView")
+	public String AdminMainView(Model model) throws Exception {
+		
+		return "admin/mainView";
+	}
 	
 	/*---------------------------------------------------------------------------*/
 	
 	
 	/* ※password--------------------------------------------------------------------*/
 
-	
+	@RequestMapping(value = "/admin/password")
+	public String AdminPassword(Model model) throws Exception {
+		
+		return "admin/password";
+	}
 	
 	/*---------------------------------------------------------------------------*/
 	
