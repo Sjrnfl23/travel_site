@@ -326,7 +326,7 @@
         <script src="../../resources/host/libs/flatpickr/flatpickr.min.js"></script>
 
         <script src="../../resources/host/js/pages/host_couponListBak.init.js"></script>
-
+ 
         <script src="../../resources/host/js/app.js"></script>
 
 
