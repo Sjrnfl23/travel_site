@@ -8,7 +8,7 @@
                             <img src="../../resources/host/images/logo-dark-sm.png" alt="" height="26">
                         </span>
                         <span class="logo-lg">
-                            <img src="../../resources/host/images/nowtravel_logo_180.jpg" alt="">
+                            <img src="../../resources/host/images/nowTravel_logo_180.jpg" alt="">
                         </span>
                     </a>
 
@@ -17,7 +17,7 @@
                             <img src="../../resources/host/images/logo-light-sm.png" alt="" height="26">
                         </span>
                         <span class="logo-sm">
-                            <img src="../../resources/host/images/nowtravel_logo_180.jpg" alt="" height="26">
+                            <img src="../../resources/host/images/nowTravel_logo_180.jpg" alt="" height="26">
                         </span>
                     </a>
                 </div>
