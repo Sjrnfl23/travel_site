@@ -39,45 +39,7 @@
 
 <body>
     <!--============================= HEADER =============================-->
-    <div class="nav-menu sticky-top">
-        <div class="bg transition">
-            <div class="container-fluid fixed">
-                <div class="row">
-                    <div class="col-md-12">
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="mainView.html"><img src="/resources/user/images/nowTravel_logo.jpg" alt="logo"></a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="ti-menu"></span>
-              </button>
-                            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="searchFlex.html">유연한검색</a>
-                                    </li>
-
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    						회원정보
-                    						<span class="ti-angle-down"></span>
-                  						</a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="reservation.html">예약내역</a>
-                                            <a class="dropdown-item" href="mapList.html">여행지도</a>
-                                            <a class="dropdown-item" href="memberView.html">회원정보 수정</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="loginForm.html" data-toggle="modal" data-target="#exampleModal">Login</a>
-                                    </li>
-                                    <li><a href="../host/dist/a_host_loginForm.html" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>호스트 되기</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    ﻿<%@ include file="../include/header.jsp" %>
     <!-- Log In & Signup -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -190,7 +152,7 @@
                         <div class="col-md-6 card-2">
                             <!-- card-1 -->
                             <div class="card">
-                                <a href="lodgingView.html"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
+                                <a href="../lodging/lodgingView.jsp"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">헬로반디vandi룸/수플레팬케잌&빠네 등(조식무료), 도자기컵체험무료,넷플릭스(55인치)</h5>
                                     <ul class="card-rating">
@@ -377,41 +339,7 @@
     </section>
     <!--//END FEATURED LISTING -->
     <!--============================= FOOTER =============================-->
-    <footer class="main-block gray">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4 responsive-wrap">
-                    <div class="location">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <p>503 Sylvan Ave, Mountain View<br> CA 94041, United States</p>
-                    </div>
-                </div>
-                <div class="col-md-4 responsive-wrap">
-                    <div class="footer-logo_wrap">
-                        <img src="/resources/user/images/footer-logo.png" alt="#" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-md-4 responsive-wrap">
-                    <ul class="social-icons">
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-md-12">
-                    <div class="copyright">
-                        <p>Copyright © 2017 Listed Inc. All rights reserved</p>
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <%@ include file="../include/footer.jsp" %>
     <!--//END FOOTER -->
 
 
