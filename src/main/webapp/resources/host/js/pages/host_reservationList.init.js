@@ -8,7 +8,7 @@ var sparklineoptions1={series:[{data:[12,14,2,47,42,15,47,75,65,19,14]}],chart:{
 ,"시작일"
 ,"종료일"
 ,"가격"
-,{name:"Action",sort:{enabled:!1},formatter:function(a){return gridjs.html('<div class="d-flex gap-3"><a href="/host/reservation/reservationView" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a><a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a></div>')}}]
+,{name:"Action",sort:{enabled:!1},formatter:function(a){return gridjs.html('<div class="d-flex gap-3"><a href="/host/reservationView" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a><a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a></div>')}}]
 ,pagination:{limit:7},sort:!0,search:!0
 ,data:[["","1","제주하르방","jeju@jeju.com","ina@naver.com","윤이나","성인 1명","2022-05-28","2022-05-30", "350,000원"]
 	,["","2","제주하르방","jeju@jeju.com","ina@naver.com","윤이나","성인 1명","2022-05-28","2022-05-30", "350,000원"]
