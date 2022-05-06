@@ -40,7 +40,7 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
 
                         <div class="mb-4 pb-2">
-                            <a href="a_host_loginForm.html" class="d-block auth-logo">
+                            <a href="loginForm.html" class="d-block auth-logo">
                                 <img src="../../resources/host/images/nowTravel_logo_200.jpg" alt="" class="auth-logo-dark me-start">
                                 <img src="../../resources/host/images/logo-light.png" alt="" height="30" class="auth-logo-light me-start">
                             </a>
@@ -65,7 +65,7 @@
                 
                                         <div class="mb-3">
                                             <div class="float-end">
-                                                <a href="a_host_password.html" class="text-muted text-decoration-underline">비밀번호 찾기</a>
+                                                <a href="password.html" class="text-muted text-decoration-underline">비밀번호 찾기</a>
                                             </div>
                                             <label class="form-label" for="password-input">Password</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
@@ -93,7 +93,7 @@
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <p class="mb-0">계정이 없으신가요? <a href="a_host_memberForm.html" class="fw-medium text-primary"> 회원가입 </a> </p>
+                                            <p class="mb-0">계정이 없으신가요? <a href="signUpForm.html" class="fw-medium text-primary"> 회원가입 </a> </p>
                                         </div>
                                     </form>
                                 </div>
