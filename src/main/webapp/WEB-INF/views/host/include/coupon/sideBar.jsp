@@ -3,7 +3,7 @@
 
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="../main/mainView.html" class="logo logo-dark">
+                    <a href="../host/mainView.html" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="../../resources/host/images/logo-dark-sm.png" alt="" height="26">
                         </span>
@@ -12,7 +12,7 @@
                         </span>
                     </a>
 
-                    <a href="../main/mainView.html" class="logo logo-light">
+                    <a href="../host/mainView.html" class="logo logo-light">
                         <span class="logo-lg">
                             <img src="../../resources/host/images/logo-light-sm.png" alt="" height="26">
                         </span>
@@ -35,7 +35,7 @@
                             <li class="menu-title" data-key="t-menu">Home</li>
 
                             <li>
-                                <a href="../main/mainView">
+                                <a href="../host/mainView">
                                     <i class="bx bx-home-alt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-dashboard">Home</span>
                                 </a>
@@ -50,8 +50,8 @@
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="../lodging/lodgingList.html" data-key="t-products">숙소 리스트</a></li>
-                                    <li><a href="../lodging/lodgingForm.html" data-key="t-products">숙소 등록</a></li>
+                                    <li><a href="../host/lodgingList.html" data-key="t-products">숙소 리스트</a></li>
+                                    <li><a href="../host/lodgingForm.html" data-key="t-products">숙소 등록</a></li>
                                 </ul>
                             </li>
 
@@ -71,7 +71,7 @@
                             </li>
                             
                             <li>
-                                <a href="../reservation/reservationList.html">
+                                <a href="../host/reservationList.html">
                                     <i class="bx bx-calendar-event icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-calendar">예약관리</span>
                                 </a>
@@ -80,7 +80,7 @@
                             <li class="menu-title" data-key="t-applications">MESSENGER</li>
 
                             <li>
-                                <a href="../dm/hostDm.html">
+                                <a href="../host/hostDm.html">
                                     <i class="bx bx-user-circle icon nav-icon"></i>
                                     <span class="menu-item" data-key="t">문의관리</span>
                                 </a>
