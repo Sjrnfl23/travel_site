@@ -46,45 +46,7 @@
 
 <body>
     <!--============================= HEADER =============================-->
-    <div class="nav-menu sticky-top">
-        <div class="bg transition">
-            <div class="container-fluid fixed">
-                <div class="row">
-                    <div class="col-md-12">
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="mainView.jsp"><img src="/resources/user/images/nowTravel_logo.jpg" alt="logo"></a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="ti-menu"></span>
-              </button>
-                            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="searchFlex.jsp">유연한검색</a>
-                                    </li>
-
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    						회원정보
-                    						<span class="ti-angle-down"></span>
-                  						</a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="reservation">예약내역</a>
-                                            <a class="dropdown-item" href="../map/mapList">여행지도</a>
-                                            <a class="dropdown-item" href="../member/userInfoView">회원정보 수정</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../member/loginForm" data-toggle="modal" data-target="#exampleModal">Login</a>
-                                    </li>
-                                    <li><a href="../host/dist/a_host_loginForm.html" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>호스트 되기</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    ﻿<%@ include file="../include/header.jsp" %>
     <!-- Log In & Signup -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -535,39 +497,7 @@
     
  	<!--============================= 공통부분 푸터 시작 =============================-->
     <!--============================= FOOTER =============================-->
-    <footer class="main-block gray">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4 responsive-wrap">
-                    <div class="location">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <p>서울특별시 서초구 서초4 서초대로77길 55동<br> 서초동, 에이프로스퀘어 3층</p>
-                    </div>
-                </div>
-                <div class="col-md-4 responsive-wrap">
-                    <div class="footer-logo_wrap">
-                        <img src="/resources/user/images/nowTravel_logo_bottom.jpg" alt="#" class="img-fluid" width="200px">
-                    </div>
-                </div>
-                <div class="col-md-4 responsive-wrap">
-                    <ul class="social-icons">
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-md-12">
-                    <div class="copyright">
-                        <p>Copyright © 2022 now travel Inc. All rights reserved</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    ﻿<%@ include file="../include/footer.jsp" %>
     <!--//END FOOTER -->
 	<!--=============================// 공통부분 푸터 끝 =============================-->
 

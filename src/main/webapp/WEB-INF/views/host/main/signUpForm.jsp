@@ -40,7 +40,7 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
 
                         <div class="mb-4 pb-2">
-                            <a href="a_host_loginForm.html" class="d-block auth-logo">
+                            <a href="loginForm.html" class="d-block auth-logo">
                                 <img src="../../resources/host/images/nowTravel_logo_200.jpg" alt="" class="auth-logo-dark me-start">
                                 <img src="../../resources/host/images/logo-light.png" alt="" height="30" class="auth-logo-light me-start">
                             </a>
@@ -53,7 +53,7 @@
                                     <p class="text-muted">호스트 계정을 만들어보세요.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="a_host_mainView.html">
+                                    <form action="mainView.html">
 
         
                                         <div class="mb-3">
@@ -147,7 +147,7 @@
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <p class="mb-0">이미 계정이 존재합니까 ? <a href="a_host_loginForm.html" class="fw-medium text-primary">로그인하기</a></p>
+                                            <p class="mb-0">이미 계정이 존재합니까 ? <a href="loginForm.html" class="fw-medium text-primary">로그인하기</a></p>
                                         </div>
                                     </form>
                                 </div>

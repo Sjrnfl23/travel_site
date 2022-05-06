@@ -48,7 +48,7 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="a_host_mainView.html" class="logo logo-dark">
+                            <a href="../main/mainView.html" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="../../resources/host/images/logo-dark-sm.png" alt="" height="26">
                                 </span>
@@ -57,7 +57,7 @@
                                 </span>
                             </a>
 
-                            <a href="a_host_mainView.html" class="logo logo-light">
+                            <a href="../main/mainView.html" class="logo logo-light">
                                 <span class="logo-lg">
                                     <img src="../../resources/host/images/logo-light.png" alt="" height="30">
                                 </span>
@@ -170,7 +170,7 @@
                                     <h6 class="mb-0">호스트</h6>
                                     <p class="mb-0 font-size-11 text-muted">host@google.com</p>
                                 </div>
-                                <a class="dropdown-item" href="a_host_memberView.html"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
+                                <a class="dropdown-item" href="../main/hostInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="auth-logout.html"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
@@ -184,7 +184,7 @@
 
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="a_host_mainView.html" class="logo logo-dark">
+                    <a href="../main/mainView.html" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="../../resources/host/images/logo-dark-sm.png" alt="" height="26">
                         </span>
@@ -193,7 +193,7 @@
                         </span>
                     </a>
 
-                    <a href="a_host_mainView.html" class="logo logo-light">
+                    <a href="../main/mainView.html" class="logo logo-light">
                         <span class="logo-lg">
                             <img src="../../resources/host/images/logo-light-sm.png" alt="" height="26">
                         </span>
@@ -216,7 +216,7 @@
                             <li class="menu-title" data-key="t-menu">Home</li>
 
                             <li>
-                                <a href="apps-calendar.html">
+                                <a href="../main/mainView">
                                     <i class="bx bx-home-alt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-dashboard">Home</span>
                                 </a>
@@ -231,8 +231,8 @@
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="a_host_lodgingList.html" data-key="t-products">숙소 리스트</a></li>
-                                    <li><a href="a_host_lodgingForm.html" data-key="t-products">숙소 등록</a></li>
+                                    <li><a href="../lodging/lodgingList.html" data-key="t-products">숙소 리스트</a></li>
+                                    <li><a href="../lodging/lodgingForm.html" data-key="t-products">숙소 등록</a></li>
                                 </ul>
                             </li>
 
@@ -243,16 +243,16 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li>
-                                    	<a href="a_host_couponList.html" data-key="t-invoice-list" >쿠폰 리스트</a>
+                                    	<a href="../coupon/couponList.html" data-key="t-invoice-list" >쿠폰 리스트</a>
                                     </li>
-                                    <li><a href="a_host_couponForm.html" data-key="t-invoice-list">쿠폰 등록</a></li>
-                                    <li><a href="a_host_couponListPermit.html" data-key="t-invoice-detail">쿠폰 승인</a></li>
-                                    <li><a href="a_host_couponListBak.html" data-key="t-invoice-detail">쿠폰 내역</a></li>
+                                    <li><a href="../coupon/couponForm.html" data-key="t-invoice-list">쿠폰 등록</a></li>
+                                    <li><a href="../coupon/couponListPermit.html" data-key="t-invoice-detail">쿠폰 승인</a></li>
+                                    <li><a href="../coupon/couponListBak.html" data-key="t-invoice-detail">쿠폰 내역</a></li>
                                 </ul>
                             </li>
                             
                             <li class="mm-active">
-                                <a href="a_host_reservationList.html">
+                                <a href="reservationList.html">
                                     <i class="bx bx-calendar-event icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-calendar" class="active">예약관리</span>
                                 </a>
@@ -261,7 +261,7 @@
                             <li class="menu-title" data-key="t-applications">MESSENGER</li>
 
                             <li>
-                                <a href="a_host_dm.html">
+                                <a href="../dm/hostDm">
                                     <i class="bx bx-user-circle icon nav-icon"></i>
                                     <span class="menu-item" data-key="t">문의관리</span>
                                 </a>
@@ -417,17 +417,17 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="a_host_reservationEdit.html">
+                                                       <a href="reservationEdit.html">
                                                      		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
                                                        </a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="a_host_reservationList.html">
+                                                    	<a href="reservationList.html">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">목록</button>
                                                     	</a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="a_host_reservationList.html">
+                                                    	<a href="reservationList.html">
                                                        		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
                                                     	</a>
                                                     </li>
@@ -474,7 +474,7 @@
         <!-- datepicker js -->
         <script src="../../resources/host/libs/flatpickr/flatpickr.min.js"></script>
 
-        <script src="../../resources/host/js/pages/a_host_couponList.init.js"></script>
+        <script src="../../resources/host/js/pages/couponList.init.js"></script>
 
         <script src="../../resources/host/js/app.js"></script>
 

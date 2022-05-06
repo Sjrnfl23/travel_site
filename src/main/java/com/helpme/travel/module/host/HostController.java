@@ -137,6 +137,28 @@ public class HostController {
 
 		return "/host/main/loginForm";
 	}
+	@RequestMapping(value = "/host/main/hostInfoView")
+	public String hostInfoView() throws Exception {
+
+		
+
+		return "/host/main/hostInfoView";
+	}
+	@RequestMapping(value = "/host/main/hostInfoForm")
+	public String hostInfoForm() throws Exception {
+
+		
+
+		return "/host/main/hostInfoForm";
+	}
+	@RequestMapping(value = "/host/main/hostInfoEdit")
+	public String hostInfoEdit() throws Exception {
+
+		
+
+		return "/host/main/hostInfoEdit";
+	}
+	
 	
 	
 	//reservation

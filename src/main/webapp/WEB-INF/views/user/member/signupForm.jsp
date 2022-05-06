@@ -16,14 +16,14 @@
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="/resources/user/assets/images/favicon.ico">
 
         <!-- Bootstrap Css -->
-        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="/resources/user/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="/resources/user/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="/resources/user/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -40,9 +40,9 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
 
                         <div class="mb-4 pb-2">
-                            <a href="mainView.html" class="d-block auth-logo">
-                                <img src="assets/images/nowTravel_logo_200.jpg" alt="" class="auth-logo-dark me-start">
-                                <img src="assets/images/logo-light.png" alt="" height="30" class="auth-logo-light me-start">
+                            <a href="../lodging/mainView" class="d-block auth-logo">
+                                <img src="/resources/user/assets/images/nowTravel_logo_200.jpg" alt="" class="auth-logo-dark me-start">
+                                <img src="/resources/user/assets/images/logo-light.png" alt="" height="30" class="auth-logo-light me-start">
                             </a>
                         </div>
 
@@ -140,7 +140,7 @@
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <p class="mb-0">이미 계정이 존재합니까 ? <a href="loginForm.html" class="fw-medium text-primary">로그인하기</a></p>
+                                            <p class="mb-0">이미 계정이 존재합니까 ? <a href="../member/loginForm" class="fw-medium text-primary">로그인하기</a></p>
                                         </div>
                                     </form>
                                 </div>
@@ -165,10 +165,10 @@
     <!-- end authentication section -->
 
         <!-- JAVASCRIPT -->
-        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/libs/metismenujs/metismenujs.min.js"></script>
-        <script src="assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="assets/libs/eva-icons/eva.min.js"></script>
+        <script src="/resources/user/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/resources/user/assets/libs/metismenujs/metismenujs.min.js"></script>
+        <script src="/resources/user/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="/resources/user/assets/libs/eva-icons/eva.min.js"></script>
 
     </body>
 
