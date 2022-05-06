@@ -3,21 +3,21 @@
 
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="../main/mainView.html" class="logo logo-dark">
+                    <a href="../host/mainView.html" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="../../resources/host/images/logo-dark-sm.png" alt="" height="26">
+                            <img src="../../../../resources/host/images/logo-dark-sm.png" alt="" height="26">
                         </span>
                         <span class="logo-lg">
-                            <img src="../../resources/host/images/nowtravel_logo_180.jpg" alt="">
+                            <img src="../../../../resources/host/images/nowtravel_logo_180.jpg" alt="">
                         </span>
                     </a>
 
-                    <a href="../main/mainView.html" class="logo logo-light">
+                    <a href="../host/mainView.html" class="logo logo-light">
                         <span class="logo-lg">
                             <img src="../../resources/host/images/logo-light-sm.png" alt="" height="26">
                         </span>
                         <span class="logo-sm">
-                            <img src="../../resources/host/images/nowtravel_logo_180.jpg" alt="" height="26">
+                            <img src="../../../../resources/host/images/nowtravel_logo_180.jpg" alt="" height="26">
                         </span>
                     </a>
                 </div>
@@ -35,7 +35,7 @@
                             <li class="menu-title" data-key="t-menu">Home</li>
 
                             <li>
-                                <a href="../main/mainView">
+                                <a href="../host/mainView">
                                     <i class="bx bx-home-alt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-dashboard">Home</span>
                                 </a>
@@ -61,15 +61,15 @@
                                     <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
                                 </a>
                                 <ul class="sub-menu " aria-expanded="false">
-                                    <li><a href="../coupon/couponList.html" data-key="t-invoice-list">쿠폰 리스트</a></li>
-                                    <li><a href="../coupon/couponForm.html" data-key="t-invoice-list">쿠폰 등록</a></li>
-                                    <li><a href="../coupon/couponListPermit.html" data-key="t-invoice-detail">쿠폰 승인</a></li>
-                                    <li><a href="../coupon/couponListBak.html" data-key="t-invoice-detail">쿠폰 내역</a></li>
+                                    <li><a href="../host/couponList.html" data-key="t-invoice-list">쿠폰 리스트</a></li>
+                                    <li><a href="../host/couponForm.html" data-key="t-invoice-list">쿠폰 등록</a></li>
+                                    <li><a href="../host/couponListPermit.html" data-key="t-invoice-detail">쿠폰 승인</a></li>
+                                    <li><a href="../host/couponListBak.html" data-key="t-invoice-detail">쿠폰 내역</a></li>
                                 </ul>
                             </li>
                             
                             <li>
-                                <a href="../reservation/reservationList.html">
+                                <a href="../host/reservationList.html">
                                     <i class="bx bx-calendar-event icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-calendar">예약관리</span>
                                 </a>
@@ -78,7 +78,7 @@
                             <li class="menu-title" data-key="t-applications">MESSENGER</li>
 
                             <li>
-                                <a href="../dm/hostDm.html">
+                                <a href="../host/hostDm.html">
                                     <i class="bx bx-user-circle icon nav-icon"></i>
                                     <span class="menu-item" data-key="t">문의관리</span>
                                 </a>
