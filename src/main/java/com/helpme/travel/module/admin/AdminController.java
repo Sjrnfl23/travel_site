@@ -1,4 +1,4 @@
-package com.helpme.travel.modules.admin;
+package com.helpme.travel.module.admin;
 
 import java.text.DateFormat;
 import java.util.Date;
