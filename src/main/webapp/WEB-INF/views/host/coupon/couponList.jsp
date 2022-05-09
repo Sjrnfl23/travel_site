@@ -83,7 +83,11 @@
                                     <div class="card-body">
                                         <div class="position-relative">
                                             <div class="modal-button mt-2">
-                                                <a href="couponForm.html><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-target=".add-new-order">등록</button></a>
+<<<<<<< HEAD
+                                                <a href="couponForm"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-target=".add-new-order">등록</button></a>
+=======
+                                                <a href="/host/couponForm><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-target=".add-new-order">등록</button></a>
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                                                 <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">선택삭제</button>
                                             </div>
                                         </div>
@@ -326,7 +330,11 @@
         <!-- datepicker js -->
         <script src="../../resources/host/libs/flatpickr/flatpickr.min.js"></script>
 
-        <script src="/resources/host/js/pages/a_host_couponList.init.js"></script>
+<<<<<<< HEAD
+        <script src="../../resources/host/js/pages/a_host_couponList.init.js"></script>
+=======
+        <script src="/resources/host/js/pages/host_couponList.init.js?version=20220509"></script> <!-- 수정사항 반영이 잘 안돼서 ?version=날짜 붙여줌 -->"></script>
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 
         <script src="../../resources/host/js/app.js"></script>
 

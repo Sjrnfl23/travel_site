@@ -7,7 +7,7 @@ var sparklineoptions1={series:[{data:[12,14,2,47,42,15,47,75,65,19,14]}],chart:{
 ,"전화번호"
 ,"최대인원"
 ,"등록일"
-,{name:"Action",sort:{enabled:!1},formatter:function(a){return gridjs.html('<div class="d-flex gap-3"><a href="admin_lodgingView.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a><a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a></div>')}}]
+,{name:"Action",sort:{enabled:!1},formatter:function(a){return gridjs.html('<div class="d-flex gap-3"><a href="/admin/lodgingView" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a><a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a></div>')}}]
 ,pagination:{limit:7},sort:!0,search:!0
 ,data:[["","1","해변근처","제주하르방","jeju@gmail.com","제주특별자치도 서귀포시 안덕면 사계북로 120","010-1234-1234","8인", "2022-04-26"]
 	,["","2","해변근처","제주하르방","jeju@gmail.com","제주특별자치도 서귀포시 안덕면 사계북로 120","010-1234-1234","8인", "2022-04-26"]

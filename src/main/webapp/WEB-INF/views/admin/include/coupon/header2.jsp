@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-</div>
+
 
                     <div class="d-flex">
 
@@ -95,7 +95,11 @@
                                 <a class="dropdown-item" href="/admin/memberViewAdmin"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
+<<<<<<< HEAD
+                                <a class="dropdown-item" href="loginForm"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
+=======
                                 <a class="dropdown-item" href="/admin/loginForm"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                             </div>
                         </div>
                     </div>
@@ -159,6 +163,15 @@
                                     <i class="bx bx-receipt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
                                 </a>
+<<<<<<< HEAD
+                                <ul class="sub-menu mm-collapse mm-show" aria-expanded="false">
+                                    <li class="mm-active">
+                                    	<a href="/admin/couponList" data-key="t-invoice-list">쿠폰 리스트</a>
+                                    </li>
+       
+                                </ul>
+=======
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                             </li>
                             
                             <li>

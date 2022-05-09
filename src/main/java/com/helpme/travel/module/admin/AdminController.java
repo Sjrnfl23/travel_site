@@ -31,30 +31,14 @@ public class AdminController {
 		
 		return "admin/coupon/couponList";
 	}
-	
-	@RequestMapping(value = "/admin/couponListBak")
-	public String AdminCouponListBak(Model model) throws Exception {
 		
-		return "admin/coupon/couponListBak";
-	}
-	
-	@RequestMapping(value = "/admin/couponListPermit")
-	public String AdminCouponPermit(Model model) throws Exception {
-		
-		return "admin/coupon/couponListPermit";
-	}
-	
 	@RequestMapping(value = "/admin/couponView")
 	public String AdminCouponView(Model model) throws Exception {
 		
 		return "admin/coupon/couponView";
 	}
 	
-	@RequestMapping(value = "/admin/couponViewBak")
-	public String AdminCouponViewBak(Model model) throws Exception {
-		
-		return "admin/coupon/couponViewBak";
-	}
+
 	
 	/*---------------------------------------------------------------------------*/
 	
@@ -113,17 +97,17 @@ public class AdminController {
 	
 	/* memberAdmin 관리자 회원정보--------------------------------------------------------------------*/
 
-	@RequestMapping(value = "/admin/memberEditAdmin")
+	@RequestMapping(value = "/admin/adminInfoEdit")
 	public String AdminMemberEditAdmin(Model model) throws Exception {
 		
-		return "admin/memberAdmin/memberEditAdmin";
+		return "admin/memberAdmin/adminInfoEdit";
 	}
 	
 
-	@RequestMapping(value = "/admin/memberViewAdmin")
+	@RequestMapping(value = "/admin/adminInfoView")
 	public String AdminMemberViewAdmin(Model model) throws Exception {
 		
-		return "admin/memberAdmin/memberViewAdmin";
+		return "admin/memberAdmin/adminInfoView";
 	}
 	
 	/*---------------------------------------------------------------------------*/
@@ -132,7 +116,7 @@ public class AdminController {
 	@RequestMapping(value = "/admin/memberEdit")
 	public String AdminMemberEdit(Model model) throws Exception {
 		
-		return "admin/memberAdmin/memberEditAdmin";
+		return "admin/member/memberEdit";
 	}
 	
 	@RequestMapping(value = "/admin/memberForm")
@@ -175,6 +159,8 @@ public class AdminController {
 		
 		return "admin/reservation/reservationView";
 	}
+	
+
 	
 	/*---------------------------------------------------------------------------*/
 	

@@ -39,15 +39,27 @@
     <!-- <body data-layout="horizontal"> -->
 
         <!-- Begin page -->
-        <%@ include file="../include/coupon/header1.jsp" %>
-                        <!-- start page title -->
-                        <div class="page-title-box align-self-center d-none d-md-block">
-                            <h4 class="page-title mb-0">쿠폰 리스트</h4>
-                        </div>
-                        <!-- end page title -->
-		<%@ include file="../include/coupon/header2.jsp" %>
-                    
+
+        <div id="layout-wrapper">
+
             
+            <!-- 쿠폰 header s -->
+            
+             ﻿<%@ include file="../include/coupon/header.jsp" %>
+             
+              <!-- 쿠폰 header e -->
+              
+              
+            <!-- ========== Left Sidebar Start ========== -->
+            
+             ﻿<%@ include file="../include/coupon/sideBar.jsp" %>
+            
+            <!-- Left Sidebar End -->
+	            <header class="ishorizontal-topbar">
+	                <div class="topnav">
+	                </div>
+	            </header>
+            </div>
 
 
             <!-- ============================================================== -->
@@ -266,7 +278,7 @@
                 </div>
                 <!-- end modal -->
 
-                <footer class="footer">
+<!--                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
@@ -279,7 +291,7 @@
                             </div>
                         </div>
                     </div>
-                </footer>
+                </footer> -->
            
             </div>
             <!-- end main content-->

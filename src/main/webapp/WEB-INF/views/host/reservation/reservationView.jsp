@@ -122,18 +122,6 @@
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
-                                                                호스트 :</th>
-                                                            <td class="text-muted">jeju@jeju.com</td>
-                                                        </tr>
-                                                        <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">
-                                                                호스트 연락처 :</th>
-                                                            <td class="text-muted">010-1234-1234</td>
-                                                        </tr>
-                                                        <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">
                                                                 사용자 :</th>
                                                             <td class="text-muted">ina@naver.com</td>
                                                         </tr>
@@ -200,17 +188,17 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="reservationEdit.html">
+                                                       <a href="/host/reservationEdit">
                                                      		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
                                                        </a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="reservationList.html">
+                                                    	<a href="/host/reservationList">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">목록</button>
                                                     	</a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="reservationList.html">
+                                                    	<a href="/host/reservationList">
                                                        		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
                                                     	</a>
                                                     </li>
