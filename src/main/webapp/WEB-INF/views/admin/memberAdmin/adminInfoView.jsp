@@ -20,9 +20,6 @@
 
         <link rel="stylesheet" href="../../../../resources/admin/assets/libs/gridjs/theme/mermaid.min.css">
 
-        <!-- Plugins css -->
-        <link href="../../../../resources/admin/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />      
-
         <!-- datepicker css -->
         <link rel="stylesheet" href="../../../../resources/admin/assets/libs/flatpickr/flatpickr.min.css">
 
@@ -47,14 +44,14 @@
             
             <!-- 쿠폰 header s -->
             
-             ﻿<%@ include file="../include/member/header.jsp" %>
+             ﻿<%@ include file="../include/memberAdmin/header.jsp" %>
              
               <!-- 쿠폰 header e -->
               
               
             <!-- ========== Left Sidebar Start ========== -->
             
-             ﻿<%@ include file="../include/member/sideBar.jsp" %>
+             ﻿<%@ include file="../include/memberAdmin/sideBar.jsp" %>
             
             <!-- Left Sidebar End -->
 	            <header class="ishorizontal-topbar">
@@ -100,7 +97,7 @@
                                                 <img src="/resources/admin/assets/images/users/avatar-1.jpg" alt="" class="avatar-xl rounded-circle img-thumbnail">
                                               
                                                 <div class="mt-3">
-                                                   <h5 class="mb-1">김이젠</h5>
+                                                   <h5 class="mb-1">관리자</h5>
                                                     <p class="text-muted mb-0">
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
@@ -108,34 +105,6 @@
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
                                                         <i class="bx bxs-star-half text-warning font-size-14"></i>
                                                     </p>
-                                                    
-							                        <div class="row">
-							                            <div class="col-12">
-							                                <div class="card">
-							                                    <div class="card-body">
-							                                        <div>
-							                                            <form action="#" class="dropzone">
-							                                                <div class="fallback">
-							                                                    <input name="file" type="file" multiple="multiple">
-							                                                </div>
-							                                                <div class="dz-message needsclick">
-							                                                    <div class="mb-3">
-							                                                        <i class="display-4 text-muted mdi mdi-cloud-upload"></i>
-							                                                    </div>
-							                                                    
-							                                                    <h4>Drop files here or click to upload.</h4>
-							                                                </div>
-							                                            </form>
-							                                        </div>
-							        
-							                                        <div class="text-center mt-4">
-							                                            <button type="button" class="btn btn-primary waves-effect waves-light">사진첨부</button>
-							                                        </div>
-							                                    </div>
-							                                </div>
-							                            </div> <!-- end col -->
-							                        </div> <!-- end row -->                                                    
-                                                    
                                                 </div>
 
                                             </div>
@@ -146,56 +115,36 @@
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 이름 :</th>
-                                                            <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="김이젠">
-                                                            </td>
+                                                            <td class="text-muted">김이젠</td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 이메일 :</th>
-                                                            <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="ejenit@google.com">
-                                                            </td>
+                                                            <td class="text-muted">ejenit@google.com</td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 비밀번호 :</th>
-                                                            <td class="text-muted">
-                                                            	<input type="password" class="form-control" placeholder="************">
-                                                            </td>
-                                                        </tr>
-                                                        <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">
-                                                                비밀번호 확인 :</th>
-                                                            <td class="text-muted">
-                                                            	<input type="password" class="form-control" placeholder="************">
-                                                            </td>
+                                                            <td class="text-muted">**********</td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 전화번호 :</th>
-                                                            <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="010-1234-1234">
-                                                            </td>
+                                                            <td class="text-muted">010-1234-1234</td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
-                                                            <th class="fw-bold">주소 :</th>
-                                                            <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="제주특별자치도 서귀포시 안덕면 사계북로 120">
-                                                           	</td>
+                                                            <th class="fw-bold">
+                                                                주소 :</th>
+                                                            <td class="text-muted">제주특별자치도 서귀포시 안덕면 사계북로 120</td>
                                                         </tr>
                                                         <!-- end tr -->
-
                                                         <tr>
                                                             <th class="fw-bold">생년월일 :</th>
-                                                            <td class="text-muted">
-                                                            	<input type="date" class="form-control" placeholder="1999-09-09">
-                                                            </td>
+                                                            <td class="text-muted">1999-09-09</td>
                                                         </tr>
                                                         <!-- end tr -->
 
@@ -215,29 +164,26 @@
                                                     <div class="col-12">
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">소개</h5>
-                                                            <p class="text-muted mb-0" style="text-align: left;">
-                                                            <p class="text-muted mb-0" style="text-align: left;">
-                                                            	<textarea class="form-control" placeholder="...."></textarea>
-                                                            </p>                                                            
-                                                            </p>
+                                                            <p class="text-muted mb-0" style="text-align: left;">.....</p>
                                                         </div>
                                                     </div>
 
                                                 </div>
                                             </div>
 
+
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="memberView">
+                                                       <a href="/admin/adminInfoEdit">
                                                      		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
                                                        </a>
                                                     </li>
-                                                    <li class="list-inline-item">
-                                                    	<a href="memberView">
-                                                       		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">취소</button>
+<!--                                                     <li class="list-inline-item">
+                                                    	<a href="memberList">
+                                                       		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
                                                     	</a>
-                                                    </li>
+                                                    </li> -->
                                                 </ul>
                                             </div>
                                         </div>
@@ -260,11 +206,12 @@
 	                        </div>
 	                    </div>
 	                </footer>					
+				
 				</div>
         </div>
         <!-- END layout-wrapper -->
 
- 
+
 
         <!-- chat offcanvas -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasActivity" aria-labelledby="offcanvasActivityLabel">
@@ -295,9 +242,6 @@
         <script src="../../../../resources/admin/assets/js/pages/admin_lodgingList.init.js"></script>
 
         <script src="../../../../resources/admin/assets/js/app.js"></script>
-        
-        <!-- Plugins js -->
-        <script src="../../../../resources/admin/assets/libs/dropzone/min/dropzone.min.js"></script>        
 
 
 
