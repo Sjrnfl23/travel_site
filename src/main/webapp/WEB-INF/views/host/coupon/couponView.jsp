@@ -107,12 +107,7 @@
                                             <div class="table-responsive mt-3 border-bottom pb-3">
                                                 <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
                                                     <tbody>
-                                                        <tr>
-                                                            <th class="fw-bold" style="width: 130px;">
-                                                               호스트 :</th>
-                                                            <td class="text-muted">travel_jeju@jeju.com</td>
-                                                        </tr>
-                                                        <!-- end tr -->
+
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 숙소이름 :</th>
@@ -173,17 +168,17 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="couponEdit.html">
+                                                       <a href="/host/couponEdit">
                                                      		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
                                                        </a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="couponList.html">
+                                                    	<a href="/host/couponList">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">목록</button>
                                                     	</a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="couponList.html">
+                                                    	<a href="/host/couponList">
                                                        		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
                                                     	</a>
                                                     </li>

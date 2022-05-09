@@ -50,97 +50,9 @@
               
               
             <!-- ========== Left Sidebar Start ========== -->
-<<<<<<< HEAD
             
              ﻿<%@ include file="../include/reservation/sideBar.jsp" %>
             
-=======
-            <div class="vertical-menu">
-
-                <!-- LOGO -->
-                <div class="navbar-brand-box">
-                    <a href="../mainView" class="logo logo-dark">
-                        <span class="logo-sm">
-                            <img src="/resources/admin/assets/images/logo-dark-sm.png" alt="" height="26">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="">
-                        </span>
-                    </a>
-
-                    <a href="../mainView" class="logo logo-light">
-                        <span class="logo-lg">
-                            <img src="/resources/admin/assets/images/logo-light-sm.png" alt="" height="26">
-                        </span>
-                        <span class="logo-sm">
-                            <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="" height="26">
-                        </span>
-                    </a>
-                </div>
-
-                <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect vertical-menu-btn">
-                    <i class="bx bx-menu align-middle"></i>
-                </button>
-
-                <div data-simplebar class="sidebar-menu-scroll">
-
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                        <!-- Left Menu Start -->
-                        <ul class="metismenu list-unstyled" id="side-menu">
-                            <li class="menu-title" data-key="t-menu">Home</li>
-
-                            <li class="menu-title" data-key="t-applications">MANAGEMENT</li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i class="bx bx-store icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="../lodging/lodgingList" data-key="t-products">숙소 리스트</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i class="bx bx-receipt icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
-                                </a>
-                                <ul class="sub-menu mm-collapse mm-show" aria-expanded="false">
-                                    <li>
-                                    	<a href="../admin/couponList" data-key="t-invoice-list">쿠폰 리스트</a>
-                                    </li>
-                                    <li><a href="../coupon/couponListPermit" data-key="t-invoice-detail">쿠폰 승인</a></li>
-                                    <li><a href="../coupon/couponListBak" data-key="t-invoice-detail">쿠폰 내역</a></li>
-                                </ul>
-                            </li>
-                            
-                            <li  class="mm-active">
-                                <a href="reservationList">
-                                    <i class="bx bx-calendar-event icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-calendar"  class="active">예약관리</span>
-                                </a>
-                            </li>
-
-                            <li class="menu-title" data-key="t-applications">MEMBER</li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i class="bx bx-user-circle icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-contacts">회원관리</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="../host/hostList" data-key="t-user-grid">호스트 관리</a></li>
-                                    <li><a href="../member/memberList" data-key="t-user-list">사용자 관리</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Sidebar -->
-                </div>
-            </div>
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
             <!-- Left Sidebar End -->
 	            <header class="ishorizontal-topbar">
 	                <div class="topnav">

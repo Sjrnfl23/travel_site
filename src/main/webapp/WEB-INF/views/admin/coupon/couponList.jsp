@@ -39,7 +39,7 @@
     <!-- <body data-layout="horizontal"> -->
 
         <!-- Begin page -->
-<<<<<<< HEAD
+
         <div id="layout-wrapper">
 
             
@@ -60,17 +60,6 @@
 	                </div>
 	            </header>
             </div>
-=======
-        <%@ include file="../include/coupon/header1.jsp" %>
-                        <!-- start page title -->
-                        <div class="page-title-box align-self-center d-none d-md-block">
-                            <h4 class="page-title mb-0">쿠폰 리스트</h4>
-                        </div>
-                        <!-- end page title -->
-		<%@ include file="../include/coupon/header2.jsp" %>
-                    
-        <%@ include file="../include/coupon/footer.jsp" %>     
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 
 
             <!-- ============================================================== -->
