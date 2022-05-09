@@ -97,17 +97,17 @@ public class AdminController {
 	
 	/* memberAdmin 관리자 회원정보--------------------------------------------------------------------*/
 
-	@RequestMapping(value = "/admin/memberEditAdmin")
+	@RequestMapping(value = "/admin/adminInfoEdit")
 	public String AdminMemberEditAdmin(Model model) throws Exception {
 		
-		return "admin/memberAdmin/memberEditAdmin";
+		return "admin/memberAdmin/adminInfoEdit";
 	}
 	
 
-	@RequestMapping(value = "/admin/memberViewAdmin")
+	@RequestMapping(value = "/admin/adminInfoView")
 	public String AdminMemberViewAdmin(Model model) throws Exception {
 		
-		return "admin/memberAdmin/memberViewAdmin";
+		return "admin/memberAdmin/adminInfoView";
 	}
 	
 	/*---------------------------------------------------------------------------*/
@@ -116,7 +116,7 @@ public class AdminController {
 	@RequestMapping(value = "/admin/memberEdit")
 	public String AdminMemberEdit(Model model) throws Exception {
 		
-		return "admin/memberAdmin/memberEditAdmin";
+		return "admin/member/memberEdit";
 	}
 	
 	@RequestMapping(value = "/admin/memberForm")

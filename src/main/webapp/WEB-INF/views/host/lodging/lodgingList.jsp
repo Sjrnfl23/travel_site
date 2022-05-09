@@ -83,7 +83,7 @@
                                     <div class="card-body">
                                         <div class="position-relative">
                                             <div class="modal-button mt-2">
-                                                <a href="lodgingForm.html"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-target=".add-new-order">등록</button></a>
+                                                <a href="/host/lodgingForm"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-target=".add-new-order">등록</button></a>
                                                 <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">선택 삭제</button>
                                             </div>
                                         </div>
@@ -326,7 +326,7 @@
         <!-- datepicker js -->
         <script src="../../resources/host/libs/flatpickr/flatpickr.min.js"></script>
 
-       <script src="/resources/host/js/pages/host_lodgingList.init.js"></script>
+       <script src="/resources/host/js/pages/host_lodgingList.init.js?version=20220519"></script> <!-- 수정사항 반영이 잘 안돼서 ?version=날짜 붙여줌 -->
 
         <script src="../../resources/host/js/app.js"></script>
 

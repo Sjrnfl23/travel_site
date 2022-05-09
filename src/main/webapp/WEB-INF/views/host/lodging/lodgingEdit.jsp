@@ -144,14 +144,7 @@
                                             <div class="table-responsive mt-3 border-bottom pb-3">
                                                 <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
                                                     <tbody>
-                                                        <tr>
-                                                            <th class="fw-bold">
-                                                                호스트 :</th>
-                                                            <td class="text-muted">
-                                                            	jeju@gmail.com
-                                                            </td>
-                                                        </tr>
-                                                        <!-- end tr --> 
+
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 숙소이름 :</th>
@@ -279,12 +272,12 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="lodgingView.html">
+                                                       <a href="/host/lodgingView">
                                                      		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
                                                        </a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="lodgingView.html">
+                                                    	<a href="/host/lodgingView">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">취소</button>
                                                     	</a>
                                                     </li>

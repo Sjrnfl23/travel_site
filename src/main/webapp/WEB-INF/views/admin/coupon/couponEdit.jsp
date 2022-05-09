@@ -39,8 +39,28 @@
     <!-- <body data-layout="horizontal"> -->
 
         <!-- Begin page -->
-        <%@ include file="../include/coupon/header1.jsp" %>
+        <div id="layout-wrapper">
 
+<<<<<<< HEAD
+            
+            <!-- 쿠폰 header s -->
+            
+             ﻿<%@ include file="../include/coupon/header.jsp" %>
+             
+              <!-- 쿠폰 header e -->
+              
+              
+            <!-- ========== Left Sidebar Start ========== -->
+            
+             ﻿<%@ include file="../include/coupon/sideBar.jsp" %>
+            
+            <!-- Left Sidebar End -->
+	            <header class="ishorizontal-topbar">
+	                <div class="topnav">
+	                </div>
+	            </header>
+            </div>
+=======
                         <!-- start page title -->
                         <div class="page-title-box align-self-center d-none d-md-block">
                             <h4 class="page-title mb-0">쿠폰 수정</h4>
@@ -50,6 +70,7 @@
          <%@ include file="../include/coupon/header2.jsp" %>
          
          <%@ include file="../include/coupon/footer.jsp" %> 
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 
 
             <!-- ============================================================== -->

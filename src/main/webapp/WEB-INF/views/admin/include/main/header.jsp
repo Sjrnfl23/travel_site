@@ -1,28 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
-<header id="page-topbar" class="isvertical-topbar">
+  <header id="page-topbar" class="isvertical-topbar">
                 <div class="navbar-header">
                     <div class="d-flex">
-                        <!-- LOGO -->
-                        <div class="navbar-brand-box">
-                            <a href="../host/mainView.html" class="logo logo-dark">
-                                <span class="logo-sm">
-                                    <img src="../../resources/host/images/logo-dark-sm.png" alt="" height="26">
-                                </span>
-                                <span class="logo-lg">
-                                    <img src="../../resources/host/images/logo-dark-sm.png" alt="" height="26">
-                                </span>
-                            </a>
-
-                            <a href="../host/mainView.html" class="logo logo-light">
-                                <span class="logo-lg">
-                                    <img src="../../resources/host/images/logo-light.png" alt="" height="30">
-                                </span>
-                                <span class="logo-sm">
-                                    <img src="../../resources/host/images/logo-light-sm.png" alt="" height="26">
-                                </span>
-                            </a>
-                        </div>
+	                <!-- LOGO -->
+	                <div class="navbar-brand-box">
+	                    <a href="/admin/mainView" class="logo logo-dark">
+	                        <span class="logo-sm">
+	                            <img src="/resources/admin/assets/images/logo-dark-sm.png" alt="" height="26">
+	                        </span>
+	                        <span class="logo-lg">
+	                            <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="">
+	                        </span>
+	                    </a>
+	
+	                    <a href="/admin/mainView" class="logo logo-light">
+	                        <span class="logo-lg">
+	                            <img src="/resources/admin/assets/images/logo-light-sm.png" alt="" height="26">
+	                        </span>
+	                        <span class="logo-sm">
+	                            <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="" height="26">
+	                        </span>
+	                    </a>
+	                </div>
 
                         <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect vertical-menu-btn">
                             <i class="bx bx-menu align-middle"></i>
@@ -30,7 +30,7 @@
 
                         <!-- start page title -->
                         <div class="page-title-box align-self-center d-none d-md-block">
-                            <h4 class="page-title mb-0">예약 관리</h4>
+                            <h4 class="page-title mb-0">관리자님, 환영합니다!</h4>
                         </div>
                         <!-- end page title -->
 
@@ -120,14 +120,14 @@
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" src="../../resources/host/images/users/avatar-3.jpg"
                                 alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-2 fw-medium font-size-15">호스트</span>
+                                <span class="d-none d-xl-inline-block ms-2 fw-medium font-size-15">관리자</span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end pt-0">
                                 <div class="p-3 border-bottom">
-                                    <h6 class="mb-0">호스트</h6>
+                                    <h6 class="mb-0">관리자</h6>
                                     <p class="mb-0 font-size-11 text-muted">admin@nowtravel.com</p>
                                 </div>
-                                <a class="dropdown-item" href="../host/hostInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
+                                <a class="dropdown-item" href="/admin/adminInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="auth-logout.html"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>

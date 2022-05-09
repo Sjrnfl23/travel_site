@@ -327,7 +327,7 @@
         <!-- datepicker js -->
         <script src="../../resources/host/libs/flatpickr/flatpickr.min.js"></script>
 
-        <script src="/resources/host/js/pages/a_host_reservationList.init.js"></script>
+        <script src="/resources/host/js/pages/host_reservationList.init.js?version=20220509"></script> <!-- 수정사항 반영이 잘 안돼서 ?version=날짜 붙여줌 -->"></script>
 
         <script src="../../resources/host/js/app.js"></script>
 
