@@ -227,7 +227,7 @@
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="../lodging/lodgingList" data-key="t-products">숙소 리스트</a></li>
+                                    <li><a href="../admin/lodgingList" data-key="t-products">숙소 리스트</a></li>
                                 </ul>
                             </li>
 
@@ -237,14 +237,12 @@
                                     <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
                                 </a>
                                 <ul class="sub-menu " aria-expanded="false">
-                                    <li><a href="../coupon/couponList" data-key="t-invoice-list">쿠폰 리스트</a></li>
-                                    <li><a href="../coupon/couponListPermit" data-key="t-invoice-detail">쿠폰 승인</a></li>
-                                    <li><a href="../coupon/couponListBak" data-key="t-invoice-detail">쿠폰 내역</a></li>
+                                    <li><a href="../admin/couponList" data-key="t-invoice-list">쿠폰 리스트</a></li>
                                 </ul>
                             </li>
                             
                             <li>
-                                <a href="../reservation/reservationList">
+                                <a href="../admin/reservationList">
                                     <i class="bx bx-calendar-event icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-calendar">예약관리</span>
                                 </a>
@@ -259,7 +257,7 @@
                                 </a>
                                 <ul class="sub-menu  mm-collapse mm-show" aria-expanded="false">
                                     <li  class="mm-active"><a href="hostList" data-key="t-user-grid" class="active">호스트 관리</a></li>
-                                    <li><a href="../member/memberList" data-key="t-user-list" >사용자 관리</a></li>
+                                    <li><a href="../admin/memberList" data-key="t-user-list" >사용자 관리</a></li>
                                 </ul>
                             </li>
                         </ul>

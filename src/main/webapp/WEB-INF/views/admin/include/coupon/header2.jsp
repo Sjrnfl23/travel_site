@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-</div>
+
 
                     <div class="d-flex">
 
@@ -95,7 +95,7 @@
                                 <a class="dropdown-item" href="contacts-profile.html"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="auth-logout.html"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
+                                <a class="dropdown-item" href="loginForm"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
                             </div>
                         </div>
                     </div>
@@ -159,8 +159,7 @@
                                     <li class="mm-active">
                                     	<a href="/admin/couponList" data-key="t-invoice-list">쿠폰 리스트</a>
                                     </li>
-                                    <li><a href="/admin/couponListPermit" data-key="t-invoice-detail">쿠폰 승인</a></li>
-                                    <li><a href="/admin/couponListBak" data-key="t-invoice-detail">쿠폰 내역</a></li>
+       
                                 </ul>
                             </li>
                             

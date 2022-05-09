@@ -48,6 +48,8 @@
                         <!-- end page title -->
 
          <%@ include file="../include/coupon/header2.jsp" %>
+         
+         <%@ include file="../include/coupon/footer.jsp" %> 
 
 
             <!-- ============================================================== -->
@@ -193,7 +195,7 @@
 						</div>
 					</div>
 				</div>
-                <footer class="footer">
+               <!--  <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
@@ -206,11 +208,11 @@
                             </div>
                         </div>
                     </div>
-                </footer>        
-        </div>
+                </footer>         -->
+
             <!-- end main content-->
 
-        </div>
+       
         <!-- END layout-wrapper -->
 
 

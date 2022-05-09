@@ -47,7 +47,7 @@
                         <!-- end page title -->
 		<%@ include file="../include/coupon/header2.jsp" %>
                     
-            
+        <%@ include file="../include/coupon/footer.jsp" %>     
 
 
             <!-- ============================================================== -->
@@ -266,7 +266,7 @@
                 </div>
                 <!-- end modal -->
 
-                <footer class="footer">
+<!--                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
@@ -279,7 +279,7 @@
                             </div>
                         </div>
                     </div>
-                </footer>
+                </footer> -->
            
             </div>
             <!-- end main content-->

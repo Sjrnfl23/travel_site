@@ -16,17 +16,17 @@
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="../../../resources/admin/assets/images/favicon.ico">
 
         <!-- fullcalendar css -->
-        <link href="assets/libs/fullcalendar/main.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../../resources/admin/assets/libs/fullcalendar/main.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Bootstrap Css -->
-        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="../../../resources/admin/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../../resources/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="../../../resources/admin/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -565,18 +565,18 @@
         </div>
 
         <!-- JAVASCRIPT -->
-        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/libs/metismenujs/metismenujs.min.js"></script>
-        <script src="assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="assets/libs/eva-icons/eva.min.js"></script>
+        <script src="../../../resources/admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../../../resources/admin/assets/libs/metismenujs/metismenujs.min.js"></script>
+        <script src="../../../resources/admin/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="../../../resources/admin/assets/libs/eva-icons/eva.min.js"></script>
         
         <!-- plugin js -->
-        <script src="assets/libs/fullcalendar/main.min.js"></script>
+        <script src="../../../resources/admin/assets/libs/fullcalendar/main.min.js"></script>
 
         <!-- Calendar init -->
-        <script src="assets/js/pages/calendar.init.js"></script>
+        <script src="../../../resources/admin/assets/js/pages/calendar.init.js"></script>
 
-        <script src="assets/js/app.js"></script>
+        <script src="../../../resources/admin/assets/js/app.js"></script>
 
     </body>
 

@@ -233,7 +233,7 @@
                                 </a>
                                 <ul class="sub-menu mm-collapse mm-show" aria-expanded="false">
                                     <li>
-                                    	<a href="../coupon/couponList" data-key="t-invoice-list">쿠폰 리스트</a>
+                                    	<a href="../admin/couponList" data-key="t-invoice-list">쿠폰 리스트</a>
                                     </li>
                                     <li><a href="../coupon/couponListPermit" data-key="t-invoice-detail">쿠폰 승인</a></li>
                                     <li><a href="../coupon/couponListBak" data-key="t-invoice-detail">쿠폰 내역</a></li>
