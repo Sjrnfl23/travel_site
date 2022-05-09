@@ -3,26 +3,26 @@
  <header id="page-topbar" class="isvertical-topbar">
                 <div class="navbar-header">
                     <div class="d-flex">
-		                <!-- LOGO -->
-		                <div class="navbar-brand-box">
-		                    <a href="/host/mainView" class="logo logo-dark">
-		                        <span class="logo-sm">
-		                            <img src="/resources/admin/assets/images/logo-dark-sm.png" alt="" height="26">
-		                        </span>
-		                        <span class="logo-lg">
-		                            <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="">
-		                        </span>
-		                    </a>
-		
-		                    <a href="/host/mainView" class="logo logo-light">
-		                        <span class="logo-lg">
-		                            <img src="/resources/admin/assets/images/logo-light-sm.png" alt="" height="26">
-		                        </span>
-		                        <span class="logo-sm">
-		                            <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="" height="26">
-		                        </span>
-		                    </a>
-		                </div>
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <a href="../host/mainView.html" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="../../resources/host/images/logo-dark-sm.png" alt="" height="26">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="../../resources/host/images/logo-dark-sm.png" alt="" height="26">
+                                </span>
+                            </a>
+
+                            <a href="../host/mainView.html" class="logo logo-light">
+                                <span class="logo-lg">
+                                    <img src="../../resources/host/images/logo-light.png" alt="" height="30">
+                                </span>
+                                <span class="logo-sm">
+                                    <img src="../../resources/host/images/logo-light-sm.png" alt="" height="26">
+                                </span>
+                            </a>
+                        </div>
 
                         <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect vertical-menu-btn">
                             <i class="bx bx-menu align-middle"></i>
@@ -30,7 +30,7 @@
 
                         <!-- start page title -->
                         <div class="page-title-box align-self-center d-none d-md-block">
-                            <h4 class="page-title mb-0">호스트님, 환영합니다!</h4>
+                            <h4 class="page-title mb-0">숙소 수정</h4>
                         </div>
                         <!-- end page title -->
 
@@ -84,9 +84,9 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <p class="text-muted font-size-13 mb-0 float-end">2022-05-02</p>
-                                                <h6 class="mb-1">쿠폰 승인 완료</h6>
+                                                <h6 class="mb-1">쿠폰 승인 요청</h6>
                                                 <div>
-                                                    <p class="mb-0">쿠폰승인이 완료되었습니다.</p>
+                                                    <p class="mb-0">쿠폰승인 요청이 들어왔습니다. 쿠폰승인 메뉴를 확인해주세요.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -99,9 +99,9 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <p class="text-muted font-size-13 mb-0 float-end">2022-05-02</p>
-                                                <h6 class="mb-1">쿠폰 거절</h6>
+                                                <h6 class="mb-1">신규 관리자 등록</h6>
                                                 <div>
-                                                    <p class="mb-1">요청하신 쿠폰이 거절되었습니다.</p>
+                                                    <p class="mb-1">새로운 관리자가 등록되었습니다.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -125,9 +125,9 @@
                             <div class="dropdown-menu dropdown-menu-end pt-0">
                                 <div class="p-3 border-bottom">
                                     <h6 class="mb-0">관리자</h6>
-                                    <p class="mb-0 font-size-11 text-muted">host@gmail.com</p>
+                                    <p class="mb-0 font-size-11 text-muted">admin@nowtravel.com</p>
                                 </div>
-                                <a class="dropdown-item" href="hostInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
+                                <a class="dropdown-item" href="../host/hostInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="auth-logout.html"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
