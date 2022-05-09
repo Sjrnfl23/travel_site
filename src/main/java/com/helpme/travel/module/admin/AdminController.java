@@ -31,30 +31,14 @@ public class AdminController {
 		
 		return "admin/coupon/couponList";
 	}
-	
-	@RequestMapping(value = "/admin/couponListBak")
-	public String AdminCouponListBak(Model model) throws Exception {
 		
-		return "admin/coupon/couponListBak";
-	}
-	
-	@RequestMapping(value = "/admin/couponListPermit")
-	public String AdminCouponPermit(Model model) throws Exception {
-		
-		return "admin/coupon/couponListPermit";
-	}
-	
 	@RequestMapping(value = "/admin/couponView")
 	public String AdminCouponView(Model model) throws Exception {
 		
 		return "admin/coupon/couponView";
 	}
 	
-	@RequestMapping(value = "/admin/couponViewBak")
-	public String AdminCouponViewBak(Model model) throws Exception {
-		
-		return "admin/coupon/couponViewBak";
-	}
+
 	
 	/*---------------------------------------------------------------------------*/
 	
@@ -175,6 +159,8 @@ public class AdminController {
 		
 		return "admin/reservation/reservationView";
 	}
+	
+
 	
 	/*---------------------------------------------------------------------------*/
 	

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Admin {
 	
-	// ¼÷¼Ò°ü¸®
+	// ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ï¿½
 	private String tvamSeq;
 	private String tvamAcName;
 	private String tvamHostName;
