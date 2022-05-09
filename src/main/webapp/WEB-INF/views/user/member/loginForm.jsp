@@ -40,7 +40,7 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
 
                         <div class="mb-4 pb-2">
-                            <a href="../lodging/mainView" class="d-block auth-logo">
+                            <a href="/user/mainView" class="d-block auth-logo">
                                 <img src="/resources/user/assets/images/nowTravel_logo_200.jpg" alt="" class="auth-logo-dark me-start">
                                 <img src="/resources/user/assets/images/logo-light.png" alt="" height="30" class="auth-logo-light me-start">
                             </a>
@@ -53,7 +53,7 @@
                                     <p class="text-muted">now travel 사용을 위해 로그인해주세요.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="../lodging/mainView">
+                                    <form action="/user/mainView">
         
                                         <div class="mb-3">
                                             <label class="form-label" for="username">이메일</label>

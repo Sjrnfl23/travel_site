@@ -40,7 +40,10 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="/resources/user/css/style.css">
     
-    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"><!-- datepicker -->
+	<link rel="stylesheet" href="/resources/demos/style.css"><!-- datepicker -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script><!-- datepicker -->
+	
     
 </head>
 
@@ -458,6 +461,32 @@
                         </div>
                         <a href="#" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
                     </div>
+                    <div class="contact-info" align=center>	<!-- 예약 -->
+	                    <div class="address">
+	                    	<br><h4><strong>₩150,000</strong></h4><h5>2 / 3</h5>
+	                    </div>
+                        <div class="address">
+	                        <div class="container">
+							  <div class="row row-cols-2" align=center>
+								  <div class="input-group">
+								    <input type="text" class="form-control form-control-sm" id="datepicker1" placeholder="시작일" >
+								    <input type="text" class="form-control form-control-sm" id="datepicker2" placeholder="종료일">
+								  </div>
+							    <div class="col-12"><input type="number" class="form-control"></div>
+							  </div>
+							</div>
+                        </div>
+                        <div class="address">
+                            <span class="icon-link"></span>
+                            <p>https://airbnb.co.kr</p>
+                        </div>
+                        <div class="address">
+                            <span class="icon-clock"></span>
+                            <p>월 - 일 09:30 am - 05:30 pm </p>
+                            <a href="#" class="featured-open">OPEN NOW</a>
+                        </div>
+                        <a href="#" class="btn btn-outline-danger btn-contact">예약하기</a>
+                    </div>
                     <div class="follow">
                         <div class="follow-img">
                             <img src="/resources/user/images/review4.jpg" class="img-fluid" alt="#">
@@ -549,7 +578,27 @@
             });
         }
     </script>
-
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> <!-- datepicker -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		 $("#datepicker1").datepicker();
+	}); 
+	$(document).ready(function(){
+		 $("#datepicker2").datepicker();
+	}); 
+	$.datepicker.setDefaults({
+	    dateFormat: 'yy-mm-dd',
+	    prevText: '이전 달',
+	    nextText: '다음 달',
+	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+	    showMonthAfterYear: true,
+	    yearSuffix: '년'
+	});
+</script>
 </body>
 
 </html>

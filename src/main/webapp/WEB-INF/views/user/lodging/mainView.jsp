@@ -176,7 +176,7 @@
                     <div class="titile-block" style="position: relative;">
                         <img src="/resources/user/images/flexSearch.jpg" width="100%">
                         <span style="color:white; font-size:28px; font-weight:600; position: absolute; right:30%; top: 70%;">호기심을 자극하는 숙소로 떠나보세요</span>
-                        <a href="searchFlex.html"><button type="button" class="btn btn btn-danger btn-lg" style="position: absolute; right:43%; top: 80%;">유연한검색</button></a>
+                        <a href="searchFlex"><button type="button" class="btn btn btn-danger btn-lg" style="position: absolute; right:43%; top: 80%;">유연한검색</button></a>
                     </div>
                 </div>
             </div>
@@ -201,7 +201,7 @@
                             <img src="/resources/user/images/jeju.jpg" alt="#" class="img-fluid">
                             <figcaption>
                                 <div class="effect-caption-wrap">
-                                   <a href="search.html" style="color: white;"><h1><b>제주</b></h1></a>
+                                   <a href="search" style="color: white;"><h1><b>제주</b></h1></a>
                                     <p>1500+ Listings</p>
                                 </div>
                             </figcaption>
@@ -217,7 +217,7 @@
                                     <img src="/resources/user/images/seoul.jpg" alt="#" class="img-fluid">
                                     <figcaption>
                                         <div class="effect-caption-wrap">
-                                            <a href="search.html" style="color: white;"><h1><b>서울</b></h1></a>
+                                            <a href="search" style="color: white;"><h1><b>서울</b></h1></a>
                                             <p>300+ Listings</p>
                                         </div>
                                     </figcaption>
@@ -231,7 +231,7 @@
                                 <figure class="effect-chico">
                                     <img src="/resources/user/images/busan.jpg" alt="#" class="img-fluid">
                                     <div class="effect-caption-wrap">
-                                        <a href="search.html" style="color: white;"><h1 style="color: white;"><b>부산</b></h1></a>
+                                        <a href="search" style="color: white;"><h1 style="color: white;"><b>부산</b></h1></a>
                                         <p>800+ Listings</p>
                                     </div>
                                 </figure>
@@ -242,7 +242,7 @@
                                 <figure class="effect-chico">
                                     <img src="/resources/user/images/jinhae.jpg" alt="#" class="img-fluid">
                                     <div class="effect-caption-wrap">
-                                        <a href="search.html" style="color: white;"><h1 style="color: white;"><b>진해</b></h1></a>
+                                        <a href="search" style="color: white;"><h1 style="color: white;"><b>진해</b></h1></a>
                                         <p>210+ Listings</p>
                                     </div>
                                 </figure>
@@ -356,7 +356,7 @@
                         <p>호스트가 되시면 숙소 등록이 가능합니다.</p>
                     </div>
                     <div class="btn-wrap btn-wrap2">
-                        <a href="add-listing.html" class="btn btn-simple">호스트 되기</a>
+                        <a href="../../host/loginForm" class="btn btn-simple">호스트 되기</a>
                     </div>
                 </div>
             </div>

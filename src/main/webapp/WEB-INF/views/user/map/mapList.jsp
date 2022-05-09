@@ -126,7 +126,7 @@
                         </div>
 						<div class="col-md-8 featured-responsive">
                             <div class="detail-filter">
-                                <a class="btn btn-outline-danger" href="../map/mapForm.html" role="button"><span class="ti-pencil"></span>기록</a>
+                                <a class="btn btn-outline-danger" href="/user/mapForm" role="button"><span class="ti-pencil"></span>기록</a>
                             </div>
                         </div>
                     </div>
@@ -136,9 +136,9 @@
 	                            <div class="card input-form">
                                 <a href="/resources/user/images/cherryblossom.jpg"><img class="card-img-top img_inside" src="/resources/user/images/cherryblossom.jpg" alt="Card image cap"></a>
 	                                <div class="card-body">
-	                                    <a class="nav-link jal" href="mapEdit.html"><h5>굴포천 반월공원</h5></a>
+	                                    <a class="nav-link jal" href="/user/mapEdit"><h5>굴포천 반월공원</h5></a>
 	                                    <p class="card-text ft">굴포천에서 벚꽃 구경</p>
-	                                    <a class="btn btn-outline-danger" href="mapForm.html" role="button">삭제</a>
+	                                    <a class="btn btn-outline-danger" href="/user/mapForm" role="button">삭제</a>
 	                                </div>
                             </div>
 	                        </div>
