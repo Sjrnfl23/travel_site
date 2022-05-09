@@ -9,16 +9,28 @@
                             <img src="/resources/admin/assets/images/logo-dark-sm.png" alt="" height="26">
                         </span>
                         <span class="logo-lg">
+<<<<<<< HEAD
                             <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="">
+=======
+                            <img src="../../resources/host/images/nowTravel_logo_180.jpg" alt="">
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                         </span>
                     </a>
 
                     <a href="../host/mainView.html" class="logo logo-light">
                         <span class="logo-lg">
+<<<<<<< HEAD
                             <img src="/resources/admin/assets/images/logo-light-sm.png" alt="" height="26">
+=======
+                            <img src="/resources/host/images/logo-light-sm.png" alt="" height="26">
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                         </span>
                         <span class="logo-sm">
+<<<<<<< HEAD
                             <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="" height="26">
+=======
+                            <img src="/resources/host/images/nowTravel_logo_180.jpg" alt="" height="26">
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                         </span>
                     </a>
                 </div>
