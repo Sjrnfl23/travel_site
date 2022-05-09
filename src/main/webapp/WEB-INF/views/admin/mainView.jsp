@@ -16,33 +16,17 @@
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="../../../resources/admin/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="/resources/admin/assets/images/favicon.ico">
 
         <!-- fullcalendar css -->
-<<<<<<< HEAD
         <link href="/resources/admin/assets/libs/fullcalendar/main.min.css" rel="stylesheet" type="text/css" />
-=======
-        <link href="../../../resources/admin/assets/libs/fullcalendar/main.min.css" rel="stylesheet" type="text/css" />
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 
         <!-- Bootstrap Css -->
-<<<<<<< HEAD
         <link href="/resources/admin/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-=======
-        <link href="../../../resources/admin/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
         <!-- Icons Css -->
-<<<<<<< HEAD
         <link href="/resources/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-=======
-        <link href="../../../resources/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
         <!-- App Css-->
-<<<<<<< HEAD
         <link href="/resources/admin/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-=======
-        <link href="../../../resources/admin/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 
     </head>
 
@@ -79,14 +63,11 @@
             <!-- 공통부분 끝 -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
-            <!-- 컨텐츠 시시작 -->
+            <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
             <div class="main-content">
                 <div class="page-content">
                     <div class="container-fluid">
-
-
-
 
 
 
@@ -364,37 +345,18 @@
         </div>
 
         <!-- JAVASCRIPT -->
-<<<<<<< HEAD
         <script src="/resources/admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/resources/admin/assets/libs/metismenujs/metismenujs.min.js"></script>
         <script src="/resources/admin/assets/libs/simplebar/simplebar.min.js"></script>
         <script src="/resources/admin/assets/libs/eva-icons/eva.min.js"></script>
-=======
-        <script src="../../../resources/admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="../../../resources/admin/assets/libs/metismenujs/metismenujs.min.js"></script>
-        <script src="../../../resources/admin/assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="../../../resources/admin/assets/libs/eva-icons/eva.min.js"></script>
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
         
         <!-- plugin js -->
-<<<<<<< HEAD
         <script src="/resources/admin/assets/libs/fullcalendar/main.min.js"></script>
-=======
-        <script src="../../../resources/admin/assets/libs/fullcalendar/main.min.js"></script>
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 
         <!-- Calendar init -->
-<<<<<<< HEAD
         <script src="/resources/admin/assets/js/pages/calendar.init.js"></script>
-=======
-        <script src="../../../resources/admin/assets/js/pages/calendar.init.js"></script>
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 
-<<<<<<< HEAD
         <script src="/resources/admin/assets/js/app.js"></script>
-=======
-        <script src="../../../resources/admin/assets/js/app.js"></script>
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 
     </body>
 
