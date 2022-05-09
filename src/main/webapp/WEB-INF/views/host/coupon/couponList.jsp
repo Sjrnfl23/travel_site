@@ -83,7 +83,7 @@
                                     <div class="card-body">
                                         <div class="position-relative">
                                             <div class="modal-button mt-2">
-                                                <a href="couponForm.html><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-target=".add-new-order">등록</button></a>
+                                                <a href="couponForm"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-target=".add-new-order">등록</button></a>
                                                 <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">선택삭제</button>
                                             </div>
                                         </div>
@@ -326,7 +326,7 @@
         <!-- datepicker js -->
         <script src="../../resources/host/libs/flatpickr/flatpickr.min.js"></script>
 
-        <script src="/resources/host/js/pages/a_host_couponList.init.js"></script>
+        <script src="../../resources/host/js/pages/a_host_couponList.init.js"></script>
 
         <script src="../../resources/host/js/app.js"></script>
 

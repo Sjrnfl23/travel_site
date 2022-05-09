@@ -5,7 +5,7 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="../host/mainView.html" class="logo logo-dark">
+                            <a href="/host/mainView" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="../../resources/host/images/logo-dark-sm.png" alt="" height="26">
                                 </span>
@@ -14,7 +14,7 @@
                                 </span>
                             </a>
 
-                            <a href="../host/mainView.html" class="logo logo-light">
+                            <a href="/host/mainView" class="logo logo-light">
                                 <span class="logo-lg">
                                     <img src="../../resources/host/images/logo-light.png" alt="" height="30">
                                 </span>

@@ -173,17 +173,17 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="couponEdit.html">
+                                                       <a href="couponEdit">
                                                      		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
                                                        </a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="couponList.html">
+                                                    	<a href="couponList">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">목록</button>
                                                     	</a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="couponList.html">
+                                                    	<a href="couponList">
                                                        		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
                                                     	</a>
                                                     </li>
