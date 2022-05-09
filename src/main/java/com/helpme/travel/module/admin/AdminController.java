@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminController {
 	
-	/* ※coupon----------------------------------------------------------------- */
+	/* �팧oupon----------------------------------------------------------------- */
 	
 	@RequestMapping(value = "/admin/couponEdit")
 	public String AdminCouponEdit(Model model) throws Exception {
@@ -59,7 +59,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* ※host--------------------------------------------------------------------*/
+	/* �팯ost--------------------------------------------------------------------*/
 	
 	@RequestMapping(value = "/admin/hostEdit")
 	public String AdminHostEdit(Model model) throws Exception {
@@ -88,7 +88,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* ※lodging--------------------------------------------------------------------*/
+	/* �팴odging--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/lodgingEdit")
 	public String AdminLodgingEdit(Model model) throws Exception {
@@ -111,12 +111,28 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* ※member--------------------------------------------------------------------*/
+	/* memberAdmin 관리자 회원정보--------------------------------------------------------------------*/
 
+	@RequestMapping(value = "/admin/memberEditAdmin")
+	public String AdminMemberEditAdmin(Model model) throws Exception {
+		
+		return "admin/memberAdmin/memberEditAdmin";
+	}
+	
+
+	@RequestMapping(value = "/admin/memberViewAdmin")
+	public String AdminMemberViewAdmin(Model model) throws Exception {
+		
+		return "admin/memberAdmin/memberViewAdmin";
+	}
+	
+	/*---------------------------------------------------------------------------*/
+	/* member--------------------------------------------------------------------*/
+	
 	@RequestMapping(value = "/admin/memberEdit")
 	public String AdminMemberEdit(Model model) throws Exception {
 		
-		return "admin/member/memberEdit";
+		return "admin/memberAdmin/memberEditAdmin";
 	}
 	
 	@RequestMapping(value = "/admin/memberForm")
@@ -140,7 +156,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* ※reservation--------------------------------------------------------------------*/
+	/* �팿eservation--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/reservationEdit")
 	public String AdminReservationEdit(Model model) throws Exception {
@@ -163,7 +179,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* ※loginForm--------------------------------------------------------------------*/
+	/* �팴oginForm--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/loginForm")
 	public String AdminLoginForm(Model model) throws Exception {
@@ -174,7 +190,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* ※mainView--------------------------------------------------------------------*/
+	/* �팵ainView--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/mainView")
 	public String AdminMainView(Model model) throws Exception {
@@ -185,7 +201,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* ※password--------------------------------------------------------------------*/
+	/* �팺assword--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/password")
 	public String AdminPassword(Model model) throws Exception {

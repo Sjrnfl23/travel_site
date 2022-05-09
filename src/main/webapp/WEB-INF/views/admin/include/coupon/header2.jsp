@@ -92,10 +92,10 @@
                                     <h6 class="mb-0">관리자</h6>
                                     <p class="mb-0 font-size-11 text-muted">admin@nowtravel.com</p>
                                 </div>
-                                <a class="dropdown-item" href="contacts-profile.html"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
+                                <a class="dropdown-item" href="/admin/memberViewAdmin"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="auth-logout.html"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
+                                <a class="dropdown-item" href="/admin/loginForm"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
 
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="../admin/mainView" class="logo logo-dark">
+                    <a href="/admin/mainView" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="/resources/admin/assets/images/logo-dark-sm.png" alt="" height="26">
                         </span>
@@ -116,7 +116,7 @@
                         </span>
                     </a>
 
-                    <a href="../admin/mainView" class="logo logo-light">
+                    <a href="/admin/mainView" class="logo logo-light">
                         <span class="logo-lg">
                             <img src="/resources/admin/assets/images/logo-light-sm.png" alt="" height="26">
                         </span>
@@ -137,31 +137,28 @@
                         <!-- Left Menu Start -->
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li class="menu-title" data-key="t-menu">Home</li>
+                            <li>
+                                <a href="/admin/mainView">
+                                    <i class="bx bx-home-alt icon nav-icon"></i>
+                                    <span class="menu-item" data-key="t-dashboard">Home</span>
+                                </a>
+                            </li>
+
 
                             <li class="menu-title" data-key="t-applications">MANAGEMENT</li>
 
                             <li>
-                                <a href="javascript: void(0);" class="has-arrow">
+                                <a href="/admin/lodgingList">
                                     <i class="bx bx-store icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="/admin/lodgingList" data-key="t-products">숙소 리스트</a></li>
-                                </ul>
                             </li>
 
                             <li class="mm-active">
-                                <a href="javascript: void(0);" class="has-arrow">
+                                <a href="/admin/couponList">
                                     <i class="bx bx-receipt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
                                 </a>
-                                <ul class="sub-menu mm-collapse mm-show" aria-expanded="false">
-                                    <li class="mm-active">
-                                    	<a href="/admin/couponList" data-key="t-invoice-list">쿠폰 리스트</a>
-                                    </li>
-                                    <li><a href="/admin/couponListPermit" data-key="t-invoice-detail">쿠폰 승인</a></li>
-                                    <li><a href="/admin/couponListBak" data-key="t-invoice-detail">쿠폰 내역</a></li>
-                                </ul>
                             </li>
                             
                             <li>
