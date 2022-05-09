@@ -440,6 +440,41 @@
                 </div>
                 
                 <div class="col-md-4 responsive-wrap">
+                		<div class="col">
+                            <div class="contact-info">
+                                <div class="booking-summary-box">
+                                    <h4>퀄리티&인테리어, 특별한 독채팬션_[봄보름] #해수욕장5분.돌집독채.월풀.바베큐</h4>
+                                    <span style="font-size: 18px;">제주도, 제주시</span>
+
+                                    <div class="booking-summary_contact">
+                                        <p style="font-size: 18px;">070-5022-5867</p>
+                                    </div>
+
+                                    <div class="booking-summary_deatail">
+                                        <h5>예약 정보</h5>
+                                        <div class="row row-cols-2" align=center>
+										  <div class="input-group">
+										    <input type="text" class="form-control form-control-sm" id="datepicker1" placeholder="시작일" >
+										    <input type="text" class="form-control form-control-sm" id="datepicker2" placeholder="종료일">
+										  </div>
+									    <div class="col-12"><input type="number" class="form-control" placeholder="게스트"></div>
+							  			</div>
+                                        <div class="booking-cost">
+                                            <p style="font-size: 16px;">날짜 <span style="font-size: 16px;">8월 26일 ~ 9월 2일</span></p>
+                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;">성인 1명</span></p>
+                                        </div>
+                                        <div class="booking-cost" >
+                                            <h5>요금 정보</h5>
+                                            <p style="font-size: 16px;"><u>280,000 x 7박</u> <span style="font-size: 18px;">1,960,000원</span></p>
+                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
+                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
+                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,136,000원</span></p>
+                                            <br><a href="#" class="btn btn-danger btn-block">예약하기</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <div class="contact-info">
                         <img src="/resources/user/images/map.jpg" class="img-fluid" alt="#">
                         <div class="address">
@@ -460,32 +495,6 @@
                             <a href="#" class="featured-open">OPEN NOW</a>
                         </div>
                         <a href="#" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
-                    </div>
-                    <div class="contact-info" align=center>	<!-- 예약 -->
-	                    <div class="address">
-	                    	<br><h4><strong>₩150,000</strong></h4><h5>2 / 3</h5>
-	                    </div>
-                        <div class="address">
-	                        <div class="container">
-							  <div class="row row-cols-2" align=center>
-								  <div class="input-group">
-								    <input type="text" class="form-control form-control-sm" id="datepicker1" placeholder="시작일" >
-								    <input type="text" class="form-control form-control-sm" id="datepicker2" placeholder="종료일">
-								  </div>
-							    <div class="col-12"><input type="number" class="form-control"></div>
-							  </div>
-							</div>
-                        </div>
-                        <div class="address">
-                            <span class="icon-link"></span>
-                            <p>https://airbnb.co.kr</p>
-                        </div>
-                        <div class="address">
-                            <span class="icon-clock"></span>
-                            <p>월 - 일 09:30 am - 05:30 pm </p>
-                            <a href="#" class="featured-open">OPEN NOW</a>
-                        </div>
-                        <a href="#" class="btn btn-outline-danger btn-contact">예약하기</a>
                     </div>
                     <div class="follow">
                         <div class="follow-img">
