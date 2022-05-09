@@ -1,39 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<div class="vertical-menu">
+ <div class="vertical-menu">
 
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
                     <a href="/host/mainView" class="logo logo-dark">
                         <span class="logo-sm">
-<<<<<<< HEAD
                             <img src="/resources/admin/assets/images/logo-dark-sm.png" alt="" height="26">
-=======
-                            <img src="/resources/host/images/logo-dark-sm.png" alt="" height="26">
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                         </span>
                         <span class="logo-lg">
-<<<<<<< HEAD
                             <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="">
-=======
-                            <img src="/resources/host/images/nowTravel_logo_180.jpg" alt="">
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                         </span>
                     </a>
 
-                    <a href="../host/mainView.html" class="logo logo-light">
+                    <a href="/host/mainView" class="logo logo-light">
                         <span class="logo-lg">
-<<<<<<< HEAD
                             <img src="/resources/admin/assets/images/logo-light-sm.png" alt="" height="26">
-=======
-                            <img src="/resources/host/images/logo-light-sm.png" alt="" height="26">
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                         </span>
                         <span class="logo-sm">
-<<<<<<< HEAD
                             <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="" height="26">
-=======
-                            <img src="/resources/host/images/nowTravel_logo_180.jpg" alt="" height="26">
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                         </span>
                     </a>
                 </div>
@@ -51,7 +35,7 @@
                             <li class="menu-title" data-key="t-menu">Home</li>
 
                             <li>
-                                <a href="../host/mainView">
+                                <a href="/host/mainView">
                                     <i class="bx bx-home-alt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-dashboard">Home</span>
                                 </a>
@@ -60,32 +44,22 @@
 
                             <li class="menu-title" data-key="t-applications">MANAGEMENT</li>
 
-                            <li class="mm-active">
-                                <a href="javascript: void(0);" class="has-arrow">
+                            <li  class="mm-active">
+                                <a href="/host/lodgingList" class="">
                                     <i class="bx bx-store icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li class="mm"><a href="lodgingList.html" data-key="t-products">숙소 리스트</a></li>
-                                    <li><a href="lodgingForm.html" data-key="t-products">숙소 등록</a></li>
-                                </ul>
                             </li>
 
                             <li>
-                                <a href="javascript: void(0);" class="has-arrow">
+                                <a href="/host/couponList" class="">
                                     <i class="bx bx-receipt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
                                 </a>
-                                <ul class="sub-menu " aria-expanded="false">
-                                    <li><a href="../host/couponList.html" data-key="t-invoice-list">쿠폰 리스트</a></li>
-                                    <li><a href="../host/couponForm.html" data-key="t-invoice-list">쿠폰 등록</a></li>
-                                    <li><a href="../host/couponListPermit.html" data-key="t-invoice-detail">쿠폰 승인</a></li>
-                                    <li><a href="../host/couponListBak.html" data-key="t-invoice-detail">쿠폰 내역</a></li>
-                                </ul>
                             </li>
                             
                             <li>
-                                <a href="../host/reservationList.html">
+                                <a href="/host/reservationList">
                                     <i class="bx bx-calendar-event icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-calendar">예약관리</span>
                                 </a>
@@ -94,7 +68,7 @@
                             <li class="menu-title" data-key="t-applications">MESSENGER</li>
 
                             <li>
-                                <a href="../host/hostDm.html">
+                                <a href="/host/hostDm">
                                     <i class="bx bx-user-circle icon nav-icon"></i>
                                     <span class="menu-item" data-key="t">문의관리</span>
                                 </a>
