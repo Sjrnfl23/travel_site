@@ -440,7 +440,7 @@
                 </div>
                 
                 <div class="col-md-4 responsive-wrap">
-                		<div class="col">
+                		
                             <div class="contact-info">
                                 <div class="booking-summary-box">
                                     <h4>퀄리티&인테리어, 특별한 독채팬션_[봄보름] #해수욕장5분.돌집독채.월풀.바베큐</h4>
@@ -452,12 +452,12 @@
 
                                     <div class="booking-summary_deatail">
                                         <h5>예약 정보</h5>
-                                        <div class="row row-cols-2" align=center>
+                                        <div class="row" align=center>
 										  <div class="input-group">
 										    <input type="text" class="form-control form-control-sm" id="datepicker1" placeholder="시작일" >
 										    <input type="text" class="form-control form-control-sm" id="datepicker2" placeholder="종료일">
 										  </div>
-									    <div class="col-12"><input type="number" class="form-control" placeholder="게스트"></div>
+									    <div class="input-group"><input type="number" class="form-control" placeholder="게스트"></div>
 							  			</div>
                                         <div class="booking-cost">
                                             <p style="font-size: 16px;">날짜 <span style="font-size: 16px;">8월 26일 ~ 9월 2일</span></p>
@@ -474,7 +474,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        
                     <div class="contact-info">
                         <img src="/resources/user/images/map.jpg" class="img-fluid" alt="#">
                         <div class="address">
