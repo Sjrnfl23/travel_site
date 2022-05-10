@@ -6,14 +6,24 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.helpme.travel.module.user.User;
+import com.helpme.travel.module.user.UserVo;
+import com.helpme.travel.module.user.UserServiceImpl;
+
+
+
+
 @Controller
 public class UserController {
-	
+	@Autowired
+	UserServiceImpl service;
 	/*
 	 * private static final Logger logger =
 	 * LoggerFactory.getLogger(UserController.class);
@@ -32,7 +42,10 @@ public class UserController {
 		return "user/member/signupForm";
 	}
 	@RequestMapping(value = "/user/userInfoView")
-	public String UserSignupView(Model model) throws Exception {
+	public String UserSignupView(UserVo vo, Model model) throws Exception {
+		
+		User item= service.selectOneMember(vo);
+		model.addAttribute("item", item);
 		
 		return "user/member/userInfoView";
 	}

@@ -140,31 +140,31 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>이름</label>
-                                        <p class="form-control">김이젠</p> 
+                                        <p class="form-control"><c:out value="${item.tvmmName}"/></p> 
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>전화번호</label>
-                                         <p class="form-control">010-2352-3123</p> 
+                                         <p class="form-control"><c:out value="${item.tvmmTelNumber}"/></p> 
                                     </div>
                                 </div>
                                  <div class="col-md-12">
                                     <div class="form-group">
                                         <label>이메일</label>
-                                        <p class="form-control">ezen@gmail.com</p> 
+                                        <p class="form-control"><c:out value="${item.tvmmEmailAccount}"/></p> 
                                     </div>
                                 </div>
                                  <div class="col-md-12">
                                     <div class="form-group">
                                         <label>주소</label>
-                                        <p class="form-control">서울시 서초구 서초길 234</p> 
+                                        <p class="form-control"><c:out value="${item.tvmmAddress1}"/></p> 
                                     </div>
                                 </div>
                                  <div class="col-md-12">
                                     <div class="form-group">
                                         <label>생년월일</label>
-                                        <p class="form-control">1969-09-09</p> 
+                                        <p class="form-control"><c:out value="${item.tvmmDob}"/></p> 
                                     </div>
                                     <button href="#"  style="margin-top:10px;" class="btn btn-dark float-left" >탈퇴</button>
                                        <a href="/user/userInfoEdit" style="margin-top:10px;" class="btn btn-danger float-right">수정</a>

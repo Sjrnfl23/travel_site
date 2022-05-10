@@ -14,7 +14,7 @@ public class UserDao {
 //	@Resource(name = "sqlSession")
 	private SqlSession sqlSession;
 	
-	private static String namespace = "com.junefw.infra.modules.User.UserMpp";
+	private static String namespace = "com.helpme.travel.module.user.UserMpp";
 
 //	public User selectOneLogin(User dto) { return sqlSession.selectOne(namespace + ".selectOneLogin", dto);}
 	
