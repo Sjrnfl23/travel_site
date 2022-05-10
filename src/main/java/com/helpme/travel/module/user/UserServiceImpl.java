@@ -8,8 +8,6 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.junefw.infra.common.util.UtilDateTime;
-
 @Service
 public class UserServiceImpl implements UserService{
 
@@ -22,27 +20,27 @@ public class UserServiceImpl implements UserService{
 //	return dao.selectOneLogin(vo);
 //	}
 		// 회원가입
-	@Override
-	public int insertMember(User dto) throws Exception {
-		
-		return dao.insertMember(dto);
-	}
-		// 회원정보
-	@Override
-	public int updateMember(User dto) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.updateMember(dto);
-	}
+//	@Override
+//	public int insertMember(User dto) throws Exception {
+//		
+//		return dao.insertMember(dto);
+//	}
+//		// 회원정보
+//	@Override
+//	public int updateMember(User dto) throws Exception {
+//		// TODO Auto-generated method stub
+//		return dao.updateMember(dto);
+//	}
 
 	@Override
 		public User selectOneMember(UserVo vo) throws Exception {
 		return dao.selectOneMember(vo);
 		}
-	@Override
-		public int deleteMember(UserVo vo) throws Exception {
-			// TODO Auto-generated method stub
-			return dao.deleteMember(vo);
-		}
+//	@Override
+//		public int deleteMember(UserVo vo) throws Exception {
+//			// TODO Auto-generated method stub
+//			return dao.deleteMember(vo);
+//		}
 	
 	
 //		// 검색

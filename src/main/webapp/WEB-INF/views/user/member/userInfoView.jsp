@@ -167,7 +167,7 @@
                                         <p class="form-control">1969-09-09</p> 
                                     </div>
                                     <button href="#"  style="margin-top:10px;" class="btn btn-dark float-left" >탈퇴</button>
-                                       <a href="../member/userInfoEdit" style="margin-top:10px;" class="btn btn-danger float-right">수정</a>
+                                       <a href="/user/userInfoEdit" style="margin-top:10px;" class="btn btn-danger float-right">수정</a>
                                 </div>
                              
                             </div>

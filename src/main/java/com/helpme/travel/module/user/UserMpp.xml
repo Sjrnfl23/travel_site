@@ -8,7 +8,7 @@
 
     <resultMap id="resultMapObj" type="com.helpme.travel.module.user.User"></resultMap>
 
-	<select id="selectOneMember" resultType="resultMapObj">
+	<!-- <select id="selectOneMember" resultType="resultMapObj">
 			SELECT 
 				tvmmName
 				,tvmmTelNumber
@@ -19,12 +19,7 @@
 				tvMember
 			WHERE 
 				tvmmDelNy = 0
-	</select>
-	
-	<select id="selectList" resultMap="resultMapObj">
-			SELECT 			 
-	</select>
-	
+	</select> -->
 	
 	
 </mapper>
