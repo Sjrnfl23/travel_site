@@ -1,11 +1,14 @@
 package com.helpme.travel.module.admin;
 
 import java.text.DateFormat;
+
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +16,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 
-
-
 @Controller
 public class AdminController {
 	
-	/* �팧oupon----------------------------------------------------------------- */
+	   @Autowired
+	   AdminServiceImpl service;	
+	
+	
+	/* coupon----------------------------------------------------------------- */
 	
 	@RequestMapping(value = "/admin/couponEdit")
 	public String AdminCouponEdit(Model model) throws Exception {
@@ -43,7 +48,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* �팯ost--------------------------------------------------------------------*/
+	/* host--------------------------------------------------------------------*/
 	
 	@RequestMapping(value = "/admin/hostEdit")
 	public String AdminHostEdit(Model model) throws Exception {
@@ -57,14 +62,21 @@ public class AdminController {
 		return "admin/host/hostForm";
 	}
 	
+	
 	@RequestMapping(value = "/admin/hostList")
 	public String AdminHostList(Model model) throws Exception {
+		
+		List<Admin> list = service.selectHost();
+		model.addAttribute("list", list);
 		
 		return "admin/host/hostList";
 	}
 	
 	@RequestMapping(value = "/admin/hostView")
-	public String AdminHostView(Model model) throws Exception {
+	public String AdminHostView(AdminVo vo, Model model) throws Exception {
+		
+		   Admin rt = service.selectOneHost(vo);
+		   model.addAttribute("rt", rt);		
 		
 		return "admin/host/hostView";
 	}
@@ -72,7 +84,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* �팴odging--------------------------------------------------------------------*/
+	/* lodging--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/lodgingEdit")
 	public String AdminLodgingEdit(Model model) throws Exception {
@@ -128,6 +140,9 @@ public class AdminController {
 	@RequestMapping(value = "/admin/memberList")
 	public String AdminMemberList(Model model) throws Exception {
 		
+		List<Admin> list = service.selectMember();
+		model.addAttribute("list", list);		
+		
 		return "admin/member/memberList";
 	}
 	
@@ -140,7 +155,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* �팿eservation--------------------------------------------------------------------*/
+	/* reservation--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/reservationEdit")
 	public String AdminReservationEdit(Model model) throws Exception {
@@ -165,7 +180,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* �팴oginForm--------------------------------------------------------------------*/
+	/* loginForm--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/loginForm")
 	public String AdminLoginForm(Model model) throws Exception {
@@ -176,7 +191,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* �팵ainView--------------------------------------------------------------------*/
+	/* mainView--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/mainView")
 	public String AdminMainView(Model model) throws Exception {
@@ -187,7 +202,7 @@ public class AdminController {
 	/*---------------------------------------------------------------------------*/
 	
 	
-	/* �팺assword--------------------------------------------------------------------*/
+	/* password--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/password")
 	public String AdminPassword(Model model) throws Exception {

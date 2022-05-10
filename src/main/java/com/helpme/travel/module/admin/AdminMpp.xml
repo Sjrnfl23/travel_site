@@ -22,6 +22,7 @@
 		    , tvmmEmailDomain
 		    , tvmmEmailDomainCd
 		    , tvmmTelecomCd
+		    , tvmmTelNumber
 		    , tvmmAdminNy
 		    , tvmmHostNy
 		    , tvmmDesc
@@ -29,7 +30,61 @@
 		where 1 = 1
 			and tvmmDelNy = 0
 		    and tvmmHostNy = 1
+
 	</select>
+	
+	<select id="selectOneHost" resultMap="resultMapObj">
+		select 
+			tvmmSeq
+		    , tvmmName
+		    , tvmmPassword
+		    , tvmmDob
+		    , tvmmZipCode
+		    , tvmmAddress1
+		    , tvmmAddress2
+		    , tvmmAddressFull
+		    , tvmmEmailAccount
+		    , tvmmEmailDomain
+		    , tvmmEmailDomainCd
+		    , tvmmTelecomCd
+		    , tvmmTelNumber
+		    , tvmmAdminNy
+		    , tvmmHostNy
+		    , tvmmDesc
+		from tvMember
+		where 1 = 1
+			and tvmmDelNy = 0
+		    and tvmmHostNy = 1
+		    and tvmmSeq = #{tvmmSeq}
+
+	</select>
+	
+	<select id="selectMember" resultMap="resultMapObj">
+		select 
+			tvmmSeq
+		    , tvmmName
+		    , tvmmPassword
+		    , tvmmDob
+		    , tvmmZipCode
+		    , tvmmAddress1
+		    , tvmmAddress2
+		    , tvmmAddressFull
+		    , tvmmEmailAccount
+		    , tvmmEmailDomain
+		    , tvmmEmailDomainCd
+		    , tvmmTelecomCd
+		    , tvmmTelNumber
+		    , tvmmAdminNy
+		    , tvmmHostNy
+		    , tvmmDesc
+		from tvMember
+		where 1 = 1
+			and tvmmDelNy = 0
+		    and tvmmHostNy = 0
+		    and tvmmAdminNy = 0
+	</select>
+	
+
 	
 	
 <!-- 	<select id="selectOne" resultMap="resultMapObj">

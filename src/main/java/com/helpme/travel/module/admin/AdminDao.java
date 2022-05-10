@@ -19,6 +19,9 @@ public class AdminDao {
    private static String namespace = "com.helpme.travel.module.admin.AdminMpp";
    
    public List<Admin> selectHost(){return sqlSession.selectList(namespace + ".selectHost", "");}
+   public Admin selectOneHost(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneHost", "vo");}
+   
+   public List<Admin> selectMember(){return sqlSession.selectList(namespace + ".selectMember", "");}
    
 }
 

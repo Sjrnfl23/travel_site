@@ -17,6 +17,16 @@ public class AdminServiceImpl implements AdminService{
 	public List<Admin> selectHost() throws Exception {
 		return dao.selectHost(); 
 	}
+	@Override
+	public Admin selectOneHost(AdminVo vo) throws Exception {
+		return dao.selectOneHost(vo); 
+	}
+	
+	
+	@Override
+	public List<Admin> selectMember() throws Exception {
+		return dao.selectMember(); 
+	}
 
 
 }

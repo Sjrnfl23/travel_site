@@ -71,8 +71,6 @@
             <!-- Start right Content here -->
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
-
-           
             <div class="main-content">
                 <div class="page-content">
                     <div class="container-fluid">
@@ -81,23 +79,81 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="position-relative">
+                                    	<div class="position-relative">
                                             <div class="modal-button mt-2">
-                                                <a href="memberForm"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">+ 등록</button></a>
+                                               <a href="/admin/memberForm"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">+ 등록</button></a>
                                                 <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">선택삭제</button>
                                             </div>
                                         </div>
-                                        <!-- js/pages/admin_memberList.init.js 파일에 테이블 데이터있음 -->
-                                        <div id="table-ecommerce-orders"></div>
+										<div class="table table-responsive" style="white-space:nowrap; margin:auto;">
+										 <table class="table table-responsive">
+                                        		<div class="gridjs-head">
+                                        			<div class="gridjs-search">
+                                        				<input type="search" placeholder="Type a keyword..." aria-label="Type a keyword..." class="gridjs-input gridjs-search-input">
+                                        			</div>
+                                        		</div>										 
+											<thead style="background-color: rgb(248,249,250);">
+												<tr>
+													<th><input type="checkbox" id="checkboxAll" name="" value="" class="form-check-input"></th>
+													<th style="text-align: center;">No.</th>
+													<th>이름</th>
+													<th>이메일</th>
+													<th>전화번호</th>
+													<th>주소</th>
+													<th>등록일</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${list}" var="rt" varStatus="status">
+													<tr>
+														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvmmSeq}"/>" class="form-check-input"></td>
+														<td><c:out value="${rt.tvmmSeq}"/></td>
+														<td><c:out value="${rt.tvmmName}"/></td>
+														<td><c:out value="${rt.tvmmEmailAccount}"/></td>
+														<td><c:out value="${rt.tvmmTelNumber}"/></td>
+														<td><c:out value="${rt.tvmmAddressFull}"/></td>
+														<td>2022-05-10</td>
+														<td>
+															<div class="d-flex gap-3">
+																<a href="/admin/memberView" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
+																	<i class="mdi mdi-pencil font-size-18"></i>
+																</a>
+																<a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger">
+																	<i class="mdi mdi-delete font-size-18"></i>
+																</a>
+															</div>													
+														</td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
                                     </div>
+                                   	<div class="gridjs-footer">
+                                   		<div class="gridjs-pagination">
+                                   			<div role="status" aria-live="polite" class="gridjs-summary" title="Page 1 of 4">
+                                   				Showing <b>1</b> to <b>7</b> of <b>22</b> results
+                                   			</div>
+                                   		<div class="gridjs-pages">
+                                   			<button tabindex="0" role="button" disabled="" title="Previous" aria-label="Previous" class="">Previous</button>
+                                   			<button tabindex="0" role="button" class="gridjs-currentPage" title="Page 1" aria-label="Page 1">1</button>
+                                   			<button tabindex="0" role="button" class="" title="Page 2" aria-label="Page 2">2</button>
+                                   			<button tabindex="0" role="button" class="" title="Page 3" aria-label="Page 3">3</button>
+                                   			<button tabindex="-1" class="gridjs-spread">...</button>
+                                   			<button tabindex="0" role="button" title="Page 4" aria-label="Page 4">4</button>
+                                   			<button tabindex="0" role="button" title="Next" aria-label="Next" class="">Next</button>
+                                   		</div>
+                                   	</div>
+                                   </div>                                    
+                                    
                                 </div>
                             </div>
                         </div>
                         <!-- end row -->
-                       
-
                     </div>
+
                     <!-- container-fluid -->
+                    </div>
                 </div>
                 <br>
                 

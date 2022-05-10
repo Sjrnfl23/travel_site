@@ -115,7 +115,7 @@
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 이름 :</th>
-                                                            <td class="text-muted">호스트</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvmmName}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
