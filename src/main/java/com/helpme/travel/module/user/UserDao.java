@@ -19,7 +19,7 @@ public class UserDao {
 //	public User selectOneLogin(User dto) { return sqlSession.selectOne(namespace + ".selectOneLogin", dto);}
 	
 	// 회원정보
-//	public int insertUser(User dto) {return sqlSession.insert( namespace + ".insertUser", dto);}
+	public int insertMember(User dto) {return sqlSession.insert( namespace + ".insertMember", dto);}
 //	public int updateMember(User dto) {return sqlSession.update( namespace + ".updateMember", dto);}
 	public User selectOneMember(UserVo vo) { return sqlSession.selectOne(namespace + ".selectOneMember", vo);}
 //	public int deleteMember(UserVo vo) {return sqlSession.delete( namespace + ".delete", vo);}

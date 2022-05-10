@@ -9,7 +9,7 @@ public interface UserService {
 //	public User selectOneLogin(UserVo vo) throws Exception;
 //	
 //	//회원가입
-//	public int insertMember(User dto) throws Exception;
+	public int insertMember(User dto) throws Exception;
 //	
 //	// 회원정보
 //	public int updateMember(User dto) throws Exception;

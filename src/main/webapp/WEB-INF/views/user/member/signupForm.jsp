@@ -53,20 +53,20 @@
                                     <p class="text-muted">호스트 계정을 만들어보세요.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="thankYou.html">
+                                    <form method="post" action="/user/userInst">
 
         
                                         <div class="mb-3">
                                             <label class="form-label" for="username">이름</label>
                                             <div class="position-relative input-custom-icon">
-                                                <input type="text" class="form-control" id="username" placeholder="이름을 입력해주세요.">
+                                                <input type="text" class="form-control" id="username" name="tvmmName" placeholder="이름을 입력해주세요.">
                                                  <span class="bx bx-user"></span>
                                             </div>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="useremail">이메일주소</label>
                                             <div class="position-relative input-custom-icon">
-                                                <input type="email" class="form-control" id="useremail" placeholder="이메일주소를 입력해주세요.">  
+                                                <input type="email" class="form-control" id="useremail" name="tvmmEmailAccount" placeholder="이메일주소를 입력해주세요.">  
                                                 <span class="bx bx-mail-send"></span>
                                             </div>     
                                         </div>                
@@ -74,7 +74,7 @@
                                             <label class="form-label" for="userpassword">비밀번호</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
-                                                <input type="password" class="form-control" id="password-input" placeholder="비밀번호를 입력해주세요.">
+                                                <input type="password" class="form-control" id="password-input" name="tvmmPassword" placeholder="비밀번호를 입력해주세요.">
                                             </div>
                                         </div>
                                         <div class="mb-3">
@@ -88,21 +88,21 @@
                                             <label class="form-label" for="userpassword">전화번호</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
-                                                <input type="password" class="form-control" id="password-input" placeholder="전화번호를 입력해주세요.">
+                                                <input type="text" class="form-control" id="password-input" name="tvmmTelNumber" placeholder="전화번호를 입력해주세요.">
                                             </div>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="userpassword">주소</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
-                                                <input type="password" class="form-control" id="password-input" placeholder="주소를 입력해주세요.">
+                                                <input type="text" class="form-control" id="password-input" name="tvmmAddressFull" placeholder="주소를 입력해주세요.">
                                             </div>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="userpassword">생년월일</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
-                                                <input type="date" class="form-control" id="password-input" placeholder="전화번호를 입력해주세요.">
+                                                <input type="date" class="form-control" id="password-input" name="tvmmDob" placeholder="생년월일을 입력해주세요.">
                                             </div>
                                         </div>
 

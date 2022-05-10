@@ -22,5 +22,30 @@
 				AND tvmmSeq = 3
 	</select>    
 	
+	<insert id="insertMember">
+			INSERT INTO tvMember (
+			tvmmSeq
+			,tvmmName
+			,tvmmEmailAccount
+			,tvmmPassword
+			,tvmmTelNumber
+			,tvmmAddressFull
+			,tvmmDob
+			,tvmmAdminNy
+			,tvmmHostNy
+			,tvmmDelNy
+			) VALUES (
+			#{tvmmSeq}
+			,#{tvmmName}
+			,#{tvmmEmailAccount}
+			,#{tvmmPassword}
+			,#{tvmmTelNumber}
+			,#{tvmmAddressFull}
+			,#{tvmmDob}
+			,0
+			,0
+			,0
+			);
+	</insert>
 	
 </mapper>

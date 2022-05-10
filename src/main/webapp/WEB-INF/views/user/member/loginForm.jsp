@@ -58,7 +58,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="username">이메일</label>
                                             <div class="position-relative input-custom-icon">
-                                                <input type="text" class="form-control" id="username" placeholder="가입하신 이메일주소를 입력해주세요">
+                                                <input type="text" class="form-control" id="tvmmEmailAccount" name="tvmmEmailAccount" placeholder="가입하신 이메일주소를 입력해주세요">
                                                  <span class="bx bx-user"></span>
                                             </div>
                                         </div>
@@ -70,7 +70,7 @@
                                             <label class="form-label" for="password-input">비밀번호</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
-                                                <input type="password" class="form-control" id="password-input" placeholder="비밀번호를 입력해주세요">
+                                                <input type="password" class="form-control" id="password-input" name="tvmmPassword" placeholder="비밀번호를 입력해주세요">
                                                 <button type="button" class="btn btn-link position-absolute h-100 end-0 top-0" id="password-addon">
                                                     <i class="mdi mdi-eye-outline font-size-18 text-muted"></i>
                                                 </button>
@@ -111,7 +111,7 @@
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <p class="mb-0">계정이 없으신가요? <a href="../member/signupForm" class="fw-medium text-primary"> 회원가입 </a> </p>
+                                            <p class="mb-0">계정이 없으신가요? <a href="/user/signupForm" class="fw-medium text-primary"> 회원가입 </a> </p>
                                         </div>
                                     </form>
                                 </div>

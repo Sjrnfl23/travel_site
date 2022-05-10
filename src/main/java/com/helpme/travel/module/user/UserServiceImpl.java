@@ -20,12 +20,12 @@ public class UserServiceImpl implements UserService{
 //	return dao.selectOneLogin(vo);
 //	}
 		// 회원가입
-//	@Override
-//	public int insertMember(User dto) throws Exception {
-//		
-//		return dao.insertMember(dto);
-//	}
-//		// 회원정보
+	@Override
+	public int insertMember(User dto) throws Exception {
+		
+		return dao.insertMember(dto);
+	}
+		// 회원정보
 //	@Override
 //	public int updateMember(User dto) throws Exception {
 //		// TODO Auto-generated method stub
