@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.helpme.travel.module.admin.AdminMpp">
+
+    <resultMap id="resultMapObj" type="com.helpme.travel.module.admin.Admin"></resultMap>
+
+	<select id="selectHost" resultMap="resultMapObj">
+		select 
+			tvmmSeq
+		    , tvmmName
+		    , tvmmPassword
+		    , tvmmDob
+		    , tvmmZipCode
+		    , tvmmAddress1
+		    , tvmmAddress2
+		    , tvmmAddressFull
+		    , tvmmEmailAccount
+		    , tvmmEmailDomain
+		    , tvmmEmailDomainCd
+		    , tvmmTelecomCd
+		    , tvmmAdminNy
+		    , tvmmHostNy
+		    , tvmmDesc
+		from tvMember
+		where 1 = 1
+			and tvmmDelNy = 0
+		    and tvmmHostNy = 1
+	</select>
+	
+	
+<!-- 	<select id="selectOne" resultMap="resultMapObj">
+
+	</select> -->
+	
+	
+	
+
+	
+	
+</mapper>
