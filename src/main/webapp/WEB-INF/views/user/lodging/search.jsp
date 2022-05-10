@@ -152,7 +152,7 @@
                         <div class="col-md-6 card-2">
                             <!-- card-1 -->
                             <div class="card">
-                                <a href="../lodging/lodgingView.jsp"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
+                                <a href="/user/lodgingView.jsp"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">헬로반디vandi룸/수플레팬케잌&빠네 등(조식무료), 도자기컵체험무료,넷플릭스(55인치)</h5>
                                     <ul class="card-rating">
