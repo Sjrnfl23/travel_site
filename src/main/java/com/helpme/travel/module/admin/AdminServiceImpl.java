@@ -18,8 +18,8 @@ public class AdminServiceImpl implements AdminService{
 		return dao.selectHost(); 
 	}
 	@Override
-	public Admin selectOneHost(AdminVo vo) throws Exception {
-		return dao.selectOneHost(vo); 
+	public Admin selectOneMember(AdminVo vo) throws Exception {
+		return dao.selectOneMember(vo); 
 	}
 	
 	
