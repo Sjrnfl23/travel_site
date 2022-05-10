@@ -75,7 +75,7 @@ public class AdminController {
 	@RequestMapping(value = "/admin/hostView")
 	public String AdminHostView(AdminVo vo, Model model) throws Exception {
 		
-		   Admin rt = service.selectOneHost(vo);
+		   Admin rt = service.selectOneMember(vo);
 		   model.addAttribute("rt", rt);		
 		
 		return "admin/host/hostView";
@@ -147,8 +147,11 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/admin/memberView")
-	public String AdminMemberView(Model model) throws Exception {
+	public String AdminMemberView(AdminVo vo, Model model) throws Exception {
 		
+		   Admin rt = service.selectOneMember(vo);
+		   model.addAttribute("rt", rt);	
+		   
 		return "admin/member/memberView";
 	}
 	
