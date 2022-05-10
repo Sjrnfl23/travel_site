@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Admin {
 	
-	// ���Ұ���
+	// 숙소정보
 	private String tvamSeq;
 	private String tvamAcName;
 	private String tvamHostName;
@@ -46,7 +46,32 @@ public class Admin {
 	private Date modDateTimeSvr;
 	
 	
-//	===============================================
+	// 회원정보 member
+	
+	private String tvmmSeq;
+	private String tvmmName;
+	private String tvmmPassword;
+	private String tvmmDob;
+	private Integer tvmmZipCode;
+	private String tvmmAddress1;
+	private String tvmmAddress2;
+	private String tvmmAddressFull;
+	private String tvmmEmailAccount;
+	private String tvmmEmailDomain;
+	private Integer tvmmEmailDomainCd;
+	private Integer tvmmTelecomCd;
+	private String tvmmTelNumber;
+	private Integer tvmmAdminNy;
+	private Integer tvmmHostNy;
+	private String tvmmDesc;
+	private Integer tvmmDelNy;
+	
+	
+	
+	
+//	===============================================	
+	
+	
 	
 	public String getTvamSeq() {
 		return tvamSeq;
@@ -276,6 +301,117 @@ public class Admin {
 	public void setModDateTimeSvr(Date modDateTimeSvr) {
 		this.modDateTimeSvr = modDateTimeSvr;
 	}
+	public String getTvmmSeq() {
+		return tvmmSeq;
+	}
+	public void setTvmmSeq(String tvmmSeq) {
+		this.tvmmSeq = tvmmSeq;
+	}
+	public String getTvmmName() {
+		return tvmmName;
+	}
+	public void setTvmmName(String tvmmName) {
+		this.tvmmName = tvmmName;
+	}
+	public String getTvmmPassword() {
+		return tvmmPassword;
+	}
+	public void setTvmmPassword(String tvmmPassword) {
+		this.tvmmPassword = tvmmPassword;
+	}
+	public String getTvmmDob() {
+		return tvmmDob;
+	}
+	public void setTvmmDob(String tvmmDob) {
+		this.tvmmDob = tvmmDob;
+	}
+	public Integer getTvmmZipCode() {
+		return tvmmZipCode;
+	}
+	public void setTvmmZipCode(Integer tvmmZipCode) {
+		this.tvmmZipCode = tvmmZipCode;
+	}
+	public String getTvmmAddress1() {
+		return tvmmAddress1;
+	}
+	public void setTvmmAddress1(String tvmmAddress1) {
+		this.tvmmAddress1 = tvmmAddress1;
+	}
+	public String getTvmmAddress2() {
+		return tvmmAddress2;
+	}
+	public void setTvmmAddress2(String tvmmAddress2) {
+		this.tvmmAddress2 = tvmmAddress2;
+	}
+	public String getTvmmAddressFull() {
+		return tvmmAddressFull;
+	}
+	public void setTvmmAddressFull(String tvmmAddressFull) {
+		this.tvmmAddressFull = tvmmAddressFull;
+	}
+	public String getTvmmEmailAccount() {
+		return tvmmEmailAccount;
+	}
+	public void setTvmmEmailAccount(String tvmmEmailAccount) {
+		this.tvmmEmailAccount = tvmmEmailAccount;
+	}
+	public String getTvmmEmailDomain() {
+		return tvmmEmailDomain;
+	}
+	public void setTvmmEmailDomain(String tvmmEmailDomain) {
+		this.tvmmEmailDomain = tvmmEmailDomain;
+	}
+	public Integer getTvmmEmailDomainCd() {
+		return tvmmEmailDomainCd;
+	}
+	public void setTvmmEmailDomainCd(Integer tvmmEmailDomainCd) {
+		this.tvmmEmailDomainCd = tvmmEmailDomainCd;
+	}
+	public Integer getTvmmTelecomCd() {
+		return tvmmTelecomCd;
+	}
+	public void setTvmmTelecomCd(Integer tvmmTelecomCd) {
+		this.tvmmTelecomCd = tvmmTelecomCd;
+	}
+	public String getTvmmTelNumber() {
+		return tvmmTelNumber;
+	}
+	public void setTvmmTelNumber(String tvmmTelNumber) {
+		this.tvmmTelNumber = tvmmTelNumber;
+	}
+	public Integer getTvmmAdminNy() {
+		return tvmmAdminNy;
+	}
+	public void setTvmmAdminNy(Integer tvmmAdminNy) {
+		this.tvmmAdminNy = tvmmAdminNy;
+	}
+	public Integer getTvmmHostNy() {
+		return tvmmHostNy;
+	}
+	public void setTvmmHostNy(Integer tvmmHostNy) {
+		this.tvmmHostNy = tvmmHostNy;
+	}
+	public String getTvmmDesc() {
+		return tvmmDesc;
+	}
+	public void setTvmmDesc(String tvmmDesc) {
+		this.tvmmDesc = tvmmDesc;
+	}
+	public Integer getTvmmDelNy() {
+		return tvmmDelNy;
+	}
+	public void setTvmmDelNy(Integer tvmmDelNy) {
+		this.tvmmDelNy = tvmmDelNy;
+	}	
+
+	
+	
+	
+
+	
+
+	
+	
 	
 }
 	
