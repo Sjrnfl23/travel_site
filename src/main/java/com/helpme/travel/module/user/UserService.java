@@ -9,7 +9,7 @@ public interface UserService {
 //	public User selectOneLogin(UserVo vo) throws Exception;
 //	
 //	//회원가입
-//	public int insertMember(User dto) throws Exception;
+	public int insertMember(User dto) throws Exception;
 //	
 //	// 회원정보
 //	public int updateMember(User dto) throws Exception;
@@ -19,8 +19,8 @@ public interface UserService {
 //	//지역 검색
 //	List<User> selectListSearch(UserVo vo) throws Exception;
 //	
-//	//유연한 검색
-//	List<User> selectListSearchFlex(UserVo vo) throws Exception;
+	//유연한 검색
+	List<User> selectListSearchFlex(UserVo vo) throws Exception;
 //	
 //	//숙소 상세
 //	public User selectOneLodging(UserVo vo) throws Exception;

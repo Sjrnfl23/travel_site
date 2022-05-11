@@ -19,8 +19,45 @@
 				tvMember
 			WHERE 1=1
 				AND tvmmDelNy = 0
-				AND tvmmSeq = 3
+				AND tvmmSeq = 4
 	</select>    
 	
+	<insert id="insertMember">
+			INSERT INTO tvMember (
+			tvmmSeq
+			,tvmmName
+			,tvmmEmailAccount
+			,tvmmPassword
+			,tvmmTelNumber
+			,tvmmAddressFull
+			,tvmmDob
+			,tvmmAdminNy
+			,tvmmHostNy
+			,tvmmDelNy
+			) VALUES (
+			#{tvmmSeq}
+			,#{tvmmName}
+			,#{tvmmEmailAccount}
+			,#{tvmmPassword}
+			,#{tvmmTelNumber}
+			,#{tvmmAddressFull}
+			,#{tvmmDob}
+			,0
+			,0
+			,0
+			);
+	</insert>
+	
+	<!-- SearchFlex List -->
+	 <select id="selectListSearchFlex" resultMap="resultMapObj">
+			SELECT 
+				tvamLodgingName
+				,tvamDesc
+				,tvamAddress1
+			FROM
+				tvLodging
+			WHERE 1=1
+				AND tvamDelNy = 0
+	</select>
 	
 </mapper>

@@ -2,6 +2,7 @@ package com.helpme.travel.module.user;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.helpme.travel.module.user.User;
 import com.helpme.travel.module.user.UserVo;
@@ -41,6 +43,16 @@ public class UserController {
 
 		return "user/member/signupForm";
 	}
+	
+	@RequestMapping(value = "/user/userInst")
+	public String memberInst(@ModelAttribute("vo") UserVo vo, User dto, RedirectAttributes redirectAttributes) throws Exception {
+		
+		int result = service.insertMember(dto);
+		System.out.println("result: " + result);
+
+		return "redirect:/user/loginForm";
+	}
+	
 	@RequestMapping(value = "/user/userInfoView")
 	public String UserSignupView(UserVo vo, Model model) throws Exception {
 		
@@ -69,7 +81,10 @@ public class UserController {
 		return "user/lodging/search";
 	}
 	@RequestMapping(value = "/user/searchFlex")
-	public String UserSearchFlex(Model model) throws Exception {
+	public String UserSearchFlex(@ModelAttribute("vo") UserVo vo,Model model) throws Exception {
+		
+			List<User> list = service.selectListSearchFlex(vo);
+			model.addAttribute("list", list);
 		
 		return "user/lodging/searchFlex";
 	}

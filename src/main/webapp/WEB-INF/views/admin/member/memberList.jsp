@@ -116,7 +116,7 @@
 														<td>2022-05-10</td>
 														<td>
 															<div class="d-flex gap-3">
-																<a href="/admin/memberView" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
+																<a href="/admin/memberView?tvmmSeq=<c:out value="${rt.tvmmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
 																<a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger">

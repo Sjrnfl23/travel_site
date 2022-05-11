@@ -19,14 +19,14 @@ public class UserDao {
 //	public User selectOneLogin(User dto) { return sqlSession.selectOne(namespace + ".selectOneLogin", dto);}
 	
 	// 회원정보
-//	public int insertUser(User dto) {return sqlSession.insert( namespace + ".insertUser", dto);}
+	public int insertMember(User dto) {return sqlSession.insert( namespace + ".insertMember", dto);}
 //	public int updateMember(User dto) {return sqlSession.update( namespace + ".updateMember", dto);}
 	public User selectOneMember(UserVo vo) { return sqlSession.selectOne(namespace + ".selectOneMember", vo);}
 //	public int deleteMember(UserVo vo) {return sqlSession.delete( namespace + ".delete", vo);}
 //	
 //	// 숙소 검색
 //	public List<User> selectListSearch(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearch", vo); return list; } 
-//	public List<User> selectListSearchFlex(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearchFlex", vo); return list; } 
+	public List<User> selectListSearchFlex(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearchFlex", vo); return list; } 
 //	
 //	// 숙소 상세
 //	public User selectOneLodging(UserVo vo) { return sqlSession.selectOne(namespace + ".selectOneLodging", vo);}

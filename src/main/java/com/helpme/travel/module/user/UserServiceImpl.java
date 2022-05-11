@@ -20,12 +20,12 @@ public class UserServiceImpl implements UserService{
 //	return dao.selectOneLogin(vo);
 //	}
 		// 회원가입
-//	@Override
-//	public int insertMember(User dto) throws Exception {
-//		
-//		return dao.insertMember(dto);
-//	}
-//		// 회원정보
+	@Override
+	public int insertMember(User dto) throws Exception {
+		
+		return dao.insertMember(dto);
+	}
+		// 회원정보
 //	@Override
 //	public int updateMember(User dto) throws Exception {
 //		// TODO Auto-generated method stub
@@ -49,15 +49,16 @@ public class UserServiceImpl implements UserService{
 //			// TODO Auto-generated method stub
 //			return dao.selectListSearch(vo); 
 //		}
-//	@Override
-//	public List<User> selectListSearchFlex(UserVo vo) throws Exception {
-//		// TODO Auto-generated method stub
-//		return dao.selectListSearchFlex(vo); 
-//		}
-//	
-//	
-//	
-//		// 숙소상세
+	@Override
+	public List<User> selectListSearchFlex(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectListSearchFlex(vo); 
+		}
+
+	
+	
+	
+		// 숙소상세
 //	@Override
 //	public User selectOneLodging(UserVo vo) throws Exception {
 //	return dao.selectOneLodging(vo);
