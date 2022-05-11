@@ -353,7 +353,19 @@
     <script src="/resources/user/js/bootstrap.min.js"></script>
     <script src="/resources/user/js/script.js"></script>
     <!-- Map JS (Please change the API key below. Read documentation for more info) -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyDMTUkJAmi1ahsx9uCGSgmcSmqDTBF9ygg"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7cd4aacffe9949b52780dbc9332fce55&libraries=clusterer"></script>
+    <script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(36.4042403451875, 127.9914871081579),
+			level: 13
+		};
+
+		var map = new kakao.maps.Map(container, options);
+		
+		map.setMaxLevel(13);
+
+	</script>
 
 </body>
 

@@ -194,26 +194,28 @@
                         </div>
                     </div>
                     <div class="row">
+                    <c:forEach items="${list}" var="item" varStatus="status">
                         <div class="col-md-4 card-2">
                             <!-- card-1 -->
                             <div class="card">
                                 <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
-                                    <h5 class="card-title">헬로반디vandi룸/수플레팬케잌&빠네 등(조식무료), 도자기컵체험무료,넷플릭스(55인치)</h5>
+                                    <h5 class="card-title"><c:out value="${item.tvamLodgingName}"/></h5>
                                     <ul class="card-rating">
                                         <li>5.0</li>
                                     </ul>
                                     <p class="card-text">
-                                    '달에물들다 힐링스테이 김녕'은 아름다운 석양으로 유명한 김녕 성세기해변 근처에 있습니다.
+                                    <c:out value="${item.tvamDesc}"/>
                                     </p>
                                 </div>
                                 <div class="card-bottom">
-                                    <p><i class="ti-location-pin"></i>제주도, 제주시, 구좌읍</p>
+                                    <p><i class="ti-location-pin"></i><c:out value="${item.tvamAddress1}"/></p>
                                     <span>Closed Now</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 card-2">
+                        </c:forEach>
+                        <!-- <div class="col-md-4 card-2">
                             <div class="card">
                                 <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex2.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
@@ -353,7 +355,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
 <!--                 <div class="col-md-5 responsive-wrap map-wrap">

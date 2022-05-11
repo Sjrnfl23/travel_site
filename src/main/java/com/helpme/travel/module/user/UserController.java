@@ -2,6 +2,7 @@ package com.helpme.travel.module.user;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -80,7 +81,10 @@ public class UserController {
 		return "user/lodging/search";
 	}
 	@RequestMapping(value = "/user/searchFlex")
-	public String UserSearchFlex(Model model) throws Exception {
+	public String UserSearchFlex(@ModelAttribute("vo") UserVo vo,Model model) throws Exception {
+		
+			List<User> list = service.selectListSearchFlex(vo);
+			model.addAttribute("list", list);
 		
 		return "user/lodging/searchFlex";
 	}

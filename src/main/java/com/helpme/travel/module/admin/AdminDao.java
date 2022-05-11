@@ -20,11 +20,18 @@ public class AdminDao {
  
    //  ===========================host=================================
    public List<Admin> selectHost(){return sqlSession.selectList(namespace + ".selectHost", "");}
+<<<<<<< HEAD
    
    
    //  ===========================member=================================
    
+=======
+
+   public Admin selectOneHost(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneHost", vo);}
+
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
    public Admin selectOneMember(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneMember", vo);}
+
    
    public List<Admin> selectMember(){return sqlSession.selectList(namespace + ".selectMember", "");}
    
