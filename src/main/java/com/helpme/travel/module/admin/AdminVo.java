@@ -3,8 +3,11 @@ package com.helpme.travel.module.admin;
 public class AdminVo {
 
 	// VO
-//	host
+//	host, member
 	private String tvmmSeq;
+	
+//	lodging
+	private String tvamSeq;
 	
 
 //	------------------------	
@@ -17,10 +20,14 @@ public class AdminVo {
 		this.tvmmSeq = tvmmSeq;
 	}
 
+	public String getTvamSeq() {
+		return tvamSeq;
+	}
 
-	
+	public void setTvamSeq(String tvamSeq) {
+		this.tvamSeq = tvamSeq;
+	}
 
-	
 
 	
 	

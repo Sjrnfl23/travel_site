@@ -102,8 +102,11 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/admin/lodgingView")
-	public String AdminLodgingView(Model model) throws Exception {
+	public String AdminLodgingView(AdminVo vo, Model model) throws Exception {
 		
+		   Admin rt = service.selectOneLodging(vo);
+		   model.addAttribute("rt", rt);
+		   
 		return "admin/lodging/lodgingView";
 	}
 	

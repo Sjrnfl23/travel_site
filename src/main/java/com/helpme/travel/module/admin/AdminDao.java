@@ -32,6 +32,7 @@ public class AdminDao {
    //  ===========================lodging=================================
    
    public List<Admin> selectLodging(){return sqlSession.selectList(namespace + ".selectLodging", "");}
+   public Admin selectOneLodging(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneLodging", vo);}
    
    
    

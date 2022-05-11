@@ -37,5 +37,9 @@ public class AdminServiceImpl implements AdminService{
 		return dao.selectLodging(); 
 	}	
 
+	@Override
+	public Admin selectOneLodging(AdminVo vo) throws Exception {
+		return dao.selectOneLodging(vo); 
+	}
 }
 

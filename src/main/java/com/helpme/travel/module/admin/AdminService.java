@@ -14,5 +14,5 @@ public interface AdminService {
 	
 //  ===========================lodging=================================
 	public List<Admin> selectLodging() throws Exception; 
-	
+	public Admin selectOneLodging(AdminVo vo) throws Exception; 
 }
