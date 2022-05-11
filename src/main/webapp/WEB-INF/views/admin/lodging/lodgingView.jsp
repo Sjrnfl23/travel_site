@@ -97,7 +97,7 @@
                                                 <img src="/resources/admin/assets/images/users/busan.jpg" alt="" class="avatar-xl rounded-circle img-thumbnail">
                                               
                                                 <div class="mt-3">
-                                                   <h5 class="mb-1">제주하르방</h5>
+                                                   <h5 class="mb-1"><c:out value="${rt.tvamLodgingName}"/></h5>
                                                     <p class="text-muted mb-0">
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
@@ -115,14 +115,14 @@
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 호스트 :</th>
-                                                            <td class="text-muted">jeju@gmail.com</td>
+                                                            <td class="text-muted"><c:out value="${rt.host}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
 
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 숙소이름 :</th>
-                                                            <td class="text-muted">제주하르방</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvamLodgingName}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
@@ -134,53 +134,48 @@
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 주소 :</th>
-                                                            <td class="text-muted">제주특별자치도 서귀포시 안덕면 사계북로 120</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvamAddressFull}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">전화번호 :</th>
-                                                            <td class="text-muted">010-1234-1234</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvamTelNumber}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
 
                                                         <tr>
                                                             <th class="fw-bold">최대인원 :</th>
-                                                            <td class="text-muted">8인</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvamMaxPersonCount}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">방 수 :</th>
-                                                            <td class="text-muted">거실1/욕실1/방2</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvamRoomCount}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">욕실 수 :</th>
-                                                            <td class="text-muted">1</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvamShowerRoomCount}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">침대 수 :</th>
-                                                            <td class="text-muted">2</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvamBedCount}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">금액(1박 기준) :</th>
-                                                            <td class="text-muted">500,000원</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvamAdultPrice}"/>원</td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">체크인 시간 :</th>
-                                                            <td class="text-muted">15:00</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvamCheckInTime}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">체크아웃 시간 :</th>
-                                                            <td class="text-muted">11:00</td>
-                                                        </tr>
-                                                        <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">영업시간 :</th>
-                                                            <td class="text-muted">09:00~18:00</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvamCheckOutTime}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
 
@@ -200,16 +195,13 @@
                                                     <div class="col-12">
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">소개</h5>
-                                                            <p class="text-muted mb-0" style="text-align: left;">고요하게 쉬어갈 숙소를 운영합니다. 지친마음 제주바다와 함께 쉬어가세요.</p>
+                                                            <p class="text-muted mb-0" style="text-align: left;"><c:out value="${rt.tvamDesc}"/></p>
                                                         </div>
                                                     </div>
 
                                                 </div>
                                             </div>
 
-                                            <div class="pt-2 text-center border-bottom pb-4">
-                                                <a href="" class="btn btn-primary waves-effect waves-light btn-sm">메시지 전송<i class="bx bx-send ms-1 align-middle"></i></a>
-                                            </div>
 
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
