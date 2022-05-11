@@ -30,4 +30,6 @@ target/
 .factorypath
 .project
 .springBeans
-.root-context
+
+
+src/main/webapp/WEB-IFN/spring/
