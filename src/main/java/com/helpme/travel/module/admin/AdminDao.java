@@ -21,14 +21,10 @@ public class AdminDao {
    //  ===========================host=================================
    public List<Admin> selectHost(){return sqlSession.selectList(namespace + ".selectHost", "");}
 
-   
+   public Admin selectOneHost(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneHost", vo);}  
    
    //  ===========================member=================================
    
-
-
-   public Admin selectOneHost(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneHost", vo);}
-
 
    public Admin selectOneMember(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneMember", vo);}
 
@@ -39,9 +35,15 @@ public class AdminDao {
    //  ===========================lodging=================================
    
    public List<Admin> selectLodging(){return sqlSession.selectList(namespace + ".selectLodging", "");}
+   
    public Admin selectOneLodging(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneLodging", vo);}
    
    
+   //  ===========================coupon=================================
+   
+   public List<Admin> selectCoupon(){return sqlSession.selectList(namespace + ".selectCoupon", "");}   
+   
+   public Admin selectOneCoupon(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneCoupon", vo);}
    
 }
 

@@ -15,4 +15,8 @@ public interface AdminService {
 //  ===========================lodging=================================
 	public List<Admin> selectLodging() throws Exception; 
 	public Admin selectOneLodging(AdminVo vo) throws Exception; 
+	
+//  ===========================lodging=================================
+	public List<Admin> selectCoupon() throws Exception; 	
+	public Admin selectOneCoupon(AdminVo vo) throws Exception; 
 }

@@ -175,6 +175,50 @@
 			and tvamDelNy = 0
 			and tvamSeq = #{tvamSeq}
 	</select>
+
+
+
+ <!--  ===========================coupon================================= -->
+
+	<select id="selectCoupon" resultMap="resultMapObj">
+		select 
+			a.tvcpSeq
+		    , a.tvcpName
+		    , a.tvcpNumber
+		    , a.tvcpPrice
+		    , a.tvcpStartDate
+		    , a.tvcpEndDate
+		    , a.tvcpDesc
+		    , a.tvamSeq
+		    , b.tvamLodgingName
+            , c.tvmmEmailAccount
+		from tvCoupon a
+	        left join tvLodging b on a.tvamSeq = b.tvamSeq
+	        left join tvMember c on b.tvmmSeq = c.tvmmSeq
+		where 1 = 1
+			and tvcpDelNy = 0
+	</select>
+	
+	<select id="selectOneCoupon" resultMap="resultMapObj">
+		select 
+			a.tvcpSeq
+		    , a.tvcpName
+		    , a.tvcpNumber
+		    , a.tvcpPrice
+		    , a.tvcpStartDate
+		    , a.tvcpEndDate
+		    , a.tvcpDesc
+		    , a.tvamSeq
+		    , b.tvamLodgingName
+            , c.tvmmEmailAccount
+		from tvCoupon a
+	        left join tvLodging b on a.tvamSeq = b.tvamSeq
+	        left join tvMember c on b.tvmmSeq = c.tvmmSeq
+		where 1 = 1
+			and tvcpDelNy = 0
+			and tvcpSeq = #{tvcpSeq}
+	</select>
+
 	
 <!-- 	<select id="selectOne" resultMap="resultMapObj">
 

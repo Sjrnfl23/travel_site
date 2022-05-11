@@ -97,7 +97,7 @@
                                                 <br><br><br>
                                               
                                                 <div class="mt-3">
-                                                   <h5 class="mb-1">봄맞이 쿠폰</h5>
+                                                   <h5 class="mb-1"><c:out value="${rt.tvcpName}"/></h5>
                                                     <p class="text-muted mb-0">
                                                     </p>
                                                 </div>
@@ -108,38 +108,38 @@
                                                 <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
                                                     <tbody>
                                                         <tr>
-                                                            <th class="fw-bold" style="width: 130px;">
-                                                               호스트 :</th>
-                                                            <td class="text-muted">travel_jeju@jeju.com</td>
+                                                            <th class="fw-bold">
+                                                                숙소이름 :</th>
+                                                            <td class="text-muted"><c:out value="${rt.tvamLodgingName}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
-                                                            <th class="fw-bold">
-                                                                숙소이름 :</th>
-                                                            <td class="text-muted">제주하르방</td>
+                                                            <th class="fw-bold" style="width: 130px;">
+                                                               호스트 :</th>
+                                                            <td class="text-muted"><c:out value="${rt.tvmmEmailAccount}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 쿠폰이름 :</th>
-                                                            <td class="text-muted">봄맞이 쿠폰</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvcpName}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 금액 :</th>
-                                                            <td class="text-muted">10,000원</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvcpPrice}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">시작일 :</th>
-                                                            <td class="text-muted">2022-04-30</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvcpStartDate}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
 
                                                         <tr>
                                                             <th class="fw-bold">종료일 :</th>
-                                                            <td class="text-muted">2022-05-30</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvcpEndDate}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
 

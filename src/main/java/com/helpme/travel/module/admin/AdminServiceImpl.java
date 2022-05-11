@@ -41,5 +41,18 @@ public class AdminServiceImpl implements AdminService{
 	public Admin selectOneLodging(AdminVo vo) throws Exception {
 		return dao.selectOneLodging(vo); 
 	}
+	
+	
+//  ===========================lodging=================================
+	
+	@Override
+	public List<Admin> selectCoupon() throws Exception {
+		return dao.selectCoupon(); 
+	}	
+	
+	@Override
+	public Admin selectOneCoupon(AdminVo vo) throws Exception {
+		return dao.selectOneCoupon(vo); 
+	}
 }
 

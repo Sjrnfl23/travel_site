@@ -9,6 +9,8 @@ public class AdminVo {
 //	lodging
 	private String tvamSeq;
 	
+//	coupon
+	private String tvcpSeq;	
 
 //	------------------------	
 
@@ -28,7 +30,14 @@ public class AdminVo {
 		this.tvamSeq = tvamSeq;
 	}
 
+	public String getTvcpSeq() {
+		return tvcpSeq;
+	}
 
+	public void setTvcpSeq(String tvcpSeq) {
+		this.tvcpSeq = tvcpSeq;
+	}
+	
 	
 	
 }

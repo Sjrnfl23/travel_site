@@ -70,7 +70,19 @@ public class Admin {
 	private Integer tvmmDelNy;
 	
 	
+	// 쿠폰정보
+	private String tvcpSeq;
+	private String tvcpName;
+	private String tvcpNumber;
+	private String tvcpPrice;
+	private String tvcpStartDate;
+	private String tvcpEndDate;
+	private Integer tvcpDelNy;
+	private String tvcpDesc;
+	
+	
 //	===============================================	
+	
 	public String getTvamSeq() {
 		return tvamSeq;
 	}
@@ -281,6 +293,12 @@ public class Admin {
 	public void setTvamTelNumber(String tvamTelNumber) {
 		this.tvamTelNumber = tvamTelNumber;
 	}
+	public String getHost() {
+		return host;
+	}
+	public void setHost(String host) {
+		this.host = host;
+	}
 	public Date getRegDateTime() {
 		return regDateTime;
 	}
@@ -407,12 +425,59 @@ public class Admin {
 	public void setTvmmDelNy(Integer tvmmDelNy) {
 		this.tvmmDelNy = tvmmDelNy;
 	}
-	public String getHost() {
-		return host;
+	public String getTvcpSeq() {
+		return tvcpSeq;
 	}
-	public void setHost(String host) {
-		this.host = host;
+	public void setTvcpSeq(String tvcpSeq) {
+		this.tvcpSeq = tvcpSeq;
 	}
+	public String getTvcpName() {
+		return tvcpName;
+	}
+	public void setTvcpName(String tvcpName) {
+		this.tvcpName = tvcpName;
+	}
+	public String getTvcpNumber() {
+		return tvcpNumber;
+	}
+	public void setTvcpNumber(String tvcpNumber) {
+		this.tvcpNumber = tvcpNumber;
+	}
+	public String getTvcpPrice() {
+		return tvcpPrice;
+	}
+	public void setTvcpPrice(String tvcpPrice) {
+		this.tvcpPrice = tvcpPrice;
+	}
+	public String getTvcpStartDate() {
+		return tvcpStartDate;
+	}
+	public void setTvcpStartDate(String tvcpStartDate) {
+		this.tvcpStartDate = tvcpStartDate;
+	}
+	public String getTvcpEndDate() {
+		return tvcpEndDate;
+	}
+	public void setTvcpEndDate(String tvcpEndDate) {
+		this.tvcpEndDate = tvcpEndDate;
+	}
+	public Integer getTvcpDelNy() {
+		return tvcpDelNy;
+	}
+	public void setTvcpDelNy(Integer tvcpDelNy) {
+		this.tvcpDelNy = tvcpDelNy;
+	}
+	public String getTvcpDesc() {
+		return tvcpDesc;
+	}
+	public void setTvcpDesc(String tvcpDesc) {
+		this.tvcpDesc = tvcpDesc;
+	}
+	
+
+
+	
+
 	
 	
 

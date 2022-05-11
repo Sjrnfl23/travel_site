@@ -33,13 +33,19 @@ public class AdminController {
 	
 	@RequestMapping(value = "/admin/couponList")
 	public String AdminCouponList(Model model) throws Exception {
+	
+		List<Admin> list = service.selectCoupon();
+		model.addAttribute("list", list);		
 		
 		return "admin/coupon/couponList";
 	}
 		
 	@RequestMapping(value = "/admin/couponView")
-	public String AdminCouponView(Model model) throws Exception {
+	public String AdminCouponView(AdminVo vo, Model model) throws Exception {
 		
+		   Admin rt = service.selectOneCoupon(vo);
+		   model.addAttribute("rt", rt);	
+		   
 		return "admin/coupon/couponView";
 	}
 	
