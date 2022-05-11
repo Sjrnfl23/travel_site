@@ -49,15 +49,16 @@ public class UserServiceImpl implements UserService{
 //			// TODO Auto-generated method stub
 //			return dao.selectListSearch(vo); 
 //		}
-//	@Override
-//	public List<User> selectListSearchFlex(UserVo vo) throws Exception {
-//		// TODO Auto-generated method stub
-//		return dao.selectListSearchFlex(vo); 
-//		}
-//	
-//	
-//	
-//		// 숙소상세
+	@Override
+	public List<User> selectListSearchFlex(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectListSearchFlex(vo); 
+		}
+
+	
+	
+	
+		// 숙소상세
 //	@Override
 //	public User selectOneLodging(UserVo vo) throws Exception {
 //	return dao.selectOneLodging(vo);

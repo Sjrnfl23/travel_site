@@ -26,7 +26,7 @@ public class UserDao {
 //	
 //	// 숙소 검색
 //	public List<User> selectListSearch(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearch", vo); return list; } 
-//	public List<User> selectListSearchFlex(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearchFlex", vo); return list; } 
+	public List<User> selectListSearchFlex(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearchFlex", vo); return list; } 
 //	
 //	// 숙소 상세
 //	public User selectOneLodging(UserVo vo) { return sqlSession.selectOne(namespace + ".selectOneLodging", vo);}

@@ -6,6 +6,7 @@ public class User {
 	
 	// 숙소정보
 	private String tvamSeq;
+	private String tvamLodgingName;
 	private String tvamAcName;
 	private String tvamHostName;
 	private Integer tvamDelNy;
@@ -402,6 +403,12 @@ public class User {
 	}
 	public void setTvmmDelNy(Integer tvmmDelNy) {
 		this.tvmmDelNy = tvmmDelNy;
+	}
+	public String getTvamLodgingName() {
+		return tvamLodgingName;
+	}
+	public void setTvamLodgingName(String tvamLodgingName) {
+		this.tvamLodgingName = tvamLodgingName;
 	}	
 
 	

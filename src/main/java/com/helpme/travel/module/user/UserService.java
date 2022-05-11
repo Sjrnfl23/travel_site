@@ -19,8 +19,8 @@ public interface UserService {
 //	//지역 검색
 //	List<User> selectListSearch(UserVo vo) throws Exception;
 //	
-//	//유연한 검색
-//	List<User> selectListSearchFlex(UserVo vo) throws Exception;
+	//유연한 검색
+	List<User> selectListSearchFlex(UserVo vo) throws Exception;
 //	
 //	//숙소 상세
 //	public User selectOneLodging(UserVo vo) throws Exception;
