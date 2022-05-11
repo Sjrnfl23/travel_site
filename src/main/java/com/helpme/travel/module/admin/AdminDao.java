@@ -17,11 +17,23 @@ public class AdminDao {
    private SqlSession sqlSession;
    
    private static String namespace = "com.helpme.travel.module.admin.AdminMpp";
-   
+ 
+   //  ===========================host=================================
    public List<Admin> selectHost(){return sqlSession.selectList(namespace + ".selectHost", "");}
+   
+   
+   //  ===========================member=================================
+   
    public Admin selectOneMember(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneMember", vo);}
    
    public List<Admin> selectMember(){return sqlSession.selectList(namespace + ".selectMember", "");}
+   
+   
+   //  ===========================lodging=================================
+   
+   public List<Admin> selectLodging(){return sqlSession.selectList(namespace + ".selectLodging", "");}
+   
+   
    
 }
 

@@ -8,6 +8,9 @@
 
     <resultMap id="resultMapObj" type="com.helpme.travel.module.admin.Admin"></resultMap>
 
+
+ <!--  ===========================host================================= -->
+
 	<select id="selectHost" resultMap="resultMapObj">
 		select 
 			tvmmSeq
@@ -32,8 +35,9 @@
 		    and tvmmHostNy = 1
 
 	</select>
-	
 
+
+<!--  ===========================member================================= -->
 	
 	<select id="selectMember" resultMap="resultMapObj">
 		select 
@@ -85,6 +89,50 @@
 	</select>	
 
 	
+
+<!--  ===========================lodging================================= -->
+
+	<select id="selectLodging" resultMap="resultMapObj">
+		select 
+			a.tvamSeq
+		    , a.tvamLodgingName
+		    , a.tvamHostName
+		    , a.tvamDesc
+		    , a.tvamZipCode
+		    , a.tvamAddress1
+		    , a.tvamAddress2
+		    , a.tvamAddressFull
+		    , a.tvamState
+		    , a.tvamCity
+		    , a.tvamAdultPrice
+		    , a.tvamMaxPersonCount
+		    , a.tvamBedCount
+		    , a.tvamRoomCount
+		    , a.tvamShowerRoomCount
+		    , a.tvamApproveNy
+		    , a.tvamCategoryCd
+		    , a.tvamPoolNy
+		    , a.tvamJacuzziNy
+		    , a.tvamBbqGrillNy
+		    , a.tvamFirePlaceNy
+		    , a.tvamGymNy
+		    , a.tvamWifiNy
+		    , a.tvamTvNy
+		    , a.tvamParkingRoomNy
+		    , a.tvamAirConditionerNy
+		    , a.tvamHeaterNy
+		    , a.tvamFridgeNy
+		    , a.tvamMicrowaveNy
+		    , a.tvamCheckInTime
+		    , a.tvamCheckOutTime
+		    , a.tvmmSeq
+		    , a.tvamTelNumber
+		    , (select tvmmEmailAccount from tvMember b where a.tvmmSeq = b.tvmmSeq) as 'host'
+		from tvLodging a
+		where 1 = 1
+			and tvamDelNy = 0
+
+	</select>
 	
 <!-- 	<select id="selectOne" resultMap="resultMapObj">
 

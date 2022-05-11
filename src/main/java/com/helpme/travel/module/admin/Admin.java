@@ -6,7 +6,7 @@ public class Admin {
 	
 	// 숙소정보
 	private String tvamSeq;
-	private String tvamAcName;
+	private String tvamLodgingName;
 	private String tvamHostName;
 	private Integer tvamDelNy;
 	private String tvamDesc;
@@ -14,31 +14,34 @@ public class Admin {
 	private String tvamAddress1;
 	private String tvamAddress2;
 	private String tvamAddressFull;
-	private String tvamAddressState;
-	private String tvamAddressCity;
+	private String tvamState;
+	private String tvamCity;
 	private String tvamLat;
 	private String tvamLng;
-	private Integer tvamPrice;
+	private Integer tvamAdultPrice;
 	private Integer tvamMaxPersonCount;
 	private Integer tvamBedCount;
 	private Integer tvamRoomCount;
 	private Integer tvamShowerRoomCount;
 	private Integer tvamApproveNy;
+	private Integer tvamCategoryCd;
 	private Integer tvamPoolNy;
 	private Integer tvamJacuzziNy;
 	private Integer tvamBbqGrillNy;
-	private Integer tvamFirePlace;
+	private Integer tvamFirePlaceNy;
 	private Integer tvamGymNy;
 	private Integer tvamWifiNy;
 	private Integer tvamTvNy;
 	private Integer tvamParkingRoomNy;
+	private Integer tvamAirConditionerNy;
 	private Integer tvamHeaterNy;
 	private Integer tvamFridgeNy;
 	private Integer tvamMicrowaveNy;
 	private String tvamCheckInTime;
 	private String tvamCheckOutTime;
-	private Integer tvamSmokeNy;
-	private Integer tvamCookingNy;
+	private String tvamTelNumber;
+	private String host;
+	
 	
 	private Date regDateTime;
 	private Date regDateTimeSvr;
@@ -67,20 +70,18 @@ public class Admin {
 	private Integer tvmmDelNy;
 	
 	
-	
-//	===============================================
-		
+//	===============================================	
 	public String getTvamSeq() {
 		return tvamSeq;
 	}
 	public void setTvamSeq(String tvamSeq) {
 		this.tvamSeq = tvamSeq;
 	}
-	public String getTvamAcName() {
-		return tvamAcName;
+	public String getTvamLodgingName() {
+		return tvamLodgingName;
 	}
-	public void setTvamAcName(String tvamAcName) {
-		this.tvamAcName = tvamAcName;
+	public void setTvamLodgingName(String tvamLodgingName) {
+		this.tvamLodgingName = tvamLodgingName;
 	}
 	public String getTvamHostName() {
 		return tvamHostName;
@@ -124,17 +125,17 @@ public class Admin {
 	public void setTvamAddressFull(String tvamAddressFull) {
 		this.tvamAddressFull = tvamAddressFull;
 	}
-	public String getTvamAddressState() {
-		return tvamAddressState;
+	public String getTvamState() {
+		return tvamState;
 	}
-	public void setTvamAddressState(String tvamAddressState) {
-		this.tvamAddressState = tvamAddressState;
+	public void setTvamState(String tvamState) {
+		this.tvamState = tvamState;
 	}
-	public String getTvamAddressCity() {
-		return tvamAddressCity;
+	public String getTvamCity() {
+		return tvamCity;
 	}
-	public void setTvamAddressCity(String tvamAddressCity) {
-		this.tvamAddressCity = tvamAddressCity;
+	public void setTvamCity(String tvamCity) {
+		this.tvamCity = tvamCity;
 	}
 	public String getTvamLat() {
 		return tvamLat;
@@ -148,11 +149,11 @@ public class Admin {
 	public void setTvamLng(String tvamLng) {
 		this.tvamLng = tvamLng;
 	}
-	public Integer getTvamPrice() {
-		return tvamPrice;
+	public Integer getTvamAdultPrice() {
+		return tvamAdultPrice;
 	}
-	public void setTvamPrice(Integer tvamPrice) {
-		this.tvamPrice = tvamPrice;
+	public void setTvamAdultPrice(Integer tvamAdultPrice) {
+		this.tvamAdultPrice = tvamAdultPrice;
 	}
 	public Integer getTvamMaxPersonCount() {
 		return tvamMaxPersonCount;
@@ -184,6 +185,12 @@ public class Admin {
 	public void setTvamApproveNy(Integer tvamApproveNy) {
 		this.tvamApproveNy = tvamApproveNy;
 	}
+	public Integer getTvamCategoryCd() {
+		return tvamCategoryCd;
+	}
+	public void setTvamCategoryCd(Integer tvamCategoryCd) {
+		this.tvamCategoryCd = tvamCategoryCd;
+	}
 	public Integer getTvamPoolNy() {
 		return tvamPoolNy;
 	}
@@ -202,11 +209,11 @@ public class Admin {
 	public void setTvamBbqGrillNy(Integer tvamBbqGrillNy) {
 		this.tvamBbqGrillNy = tvamBbqGrillNy;
 	}
-	public Integer getTvamFirePlace() {
-		return tvamFirePlace;
+	public Integer getTvamFirePlaceNy() {
+		return tvamFirePlaceNy;
 	}
-	public void setTvamFirePlace(Integer tvamFirePlace) {
-		this.tvamFirePlace = tvamFirePlace;
+	public void setTvamFirePlaceNy(Integer tvamFirePlaceNy) {
+		this.tvamFirePlaceNy = tvamFirePlaceNy;
 	}
 	public Integer getTvamGymNy() {
 		return tvamGymNy;
@@ -231,6 +238,12 @@ public class Admin {
 	}
 	public void setTvamParkingRoomNy(Integer tvamParkingRoomNy) {
 		this.tvamParkingRoomNy = tvamParkingRoomNy;
+	}
+	public Integer getTvamAirConditionerNy() {
+		return tvamAirConditionerNy;
+	}
+	public void setTvamAirConditionerNy(Integer tvamAirConditionerNy) {
+		this.tvamAirConditionerNy = tvamAirConditionerNy;
 	}
 	public Integer getTvamHeaterNy() {
 		return tvamHeaterNy;
@@ -262,17 +275,11 @@ public class Admin {
 	public void setTvamCheckOutTime(String tvamCheckOutTime) {
 		this.tvamCheckOutTime = tvamCheckOutTime;
 	}
-	public Integer getTvamSmokeNy() {
-		return tvamSmokeNy;
+	public String getTvamTelNumber() {
+		return tvamTelNumber;
 	}
-	public void setTvamSmokeNy(Integer tvamSmokeNy) {
-		this.tvamSmokeNy = tvamSmokeNy;
-	}
-	public Integer getTvamCookingNy() {
-		return tvamCookingNy;
-	}
-	public void setTvamCookingNy(Integer tvamCookingNy) {
-		this.tvamCookingNy = tvamCookingNy;
+	public void setTvamTelNumber(String tvamTelNumber) {
+		this.tvamTelNumber = tvamTelNumber;
 	}
 	public Date getRegDateTime() {
 		return regDateTime;
@@ -399,7 +406,14 @@ public class Admin {
 	}
 	public void setTvmmDelNy(Integer tvmmDelNy) {
 		this.tvmmDelNy = tvmmDelNy;
-	}	
+	}
+	public String getHost() {
+		return host;
+	}
+	public void setHost(String host) {
+		this.host = host;
+	}
+	
 	
 
 

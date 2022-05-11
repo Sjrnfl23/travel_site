@@ -95,6 +95,9 @@ public class AdminController {
 	@RequestMapping(value = "/admin/lodgingList")
 	public String AdminLodgingList(Model model) throws Exception {
 		
+		List<Admin> list = service.selectLodging();
+		model.addAttribute("list", list);		
+		
 		return "admin/lodging/lodgingList";
 	}
 	

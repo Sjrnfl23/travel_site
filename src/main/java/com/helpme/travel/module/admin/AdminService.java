@@ -4,9 +4,15 @@ import java.util.List;
 
 public interface AdminService {
 	
+//  ===========================host=================================
 	public List<Admin> selectHost() throws Exception; 
+	
+//  ===========================member=================================
 	public Admin selectOneMember(AdminVo vo) throws Exception; 
 	
 	public List<Admin> selectMember() throws Exception; 
+	
+//  ===========================lodging=================================
+	public List<Admin> selectLodging() throws Exception; 
 	
 }

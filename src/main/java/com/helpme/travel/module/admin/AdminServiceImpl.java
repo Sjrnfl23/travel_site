@@ -12,11 +12,13 @@ public class AdminServiceImpl implements AdminService{
 	@Autowired
 	AdminDao dao;
 	
-	
+//  ===========================host=================================	
 	@Override
 	public List<Admin> selectHost() throws Exception {
 		return dao.selectHost(); 
 	}
+
+//  ===========================member=================================	
 	@Override
 	public Admin selectOneMember(AdminVo vo) throws Exception {
 		return dao.selectOneMember(vo); 
@@ -28,6 +30,12 @@ public class AdminServiceImpl implements AdminService{
 		return dao.selectMember(); 
 	}
 
+//  ===========================lodging=================================
+	
+	@Override
+	public List<Admin> selectLodging() throws Exception {
+		return dao.selectLodging(); 
+	}	
 
 }
 
