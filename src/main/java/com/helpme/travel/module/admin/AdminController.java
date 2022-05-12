@@ -159,6 +159,14 @@ public class AdminController {
 		return "admin/member/memberEdit";
 	}
 	
+	@RequestMapping(value = "/admin/memberUpdt")
+	public String AdminMemberUpdt(AdminVo vo, Admin dto, Model model) throws Exception {
+		
+		service.updateMember(dto);	
+		
+		return "redirect:/admin/memberView?tvmmSeq=" + dto.getTvmmSeq(); 
+	}	
+	
 	@RequestMapping(value = "/admin/memberForm")
 	public String AdminMemberForm(Model model) throws Exception {
 		
