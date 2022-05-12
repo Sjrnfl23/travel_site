@@ -57,9 +57,20 @@ public class AdminController {
 	/* host--------------------------------------------------------------------*/
 	
 	@RequestMapping(value = "/admin/hostEdit")
-	public String AdminHostEdit(Model model) throws Exception {
+	public String AdminHostEdit(AdminVo vo, Model model) throws Exception {
+		
+		   Admin rt = service.selectOneMember(vo);
+		   model.addAttribute("rt", rt);		
 		
 		return "admin/host/hostEdit";
+	}
+	
+	@RequestMapping(value = "/admin/hostUpdt")
+	public String AdminHostUpdt(AdminVo vo, Admin dto, Model model) throws Exception {
+		
+		service.updateMember(dto);	
+		
+		return "redirect:/admin/hostView" + dto.getTvmmSeq(); 
 	}
 	
 	@RequestMapping(value = "/admin/hostForm")

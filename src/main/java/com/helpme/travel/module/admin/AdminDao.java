@@ -28,8 +28,9 @@ public class AdminDao {
 
    public Admin selectOneMember(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneMember", vo);}
 
-   
    public List<Admin> selectMember(){return sqlSession.selectList(namespace + ".selectMember", "");}
+   
+   public int updateMember(Admin dto) {return sqlSession.update(namespace + ".updateMember", dto);}
    
    
    //  ===========================lodging=================================

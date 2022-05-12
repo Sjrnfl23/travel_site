@@ -33,7 +33,6 @@
 		where 1 = 1
 			and tvmmDelNy = 0
 		    and tvmmHostNy = 1
-
 	</select>
 
 
@@ -87,6 +86,25 @@
 			and tvmmDelNy = 0
 		    and tvmmSeq = #{tvmmSeq}
 	</select>	
+
+
+	<update id="updateMember">
+		update tvMember set
+			tvmmName = #{tvmmName}
+			, tvmmDob = #{tvmmDob}
+			, tvmmZipCode = #{tvmmZipCode}
+			, tvmmAddress1 = #{tvmmAddress1}
+			, tvmmAddress2 = #{tvmmAddress2}
+			, tvmmAddressFull = #{tvmmAddressFull}
+			, tvmmEmailAccount = #{tvmmEmailAccount}
+			, tvmmEmailDomain = #{tvmmEmailDomain}
+			, tvmmEmailDomainCd = #{tvmmEmailDomainCd}
+			, tvmmTelecomCd = #{tvmmTelecomCd}
+			, tvmmTelNumber = #{tvmmTelNumber}
+			, tvmmDesc = #{tvmmDesc}
+		where 1=1
+			and tvmmSeq = #{tvmmSeq}
+	</update>
 
 	
 

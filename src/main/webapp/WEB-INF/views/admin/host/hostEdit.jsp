@@ -40,7 +40,13 @@
 
     
     <body>
+    
+    <form action="/admin/hostUpdt">
+    	<input type="hidden" name="tvmmSeq" value="<c:out value="${rt.tvmmSeq}"/>">
 
+    <!-- <body data-layout="horizontal"> -->
+
+        <!-- Begin page -->
     <!-- <body data-layout="horizontal"> -->
 
         <!-- Begin page -->
@@ -55,93 +61,9 @@
               
               
             <!-- ========== Left Sidebar Start ========== -->
-<<<<<<< HEAD
             
              ﻿<%@ include file="../include/host/sideBar.jsp" %>
             
-=======
-            <div class="vertical-menu">
-
-                <!-- LOGO -->
-                <div class="navbar-brand-box">
-                    <a href="../mainView" class="logo logo-dark">
-                        <span class="logo-sm">
-                            <img src="/resources/admin/assets/images/logo-dark-sm.png" alt="" height="26">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="">
-                        </span>
-                    </a>
-
-                    <a href="../mainView" class="logo logo-light">
-                        <span class="logo-lg">
-                            <img src="/resources/admin/assets/images/logo-light-sm.png" alt="" height="26">
-                        </span>
-                        <span class="logo-sm">
-                            <img src="/resources/admin/assets/images/nowTravel_logo_180.jpg" alt="" height="26">
-                        </span>
-                    </a>
-                </div>
-
-                <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect vertical-menu-btn">
-                    <i class="bx bx-menu align-middle"></i>
-                </button>
-
-                <div data-simplebar class="sidebar-menu-scroll">
-
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                        <!-- Left Menu Start -->
-                        <ul class="metismenu list-unstyled" id="side-menu">
-                            <li class="menu-title" data-key="t-menu">Home</li>
-
-                            <li class="menu-title" data-key="t-applications">MANAGEMENT</li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i class="bx bx-store icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="../admin/lodgingList" data-key="t-products">숙소 리스트</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i class="bx bx-receipt icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
-                                </a>
-                                <ul class="sub-menu " aria-expanded="false">
-                                    <li><a href="../admin/couponList" data-key="t-invoice-list">쿠폰 리스트</a></li>
-                                </ul>
-                            </li>
-                            
-                            <li>
-                                <a href="../admin/reservationList">
-                                    <i class="bx bx-calendar-event icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-calendar">예약관리</span>
-                                </a>
-                            </li>
-
-                            <li class="menu-title" data-key="t-applications">MEMBER</li>
-
-                            <li class="mm-active">
-                                <a href="javascript: void(0);" class="has-arrow">
-                                    <i class="bx bx-user-circle icon nav-icon"></i>
-                                    <span class="menu-item" data-key="t-contacts">회원관리</span>
-                                </a>
-                                <ul class="sub-menu  mm-collapse mm-show" aria-expanded="false">
-                                    <li  class="mm-active"><a href="hostList" data-key="t-user-grid" class="active">호스트 관리</a></li>
-                                    <li><a href="../admin/memberList" data-key="t-user-list" >사용자 관리</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Sidebar -->
-                </div>
-            </div>
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
             <!-- Left Sidebar End -->
 	            <header class="ishorizontal-topbar">
 	                <div class="topnav">
@@ -197,7 +119,7 @@
 							                        <div class="row">
 							                            <div class="col-12">
 							                                <div class="card">
-							                                    <div class="card-body">
+<!-- 							                                    <div class="card-body">
 							                                        <div>
 							                                            <form action="#" class="dropzone">
 							                                                <div class="fallback">
@@ -211,7 +133,7 @@
 							                                                    <h4>Drop files here or click to upload.</h4>
 							                                                </div>
 							                                            </form>
-							                                        </div>
+							                                        </div> -->
 							        
 							                                        <div class="text-center mt-4">
 							                                            <button type="button" class="btn btn-primary waves-effect waves-light">사진첨부</button>
@@ -232,7 +154,7 @@
                                                             <th class="fw-bold">
                                                                 이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="김이젠">
+                                                            	<input type="text" class="form-control" placeholder="<c:out value="${rt.tvmmName}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -240,7 +162,7 @@
                                                             <th class="fw-bold">
                                                                 이메일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="ejenit@google.com">
+                                                            	<input type="text" class="form-control" placeholder="<c:out value="${rt.tvmmEmailAccount}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -248,7 +170,7 @@
                                                             <th class="fw-bold">
                                                                 비밀번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="password" class="form-control" placeholder="*******************">
+                                                            	<input type="password" class="form-control" placeholder="<c:out value="${rt.tvmmPassword}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -256,7 +178,7 @@
                                                             <th class="fw-bold">
                                                                 비밀번호 확인 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="password" class="form-control" placeholder="*******************">
+                                                            	<input type="password" class="form-control" placeholder="<c:out value="${rt.tvmmPassword}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -264,14 +186,14 @@
                                                             <th class="fw-bold">
                                                                 전화번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="010-1234-1234">
+                                                            	<input type="text" class="form-control" placeholder="<c:out value="${rt.tvmmTelNumber}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">주소 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="제주특별자치도 서귀포시 안덕면 사계북로 120">
+                                                            	<input type="text" class="form-control" placeholder="<c:out value="${rt.tvmmAddressFull}"/>">
                                                            	</td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -279,18 +201,10 @@
                                                         <tr>
                                                             <th class="fw-bold">생년월일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="date" class="form-control" placeholder="1999-09-09">
+                                                            	<input type="date" class="form-control" placeholder="<c:out value="${rt.tvmmDob}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">사용언어 :</th>
-                                                            <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="한국어, 영어">
-                                                            </td>
-                                                        </tr>
-                                                        <!-- end tr -->
-
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
                                                             <td class="text-muted">2022-04-26</td>
@@ -306,7 +220,7 @@
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">소개</h5>
                                                             <p class="text-muted mb-0" style="text-align: left;">
-                                                            	<textarea class="form-control" placeholder="...."></textarea>
+                                                            	<textarea class="form-control" placeholder="<c:out value="${rt.tvmmDesc}"/>"></textarea>
                                                             </p>                                                            
                                                         </div>
                                                     </div>
@@ -316,12 +230,12 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="hostView">
-                                                     		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
+                                                       <a href="">
+                                                     		<button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md">수정</button>
                                                        </a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="hostView">
+                                                    	<a href="/admin/hostView?tvmmSeq=<c:out value="${rt.tvmmSeq}"/>">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">취소</button>
                                                     	</a>
                                                     </li>
@@ -360,7 +274,7 @@
               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-              ...
+              
             </div>
         </div>
 
@@ -386,7 +300,7 @@
         <!-- Plugins js -->
         <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
 
-
+	</form>
     </body>
 
 </html>

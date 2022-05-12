@@ -30,6 +30,10 @@ public class AdminServiceImpl implements AdminService{
 		return dao.selectMember(); 
 	}
 
+	@Override
+	public int updateMember(Admin dto) throws Exception {
+		return dao.updateMember(dto);
+	}
 //  ===========================lodging=================================
 	
 	@Override
