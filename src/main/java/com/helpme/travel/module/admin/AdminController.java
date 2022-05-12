@@ -70,7 +70,7 @@ public class AdminController {
 		
 		service.updateMember(dto);	
 		
-		return "redirect:/admin/hostView" + dto.getTvmmSeq(); 
+		return "redirect:/admin/hostView?tvmmSeq=" + dto.getTvmmSeq(); 
 	}
 	
 	@RequestMapping(value = "/admin/hostForm")
@@ -105,6 +105,8 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin/lodgingEdit")
 	public String AdminLodgingEdit(Model model) throws Exception {
+
+		
 		
 		return "admin/lodging/lodgingEdit";
 	}
@@ -149,7 +151,10 @@ public class AdminController {
 	/* member--------------------------------------------------------------------*/
 	
 	@RequestMapping(value = "/admin/memberEdit")
-	public String AdminMemberEdit(Model model) throws Exception {
+	public String AdminMemberEdit(AdminVo vo, Model model) throws Exception {
+
+		   Admin rt = service.selectOneMember(vo);
+		   model.addAttribute("rt", rt);			
 		
 		return "admin/member/memberEdit";
 	}
