@@ -26,10 +26,21 @@ public class AdminController {
 	/* coupon----------------------------------------------------------------- */
 	
 	@RequestMapping(value = "/admin/couponEdit")
-	public String AdminCouponEdit(Model model) throws Exception {
+	public String AdminCouponEdit(AdminVo vo, Model model) throws Exception {
+		
+		   Admin rt = service.selectOneCoupon(vo);
+		   model.addAttribute("rt", rt);		
 		
 		return "admin/coupon/couponEdit";
 	}
+	
+	@RequestMapping(value = "/admin/couponUpdt")
+	public String AdminCouponUpdt(AdminVo vo, Admin dto, Model model) throws Exception {
+		
+		service.updateCoupon(dto);	
+		
+		return "redirect:/admin/couponView?tvcpSeq=" + dto.getTvcpSeq(); 
+	}	
 	
 	@RequestMapping(value = "/admin/couponList")
 	public String AdminCouponList(Model model) throws Exception {
