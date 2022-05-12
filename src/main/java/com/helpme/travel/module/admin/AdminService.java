@@ -20,6 +20,7 @@ public interface AdminService {
 //  ===========================coupon=================================
 	public List<Admin> selectCoupon() throws Exception; 	
 	public Admin selectOneCoupon(AdminVo vo) throws Exception; 
+	public int updateCoupon(Admin dto) throws Exception;
 	
 //  ===========================payment=================================
 	public List<Admin> selectPayment() throws Exception; 	

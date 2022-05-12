@@ -159,7 +159,7 @@
                                                     <div class="col-12">
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">설명</h5>
-                                                            <p class="text-muted mb-0" style="text-align: left;">봄을 맞이하여 여행객에게 주는 쿠폰</p>
+                                                            <p class="text-muted mb-0" style="text-align: left;"><c:out value="${rt.tvcpDesc}"/></p>
                                                         </div>
                                                     </div>
 
@@ -173,17 +173,17 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="couponEdit">
+                                                       <a href="/admin/couponEdit?tvcpSeq=<c:out value="${rt.tvcpSeq}"/>">
                                                      		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
                                                        </a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="couponList">
+                                                    	<a href="/admin/couponList">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">목록</button>
                                                     	</a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="couponList">
+                                                    	<a href="/admin/couponList">
                                                        		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
                                                     	</a>
                                                     </li>

@@ -58,7 +58,11 @@ public class AdminServiceImpl implements AdminService{
 	public Admin selectOneCoupon(AdminVo vo) throws Exception {
 		return dao.selectOneCoupon(vo); 
 	}
-	
+
+	@Override
+	public int updateCoupon(Admin dto) throws Exception {
+		return dao.updateCoupon(dto);
+	}
 	
 //  ===========================payment=================================
 	

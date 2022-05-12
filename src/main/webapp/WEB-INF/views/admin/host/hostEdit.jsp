@@ -41,8 +41,7 @@
     
     <body>
     
-    <form action="/admin/hostUpdt">
-    	<input type="hidden" name="tvmmSeq" value="<c:out value="${rt.tvmmSeq}"/>">
+
 
     <!-- <body data-layout="horizontal"> -->
 
@@ -82,7 +81,9 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-           
+    <form action="/admin/hostUpdt" method="get" autocomplete="off" enctype="multipart/form-data">
+    	<input type="hidden" name="tvmmSeq" value="<c:out value="${rt.tvmmSeq}"/>">
+    	           
             <div class="main-content">
                 <div class="page-content">
                     <div class="container-fluid">
@@ -154,7 +155,7 @@
                                                             <th class="fw-bold">
                                                                 이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="<c:out value="${rt.tvmmName}"/>">
+                                                            	<input type="text" class="form-control" name="tvmmName"  placeholder="<c:out value="${rt.tvmmName}"/>" value="${rt.tvmmName}">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -162,7 +163,7 @@
                                                             <th class="fw-bold">
                                                                 이메일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="<c:out value="${rt.tvmmEmailAccount}"/>">
+                                                            	<input type="text" class="form-control" name="tvmmEmailAccount" placeholder="<c:out value="${rt.tvmmEmailAccount}"/>" value="${rt.tvmmEmailAccount}">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -170,7 +171,7 @@
                                                             <th class="fw-bold">
                                                                 비밀번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="password" class="form-control" placeholder="<c:out value="${rt.tvmmPassword}"/>">
+                                                            	<input type="password" class="form-control" name="tvmmPassword" placeholder="<c:out value="${rt.tvmmPassword}"/>" value="${rt.tvmmPassword}">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -186,14 +187,14 @@
                                                             <th class="fw-bold">
                                                                 전화번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="<c:out value="${rt.tvmmTelNumber}"/>">
+                                                            	<input type="password" class="form-control" name="tvmmTelNumber" placeholder="<c:out value="${rt.tvmmTelNumber}"/>" value="${rt.tvmmTelNumber}">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">주소 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="<c:out value="${rt.tvmmAddressFull}"/>">
+                                                            	<input type="text" class="form-control" name="tvmmAddressFull" placeholder="<c:out value="${rt.tvmmAddressFull}"/>" value="${rt.tvmmAddressFull}">
                                                            	</td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -201,7 +202,7 @@
                                                         <tr>
                                                             <th class="fw-bold">생년월일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="date" class="form-control" placeholder="<c:out value="${rt.tvmmDob}"/>">
+                                                            	<input type="date" class="form-control" name="tvmmDob" placeholder="<c:out value="${rt.tvmmDob}"/>" value="${rt.tvmmDob}">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -220,7 +221,7 @@
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">소개</h5>
                                                             <p class="text-muted mb-0" style="text-align: left;">
-                                                            	<textarea class="form-control" placeholder="<c:out value="${rt.tvmmDesc}"/>"></textarea>
+                                                            	<textarea class="form-control" name="tvmmDesc" placeholder="<c:out value="${rt.tvmmDesc}"/>" value="${rt.tvmmDesc}"></textarea>
                                                             </p>                                                            
                                                         </div>
                                                     </div>
@@ -230,9 +231,7 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="">
                                                      		<button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md">수정</button>
-                                                       </a>
                                                     </li>
                                                     <li class="list-inline-item">
                                                     	<a href="/admin/hostView?tvmmSeq=<c:out value="${rt.tvmmSeq}"/>">
@@ -247,6 +246,7 @@
                             </div>
 						</div>
 					</div>
+				</form>
 	                <footer class="footer">
 	                    <div class="container-fluid">
 	                        <div class="row">
@@ -300,7 +300,6 @@
         <!-- Plugins js -->
         <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
 
-	</form>
     </body>
 
 </html>

@@ -74,7 +74,8 @@
             <!-- Start right Content here -->
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
-
+    <form action="/admin/memberUpdt" method="get" autocomplete="off" enctype="multipart/form-data">
+    	<input type="hidden" name="tvmmSeq" value="<c:out value="${rt.tvmmSeq}"/>">
            
             <div class="main-content">
                 <div class="page-content">
@@ -100,7 +101,7 @@
                                                 <img src="/resources/admin/assets/images/users/avatar-1.jpg" alt="" class="avatar-xl rounded-circle img-thumbnail">
                                               
                                                 <div class="mt-3">
-                                                   <h5 class="mb-1">김이젠</h5>
+                                                   <h5 class="mb-1"><c:out value="${rt.tvmmName}"/></h5>
                                                     <p class="text-muted mb-0">
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
@@ -147,7 +148,7 @@
                                                             <th class="fw-bold">
                                                                 이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="김이젠">
+                                                            	<input type="text" class="form-control" name="tvmmName" placeholder="<c:out value="${rt.tvmmName}"/>" value="<c:out value="${rt.tvmmName}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -155,7 +156,7 @@
                                                             <th class="fw-bold">
                                                                 이메일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="ejenit@google.com">
+                                                            	<input type="text" class="form-control" name="tvmmEmailAccount" placeholder="<c:out value="${rt.tvmmEmailAccount}"/>" value="<c:out value="${rt.tvmmEmailAccount}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -163,7 +164,7 @@
                                                             <th class="fw-bold">
                                                                 비밀번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="password" class="form-control" placeholder="************">
+                                                            	<input type="password" class="form-control" name="tvmmPassword" placeholder="<c:out value="${rt.tvmmPassword}"/>" value="<c:out value="${rt.tvmmPassword}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -171,7 +172,7 @@
                                                             <th class="fw-bold">
                                                                 비밀번호 확인 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="password" class="form-control" placeholder="************">
+                                                            	<input type="password" class="form-control" placeholder="<c:out value="${rt.tvmmPassword}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -179,14 +180,14 @@
                                                             <th class="fw-bold">
                                                                 전화번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="010-1234-1234">
+                                                            	<input type="text" class="form-control" name="tvmmTelNumber" placeholder="<c:out value="${rt.tvmmTelNumber}"/>" value="<c:out value="${rt.tvmmTelNumber}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">주소 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="제주특별자치도 서귀포시 안덕면 사계북로 120">
+                                                            	<input type="text" class="form-control" name="tvmmAddressFull" placeholder="<c:out value="${rt.tvmmAddressFull}"/>" value="<c:out value="${rt.tvmmAddressFull}"/>">
                                                            	</td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -194,7 +195,7 @@
                                                         <tr>
                                                             <th class="fw-bold">생년월일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="date" class="form-control" placeholder="1999-09-09">
+                                                            	<input type="date" class="form-control" name="tvmmDob" placeholder="<c:out value="${rt.tvmmDob}"/>" value="<c:out value="${rt.tvmmDob}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -217,7 +218,7 @@
                                                             <h5 class="mb-1" style="text-align: left;">소개</h5>
                                                             <p class="text-muted mb-0" style="text-align: left;">
                                                             <p class="text-muted mb-0" style="text-align: left;">
-                                                            	<textarea class="form-control" placeholder="...."></textarea>
+                                                            	<textarea class="form-control" name="tvmmDesc" placeholder="<c:out value="${rt.tvmmDesc}"/>" value="<c:out value="${rt.tvmmDesc}"/>"></textarea>
                                                             </p>                                                            
                                                             </p>
                                                         </div>
@@ -229,9 +230,7 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="memberView">
-                                                     		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
-                                                       </a>
+                                                     		<button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" >수정</button>
                                                     </li>
                                                     <li class="list-inline-item">
                                                     	<a href="memberView">
@@ -261,6 +260,8 @@
 	                    </div>
 	                </footer>					
 				</div>
+				
+				</form>
         </div>
         <!-- END layout-wrapper -->
 

@@ -46,6 +46,8 @@ public class AdminDao {
    
    public Admin selectOneCoupon(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneCoupon", vo);}
    
+   public int updateCoupon(Admin dto) {return sqlSession.update(namespace + ".updateCoupon", dto);}
+   
    //  ===========================payment=================================
    
    public List<Admin> selectPayment(){return sqlSession.selectList(namespace + ".selectPayment", "");}  

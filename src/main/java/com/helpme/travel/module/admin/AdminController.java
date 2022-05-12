@@ -26,10 +26,21 @@ public class AdminController {
 	/* coupon----------------------------------------------------------------- */
 	
 	@RequestMapping(value = "/admin/couponEdit")
-	public String AdminCouponEdit(Model model) throws Exception {
+	public String AdminCouponEdit(AdminVo vo, Model model) throws Exception {
+		
+		   Admin rt = service.selectOneCoupon(vo);
+		   model.addAttribute("rt", rt);		
 		
 		return "admin/coupon/couponEdit";
 	}
+	
+	@RequestMapping(value = "/admin/couponUpdt")
+	public String AdminCouponUpdt(AdminVo vo, Admin dto, Model model) throws Exception {
+		
+		service.updateCoupon(dto);	
+		
+		return "redirect:/admin/couponView?tvcpSeq=" + dto.getTvcpSeq(); 
+	}	
 	
 	@RequestMapping(value = "/admin/couponList")
 	public String AdminCouponList(Model model) throws Exception {
@@ -70,7 +81,7 @@ public class AdminController {
 		
 		service.updateMember(dto);	
 		
-		return "redirect:/admin/hostView" + dto.getTvmmSeq(); 
+		return "redirect:/admin/hostView?tvmmSeq=" + dto.getTvmmSeq(); 
 	}
 	
 	@RequestMapping(value = "/admin/hostForm")
@@ -105,6 +116,8 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin/lodgingEdit")
 	public String AdminLodgingEdit(Model model) throws Exception {
+
+		
 		
 		return "admin/lodging/lodgingEdit";
 	}
@@ -149,10 +162,21 @@ public class AdminController {
 	/* member--------------------------------------------------------------------*/
 	
 	@RequestMapping(value = "/admin/memberEdit")
-	public String AdminMemberEdit(Model model) throws Exception {
+	public String AdminMemberEdit(AdminVo vo, Model model) throws Exception {
+
+		   Admin rt = service.selectOneMember(vo);
+		   model.addAttribute("rt", rt);			
 		
 		return "admin/member/memberEdit";
 	}
+	
+	@RequestMapping(value = "/admin/memberUpdt")
+	public String AdminMemberUpdt(AdminVo vo, Admin dto, Model model) throws Exception {
+		
+		service.updateMember(dto);	
+		
+		return "redirect:/admin/memberView?tvmmSeq=" + dto.getTvmmSeq(); 
+	}	
 	
 	@RequestMapping(value = "/admin/memberForm")
 	public String AdminMemberForm(Model model) throws Exception {
