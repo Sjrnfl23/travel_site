@@ -180,12 +180,18 @@ public class AdminController {
 	
 	@RequestMapping(value = "/admin/reservationList")
 	public String AdminReservationList(Model model) throws Exception {
+
+		List<Admin> list = service.selectPayment();
+		model.addAttribute("list", list);	
 		
 		return "admin/reservation/reservationList";
 	}
 	
 	@RequestMapping(value = "/admin/reservationView")
-	public String AdminReservationView(Model model) throws Exception {
+	public String AdminReservationView(AdminVo vo, Model model) throws Exception {
+		
+		   Admin rt = service.selectOnePayment(vo);
+		   model.addAttribute("rt", rt);		
 		
 		return "admin/reservation/reservationView";
 	}

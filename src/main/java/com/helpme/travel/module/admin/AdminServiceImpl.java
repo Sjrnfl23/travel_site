@@ -43,7 +43,7 @@ public class AdminServiceImpl implements AdminService{
 	}
 	
 	
-//  ===========================lodging=================================
+//  ===========================coupon=================================
 	
 	@Override
 	public List<Admin> selectCoupon() throws Exception {
@@ -54,5 +54,19 @@ public class AdminServiceImpl implements AdminService{
 	public Admin selectOneCoupon(AdminVo vo) throws Exception {
 		return dao.selectOneCoupon(vo); 
 	}
+	
+	
+//  ===========================payment=================================
+	
+	@Override
+	public List<Admin> selectPayment() throws Exception {
+		return dao.selectPayment(); 
+	}	
+	
+	@Override
+	public Admin selectOnePayment(AdminVo vo) throws Exception {
+		return dao.selectOnePayment(vo); 
+	}	
+	
 }
 

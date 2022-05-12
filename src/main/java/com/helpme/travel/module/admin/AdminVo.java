@@ -11,6 +11,9 @@ public class AdminVo {
 	
 //	coupon
 	private String tvcpSeq;	
+	
+//	payment
+	private String tvpmSeq;	
 
 //	------------------------	
 
@@ -37,6 +40,16 @@ public class AdminVo {
 	public void setTvcpSeq(String tvcpSeq) {
 		this.tvcpSeq = tvcpSeq;
 	}
+
+	public String getTvpmSeq() {
+		return tvpmSeq;
+	}
+
+	public void setTvpmSeq(String tvpmSeq) {
+		this.tvpmSeq = tvpmSeq;
+	}
+	
+	
 	
 	
 	

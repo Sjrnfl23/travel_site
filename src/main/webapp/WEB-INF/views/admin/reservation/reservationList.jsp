@@ -100,7 +100,8 @@
 													<th>숙소이름</th>
 													<th>호스트</th>
 													<th>사용자</th>
-													<th>사용자이름</th>
+													<th>이름</th>
+													<th>연락처</th>
 													<th>인원</th>
 													<th>시작일</th>
 													<th>종료일</th>
@@ -113,17 +114,18 @@
 													<tr>
 														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvmmSeq}"/>" class="form-check-input"></td>
 														<td><c:out value="${rt.tvmmSeq}"/></td>
-														<td><c:out value="${rt.tvmmName}"/></td>
+														<td><c:out value="${rt.tvamLodgingName}"/></td>
+														<td><c:out value="${rt.hostEmail}"/></td>
 														<td><c:out value="${rt.tvmmEmailAccount}"/></td>
+														<td><c:out value="${rt.tvmmName}"/></td>
 														<td><c:out value="${rt.tvmmTelNumber}"/></td>
-														<td>100</td>
-														<td><c:out value="${rt.tvmmAddressFull}"/></td>
-														<td><c:out value="${rt.tvmmAddressFull}"/></td>
-														<td><c:out value="${rt.tvmmAddressFull}"/></td>
-														<td>2022-05-10</td>
+														<td><c:out value="${rt.tvpmAdNumber}"/>명</td>
+														<td><c:out value="${rt.tvpmStartDate}"/></td>
+														<td><c:out value="${rt.tvpmEndDate}"/></td>
+														<td><c:out value="${rt.tvpmtotalPrice}"/>원</td>
 														<td>
 															<div class="d-flex gap-3">
-																<a href="/admin/reservationView" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
+																<a href="/admin/reservationView?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
 																<a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger">

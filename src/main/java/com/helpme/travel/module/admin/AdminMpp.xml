@@ -219,10 +219,68 @@
 			and tvcpSeq = #{tvcpSeq}
 	</select>
 
-	
-<!-- 	<select id="selectOne" resultMap="resultMapObj">
 
-	</select> -->
+	
+ <!--  ===========================payment================================= -->
+
+	<select id="selectPayment" resultMap="resultMapObj">
+		select 
+			a.tvpmSeq
+		    , a.tvpmAdNumber
+		    , a.tvpmStartDate
+		    , a.tvpmEndDate
+		    , a.tvpmPrice
+		    , a.tvcpSeq
+		    , b.tvcpPrice
+		    , a.tvpmtotalPrice
+		    , a.tvpmPayTypeCd
+		    , a.tvpmDesc
+            , a.tvamSeq
+            , c.tvamLodgingName
+            , c.tvamTelNumber
+            , (select tvmmEmailAccount from tvMember e where e.tvmmSeq = c.tvmmSeq) as 'hostEmail' 
+            , a.tvmmSeq
+            , d.tvmmName
+            , d.tvmmTelNumber
+            , d.tvmmEmailAccount
+		from tvPayment a
+			left join tvCoupon b on a.tvcpSeq = b.tvcpSeq
+            left join tvLodging c on a.tvamSeq = c.tvamSeq
+            left join tvMember d on a.tvmmSeq = d.tvmmSeq
+		where 1 = 1
+			and tvpmDelNy = 0
+	</select>
+	
+	<select id="selectOnePayment" resultMap="resultMapObj">
+		select 
+			a.tvpmSeq
+		    , a.tvpmAdNumber
+		    , a.tvpmStartDate
+		    , a.tvpmEndDate
+		    , a.tvpmPrice
+		    , a.tvcpSeq
+		    , b.tvcpPrice
+		    , a.tvpmtotalPrice
+		    , a.tvpmPayTypeCd
+		    , a.tvpmDesc
+            , a.tvamSeq
+            , c.tvamLodgingName
+            , c.tvamTelNumber
+            , (select tvmmEmailAccount from tvMember e where e.tvmmSeq = c.tvmmSeq) as 'hostEmail' 
+            , a.tvmmSeq
+            , d.tvmmName
+            , d.tvmmTelNumber
+            , d.tvmmEmailAccount
+		from tvPayment a
+			left join tvCoupon b on a.tvcpSeq = b.tvcpSeq
+            left join tvLodging c on a.tvamSeq = c.tvamSeq
+            left join tvMember d on a.tvmmSeq = d.tvmmSeq
+		where 1 = 1
+			and tvpmDelNy = 0
+			and tvpmSeq = #{tvpmSeq}
+	</select>
+	
+
 	
 	
 	

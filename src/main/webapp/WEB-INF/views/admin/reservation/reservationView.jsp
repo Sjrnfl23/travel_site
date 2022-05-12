@@ -110,63 +110,63 @@
                                                         <tr>
                                                             <th class="fw-bold" style="width: 130px;">
                                                                예약번호 :</th>
-                                                            <td class="text-muted">202205020001</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvmmSeq}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 숙소이름 :</th>
-                                                            <td class="text-muted">제주하르방</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvamLodgingName}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 호스트 :</th>
-                                                            <td class="text-muted">jeju@jeju.com</td>
+                                                            <td class="text-muted"><c:out value="${rt.hostEmail}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
-                                                                호스트 연락처 :</th>
-                                                            <td class="text-muted">010-1234-1234</td>
+                                                                숙소 연락처 :</th>
+                                                            <td class="text-muted"><c:out value="${rt.tvamTelNumber}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 사용자 :</th>
-                                                            <td class="text-muted">ina@naver.com</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvmmEmailAccount}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">사용자이름 :</th>
-                                                            <td class="text-muted">윤이나</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvmmName}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">사용자 연락처 :</th>
-                                                            <td class="text-muted">010-4561-4567</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvmmTelNumber}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
 
                                                         <tr>
                                                             <th class="fw-bold">인원 :</th>
-                                                            <td class="text-muted">성인 1명</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvpmAdNumber}"/>명</td>
                                                         </tr>
                                                         <!-- end tr -->
 
                                                         <tr>
                                                             <th class="fw-bold">시작일 :</th>
-                                                            <td class="text-muted">2022-05-28</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvpmStartDate}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">종료일 :</th>
-                                                            <td class="text-muted">2022-05-30</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvpmEndDate}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">가격 :</th>
-                                                            <td class="text-muted">350,000원</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvpmtotalPrice}"/>원</td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
@@ -185,7 +185,7 @@
                                                     <div class="col-12">
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">요청사항</h5>
-                                                            <p class="text-muted mb-0" style="text-align: left;">저녁 11시에 체크인 예정입니다.</p>
+                                                            <p class="text-muted mb-0" style="text-align: left;"><c:out value="${rt.tvpmDesc}"/></p>
                                                         </div>
                                                     </div>
 

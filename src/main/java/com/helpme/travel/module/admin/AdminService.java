@@ -16,7 +16,12 @@ public interface AdminService {
 	public List<Admin> selectLodging() throws Exception; 
 	public Admin selectOneLodging(AdminVo vo) throws Exception; 
 	
-//  ===========================lodging=================================
+//  ===========================coupon=================================
 	public List<Admin> selectCoupon() throws Exception; 	
 	public Admin selectOneCoupon(AdminVo vo) throws Exception; 
+	
+//  ===========================payment=================================
+	public List<Admin> selectPayment() throws Exception; 	
+	public Admin selectOnePayment(AdminVo vo) throws Exception; 
+
 }

@@ -81,8 +81,21 @@ public class Admin {
 	private String tvcpDesc;
 	
 	
-//	===============================================	
 	
+	// 결제(예약)정보
+	private String tvpmSeq;
+	private String tvpmAdNumber;
+	private String tvpmStartDate;
+	private String tvpmEndDate;
+	private String tvpmPrice;
+	private Integer tvpmtotalPrice;
+	private String tvpmPayTypeCd;
+	private String tvpmDesc;
+	private String hostEmail;
+	
+	
+//	===============================================	
+		
 	public String getTvamSeq() {
 		return tvamSeq;
 	}
@@ -473,11 +486,65 @@ public class Admin {
 	public void setTvcpDesc(String tvcpDesc) {
 		this.tvcpDesc = tvcpDesc;
 	}
+	public String getTvpmSeq() {
+		return tvpmSeq;
+	}
+	public void setTvpmSeq(String tvpmSeq) {
+		this.tvpmSeq = tvpmSeq;
+	}
+	public String getTvpmAdNumber() {
+		return tvpmAdNumber;
+	}
+	public void setTvpmAdNumber(String tvpmAdNumber) {
+		this.tvpmAdNumber = tvpmAdNumber;
+	}
+	public String getTvpmStartDate() {
+		return tvpmStartDate;
+	}
+	public void setTvpmStartDate(String tvpmStartDate) {
+		this.tvpmStartDate = tvpmStartDate;
+	}
+	public String getTvpmEndDate() {
+		return tvpmEndDate;
+	}
+	public void setTvpmEndDate(String tvpmEndDate) {
+		this.tvpmEndDate = tvpmEndDate;
+	}
+	public String getTvpmPrice() {
+		return tvpmPrice;
+	}
+	public void setTvpmPrice(String tvpmPrice) {
+		this.tvpmPrice = tvpmPrice;
+	}
+	public Integer getTvpmtotalPrice() {
+		return tvpmtotalPrice;
+	}
+	public void setTvpmtotalPrice(Integer tvpmtotalPrice) {
+		this.tvpmtotalPrice = tvpmtotalPrice;
+	}
+	public String getTvpmPayTypeCd() {
+		return tvpmPayTypeCd;
+	}
+	public void setTvpmPayTypeCd(String tvpmPayTypeCd) {
+		this.tvpmPayTypeCd = tvpmPayTypeCd;
+	}
+	public String getTvpmDesc() {
+		return tvpmDesc;
+	}
+	public void setTvpmDesc(String tvpmDesc) {
+		this.tvpmDesc = tvpmDesc;
+	}
+	public String getHostEmail() {
+		return hostEmail;
+	}
+	public void setHostEmail(String hostEmail) {
+		this.hostEmail = hostEmail;
+	}
+	
 	
 
 
 	
-
 	
 	
 
