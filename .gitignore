@@ -35,4 +35,4 @@ target/
 .springBeans
 
 
-src/main/webapp/WEB-INF/spring/
+src/main/webapp/WEB-INF/spring
