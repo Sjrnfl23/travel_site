@@ -95,11 +95,11 @@
                                 <a class="dropdown-item" href="/admin/memberViewAdmin"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
-<<<<<<< HEAD
+
                                 <a class="dropdown-item" href="loginForm"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
-=======
+
                                 <a class="dropdown-item" href="/admin/loginForm"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
                             </div>
                         </div>
                     </div>
