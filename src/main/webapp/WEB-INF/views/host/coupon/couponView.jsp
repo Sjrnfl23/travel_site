@@ -111,36 +111,36 @@
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 숙소이름 :</th>
-                                                            <td class="text-muted">제주하르방</td>
+                                                            <td class="text-muted" ><c:out value="${rt.tvamLodgingName}"/> </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 쿠폰이름 :</th>
-                                                            <td class="text-muted">봄맞이 쿠폰</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvcpName}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 금액 :</th>
-                                                            <td class="text-muted">10,000원</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvcpPrice}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">시작일 :</th>
-                                                            <td class="text-muted">2022-04-30</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvcpEndDate}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
 
                                                         <tr>
                                                             <th class="fw-bold">종료일 :</th>
-                                                            <td class="text-muted">2022-05-30</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvcpStartDate}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
 
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
-                                                            <td class="text-muted">2022-04-26</td>
+                                                            <td class="text-muted"><c:out value="${rt.regDateTime}"/> </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                     </tbody><!-- end tbody -->
@@ -154,7 +154,7 @@
                                                     <div class="col-12">
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">설명</h5>
-                                                            <p class="text-muted mb-0" style="text-align: left;">봄을 맞이하여 여행객에게 주는 쿠폰</p>
+                                                            <p class="text-muted mb-0" style="text-align: left;"><c:out value="${rt.tvcpDesc}"/> </p>
                                                         </div>
                                                     </div>
 
@@ -168,30 +168,29 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-<<<<<<< HEAD
+
                                                        <a href="couponEdit">
-=======
-                                                       <a href="/host/couponEdit">
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
-                                                     		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
+                                                  <a href="/host/couponEdit?tvcpSeq=<c:out value="${rt.tvcpSeq}"/>"> 
+
+                                                   <button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
                                                        </a>
                                                     </li>
                                                     <li class="list-inline-item">
-<<<<<<< HEAD
+
                                                     	<a href="couponList">
-=======
+
                                                     	<a href="/host/couponList">
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">목록</button>
                                                     	</a>
                                                     </li>
                                                     <li class="list-inline-item">
-<<<<<<< HEAD
+
                                                     	<a href="couponList">
-=======
-                                                    	<a href="/host/couponList">
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
-                                                       		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
+
+                                                    	<a href="couponDelete?tvcpSeq=<c:out value="${rt.tvcpSeq}"/>">
+
+                                                       		<button type="button" id="btnDelete" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
                                                     	</a>
                                                     </li>
                                                 </ul>
@@ -240,8 +239,20 @@
         <script src="../../resources/host/js/pages/couponList.init.js"></script>
 
         <script src="../../resources/host/js/app.js"></script>
+	
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+$("#btnDelete").on("click",function(){
+	confirm("정말 삭제하시겠습니까?");
+	
+});
+
+	
 
 
+</script>
 
     </body>
 

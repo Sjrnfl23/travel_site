@@ -72,7 +72,7 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-           
+           <form method="get" action="couponInst" >
            <div class="main-content">
                 <div class="page-content">
                     <div class="container-fluid">
@@ -119,7 +119,15 @@
                                                             <th class="fw-bold">
                                                                 숙소이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="">
+                                                            
+                                                            	<select class="form-control" id="tvamSeq" name="tvamSeq">
+                                                            	
+                                                            	<c:forEach items="${list}" var="list" varStatus="status">
+                                                            	
+                                                            	<option value="<c:out value="${list.tvamSeq}"/>"> <c:out value="${list.tvamLodgingName}"/> </option>
+                                                            	
+                                                            	</c:forEach>
+                                                            	</select>
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -127,7 +135,7 @@
                                                             <th class="fw-bold">
                                                                 쿠폰이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="">
+                                                            	<input type="text" class="form-control" id="tvcpName" name="tvcpName" placeholder="">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -135,14 +143,14 @@
                                                             <th class="fw-bold">
                                                                 금액 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="">
+                                                            	<input type="text" class="form-control" id="tvcpPrice" name="tvcpPrice" placeholder="">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">시작일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="date" class="form-control" placeholder="">
+                                                            	<input type="date" id="tvcpStartDate" name="tvcpStartDate" class="form-control" placeholder="">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -150,7 +158,7 @@
                                                         <tr>
                                                             <th class="fw-bold">종료일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="date" class="form-control" placeholder="">
+                                                            	<input type="date"  id="tvcpEndDate" name="tvcpEndDate" class="form-control" placeholder="">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -166,7 +174,7 @@
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">설명</h5>
                                                             <p class="text-muted mb-0" style="text-align: left;">
-                                                            	<textarea class="form-control" placeholder=""></textarea>
+                                                            	<textarea class="form-control" placeholder="" id="tvcpDesc" name="tvcpDesc"></textarea>
                                                             </p>                                                            
                                                         </div>
                                                     </div>
@@ -181,7 +189,7 @@
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
                                                        <a href="couponView">
-                                                     		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">등록</button>
+                                                     		<input type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order" value="등록">
                                                        </a>
                                                     </li>
                                                     <li class="list-inline-item">
@@ -204,7 +212,7 @@
         </div>
         <!-- END layout-wrapper -->
 
-
+</form>
 
         <!-- chat offcanvas -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasActivity" aria-labelledby="offcanvasActivityLabel">

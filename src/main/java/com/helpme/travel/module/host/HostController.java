@@ -1,9 +1,10 @@
 package com.helpme.travel.module.host;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -11,59 +12,61 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HostController {
 
 	@Autowired
-	/* XdminServiceImpl service; */
+	HostServiceImpl service;
 
 	//coupon
 	
 	@RequestMapping(value = "/host/couponList")
-	public String CouponList() throws Exception {
-
+	public String CouponList(Model model) throws Exception {
+		List<Host> list=service.selectCoupon();
+		model.addAttribute("list", list);
 		
-
 		return "/host/coupon/couponList";
 	}
 	@RequestMapping(value = "/host/couponForm")
-	public String CouponForm() throws Exception {
-
-		
+	public String CouponForm(Model model,HostVo vo) throws Exception {
+		List<Host> list=service.selectCouponOption();
+		model.addAttribute("list", list);
 
 		return "/host/coupon/couponForm";
 	}
-	@RequestMapping(value = "/host/couponEdit")
-	public String CouponEdit() throws Exception {
-
+	
+	@RequestMapping(value = "/host/couponInst")
+	public String CouponInst(Model model,Host dto) throws Exception {
 		
-
-		return "/host/coupon/couponEdit";
+		service.insertCoupon(dto);
+		
+		
+		return "redirect:couponList";
 	}
+	
 	@RequestMapping(value = "/host/couponView")
-	public String CouponView() throws Exception {
-
-		
+	public String CouponView(Model model,HostVo vo) throws Exception {
+		Host host = service.selectOneCoupon(vo);
+		model.addAttribute("rt",host);
 
 		return "/host/coupon/couponView";
 	}
-	
-	@RequestMapping(value = "/host/couponListPermit")
-	public String couponListPermit() throws Exception {
+	@RequestMapping(value = "/host/couponDelete")
+	public String CouponDelete(HostVo vo) throws Exception {
+		service.deleteCoupon(vo);
 
-		
-
-		return "/host/coupon/couponListPermit";
+		return "redirect:couponList";
 	}
-	@RequestMapping(value = "/host/couponListBak")
-	public String couponListBak() throws Exception {
+	@RequestMapping(value = "/host/couponEdit")
+	public String CouponEdit(Model model,HostVo vo) throws Exception {
 
-		
+		Host host = service.selectOneCoupon(vo);
+		model.addAttribute("rt",host);
 
-		return "/host/coupon/couponListBak";
+		return "host/coupon/couponEdit";
 	}
-	@RequestMapping(value = "/host/couponViewBak")
-	public String couponViewBak() throws Exception {
+	@RequestMapping(value = "/host/couponUpdate")
+	public String CouponUpdate(Host dto) throws Exception {
 
+		service.updateCoupon(dto);
 		
-
-		return "/host/coupon/couponViewBak";
+		return "redirect:couponList";
 	}
 	
 	
@@ -83,15 +86,18 @@ public class HostController {
 	// lodging
 	
 	@RequestMapping(value = "/host/lodgingList")
-	public String LodgingList() throws Exception {
-
+	public String LodgingList(Model model) throws Exception {
+		List<Host> list=service.selectlodging();
+		model.addAttribute("list", list);
 		
 
 		return "/host/lodging/lodgingList";
 	}
 	
 	@RequestMapping(value = "/host/lodgingView")
-	public String LodgingView() throws Exception {
+	public String LodgingView(HostVo vo,Model model) throws Exception {
+		Host host = service.selectOnelodging(vo);
+		model.addAttribute("rt",host);
 
 		
 

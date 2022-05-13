@@ -75,7 +75,8 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-           
+           <form method="get" action="couponUpdate" >
+           <input type="hidden" id="tvcpSeq" name="tvcpSeq" value="<c:out value="${rt.tvcpSeq}"/>">
            <div class="main-content">
                 <div class="page-content">
                     <div class="container-fluid">
@@ -115,7 +116,7 @@
                                                             <th class="fw-bold">
                                                                 숙소이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="제주하르방">
+                                                            	<p style="margin-top:18px; margin-left:7px;"><c:out value="${rt.tvamLodgingName}"/></p>
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -123,7 +124,7 @@
                                                             <th class="fw-bold">
                                                                 쿠폰이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="봄맞이 쿠폰">
+                                                            	<input type="text" class="form-control" placeholder="봄맞이 쿠폰" id="tvcpName" name="tvcpName" value="<c:out value="${rt.tvcpName}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -131,14 +132,14 @@
                                                             <th class="fw-bold">
                                                                 금액 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="10,000원">
+                                                            	<input type="text" class="form-control" placeholder="10,000원" id="tvcpPrice" name="tvcpPrice" value="<c:out value="${rt.tvcpPrice}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">시작일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="date" class="form-control" placeholder="2022-04-30">
+                                                            	<input type="date" class="form-control" placeholder="2022-04-30"  id="tvcpStartDate" name="tvcpStartDate" value="<c:out value="${rt.tvcpStartDate}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -146,14 +147,14 @@
                                                         <tr>
                                                             <th class="fw-bold">종료일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="date" class="form-control" placeholder="2022-05-30">
+                                                            	<input type="date" class="form-control" placeholder="2022-05-30" id="tvcpEndDate" name="tvcpEndDate" value="<c:out value="${rt.tvcpEndDate}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
 
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
-                                                            <td class="text-muted">2022-04-26</td>
+                                                            <td class="text-muted"><c:out value="${rt.regDateTime}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                     </tbody><!-- end tbody -->
@@ -168,7 +169,7 @@
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">설명</h5>
                                                             <p class="text-muted mb-0" style="text-align: left;">
-                                                            	<textarea class="form-control" placeholder="봄을 맞이하여 여행객에게 주는 쿠폰"></textarea>
+                                                            	<textarea class="form-control" id="tvcpDesc" name="tvcpDesc" placeholder="<c:out value="${rt.tvcpDesc}"/>"></textarea>
                                                             </p>                                                            
                                                         </div>
                                                     </div>
@@ -182,20 +183,20 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-<<<<<<< HEAD
+
                                                        <a href="couponView">
-=======
-                                                       <a href="/host/couponView">
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
-                                                     		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
-                                                       </a>
+
+                                                       
+
+                                                     		<input type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order" value="수정">
+                                                       
                                                     </li>
                                                     <li class="list-inline-item">
-<<<<<<< HEAD
+
                                                     	<a href="couponView">
-=======
-                                                    	<a href="/host/couponView">
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
+                                                    	<a href="/host/couponView?tvcpSeq=<c:out value="${rt.tvcpSeq}"/>">
+
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">취소</button>
                                                     	</a>
                                                     </li>
@@ -214,7 +215,7 @@
         </div>
         <!-- END layout-wrapper -->
 
-
+</form>
 
         <!-- chat offcanvas -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasActivity" aria-labelledby="offcanvasActivityLabel">

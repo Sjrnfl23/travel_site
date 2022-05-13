@@ -73,7 +73,7 @@
             <!-- ============================================================== -->
 
            
-            <div class="main-content">
+              <div class="main-content">
                 <div class="page-content">
                     <div class="container-fluid">
                         <br>
@@ -81,18 +81,75 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="position-relative">
+                                    	<div class="position-relative">
                                             <div class="modal-button mt-2">
-                                                <a href="couponForm"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-target=".add-new-order">등록</button></a>
-
-                                                <a href="/host/couponForm><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-target=".add-new-order">등록</button></a>
-
-                                                <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">선택삭제</button>
+                                               <a href="/host/couponForm"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">+ 등록</button></a>
+                                                <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">선택삭제</button>
                                             </div>
                                         </div>
-                                        <!-- js/pages/couponList.init.js 파일에 테이블 데이터있음 -->
-                                        <div id="table-ecommerce-orders"></div>
+										<div class="table table-responsive" style="white-space:nowrap; margin:auto;">
+										 <table class="table table-responsive">
+                                        		<div class="gridjs-head">
+                                        			<div class="gridjs-search">
+                                        				<input type="search" placeholder="Type a keyword..." aria-label="Type a keyword..." class="gridjs-input gridjs-search-input">
+                                        			</div>
+                                        		</div>										 
+											<thead style="background-color: rgb(248,249,250);">
+												<tr>
+													<th><input type="checkbox" id="checkboxAll" name="" value="" class="form-check-input"></th>
+													<th style="text-align: center;">No.</th>
+													<th>숙소이름</th>
+			
+													<th>쿠폰이름</th>
+													<th>금액</th>
+													<th>시작일</th>
+													<th>종료일</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${list}" var="rt" varStatus="status">
+													<tr>
+														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvcpSeq}"/>" class="form-check-input"></td>
+														<td><c:out value="${rt.tvcpSeq}"/></td>
+														<td><c:out value="${rt.tvamLodgingName}"/></td>
+														
+														<td><c:out value="${rt.tvcpName}"/></td>
+														<td><c:out value="${rt.tvcpPrice}"/></td>
+														<td><c:out value="${rt.tvcpStartDate}"/></td>
+														<td><c:out value="${rt.tvcpEndDate}"/></td>
+														<td>
+															<div class="d-flex gap-3">
+																<a href="/host/couponView?tvcpSeq=<c:out value="${rt.tvcpSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
+																	<i class="mdi mdi-pencil font-size-18"></i>
+																</a>
+																<a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger">
+																	<i class="mdi mdi-delete font-size-18"></i>
+																</a>
+															</div>													
+														</td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
                                     </div>
+                                   	<div class="gridjs-footer">
+                                   		<div class="gridjs-pagination">
+                                   			<div role="status" aria-live="polite" class="gridjs-summary" title="Page 1 of 4">
+                                   				Showing <b>1</b> to <b>7</b> of <b>22</b> results
+                                   			</div>
+                                   		<div class="gridjs-pages">
+                                   			<button tabindex="0" role="button" disabled="" title="Previous" aria-label="Previous" class="">Previous</button>
+                                   			<button tabindex="0" role="button" class="gridjs-currentPage" title="Page 1" aria-label="Page 1">1</button>
+                                   			<button tabindex="0" role="button" class="" title="Page 2" aria-label="Page 2">2</button>
+                                   			<button tabindex="0" role="button" class="" title="Page 3" aria-label="Page 3">3</button>
+                                   			<button tabindex="-1" class="gridjs-spread">...</button>
+                                   			<button tabindex="0" role="button" title="Page 4" aria-label="Page 4">4</button>
+                                   			<button tabindex="0" role="button" title="Next" aria-label="Next" class="">Next</button>
+                                   		</div>
+                                   	</div>
+                                   </div>                                    
+                                    
                                 </div>
                             </div>
                         </div>
@@ -105,6 +162,95 @@
                 <br>
                 
 
+<!--                  Extra Large modal example
+                <div class="modal fade add-new-order" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="myExtraLargeModalLabel">Add New Order</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                               <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="AddOrder-Product">Choose Product</label>
+                                        <select class="form-select">
+                                            <option  selected> Select Product </option>
+                                            <option>Adidas Running Shoes</option>
+                                            <option>Puma P103 Shoes</option>
+                                            <option>Adidas AB23 Shoes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                   <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="AddOrder-Billing-Name">Billing Name</label>
+                                            <input type="text" class="form-control" placeholder="Enter Billing Name" id="AddOrder-Billing-Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Date</label>
+                                            <input type="text" class="form-control" placeholder="Select Date" id="order-date">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="AddOrder-Total">Total</label>
+                                            <input type="text" class="form-control" placeholder="$565" id="AddOrder-Total">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="AddOrder-Payment-Status">Payment Status</label>
+                                            <select class="form-select">
+                                                <option  selected> Select Card Type </option>
+                                                <option>Paid</option>
+                                                <option>Chargeback</option>
+                                                <option>Refund</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="AddOrder-Payment-Method">Payment Method</label>
+                                            <select class="form-select">
+                                                <option  selected> Select Payment Method </option>
+                                                <option> Mastercard</option>
+                                                <option>Visa</option>
+                                                <option>Paypal</option>
+                                                <option>COD</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                               </div>
+                               <div class="row mt-2">
+                                <div class="col-12 text-end">
+                                    <button type="button" class="btn btn-danger me-1" data-bs-dismiss="modal"><i class="bx bx-x me-1"></i> Cancel</button>
+                                    <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#success-btn" id="btn-save-event"><i class="bx bx-check me-1"></i> Confirm</button>
+                                </div>
+                            </div>
+
+                            </div>
+                        </div>/.modal-content
+                    </div>/.modal-dialog
+                </div>/.modal
+
+ -->
+<!--                  successfully modal 
+                <div id="success-btn" class="modal fade" tabindex="-1" aria-labelledby="success-btnLabel" aria-hidden="true" data-bs-scroll="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                               <div class="text-center">
+                                   <i class="bx bx-check-circle display-1 text-success"></i>
+                                   <h4 class="mt-3">Order Completed Successfully</h4>
+                               </div>
+                            </div>
+                        </div>/.modal-content
+                    </div>/.modal-dialog
+                </div>/.modal -->
 
                 <!-- Modal -->
                 <div class="modal fade orderdetailsModal" tabindex="-1" role="dialog" aria-labelledby=orderdetailsModalLabel" aria-hidden="true">
@@ -131,7 +277,7 @@
                                             <tr>
                                                 <th scope="row">
                                                     <div>
-                                                        <img src="../../resources/host/images/product/img-1.png" alt="" class="rounded avatar-md">
+                                                        <img src="/resources/admin/assets/images/product/img-1.png" alt="" class="rounded avatar-md">
                                                     </div>
                                                 </th>
                                                 <td>
@@ -145,7 +291,7 @@
                                             <tr>
                                                 <th scope="row">
                                                     <div>
-                                                        <img src="../../resources/host/images/product/img-2.png" alt="" class="rounded avatar-md">
+                                                        <img src="/resources/admin/assets/images/product/img-2.png" alt="" class="rounded avatar-md">
                                                     </div>
                                                 </th>
                                                 <td>
@@ -192,7 +338,7 @@
                 </div>
                 <!-- end modal -->
 
-                <footer class="footer">
+<!--                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
@@ -205,12 +351,14 @@
                             </div>
                         </div>
                     </div>
-                </footer>
+                </footer> -->
+           
             </div>
             <!-- end main content-->
 
         </div>
         <!-- END layout-wrapper -->
+
 
  
 
@@ -243,7 +391,7 @@
 
         <script src="../../resources/host/js/pages/a_host_couponList.init.js"></script>
 
-        <script src="/resources/host/js/pages/host_couponList.init.js?version=20220509"></script> <!-- 수정사항 반영이 잘 안돼서 ?version=날짜 붙여줌 -->"></script>
+       <!--  <script src="/resources/host/js/pages/host_couponList.init.js?version=20220509"></script> 수정사항 반영이 잘 안돼서 ?version=날짜 붙여줌"></script> -->
 
 
         <script src="../../resources/host/js/app.js"></script>
