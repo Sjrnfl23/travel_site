@@ -155,37 +155,37 @@
                             	<div class="row">
 	                            	<div class="col">
 		                                <div class="md-checkbox">
-		                                    <input id="i20" type="checkbox">
+		                                    <input id="i20" type="checkbox" value="1">
 		                                    <label for="i20" style="font-size: 18px;">농장</label>
 		                                </div>
 	                                </div>
 	                            	<div class="col">
 		                                <div class="md-checkbox">
-		                                    <input id="i21" type="checkbox">
+		                                    <input id="i21" type="checkbox" value="2">
 		                                    <label for="i21" style="font-size: 18px;">멋진 수영장</label>
 		                                </div>
 	                                </div>
 	                            	<div class="col">
 		                                <div class="md-checkbox">
-		                                    <input id="i22" type="checkbox">
+		                                    <input id="i22" type="checkbox" value="3">
 		                                    <label for="i22" style="font-size: 18px;">해변 근처</label>
 		                                </div>
 	                                </div>
 	                            	<div class="col">
 		                                <div class="md-checkbox">
-		                                    <input id="i23" type="checkbox">
+		                                    <input id="i23" type="checkbox" value="4">
 		                                    <label for="i23" style="font-size: 18px;">호텔</label>
 		                                </div>
 	                                </div>
 	                            	<div class="col">
 		                                <div class="md-checkbox">
-		                                    <input id="i24" type="checkbox">
+		                                    <input id="i24" type="checkbox" value="5">
 		                                    <label for="i24" style="font-size: 18px;">펜션</label>
 		                                </div>
 	                                </div>
 	                            	<div class="col">
 		                                <div class="md-checkbox">
-		                                    <input id="i25" type="checkbox">
+		                                    <input id="i25" type="checkbox" value="6">
 		                                    <label for="i25" style="font-size: 18px;">전통한옥</label>
 		                                </div>
 	                                </div>
@@ -214,157 +214,7 @@
                                 </div>
                             </div>
                         </div>
-                        </c:forEach>
-                        <!-- <div class="col-md-4 card-2">
-                            <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex2.jpg" alt="Card image cap"></a>
-                                <div class="card-body" style="height: 269px;">
-                                    <h5 class="card-title">사랑하는 가족들과 일상에서 벗어나 소중한 추억을 만들 수 있는 숙소의 ROOM 301</h5>
-                                    <ul class="card-rating">
-                                        <li>4.0</li>
-                                    </ul>
-                                    <p class="card-text">
-                                    이 숙소의 전체 숙박 인원은 2세 미만 유아를 포함하여 결정됩니다.
-									 </p>
-                                </div>
-                                <div class="card-bottom">
-                                    <p><i class="ti-location-pin"></i>제주도 제주시 한경면</p>
-                                    <span class="open-close_green">Open Now</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 card-2">
-                            <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex3.jpg" alt="Card image cap"></a>
-                                <div class="card-body" style="height: 269px;">
-                                    <h5 class="card-title">바다전망 프라이빗 풀빌라[하도스테이] #하루한팀#깨끗한침구#셀프체크인
-									</h5>
-                                    <ul class="card-rating">
-                                        <li class="card-rating-yellow">3.5</li>
-                                    </ul>
-                                    <p class="card-text">hellovandi(헬로반디) 펜션은 제주곶자왈반딧불이로 유명한 청수리평화동 청정귤밭에 위치한 편안한 휴식과 자연속의 힐링공간을</p>
-                                </div>
-                                <div class="card-bottom">
-                                    <p><i class="ti-location-pin"></i>제주도 제주시 한경면</p>
-                                    <span class="open-close_green">Open Now</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 card-2">
-                            <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex4.jpg" alt="Card image cap"></a>
-                                <div class="card-body" style="height: 269px;">
-                                    <h5 class="card-title">농촌의 한옥을 느낄 수 있는 부여농부의집
-</h5>
-                                    <ul class="card-rating">
-                                        <li>4.5</li>
-                                    </ul>
-                                    <p class="card-text">한 독채로 하루에 한 팀만 받고 있으며 다른 게스트 없이 조용하고 한적한 공간을 원하시는 분들이 오시기에 좋습니다. </p>
-                                </div>
-                                <div class="card-bottom">
-                                    <p><i class="ti-location-pin"></i>충청남도 부여시 장암면</p>
-                                    <span>Closed Now</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 card-2">
-                            <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex5.jpg" alt="Card image cap"></a>
-                                <div class="card-body" style="height: 269px;">
-                                    <h5 class="card-title">몽상가의 시골집, LP and ART Stay
-</h5>
-                                    <ul class="card-rating">
-                                        <li>4.5</li>
-                                    </ul>
-                                    <p class="card-text">강원도 평창, 700미터 고도 위 쉼여행 최적지. 산과 구름, 몇 채의 민가와 고랭지 채소밭 말고는 아무것도 없는 진짜 시골 여행!  </p>
-                                </div>
-                                <div class="card-bottom">
-                                    <p><i class="ti-location-pin"></i>강원도 평창군</p>
-                                    <span class="open-close_green">Open Now</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 card-2">
-                            <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex7.jpg" alt="Card image cap"></a>
-                                <div class="card-body" style="height: 269px;">
-                                    <h5 class="card-title">장산리 밭가운데 집</h5>
-                                    <ul class="card-rating">
-                                        <li class="card-rating-yellow">2.5</li>
-                                        <li>3 ratings</li>
-                                    </ul>
-                                    <p class="card-text">시골에 있는 조용한 집입니다. 주인 부부가 함께 살고 있는 공간이며,
-새벽 1시 이후에는 조용히 해주시길 바랍니다.</p>
-                                </div>
-                                <div class="card-bottom">
-                                    <p><i class="ti-location-pin"></i>충청남도 태안군 태안읍</p>
-                                    <span class="open-close_green">Open Now</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 card-2">
-                            <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
-                                <div class="card-body" style="height: 269px;">
-                                    <h5 class="card-title">슬로우리제주A, 애월펜션,테라스한라산뷰,아늑하고깨끗한실내,욕조</h5>
-                                    <ul class="card-rating">
-                                        <li class="card-rating-yellow">2.5</li>
-                                    </ul>
-                                    <p class="card-text">슬로우리제주는 제주올레길 16코스 -수산봉,수산저수지- 를 끼고 있는 조용한 제주도 마을 애월읍 구엄리에 위치해있어요.</p>
-                                </div>
-                                <div class="card-bottom">
-                                    <p><i class="ti-location-pin"></i>제주도 제주시 애월읍</p>
-                                    <span class="open-close_green">Open Now</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 card-2">
-                            <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex2.jpg" alt="Card image cap"></a>
-                                <div class="card-body" style="height: 269px;">
-                                    <h5 class="card-title">섬진강 시골집...매화.벚꽃.텃밭이 있는</h5>
-                                    <ul class="card-rating">
-                                        <li class="card-rating-yellow">2.5</li>
-                                    </ul>
-                                    <p class="card-text">
-                                    귀촌을 꿈꾸는 호스트가 관리하는 소박한 시골집입니다. 섬진강이 내려다보이는 시골집 마루에서 새소리를 들으며 휴식을 취해보세요.
-									</p>
-                                </div>
-                                <div class="card-bottom">
-                                    <p><i class="ti-location-pin"></i>전라남도 광양시 답면</p>
-                                    <span class="open-close_green">Open Now</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 card-2">
-                            <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex3.jpg" alt="Card image cap"></a>
-                                <div class="card-body" style="height: 269px;">
-                                    <h5 class="card-title">감귤밭안 작은독채-작은집-제주 맑은 별을 가장가까이 볼수있는 침실 옆 낭만다락테라스,
-</h5>
-                                    <ul class="card-rating">
-                                        <li class="card-rating-yellow">2.5</li>
-                                    </ul>
-                                    <p class="card-text">
-                                     프라이빗한 머뭄 / 작은독채, 	저희가 친환경으로 가꾸고 있는 귤밭위에 그림부부가 2년간 만들고 손질한 수공예집입니다.
-									</p>
-                                </div>
-                                <div class="card-bottom">
-                                    <p><i class="ti-location-pin"></i>제주도 서귀포시 남원읍</p>
-                                    <span class="open-close_green">Open Now</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-
-<!--                 <div class="col-md-5 responsive-wrap map-wrap">
-                    <div class="map-fix">
-                        Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-* 
-                        <a href="javascript:void(0);" class="map-close"><span class="ti-close"></span></a>
-                        <div id="map" data-lat="40.674" data-lon="-73.945" data-zoom="12"></div>
-                    </div>
-                </div> -->
+                      </c:forEach>
             </div>
         </div>
     </section>

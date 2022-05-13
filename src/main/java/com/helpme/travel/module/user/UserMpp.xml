@@ -58,6 +58,7 @@
 				tvLodging
 			WHERE 1=1
 				AND tvamDelNy = 0
+				OR tvamCategoryCd = #{shCheck}
 	</select>
 	
 </mapper>
