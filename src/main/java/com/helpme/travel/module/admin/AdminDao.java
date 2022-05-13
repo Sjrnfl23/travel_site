@@ -39,6 +39,7 @@ public class AdminDao {
    
    public Admin selectOneLodging(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneLodging", vo);}
    
+   public int updateLodging(Admin dto) {return sqlSession.update(namespace + ".updateLodging", dto);}
    
    //  ===========================coupon=================================
    

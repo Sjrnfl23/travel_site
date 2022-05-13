@@ -75,6 +75,8 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
+    <form action="/admin/lodgingUpdt" method="get" autocomplete="off" enctype="multipart/form-data">
+    	<input type="hidden" name="tvamSeq" value="<c:out value="${rt.tvamSeq}"/>">
            
             <div class="main-content">
                 <div class="page-content">
@@ -101,7 +103,7 @@
                                               
                                                 <div class="mt-3">
                                                    <h5 class="mb-1">
-                                                   제주하르방
+                                                   	<c:out value="${rt.tvamLodgingName}"/>
                                                    </h5>
                                                     <p class="text-muted mb-0">
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
@@ -154,7 +156,7 @@
                                                             <th class="fw-bold">
                                                                 숙소이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="제주하르방">
+                                                            	<input type="text" class="form-control" name="tvamLodgingName" value="<c:out value="${rt.tvamLodgingName}"/>" placeholder="<c:out value="${rt.tvamLodgingName}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->                                                                                                           
@@ -163,7 +165,7 @@
                                                             <th class="fw-bold">
                                                                 카테고리 :</th>
                                                             <td class="text-muted">
-                                                            	<select class="form-select" id="">
+                                                            	<select class="form-select" name="" value="">
                                                             		<option>::카테고리::</option>
                                                             		<option>농장</option>
                                                             		<option>멋진 수영장</option>
@@ -180,14 +182,14 @@
                                                             <th class="fw-bold">
                                                                 주소 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="제주특별자치도 서귀포시 안덕면 사계북로 120">
+                                                            	<input type="text" class="form-control" name="tvamAddressFull" value="<c:out value="${rt.tvamAddressFull}"/>" placeholder="<c:out value="${rt.tvamAddressFull}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">전화번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="010-1234-1234">
+                                                            	<input type="text" class="form-control" name="tvamTelNumber" value="<c:out value="${rt.tvamTelNumber}"/>" placeholder="<c:out value="${rt.tvamTelNumber}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -195,57 +197,51 @@
                                                         <tr>
                                                             <th class="fw-bold">최대인원 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="8인">
+                                                            	<input type="text" class="form-control" name="tvamMaxPersonCount" value="<c:out value="${rt.tvamMaxPersonCount}"/>" placeholder="<c:out value="${rt.tvamMaxPersonCount}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">방 수 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="거실1/욕실1/방2">
+                                                            	<input type="text" class="form-control" name="tvamRoomCount" value="<c:out value="${rt.tvamRoomCount}"/>" placeholder="<c:out value="${rt.tvamRoomCount}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">욕실 수 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="1">
+                                                            	<input type="text" class="form-control" name="tvamShowerRoomCount" value="<c:out value="${rt.tvamShowerRoomCount}"/>" placeholder="<c:out value="${rt.tvamShowerRoomCount}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">침대 수 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="2">
+                                                            	<input type="text" class="form-control" name="tvamBedCount" value="<c:out value="${rt.tvamBedCount}"/>" placeholder="<c:out value="${rt.tvamBedCount}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">금액(1박 기준) :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="500,000원">
+                                                            	<input type="text" class="form-control" name="tvamAdultPrice" value="<c:out value="${rt.tvamAdultPrice}"/>" placeholder="<c:out value="${rt.tvamAdultPrice}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">체크인 시간 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="15:00">
+                                                            	<input type="text" class="form-control" name="tvamCheckInTime" value="<c:out value="${rt.tvamCheckInTime}"/>" placeholder="<c:out value="${rt.tvamCheckInTime}"/>">
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <th class="fw-bold">체크아웃 시간 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="11:00">
+                                                            	<input type="text" class="form-control" name="tvamCheckOutTime" value="<c:out value="${rt.tvamCheckOutTime}"/>" placeholder="<c:out value="${rt.tvamCheckOutTime}"/>">
                                                             </td>
                                                         </tr>
-                                                        <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">영업시간 :</th>
-                                                            <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="09:00~18:00">
-                                                            </td>
-                                                        </tr>
+
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
@@ -265,7 +261,7 @@
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">소개</h5>
                                                             <p class="text-muted mb-0" style="text-align: left;">
-                                                            	<textarea class="form-control" placeholder="고요하게 쉬어갈 숙소를 운영합니다. 지친마음 제주바다와 함께 쉬어가세요."></textarea>
+                                                            	<textarea class="form-control" name="tvamDesc" value="<c:out value="${rt.tvamDesc}"/>" placeholder="<c:out value="${rt.tvamDesc}"/>"></textarea>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -277,12 +273,10 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="lodgingView">
-                                                     		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
-                                                       </a>
+                                                     		<button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md">수정</button>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="lodgingView">
+                                                    	<a href="/admin/lodgingView">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">취소</button>
                                                     	</a>
                                                     </li>
@@ -310,6 +304,7 @@
 	                </footer>					
 				
 				</div>
+				</form>
         </div>
         <!-- END layout-wrapper -->
 

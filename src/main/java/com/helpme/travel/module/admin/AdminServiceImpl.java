@@ -46,7 +46,10 @@ public class AdminServiceImpl implements AdminService{
 		return dao.selectOneLodging(vo); 
 	}
 	
-	
+	@Override
+	public int updateLodging(Admin dto) throws Exception {
+		return dao.updateLodging(dto);
+	}	
 //  ===========================coupon=================================
 	
 	@Override

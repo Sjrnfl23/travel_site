@@ -115,12 +115,22 @@ public class AdminController {
 	/* lodging--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/lodgingEdit")
-	public String AdminLodgingEdit(Model model) throws Exception {
+	public String AdminLodgingEdit(AdminVo vo, Model model) throws Exception {
 
-		
+		   Admin rt = service.selectOneLodging(vo);
+		   model.addAttribute("rt", rt);		
 		
 		return "admin/lodging/lodgingEdit";
 	}
+
+	@RequestMapping(value = "/admin/lodgingUpdt")
+	public String AdminLodgingUpdt(AdminVo vo, Admin dto, Model model) throws Exception {
+		
+		service.updateLodging(dto);	
+		
+		return "redirect:/admin/lodgingView?tvamSeq=" + dto.getTvamSeq(); 
+	}	
+	
 	
 	@RequestMapping(value = "/admin/lodgingList")
 	public String AdminLodgingList(Model model) throws Exception {

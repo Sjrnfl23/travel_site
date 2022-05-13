@@ -128,7 +128,7 @@
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 카테고리 :</th>
-                                                            <td class="text-muted">해변근처</td>
+                                                            <td class="text-muted"></td>
                                                         </tr>
                                                         <!-- end tr -->                                                        
                                                         <tr>
@@ -206,17 +206,17 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="lodgingEdit">
+                                                       <a href="/admin/lodgingEdit?tvamSeq=<c:out value="${rt.tvamSeq}"/>">
                                                      		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
                                                        </a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="lodgingList">
+                                                    	<a href="/admin/lodgingList">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">목록</button>
                                                     	</a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="lodgingList">
+                                                    	<a href="/admin/lodgingList">
                                                        		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
                                                     	</a>
                                                     </li>

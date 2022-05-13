@@ -194,7 +194,40 @@
 			and tvamSeq = #{tvamSeq}
 	</select>
 
-
+	<update id="updateLodging">
+		update tvLodging set
+			tvamLodgingName = #{tvamLodgingName}
+			, tvamDesc = #{tvamDesc}
+			, tvamZipCode = #{tvamZipCode}
+			, tvamAddress1 = #{tvamAddress1}
+			, tvamAddress2 = #{tvamAddress2}
+			, tvamAddressFull = #{tvamAddressFull}
+			, tvamState = #{tvamState}
+			, tvamAdultPrice = #{tvamAdultPrice}
+			, tvamMaxPersonCount = #{tvamMaxPersonCount}
+			, tvamBedCount = #{tvamBedCount}
+			, tvamRoomCount = #{tvamRoomCount}
+			, tvamShowerRoomCount = #{tvamShowerRoomCount}
+			, tvamApproveNy = #{tvamApproveNy}
+			, tvamCategoryCd = #{tvamCategoryCd}
+			, tvamPoolNy = #{tvamPoolNy}
+			, tvamJacuzziNy = #{tvamJacuzziNy}
+			, tvamBbqGrillNy = #{tvamBbqGrillNy}
+			, tvamFirePlaceNy = #{tvamFirePlaceNy}
+			, tvamGymNy = #{tvamGymNy}
+			, tvamWifiNy = #{tvamWifiNy}
+			, tvamTvNy = #{tvamTvNy}
+			, tvamParkingRoomNy = #{tvamParkingRoomNy}
+			, tvamAirConditionerNy = #{tvamAirConditionerNy}
+			, tvamHeaterNy = #{tvamHeaterNy}
+			, tvamFridgeNy = #{tvamFridgeNy}
+			, tvamMicrowaveNy = #{tvamMicrowaveNy}
+			, tvamCheckInTime = #{tvamCheckInTime}
+			, tvamCheckOutTime = #{tvamCheckOutTime}
+			, tvamTelNumber = #{tvamTelNumber}
+		where 1=1
+			and tvamSeq = #{tvamSeq}
+	</update>
 
 
 
@@ -311,11 +344,6 @@
 			and tvpmSeq = #{tvpmSeq}
 	</select>
 	
-
-	
-	
-	
-
 	
 	
 </mapper>
