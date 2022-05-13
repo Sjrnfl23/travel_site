@@ -172,7 +172,7 @@
                                                             	<textarea class="form-control" id="tvcpDesc" name="tvcpDesc" placeholder="<c:out value="${rt.tvcpDesc}"/>"></textarea>
                                                             </p>                                                            
                                                         </div>
-                                                    </div>
+                                                    </div> 
                                                 </div>
                                             </div>
 
