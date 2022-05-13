@@ -41,7 +41,7 @@
         <!-- Begin page -->
         <div id="layout-wrapper">
 
-<<<<<<< HEAD
+
             
             <!-- 쿠폰 header s -->
             
@@ -60,7 +60,7 @@
 	                </div>
 	            </header>
             </div>
-=======
+
                         <!-- start page title -->
                         <div class="page-title-box align-self-center d-none d-md-block">
                             <h4 class="page-title mb-0">쿠폰 수정</h4>
@@ -70,7 +70,6 @@
          <%@ include file="../include/coupon/header2.jsp" %>
          
          <%@ include file="../include/coupon/footer.jsp" %> 
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 
 
             <!-- ============================================================== -->
@@ -83,7 +82,8 @@
             <!-- Start right Content here -->
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
-
+    <form action="/admin/couponUpdt" method="get" autocomplete="off" enctype="multipart/form-data">
+    	<input type="hidden" name="tvcpSeq" value="<c:out value="${rt.tvcpSeq}"/>">
            
            <div class="main-content">
                 <div class="page-content">
@@ -109,7 +109,7 @@
                                                 <br><br><br>
                                               
                                                 <div class="mt-3">
-                                                   <h5 class="mb-1">봄맞이 쿠폰</h5>
+                                                   <h5 class="mb-1"><c:out value="${rt.tvcpName}"/></h5>
                                                     <p class="text-muted mb-0">
                                                     </p>
                                                 </div>
@@ -120,18 +120,18 @@
                                                 <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
                                                     <tbody>
                                                         <tr>
-                                                            <th class="fw-bold" style="width: 130px;">
-                                                               호스트 :</th>
+                                                            <th class="fw-bold">
+                                                                숙소이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="travel_jeju@jeju.com">
+                                                            	<c:out value="${rt.tvamLodgingName}"/>
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
-                                                            <th class="fw-bold">
-                                                                숙소이름 :</th>
+                                                            <th class="fw-bold" style="width: 130px;">
+                                                               호스트 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="제주하르방">
+                                                            	<c:out value="${rt.tvmmEmailAccount}"/>
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -139,7 +139,7 @@
                                                             <th class="fw-bold">
                                                                 쿠폰이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="봄맞이 쿠폰">
+                                                            	<input type="text" class="form-control" name="tvcpName" value="<c:out value="${rt.tvcpName}"/>" placeholder="<c:out value="${rt.tvcpName}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -147,14 +147,14 @@
                                                             <th class="fw-bold">
                                                                 금액 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="10,000원">
+                                                            	<input type="text" class="form-control" name="tvcpPrice" value="<c:out value="${rt.tvcpPrice}"/>" placeholder="<c:out value="${rt.tvcpPrice}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">시작일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="date" class="form-control" placeholder="2022-04-30">
+                                                            	<input type="date" class="form-control" name="tvcpStartDate" value="<c:out value="${rt.tvcpStartDate}"/>" placeholder="<c:out value="${rt.tvcpStartDate}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -162,7 +162,7 @@
                                                         <tr>
                                                             <th class="fw-bold">종료일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="date" class="form-control" placeholder="2022-05-30">
+                                                            	<input type="date" class="form-control" name="tvcpEndDate" value="<c:out value="${rt.tvcpEndDate}"/>" placeholder="<c:out value="${rt.tvcpEndDate}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -184,7 +184,7 @@
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">설명</h5>
                                                             <p class="text-muted mb-0" style="text-align: left;">
-                                                            	<textarea class="form-control" placeholder="봄을 맞이하여 여행객에게 주는 쿠폰"></textarea>
+                                                            	<textarea class="form-control" name="tvcpDesc" value="<c:out value="${rt.tvcpDesc}"/>" placeholder="<c:out value="${rt.tvcpDesc}"/>"></textarea>
                                                             </p>                                                            
                                                         </div>
                                                     </div>
@@ -198,12 +198,10 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="couponView">
-                                                     		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
-                                                       </a>
+                                                     	<button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md">수정</button>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="couponView">
+                                                    	<a href="/admin/couponView?tvcpSeq=<c:out value="${rt.tvcpSeq}"/>">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">취소</button>
                                                     	</a>
                                                     </li>
@@ -216,6 +214,7 @@
 						</div>
 					</div>
 				</div>
+				</form>
                <!--  <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">

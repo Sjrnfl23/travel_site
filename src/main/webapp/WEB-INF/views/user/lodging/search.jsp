@@ -331,7 +331,7 @@
                     <div class="map-fix">
                         <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
                         <a href="javascript:void(0);" class="map-close"><span class="ti-close"></span></a>
-                        <div id="map" data-lat="40.674" data-lon="-73.945" data-zoom="12"></div>
+                        <div id="map" data-lat="40.674" data-lon="-73.945" style="padding-top: 25px;"></div>
                     </div>
                 </div>
             </div>
@@ -362,9 +362,21 @@
 		};
 
 		var map = new kakao.maps.Map(container, options);
-		
-		map.setMaxLevel(13);
+		map.setMaxLevel(13);	// level 13 이하로 제한
 
+		// 지도 영역 변경시 실행되는 이벤트
+		kakao.maps.event.addListener(map, 'bounds_changed', function() {             
+		    
+		    // 지도 영역정보를 얻어옵니다 
+		    var bounds = map.getBounds();
+		    
+		    // 영역정보의 남서쪽 정보를 얻어옵니다 
+		    var swLatlng = bounds.getSouthWest();
+		    
+		    // 영역정보의 북동쪽 정보를 얻어옵니다 
+		    var neLatlng = bounds.getNorthEast(); 
+		    
+		});
 	</script>
 
 </body>

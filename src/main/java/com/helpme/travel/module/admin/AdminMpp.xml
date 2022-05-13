@@ -196,6 +196,8 @@
 
 
 
+
+
  <!--  ===========================coupon================================= -->
 
 	<select id="selectCoupon" resultMap="resultMapObj">
@@ -237,6 +239,17 @@
 			and tvcpSeq = #{tvcpSeq}
 	</select>
 
+
+	<update id="updateCoupon">
+		update tvCoupon set
+			tvcpName = #{tvcpName}
+			, tvcpPrice = #{tvcpPrice}
+			, tvcpStartDate = #{tvcpStartDate}
+			, tvcpEndDate = #{tvcpEndDate}
+			, tvcpDesc = #{tvcpDesc}
+		where 1=1
+			and tvcpSeq = #{tvcpSeq}
+	</update>
 
 	
  <!--  ===========================payment================================= -->
