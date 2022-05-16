@@ -303,7 +303,8 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">결제하기</button>
+                                    <a href="/user/reservation"><button type="button" class="btn btn-primary">결제하기</button></a>
+                                    <!-- <a href="/admin/reservation"><button type="submit" class="btn btn-primary">결제하기</button></a> -->
                                 </div>
                             </form>
                             <!--// 결제수단 -->

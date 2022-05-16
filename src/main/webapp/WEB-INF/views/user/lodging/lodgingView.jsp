@@ -469,7 +469,7 @@
                                             <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
                                             <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
                                             <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,136,000원</span></p>
-                                            <br><a href="#" class="btn btn-danger btn-block">예약하기</a>
+                                            <br><a href="/user/payment" class="btn btn-danger btn-block">예약하기</a>
                                         </div>
                                     </div>
                                 </div>
