@@ -118,7 +118,9 @@ public class AdminController {
 	public String AdminLodgingEdit(AdminVo vo, Model model) throws Exception {
 
 		   Admin rt = service.selectOneLodging(vo);
-		   model.addAttribute("rt", rt);		
+		   model.addAttribute("rt", rt);
+		   
+		   model.addAttribute("codeLodging", AdminServiceImpl.selectListForCacheLodging("1"));
 		
 		return "admin/lodging/lodgingEdit";
 	}

@@ -26,5 +26,7 @@ public interface AdminService {
 //  ===========================payment=================================
 	public List<Admin> selectPayment() throws Exception; 	
 	public Admin selectOnePayment(AdminVo vo) throws Exception; 
+	
+	
 
 }

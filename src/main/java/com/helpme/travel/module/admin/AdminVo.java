@@ -14,6 +14,9 @@ public class AdminVo {
 	
 //	payment
 	private String tvpmSeq;	
+	
+//	code
+	private String tvcgSeq;	
 
 //	------------------------	
 
@@ -47,6 +50,14 @@ public class AdminVo {
 
 	public void setTvpmSeq(String tvpmSeq) {
 		this.tvpmSeq = tvpmSeq;
+	}
+
+	public String getTvcgSeq() {
+		return tvcgSeq;
+	}
+
+	public void setTvcgSeq(String tvcgSeq) {
+		this.tvcgSeq = tvcgSeq;
 	}
 	
 	

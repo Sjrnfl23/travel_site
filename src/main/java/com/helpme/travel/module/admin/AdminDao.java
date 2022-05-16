@@ -54,5 +54,10 @@ public class AdminDao {
    public List<Admin> selectPayment(){return sqlSession.selectList(namespace + ".selectPayment", "");}  
    
    public Admin selectOnePayment(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOnePayment", vo);}
+   
+   //  ===========================공통코드=================================
+   
+   public List<Admin> selectListForCacheLodging(){return sqlSession.selectList(namespace + ".selectListForCacheLodging", "");}
+
 }
 

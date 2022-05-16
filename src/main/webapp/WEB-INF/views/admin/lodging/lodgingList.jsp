@@ -5,6 +5,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="AdminServiceImpl" class="com.helpme.travel.module.admin.AdminServiceImpl"/>
+
+<% pageContext.setAttribute("br", "\n"); %>
+
 <!doctype html>
 <html lang="kr">
 
@@ -71,6 +75,7 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
+           <c:set var="listCodeLodging" value="${AdminServiceImpl.selectListForCacheLodging('1')}"/>	
            
             <div class="main-content">
                 <div class="page-content">
@@ -111,7 +116,7 @@
 													<tr>
 														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvmmSeq}"/>" class="form-check-input"></td>
 														<td><c:out value="${rt.tvamSeq}"/></td>
-														<td><c:out value="${rt.tvamCategoryCd}"/></td>
+														<td><c:out value="${rt.category}"/></td>
 														<td><c:out value="${rt.tvamLodgingName}"/></td>
 														<td><c:out value="${rt.host}"/></td>
 														<td><c:out value="${rt.tvamAddressFull}"/></td>

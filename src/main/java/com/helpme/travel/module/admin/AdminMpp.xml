@@ -145,6 +145,7 @@
 		    , a.tvamCheckOutTime
 		    , a.tvmmSeq
 		    , a.tvamTelNumber
+		    , (select tvcdName from tvCode where a.tvamCategoryCd = tvcdSeq) as 'category'
 		    , (select tvmmEmailAccount from tvMember b where a.tvmmSeq = b.tvmmSeq) as 'host'
 		from tvLodging a
 		where 1 = 1
@@ -187,6 +188,7 @@
 		    , a.tvamCheckOutTime
 		    , a.tvmmSeq
 		    , a.tvamTelNumber
+		    , (select tvcdName from tvCode where a.tvamCategoryCd = tvcdSeq) as 'category'
 		    , (select tvmmEmailAccount from tvMember b where a.tvmmSeq = b.tvmmSeq) as 'host'
 		from tvLodging a
 		where 1 = 1
@@ -343,6 +345,21 @@
 			and tvpmDelNy = 0
 			and tvpmSeq = #{tvpmSeq}
 	</select>
+
+
+
+<!--  ===========================공통코드================================= -->
+
+	<select id="selectListForCacheLodging" resultMap="resultMapObj">
+		select
+			tvcdSeq
+		    , tvcdName
+		    , tvcgSeq
+		from
+			tvCode
+		where 1=1
+			and tvcdDelNy = 0
+	</select>	
 	
 	
 	
