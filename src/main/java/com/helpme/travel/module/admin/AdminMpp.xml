@@ -150,7 +150,12 @@
 		from tvLodging a
 		where 1 = 1
 			and tvamDelNy = 0
-
+			<choose>
+				<when test="shOption == 1">and category like concat('%', #{shValue}, '%')</when>	<!-- 카테고리검색 -->
+				<when test="shOption == 2">and a.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소이름검색 -->
+				<when test="shOption == 3">and host like concat('%', #{shValue}, '%')</when> <!-- 호스트검색 -->
+			</choose>
+			limit #{startRnumForMysql}, #{rowNumToShow}
 	</select>
 	
 	<select id="selectOneLodging" resultMap="resultMapObj">
@@ -361,6 +366,21 @@
 			and tvcdDelNy = 0
 	</select>	
 	
+
+<!--  ===========================페이징================================= -->	
+
+	<select id="selectOneCount" resultType="Integer">	<!-- selectCommon 사용 / 페이징 -->
+			select
+				count(*)
+			from tvLodging
+			where 1 = 1
+				and tvamDelNy = 0
+				<choose>
+					<when test="shOption == 1">and category like concat('%', #{shValue}, '%')</when>	<!-- 카테고리검색 -->
+					<when test="shOption == 2">and a.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소이름검색 -->
+					<when test="shOption == 3">and host like concat('%', #{shValue}, '%')</when> <!-- 호스트검색 -->
+				</choose>
+	</select>		
 	
 	
 </mapper>

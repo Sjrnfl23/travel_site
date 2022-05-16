@@ -14,7 +14,7 @@ public interface AdminService {
 	
 	
 //  ===========================lodging=================================
-	public List<Admin> selectLodging() throws Exception; 
+	public List<Admin> selectLodging(AdminVo vo) throws Exception; 
 	public Admin selectOneLodging(AdminVo vo) throws Exception; 
 	public int updateLodging(Admin dto) throws Exception;
 	
@@ -27,6 +27,8 @@ public interface AdminService {
 	public List<Admin> selectPayment() throws Exception; 	
 	public Admin selectOnePayment(AdminVo vo) throws Exception; 
 	
+//  ===========================페이징=================================	
+	public int selectOneCount(AdminVo vo) throws Exception;
 	
 
 }

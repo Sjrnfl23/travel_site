@@ -35,7 +35,7 @@ public class AdminDao {
    
    //  ===========================lodging=================================
    
-   public List<Admin> selectLodging(){return sqlSession.selectList(namespace + ".selectLodging", "");}
+   public List<Admin> selectLodging(AdminVo vo){return sqlSession.selectList(namespace + ".selectLodging", vo);}
    
    public Admin selectOneLodging(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneLodging", vo);}
    
@@ -58,6 +58,10 @@ public class AdminDao {
    //  ===========================공통코드=================================
    
    public List<Admin> selectListForCacheLodging(){return sqlSession.selectList(namespace + ".selectListForCacheLodging", "");}
+   
+   //  ===========================페이징=================================
+   
+   public int selectOneCount(AdminVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 
 }
 

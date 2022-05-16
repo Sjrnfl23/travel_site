@@ -40,8 +40,8 @@ public class AdminServiceImpl implements AdminService{
 //  ===========================lodging=================================
 	
 	@Override
-	public List<Admin> selectLodging() throws Exception {
-		return dao.selectLodging(); 
+	public List<Admin> selectLodging(AdminVo vo) throws Exception {
+		return dao.selectLodging(vo); 
 	}	
 
 	@Override
@@ -106,6 +106,11 @@ public class AdminServiceImpl implements AdminService{
 		return rt;
 	}	
 	
+//  ===========================페이징=================================	
+	@Override
+	public int selectOneCount(AdminVo vo) throws Exception {
+		return dao.selectOneCount(vo);
+	}		
 	
 }
 

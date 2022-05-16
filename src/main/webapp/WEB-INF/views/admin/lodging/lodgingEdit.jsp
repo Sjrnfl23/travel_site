@@ -173,7 +173,7 @@
                                                             	<select id="tvamCategoryCd" class="form-select" name="tvamCategoryCd">
 																<option value="">::선택::</option>
  																	<c:forEach items="${listCodeLodging}" var="itemLodging" varStatus="status">
-																		<option value="<c:out value="${rtLodging.tvcdSeq}"/>"
+																		<option value="<c:out value="${itemLodging.tvcdSeq}"/>"
 																			<c:if test="${rt.tvamCategoryCd eq itemLodging.tvcdSeq}">selected</c:if>><c:out value="${itemLodging.tvcdName}"/>
 																		</option>
 																	</c:forEach>
