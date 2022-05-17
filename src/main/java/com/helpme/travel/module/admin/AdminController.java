@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -92,7 +93,7 @@ public class AdminController {
 	
 	
 	@RequestMapping(value = "/admin/hostList")
-	public String AdminHostList(Model model) throws Exception {
+	public String AdminHostList(AdminVo vo, Model model) throws Exception {
 		
 		List<Admin> list = service.selectHost();
 		model.addAttribute("list", list);
@@ -118,7 +119,9 @@ public class AdminController {
 	public String AdminLodgingEdit(AdminVo vo, Model model) throws Exception {
 
 		   Admin rt = service.selectOneLodging(vo);
-		   model.addAttribute("rt", rt);		
+		   model.addAttribute("rt", rt);
+		   
+		   model.addAttribute("codeLodging", AdminServiceImpl.selectListForCacheLodging("1"));
 		
 		return "admin/lodging/lodgingEdit";
 	}
@@ -133,10 +136,17 @@ public class AdminController {
 	
 	
 	@RequestMapping(value = "/admin/lodgingList")
-	public String AdminLodgingList(Model model) throws Exception {
+	public String AdminLodgingList(@ModelAttribute("vo") AdminVo vo, Model model) throws Exception {
 		
-		List<Admin> list = service.selectLodging();
-		model.addAttribute("list", list);		
+		   int count = service.selectOneCount(vo);				// count 가져올 것
+		   vo.setParamsPaging(count);
+		   
+		   if(count != 0) {										// count가 0이 아니면 list 가져오는 부분 수행 후 model 개체에 담기
+			      List<Admin> list = service.selectLodging(vo);
+			      model.addAttribute("list", list);
+		   } else {
+			   // by pass
+		   }		
 		
 		return "admin/lodging/lodgingList";
 	}

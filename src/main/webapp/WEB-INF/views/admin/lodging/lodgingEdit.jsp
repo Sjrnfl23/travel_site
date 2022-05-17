@@ -5,6 +5,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="AdminServiceImpl" class="com.helpme.travel.module.admin.AdminServiceImpl"/>
+
+<% pageContext.setAttribute("br", "\n"); %>
 <!doctype html>
 <html lang="kr">
 
@@ -75,6 +78,8 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
+	<c:set var="listCodeLodging" value="${AdminServiceImpl.selectListForCacheLodging('1')}"/>	
+	
     <form action="/admin/lodgingUpdt" method="get" autocomplete="off" enctype="multipart/form-data">
     	<input type="hidden" name="tvamSeq" value="<c:out value="${rt.tvamSeq}"/>">
            
@@ -165,14 +170,13 @@
                                                             <th class="fw-bold">
                                                                 카테고리 :</th>
                                                             <td class="text-muted">
-                                                            	<select class="form-select" name="" value="">
-                                                            		<option>::카테고리::</option>
-                                                            		<option>농장</option>
-                                                            		<option>멋진 수영장</option>
-                                                            		<option selected>해변 근처</option>
-                                                            		<option>호텔</option>
-                                                            		<option>펜션</option>
-                                                            		<option>전통한옥</option>
+                                                            	<select id="tvamCategoryCd" class="form-select" name="tvamCategoryCd">
+																<option value="">::선택::</option>
+ 																	<c:forEach items="${listCodeLodging}" var="itemLodging" varStatus="status">
+																		<option value="<c:out value="${itemLodging.tvcdSeq}"/>"
+																			<c:if test="${rt.tvamCategoryCd eq itemLodging.tvcdSeq}">selected</c:if>><c:out value="${itemLodging.tvcdName}"/>
+																		</option>
+																	</c:forEach>
                                                             	</select>
                                                             </td>
                                                         </tr>
@@ -306,6 +310,7 @@
 				</div>
 				</form>
         </div>
+        
         <!-- END layout-wrapper -->
 
 

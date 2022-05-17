@@ -128,7 +128,7 @@
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 카테고리 :</th>
-                                                            <td class="text-muted"></td>
+                                                            <td class="text-muted"><c:out value="${rt.category}"/></td>
                                                         </tr>
                                                         <!-- end tr -->                                                        
                                                         <tr>

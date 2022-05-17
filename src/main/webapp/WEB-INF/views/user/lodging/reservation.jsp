@@ -128,7 +128,7 @@
                 <div class="col-md-10">
                     <div class="titile-block title-block_subpage">
                         <h2>예약 내역</h2>
-                        <p> <a href="index.html">예약중</a> / <a href="index.html">지난예약</a></p>
+                        <p> 예약중 / 지난예약</p>
                     </div>
                 </div>
             </div>

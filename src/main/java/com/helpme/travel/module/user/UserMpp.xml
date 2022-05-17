@@ -69,4 +69,23 @@
 
 	</select>
 	
+	<!-- Reservation List -->
+	<select id="selectListReservation" resultMap="resultMapObj">
+		SELECT
+			tvamSeq
+			,tvamLodgingName
+			,tvamPrice
+			,tvamCheckInTime
+			,tvamCheckOutTime
+			
+			
+		FROM
+			tvLodging
+		WHERE 1=1
+			AND tvamDelNy = 0
+				
+	</select>
+	
+	
+	
 </mapper>

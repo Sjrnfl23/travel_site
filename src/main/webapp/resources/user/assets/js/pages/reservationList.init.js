@@ -9,7 +9,7 @@ var sparklineoptions1={series:[{data:[12,14,2,47,42,15,47,75,65,19,14]}],chart:{
 ,"예약일"
 ,{name:"메시지",sort:{enabled:!1},formatter:function(a){return gridjs.html('<div class="d-flex gap-3"><a href="a_host_lodgingView.html" data-bs-toggle="tooltip" data-bs-placement="top" title="메시지전송" class="text-success"><i class="mdi mdi-email font-size-18"></i></a></div>')}}]
 ,pagination:{limit:7},sort:!0,search:!0
-,data:[["","1","봄보름풀빌라","100만원","","2022-05-02 15:00","2022-05-08","8인", "2022-04-26"]
+,data:[["","1","봄보름풀빌라","100만원","","2022-05-02 15:00","2022-05-08","8인", "2022-04-20"]
 	,["","2","봄보름풀빌라","100만원","","2022-05-02 15:00","2022-05-08","8인", "2022-04-26"]
 	,["","3","봄보름풀빌라","100만원","","2022-05-02 15:00","2022-05-08","8인", "2022-04-26"]
 	,["","4","봄보름풀빌라","100만원","","2022-05-02 15:00","2022-05-08","8인", "2022-04-26"]
@@ -29,7 +29,7 @@ var sparklineoptions1={series:[{data:[12,14,2,47,42,15,47,75,65,19,14]}],chart:{
 ,"예약일"
 ,{name:"리뷰작성",sort:{enabled:!1},formatter:function(a){return gridjs.html('<div class="d-flex gap-3"><a href="a_host_lodgingView.html" data-bs-toggle="tooltip" data-bs-placement="top" title="후기작성" class="text-success"><i class="mdi mdi-thumb-up font-size-18"></i></a><a href="a_host_lodgingView.html" data-bs-toggle="tooltip" data-bs-placement="top" title="후기작성" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a></div>')}}]
 ,pagination:{limit:7},sort:!0,search:!0
-,data:[["","1","봄보름풀빌라","100만원","","2022-05-02 15:00","2022-05-03","3인", "2022-04-26"]
+,data:[["","1","봄보름풀빌라","100만원","","2022-05-02 15:00","2022-05-03","3인", "2022-04-20"]
 	,["","2","봄보름풀빌라","100만원","","2022-05-02 15:00","2022-05-03","3인", "2022-04-26"]
 	,["","3","봄보름풀빌라","100만원","","2022-05-02 15:00","2022-05-03","3인", "2022-04-26"]
 	,["","4","봄보름풀빌라","100만원","","2022-05-02 15:00","2022-05-03","3인", "2022-04-26"]
