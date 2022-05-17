@@ -19,7 +19,7 @@ public interface AdminService {
 	public int updateLodging(Admin dto) throws Exception;
 	
 //  ===========================coupon=================================
-	public List<Admin> selectCoupon() throws Exception; 	
+	public List<Admin> selectCoupon(AdminVo vo) throws Exception; 	
 	public Admin selectOneCoupon(AdminVo vo) throws Exception; 
 	public int updateCoupon(Admin dto) throws Exception;
 	
@@ -29,6 +29,7 @@ public interface AdminService {
 	
 //  ===========================페이징=================================	
 	public int selectOneCount(AdminVo vo) throws Exception;
+	public int selectOneCountCoupon(AdminVo vo) throws Exception;
 	
 
 }

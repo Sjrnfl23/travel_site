@@ -43,7 +43,7 @@ public class AdminDao {
    
    //  ===========================coupon=================================
    
-   public List<Admin> selectCoupon(){return sqlSession.selectList(namespace + ".selectCoupon", "");}   
+   public List<Admin> selectCoupon(AdminVo vo){return sqlSession.selectList(namespace + ".selectCoupon", vo);}   
    
    public Admin selectOneCoupon(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneCoupon", vo);}
    
@@ -62,6 +62,8 @@ public class AdminDao {
    //  ===========================페이징=================================
    
    public int selectOneCount(AdminVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
+   
+   public int selectOneCountCoupon(AdminVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountCoupon", vo);}
 
 }
 

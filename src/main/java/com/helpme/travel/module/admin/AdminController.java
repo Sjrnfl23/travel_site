@@ -44,14 +44,22 @@ public class AdminController {
 	}	
 	
 	@RequestMapping(value = "/admin/couponList")
-	public String AdminCouponList(Model model) throws Exception {
-	
-		List<Admin> list = service.selectCoupon();
-		model.addAttribute("list", list);		
+	public String AdminCouponList(@ModelAttribute("vo") AdminVo vo, Model model) throws Exception {
+
+		   int count = service.selectOneCountCoupon(vo);				// count 가져올 것
+		   vo.setParamsPaging(count);
+		   
+		   if(count != 0) {										// count가 0이 아니면 list 가져오는 부분 수행 후 model 개체에 담기
+				List<Admin> list = service.selectCoupon(vo);
+				model.addAttribute("list", list);
+		   } else {
+			   // by pass
+		   }			
 		
 		return "admin/coupon/couponList";
 	}
-		
+	
+	
 	@RequestMapping(value = "/admin/couponView")
 	public String AdminCouponView(AdminVo vo, Model model) throws Exception {
 		
