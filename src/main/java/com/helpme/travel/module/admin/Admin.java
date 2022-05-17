@@ -71,6 +71,7 @@ public class Admin {
 	private Integer tvmmHostNy;
 	private String tvmmDesc;
 	private Integer tvmmDelNy;
+	private Integer lodgingNumber;
 	
 	
 	// 쿠폰정보
@@ -690,6 +691,16 @@ public class Admin {
 	}
 
 
+	public Integer getLodgingNumber() {
+		return lodgingNumber;
+	}
+
+
+	public void setLodgingNumber(Integer lodgingNumber) {
+		this.lodgingNumber = lodgingNumber;
+	}
+
+
 	public String getTvcpSeq() {
 		return tvcpSeq;
 	}
@@ -898,11 +909,11 @@ public class Admin {
 	public static void setCachedCodeArrayList(List<Admin> cachedCodeArrayList) {
 		Admin.cachedCodeArrayList = cachedCodeArrayList;
 	}
-	
-	
+
 
 	
-
+	
+	
 
 	
 	

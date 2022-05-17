@@ -111,7 +111,7 @@
 															</select>                                         			
                                         				</div>
                                         				<div style ="display: inline-block; padding-right: 0;">
-                                        					<input type="text" name="shValue" id="shValue" value="<c:out value="${vo.shValue}"/>" class="gridjs-input gridjs-search-input">
+                                        					<input type="text" name="shValue" id="shValue" value="<c:out value="${vo.shValue}"/>" class="gridjs-input gridjs-search-input" placeholder="검색어를 입력해주세요.">
                                         				</div>
 		                             	   				<button type="submit" class="btn btn-outline-secondary" name="search" id="btnSubmit">
 															<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
