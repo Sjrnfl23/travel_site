@@ -53,12 +53,12 @@
                                     <p class="text-muted">호스트 페이지 사용을 위해 로그인해주세요.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="mainView.html">
+                                    
         
                                         <div class="mb-3">
                                             <label class="form-label" for="username">이메일</label>
                                             <div class="position-relative input-custom-icon">
-                                                <input type="text" class="form-control" id="username" placeholder="가입하신 이메일주소를 입력해주세요">
+                                                <input type="text" class="form-control"  name="tvmmEmailAccount" id="tvmmEmailAccount" placeholder="가입하신 이메일주소를 입력해주세요">
                                                  <span class="bx bx-user"></span>
                                             </div>
                                         </div>
@@ -67,10 +67,10 @@
                                             <div class="float-end">
                                                 <a href="password.html" class="text-muted text-decoration-underline">비밀번호 찾기</a>
                                             </div>
-                                            <label class="form-label" for="password-input">Password</label>
+                                            <label class="form-label" for="password-input"  >Password</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
-                                                <input type="password" class="form-control" id="password-input" placeholder="비밀번호를 입력해주세요">
+                                                <input type="password" class="form-control" name="tvmmPassword" id="tvmmPassword" placeholder="비밀번호를 입력해주세요" >
                                                 <button type="button" class="btn btn-link position-absolute h-100 end-0 top-0" id="password-addon">
                                                     <i class="mdi mdi-eye-outline font-size-18 text-muted"></i>
                                                 </button>
@@ -83,7 +83,7 @@
                                         </div>
                                         
                                         <div class="mt-3">
-                                           <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">로그인</button>
+                                           <button class="btn btn-primary w-100 waves-effect waves-light" id="btnLogin" >로그인</button>
                                         </div>
 
                                         <div class="mt-4 text-center">
@@ -127,4 +127,46 @@
 
     </body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+       <script type="text/javascript">
+        
+$("#btnLogin").on("click" , function(){
+	
+	/* if($("#tvmmEmailAccount").val() == "" || $("#tvmmPassword").val() == ""){
+		alert("이메일 또는 비밀번호를 입력해주세요");
+		
+		return false;
+	}else{
+		
+	} */
+	
+	$.ajax({
+		async: true 
+		,cache: false
+		,type: "post"
+		,url: "/host/loginProc"
+		,data : {"tvmmEmailAccount" : $("#tvmmEmailAccount").val(), "tvmmPassword" : $("#tvmmPassword").val()}
+		,success: function(response) {
+			
+			if(response.rt == "success") {
+				
+				 location.href = "/host/mainView"; 
+				
+			} else if(response.rt == "fail"){
+				alert("회원 없음");
+			}else{
+				alert("권한 없음");
+			}
+		}
+		,error : function(jqXHR, textStatus, errorThrown){
+			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		}
+		
+	});
+	
+});
+
+
+
+</script>
 </html>

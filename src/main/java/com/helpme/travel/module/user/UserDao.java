@@ -34,7 +34,7 @@ public class UserDao {
 //	public int insertPayment(User dto) {return sqlSession.insert( namespace + ".insertPayment", dto);}
 //	
 //	// 예약 내역
-//	public int insertReservation(User dto) {return sqlSession.insert( namespace + ".insertReservation", dto);}
+//	public  insertReservation(User dto) {return sqlSession.insert( namespace + ".insertReservation", dto);}
 //	public int insertReview(User dto) {return sqlSession.insert( namespace + ".insertReview", dto);}
 //	public int updateReview(User dto) {return sqlSession.update( namespace + ".updateReview", dto);}
 //	public int deleteReview(UserVo vo) {return sqlSession.delete( namespace + ".deleteReview", vo);}

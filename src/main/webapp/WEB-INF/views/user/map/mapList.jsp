@@ -179,7 +179,7 @@
         center : new kakao.maps.LatLng(36.458812516698835, 128.16112057538854), // 지도의 중심좌표 
         level : 13 // 지도의 확대 레벨 
     });
-    
+    map.setMaxLevel(13);	// level 13 이하로 제한
     // 마커 클러스터러를 생성합니다 
     var clusterer = new kakao.maps.MarkerClusterer({
         map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 

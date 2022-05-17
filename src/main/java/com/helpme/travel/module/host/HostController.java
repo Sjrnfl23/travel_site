@@ -1,11 +1,19 @@
 package com.helpme.travel.module.host;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+
+
 
 
 @Controller
@@ -57,7 +65,7 @@ public class HostController {
 	public String CouponEdit(Model model,HostVo vo) throws Exception {
 
 		Host host = service.selectOneCoupon(vo);
-		model.addAttribute("rt",host);
+		model.addAttribute("rt", host);
 
 		return "host/coupon/couponEdit";
 	}
@@ -103,7 +111,12 @@ public class HostController {
 
 		return "/host/lodging/lodgingView";
 	}
-	
+	@RequestMapping(value = "/host/lodgingDelete")
+	public String LodgingDelete(HostVo vo) throws Exception {
+		service.deletelodging(vo);
+
+		return "redirect:lodgingList";
+	}
 	@RequestMapping(value = "/host/lodgingForm")
 	public String LodgingForm() throws Exception {
 
@@ -111,14 +124,32 @@ public class HostController {
 
 		return "/host/lodging/lodgingForm";
 	}
-	@RequestMapping(value = "/host/lodgingEdit")
-	public String LodgingEdit() throws Exception {
-
+	@RequestMapping(value = "/host/lodgingInsert")
+	public String LodgingInsert(Host dto) throws Exception {
 		
+		service.insertlodging(dto);
+		
+
+		return "redirect:lodgingList";
+	}
+	@RequestMapping(value = "/host/lodgingEdit")
+	public String LodgingEdit(HostVo vo,Model model) throws Exception {
+
+		Host host = service.selectOnelodging(vo);
+		model.addAttribute("rt",host);
+
 
 		return "/host/lodging/lodgingEdit";
 	}
 	
+	@RequestMapping(value = "/host/lodgingUpdate")
+	public String LodgingUpdate(Host dto,Model model) throws Exception {
+
+		service.updatelodging(dto);
+
+
+		return "redirect:lodgingList";
+	}
 	
 	//main
 	@RequestMapping(value = "/host/mainView")
@@ -190,7 +221,52 @@ public class HostController {
 		return "/host/reservation/reservationView";
 	}
 	
+	//login & logout
+	@ResponseBody
+	@RequestMapping(value = "/host/loginProc")
+	public Map<String, Object> loginProc(Host dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+
+		
+		
+		Host rtMember = service.selectOneLogin(dto);
+		
+		if(rtMember != null)  {
+			
+			if(rtMember.getTvmmHostNy()== 1) {
+				httpSession.setAttribute("sessUserType","호스트");
+				httpSession.setAttribute("sessName", rtMember.getTvmmName());
+				httpSession.setAttribute("sessEmail", rtMember.getTvmmEmailAccount());
+
+				returnMap.put("rt", "success");
+			}else {
+				returnMap.put("rt","notHost");
+			}
+			
+		
+		} else {
+			
+			returnMap.put("rt", "fail");
+		}
+		return returnMap;
+		
+	}
 	
+	
+	@ResponseBody
+	@RequestMapping(value = "/host/logoutProc")
+	public Map<String, Object> logOutProc(Host dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		
+		httpSession.invalidate();
+		
+		returnMap.put("rt", "success");
+		
+		return returnMap;
+		
+		
+	}
 	
 }
 
