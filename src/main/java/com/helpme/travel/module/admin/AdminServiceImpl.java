@@ -57,6 +57,10 @@ public class AdminServiceImpl implements AdminService{
 	public int updateLodging(Admin dto) throws Exception {
 		return dao.updateLodging(dto);
 	}	
+	@Override
+	public int DeleteLodging(AdminVo vo) throws Exception {
+		return dao.DeleteLodging(vo);
+	}
 //  ===========================coupon=================================
 	
 	@Override
@@ -74,6 +78,10 @@ public class AdminServiceImpl implements AdminService{
 		return dao.updateCoupon(dto);
 	}
 	
+	@Override
+	public int DeleteCoupon(AdminVo vo) throws Exception {
+		return dao.DeleteCoupon(vo);
+	}
 //  ===========================payment=================================
 	
 	@Override
@@ -86,6 +94,10 @@ public class AdminServiceImpl implements AdminService{
 		return dao.selectOnePayment(vo); 
 	}	
 
+	@Override
+	public int DeletePayment(AdminVo vo) throws Exception {
+		return dao.DeletePayment(vo);
+	}
 	
 //  ===========================공통코드=================================
 	@PostConstruct

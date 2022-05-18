@@ -131,6 +131,13 @@
 												</tr>
 											</thead>
 											<tbody>
+										<c:choose>
+											<c:when test="${fn:length(list) eq 0}">
+												<tr>
+													<td class="text-center" colspan="8">검색된 내용이 없습니다.</td>
+												</tr>	
+											</c:when>
+											<c:otherwise>											
 												<c:forEach items="${list}" var="rt" varStatus="status">
 													<tr>
 														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvmmSeq}"/>" class="form-check-input"></td>
@@ -152,6 +159,8 @@
 														</td>
 													</tr>
 												</c:forEach>
+											</c:otherwise>
+										</c:choose>
 											</tbody>
 										</table>
                                     </div>
@@ -255,15 +264,17 @@
 
 <script type="text/javascript">
 	
-	$("#btnDelete").on("click", function(){
-		var answer = confirm('삭제 하시겠습니까?');
-		
-		if(answer){
-			// /admin/MemberDel로 이동
-		}else{
-			return false;
-		}
-	});
+$("#btnDelete").on("click", function(){
+	var answer = confirm('삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.');
+	
+	if(answer){
+		alert('삭제가 완료되었습니다.');
+		// /admin/hostDel로 이동
+	}else{
+		return false;
+	}
+});
+
 </script>
 
     </body>

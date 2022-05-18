@@ -69,6 +69,13 @@ public class AdminController {
 		return "admin/coupon/couponView";
 	}
 	
+	   @RequestMapping(value = "/admin/couponDel")
+	   public String AdminCouponDel(AdminVo vo) throws Exception {
+		   
+		   service.DeleteCoupon(vo);	
+		   
+		   return "redirect:/admin/couponList"; 
+	   }
 
 	
 	/*---------------------------------------------------------------------------*/
@@ -183,6 +190,14 @@ public class AdminController {
 		   
 		return "admin/lodging/lodgingView";
 	}
+
+	   @RequestMapping(value = "/admin/lodgingDel")
+	   public String AdminLodgingDel(AdminVo vo) throws Exception {
+		   
+		   service.DeleteLodging(vo);	
+		   
+		   return "redirect:/admin/lodgingList"; 
+	   }	
 	
 	/*---------------------------------------------------------------------------*/
 	
@@ -297,7 +312,13 @@ public class AdminController {
 		return "admin/reservation/reservationView";
 	}
 	
-
+	@RequestMapping(value = "/admin/reservationDel")
+	public String AdminReservationDel(AdminVo vo) throws Exception {
+		
+		service.DeletePayment(vo);	
+		
+		return "redirect:/admin/reservationList"; 
+	}
 	
 	/*---------------------------------------------------------------------------*/
 	

@@ -35,17 +35,20 @@ public class AdminDao {
    public List<Admin> selectLodging(AdminVo vo){return sqlSession.selectList(namespace + ".selectLodging", vo);}
    public Admin selectOneLodging(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneLodging", vo);}
    public int updateLodging(Admin dto) {return sqlSession.update(namespace + ".updateLodging", dto);}
+   public int DeleteLodging(AdminVo vo) {return sqlSession.update(namespace + ".DeleteLodging", vo);}
    
    //  ===========================coupon=================================
    
    public List<Admin> selectCoupon(AdminVo vo){return sqlSession.selectList(namespace + ".selectCoupon", vo);}   
    public Admin selectOneCoupon(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneCoupon", vo);}
    public int updateCoupon(Admin dto) {return sqlSession.update(namespace + ".updateCoupon", dto);}
+   public int DeleteCoupon(AdminVo vo) {return sqlSession.update(namespace + ".DeleteCoupon", vo);}
    
    //  ===========================payment=================================
    
    public List<Admin> selectPayment(AdminVo vo){return sqlSession.selectList(namespace + ".selectPayment", vo);}  
    public Admin selectOnePayment(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOnePayment", vo);}
+   public int DeletePayment(AdminVo vo) {return sqlSession.update(namespace + ".DeletePayment", vo);}
    
    //  ===========================공통코드=================================
    

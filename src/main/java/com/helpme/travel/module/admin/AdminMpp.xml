@@ -251,6 +251,9 @@
 			and tvamSeq = #{tvamSeq}
 	</update>
 
+	<update id="DeleteLodging">		<!-- 가짜삭제(tvamDelNy=1로 바꿈) -->
+		update tvLodging set tvamDelNy = 1 where 1=1 and tvamSeq = #{tvamSeq}
+	</update>	
 
 
  <!--  ===========================coupon================================= -->
@@ -313,6 +316,9 @@
 			and tvcpSeq = #{tvcpSeq}
 	</update>
 
+	<update id="DeleteCoupon">		<!-- 가짜삭제(tvcpDelNy=1로 바꿈) -->
+		update tvCoupon set tvcpDelNy = 1 where 1=1 and tvcpSeq = #{tvcpSeq}
+	</update>	
 	
  <!--  ===========================reservation / payment================================= -->
 
@@ -379,7 +385,9 @@
 			and tvpmSeq = #{tvpmSeq}
 	</select>
 
-
+	<update id="DeletePayment">		<!-- 가짜삭제(tvpmDelNy=1로 바꿈) -->
+		update tvPayment set tvpmDelNy = 1 where 1=1 and tvpmSeq = #{tvpmSeq}
+	</update>	
 
 <!--  ===========================공통코드================================= -->
 
