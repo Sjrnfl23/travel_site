@@ -267,17 +267,15 @@
 
 <script type="text/javascript">
 	
-$("#btnDelete").on("click", function(){
-	var answer = confirm('삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.');
+$("#btnDelete").on("click", function(seq){
+	var answer = confirm('삭제 하시겠습니까? 삭제된 정보는 복구되지 않습니다.');
 	
-	if(answer){
-		alert('삭제가 완료되었습니다.');
-		// /admin/hostDel로 이동
+	if(answer == true){
+		return true;
 	}else{
 		return false;
 	}
 });
-
 </script>
 
 

@@ -173,7 +173,7 @@
 																<a href="/admin/lodgingView?tvamSeq=<c:out value="${rt.tvamSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
- 												 				<a href="javascript:void(0)" onclick="btnDelete(); return false;" id="btnDelete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" aria-label="Close" class="text-danger">
+ 												 				<a href="javascript:void(0)" onclick="btnDelete()" id="btnDelete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" aria-label="Close" class="text-danger">
 																	<i class="mdi mdi-delete font-size-18"></i>
 																</a>
 															</div>													

@@ -76,7 +76,7 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-<form id="formList" name="formList" action="/admin/reservationList">
+<form id="formList" name="formList">
 
 	<input type="hidden" id="thisPage" name="thisPage"  value="<c:out value="${vo.thisPage}" default="1"/>">
 	<input type="hidden" id="rowNumToShow" name="rowNumToShow"  value="<c:out value="${vo.rowNumToShow}" default="1"/>">
@@ -160,9 +160,7 @@
 																<a href="/admin/reservationView?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="상세" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
-																<a href="/admin/reservationDel?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>" id="btnDelete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" aria-label="Close" class="text-danger">
-																	<i class="mdi mdi-delete font-size-18"></i>
-																</a>
+																<button type="button" class="btn" id="btnDelete" value="<c:out value="${rt.tvpmSeq}"/>" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>
 															</div>													
 														</td>
 													</tr>
@@ -269,19 +267,16 @@
 
 <script type="text/javascript">
 	
-$("#btnDelete").on("click", function(){
-	var answer = confirm('삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.');
+$("#btnDelete").on("click", function(seq){
+	var answer = confirm('삭제 하시겠습니까? 삭제된 정보는 복구되지 않습니다.');
 	
-	if(answer){
-		alert('삭제가 완료되었습니다.');
-		// /admin/hostDel로 이동
+	if(answer == true){
+ 		location.href='/admin/reservationDel?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>';
 	}else{
 		return false;
 	}
 });
-
 </script>
-
 
     </body>
 
