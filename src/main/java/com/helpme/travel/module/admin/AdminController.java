@@ -51,14 +51,22 @@ public class AdminController {
 	}	
 	
 	@RequestMapping(value = "/admin/couponList")
-	public String AdminCouponList(Model model) throws Exception {
-	
-		List<Admin> list = service.selectCoupon();
-		model.addAttribute("list", list);		
+	public String AdminCouponList(@ModelAttribute("vo") AdminVo vo, Model model) throws Exception {
+
+		   int count = service.selectOneCountCoupon(vo);				// count 가져올 것
+		   vo.setParamsPaging(count);
+		   
+		   if(count != 0) {										// count가 0이 아니면 list 가져오는 부분 수행 후 model 개체에 담기
+				List<Admin> list = service.selectCoupon(vo);
+				model.addAttribute("list", list);
+		   } else {
+			   // by pass
+		   }			
 		
 		return "admin/coupon/couponList";
 	}
-		
+	
+	
 	@RequestMapping(value = "/admin/couponView")
 	public String AdminCouponView(AdminVo vo, Model model) throws Exception {
 		
@@ -91,6 +99,15 @@ public class AdminController {
 		
 		return "redirect:/admin/hostView?tvmmSeq=" + dto.getTvmmSeq(); 
 	}
+
+	@RequestMapping(value = "/admin/hostDel")
+	public String AdminHostDel(AdminVo vo) throws Exception {
+		
+		service.DeleteMember(vo);	
+		
+		return "redirect:/admin/hostList"; 
+	}	
+	
 	
 	@RequestMapping(value = "/admin/hostForm")
 	public String AdminHostForm(Model model) throws Exception {
@@ -100,10 +117,17 @@ public class AdminController {
 	
 	
 	@RequestMapping(value = "/admin/hostList")
-	public String AdminHostList(AdminVo vo, Model model) throws Exception {
-		
-		List<Admin> list = service.selectHost();
-		model.addAttribute("list", list);
+	public String AdminHostList(@ModelAttribute("vo") AdminVo vo, Model model) throws Exception {
+	
+		   int count = service.selectOneCountHost(vo);				// count 가져올 것
+		   vo.setParamsPaging(count);
+		   
+		   if(count != 0) {										// count가 0이 아니면 list 가져오는 부분 수행 후 model 개체에 담기
+				List<Admin> list = service.selectHost(vo);
+				model.addAttribute("list", list);
+		   } else {
+			   // by pass
+		   }		
 		
 		return "admin/host/hostList";
 	}
@@ -205,6 +229,14 @@ public class AdminController {
 		return "redirect:/admin/memberView?tvmmSeq=" + dto.getTvmmSeq(); 
 	}	
 	
+	@RequestMapping(value = "/admin/memberDel")
+	public String AdminMemberDel(AdminVo vo) throws Exception {
+		
+		service.DeleteMember(vo);	
+		
+		return "redirect:/admin/memberList"; 
+	}	
+	
 	@RequestMapping(value = "/admin/memberForm")
 	public String AdminMemberForm(Model model) throws Exception {
 		
@@ -212,10 +244,17 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/admin/memberList")
-	public String AdminMemberList(Model model) throws Exception {
-		
-		List<Admin> list = service.selectMember();
-		model.addAttribute("list", list);		
+	public String AdminMemberList(@ModelAttribute("vo") AdminVo vo, Model model) throws Exception {
+
+		   int count = service.selectOneCountMember(vo);				// count 가져올 것
+		   vo.setParamsPaging(count);
+		   
+		   if(count != 0) {										// count가 0이 아니면 list 가져오는 부분 수행 후 model 개체에 담기
+				List<Admin> list = service.selectMember(vo);
+				model.addAttribute("list", list);
+		   } else {
+			   // by pass
+		   }		
 		
 		return "admin/member/memberList";
 	}
@@ -241,10 +280,17 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/admin/reservationList")
-	public String AdminReservationList(Model model) throws Exception {
+	public String AdminReservationList(@ModelAttribute("vo") AdminVo vo, Model model) throws Exception {
 
-		List<Admin> list = service.selectPayment();
-		model.addAttribute("list", list);	
+		   int count = service.selectOneCountPayment(vo);				// count 가져올 것
+		   vo.setParamsPaging(count);
+		   
+		   if(count != 0) {										// count가 0이 아니면 list 가져오는 부분 수행 후 model 개체에 담기
+				List<Admin> list = service.selectPayment(vo);
+				model.addAttribute("list", list);
+		   } else {
+			   // by pass
+		   }		
 		
 		return "admin/reservation/reservationList";
 	}

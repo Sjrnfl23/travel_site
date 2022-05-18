@@ -17,8 +17,8 @@ public class AdminServiceImpl implements AdminService{
 	
 //  ===========================host=================================	
 	@Override
-	public List<Admin> selectHost() throws Exception {
-		return dao.selectHost(); 
+	public List<Admin> selectHost(AdminVo vo) throws Exception {
+		return dao.selectHost(vo); 
 	}
 
 //  ===========================member=================================	
@@ -27,15 +27,19 @@ public class AdminServiceImpl implements AdminService{
 		return dao.selectOneMember(vo); 
 	}
 	
-	
 	@Override
-	public List<Admin> selectMember() throws Exception {
-		return dao.selectMember(); 
+	public List<Admin> selectMember(AdminVo vo) throws Exception {
+		return dao.selectMember(vo); 
 	}
 
 	@Override
 	public int updateMember(Admin dto) throws Exception {
 		return dao.updateMember(dto);
+	}
+	
+	@Override
+	public int DeleteMember(AdminVo vo) throws Exception {
+		return dao.DeleteMember(vo);
 	}
 //  ===========================lodging=================================
 	
@@ -56,8 +60,8 @@ public class AdminServiceImpl implements AdminService{
 //  ===========================coupon=================================
 	
 	@Override
-	public List<Admin> selectCoupon() throws Exception {
-		return dao.selectCoupon(); 
+	public List<Admin> selectCoupon(AdminVo vo) throws Exception {
+		return dao.selectCoupon(vo); 
 	}	
 	
 	@Override
@@ -73,8 +77,8 @@ public class AdminServiceImpl implements AdminService{
 //  ===========================payment=================================
 	
 	@Override
-	public List<Admin> selectPayment() throws Exception {
-		return dao.selectPayment(); 
+	public List<Admin> selectPayment(AdminVo vo) throws Exception {
+		return dao.selectPayment(vo); 
 	}	
 	
 	@Override
@@ -110,12 +114,35 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public int selectOneCount(AdminVo vo) throws Exception {
 		return dao.selectOneCount(vo);
+
 	}
 
 	@Override
 	public Admin selectOneLogin(Admin dto) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectOneLogin(dto);
+
+	}	
+	
+	@Override
+	public int selectOneCountCoupon(AdminVo vo) throws Exception {
+		return dao.selectOneCountCoupon(vo);
+	}	
+	
+	@Override
+	public int selectOneCountPayment(AdminVo vo) throws Exception {
+		return dao.selectOneCountPayment(vo);
+	}	
+	
+	@Override
+	public int selectOneCountHost(AdminVo vo) throws Exception {
+		return dao.selectOneCountHost(vo);
+	}		
+	
+	@Override
+	public int selectOneCountMember(AdminVo vo) throws Exception {
+		return dao.selectOneCountMember(vo);
+
 	}		
 	
 }
