@@ -230,16 +230,16 @@
                                     <div class="form-group">
                                         <button type="submit" class="btn-submit" id="js-contact-btn">기록하기</button>
                                     </div>
-                                    <div id="js-contact-result" data-success-msg="Success, We will get back to you soon" data-error-msg="Oops! Something went wrong"></div>
+                                    <div id="js-contact-result" data-success-msg="Success, We will get back to you soon" data-error-msg="Oops! Something went wrong">                            	
+                                    	<input type="hidden" id="tvplLat" name="tvplLat"/>
+										<input type="hidden" id="tvplLng" name="tvplLng"/>
+									</div>
                                 </form>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
                             <div id="map"></div>
-                            	<input type="hidden" id="tvplLat" name="tvplLat"/>
-								<input type="hidden" id="tvplLng" name="tvplLng"/>
-							<div id="clickLatlng"></div>
                         </div>
                     </div>
                 </div>
@@ -289,13 +289,9 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     // 마커 위치를 클릭한 위치로 옮깁니다
     marker.setPosition(latlng);
     
-    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-    message += '경도는 ' + latlng.getLng() + ' 입니다';
-    
-    var resultDiv = document.getElementById('clickLatlng'); 
+
     document.getElementById("tvplLat").value=latlng.getLat();
     document.getElementById("tvplLng").value=latlng.getLng();
-    resultDiv.innerHTML = message;
 
 });
 </script>

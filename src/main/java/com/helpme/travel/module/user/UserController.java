@@ -119,7 +119,11 @@ public class UserController {
 	
 	// PhotoMap
 	@RequestMapping(value = "/user/mapList")
-	public String UserMapList(Model model) throws Exception {
+	public String UserMapList(Model model, UserVo vo) throws Exception {
+		
+		List<User> list = service.selectMap(vo);
+		model.addAttribute("list", list);
+
 		
 		return "user/map/mapList";
 	}

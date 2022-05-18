@@ -41,8 +41,8 @@ public class UserDao {
 //	public int updateReview(User dto) {return sqlSession.update( namespace + ".updateReview", dto);}
 //	public int deleteReview(UserVo vo) {return sqlSession.delete( namespace + ".deleteReview", vo);}
 //	
-//	// 포토맵
-//	public List<User> selectMap(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectMap", vo); return list; }
+	// 포토맵
+	public List<User> selectMap(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectMap", vo); return list; }
 	public int insertMap(User dto) {return sqlSession.insert( namespace + ".insertMap", dto);}
 //	public int updateMap(User dto) {return sqlSession.update( namespace + ".updateMap", dto);}
 //	public int deleteMap(UserVo vo) {return sqlSession.delete( namespace + ".deleteMap", vo);}

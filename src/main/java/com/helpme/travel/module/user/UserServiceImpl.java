@@ -93,11 +93,11 @@ public class UserServiceImpl implements UserService{
 //	}
 //	
 	// 포토맵
-//	@Override
-//	public List<User> selectMap(UserVo vo) throws Exception {
-//		// TODO Auto-generated method stub
-//		return dao.selectMap(vo); 
-//	}
+	@Override
+	public List<User> selectMap(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectMap(vo); 
+	}
 	@Override
 	public int insertMap(User dto) throws Exception {
 		

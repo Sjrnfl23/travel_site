@@ -123,6 +123,23 @@
 	
 	
 	<!-- PhotoMap -->
+	<select id="selectMap" resultMap="resultMapObj">
+		SELECT 
+			tvplSeq
+			,tvplLat
+			,tvplLng
+			,tvplTitle
+			,tvplDesc
+			,tvplEmotionCd
+			,tvplDelNy
+			,tvmmSeq
+		FROM
+			tvPhotoMapLocation
+		WHERE 1=1
+			AND tvplDelNy = 0
+			AND tvmmSeq = 1
+	</select>    
+	
 	<insert id="insertMap">
 		INSERT INTO tvPhotoMapLocation (
 			tvplSeq

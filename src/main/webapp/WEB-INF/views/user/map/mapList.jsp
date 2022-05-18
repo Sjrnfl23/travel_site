@@ -145,7 +145,11 @@
 	                    </div>
                     </div>
                 </div>
-
+ 				<form id="formList" name="formList" method="post" action="/user/mapList">
+				  <input type="hidden" id="tvplLat" name="tvplLat" > 
+				  <input type="hidden" id="tvplLng" name="tvplLng" > 
+				  <input type="hidden" id="tvplTitle" name="tvplTitle" > 
+				  <input type="hidden" id="tvplDesc" name="tvplDesc" > 
                 <div class="col-md-5 responsive-wrap map-wrap">
                     <div class="map-fix">
                         <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
@@ -153,6 +157,7 @@
                         <div id="map" data-lat="40.674" data-lon="-73.945" data-zoom="12"></div>
                     </div>
                 </div>
+                 </form> 
             </div>
     </section>
     <!--=============================//컨텐츠 끝 =============================-->
@@ -187,7 +192,7 @@
         minLevel: 10 // 클러스터 할 최소 지도 레벨 
     }); 
     
-     var positions = [
+/*      var positions = [
          {"lat":"37.5041457952342","lng":"126.75670653635","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?1"},
 		 {"lat":"37.5025416520547","lng":"126.775312407757","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?2"},
 		 {"lat":"37.4840369248427","lng":"126.782649695027","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?3"},
@@ -198,48 +203,56 @@
 		 {"lat":"37.5043220835774","lng":"126.755031466805","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?"},
 		 {"lat":"37.5043180280618","lng":"126.762084138624","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?"},
 		 {"lat":"37.5158442051041","lng":"126.802410566976","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?10"}
-		 ];                  
+		 ];       */        
     
-    var markers =[];	//markers 배열 생성
 
-    for(var i = 0; i < positions.length; i++) {	//for문으로 position배열 안에 있는 좌표에 마커 입력
-    	          	
-       var markerPosition  = new kakao.maps.LatLng(positions[i].lat,positions[i].lng);
+ 	
+ 	
     
-       var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png'; // 마커이미지 주소
-       imageSize = new kakao.maps.Size(35, 35);                // 마커이미지의 크기
-       imageOption = {offset: new kakao.maps.Point(27, 69)};   // 마커의 좌표와 일치시킬 이미지 안에서의 좌표설정
-       
-	   // 마커의 이미지정보를 가지고 있는 마커이미지를 생성 
-	   var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
-    
-        var marker	= new kakao.maps.Marker({
-    		position: markerPosition,
-    		image: markerImage,
-    		map: map,
-    		clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정
-    	});
-        markers.push(marker);	//marker객체를 markers에 추가
-      // 내용
-	    var iwContent = '<div class="modal-body">'+
-	    '<h5>스토리 이미지</h5>'+
-	    '<hr>'+
-	    '<img src="'+positions[i].imageSrco+'" width="100px" height="100px"/><br><br>'+
-	    '<h5>여행 스토리</h5>'+
-	    '<hr>'+
-	    '<p class="modal-body">'+positions[i].desc+'</p>'+
-	  	'</div>'
-	  	,iwRemoveable = true;
-	  	
-	  	
-	  var infowindow = new kakao.maps.InfoWindow({
-		    content : iwContent,
-		     removable : iwRemoveable 
-		});
-	    kakao.maps.event.addListener(marker, 'click', makeClickListener(map, marker, infowindow));
+     var markers =[];	//markers 배열 생성 
+
+     <c:forEach items='${list}' var='item' varStatus='status'>	//for문으로 position배열 안에 있는 좌표에 마커 입력
+	 	var name = '${item.tvplTitle}';
+	 	var desc = '${item.tvplDesc}';
+	 	var lat = ${item.tvplLat};
+	 	var lng = ${item.tvplLng};    	
+	 	
+	       var markerPosition  = new kakao.maps.LatLng(lat,lng);
+	    
+	       var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png'; // 마커이미지 주소
+	       imageSize = new kakao.maps.Size(35, 35);                // 마커이미지의 크기
+	       imageOption = {offset: new kakao.maps.Point(27, 69)};   // 마커의 좌표와 일치시킬 이미지 안에서의 좌표설정
+	       
+		   // 마커의 이미지정보를 가지고 있는 마커이미지를 생성 
+		   var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+	    
+	        var marker	= new kakao.maps.Marker({
+	    		position: markerPosition,
+	    		image: markerImage,
+	    		map: map,
+	    		clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정
+	    	});
+	        markers.push(marker);	//marker객체를 markers에 추가
+	      // 내용
+		    var iwContent = '<div class="modal-body">'+
+		    '<h5>스토리 이미지</h5>'+
+		    '<hr>'+
+		    '<img src="이미지" width="100px" height="100px"/><br><br>'+
+		    '<h5>여행 스토리</h5>'+
+		    '<hr>'+
+		    '<p class="modal-body">'+desc+'</p>'+
+		  	'</div>'
+		  	,iwRemoveable = true;
+		  	
+		  	
+		  var infowindow = new kakao.maps.InfoWindow({
+			    content : iwContent,
+			     removable : iwRemoveable 
+			});
+		    kakao.maps.event.addListener(marker, 'click', makeClickListener(map, marker, infowindow));
 	    
 	    
-    }	// for문 끝
+	     </c:forEach>	// for문 끝 
     
 
     
