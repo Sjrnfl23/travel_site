@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.helpme.travel.module.host.Host;
 
@@ -198,13 +199,30 @@ public class AdminController {
 		return "admin/lodging/lodgingView";
 	}
 
-	   @RequestMapping(value = "/admin/lodgingDel")
-	   public String AdminLodgingDel(AdminVo vo) throws Exception {
-		   
-		   service.DeleteLodging(vo);	
-		   
-		   return "redirect:/admin/lodgingList"; 
-	   }	
+   @RequestMapping(value = "/admin/lodgingDel")
+   public String AdminLodgingDel(AdminVo vo) throws Exception {
+	   
+	   service.DeleteLodging(vo);	
+	   
+	   return "redirect:/admin/lodgingList"; 
+   }	
+   
+   @RequestMapping(value = "/admin/lodgingMultiDel")
+   public String AdminLodgingMultiDel(AdminVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	   
+		String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+		
+		for(String checkboxSeq : checkboxSeqArray) {
+			vo.setTvmmSeq(checkboxSeq);
+			 service.DeleteLodging(vo);	
+		}	   
+	   
+		redirectAttributes.addFlashAttribute("vo", vo);
+	   return "redirect:/admin/lodgingList"; 
+   }	
+	   
+	   
+	   
 	
 	/*---------------------------------------------------------------------------*/
 	

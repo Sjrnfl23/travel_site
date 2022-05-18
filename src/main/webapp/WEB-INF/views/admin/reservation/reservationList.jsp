@@ -80,7 +80,7 @@
 
 	<input type="hidden" id="thisPage" name="thisPage"  value="<c:out value="${vo.thisPage}" default="1"/>">
 	<input type="hidden" id="rowNumToShow" name="rowNumToShow"  value="<c:out value="${vo.rowNumToShow}" default="1"/>">
-	<input type="hidden" id="tvamSeq" name="tvamSeq">
+	<input type="hidden" id="tvpmSeq" name="tvpmSeq">
 	<input type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
            
             <div class="main-content">

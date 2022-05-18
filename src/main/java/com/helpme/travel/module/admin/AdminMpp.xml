@@ -348,11 +348,11 @@
             left join tvMember d on a.tvmmSeq = d.tvmmSeq
 		where 1 = 1
 			and tvpmDelNy = 0
-				<choose>
-					<when test="shOption == 1">and c.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소이름검색 -->
-					<when test="shOption == 2">and d.tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이메일 검색 -->
-					<when test="shOption == 3">and d.tvmmName like concat('%', #{shValue}, '%')</when> <!-- 사용자 이름 검색 -->
-				</choose>			
+		<choose>
+			<when test="shOption == 1">and c.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소 이름 검색 -->
+			<when test="shOption == 2">and d.tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이메일 검색 -->
+			<when test="shOption == 3">and d.tvmmName like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이름 검색 -->
+		</choose>			
 			limit #{startRnumForMysql}, #{rowNumToShow}	
 	</select>
 	
@@ -434,19 +434,19 @@
 	</select>	
 		
 	<select id="selectOneCountPayment" resultType="Integer">	<!-- selectCommon 사용 / 페이징 -->
-			select
-				count(*)
-			from tvPayment a
-				left join tvCoupon b on a.tvcpSeq = b.tvcpSeq
-	            left join tvLodging c on a.tvamSeq = c.tvamSeq
-	            left join tvMember d on a.tvmmSeq = d.tvmmSeq
-			where 1 = 1
-				and tvpmDelNy = 0
-					<choose>
-						<when test="shOption == 1">and c.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소이름검색 -->
-						<when test="shOption == 2">and d.tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이메일 검색 -->
-						<when test="shOption == 3">and d.tvmmName like concat('%', #{shValue}, '%')</when> <!-- 사용자 이름 검색 -->
-					</choose>
+		select
+			count(*)
+		from tvPayment a
+			left join tvCoupon b on a.tvcpSeq = b.tvcpSeq
+            left join tvLodging c on a.tvamSeq = c.tvamSeq
+            left join tvMember d on a.tvmmSeq = d.tvmmSeq
+		where 1 = 1
+			and tvpmDelNy = 0
+		<choose>
+			<when test="shOption == 1">and c.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소 이름 검색 -->
+			<when test="shOption == 2">and d.tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이메일 검색 -->
+			<when test="shOption == 3">and d.tvmmName like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이름 검색 -->
+		</choose>				
 	</select>	
 		
 	<select id="selectOneCountHost" resultType="Integer">	<!-- selectCommon 사용 / 페이징 -->
@@ -478,18 +478,13 @@
 	
 	<!--login Start-->
 	<select id="selectOneLogin" resultMap="resultMapObj">
-	
-	select 
-	tvmmSeq
-	,tvmmName
-	,tvmmEmailAccount
-	,tvmmAdminNy
-	
-		
-	from
-	tvMember
-	where tvmmEmailAccount = #{tvmmEmailAccount} and tvmmPassword = #{tvmmPassword}
-	
+		select 
+			tvmmSeq
+			,tvmmName
+			,tvmmEmailAccount
+			,tvmmAdminNy
+		from tvMember
+		where tvmmEmailAccount = #{tvmmEmailAccount} and tvmmPassword = #{tvmmPassword}
 	</select>
 	
 	<!--login End-->
