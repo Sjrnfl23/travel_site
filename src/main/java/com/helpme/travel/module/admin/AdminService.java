@@ -30,5 +30,6 @@ public interface AdminService {
 //  ===========================페이징=================================	
 	public int selectOneCount(AdminVo vo) throws Exception;
 	
-
+//  ===========================login==================================
+	public Admin selectOneLogin(Admin dto) throws Exception;
 }

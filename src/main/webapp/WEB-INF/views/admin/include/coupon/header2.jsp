@@ -163,15 +163,14 @@
                                     <i class="bx bx-receipt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
                                 </a>
-<<<<<<< HEAD
+
                                 <ul class="sub-menu mm-collapse mm-show" aria-expanded="false">
                                     <li class="mm-active">
                                     	<a href="/admin/couponList" data-key="t-invoice-list">쿠폰 리스트</a>
                                     </li>
        
                                 </ul>
-=======
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
                             </li>
                             
                             <li>

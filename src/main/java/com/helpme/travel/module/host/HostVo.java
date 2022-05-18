@@ -1,9 +1,12 @@
 package com.helpme.travel.module.host;
 
 public class HostVo {
-
 	private String tvcpSeq;
 	private String tvamSeq;
+	private String tvmmSeq;
+	
+
+	
 	
 	public String getTvcpSeq() {
 		return tvcpSeq;
@@ -21,7 +24,13 @@ public class HostVo {
 		this.tvamSeq = tvamSeq;
 	}
 	
-	
+	public String getTvmmSeq() {
+		return tvmmSeq;
+	}
+
+	public void setTvmmSeq(String tvmmSeq) {
+		this.tvmmSeq = tvmmSeq;
+	}
 	
 
 }

@@ -382,5 +382,22 @@
 				</choose>
 	</select>		
 	
+	<!--login Start-->
+	<select id="selectOneLogin" resultMap="resultMapObj">
+	
+	select 
+	tvmmSeq
+	,tvmmName
+	,tvmmEmailAccount
+	,tvmmAdminNy
+	
+		
+	from
+	tvMember
+	where tvmmEmailAccount = #{tvmmEmailAccount} and tvmmPassword = #{tvmmPassword}
+	
+	</select>
+	
+	<!--login End-->
 	
 </mapper>

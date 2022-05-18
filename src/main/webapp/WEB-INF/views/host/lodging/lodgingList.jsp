@@ -86,7 +86,57 @@
                                                 <a href="/host/lodgingForm"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-target=".add-new-order">등록</button></a>
                                                 <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">선택 삭제</button>
                                             </div>
+                                            
                                         </div>
+                                        
+                                        <div class="table table-responsive" style="white-space:nowrap; margin:auto;">
+										 <table class="table table-responsive">
+                                        		<div class="gridjs-head">
+                                        			<div class="gridjs-search">
+                                        				<input type="search" placeholder="Type a keyword..." aria-label="Type a keyword..." class="gridjs-input gridjs-search-input">
+                                        			</div>
+                                        		</div>										 
+											<thead style="background-color: rgb(248,249,250);">
+												<tr>
+													<th><input type="checkbox" id="checkboxAll" name="" value="" class="form-check-input"></th>
+													<th style="text-align: center;">No.</th>
+													<th>카테고리</th>
+													<th>숙소이름</th>
+													
+													<th>주소</th>
+													<th>전화번호</th>
+													<th>최대인원</th>
+													<th>등록일</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${list}" var="rt" varStatus="status">
+													<tr>
+														<td><input type="checkbox"  id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvmmSeq}"/>" class="form-check-input"></td>
+														<td class="text-center"><c:out value="${rt.tvamSeq}"/></td>
+														<td><c:out value="${rt.tvamCategory}"/></td>
+														<td><c:out value="${rt.tvamLodgingName}"/></td>
+														
+														<td><c:out value="${rt.tvamAddressFull}"/></td>
+														<td><c:out value="${rt.tvamTelNumber}"/></td>
+														<td><c:out value="${rt.tvamMaxPersonCount}"/></td>
+														<td>2022-05-10</td>
+														<td>
+															<div class="d-flex gap-3">
+																<a href="/host/lodgingView?tvamSeq=<c:out value="${rt.tvamSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
+																	<i class="mdi mdi-pencil font-size-18"></i>
+																</a>
+																<a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger">
+																	<i class="mdi mdi-delete font-size-18"></i>
+																</a>
+															</div>													
+														</td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+                                    </div>
                                         <!-- js/pages/lodgingList.init.js 파일에 테이블 데이터있음 -->
                                         <div id="table-ecommerce-orders"></div>
                                     </div>
@@ -326,7 +376,7 @@
         <!-- datepicker js -->
         <script src="../../resources/host/libs/flatpickr/flatpickr.min.js"></script>
 
-       <script src="/resources/host/js/pages/host_lodgingList.init.js?version=20220519"></script> <!-- 수정사항 반영이 잘 안돼서 ?version=날짜 붙여줌 -->
+      <!--  <script src="/resources/host/js/pages/host_lodgingList.init.js?version=20220519"></script> 수정사항 반영이 잘 안돼서 ?version=날짜 붙여줌 -->
 
         <script src="../../resources/host/js/app.js"></script>
 

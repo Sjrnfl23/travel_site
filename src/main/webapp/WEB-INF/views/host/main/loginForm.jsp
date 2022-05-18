@@ -60,7 +60,7 @@
                                             <div class="position-relative input-custom-icon">
                                                 <input type="text" class="form-control"  name="tvmmEmailAccount" id="tvmmEmailAccount" placeholder="가입하신 이메일주소를 입력해주세요">
                                                  <span class="bx bx-user"></span>
-                                            </div>
+                                            </div>	
                                         </div>
                 
                                         <div class="mb-3">

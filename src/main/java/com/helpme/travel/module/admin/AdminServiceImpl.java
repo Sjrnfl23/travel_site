@@ -110,6 +110,12 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public int selectOneCount(AdminVo vo) throws Exception {
 		return dao.selectOneCount(vo);
+	}
+
+	@Override
+	public Admin selectOneLogin(Admin dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneLogin(dto);
 	}		
 	
 }

@@ -62,6 +62,10 @@ public class AdminDao {
    //  ===========================페이징=================================
    
    public int selectOneCount(AdminVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
-
+   
+   // ==========================로그인===================================
+   
+   public Admin selectOneLogin(Admin dto) {return sqlSession.selectOne(namespace+".selectOneLogin",dto);}
+   
 }
 
