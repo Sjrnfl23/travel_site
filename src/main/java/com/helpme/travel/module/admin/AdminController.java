@@ -213,7 +213,7 @@ public class AdminController {
 		String[] checkboxSeqArray = vo.getCheckboxSeqArray();
 		
 		for(String checkboxSeq : checkboxSeqArray) {
-			vo.setTvmmSeq(checkboxSeq);
+			vo.setTvamSeq(checkboxSeq);
 			 service.DeleteLodging(vo);	
 		}	   
 	   
