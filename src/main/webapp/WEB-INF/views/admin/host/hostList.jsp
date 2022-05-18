@@ -5,6 +5,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="AdminServiceImpl" class="com.helpme.travel.module.admin.AdminServiceImpl"/>
+
+<% pageContext.setAttribute("br", "\n"); %>
+
 <!doctype html>
 <html lang="kr">
 
@@ -74,6 +78,12 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
+<form id="formList" name="formList">
+
+	<input type="hidden" id="thisPage" name="thisPage"  value="<c:out value="${vo.thisPage}" default="1"/>">
+	<input type="hidden" id="rowNumToShow" name="rowNumToShow"  value="<c:out value="${vo.rowNumToShow}" default="1"/>">
+	<input type="hidden" id="tvamSeq" name="tvamSeq">
+	<input type="hidden" id="checkboxSeqArray" name="checkboxSeqArray"> 
            
             <div class="main-content">
                 <div class="page-content">
@@ -93,9 +103,23 @@
 										 <table class="table table-responsive">
                                         		<div class="gridjs-head">
                                         			<div class="gridjs-search">
-                                        				<input type="search" placeholder="Type a keyword..." aria-label="Type a keyword..." class="gridjs-input gridjs-search-input">
+                                        				<div style ="display: inline-block; padding-right: 0;">
+				                            				<select name="shOption" id="shOption" class="form-select form-select-sm">
+																<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색구분::
+																<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>이름
+																<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>이메일
+															</select>                                         			
+                                        				</div>
+                                        				<div style ="display: inline-block; padding-right: 0;">
+                                        					<input type="text" name="shValue" id="shValue" value="<c:out value="${vo.shValue}"/>" class="gridjs-input gridjs-search-input" placeholder="검색어를 입력해주세요.">
+                                        				</div>
+		                             	   				<button type="submit" class="btn btn-outline-secondary" name="search" id="btnSubmit">
+															<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+																<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+															</svg>   				
+			   											</button>           				
                                         			</div>
-                                        		</div>										 
+                                        		</div>											 
 											<thead style="background-color: rgb(248,249,250);">
 												<tr>
 													<th><input type="checkbox" id="checkboxAll" name="" value="" class="form-check-input"></th>
@@ -117,7 +141,7 @@
 														<td><c:out value="${rt.tvmmName}"/></td>
 														<td><c:out value="${rt.tvmmEmailAccount}"/></td>
 														<td><c:out value="${rt.tvmmTelNumber}"/></td>
-														<td>100</td>
+														<td><c:out value="${rt.lodgingNumber}"/></td>
 														<td><c:out value="${rt.tvmmAddressFull}"/></td>
 														<td>2022-05-10</td>
 														<td>
@@ -125,7 +149,7 @@
 																<a href="/admin/hostView?tvmmSeq=<c:out value="${rt.tvmmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
-																<a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger">
+																<a href="/admin/hostDel?tvmmSeq=<c:out value="${rt.tvmmSeq}"/>" id="btnDelete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" aria-label="Close" class="text-danger">
 																	<i class="mdi mdi-delete font-size-18"></i>
 																</a>
 															</div>													
@@ -138,19 +162,32 @@
                                    	<div class="gridjs-footer">
                                    		<div class="gridjs-pagination">
                                    			<div role="status" aria-live="polite" class="gridjs-summary" title="Page 1 of 4">
-                                   				Showing <b>1</b> to <b>7</b> of <b>22</b> results
+                                   				Showing <b><c:out value="${vo.startRnumForOracle}"/></b> to <b><c:out value="${vo.endRnumForOracle}"/></b> of <b><c:out value="${vo.totalRows}"/></b> results
                                    			</div>
                                    		<div class="gridjs-pages">
-                                   			<button tabindex="0" role="button" disabled="" title="Previous" aria-label="Previous" class="">Previous</button>
-                                   			<button tabindex="0" role="button" class="gridjs-currentPage" title="Page 1" aria-label="Page 1">1</button>
-                                   			<button tabindex="0" role="button" class="" title="Page 2" aria-label="Page 2">2</button>
-                                   			<button tabindex="0" role="button" class="" title="Page 3" aria-label="Page 3">3</button>
-                                   			<button tabindex="-1" class="gridjs-spread">...</button>
-                                   			<button tabindex="0" role="button" title="Page 4" aria-label="Page 4">4</button>
-                                   			<button tabindex="0" role="button" title="Next" aria-label="Next" class="">Next</button>
+											<nav aria-label="...">
+											  <ul class="pagination">
+											<c:if test="${vo.startPage gt vo.pageNumToShow}">
+											     <li class="page-item"><a class="page-link" href="/admin/hostList?thisPage=${vo.startPage - 1}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">Previous</a></li>
+											</c:if>
+											<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+												<c:choose>
+													<c:when test="${i.index eq vo.thisPage}">
+											                <li class="page-item active"><a class="page-link" href="/admin/hostList?thisPage=${i.index}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">${i.index}</a></li>
+													</c:when>
+													<c:otherwise>             
+											            <li class="page-item"><a class="page-link" href="/admin/hostList?thisPage=${i.index}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">${i.index}</a></li>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>     
+											<c:if test="${vo.endPage ne vo.totalPages}">                
+											    <li class="page-item"><a class="page-link" href="/admin/hostList?thisPage=${vo.endPage + 1}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">Next</a></li>
+											</c:if>  
+											  </ul>
+											</nav>
                                    		</div>
                                    	</div>
-                                   </div>                                    
+                                   </div>                                     
                                     
                                 </div>
                             </div>
@@ -162,183 +199,6 @@
                     <!-- container-fluid -->
                 </div>
                 <br>
-                
-
-<!--                  Extra Large modal example
-                <div class="modal fade add-new-order" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="myExtraLargeModalLabel">Add New Order</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                               <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="AddOrder-Product">Choose Product</label>
-                                        <select class="form-select">
-                                            <option  selected> Select Product </option>
-                                            <option>Adidas Running Shoes</option>
-                                            <option>Puma P103 Shoes</option>
-                                            <option>Adidas AB23 Shoes</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                   <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Billing-Name">Billing Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter Billing Name" id="AddOrder-Billing-Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label">Date</label>
-                                            <input type="text" class="form-control" placeholder="Select Date" id="order-date">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Total">Total</label>
-                                            <input type="text" class="form-control" placeholder="$565" id="AddOrder-Total">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Payment-Status">Payment Status</label>
-                                            <select class="form-select">
-                                                <option  selected> Select Card Type </option>
-                                                <option>Paid</option>
-                                                <option>Chargeback</option>
-                                                <option>Refund</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Payment-Method">Payment Method</label>
-                                            <select class="form-select">
-                                                <option  selected> Select Payment Method </option>
-                                                <option> Mastercard</option>
-                                                <option>Visa</option>
-                                                <option>Paypal</option>
-                                                <option>COD</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                               </div>
-                               <div class="row mt-2">
-                                <div class="col-12 text-end">
-                                    <button type="button" class="btn btn-danger me-1" data-bs-dismiss="modal"><i class="bx bx-x me-1"></i> Cancel</button>
-                                    <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#success-btn" id="btn-save-event"><i class="bx bx-check me-1"></i> Confirm</button>
-                                </div>
-                            </div>
-
-                            </div>
-                        </div>/.modal-content
-                    </div>/.modal-dialog
-                </div>/.modal
-
- -->
-<!--                  successfully modal 
-                <div id="success-btn" class="modal fade" tabindex="-1" aria-labelledby="success-btnLabel" aria-hidden="true" data-bs-scroll="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                               <div class="text-center">
-                                   <i class="bx bx-check-circle display-1 text-success"></i>
-                                   <h4 class="mt-3">Order Completed Successfully</h4>
-                               </div>
-                            </div>
-                        </div>/.modal-content
-                    </div>/.modal-dialog
-                </div>/.modal -->
-
-                <!-- Modal -->
-                <div class="modal fade orderdetailsModal" tabindex="-1" role="dialog" aria-labelledby=orderdetailsModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="orderdetailsModalLabel">Order Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p class="mb-2">Product id: <span class="text-primary">#SK2540</span></p>
-                                <p class="mb-4">Billing Name: <span class="text-primary">Martin Gurley</span></p>
-
-                                <div class="table-responsive">
-                                    <table class="table align-middle table-nowrap">
-                                        <thead>
-                                            <tr>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Product Name</th>
-                                            <th scope="col">Price</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div>
-                                                        <img src="/resources/admin/assets/images/product/img-1.png" alt="" class="rounded avatar-md">
-                                                    </div>
-                                                </th>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="text-truncate font-size-14">Home & Office Chair Crime</h5>
-                                                        <p class="text-muted mb-0">$ 225 x 1</p>
-                                                    </div>
-                                                </td>
-                                                <td>$ 255</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div>
-                                                        <img src="/resources/admin/assets/images/product/img-2.png" alt="" class="rounded avatar-md">
-                                                    </div>
-                                                </th>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="text-truncate font-size-14">Tuition Classes Chair Crime</h5>
-                                                        <p class="text-muted mb-0">$ 145 x 1</p>
-                                                    </div>
-                                                </td>
-                                                <td>$ 145</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Sub Total:</h6>
-                                                </td>
-                                                <td>
-                                                    $ 400
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Shipping:</h6>
-                                                </td>
-                                                <td>
-                                                    Free
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Total:</h6>
-                                                </td>
-                                                <td>
-                                                    $ 400
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end modal -->
 
                 <footer class="footer">
                     <div class="container-fluid">
@@ -358,6 +218,7 @@
             <!-- end main content-->
 
         </div>
+      </form>
         <!-- END layout-wrapper -->
 
 
@@ -391,7 +252,22 @@
         <script src="../../../../resources/admin/assets/js/pages/admin_hostList.init.js?version=202205091"></script>
 
         <script src="../../../../resources/admin/assets/js/app.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
+<script type="text/javascript">
+	
+	$("#btnDelete").on("click", function(){
+		var answer = confirm('삭제 하시겠습니까?');
+		
+		if(answer){
+			// /admin/hostDel로 이동
+		}else{
+			return false;
+		}
+	});
+</script>
 
 
     </body>

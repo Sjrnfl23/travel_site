@@ -102,13 +102,13 @@
                                         				<div style ="display: inline-block; padding-right: 0;">
 				                            				<select name="shOption" id="shOption" class="form-select form-select-sm">
 																<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색구분::
-																<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>카테고리
+																<%-- <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>카테고리 --%>
 																<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>숙소이름
-																<option value="2" <c:if test="${vo.shOption eq 3}">selected</c:if>>호스트
+																<%-- <option value="2" <c:if test="${vo.shOption eq 3}">selected</c:if>>호스트 --%>
 															</select>                                         			
                                         				</div>
                                         				<div style ="display: inline-block; padding-right: 0;">
-                                        					<input type="text" name="shValue" id="shValue" value="<c:out value="${vo.shValue}"/>" placeholder="Type a keyword..." aria-label="Type a keyword..." class="gridjs-input gridjs-search-input">
+                                        					<input type="text" name="shValue" id="shValue" value="<c:out value="${vo.shValue}"/>" class="gridjs-input gridjs-search-input" placeholder="검색어를 입력해주세요.">
                                         				</div>
 		                             	   				<button type="submit" class="btn btn-outline-secondary" name="search" id="btnSubmit">
 															<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
