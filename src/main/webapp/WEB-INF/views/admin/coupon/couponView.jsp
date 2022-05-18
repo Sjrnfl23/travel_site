@@ -191,7 +191,7 @@
                                                     	</a>
                                                     </li>
                                                     <li class="list-inline-item">
-														<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md"  id="btnDelete" onclick="location.href='/admin/couponDel?tvcpSeq=<c:out value="${rt.tvcpSeq}"/>'" aria-label="Close">삭제</button>
+														<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md"  id="btnDelete" aria-label="Close">삭제</button>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -262,16 +262,14 @@
 <script type="text/javascript">
 	
 $("#btnDelete").on("click", function(){
-	var answer = confirm('삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.');
+	var answer = confirm('삭제 하시겠습니까? 삭제된 정보는 복구되지 않습니다.');
 	
-	if(answer){
-		alert('삭제가 완료되었습니다.');
-		// /admin/hostDel로 이동
+	if(answer == true){
+		location.href='/admin/couponDel?tvcpSeq=<c:out value="${rt.tvcpSeq}"/>';
 	}else{
 		return false;
 	}
 });
-
 </script>
 
     </body>

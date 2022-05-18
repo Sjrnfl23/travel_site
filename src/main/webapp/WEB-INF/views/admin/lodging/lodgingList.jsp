@@ -173,7 +173,7 @@
 																<a href="/admin/lodgingView?tvamSeq=<c:out value="${rt.tvamSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
-																<a href="/admin/lodgingDel?tvamSeq=<c:out value="${rt.tvamSeq}"/>" id="btnDelete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" aria-label="Close" class="text-danger">
+ 												 				<a href="javascript:void(0)" onclick="btnDelete(); return false;" id="btnDelete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" aria-label="Close" class="text-danger">
 																	<i class="mdi mdi-delete font-size-18"></i>
 																</a>
 															</div>													
@@ -284,18 +284,22 @@
 
 <script type="text/javascript">
 	
-	$("#btnDelete").on("click", function(){
-		var answer = confirm('삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.');
-		
-		if(answer){
-			alert('삭제가 완료되었습니다.');
-			// /admin/hostDel로 이동
-		}else{
-			return false;
-		}
-	});
+function btnDelete(){
+	var answer = confirm('삭제 하시겠습니까? 삭제된 정보는 복구되지 않습니다.');
 	
+	if(answer == true){
+		location.href='/admin/lodgingDel?tvamSeq=<c:out value="${rt.tvamSeq}"/>';
+	}else{
+		return false;
+	}
+});
 	
+
+</script>
+
+
+
+<script type="text/javascript">
 	var goUrlList = "/admin/lodgingList";
 	var goUrlForm = "/admin/lodgingForm";
 	var goUrlMultiDel = "/admin/lodgingMultiDel";

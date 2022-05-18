@@ -71,7 +71,15 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-           
+<form id="formList" name="formList" action="/admin/lodgingView">
+
+	<input type="hidden" id="thisPage" name="thisPage"  value="<c:out value="${vo.thisPage}" default="1"/>">
+	<input type="hidden" id="rowNumToShow" name="rowNumToShow"  value="<c:out value="${vo.rowNumToShow}" default="1"/>">
+	<input type="hidden" id="tvamSeq" name="tvamSeq">
+	<input type="hidden" id="shOption" name="shOption" value="<c:out value="${vo.shOption}"/>">
+	<input type="hidden" id="shValue" name="shValue" value="<c:out value="${vo.shValue}"/>">	
+	<input type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
+	           
             <div class="main-content">
                 <div class="page-content">
                     <div class="container-fluid">
@@ -183,9 +191,7 @@
                                                     	</a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="/admin/memberList">
-                                                       		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
-                                                    	</a>
+                                                       		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" id="btnDelete" aria-label="Close">삭제</button>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -211,6 +217,7 @@
 	                </footer>					
 				
 				</div>
+			</form>
         </div>
         <!-- END layout-wrapper -->
 
@@ -246,7 +253,21 @@
 
         <script src="../../../../resources/admin/assets/js/app.js"></script>
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
+<script type="text/javascript">
+	
+$("#btnDelete").on("click", function(){
+	var answer = confirm('삭제 하시겠습니까? 삭제된 정보는 복구되지 않습니다.');
+	
+	if(answer == true){
+		location.href='/admin/memberDel?tvmmSeq=<c:out value="${rt.tvmmSeq}"/>';
+	}else{
+		return false;
+	}
+});
+</script>
 
     </body>
 

@@ -76,7 +76,7 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-<form id="formList" name="formList">
+<form id="formList" name="formList" action="/admin/reservationList">
 
 	<input type="hidden" id="thisPage" name="thisPage"  value="<c:out value="${vo.thisPage}" default="1"/>">
 	<input type="hidden" id="rowNumToShow" name="rowNumToShow"  value="<c:out value="${vo.rowNumToShow}" default="1"/>">
