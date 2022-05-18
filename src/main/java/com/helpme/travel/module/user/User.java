@@ -17,6 +17,9 @@ public class User {
 	private String tvamAddressFull;
 	private String tvamAddressState;
 	private String tvamAddressCity;
+	private String tvamTelNumber;	
+	private String tvamState;
+	private String tvamCity;	
 	private String tvamLat;
 	private String tvamLng;
 	private Integer tvamPrice;
@@ -67,7 +70,7 @@ public class User {
 	private String tvmmDesc;
 	private Integer tvmmDelNy;
 	
-	
+
 	
 	
 //	===============================================	
@@ -409,6 +412,24 @@ public class User {
 	}
 	public void setTvamLodgingName(String tvamLodgingName) {
 		this.tvamLodgingName = tvamLodgingName;
+	}
+	public String getTvamState() {
+		return tvamState;
+	}
+	public void setTvamState(String tvamState) {
+		this.tvamState = tvamState;
+	}
+	public String getTvamCity() {
+		return tvamCity;
+	}
+	public void setTvamCity(String tvamCity) {
+		this.tvamCity = tvamCity;
+	}
+	public String getTvamTelNumber() {
+		return tvamTelNumber;
+	}
+	public void setTvamTelNumber(String tvamTelNumber) {
+		this.tvamTelNumber = tvamTelNumber;
 	}	
 
 	

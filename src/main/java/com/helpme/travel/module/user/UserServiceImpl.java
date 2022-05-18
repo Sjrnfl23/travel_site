@@ -1,9 +1,6 @@
 package com.helpme.travel.module.user;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,10 +56,10 @@ public class UserServiceImpl implements UserService{
 	
 	
 		// 숙소상세
-//	@Override
-//	public User selectOneLodging(UserVo vo) throws Exception {
-//	return dao.selectOneLodging(vo);
-//		}
+	@Override
+	public User selectOneLodgingView(UserVo vo) throws Exception {
+	return dao.selectOneLodgingView(vo);
+		}
 //		// 결제
 //	@Override
 //		public int insertPayment(User dto) throws Exception {

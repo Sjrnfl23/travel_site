@@ -23,7 +23,7 @@ public interface UserService {
 	List<User> selectListSearchFlex(UserVo vo) throws Exception;
 //	
 //	//숙소 상세
-//	public User selectOneLodging(UserVo vo) throws Exception;
+	public User selectOneLodgingView(UserVo vo) throws Exception;
 //	
 //	// 결제
 //	public int insertPayment(User dto) throws Exception;

@@ -68,8 +68,8 @@
 				</choose>
 
 	</select>
-	
-	<!-- Reservation List -->
+<!-- 	
+	Reservation List
 	<select id="selectListReservation" resultMap="resultMapObj">
 		SELECT
 			tvamSeq
@@ -83,9 +83,44 @@
 			tvLodging
 		WHERE 1=1
 			AND tvamDelNy = 0
+			
 				
 	</select>
-	
+	 -->
+	<!-- LodgingView -->
+	<select id="selectOneLodgingView" resultMap="resultMapObj">
+		SELECT
+			a.tvamSeq
+			,a.tvamMaxPersonCount
+			,a.tvamRoomCount
+			,a.tvamBedCount
+			,a.tvamShowerRoomCount
+			,a.tvamState
+			,a.tvamCity
+			,a.tvamTelNumber
+			,a.tvmmSeq
+		FROM
+			travel_site.tvLodging a
+		WHERE 1=1
+			AND a.tvamDelNy = 0
+			AND a.tvamApproveNy = 1
+			AND a.tvamPoolNy = 1
+			AND a.tvamJacuzziNy = 0
+			AND a.tvamBbqGrillNy = 1
+			AND a.tvamFirePlaceNy = 1
+			AND a.tvamGymNy = 1
+			AND a.tvamWifiNy = 1
+			AND a.tvamTvNy = 1
+			AND a.tvamParkingRoomNy = 1
+			AND a.tvamAirConditionerNy = 1
+			AND a.tvamHeaterNy = 1
+			AND a.tvamFridgeNy = 1
+			AND a.tvamMicrowaveNy = 1  
+			AND a.tvamSeq = #{tvamSeq}
+			
+			
+			
+	</select>
 	
 	
 </mapper>

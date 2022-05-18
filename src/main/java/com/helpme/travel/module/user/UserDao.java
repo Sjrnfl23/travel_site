@@ -29,7 +29,8 @@ public class UserDao {
 	public List<User> selectListSearchFlex(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearchFlex", vo); return list; } 
 //	
 //	// 숙소 상세
-//	public User selectOneLodging(UserVo vo) { return sqlSession.selectOne(namespace + ".selectOneLodging", vo);}
+	public User selectOneLodgingView(UserVo vo) {return sqlSession.selectOne(namespace + ".selectOneLodgingView", vo);}
+//	public int insertLodging(User dto) { return sqlSession.insert(namespace + ".insertLodging", dto);}
 //	// 숙소 결제
 //	public int insertPayment(User dto) {return sqlSession.insert( namespace + ".insertPayment", dto);}
 //	

@@ -172,10 +172,11 @@
     <section class="reserve-block">
         <div class="container">
             <div class="row">
+            	
                 <div class="col-md-11">
                     <h3>퀄리티&인테리어, 특별한 독채팬션_[봄보름] #해수욕장5분.돌집독채.월풀.바베큐</h3>
-                    <p class="reserve-description" style="font-size: 20px;">최대 인원 5명 * 침실 2개 * 침대 2개 * 욕실 2개</p><br>
-                    <p class="reserve-description" style="font-size: 20px;">제주도, 제주시</p>
+                    <p class="reserve-description" style="font-size: 20px;">최대 인원 <c:out value="${item.tvamMaxPersonCount}"/>명 * 침실 <c:out value="${item.tvamRoomCount}"/>개 * 침대 <c:out value="${item.tvamBedCount}"/>개 * 욕실 <c:out value="${item.tvamShowerRoomCount}"/>개</p><br>
+                    <p class="reserve-description" style="font-size: 20px;"><c:out value="${item.tvamState}"/>, <c:out value="${item.tvamCity}"/></p>
                 </div>
                 <div class="col-md-1">
                     <div class="reserve-seat-block">
@@ -184,6 +185,7 @@
                         </div>
                     </div>
                 </div>
+              
             </div>
         </div>
     </section>
@@ -203,6 +205,7 @@
                         <h4 style="text-align: left;">숙소 편의시설</h4> <br>
                         <div class="row">
                             <div class="col-md-4">
+                           
                                 <label class="custom-checkbox">
 			                        <span class="ti-check-box"></span>
 			                        <span class="custom-control-description">해변과 인접</span>
@@ -228,7 +231,8 @@
 			                        <span class="custom-control-description">건물 내 무료 주차</span>
 			                     </label>
 			                 </div>
-			                 <div class="col-md-4">    
+			                 <div class="col-md-4">
+			                 <c:out value="${item.tvamJacuzziNy}"/>
                                 <label class="custom-checkbox">
 			                       <span class="ti-check-box"></span>
 			                       <span class="custom-control-description">자쿠지</span>
