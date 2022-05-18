@@ -86,7 +86,7 @@
 			
 				
 	</select>
-<<<<<<< HEAD
+
 	 -->
 	<!-- LodgingView -->
 	<select id="selectOneLodgingView" resultMap="resultMapObj">
@@ -119,11 +119,8 @@
 			AND a.tvamDelNy = 0 
 			AND a.tvamSeq = #{tvamSeq}
 			
-			
-			
 	</select>
 	
-=======
 	
 	<!-- PhotoMap -->
 	<insert id="insertMap">
@@ -147,6 +144,6 @@
 			,1
 			)
 	</insert>
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
 	
 </mapper>

@@ -70,9 +70,7 @@ public class User {
 	private String tvmmDesc;
 	private Integer tvmmDelNy;
 	
-<<<<<<< HEAD
-	// 리뷰작성 
-=======
+
 	// photomap
 	private Integer tvplSeq;
 	private double tvplLat;
@@ -81,9 +79,9 @@ public class User {
 	private String tvplDesc;
 	private String tvplMarkerImage;
 	private String tvplEmotionCd;
-	
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
-	
+
+	//리뷰작성
+
 	private String tvarSeq;
 	private String tvarReview;
 	private String tvarStarPoint;
@@ -433,7 +431,7 @@ public class User {
 	public void setTvamLodgingName(String tvamLodgingName) {
 		this.tvamLodgingName = tvamLodgingName;
 	}
-<<<<<<< HEAD
+
 	public String getTvamState() {
 		return tvamState;
 	}
@@ -475,7 +473,8 @@ public class User {
 	}
 	public void setTvarDate(Date tvarDate) {
 		this.tvarDate = tvarDate;
-=======
+	}	
+
 	public Integer getTvplSeq() {
 		return tvplSeq;
 	}
@@ -517,7 +516,7 @@ public class User {
 	}
 	public void setTvplDesc(String tvplDesc) {
 		this.tvplDesc = tvplDesc;
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
 	}	
 
 	
