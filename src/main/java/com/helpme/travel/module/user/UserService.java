@@ -24,6 +24,7 @@ public interface UserService {
 //	
 //	//숙소 상세
 	public User selectOneLodgingView(UserVo vo) throws Exception;
+	
 //	
 //	// 결제
 //	public int insertPayment(User dto) throws Exception;

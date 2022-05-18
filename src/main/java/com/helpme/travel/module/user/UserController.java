@@ -98,7 +98,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/lodgingView")
-	public String UserLodgingView(UserVo vo,Model model) throws Exception {
+	public String UserLodgingView(@ModelAttribute("vo") UserVo vo,Model model) throws Exception {
 		
 		User item= service.selectOneLodgingView(vo);
 		model.addAttribute("item", item);

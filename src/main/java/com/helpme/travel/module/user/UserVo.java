@@ -24,7 +24,8 @@ public class UserVo {
 	public void setTvamSeq(String tvamSeq) {
 		this.tvamSeq = tvamSeq;
 	}
-	
+
+
 	
 	
 	

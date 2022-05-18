@@ -98,24 +98,24 @@
 			,a.tvamState
 			,a.tvamCity
 			,a.tvamTelNumber
+			,a.tvamAddressFull
+			,a.tvamCheckInTime
+			,a.tvamCheckOutTime
+			,a.tvamLodgingName
+			,a.tvamDesc
+			,a.tvamHostName
 			,a.tvmmSeq
+			,b.tvmmEmailAccount
+			<!-- ,b.tvarSeq
+			,b.tvarReview
+			,b.tvarStarPoint
+			,b.tvarDate -->
 		FROM
 			travel_site.tvLodging a
+			<!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  -->
+			LEFT OUTER JOIN travel_site.tvMember AS b ON b.tvmmSeq = a.tvmmSeq
 		WHERE 1=1
-			AND a.tvamDelNy = 0
-			AND a.tvamApproveNy = 1
-			AND a.tvamPoolNy = 1
-			AND a.tvamJacuzziNy = 0
-			AND a.tvamBbqGrillNy = 1
-			AND a.tvamFirePlaceNy = 1
-			AND a.tvamGymNy = 1
-			AND a.tvamWifiNy = 1
-			AND a.tvamTvNy = 1
-			AND a.tvamParkingRoomNy = 1
-			AND a.tvamAirConditionerNy = 1
-			AND a.tvamHeaterNy = 1
-			AND a.tvamFridgeNy = 1
-			AND a.tvamMicrowaveNy = 1  
+			AND a.tvamDelNy = 0 
 			AND a.tvamSeq = #{tvamSeq}
 			
 			

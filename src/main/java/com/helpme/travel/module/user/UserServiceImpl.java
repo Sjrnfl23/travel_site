@@ -60,6 +60,9 @@ public class UserServiceImpl implements UserService{
 	public User selectOneLodgingView(UserVo vo) throws Exception {
 	return dao.selectOneLodgingView(vo);
 		}
+	
+
+	
 //		// 결제
 //	@Override
 //		public int insertPayment(User dto) throws Exception {

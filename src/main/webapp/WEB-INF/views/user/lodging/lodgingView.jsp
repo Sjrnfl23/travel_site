@@ -174,7 +174,7 @@
             <div class="row">
             	
                 <div class="col-md-11">
-                    <h3>퀄리티&인테리어, 특별한 독채팬션_[봄보름] #해수욕장5분.돌집독채.월풀.바베큐</h3>
+                    <h3><c:out value="${item.tvamLodgingName}"/></h3>
                     <p class="reserve-description" style="font-size: 20px;">최대 인원 <c:out value="${item.tvamMaxPersonCount}"/>명 * 침실 <c:out value="${item.tvamRoomCount}"/>개 * 침대 <c:out value="${item.tvamBedCount}"/>개 * 욕실 <c:out value="${item.tvamShowerRoomCount}"/>개</p><br>
                     <p class="reserve-description" style="font-size: 20px;"><c:out value="${item.tvamState}"/>, <c:out value="${item.tvamCity}"/></p>
                 </div>
@@ -197,9 +197,7 @@
                 <div class="col-md-8 responsive-wrap">
                     <div class="booking-checkbox_wrap">
                         <div class="booking-checkbox">
-                            <p style="font-size: 18px;">'봄보름'은 '봄바람'의 제주 방언이랍니다.
-								봄바람같이 여러분의 얼었던 몸과 마음을 따스히 품고 어우룰수 있는 숙소가 되려 합니다.
-								또한 '봄보름'은 제주도의 지리적이고 자연적 감성을 반영하고 Guest와의 충분한 교감을 나누고자 많은 시간과 정성을 기울여 신축한 단독주택입니다.</p>
+                            <p style="font-size: 18px;"><c:out value="${item.tvamDesc}"/></p>
                             <hr>
                         </div>
                         <h4 style="text-align: left;">숙소 편의시설</h4> <br>
@@ -329,11 +327,11 @@
                                         <span></span>
                                         <span></span>
                                         <span class="round-icon-blank"></span>
-                                        <p>2022년 4월</p>
+                                        <p><%-- <c:out value="${item.tvarDate"/> --%></p>
                                     </div>
-                                    <div class="customer-rating">5.0</div>
+                                    <div class="customer-rating"><%-- <c:out value="${item.tvarStarPoint}"/> --%></div>
                                 </div>
-                                <p class="customer-text">게스트를 위한 배려와 센스가 넘치는 너무나도 사랑스러운 숙소입니다.3박4일동안 내 집처럼 편안하게 쉬고 갑니다.다른 계절때도 오고싶어요. 강추드립니다</p>
+                                <p class="customer-text"><%-- <c:out value="${item.tvarReview}"/> --%></p>
 
                                 <ul>
                                     <li><img src="/resources/user/images/review-img1.jpg" class="img-fluid" alt="#"></li>
@@ -396,7 +394,7 @@
                             <div class="col-md-6">
                                 <label class="custom-checkbox">
 			                        <span class="ti-check-box"></span>
-			                        <span class="custom-control-description">체크인 : 오후 4:00 이후</span>
+			                        <span class="custom-control-description">체크인 : 오후 <c:out value="${item.tvamCheckInTime}"/>이후</span>
 			                     </label>
 			                 </div>
 			             </div>
@@ -404,7 +402,7 @@
 			                 <div class="col-md-6">    
                                 <label class="custom-checkbox">
 			                       <span class="ti-check-box"></span>
-			                       <span class="custom-control-description">체크아웃 : 오전 11시</span>
+			                       <span class="custom-control-description">체크아웃 : 오전 <c:out value="${item.tvamCheckOutTime}"/>시</span>
 		                       </label>
                             </div>
                          </div>
@@ -447,11 +445,11 @@
                 		
                             <div class="contact-info">
                                 <div class="booking-summary-box">
-                                    <h4>퀄리티&인테리어, 특별한 독채팬션_[봄보름] #해수욕장5분.돌집독채.월풀.바베큐</h4>
-                                    <span style="font-size: 18px;">제주도, 제주시</span>
+                                    <h4><c:out value="${item.tvamLodgingName}"/></h4>
+                                    <span style="font-size: 18px;"><c:out value="${item.tvamState}"/>, <c:out value="${item.tvamCity}"/></span>
 
                                     <div class="booking-summary_contact">
-                                        <p style="font-size: 18px;">070-5022-5867</p>
+                                        <p style="font-size: 18px;"><c:out value="${item.tvamTelNumber}"/></p>
                                     </div>
 
                                     <div class="booking-summary_deatail">
@@ -483,15 +481,15 @@
                         <img src="/resources/user/images/map.jpg" class="img-fluid" alt="#">
                         <div class="address">
                             <span class="icon-location-pin"></span>
-                            <p>제주특별자치도<br> 제주시 조천읍 신흥관전길 8</p>
+                            <p><c:out value="${item.tvamAddressFull}"/></p>
                         </div>
                         <div class="address">
                             <span class="icon-screen-smartphone"></span>
-                            <p>065-782-5559</p>
+                            <p><c:out value="${item.tvamTelNumber}"/></p>
                         </div>
                         <div class="address">
                             <span class="icon-link"></span>
-                            <p>https://airbnb.co.kr</p>
+                            <p><c:out value="${item.tvmmEmailAccount}"/></p>
                         </div>
                         <div class="address">
                             <span class="icon-clock"></span>
@@ -503,8 +501,8 @@
                     <div class="follow">
                         <div class="follow-img">
                             <img src="/resources/user/images/review4.jpg" class="img-fluid" alt="#">
-                            <h6>승인님</h6>
-                            <span>제주도 제주시</span>
+                            <h6><c:out value="${item.tvamHostName}"/></h6>
+                            <span><c:out value="${item.tvamState}"/> <c:out value="${item.tvamCity}"/></span>
                         </div>
                         <ul class="d-flex">
                             <li class=" flex-fill">

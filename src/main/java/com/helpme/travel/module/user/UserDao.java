@@ -30,7 +30,8 @@ public class UserDao {
 //	
 //	// 숙소 상세
 	public User selectOneLodgingView(UserVo vo) {return sqlSession.selectOne(namespace + ".selectOneLodgingView", vo);}
-//	public int insertLodging(User dto) { return sqlSession.insert(namespace + ".insertLodging", dto);}
+	
+
 //	// 숙소 결제
 //	public int insertPayment(User dto) {return sqlSession.insert( namespace + ".insertPayment", dto);}
 //	

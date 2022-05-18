@@ -70,6 +70,14 @@ public class User {
 	private String tvmmDesc;
 	private Integer tvmmDelNy;
 	
+	// 리뷰작성 
+	
+	private String tvarSeq;
+	private String tvarReview;
+	private String tvarStarPoint;
+	private Date tvarDate;
+	//private String tvamSeq;
+	
 
 	
 	
@@ -430,6 +438,30 @@ public class User {
 	}
 	public void setTvamTelNumber(String tvamTelNumber) {
 		this.tvamTelNumber = tvamTelNumber;
+	}
+	public String getTvarSeq() {
+		return tvarSeq;
+	}
+	public void setTvarSeq(String tvarSeq) {
+		this.tvarSeq = tvarSeq;
+	}
+	public String getTvarReview() {
+		return tvarReview;
+	}
+	public void setTvarReview(String tvarReview) {
+		this.tvarReview = tvarReview;
+	}
+	public String getTvarStarPoint() {
+		return tvarStarPoint;
+	}
+	public void setTvarStarPoint(String tvarStarPoint) {
+		this.tvarStarPoint = tvarStarPoint;
+	}
+	public Date getTvarDate() {
+		return tvarDate;
+	}
+	public void setTvarDate(Date tvarDate) {
+		this.tvarDate = tvarDate;
 	}	
 
 	
