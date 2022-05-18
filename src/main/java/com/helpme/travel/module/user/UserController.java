@@ -114,7 +114,7 @@ public class UserController {
 	}
 	
 	
-	// Map
+	// PhotoMap
 	@RequestMapping(value = "/user/mapList")
 	public String UserMapList(Model model) throws Exception {
 		
@@ -125,6 +125,15 @@ public class UserController {
 		
 		return "user/map/mapForm";
 	}
+	@RequestMapping(value = "/user/mapInst")
+	public String mapInst(@ModelAttribute("vo") UserVo vo, User dto, RedirectAttributes redirectAttributes) throws Exception {
+		
+		int result = service.insertMap(dto);
+		System.out.println("result: " + result);
+
+		return "redirect:/user/mapList";
+	}
+	
 	@RequestMapping(value = "/user/mapEdit")
 	public String UserMapEdit(Model model) throws Exception {
 		
@@ -133,6 +142,6 @@ public class UserController {
 	@RequestMapping(value = "/user/UserMapDelete")
 	public String UserMapDelete(Model model) throws Exception {
 		
-		return "redirect:/user/map/mapList";
+		return "redirect:/user/mapList";
 	}
 }
