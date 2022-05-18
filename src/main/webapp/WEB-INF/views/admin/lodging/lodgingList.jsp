@@ -152,10 +152,10 @@
 														<td>2022-05-10</td>
 														<td>
 															<div class="d-flex gap-3">
-																<a href="/admin/lodgingView?tvamSeq=<c:out value="${rt.tvmmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
+																<a href="/admin/lodgingView?tvamSeq=<c:out value="${rt.tvamSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
-																<a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger">
+																<a href="/admin/lodgingDel?tvamSeq=<c:out value="${rt.tvamSeq}"/>" id="btnDelete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" aria-label="Close" class="text-danger">
 																	<i class="mdi mdi-delete font-size-18"></i>
 																</a>
 															</div>													
@@ -261,7 +261,22 @@
         <script src="/resources/admin/assets/js/pages/lodgingList.init.js"></script>
 
         <script src="../../../../resources/admin/assets/js/app.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
+<script type="text/javascript">
+	
+	$("#btnDelete").on("click", function(){
+		var answer = confirm('삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.');
+		
+		if(answer){
+			alert('삭제가 완료되었습니다.');
+			// /admin/hostDel로 이동
+		}else{
+			return false;
+		}
+	});
+</script>
 
 
     </body>

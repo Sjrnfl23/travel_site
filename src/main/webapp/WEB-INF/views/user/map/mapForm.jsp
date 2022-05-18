@@ -33,52 +33,8 @@
     <link href="/resources/user/css/set1.css" rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="/resources/user/css/style.css">
-    <style>
-.input-hidden {
-  position: absolute;
-  left: -9999px;
-}
-
-input[type=radio]:checked + label>img {
-  border: 1px solid #fff;
-  box-shadow: 0 0 3px 3px #BFB;
-}
-
-/* Stuff after this is only to make things more pretty */
-input[type=radio] + label>img {
-  border: 1px #444;
-  width: 50px;
-  height: 50px;
-  transition: 500ms all;
-}
-
-input[type=radio]:checked + label>img {
-  transform: 
-    rotateZ(-10deg) 
-    rotateX(10deg);
-}
-
-/*
- | //lea.verou.me/css3patterns
- | Because white bgs are boring.
-*/
-html {
-  background-color: #fff;
-  background-size: 100% 1.2em;
-  background-image: 
-    linear-gradient(
-      90deg, 
-      transparent 79px, 
-      #abced4 79px, 
-      #abced4 81px, 
-      transparent 81px
-    ),
-    linear-gradient(
-      #eee .1em, 
-      transparent .1em
-    );
-}
-    </style>
+    <!-- PhotomapEmotion -->
+    <link rel="stylesheet" href="/resources/user/css/PhotomapEmotion.css">
 </head>
 
 <body>
@@ -204,7 +160,7 @@ html {
                         <div class="col-md-6">
                             <div class="contact-form pl-4 py-4">
 
-                                <form action="php/contact.php" id="phpcontactform" method="post">
+                                <form action="/user/mapInst" method="post">
                                 	<div class="form-group">
                                         <label>여행 사진</label>
                                         <div class="row">
@@ -221,56 +177,55 @@ html {
                                     </div>
                                     <div class="form-group">
                                     	<label>여행 제목</label>
-                                    	<input type="text" name="title" class="form-control" rows="3">
+                                    	<input type="text" name="tvplTitle" class="form-control" rows="3">
                                     </div>
                                     <div class="form-group">
                                     	<label>여행 기분</label><br>
                                     	<div>
-                                    		<input type="radio" name="emotion" id="smile" class="input-hidden" value="1"/>
+                                    		<input type="radio" name="tvplEmotionCd" id="smile" class="input-hidden" value="1"/>
 											<label for="smile">
 											  <img src="/resources/user/images/human_emotions/smile.png"  alt="I'm smile"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="smile2" class="input-hidden" value="2"/>
+											<input type="radio" name="tvplEmotionCd" id="smile2" class="input-hidden" value="2"/>
 											<label for="smile2">
 											  <img src="/resources/user/images/human_emotions/smile2.png" alt="I'm smile2"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="amazed" class="input-hidden" value="3"/>
+											<input type="radio" name="tvplEmotionCd" id="amazed" class="input-hidden" value="3"/>
 											<label for="amazed">
 											  <img src="/resources/user/images/human_emotions/amazed.png" alt="I'm amazed"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="wink" class="input-hidden" value="4"/>
+											<input type="radio" name="tvplEmotionCd" id="wink" class="input-hidden" value="4"/>
 											<label for="wink">
 											  <img src="/resources/user/images/human_emotions/wink.png" alt="I'm wink"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="curious" class="input-hidden" value="5"/>
+											<input type="radio" name="tvplEmotionCd" id="curious" class="input-hidden" value="5"/>
 											<label for="curious">
 											  <img src="/resources/user/images/human_emotions/curious.png" alt="I'm curious"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="unhappy" class="input-hidden" value="6"/>
+											<input type="radio" name="tvplEmotionCd" id="unhappy" class="input-hidden" value="6"/>
 											<label for="unhappy">
 											  <img src="/resources/user/images/human_emotions/unhappy.png" alt="I'm unhappy"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="sad" class="input-hidden" value="7"/>
+											<input type="radio" name="tvplEmotionCd" id="sad" class="input-hidden" value="7"/>
 											<label for="sad">
 											  <img src="/resources/user/images/human_emotions/sad.png" alt="I'm sad"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="angry" class="input-hidden" value="8"/>
+											<input type="radio" name="tvplEmotionCd" id="angry" class="input-hidden" value="8"/>
 											<label for="angry">
 											  <img src="/resources/user/images/human_emotions/angry.png" alt="I'm happy"/>
 											</label>
-
 									    </div>
                                     </div>
                                     <div class="form-group">
                                         <label>여행 스토리</label>
-                                        <textarea name="message" class="form-control" rows="3"></textarea>
+                                        <textarea name="tvplDesc" class="form-control" rows="3"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn-submit" id="js-contact-btn">기록하기</button>
@@ -281,7 +236,10 @@ html {
                         </div>
                         <div class="col-md-6">
                             <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
-                            <div id="map" class="contact-map" data-lat="40.674" data-lon="-73.945" data-zoom="12"></div>
+                            <div id="map"></div>
+                            	<input type="hidden" id="tvplLat" name="tvplLat"/>
+								<input type="hidden" id="tvplLng" name="tvplLng"/>
+							<div id="clickLatlng"></div>
                         </div>
                     </div>
                 </div>
@@ -303,7 +261,44 @@ html {
     <script src="/resources/user/js/bootstrap.min.js"></script>
     <script src="/resources/user/js/script.js"></script>
     <!-- Map JS (Please change the API key below. Read documentation for more info) -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyDMTUkJAmi1ahsx9uCGSgmcSmqDTBF9ygg"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7cd4aacffe9949b52780dbc9332fce55"></script>
+    <script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(36.458812516698835, 128.16112057538854), // 지도의 중심좌표
+        level: 13 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+// 지도를 클릭한 위치에 표출할 마커입니다
+var marker = new kakao.maps.Marker({ 
+    // 지도 중심좌표에 마커를 생성합니다 
+    position: map.getCenter() 
+}); 
+// 지도에 마커를 표시합니다
+marker.setMap(map);
+
+// 지도에 클릭 이벤트를 등록합니다
+// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+    
+    // 클릭한 위도, 경도 정보를 가져옵니다 
+    var latlng = mouseEvent.latLng; 
+    
+    // 마커 위치를 클릭한 위치로 옮깁니다
+    marker.setPosition(latlng);
+    
+    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    message += '경도는 ' + latlng.getLng() + ' 입니다';
+    
+    var resultDiv = document.getElementById('clickLatlng'); 
+    document.getElementById("tvplLat").value=latlng.getLat();
+    document.getElementById("tvplLng").value=latlng.getLng();
+    resultDiv.innerHTML = message;
+
+});
+</script>
     <!-- Validate JS -->
     <script src="/resources/user/js/validate.js"></script>
     <!-- Contact JS -->

@@ -138,6 +138,47 @@
         <!-- App js -->
         <script src="http://metrica.laravel.themesbrand.com/assets/js/app.js"></script>
         
+        
+        <script type="text/javascript">
+        
+$("#btnLogin").on("click" , function(){
+	
+	if($("#tvmmEmailAccount").val() == "" || $("#tvmmPassword").val() == ""){
+		alert("이메일 또는 비밀번호를 입력해주세요");
+		console.log("안녕");
+		return false;
+	}else{
+		
+	}
+	
+	$.ajax({
+		async: true 
+		,cache: false
+		,type: "post"
+		,url: "/host/loginProc"
+		,data : {"tvmmEmailAccount" : $("tvmmEmailAccount").val(), "tvmmPassword" : $("#tvmmPassword").val()}
+		,success: function(response) {
+			if(response.rt == "success") {
+				location.href = "/main/mainView";
+			} else {
+				alert("회원없음");
+			}
+		}
+		,error : function(jqXHR, textStatus, errorThrown){
+			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		}
+		
+	});
+	
+});
+
+
+
+</script>
+        
     </body>
+    <!-- js part -->
+    
+    
 
 </html>

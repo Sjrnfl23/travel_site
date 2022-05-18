@@ -233,7 +233,7 @@ public class HostController {
 		
 		if(rtMember != null)  {
 			
-			if(rtMember.getTvmmHostNy()== 1) {
+			if(rtMember.getTvmmHostNy() == 1) {
 				httpSession.setAttribute("sessUserType","호스트");
 				httpSession.setAttribute("sessName", rtMember.getTvmmName());
 				httpSession.setAttribute("sessEmail", rtMember.getTvmmEmailAccount());

@@ -37,7 +37,7 @@ public interface UserService {
 //	
 //	//포토맵
 //	List<User> selectMap(UserVo vo) throws Exception;
-//	public int insertMap(User dto) throws Exception;
+	public int insertMap(User dto) throws Exception;
 //	public int updateMap(User dto) throws Exception;
 //	public int deleteMap(UserVo vo) throws Exception;
 	

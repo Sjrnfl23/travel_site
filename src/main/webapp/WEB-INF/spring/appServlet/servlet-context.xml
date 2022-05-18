@@ -34,13 +34,20 @@
 	
 		<interceptor>
 			<mapping path="/host/**"/>
-			<exclude-mapping path="/**" />
-			<exclude-mapping path="/host/**" />
-			<!--<exclude-mapping path="/host/mainView" />
-			<exclude-mapping path="/mainView" />
-			<exclude-mapping path="/host/loginForm" />-->
-		
+			
+			<exclude-mapping path="/host/loginProc" />
+			<exclude-mapping path="/host/loginForm" />
+			
 			<beans:bean id="checkLoginSessionInterception" class="com.helpme.travel.module.interceptor.CheckLoginSessionInterception"/>
+	
+		</interceptor>
+		<interceptor>
+			<mapping path="/admin/**"/>
+			
+			<exclude-mapping path="/admin/loginProc" />
+			<exclude-mapping path="/admin/loginForm" />
+			
+			<beans:bean id="CheckLoginSessionInterception" class="com.helpme.travel.module.interceptor.CheckLoginSessionInterception"/>
 	
 		</interceptor>
 		

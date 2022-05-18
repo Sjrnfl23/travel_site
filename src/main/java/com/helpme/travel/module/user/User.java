@@ -70,7 +70,19 @@ public class User {
 	private String tvmmDesc;
 	private Integer tvmmDelNy;
 	
+<<<<<<< HEAD
 	// 리뷰작성 
+=======
+	// photomap
+	private Integer tvplSeq;
+	private double tvplLat;
+	private double tvplLng;
+	private String tvplTitle;
+	private String tvplDesc;
+	private String tvplMarkerImage;
+	private String tvplEmotionCd;
+	
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 	
 	private String tvarSeq;
 	private String tvarReview;
@@ -421,6 +433,7 @@ public class User {
 	public void setTvamLodgingName(String tvamLodgingName) {
 		this.tvamLodgingName = tvamLodgingName;
 	}
+<<<<<<< HEAD
 	public String getTvamState() {
 		return tvamState;
 	}
@@ -462,13 +475,50 @@ public class User {
 	}
 	public void setTvarDate(Date tvarDate) {
 		this.tvarDate = tvarDate;
+=======
+	public Integer getTvplSeq() {
+		return tvplSeq;
+	}
+	public void setTvplSeq(Integer tvplSeq) {
+		this.tvplSeq = tvplSeq;
+	}
+	public double getTvplLat() {
+		return tvplLat;
+	}
+	public void setTvplLat(double tvplLat) {
+		this.tvplLat = tvplLat;
+	}
+	public double getTvplLng() {
+		return tvplLng;
+	}
+	public void setTvplLng(double tvplLng) {
+		this.tvplLng = tvplLng;
+	}
+	public String getTvplMarkerImage() {
+		return tvplMarkerImage;
+	}
+	public void setTvplMarkerImage(String tvplMarkerImage) {
+		this.tvplMarkerImage = tvplMarkerImage;
+	}
+	public String getTvplEmotionCd() {
+		return tvplEmotionCd;
+	}
+	public void setTvplEmotionCd(String tvplEmotionCd) {
+		this.tvplEmotionCd = tvplEmotionCd;
+	}
+	public String getTvplTitle() {
+		return tvplTitle;
+	}
+	public void setTvplTitle(String tvplTitle) {
+		this.tvplTitle = tvplTitle;
+	}
+	public String getTvplDesc() {
+		return tvplDesc;
+	}
+	public void setTvplDesc(String tvplDesc) {
+		this.tvplDesc = tvplDesc;
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 	}	
-
-	
-	
-	
-
-	
 
 	
 	

@@ -135,6 +135,13 @@
 												</tr>
 											</thead>
 											<tbody>
+										<c:choose>
+											<c:when test="${fn:length(list) eq 0}">
+												<tr>
+													<td class="text-center" colspan="12">검색된 내용이 없습니다.</td>
+												</tr>	
+											</c:when>
+											<c:otherwise>												
 												<c:forEach items="${list}" var="rt" varStatus="status">
 													<tr>
 														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvmmSeq}"/>" class="form-check-input"></td>
@@ -153,13 +160,15 @@
 																<a href="/admin/reservationView?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="상세" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
-																<a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger">
+																<a href="/admin/reservationDel?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>" id="btnDelete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" aria-label="Close" class="text-danger">
 																	<i class="mdi mdi-delete font-size-18"></i>
 																</a>
 															</div>													
 														</td>
 													</tr>
 												</c:forEach>
+											</c:otherwise>
+										</c:choose>
 											</tbody>
 										</table>
                                     </div>
@@ -255,7 +264,23 @@
         <script src="../../../../resources/admin/assets/js/pages/reservationList.init.js"></script>
 
         <script src="../../../../resources/admin/assets/js/app.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
+<script type="text/javascript">
+	
+$("#btnDelete").on("click", function(){
+	var answer = confirm('삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.');
+	
+	if(answer){
+		alert('삭제가 완료되었습니다.');
+		// /admin/hostDel로 이동
+	}else{
+		return false;
+	}
+});
+
+</script>
 
 
     </body>

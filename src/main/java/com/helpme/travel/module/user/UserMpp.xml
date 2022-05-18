@@ -86,6 +86,7 @@
 			
 				
 	</select>
+<<<<<<< HEAD
 	 -->
 	<!-- LodgingView -->
 	<select id="selectOneLodgingView" resultMap="resultMapObj">
@@ -122,5 +123,30 @@
 			
 	</select>
 	
+=======
+	
+	<!-- PhotoMap -->
+	<insert id="insertMap">
+		INSERT INTO tvPhotoMapLocation (
+			tvplSeq
+			,tvplLat
+			,tvplLng
+			,tvplTitle
+			,tvplDesc
+			,tvplEmotionCd
+			,tvplDelNy
+			,tvmmSeq
+			) VALUES (
+			#{tvplSeq}
+			,#{tvplLat}
+			,#{tvplLng}
+			,#{tvplTitle}
+			,#{tvplDesc}
+			,#{tvplEmotionCd}
+			,0
+			,1
+			)
+	</insert>
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 	
 </mapper>
