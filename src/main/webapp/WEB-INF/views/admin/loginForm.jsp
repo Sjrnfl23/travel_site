@@ -58,7 +58,7 @@
                                        <div class="mb-3">
                                             <label class="form-label" for="username">이메일</label>
                                             <div class="position-relative input-custom-icon">
-                                                <input type="text" class="form-control"  name="tvmmEmailAccount" id="tvmmEmailAccount" placeholder="가입하신 이메일주소를 입력해주세요">
+                                                <input type="text" class="form-control"  name="tvmmEmailAccount" id="tvmmEmailAccount" placeholder="가입하신 이메일주소를 입력해주세요" value="admin@travel.com">
                                                  <span class="bx bx-user"></span>
                                             </div>
                                         </div>
@@ -70,7 +70,7 @@
                                             <label class="form-label" for="password-input"  >Password</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
-                                                <input type="password" class="form-control" name="tvmmPassword" id="tvmmPassword" placeholder="비밀번호를 입력해주세요" >
+                                                <input type="password" class="form-control" name="tvmmPassword" id="tvmmPassword" placeholder="비밀번호를 입력해주세요" value="54321">
                                                 <button type="button" class="btn btn-link position-absolute h-100 end-0 top-0" id="password-addon">
                                                     <i class="mdi mdi-eye-outline font-size-18 text-muted"></i>
                                                 </button>
