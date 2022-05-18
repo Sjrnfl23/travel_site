@@ -37,5 +37,6 @@ public interface AdminService {
 	public int selectOneCountHost(AdminVo vo) throws Exception;
 	public int selectOneCountMember(AdminVo vo) throws Exception;
 	
-
+//  ===========================login==================================
+	public Admin selectOneLogin(Admin dto) throws Exception;
 }

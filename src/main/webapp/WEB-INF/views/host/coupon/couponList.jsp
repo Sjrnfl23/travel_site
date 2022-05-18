@@ -96,8 +96,8 @@
                                         		</div>										 
 											<thead style="background-color: rgb(248,249,250);">
 												<tr>
-													<th><input type="checkbox" id="checkboxAll" name="" value="" class="form-check-input"></th>
-													<th style="text-align: center;">No.</th>
+													<th ><input type="checkbox" id="checkboxAll" name="" value="" class="form-check-input"></th>
+													<th style="text-align: center; margin-right:20px;">No.</th>
 													<th>숙소이름</th>
 			
 													<th>쿠폰이름</th>
@@ -111,7 +111,7 @@
 												<c:forEach items="${list}" var="rt" varStatus="status">
 													<tr>
 														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvcpSeq}"/>" class="form-check-input"></td>
-														<td><c:out value="${rt.tvcpSeq}"/></td>
+														<td class="text-center"><c:out value="${rt.tvcpSeq}"/></td>
 														<td><c:out value="${rt.tvamLodgingName}"/></td>
 														
 														<td><c:out value="${rt.tvcpName}"/></td>

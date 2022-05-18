@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
   <header id="page-topbar" class="isvertical-topbar">
                 <div class="navbar-header">
                     <div class="d-flex">
@@ -115,24 +119,54 @@
                             </div>
                         </div>
             
-                        <div class="dropdown d-inline-block">
+                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item user text-start d-flex align-items-center" id="page-header-user-dropdown-v"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" src="../../resources/host/images/users/avatar-3.jpg"
                                 alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-2 fw-medium font-size-15">관리자</span>
+                                <span class="d-none d-xl-inline-block ms-2 fw-medium font-size-15"> <c:out value="${adminSessUserType}"/> </span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end pt-0">
                                 <div class="p-3 border-bottom">
-                                    <h6 class="mb-0">관리자</h6>
-                                    <p class="mb-0 font-size-11 text-muted">admin@nowtravel.com</p>
+                                    <h6 class="mb-0"> <c:out value="${adminSessName}"/></h6>
+                                    <p class="mb-0 font-size-11 text-muted"><c:out value="${adminSessEmail}"/></p>
                                 </div>
-                                <a class="dropdown-item" href="/admin/adminInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
+                                <a class="dropdown-item" href="hostInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="auth-logout.html"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">로그아웃</span></a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle" id="logOut">로그아웃</span></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
+            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+$("#logOut").on("click",function(){
+	
+	 $.ajax({
+ 		async: true 
+ 		,cache: false
+ 		,type: "post"
+ 		,url: "/admin/logoutProc"
+ 		,data : {}
+ 		,success: function(response) {
+ 			if(response.rt == "success") {
+ 				location.href = "/admin/loginForm";
+ 			} else {
+ 				alert("에러");
+ 			}
+ 		}
+ 		,error : function(jqXHR, textStatus, errorThrown){
+ 			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+ 		}
+ 		
+ 	}); 
+	
+	
+	
+})
+
+</script>

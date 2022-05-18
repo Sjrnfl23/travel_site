@@ -33,9 +33,9 @@ public class HostServiceImpl implements HostService{
 	}
 
 	@Override
-	public int insertCoupon(Host host) throws Exception {
+	public int insertCoupon(Host dto) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.insertCoupon(host);
+		return dao.insertCoupon(dto);
 	}
 
 	@Override
@@ -65,21 +65,27 @@ public class HostServiceImpl implements HostService{
 	}
 
 	@Override
-	public int Insertlodging() throws Exception {
+	public int insertlodging(Host dto) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.insertLodging(dto);
 	}
 
 	@Override
-	public int updatelodging() throws Exception {
+	public int updatelodging(Host dto) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.updateLodging(dto);
 	}
 
 	@Override
-	public int deletelodging() throws Exception {
+	public int deletelodging(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.deleteLodging(vo);
+	}
+
+	@Override
+	public Host selectOneLogin(Host dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneLogin(dto);
 	}
 
 	

@@ -3,8 +3,12 @@ package com.helpme.travel.module.admin;
 import java.text.DateFormat;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +18,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.helpme.travel.module.host.Host;
 
 
 
@@ -355,6 +362,50 @@ public class AdminController {
 	
 	/*---------------------------------------------------------------------------*/
 	
+	//login & logout---------------------------------------------------------------------------
+		@ResponseBody
+		@RequestMapping(value = "/admin/loginProc")
+		public Map<String, Object> loginProc(Admin dto, HttpSession httpSession) throws Exception {
+			Map<String, Object> returnMap = new HashMap<String, Object>();
+
+			
+			Admin rtMember = service.selectOneLogin(dto);
+			
+			if(rtMember != null)  {
+				System.out.println(rtMember.getTvmmAdminNy());
+				if(rtMember.getTvmmAdminNy() == 1) {
+					httpSession.setAttribute("adminSessUserType","어드민");
+					httpSession.setAttribute("adminSessName", rtMember.getTvmmName());
+					httpSession.setAttribute("adminSessEmail", rtMember.getTvmmEmailAccount());
+
+					returnMap.put("rt", "success");
+				}else {
+					returnMap.put("rt","notAdmin");
+				}
+				
+			} else {
+				
+				returnMap.put("rt", "fail");
+			}
+			return returnMap;
+			
+		}
+		
+		
+		@ResponseBody
+		@RequestMapping(value = "/admin/logoutProc")
+		public Map<String, Object> logOutProc(Admin dto, HttpSession httpSession) throws Exception {
+			Map<String, Object> returnMap = new HashMap<String, Object>();
+			
+			
+			httpSession.invalidate();
+			
+			returnMap.put("rt", "success");
+			
+			return returnMap;
+			
+			
+		}
 	
-	
+		//login & logout end ---------------------------------------------------------------------------
 }

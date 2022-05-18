@@ -57,10 +57,17 @@ public class AdminDao {
    //  ===========================페이징=================================
    
    public int selectOneCount(AdminVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
+
+   
+   // ==========================로그인===================================
+   
+   public Admin selectOneLogin(Admin dto) {return sqlSession.selectOne(namespace+".selectOneLogin",dto);}
+
    public int selectOneCountCoupon(AdminVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountCoupon", vo);}
    public int selectOneCountPayment(AdminVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountPayment", vo);}
    public int selectOneCountHost(AdminVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountHost", vo);}
    public int selectOneCountMember(AdminVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountMember", vo);}
+
 
 }
 
