@@ -33,6 +33,8 @@
     <link href="/resources/user/css/set1.css" rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="/resources/user/css/style.css">
+    <!-- PhotomapEmotion -->
+    <link rel="stylesheet" href="/resources/user/css/PhotomapEmotion.css">
 </head>
 
 <body>
@@ -176,6 +178,51 @@
                                     <div class="form-group">
                                     	<label>여행 제목</label>
                                     	<input type="text" name="title" class="form-control" rows="3">
+                                    </div>
+                                    <div class="form-group">
+                                    	<label>여행 기분</label><br>
+                                    	<div>
+                                    		<input type="radio" name="emotion" id="smile" class="input-hidden" value="1"/>
+											<label for="smile">
+											  <img src="/resources/user/images/human_emotions/smile.png"  alt="I'm smile"/>
+											</label>
+											
+											<input type="radio" name="emotion" id="smile2" class="input-hidden" value="2"/>
+											<label for="smile2">
+											  <img src="/resources/user/images/human_emotions/smile2.png" alt="I'm smile2"/>
+											</label>
+											
+											<input type="radio" name="emotion" id="amazed" class="input-hidden" value="3"/>
+											<label for="amazed">
+											  <img src="/resources/user/images/human_emotions/amazed.png" alt="I'm amazed"/>
+											</label>
+											
+											<input type="radio" name="emotion" id="wink" class="input-hidden" value="4"/>
+											<label for="wink">
+											  <img src="/resources/user/images/human_emotions/wink.png" alt="I'm wink"/>
+											</label>
+											
+											<input type="radio" name="emotion" id="curious" class="input-hidden" value="5"/>
+											<label for="curious">
+											  <img src="/resources/user/images/human_emotions/curious.png" alt="I'm curious"/>
+											</label>
+											
+											<input type="radio" name="emotion" id="unhappy" class="input-hidden" value="6"/>
+											<label for="unhappy">
+											  <img src="/resources/user/images/human_emotions/unhappy.png" alt="I'm unhappy"/>
+											</label>
+											
+											<input type="radio" name="emotion" id="sad" class="input-hidden" value="7"/>
+											<label for="sad">
+											  <img src="/resources/user/images/human_emotions/sad.png" alt="I'm sad"/>
+											</label>
+											
+											<input type="radio" name="emotion" id="angry" class="input-hidden" value="8"/>
+											<label for="angry">
+											  <img src="/resources/user/images/human_emotions/angry.png" alt="I'm happy"/>
+											</label>
+
+									    </div>
                                     </div>
                                     <div class="form-group">
                                         <label>여행 스토리</label>
