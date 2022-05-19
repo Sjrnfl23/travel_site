@@ -173,7 +173,7 @@
 																<a href="/admin/lodgingView?tvamSeq=<c:out value="${rt.tvamSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
- 												 				<a href="javascript:void(0)" onclick="btnDelete()" id="btnDelete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" aria-label="Close" class="text-danger">
+ 												 				<a href="/admin/lodgingDel?tvamSeq=<c:out value="${rt.tvamSeq}"/>" id="btnDelete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" aria-label="Close" class="text-danger">
 																	<i class="mdi mdi-delete font-size-18"></i>
 																</a>
 															</div>													
@@ -284,17 +284,15 @@
 
 <script type="text/javascript">
 	
-function btnDelete(){
+$("#btnDelete").on("click", function(seq){
 	var answer = confirm('삭제 하시겠습니까? 삭제된 정보는 복구되지 않습니다.');
 	
 	if(answer == true){
-		location.href='/admin/lodgingDel?tvamSeq=<c:out value="${rt.tvamSeq}"/>';
+ 		location.href='/admin/reservationDel?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>';
 	}else{
 		return false;
 	}
 });
-	
-
 </script>
 
 

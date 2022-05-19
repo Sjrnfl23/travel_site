@@ -77,7 +77,7 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-<form id="formList" name="formList">
+<form id="formList" name="formList" action="/admin/couponList">
 
 	<input type="hidden" id="thisPage" name="thisPage"  value="<c:out value="${vo.thisPage}" default="1"/>">
 	<input type="hidden" id="rowNumToShow" name="rowNumToShow"  value="<c:out value="${vo.rowNumToShow}" default="1"/>">
@@ -95,9 +95,29 @@
                                     	<div class="position-relative">
                                             <div class="modal-button mt-2">
                                                <a href="/admin/couponForm"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">+ 등록</button></a>
-                                                <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">선택삭제</button>
+                                                <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target="#modalConfirm">선택삭제</button>
                                             </div>
                                         </div>
+                                        
+				                		<!-- 삭제버튼 Modal -->
+										<div class="modal fade" id="modalConfirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">숙소 삭제</h5>
+										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										      </div>
+										      <div class="modal-body">
+										        삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+										        <button type="button" id ="btnModalDelete" class="btn btn-primary">삭제</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>                                                
+                                        
 										<div class="table table-responsive" style="white-space:nowrap; margin:auto;">
 										 <table class="table table-responsive">
                                         		<div class="gridjs-head">
@@ -278,7 +298,48 @@ $("#btnDelete").on("click", function(seq){
 });
 </script>
 
+<script type="text/javascript">
+	var goUrlList = "/admin/couponList";
+	var goUrlForm = "/admin/couponForm";
+	var goUrlMultiDel = "/admin/couponMultiDel";
+	
+	var seq = $("input:hidden[name=tvcpSeq]");
+	var form = $("form[name=formList]");
+	
+	var checkboxSeqArray = [];
 
+	$("#checkboxAll").click(function() {
+		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+		else $("input[name=checkboxSeq]").prop("checked", false);
+	});
+
+	$("input[name=checkboxSeq]:checked").each(function() { 
+		var total = $("input[name=checkboxSeq]").length;
+		var checked = $("input[name=checkboxSeq]:checked").length;
+		
+		if(total != checked) $("#checkboxAll").prop("checked", false);
+		else $("#checkboxAll").prop("checked", true);
+	});
+	
+
+	$("#btnModalDelete").on("click", function(){
+		
+		$("input[name=checkboxSeq]:checked").each(function() {
+			checkboxSeqArray.push($(this).val());	
+		});
+		
+		
+		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+		
+		/* $("#modalConfirm").modal("hide"); */
+		
+		/* $("#formList").attr("action", "memberMultiUele").submit(); */
+ 		$("#formList").attr("action", goUrlMultiDel).submit();
+	});
+		
+	
+	
+</script>
     </body>
 
 </html>

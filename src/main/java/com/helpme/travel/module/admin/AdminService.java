@@ -39,4 +39,7 @@ public interface AdminService {
 	
 //  ===========================login==================================
 	public Admin selectOneLogin(Admin dto) throws Exception;
+	
+//  ===========================mainView==================================
+	public Admin selectOneMainView(Admin dto) throws Exception;
 }
