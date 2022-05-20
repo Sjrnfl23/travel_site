@@ -40,5 +40,6 @@ public interface UserService {
 	public int insertMap(User dto) throws Exception;
 //	public int updateMap(User dto) throws Exception;
 //	public int deleteMap(UserVo vo) throws Exception;
+	public int insertPhotoMapUploaded(User dto) throws Exception;
 	
 }

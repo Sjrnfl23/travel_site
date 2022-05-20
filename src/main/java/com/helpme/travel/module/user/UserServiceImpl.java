@@ -4,6 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.helpme.travel.common.util.UtilDateTime;
+import com.helpme.travel.common.util.UtilUpload;
+import com.helpme.travel.module.user.UserVo;
+
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -101,7 +107,36 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public int insertMap(User dto) throws Exception {
 		
-		return dao.insertMap(dto);
+			try {
+			
+			setRegMod(dto);
+			
+			dto.setRegDateTime(UtilDateTime.nowDate());
+			dto.setModDateTime(UtilDateTime.nowDate());
+			dao.insertMap(dto);
+			
+	
+			
+			int j = 0;
+			for(MultipartFile multipartFile : dto.getFile0() ) {
+				String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+				UtilUpload.upload(multipartFile, pathModule, dto);
+				dto.setTableName("tvPhotoMapPhoto");
+				dto.setType(0);
+				dto.setDefaultNy(0);
+				dto.setSort(j);
+				dto.setDefaultNy(0);
+				dto.setPseq(dto.getTvplSeq());
+				
+				dao.insertPhotoMapUploaded(dto);
+				j++;
+			}
+			
+		} finally{
+			
+		}
+		return 0;
+		
 	}
 //	@Override
 //	public int updateMap(User dto) throws Exception {
@@ -138,6 +173,18 @@ public class UserServiceImpl implements UserService{
 //		}
 //		return item;
 //	}
+
+	private void setRegMod(User dto) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public int insertPhotoMapUploaded(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		
+		
+		return dao.insertPhotoMapUploaded(dto);
+	}
 	
 	
 }

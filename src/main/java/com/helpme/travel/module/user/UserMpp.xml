@@ -149,6 +149,7 @@
 			,tvplDesc
 			,tvplEmotionCd
 			,tvplDelNy
+			,regDateTime
 			,tvmmSeq
 			) VALUES (
 			#{tvplSeq}
@@ -158,8 +159,44 @@
 			,#{tvplDesc}
 			,#{tvplEmotionCd}
 			,0
+			,#{regDateTime}
 			,1
 			)
+			
+			<selectKey resultType="String" keyProperty="tvplSeq" order="AFTER">		<!-- 파생테이블 seq값을 넣을 수 있도록 해준다 -->
+			SELECT last_insert_id()
+			</selectKey>
+	</insert>
+	<insert id="insertPhotoMapUploaded">
+		INSERT INTO ${tableName} (
+			type
+			,defaultNy
+			,sort
+			,originalName
+			,uuidName
+			,ext
+			,size
+			,delNy
+			,year
+			,month
+			,day
+			,regDateTime
+			,pseq
+		) values (
+			#{type}
+			,#{defaultNy}
+			,#{sort}
+			,#{originalName}
+			,#{uuidName}
+			,#{ext}
+			,#{size}
+			,0
+			,#{year}
+			,#{month}
+			,#{day}
+			,#{regDateTime}
+			,#{pseq}
+		)
 	</insert>
 
 	
