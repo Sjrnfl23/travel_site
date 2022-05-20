@@ -475,6 +475,8 @@
 			<when test="shOption == 2">and tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 이메일 검색 -->
 		</choose>
 	</select>		
+
+<!--  ===========================로그인================================= -->	
 	
 	<!--login Start-->
 	<select id="selectOneLogin" resultMap="resultMapObj">
@@ -488,5 +490,20 @@
 	</select>
 	
 	<!--login End-->
+
+<!--  ===========================메인뷰================================= -->		
+
+	<select id="selectOneMainView" resultMap="resultMapObj">
+		select 
+			sum(tvpmtotalPrice) as sales
+		    , sum(tvpmtotalPrice)*0.1 as fees
+		    , count(tvpmSeq) as reservationCount
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment
+		where 1=1 
+			and tvpmDelNy = 0
+			and regDateTime > date_add(now(), interval -1 month)
+	</select>
+
 	
 </mapper>

@@ -35,6 +35,10 @@
     <link rel="stylesheet" href="/resources/user/css/style.css">
     <!-- PhotomapEmotion -->
     <link rel="stylesheet" href="/resources/user/css/PhotomapEmotion.css">
+    
+    <script src = "/resources/user/js/common.js"></script><!-- image -->
+	<script src = "/resources/user/js/commonXdmin.js"></script><!-- image -->
+	<script src = "/resources/user/js/constantsXdmin.js"></script><!-- image -->
 </head>
 
 <body>
@@ -160,7 +164,7 @@
                         <div class="col-md-6">
                             <div class="contact-form pl-4 py-4">
 
-                                <form action="/user/mapInst" method="post">
+                                <form action="/user/mapInst" method="post" enctype="multipart/form-data">
                                 	<div class="form-group">
                                         <label>여행 사진</label>
                                         <div class="row">
@@ -170,7 +174,9 @@
 			                                            <i class="ti-gallery"></i>
 			                                            <span>추억을 넣어보세요!</span>
 			                                        </div>
-			                                        <input type="file" class="custom-file-input" id="customFile">
+													<input class="custom-file-input" id="file0" name="file0" type="file" onChange="upload(0, 2);">
+													<ul id="ulFile0" class="list-group">
+													</ul>                       
 			                                    </div>
 			                                </div>
                             			</div>
@@ -260,7 +266,53 @@
     <script src="/resources/user/js/popper.min.js"></script>
     <script src="/resources/user/js/bootstrap.min.js"></script>
     <script src="/resources/user/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
     <!-- Map JS (Please change the API key below. Read documentation for more info) -->
+    <script>
+upload = function(seq,div){
+	
+	$("#ulFile" + seq).children().remove();
+	
+	var fileCount = $("input[type=file]")[seq].files.length;
+	
+	if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
+	
+	var totalFileSize;
+	for(var i = 0; i < fileCount; i++){
+		if(div==1){
+			if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else if(div==2){
+			if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else {
+			return false;
+		}
+		
+		if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		totalFileSize += $("input[type=file]")[seq].files[i].size;
+	}
+	if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
+	
+	for(var i=0; i<fileCount; i++){
+		addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+	}
+}
+addUploadLi = function(seq,index,name){
+	
+	var ul_list = $("#ulFile0");
+	
+	li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+	li = li + name;
+	li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+index +')"><i class="bi bi-x-circle"></i></span>';
+	li = li + '</li>';
+	
+	$("#ulFile"+seq).append(li);
+}
+delLi = function(seq, index){
+	$("#li_"+seq+"_"+index).remove();
+}
+	
+</script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7cd4aacffe9949b52780dbc9332fce55"></script>
     <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

@@ -77,15 +77,29 @@ public class AdminController {
 		return "admin/coupon/couponView";
 	}
 	
-	   @RequestMapping(value = "/admin/couponDel")
-	   public String AdminCouponDel(AdminVo vo) throws Exception {
-		   
-		   service.DeleteCoupon(vo);	
-		   
-		   return "redirect:/admin/couponList"; 
-	   }
+   @RequestMapping(value = "/admin/couponDel")
+   public String AdminCouponDel(AdminVo vo) throws Exception {
+	   
+	   service.DeleteCoupon(vo);	
+	   
+	   return "redirect:/admin/couponList"; 
+   }
 
-	
+   @RequestMapping(value = "/admin/couponMultiDel")
+   public String AdminCouponMultiDel(AdminVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	   
+		String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+		
+		for(String checkboxSeq : checkboxSeqArray) {
+			vo.setTvcpSeq(checkboxSeq);
+			service.DeleteCoupon(vo);	
+		}	   
+	   
+		redirectAttributes.addFlashAttribute("vo", vo);
+	   return "redirect:/admin/couponList"; 
+   }		
+	   
+	   
 	/*---------------------------------------------------------------------------*/
 	
 	
@@ -108,13 +122,6 @@ public class AdminController {
 		return "redirect:/admin/hostView?tvmmSeq=" + dto.getTvmmSeq(); 
 	}
 
-	@RequestMapping(value = "/admin/hostDel")
-	public String AdminHostDel(AdminVo vo) throws Exception {
-		
-		service.DeleteMember(vo);	
-		
-		return "redirect:/admin/hostList"; 
-	}	
 	
 	
 	@RequestMapping(value = "/admin/hostForm")
@@ -148,6 +155,28 @@ public class AdminController {
 		
 		return "admin/host/hostView";
 	}
+
+	@RequestMapping(value = "/admin/hostDel")
+	public String AdminHostDel(AdminVo vo) throws Exception {
+		
+		service.DeleteMember(vo);	
+		
+		return "redirect:/admin/hostList"; 
+	}	
+
+   @RequestMapping(value = "/admin/hostMultiDel")
+   public String AdminHostMultiDel(AdminVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	   
+		String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+		
+		for(String checkboxSeq : checkboxSeqArray) {
+			vo.setTvmmSeq(checkboxSeq);
+			service.DeleteMember(vo);	
+		}	   
+	   
+		redirectAttributes.addFlashAttribute("vo", vo);
+	   return "redirect:/admin/hostList"; 
+   }		
 	
 	/*---------------------------------------------------------------------------*/
 	
@@ -262,13 +291,6 @@ public class AdminController {
 		return "redirect:/admin/memberView?tvmmSeq=" + dto.getTvmmSeq(); 
 	}	
 	
-	@RequestMapping(value = "/admin/memberDel")
-	public String AdminMemberDel(AdminVo vo) throws Exception {
-		
-		service.DeleteMember(vo);	
-		
-		return "redirect:/admin/memberList"; 
-	}	
 	
 	@RequestMapping(value = "/admin/memberForm")
 	public String AdminMemberForm(Model model) throws Exception {
@@ -301,6 +323,27 @@ public class AdminController {
 		return "admin/member/memberView";
 	}
 	
+	@RequestMapping(value = "/admin/memberDel")
+	public String AdminMemberDel(AdminVo vo) throws Exception {
+		
+		service.DeleteMember(vo);	
+		
+		return "redirect:/admin/memberList"; 
+	}	
+	
+   @RequestMapping(value = "/admin/memberMultiDel")
+   public String AdminMemberMultiDel(AdminVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	   
+		String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+		
+		for(String checkboxSeq : checkboxSeqArray) {
+			vo.setTvmmSeq(checkboxSeq);
+			service.DeleteMember(vo);	
+		}	   
+	   
+		redirectAttributes.addFlashAttribute("vo", vo);
+	   return "redirect:/admin/memberList"; 
+   }	
 	/*---------------------------------------------------------------------------*/
 	
 	
@@ -345,6 +388,21 @@ public class AdminController {
 		return "redirect:/admin/reservationList"; 
 	}
 	
+   @RequestMapping(value = "/admin/reservationMultiDel")
+   public String AdminReservationMultiDel(AdminVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	   
+		String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+		
+		for(String checkboxSeq : checkboxSeqArray) {
+			vo.setTvpmSeq(checkboxSeq);
+			service.DeletePayment(vo);		
+		}	   
+	   
+		redirectAttributes.addFlashAttribute("vo", vo);
+	   return "redirect:/admin/reservationList"; 
+   }	
+	
+	
 	/*---------------------------------------------------------------------------*/
 	
 	
@@ -362,7 +420,12 @@ public class AdminController {
 	/* mainView--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/mainView")
-	public String AdminMainView(Model model) throws Exception {
+	public String AdminMainView(Admin dto, Model model) throws Exception {
+		
+		
+		 Admin rt = service.selectOneMainView(dto); 
+		 model.addAttribute("rt", rt);
+		 
 		
 		return "admin/mainView";
 	}

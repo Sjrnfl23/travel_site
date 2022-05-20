@@ -3,6 +3,7 @@ package com.helpme.travel.module.user;
 public class UserVo {
 
 	private String shCheck;
+	private String tvplSeq;
 	
 //	lodging
 	private String tvamSeq;
@@ -24,6 +25,15 @@ public class UserVo {
 	public void setTvamSeq(String tvamSeq) {
 		this.tvamSeq = tvamSeq;
 	}
+
+	public String getTvplSeq() {
+		return tvplSeq;
+	}
+
+	public void setTvplSeq(String tvplSeq) {
+		this.tvplSeq = tvplSeq;
+	}
+
 
 
 	

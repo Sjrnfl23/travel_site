@@ -96,6 +96,14 @@ public class Admin {
 	private String tvpmPayTypeCd;
 	private String tvpmDesc;
 	private String hostEmail;
+
+	
+// mainView
+	
+	private Integer sales;
+	private Integer fees;
+	private Integer reservationCount;
+	private Integer memberCount;
 	
 	
 	// 코드
@@ -108,9 +116,6 @@ public class Admin {
 	public static List<Admin> cachedCodeArrayList = new ArrayList<Admin>();	//메모리에 리스트가 상주돼있음
 
 
-	
-//	===============================================			
-	
 	public String getTvamSeq() {
 		return tvamSeq;
 	}
@@ -871,6 +876,51 @@ public class Admin {
 	}
 
 
+	public Integer getSales() {
+		return sales;
+	}
+
+
+	public void setSales(Integer sales) {
+		
+		
+		this.sales = sales;
+	}
+
+
+	public Integer getFees() {
+		
+		return fees;
+	}
+
+
+	public void setFees(Integer fees) {
+		
+		
+		this.fees = fees;
+	}
+
+
+	public Integer getReservationCount() {
+		return reservationCount;
+	}
+
+
+	public void setReservationCount(Integer reservationCount) {
+		this.reservationCount = reservationCount;
+	}
+
+
+	public Integer getMemberCount() {
+		return memberCount;
+	}
+
+
+	public void setMemberCount(Integer memberCount) {
+		this.memberCount = memberCount;
+	}
+
+
 	public String getTvcdName() {
 		return tvcdName;
 	}
@@ -911,15 +961,10 @@ public class Admin {
 	}
 
 
-	
-	
-	
-
-	
-	
 
 
 
+	
 	
 }
 	

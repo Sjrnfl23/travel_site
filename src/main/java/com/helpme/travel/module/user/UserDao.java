@@ -46,6 +46,7 @@ public class UserDao {
 	public int insertMap(User dto) {return sqlSession.insert( namespace + ".insertMap", dto);}
 //	public int updateMap(User dto) {return sqlSession.update( namespace + ".updateMap", dto);}
 //	public int deleteMap(UserVo vo) {return sqlSession.delete( namespace + ".deleteMap", vo);}
+	public int insertPhotoMapUploaded(User dto) {return sqlSession.insert( namespace + ".insertPhotoMapUploaded", dto);}
 	
 	//로그인
 	public User selectOneLogin(User dto) { return sqlSession.selectOne(namespace+".selectOneLogin",dto); }

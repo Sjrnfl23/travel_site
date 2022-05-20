@@ -157,5 +157,13 @@ public class AdminServiceImpl implements AdminService{
 
 	}		
 	
+//  ===========================mainView=================================	
+
+	@Override
+	public Admin selectOneMainView(Admin dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneMainView(dto);
+		
+	}	
 }
 

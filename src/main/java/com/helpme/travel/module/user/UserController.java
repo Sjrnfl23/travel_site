@@ -146,6 +146,7 @@ public class UserController {
 
 		int result = service.insertMap(dto);
 		System.out.println("result: " + result);
+		System.out.println("dto.getTvplSeq: " + dto.getTvplSeq());
 
 		return "redirect:/user/mapList";
 	}
