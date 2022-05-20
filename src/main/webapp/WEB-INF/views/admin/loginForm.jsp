@@ -67,7 +67,7 @@
                                             <div class="float-end">
                                                 <a href="password" class="text-muted text-decoration-underline">비밀번호 찾기</a>
                                             </div>
-                                            <label class="form-label" for="password-input"  >Password</label>
+                                            <label class="form-label" for="password-input" >Password</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
                                                 <input type="password" class="form-control" name="tvmmPassword" id="tvmmPassword" placeholder="비밀번호를 입력해주세요" value="54321">

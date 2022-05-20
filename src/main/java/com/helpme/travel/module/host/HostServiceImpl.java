@@ -15,9 +15,9 @@ public class HostServiceImpl implements HostService{
 	//coupon
 	
 	@Override
-	public List<Host> selectCoupon() throws Exception {
+	public List<Host> selectCoupon(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.selectCoupon();
+		return dao.selectCoupon(vo);
 	}
 
 	@Override
@@ -27,9 +27,9 @@ public class HostServiceImpl implements HostService{
 	}
 	
 	@Override
-	public List<Host> selectCouponOption() throws Exception {
+	public List<Host> selectCouponOption(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.selectCouponOption();
+		return dao.selectCouponOption(vo);
 	}
 
 	@Override
@@ -53,9 +53,9 @@ public class HostServiceImpl implements HostService{
 	//lodging
 	
 	@Override
-	public List<Host> selectlodging() throws Exception {
+	public List<Host> selectlodging(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.selectLodging();
+		return dao.selectLodging(vo);
 	}
 
 	@Override
@@ -86,6 +86,36 @@ public class HostServiceImpl implements HostService{
 	public Host selectOneLogin(Host dto) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectOneLogin(dto);
+	}
+
+	@Override
+	public Host selectOneHost(HostVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneHost(vo);
+	}
+
+	@Override
+	public List<Host> selectReservation(Host dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectReservation(dto);
+	}
+
+	@Override
+	public int selectOneCountLodging(HostVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneCountLodging(vo);
+	}
+
+	@Override
+	public int selectOneCountReservation(HostVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneCountReservation(vo);
+	}
+
+	@Override
+	public int selectOneCountCoupon(HostVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneCountCoupon(vo);
 	}
 
 	

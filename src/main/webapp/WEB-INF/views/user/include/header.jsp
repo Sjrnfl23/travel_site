@@ -27,7 +27,8 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/user/loginForm">Login</a>
+                                        <a class="nav-link" href="/user/loginForm" id="login">Login</a>
+                                      
                                     </li>
                                     <li><a href="../../host/loginForm" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>호스트 되기</a></li>
                                 </ul>
@@ -38,3 +39,69 @@
             </div>
         </div>
     </div>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+       <script>
+       
+      
+       
+$(function init(){
+	
+	 let loginNy=0;
+	 
+	 $.ajax({
+	 		async: true 
+	 		,cache: false
+	 		,type: "post"
+	 		,url: "/user/loginCheck"
+	 		,data : {}
+	 		,success: function(response) {
+	 			if(response.rt == "pass") {
+	 				let loginNy=1;
+	 				
+	 				$("#login").replaceWith('<a class="nav-link logout" href="#" id="logout">Logout</a>');
+	 				
+	 				console.log(loginNy);
+	 			} else {
+	 				let loginNy=0;
+	 				console.log("오류")
+	 			}
+	 		}
+	 		,error : function(jqXHR, textStatus, errorThrown){
+	 			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+	 		}
+	 		
+	 	}); 
+	
+	 
+});
+
+</script>
+       
+<script>
+
+$("#logout").on("click",function(){
+	
+	 $.ajax({
+ 		async: true 
+ 		,cache: false
+ 		,type: "post"
+ 		,url: "/user/logoutProc"
+ 		,data : {}
+ 		,success: function(response) {
+ 			if(response.rt == "success") {
+ 				location.href = "/user/loginForm";
+ 			} else {
+ 				alert("에러");
+ 			}
+ 		}
+ 		,error : function(jqXHR, textStatus, errorThrown){
+ 			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+ 		}
+ 		
+ 	}); 
+	
+	
+	
+})
+
+</script>

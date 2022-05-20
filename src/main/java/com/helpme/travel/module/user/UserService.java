@@ -42,4 +42,5 @@ public interface UserService {
 //	public int deleteMap(UserVo vo) throws Exception;
 	public int insertPhotoMapUploaded(User dto) throws Exception;
 	
+	public User selectOneLogin(User dto) throws Exception;
 }

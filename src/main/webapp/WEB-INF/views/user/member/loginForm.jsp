@@ -53,7 +53,7 @@
                                     <p class="text-muted">now travel 사용을 위해 로그인해주세요.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="/user/mainView">
+                                  
         
                                         <div class="mb-3">
                                             <label class="form-label" for="username">이메일</label>
@@ -70,7 +70,7 @@
                                             <label class="form-label" for="password-input">비밀번호</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
-                                                <input type="password" class="form-control" id="password-input" name="tvmmPassword" placeholder="비밀번호를 입력해주세요">
+                                                <input type="password" class="form-control" id="tvmmPassword" name="tvmmPassword" placeholder="비밀번호를 입력해주세요">
                                                 <button type="button" class="btn btn-link position-absolute h-100 end-0 top-0" id="password-addon">
                                                     <i class="mdi mdi-eye-outline font-size-18 text-muted"></i>
                                                 </button>
@@ -83,7 +83,9 @@
                                         </div>
                                         
                                         <div class="mt-3">
-                                           <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">로그인</button>
+                                        
+                                           <button class="btn btn-primary w-100 waves-effect waves-light" id="btnLogin" name="btnLogin">로그인</button>
+                                        
                                         </div>
 
                                         <div class="mt-4 text-center">
@@ -113,7 +115,7 @@
                                         <div class="mt-4 text-center">
                                             <p class="mb-0">계정이 없으신가요? <a href="/user/signupForm" class="fw-medium text-primary"> 회원가입 </a> </p>
                                         </div>
-                                    </form>
+                                  
                                 </div>
             
                             </div>
@@ -144,5 +146,41 @@
         <script src="/resources/user/assets/js/pages/pass-addon.init.js"></script>
 
     </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+       <script type="text/javascript">
+        
+$("#btnLogin").on("click" , function(){
+		
+	$.ajax({
+		async: true 
+		,cache: false
+		,type: "post"
+		,url: "/user/loginProc"
+		,data : {"tvmmEmailAccount" : $("#tvmmEmailAccount").val(), "tvmmPassword" : $("#tvmmPassword").val()}
+	
+		,success: function(response) {
+			
+			if(response.rt == "success") {
+				
+				 location.href = "/user/mainView"; 
+				
+			}
+			
+			else{
+				alert("회원 없음");
+			}
+				
+			
+		}
+		,error : function(jqXHR, textStatus, errorThrown){
+			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		}
+		
+	});
+	
+});
 
+
+
+</script>
 </html>
