@@ -125,20 +125,27 @@
 	<!-- PhotoMap -->
 	<select id="selectMap" resultMap="resultMapObj">
 		SELECT 
-			tvplSeq
-			,tvplLat
-			,tvplLng
-			,tvplTitle
-			,tvplDesc
-			,tvplEmotionCd
-			,tvplDelNy
-			,tvmmSeq
+			a.tvplSeq
+			,a.tvplLat
+			,a.tvplLng
+			,a.tvplTitle
+			,a.tvplDesc
+			,a.tvplEmotionCd
+			,a.tvplDelNy
+			,a.tvmmSeq
+			,b.year
+			,b.month
+			,b.day
+			,b.uuidName
+			,b.type
+			,b.sort
 		FROM
-			tvPhotoMapLocation
+			tvPhotoMapLocation a
+			left join travel_site.tvPhotoMapPhoto as b on b.pseq = a.tvplSeq and b.delNy = 0 and b.sort = 0 and b.type = 0
 		WHERE 1=1
 			AND tvplDelNy = 0
 			AND tvmmSeq = 1
-	</select>    
+	</select>     
 	
 	<insert id="insertMap">
 		INSERT INTO tvPhotoMapLocation (

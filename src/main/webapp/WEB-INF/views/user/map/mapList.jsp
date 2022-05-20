@@ -149,7 +149,11 @@
 				  <input type="hidden" id="tvplLat" name="tvplLat" > 
 				  <input type="hidden" id="tvplLng" name="tvplLng" > 
 				  <input type="hidden" id="tvplTitle" name="tvplTitle" > 
-				  <input type="hidden" id="tvplDesc" name="tvplDesc" > 
+				  <input type="hidden" id="tvplDesc" name="tvplDesc" >
+				  <input type="hidden" id="year" name="year" > 
+				  <input type="hidden" id="month" name="month" > 
+				  <input type="hidden" id="day" name="day" > 
+				  <input type="hidden" id="uuidName" name="uuidName" >
                 <div class="col-md-5 responsive-wrap map-wrap">
                     <div class="map-fix">
                         <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
@@ -191,22 +195,7 @@
         averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
         minLevel: 10 // 클러스터 할 최소 지도 레벨 
     }); 
-    
-/*      var positions = [
-         {"lat":"37.5041457952342","lng":"126.75670653635","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?1"},
-		 {"lat":"37.5025416520547","lng":"126.775312407757","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?2"},
-		 {"lat":"37.4840369248427","lng":"126.782649695027","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?3"},
-		 {"lat":"37.5063910880502","lng":"126.754135635056","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?4"},
-		 {"lat":"37.5040647136354","lng":"126.763949321773","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?5"},
-		 {"lat":"37.4848682902839","lng":"126.814294408974","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?"},
-		 {"lat":"37.5090549772014","lng":"126.745618159413","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?"},
-		 {"lat":"37.5043220835774","lng":"126.755031466805","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?"},
-		 {"lat":"37.5043180280618","lng":"126.762084138624","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?"},
-		 {"lat":"37.5158442051041","lng":"126.802410566976","imageSrco":"/infra/resources/mapimg/ph1.jpg","desc":"여기는 어디?10"}
-		 ];       */        
-    
-
- 	
+  
  	
     
      var markers =[];	//markers 배열 생성 
@@ -234,16 +223,16 @@
 	    	});
 	        markers.push(marker);	//marker객체를 markers에 추가
 	      // 내용
-		    var iwContent = '<div class="modal-body">'+
+		    var iwContent = '<div class="modal-body" style="text-align: center;">'+
 		    '<h5>스토리 이미지</h5>'+
 		    '<hr>'+
-		    '<img src="이미지" width="100px" height="100px"/><br><br>'+
+		    '<img src="/resources/user/Photomapuploaded/user/<c:out value="${item.year}"/>/<c:out value="${item.month}"/>/<c:out value="${item.day}"/>/<c:out value="${item.uuidName}"/>" width="100px" height="100px"/><br><br>'+
 		    '<h5>여행 스토리</h5>'+
 		    '<hr>'+
 		    '<p class="modal-body">'+desc+'</p>'+
 		  	'</div>'
 		  	,iwRemoveable = true;
-		  	
+		  	// desc길이에 따라 화면이 안나오는 에러가 발생 따라서 기존에 사용하던 infowindow이외에 다른 창을 띄우는 것을 고려해봐야함
 		  	
 		  var infowindow = new kakao.maps.InfoWindow({
 			    content : iwContent,
