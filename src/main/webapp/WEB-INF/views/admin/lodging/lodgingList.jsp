@@ -173,9 +173,26 @@
 																<a href="/admin/lodgingView?tvamSeq=<c:out value="${rt.tvamSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
- 												 				<a href="/admin/lodgingDel?tvamSeq=<c:out value="${rt.tvamSeq}"/>" id="btnDelete" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" aria-label="Close" class="text-danger">
-																	<i class="mdi mdi-delete font-size-18"></i>
-																</a>
+																<button type="button" class="btn" id="btnDelete" value="<c:out value="${rt.tvamSeq}"/>"  data-bs-toggle="modal" data-bs-target="#modalConfirm<c:out value="${rt.tvamSeq}"/>" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>
+																					
+										                		<!-- 삭제버튼 Modal -->
+																<div class="modal fade" id="modalConfirm<c:out value="${rt.tvamSeq}"/>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																  <div class="modal-dialog">
+																    <div class="modal-content">
+																      <div class="modal-header">
+																        <h5 class="modal-title" id="exampleModalLabel">숙소 삭제</h5>
+																        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																      </div>
+																      <div class="modal-body">
+																        삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.
+																      </div>
+																      <div class="modal-footer">
+																        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+																        <button type="button" onclick="location.href='javascript:goFelete(<c:out value="${rt.tvamSeq}"/>);'" id ="" class="btn btn-primary">삭제</button>
+																      </div>
+																    </div>
+																  </div>
+																</div> 
 															</div>													
 														</td>
 													</tr>
@@ -284,15 +301,16 @@
 
 <script type="text/javascript">
 	
-$("#btnDelete").on("click", function(seq){
-	var answer = confirm('삭제 하시겠습니까? 삭제된 정보는 복구되지 않습니다.');
+goFelete = function(seq){
 	
-	if(answer == true){
- 		location.href='/admin/reservationDel?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>';
-	}else{
-		return false;
-	}
-});
+	var goUrlDel = "/admin/lodgingDel";
+	
+	$("#tvamSeq").val(seq);
+	
+	$("#formList").attr("action", goUrlDel);
+	$("#formList").submit();
+};
+
 </script>
 
 

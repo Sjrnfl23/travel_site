@@ -180,13 +180,10 @@
 																<a href="/admin/reservationView?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="상세" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
-																<%-- <a href="javascript:goDelete(<c:out value="${rt.tvpmSeq}"/>)" data-bs-toggle="tooltip" aria-label="Close" data-bs-placement="top" title="삭제" class="text-red"> --%>
-																 <button type="button" class="btn" id="btnDelete" value="<c:out value="${rt.tvpmSeq}"/>"  data-bs-toggle="modal" data-bs-target="#modalConfirm2" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>
-																<!-- 	<i class="mdi mdi-delete font-size-18"></i>
-																</a> -->
-																				
-										                		<!-- 단건 삭제버튼 Modal -->
-																<div class="modal fade" id="modalConfirm2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																<button type="button" class="btn" id="btnDelete" value="<c:out value="${rt.tvpmSeq}"/>"  data-bs-toggle="modal" data-bs-target="#modalConfirm<c:out value="${rt.tvpmSeq}"/>" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>
+																					
+										                		<!-- 삭제버튼 Modal -->
+																<div class="modal fade" id="modalConfirm<c:out value="${rt.tvpmSeq}"/>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 																  <div class="modal-dialog">
 																    <div class="modal-content">
 																      <div class="modal-header">
@@ -198,11 +195,14 @@
 																      </div>
 																      <div class="modal-footer">
 																        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-																        <button type="button" id ="btnModalDelete2" class="btn btn-primary">삭제</button>
+																        <button type="button" onclick="location.href='javascript:goFelete(<c:out value="${rt.tvpmSeq}"/>);'" id ="" class="btn btn-primary">삭제</button>
 																      </div>
 																    </div>
 																  </div>
 																</div>  															
+															
+															
+															
 															</div>													
 														</td>
 													</tr>
@@ -308,19 +308,19 @@
 		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
 <script type="text/javascript">
-
-/* var goUrlDel = "/admin/reservationDel"; */
-var goUrlDel = "/admin/reservationDel";
 	
-$("#btnModalDelete2").on("click", function()){
+goFelete = function(seq){
 	
-	$("#btnDelete").val();
-	$("#formList").attr("action", goUrlDel).submit();	
+	var goUrlDel = "/admin/reservationDel";
 	
-});
-
+	$("#tvpmSeq").val(seq);
+	
+	$("#formList").attr("action", goUrlDel);
+	$("#formList").submit();
+};
 
 </script>
+
 
 <script type="text/javascript">
 	var goUrlList = "/admin/reservationList";
