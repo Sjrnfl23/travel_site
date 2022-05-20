@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!--============================= 공통부분 헤드 시작 =============================-->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Surjith S M">
+    <meta name="description" content="#">
+    <meta name="keywords" content="#">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="#">
+    <!-- Page Title -->
+    <link rel="shortcut icon" href="images/nowTravel_logo_browser.jpg" type="image/x-icon" />
+    <title id="ctl00_headerTitle">여행을 떠나요. now travel!</title>    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <!-- Themify Icon -->
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Hover Effects -->
+    <link href="css/set1.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- BootStrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+<style type="text/css">		
+
+a {
+  text-decoration-line: none;
+  color: inherit;	
+}
+
+</style>    
+</head>
+
+<body>
+	
+
+    <!--============================= HEADER =============================-->
+    <div class="nav-menu sticky-top">
+        <div class="bg transition">
+            <div class="container-fluid fixed">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="mainView.html"><img src="images/nowTravel_logo.jpg" alt="logo"></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="ti-menu"></span>
+              </button>
+                            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="searchFlex.html">유연한검색</a>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    						회원정보
+                    						<span class="ti-angle-down"></span>
+                  						</a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="reservation.html">예약내역</a>
+                                            <a class="dropdown-item" href="mapList.html">여행지도</a>
+                                            <a class="dropdown-item" href="memberView.html">회원정보 수정</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="loginForm.html" data-toggle="modal" data-target="#exampleModal">Login</a>
+                                    </li>
+                                    <li><a href="../host/dist/a_host_loginForm.html" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>호스트 되기</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Log In & Signup -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="login" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">LOGIN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="sign-up" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">SIGN UP</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="login">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><img src="images/logo.png" alt="logo"></h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span class="ti-close"></span>
+        </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control add-listing_form" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control add-listing_form" placeholder="Password">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-primary">LOG IN</button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="sign-up">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><img src="images/logo.png" alt="logo"></h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span class="ti-close"></span>
+        </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control add-listing_form" id="name" placeholder="Your name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control add-listing_form" id="email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control add-listing_form" id="username" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control add-listing_form" id="password" placeholder="Password">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-primary">CREATE ACCOUNT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Log In & Signup -->
+    <!--//END HEADER -->
+    <!--=============================// 공통부분 헤더 끝 =============================-->
+    
+    <!--============================= 컨텐츠시작 =============================-->
+ <section class="reserve">
+        <div class="container-fluid">
+            <div class="row">
+             <div class="col-md-12 responsive-wrap">
+            	 <div class="row detail-checkbox-wrap" style="margin: 20px;">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="reserve-option">
+                            	<div class="row">
+	                            	<div class="col">
+		                                <div class="md-nowreserve">
+		                                  <a href="reservation.html"><h4>현재 예약 내역</h4></a>
+		                                </div>
+	                                </div>
+	                            	<div class="col">
+		                                <div class="md-pastreserve">
+		                                  <a href="reservation.html"><h4>이전 예약 내역</h4></a>
+		                                </div>
+	                                </div>
+	                            	<div class="col">
+		                                <div class="md-dm">
+		                                  <a href="Vhato_v1.0/Chat-App/dist/index.html"><h4>DM</h4></a>
+		                                </div>
+	                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="row">
+                <div class=col-md-12>
+                <div class="main-content">
+                <div class="my-items table-responsive">
+                <br>
+                <br>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>숙소</th>
+                            <th>숙소비용</th>                            
+                            <th>추천여부</th>
+                            <th>방문</th>
+                            <th>리뷰</th>
+                            <th>별점</th>
+                            <th>숙박일정</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="my-item">
+                            <td>
+                                <div class="info">
+                                    <a href="lodgingView.html"><h3>봄보름풀빌라</h3></a>
+                                    <figure class="location">제주도 풀빌라</figure>
+                                    <!--end info-->
+                                </div>
+                                 <div class="meta">
+                                        <span><i class="fa fa-bed"></i>365일 숙박 가능</span>
+                                        <span class="price-info">100만원 부터</span>
+                                    </div>
+                                <!--end meta-->
+                            </td>
+                            <td class="price">100만원</td>
+                            <td><div class="featured yes"><i class="fa fa-check"></i><aside></aside></div></td>
+                            <td class="views">426</td>
+                            <td class="reviews">45</td>
+                            <td class="rating">9.3</td>
+                            <td class="last-reservation">2022년 5월 2일 15:00 체크인 예정
+                                <div class="edit-options">
+                                
+                                    <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
+                                    <a href="reservation.html" class="link icon" data-bs-toggle="modal" data-bs-target="#exampleModal10" data-bs-whatever="@리뷰"><i class="fa fa-comment"></i>리뷰</a>
+                                
+
+                                    <div class="modal fade" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">리뷰 작성하기</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        <form>
+									          <div class="mb-3">
+									            <label for="recipient-name" class="col-form-label">보내는 사람</label>
+									            <input type="text" class="form-control" id="recipient-name">
+									          </div>
+									          <div class="mb-3">
+									            <label for="message-text" class="col-form-label">보낼 메시지:</label>
+									            <textarea class="form-control" id="message-text"></textarea>
+									          </div>
+									        </form>
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-primary">보내기</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                    
+                           			 <a href="reservation.html" class="link icon delete" data-bs-toggle="modal" data-bs-target="#exampleModal20" data-bs-whatever="@리뷰"><i class="fa fa-trash"></i>삭제</a>
+                            		
+								<!-- Modal -->
+									<div class="modal fade" id="exampleModal20" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">예약내역삭제</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									       삭제 하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <a href="reservation.html"><button type="button" class="btn btn-primary">삭제하기</button></a>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                </div>
+                                <!--end edit-options-->
+                            </td>
+                        </tr>
+                        <!--end my-item-->
+                        <tr class="my-item">
+                            <td>
+                                <div class="info">
+                                  <a href="lodgingView.html"><h3>부산웨스틴조선호텔</h3></a>
+                                    <figure class="location">부산</figure>
+                                    <figure class="label label-info">호텔</figure>
+                                   <div class="meta">
+                                        <span><i class="fa fa-bed"></i>365일 숙박 가능</span>
+                                        <span class="price-info">200만원 부터</span>
+                                    </div>
+                                    <!--end meta-->
+                                </div>
+                                <!--end info-->
+                            </td>
+                            <td class="price">200만원</td>
+                            <td class="featured"><i class="fa fa-times"></i></td>
+                            <td class="views">230</td>
+                            <td class="reviews">28</td>
+                            <td class="rating">9.9</td>
+                            <td class="last-reservation">2022년 5월 1일 15:00 체크인
+                          		<div class="edit-options">
+                                    <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
+                                    <a href="reservation.html" class="link icon" data-bs-toggle="modal" data-bs-target="#exampleModal10" data-bs-whatever="@리뷰"><i class="fa fa-comment"></i>리뷰</a>
+                                
+
+                                    <div class="modal fade" id="exampleModal30" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">리뷰 작성하기</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        <form>
+									          <div class="mb-3">
+									            <label for="recipient-name" class="col-form-label">보내는 사람</label>
+									            <input type="text" class="form-control" id="recipient-name">
+									          </div>
+									          <div class="mb-3">
+									            <label for="message-text" class="col-form-label">보낼 메시지:</label>
+									            <textarea class="form-control" id="message-text"></textarea>
+									          </div>
+									        </form>
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-primary">보내기</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                    
+                           			 <a href="reservation.html" class="link icon delete" data-bs-toggle="modal" data-bs-target="#exampleModal20" data-bs-whatever="@리뷰"><i class="fa fa-trash"></i>삭제</a>
+                            		
+								<!-- Modal -->
+									<div class="modal fade" id="exampleModal40" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">예약내역삭제</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									       삭제 하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <a href="reservation.html"><button type="button" class="btn btn-primary">삭제하기</button></a>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                </div>
+                                <!--end edit-options-->
+                            </td>
+                        </tr>
+                        <!--end my-item-->
+                        <tr class="my-item">
+                            <td>
+                                <div class="info">
+                            		<a href="lodgingView.html"><h3>서울 신라호텔</h3></a>
+                                    <figure class="location">서울</figure>
+                                    <figure class="label label-info">호텔</figure>
+                                   <div class="meta">
+                                        <span><i class="fa fa-bed"></i>365일 숙박 가능</span>
+                                        <span class="price-info">300만원 부터</span>
+                                    </div>
+                                    <!--end meta-->
+                                </div>
+                                <!--end info-->
+                            </td>
+                            <td class="price">300만원</td>
+                            <td class="featured"><i class="fa fa-times"></i></td>
+                            <td class="views">230</td>
+                            <td class="reviews">28</td>
+                            <td class="rating">9.9</td>
+                            <td class="last-reservation">2022년 4월 1일 15:00 체크인
+                               <div class="edit-options">
+                                    <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
+                                    <a href="reservation.html" class="link icon" data-bs-toggle="modal" data-bs-target="#exampleModal10" data-bs-whatever="@리뷰"><i class="fa fa-comment"></i>리뷰</a>
+                                
+
+                                    <div class="modal fade" id="exampleModal50" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">리뷰 작성하기</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        <form>
+									          <div class="mb-3">
+									            <label for="recipient-name" class="col-form-label">보내는 사람</label>
+									            <input type="text" class="form-control" id="recipient-name">
+									          </div>
+									          <div class="mb-3">
+									            <label for="message-text" class="col-form-label">보낼 메시지:</label>
+									            <textarea class="form-control" id="message-text"></textarea>
+									          </div>
+									        </form>
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-primary">보내기</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                    
+                           			 <a href="reservation.html" class="link icon delete" data-bs-toggle="modal" data-bs-target="#exampleModal20" data-bs-whatever="@리뷰"><i class="fa fa-trash"></i>삭제</a>
+                            		
+								<!-- Modal -->
+									<div class="modal fade" id="exampleModal60" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">예약내역삭제</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									       삭제 하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <a href="reservation.html"><button type="button" class="btn btn-primary">삭제하기</button></a>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                </div>
+                               
+                                <!--end edit-options-->
+                            </td>
+                        </tr>
+                        <!--end my-item-->
+                        <tr class="my-item">
+                            <td>
+                                <div class="info">
+                                    <a href="lodgingView.html"><h3>제주 힘난다펜션</h3></a>
+                                    <figure class="location">제주도</figure>
+                                    <figure class="label label-info">펜션 전체</figure>
+                                  <div class="meta">
+                                        <span><i class="fa fa-bed"></i>365일 숙박 가능</span>
+                                        <span class="price-info">400만원 부터</span>
+                                    </div>
+                                    <!--end meta-->
+                                </div>
+                                <!--end info-->
+                            </td>
+                            <td class="price">400만원</td>
+                            <td class="featured"><i class="fa fa-times"></i></td>
+                            <td class="views">230</td>
+                            <td class="reviews">28</td>
+                            <td class="rating">9.9</td>
+                            <td class="last-reservation">2022년 3월 1일 15:00 체크인
+                               <div class="edit-options">
+                                    <a href="edit.html" class="link icon"><i class="fa fa-edit"></i>수정</a>
+                                    <a href="reservation.html" class="link icon" data-bs-toggle="modal" data-bs-target="#exampleModal10" data-bs-whatever="@리뷰"><i class="fa fa-comment"></i>리뷰</a>
+                                
+
+                                    <div class="modal fade" id="exampleModal70" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">리뷰 작성하기</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        <form>
+									          <div class="mb-3">
+									            <label for="recipient-name" class="col-form-label">보내는 사람</label>
+									            <input type="text" class="form-control" id="recipient-name">
+									          </div>
+									          <div class="mb-3">
+									            <label for="message-text" class="col-form-label">보낼 메시지:</label>
+									            <textarea class="form-control" id="message-text"></textarea>
+									          </div>
+									        </form>
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-primary">보내기</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                    
+                           			 <a href="reservation.html" class="link icon delete" data-bs-toggle="modal" data-bs-target="#exampleModal20" data-bs-whatever="@리뷰"><i class="fa fa-trash"></i>삭제</a>
+                            		
+								<!-- Modal -->
+									<div class="modal fade" id="exampleModal80" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">예약내역삭제</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									       삭제 하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <a href="reservation.html"><button type="button" class="btn btn-primary">삭제하기</button></a>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                                </div>
+                                <!--end edit-options-->
+                            </td>
+                        </tr>
+                        <!--end my-item-->
+                        </tbody>
+                    </table>
+                </div>
+                <!--end my-items-->
+            </div>
+            <!--end main-content-->
+                </div>
+            </div> 
+            </div>   
+  		</div> 
+  		</div> 
+ </section>   
+
+    <!--=============================//컨텐츠 끝 =============================-->
+    
+    
+ 	<!--============================= 공통부분 푸터 시작 =============================-->
+    <!--============================= FOOTER =============================-->
+    <footer class="main-block gray">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 responsive-wrap">
+                    <div class="location">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>서울특별시 서초구 서초4 서초대로77길 55동<br> 서초동, 에이프로스퀘어 3층</p>
+                    </div>
+                </div>
+                <div class="col-md-4 responsive-wrap">
+                    <div class="footer-logo_wrap">
+                        <img src="images/nowTravel_logo_bottom.jpg" alt="#" class="img-fluid" width="200px">
+                    </div>
+                </div>
+                <div class="col-md-4 responsive-wrap">
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <p>Copyright © 2022 now travel Inc. All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--//END FOOTER -->
+	<!--=============================// 공통부분 푸터 끝 =============================-->
+
+    <!-- jQuery, Bootstrap JS. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+	<script>
+	var exampleModal = document.getElementById('exampleModal')
+	exampleModal.addEventListener('show.bs.modal', function (event) {
+	  // Button that triggered the modal
+	  var button = event.relatedTarget
+	  // Extract info from data-bs-* attributes
+	  var recipient = button.getAttribute('data-bs-whatever')
+	  // If necessary, you could initiate an AJAX request here
+	  // and then do the updating in a callback.
+	  //
+	  // Update the modal's content.
+	  var modalTitle = exampleModal.querySelector('.modal-title')
+	  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+	  modalTitle.textContent = 'New message to ' + recipient
+	  modalBodyInput.value = recipient
+	})
+	
+	</script> 
+
+
+
+</body>
+
+</html>

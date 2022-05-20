@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.helpme.travel.module.host.HostMpp" >
+
+<resultMap id="resultMapObj" type="com.helpme.travel.module.host.Host" ></resultMap>
+
+	<select id="selectCoupon" resultMap="resultMapObj">
+	 select
+				a.tvcpSeq
+				,a.tvcpName
+				,b.tvamLodgingName
+				,a.tvcpPrice
+				,a.tvcpStartDate
+				,a.tvcpEndDate
+				,a.tvcpDesc
+				,a.tvamSeq
+				
+				from
+				tvCoupon a
+				
+			left join tvLodging b on a.tvamseq=b.tvamseq
+			
+			where 
+				1=1
+				and tvcpDelNy=0
+				and b.tvmmSeq=1
+				
+	</select>
+	<select id="selectOneCoupon" resultMap="resultMapObj">
+	 select
+				a.tvcpSeq
+				,a.tvcpName
+				,b.tvamLodgingName
+				,a.tvcpPrice
+				,a.tvcpStartDate
+				,a.tvcpEndDate
+				,a.tvcpDesc
+				,a.regDateTime
+				from
+				tvCoupon a
+			
+			left join tvLodging b on a.tvamseq=b.tvamseq
+			
+			where 
+				1=1
+				and tvcpDelNy=0
+				and tvcpSeq=#{tvcpSeq} 
+	</select>
+	
+<select id="selectCouponOption" resultMap="resultMapObj">
+	 select		
+	 			a.tvamSeq
+				,a.tvcpSeq
+				,b.tvamLodgingName
+				
+				from
+				tvCoupon a
+				
+			left join tvLodging b on a.tvamseq=b.tvamseq
+			
+			where 
+				1=1
+				and tvcpDelNy=0
+				and b.tvmmSeq=1
+				group by b.tvamSeq ;
+				
+	</select>
+	
+
+	<insert id="insertCoupon">
+		insert into tvCoupon(
+				tvamSeq
+				,tvcpName
+				,tvcpPrice
+				,tvcpStartDate
+				,tvcpEndDate
+				,tvcpDesc
+				,tvcpDelNy
+				,regDateTime
+			)values(
+				#{tvamSeq}
+				,#{tvcpName}
+				,#{tvcpPrice}
+				,#{tvcpStartDate}
+				,#{tvcpEndDate}
+				,#{tvcpDesc}
+				,0
+				,now()
+			)
+	
+	
+	</insert>
+
+
+	<update id="updateCoupon">
+		update tvCoupon a
+			set 
+				tvcpName = #{tvcpName}
+				
+				,tvcpPrice = #{tvcpPrice}
+				,a.tvcpStartDate = #{tvcpStartDate}
+				,a.tvcpEndDate = #{tvcpEndDate}
+				,a.tvcpDesc = #{tvcpDesc}
+				
+			where 1=1
+				and tvcpDelNy=0
+				and tvcpSeq=#{tvcpSeq} 
+		
+	</update>
+		
+	<delete id="deleteCoupon">
+		delete 
+			from tvCoupon a
+		where
+			tvcpSeq=#{tvcpSeq}
+	</delete>
+
+		<!--coupon end -->
+		
+		<!--lodging start-->
+		
+		<select id="selectLodging" resultMap="resultMapObj">
+	 	select
+	 			a.tvamSeq
+				,a.tvamLodgingName
+				,(select tvcdName from tvCode b where a.tvamCategoryCd=b.tvcdSeq) as tvamCategory
+				,a.tvamTelNumber
+				,a.tvamAddressFull
+				,a.tvamMaxPersonCount
+				,a.tvamTelNumber
+				,a.regDateTime
+				from
+				tvLodging a
+				
+			left join tvMember b on a.tvmmseq=b.tvmmseq
+			
+			
+			where 
+				1=1
+				and tvamDelNy=0
+				and a.tvmmSeq=1
+				
+	</select>
+	
+			<select id="selectOneLodging" resultMap="resultMapObj">
+	 	select
+	 			a.tvamSeq
+				,a.tvamLodgingName
+				,(select tvcdName from tvCode where a.tvamCategoryCd=tvcdSeq) as tvamCategory
+				,a.tvamTelNumber
+				,a.tvamAddressFull
+				,a.tvamMaxPersonCount
+				,a.tvamAdultPrice
+				,a.tvamBedCount
+				,a.tvamRoomCount
+				,a.tvamShowerRoomCount
+				,a.tvamCheckInTime
+				,a.tvamCheckOutTime
+				,a.regDateTime
+				,a.tvamDesc
+				
+				from
+				tvLodging a
+				
+			left join tvMember b on a.tvmmseq=b.tvmmseq
+			
+			where 
+				1=1
+				and tvamDelNy=0
+				and tvamSeq=#{tvamSeq}
+	</select>
+	
+	
+	<insert id="insertLodging">
+		insert into tvLodging(
+				
+				tvamLodgingName
+				,tvamAddressFull
+				,tvamMaxPersonCount
+				,tvamCategoryCd
+				,tvamTelNumber
+				,tvamAdultPrice
+				,tvamBedCount
+				,tvamRoomCount
+				,tvamShowerRoomCount
+				,tvamCheckInTime
+				,tvamCheckOutTime
+				,tvamDesc
+				,tvmmSeq
+				,tvamDelNy
+	
+			)values(
+				
+				#{tvamLodgingName}
+				,#{tvamAddressFull}
+				,#{tvamMaxPersonCount}
+				,#{tvamCategoryCd}
+				,#{tvamTelNumber}
+				,#{tvamAdultPrice}
+				,#{tvamBedCount}
+				,#{tvamRoomCount}
+				,#{tvamShowerRoomCount}
+				,#{tvamCheckInTime}
+				,#{tvamCheckOutTime}
+				,#{tvamDesc}
+				,1
+				,0
+			)
+	
+	
+	</insert>	
+	
+<update id="updateLodging">
+		update tvLodging a
+			set 
+				a.tvamLodgingName =#{tvamLodgingName}
+				
+				,a.tvamAddressFull =  #{tvamAddressFull}
+				,a.tvamMaxPersonCount = #{tvamMaxPersonCount}
+				,a.tvamAdultPrice = #{tvamAdultPrice}
+				,a.tvamBedCount = #{tvamBedCount}
+				,a.tvamRoomCount = #{tvamRoomCount}
+				,a.tvamShowerRoomCount = #{tvamShowerRoomCount}
+				,a.tvamCheckInTime = #{tvamCheckInTime}
+				,a.tvamCheckOutTime = #{tvamCheckOutTime}
+				,a.tvamDesc = #{tvamDesc}
+				
+			where 1=1
+				and tvamDelNy=0
+				and tvamSeq=#{tvamSeq} 
+		
+	</update>
+
+<delete id="deleteLodging">
+		delete 
+			from tvLodging a
+		where
+			tvamSeq=#{tvamSeq}
+	</delete>
+	
+	<!--main-->
+	
+	<!--userInfo start-->
+	<select id="selectOneHost" resultMap="resultMapObj">
+	select
+	 
+	tvmmName
+	,tvmmEmailFull
+	,tvmmAddressFull
+	,tvmmTelNumber
+	,tvmmDob
+	,regDateTime
+	
+	from
+		tvMember a
+		where 1=1
+		and tvmmHostNy=1
+		and tvmmSeq=1
+		
+	</select>
+	
+	<update id="updateHost">
+	
+	</update>
+	
+	<!--userInfo End-->
+	
+	
+	<!--login Start-->
+	<select id="selectOneLogin" resultMap="resultMapObj">
+	
+	select 
+	tvmmSeq
+	,tvmmName
+	,tvmmEmailAccount
+	,tvmmHostNy
+	
+		
+	from
+	tvMember
+	where tvmmEmailAccount = #{tvmmEmailAccount} and tvmmPassword = #{tvmmPassword}
+	
+	</select>
+	
+	<!--login End-->
+	
+</mapper> 

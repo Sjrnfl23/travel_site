@@ -1,0 +1,182 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>now travel 호스트페이지</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesdesign" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="../../resources/host/images/favicon.ico">
+
+        <!-- Bootstrap Css -->
+        <link href="../../resources/host/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="../../resources/host/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="../../resources/host/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    
+    <body>
+
+    <!-- <body data-layout="horizontal"> -->
+
+    <div class="authentication-bg min-vh-100">
+        <div class="bg-overlay bg-light"></div>
+        <div class="container">
+            <div class="d-flex flex-column min-vh-100 px-3 pt-4">
+                <div class="row justify-content-center my-auto">
+                    <div class="col-md-8 col-lg-6 col-xl-5">
+
+                        <div class="mb-4 pb-2">
+                            <a href="loginForm.html" class="d-block auth-logo">
+                                <img src="../../resources/host/images/nowTravel_logo_200.jpg" alt="" class="auth-logo-dark me-start">
+                                <img src="../../resources/host/images/logo-light.png" alt="" height="30" class="auth-logo-light me-start">
+                            </a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body p-4"> 
+                                <div class="text-center mt-2">
+                                    <h5>회원가입</h5>
+                                    <p class="text-muted">호스트 계정을 만들어보세요.</p>
+                                </div>
+                                <div class="p-2 mt-4">
+                                    <form action="mainView.html">
+
+        
+                                        <div class="mb-3">
+                                            <label class="form-label" for="username">이름</label>
+                                            <div class="position-relative input-custom-icon">
+                                                <input type="text" class="form-control" id="username" placeholder="이름을 입력해주세요.">
+                                                 <span class="bx bx-user"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="useremail">이메일주소</label>
+                                            <div class="position-relative input-custom-icon">
+                                                <input type="email" class="form-control" id="useremail" placeholder="이메일주소를 입력해주세요.">  
+                                                <span class="bx bx-mail-send"></span>
+                                            </div>     
+                                        </div>                
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">비밀번호</label>
+                                            <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                                                <span class="bx bx-lock-alt"></span>
+                                                <input type="password" class="form-control" id="password-input" placeholder="비밀번호를 입력해주세요.">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">비밀번호 확인</label>
+                                            <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                                                <span class="bx bx-lock-alt"></span>
+                                                <input type="password" class="form-control" id="password-input" placeholder="비밀번호를 입력해주세요.">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">전화번호</label>
+                                            <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                                                <span class="bx bx-lock-alt"></span>
+                                                <input type="password" class="form-control" id="password-input" placeholder="전화번호를 입력해주세요.">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">주소</label>
+                                            <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                                                <span class="bx bx-lock-alt"></span>
+                                                <input type="password" class="form-control" id="password-input" placeholder="주소를 입력해주세요.">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">생년월일</label>
+                                            <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                                                <span class="bx bx-lock-alt"></span>
+                                                <input type="date" class="form-control" id="password-input" placeholder="전화번호를 입력해주세요.">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="userpassword">사용 언어</label>
+                                            <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                                                <span class="bx bx-lock-alt"></span>
+                                                <input type="password" class="form-control" id="password-input" placeholder="사용언어를 입력해주세요.">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-check py-1">
+                                            <input type="checkbox" class="form-check-input" id="auth-terms-condition-check">
+                                            <label class="form-check-label" for="auth-terms-condition-check">now travel의 <a href="">회원약관</a>에 동의합니다.</label>
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">가입완료</button>
+                                        </div>
+
+                                        <div class="mt-4 text-center">
+                                            <div class="signin-other-title">
+                                                <h5 class="font-size-14 mb-3 mt-2 title"></h5>
+                                            </div>
+            
+<!--                                            <ul class="list-inline mt-2">
+                                                <li class="list-inline-item">
+                                                    <a href="javascript:void()" class="social-list-item bg-primary text-white border-primary">
+                                                        <i class="bx bxl-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="javascript:void()" class="social-list-item bg-info text-white border-info">
+                                                        <i class="bx bxl-linkedin"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="javascript:void()" class="social-list-item bg-danger text-white border-danger">
+                                                        <i class="bx bxl-google"></i>
+                                                    </a>
+                                                </li>
+                                            </ul> -->
+                                        </div>
+
+                                        <div class="mt-4 text-center">
+                                            <p class="mb-0">이미 계정이 존재합니까 ? <a href="loginForm.html" class="fw-medium text-primary">로그인하기</a></p>
+                                        </div>
+                                    </form>
+                                </div>
+            
+                            </div>
+                        </div>
+
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center p-4">
+                            <p>© <script>document.write(new Date().getFullYear())</script> now travel. Created <i class="mdi mdi-heart text-danger"></i> by 살려조</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- end container -->
+    </div>
+    <!-- end authentication section -->
+
+        <!-- JAVASCRIPT -->
+        <script src="../../resources/host/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../../resources/host/libs/metismenujs/metismenujs.min.js"></script>
+        <script src="../../resources/host/libs/simplebar/simplebar.min.js"></script>
+        <script src="../../resources/host/libs/eva-icons/eva.min.js"></script>
+
+    </body>
+
+</html>

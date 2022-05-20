@@ -7,6 +7,9 @@
 # BlueJ files
 *.ctxt
 
+# ignore file root-context
+root-context.xml
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -31,3 +34,5 @@ target/
 .project
 .springBeans
 
+
+src/main/webapp/WEB-INF/spring

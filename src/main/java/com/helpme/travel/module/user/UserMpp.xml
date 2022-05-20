@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.helpme.travel.module.user.UserMpp">
+
+    <resultMap id="resultMapObj" type="com.helpme.travel.module.user.User"></resultMap>
+
+	   <select id="selectOneMember" resultMap="resultMapObj">
+			SELECT 
+				tvmmName
+				,tvmmTelNumber
+				,tvmmEmailAccount
+				,tvmmAddress1
+				,tvmmDob
+			FROM
+				tvMember
+			WHERE 1=1
+				AND tvmmDelNy = 0
+				AND tvmmSeq = 4
+	</select>    
+	
+	<insert id="insertMember">
+			INSERT INTO tvMember (
+			tvmmSeq
+			,tvmmName
+			,tvmmEmailAccount
+			,tvmmPassword
+			,tvmmTelNumber
+			,tvmmAddressFull
+			,tvmmDob
+			,tvmmAdminNy
+			,tvmmHostNy
+			,tvmmDelNy
+			) VALUES (
+			#{tvmmSeq}
+			,#{tvmmName}
+			,#{tvmmEmailAccount}
+			,#{tvmmPassword}
+			,#{tvmmTelNumber}
+			,#{tvmmAddressFull}
+			,#{tvmmDob}
+			,0
+			,0
+			,0
+			);
+	</insert>
+	
+	<!-- SearchFlex List -->
+	 <select id="selectListSearchFlex" resultMap="resultMapObj">
+			SELECT 
+				tvamLodgingName
+				,tvamDesc
+				,tvamAddress1
+			FROM
+				tvLodging
+			WHERE 1=1
+				AND tvamDelNy = 0
+				<choose>
+				<when test="shCheck == 1">AND tvamCategoryCd = 1</when>
+				<when test="shCheck == 2">AND tvamCategoryCd = 2</when>
+				<when test="shCheck == 3">AND tvamCategoryCd = 3</when>
+				<when test="shCheck == 4">AND tvamCategoryCd = 4</when>
+				<when test="shCheck == 5">AND tvamCategoryCd = 5</when>
+				<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
+				</choose>
+
+	</select>
+<!-- 	
+	Reservation List
+	<select id="selectListReservation" resultMap="resultMapObj">
+		SELECT
+			tvamSeq
+			,tvamLodgingName
+			,tvamPrice
+			,tvamCheckInTime
+			,tvamCheckOutTime
+			
+			
+		FROM
+			tvLodging
+		WHERE 1=1
+			AND tvamDelNy = 0
+			
+				
+	</select>
+
+	 -->
+	<!-- LodgingView -->
+	<select id="selectOneLodgingView" resultMap="resultMapObj">
+		SELECT
+			a.tvamSeq
+			,a.tvamMaxPersonCount
+			,a.tvamRoomCount
+			,a.tvamBedCount
+			,a.tvamShowerRoomCount
+			,a.tvamState
+			,a.tvamCity
+			,a.tvamTelNumber
+			,a.tvamAddressFull
+			,a.tvamCheckInTime
+			,a.tvamCheckOutTime
+			,a.tvamLodgingName
+			,a.tvamDesc
+			,a.tvamHostName
+			,a.tvmmSeq
+			,b.tvmmEmailAccount
+			<!-- ,b.tvarSeq
+			,b.tvarReview
+			,b.tvarStarPoint
+			,b.tvarDate -->
+		FROM
+			travel_site.tvLodging a
+			<!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  -->
+			LEFT OUTER JOIN travel_site.tvMember AS b ON b.tvmmSeq = a.tvmmSeq
+		WHERE 1=1
+			AND a.tvamDelNy = 0 
+			AND a.tvamSeq = #{tvamSeq}
+			
+	</select>
+	
+	
+	<!-- PhotoMap -->
+	<select id="selectMap" resultMap="resultMapObj">
+		SELECT 
+			tvplSeq
+			,tvplLat
+			,tvplLng
+			,tvplTitle
+			,tvplDesc
+			,tvplEmotionCd
+			,tvplDelNy
+			,tvmmSeq
+		FROM
+			tvPhotoMapLocation
+		WHERE 1=1
+			AND tvplDelNy = 0
+			AND tvmmSeq = 1
+	</select>    
+	
+	<insert id="insertMap">
+		INSERT INTO tvPhotoMapLocation (
+			tvplSeq
+			,tvplLat
+			,tvplLng
+			,tvplTitle
+			,tvplDesc
+			,tvplEmotionCd
+			,tvplDelNy
+			,tvmmSeq
+			) VALUES (
+			#{tvplSeq}
+			,#{tvplLat}
+			,#{tvplLng}
+			,#{tvplTitle}
+			,#{tvplDesc}
+			,#{tvplEmotionCd}
+			,0
+			,1
+			)
+	</insert>
+
+	
+</mapper>

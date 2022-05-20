@@ -3,9 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd"
+		
+		>
+			
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -21,7 +24,37 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	
 	<context:component-scan base-package="com.helpme.travel" />
+	
+		<!-- session interceptor s 2022.03.13 for logincheck -->
+		
+				
+	<interceptors>
+	
+		<interceptor>
+			<mapping path="/host/**"/>
+			
+			<exclude-mapping path="/host/loginProc" />
+			<exclude-mapping path="/host/loginForm" />
+			
+			<beans:bean id="checkLoginSessionInterception" class="com.helpme.travel.module.interceptor.CheckLoginSessionInterception"/>
+	
+		</interceptor>
+		<interceptor>
+			<mapping path="/admin/**"/>
+			
+			<exclude-mapping path="/admin/loginProc" />
+			<exclude-mapping path="/admin/loginForm" />
+			
+			<beans:bean id="CheckLoginSessionInterception" class="com.helpme.travel.module.interceptor.CheckLoginSessionInterception"/>
+	
+		</interceptor>
+		
+	</interceptors>	
+	<!-- session interceptor e 2022.03.13 for logincheck -->
+	
+	
 	
 	
 	

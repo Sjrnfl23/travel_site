@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.helpme.travel.module.admin.AdminMpp">
+
+    <resultMap id="resultMapObj" type="com.helpme.travel.module.admin.Admin"></resultMap>
+
+
+ <!--  ===========================host================================= -->
+
+	<select id="selectHost" resultMap="resultMapObj">
+		select 
+			tvmmSeq
+		    , tvmmName
+		    , tvmmPassword
+		    , tvmmDob
+		    , tvmmZipCode
+		    , tvmmAddress1
+		    , tvmmAddress2
+		    , tvmmAddressFull
+		    , tvmmEmailAccount
+		    , tvmmEmailDomain
+		    , tvmmEmailDomainCd
+		    , tvmmTelecomCd
+		    , tvmmTelNumber
+		    , tvmmAdminNy
+		    , tvmmHostNy
+		    , tvmmDesc
+		    , (select count(*) from tvLodging b where a.tvmmSeq = b.tvmmSeq) as 'lodgingNumber'
+		from tvMember a
+		where 1 = 1
+			and tvmmDelNy = 0
+		    and tvmmHostNy = 1
+	<choose>
+		<when test="shOption == 1">and tvmmName like concat('%', #{shValue}, '%')</when>	<!-- 호스트 이름 검색 -->
+		<when test="shOption == 2">and tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 호스트 이메일 검색 -->
+	</choose>
+	limit #{startRnumForMysql}, #{rowNumToShow}	
+	</select>		
+
+
+<!--  ===========================member================================= -->
+	
+	<select id="selectMember" resultMap="resultMapObj">
+		select 
+			tvmmSeq
+		    , tvmmName
+		    , tvmmPassword
+		    , tvmmDob
+		    , tvmmZipCode
+		    , tvmmAddress1
+		    , tvmmAddress2
+		    , tvmmAddressFull
+		    , tvmmEmailAccount
+		    , tvmmEmailDomain
+		    , tvmmEmailDomainCd
+		    , tvmmTelecomCd
+		    , tvmmTelNumber
+		    , tvmmAdminNy
+		    , tvmmHostNy
+		    , tvmmDesc
+		from tvMember
+		where 1 = 1
+			and tvmmDelNy = 0
+		    and tvmmHostNy = 0
+		    and tvmmAdminNy = 0
+		<choose>
+			<when test="shOption == 1">and tvmmName like concat('%', #{shValue}, '%')</when>	<!-- 이름 검색 -->
+			<when test="shOption == 2">and tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 이메일 검색 -->
+		</choose>
+		limit #{startRnumForMysql}, #{rowNumToShow}	
+		
+	</select>		    
+		    
+	
+	<select id="selectOneMember" resultMap="resultMapObj">
+		select 
+			tvmmSeq
+		    , tvmmName
+		    , tvmmPassword
+		    , tvmmDob
+		    , tvmmZipCode
+		    , tvmmAddress1
+		    , tvmmAddress2
+		    , tvmmAddressFull
+		    , tvmmEmailAccount
+		    , tvmmEmailDomain
+		    , tvmmEmailDomainCd
+		    , tvmmTelecomCd
+		    , tvmmTelNumber
+		    , tvmmAdminNy
+		    , tvmmHostNy
+		    , tvmmDesc
+		from tvMember
+		where 1 = 1
+			and tvmmDelNy = 0
+		    and tvmmSeq = #{tvmmSeq}
+	</select>	
+
+
+	<update id="updateMember">
+		update tvMember set
+			tvmmName = #{tvmmName}
+			, tvmmDob = #{tvmmDob}
+			, tvmmZipCode = #{tvmmZipCode}
+			, tvmmAddress1 = #{tvmmAddress1}
+			, tvmmAddress2 = #{tvmmAddress2}
+			, tvmmAddressFull = #{tvmmAddressFull}
+			, tvmmEmailAccount = #{tvmmEmailAccount}
+			, tvmmEmailDomain = #{tvmmEmailDomain}
+			, tvmmEmailDomainCd = #{tvmmEmailDomainCd}
+			, tvmmTelecomCd = #{tvmmTelecomCd}
+			, tvmmTelNumber = #{tvmmTelNumber}
+			, tvmmDesc = #{tvmmDesc}
+		where 1=1
+			and tvmmSeq = #{tvmmSeq}
+	</update>
+
+	<update id="DeleteMember">		<!-- 가짜삭제(mvmmDelNy=1로 바꿈) -->
+		update tvMember set tvmmDelNy = 1 where 1=1 and tvmmSeq = #{tvmmSeq}
+	</update>	
+
+<!--  ===========================lodging================================= -->
+
+	<select id="selectLodging" resultMap="resultMapObj">
+		select 
+			a.tvamSeq
+		    , a.tvamLodgingName
+		    , a.tvamHostName
+		    , a.tvamDesc
+		    , a.tvamZipCode
+		    , a.tvamAddress1
+		    , a.tvamAddress2
+		    , a.tvamAddressFull
+		    , a.tvamState
+		    , a.tvamCity
+		    , a.tvamAdultPrice
+		    , a.tvamMaxPersonCount
+		    , a.tvamBedCount
+		    , a.tvamRoomCount
+		    , a.tvamShowerRoomCount
+		    , a.tvamApproveNy
+		    , a.tvamCategoryCd
+		    , a.tvamPoolNy
+		    , a.tvamJacuzziNy
+		    , a.tvamBbqGrillNy
+		    , a.tvamFirePlaceNy
+		    , a.tvamGymNy
+		    , a.tvamWifiNy
+		    , a.tvamTvNy
+		    , a.tvamParkingRoomNy
+		    , a.tvamAirConditionerNy
+		    , a.tvamHeaterNy
+		    , a.tvamFridgeNy
+		    , a.tvamMicrowaveNy
+		    , a.tvamCheckInTime
+		    , a.tvamCheckOutTime
+		    , a.tvmmSeq
+		    , a.tvamTelNumber
+		    , (select tvcdName from tvCode where a.tvamCategoryCd = tvcdSeq) as 'category'
+		    , (select tvmmEmailAccount from tvMember b where a.tvmmSeq = b.tvmmSeq) as 'host'
+		from tvLodging a
+		where 1 = 1
+			and tvamDelNy = 0
+			<choose>
+				<when test="shOption == 1">and category like concat('%', #{shValue}, '%')</when>	<!-- 카테고리검색 -->
+				<when test="shOption == 2">and tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소이름검색 -->
+				<when test="shOption == 3">and host like concat('%', #{shValue}, '%')</when> <!-- 호스트검색 -->
+			</choose>
+			limit #{startRnumForMysql}, #{rowNumToShow}
+	</select>
+	
+	<select id="selectOneLodging" resultMap="resultMapObj">
+		select 
+			a.tvamSeq
+		    , a.tvamLodgingName
+		    , a.tvamHostName
+		    , a.tvamDesc
+		    , a.tvamZipCode
+		    , a.tvamAddress1
+		    , a.tvamAddress2
+		    , a.tvamAddressFull
+		    , a.tvamState
+		    , a.tvamCity
+		    , a.tvamAdultPrice
+		    , a.tvamMaxPersonCount
+		    , a.tvamBedCount
+		    , a.tvamRoomCount
+		    , a.tvamShowerRoomCount
+		    , a.tvamApproveNy
+		    , a.tvamCategoryCd
+		    , a.tvamPoolNy
+		    , a.tvamJacuzziNy
+		    , a.tvamBbqGrillNy
+		    , a.tvamFirePlaceNy
+		    , a.tvamGymNy
+		    , a.tvamWifiNy
+		    , a.tvamTvNy
+		    , a.tvamParkingRoomNy
+		    , a.tvamAirConditionerNy
+		    , a.tvamHeaterNy
+		    , a.tvamFridgeNy
+		    , a.tvamMicrowaveNy
+		    , a.tvamCheckInTime
+		    , a.tvamCheckOutTime
+		    , a.tvmmSeq
+		    , a.tvamTelNumber
+		    , (select tvcdName from tvCode where a.tvamCategoryCd = tvcdSeq) as 'category'
+		    , (select tvmmEmailAccount from tvMember b where a.tvmmSeq = b.tvmmSeq) as 'host'
+		from tvLodging a
+		where 1 = 1
+			and tvamDelNy = 0
+			and tvamSeq = #{tvamSeq}
+	</select>
+
+	<update id="updateLodging">
+		update tvLodging set
+			tvamLodgingName = #{tvamLodgingName}
+			, tvamDesc = #{tvamDesc}
+			, tvamZipCode = #{tvamZipCode}
+			, tvamAddress1 = #{tvamAddress1}
+			, tvamAddress2 = #{tvamAddress2}
+			, tvamAddressFull = #{tvamAddressFull}
+			, tvamState = #{tvamState}
+			, tvamAdultPrice = #{tvamAdultPrice}
+			, tvamMaxPersonCount = #{tvamMaxPersonCount}
+			, tvamBedCount = #{tvamBedCount}
+			, tvamRoomCount = #{tvamRoomCount}
+			, tvamShowerRoomCount = #{tvamShowerRoomCount}
+			, tvamApproveNy = #{tvamApproveNy}
+			, tvamCategoryCd = #{tvamCategoryCd}
+			, tvamPoolNy = #{tvamPoolNy}
+			, tvamJacuzziNy = #{tvamJacuzziNy}
+			, tvamBbqGrillNy = #{tvamBbqGrillNy}
+			, tvamFirePlaceNy = #{tvamFirePlaceNy}
+			, tvamGymNy = #{tvamGymNy}
+			, tvamWifiNy = #{tvamWifiNy}
+			, tvamTvNy = #{tvamTvNy}
+			, tvamParkingRoomNy = #{tvamParkingRoomNy}
+			, tvamAirConditionerNy = #{tvamAirConditionerNy}
+			, tvamHeaterNy = #{tvamHeaterNy}
+			, tvamFridgeNy = #{tvamFridgeNy}
+			, tvamMicrowaveNy = #{tvamMicrowaveNy}
+			, tvamCheckInTime = #{tvamCheckInTime}
+			, tvamCheckOutTime = #{tvamCheckOutTime}
+			, tvamTelNumber = #{tvamTelNumber}
+		where 1=1
+			and tvamSeq = #{tvamSeq}
+	</update>
+
+	<update id="DeleteLodging">		<!-- 가짜삭제(tvamDelNy=1로 바꿈) -->
+		update tvLodging set tvamDelNy = 1 where 1=1 and tvamSeq = #{tvamSeq}
+	</update>	
+
+
+ <!--  ===========================coupon================================= -->
+
+	<select id="selectCoupon" resultMap="resultMapObj">
+		select 
+			a.tvcpSeq
+		    , a.tvcpName
+		    , a.tvcpNumber
+		    , a.tvcpPrice
+		    , a.tvcpStartDate
+		    , a.tvcpEndDate
+		    , a.tvcpDesc
+		    , a.tvamSeq
+		    , b.tvamLodgingName
+            , c.tvmmEmailAccount
+		from tvCoupon a
+	        left join tvLodging b on a.tvamSeq = b.tvamSeq
+	        left join tvMember c on b.tvmmSeq = c.tvmmSeq
+		where 1 = 1
+			and tvcpDelNy = 0
+			<choose>
+				<when test="shOption == 1">and b.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소이름검색 -->
+				<when test="shOption == 2">and a.tvcpName like concat('%', #{shValue}, '%')</when>	<!-- 쿠폰이름검색 -->
+				<when test="shOption == 3">and host like concat('%', #{shValue}, '%')</when> <!-- 호스트검색 -->
+			</choose>
+			limit #{startRnumForMysql}, #{rowNumToShow}			
+			
+	</select>
+	
+	<select id="selectOneCoupon" resultMap="resultMapObj">
+		select 
+			a.tvcpSeq
+		    , a.tvcpName
+		    , a.tvcpNumber
+		    , a.tvcpPrice
+		    , a.tvcpStartDate
+		    , a.tvcpEndDate
+		    , a.tvcpDesc
+		    , a.tvamSeq
+		    , b.tvamLodgingName
+            , c.tvmmEmailAccount
+		from tvCoupon a
+	        left join tvLodging b on a.tvamSeq = b.tvamSeq
+	        left join tvMember c on b.tvmmSeq = c.tvmmSeq
+		where 1 = 1
+			and tvcpDelNy = 0
+			and tvcpSeq = #{tvcpSeq}
+	</select>
+
+
+	<update id="updateCoupon">
+		update tvCoupon set
+			tvcpName = #{tvcpName}
+			, tvcpPrice = #{tvcpPrice}
+			, tvcpStartDate = #{tvcpStartDate}
+			, tvcpEndDate = #{tvcpEndDate}
+			, tvcpDesc = #{tvcpDesc}
+		where 1=1
+			and tvcpSeq = #{tvcpSeq}
+	</update>
+
+	<update id="DeleteCoupon">		<!-- 가짜삭제(tvcpDelNy=1로 바꿈) -->
+		update tvCoupon set tvcpDelNy = 1 where 1=1 and tvcpSeq = #{tvcpSeq}
+	</update>	
+	
+ <!--  ===========================reservation / payment================================= -->
+
+	<select id="selectPayment" resultMap="resultMapObj">
+		select 
+			a.tvpmSeq
+		    , a.tvpmAdNumber
+		    , a.tvpmStartDate
+		    , a.tvpmEndDate
+		    , a.tvpmPrice
+		    , a.tvcpSeq
+		    , b.tvcpPrice
+		    , a.tvpmtotalPrice
+		    , a.tvpmPayTypeCd
+		    , a.tvpmDesc
+            , a.tvamSeq
+            , c.tvamLodgingName
+            , c.tvamTelNumber
+            , (select tvmmEmailAccount from tvMember e where e.tvmmSeq = c.tvmmSeq) as 'hostEmail' 
+            , a.tvmmSeq
+            , d.tvmmName
+            , d.tvmmTelNumber
+            , d.tvmmEmailAccount
+		from tvPayment a
+			left join tvCoupon b on a.tvcpSeq = b.tvcpSeq
+            left join tvLodging c on a.tvamSeq = c.tvamSeq
+            left join tvMember d on a.tvmmSeq = d.tvmmSeq
+		where 1 = 1
+			and tvpmDelNy = 0
+		<choose>
+			<when test="shOption == 1">and c.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소 이름 검색 -->
+			<when test="shOption == 2">and d.tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이메일 검색 -->
+			<when test="shOption == 3">and d.tvmmName like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이름 검색 -->
+		</choose>			
+			limit #{startRnumForMysql}, #{rowNumToShow}	
+	</select>
+	
+	<select id="selectOnePayment" resultMap="resultMapObj">
+		select 
+			a.tvpmSeq
+		    , a.tvpmAdNumber
+		    , a.tvpmStartDate
+		    , a.tvpmEndDate
+		    , a.tvpmPrice
+		    , a.tvcpSeq
+		    , b.tvcpPrice
+		    , a.tvpmtotalPrice
+		    , a.tvpmPayTypeCd
+		    , a.tvpmDesc
+            , a.tvamSeq
+            , c.tvamLodgingName
+            , c.tvamTelNumber
+            , (select tvmmEmailAccount from tvMember e where e.tvmmSeq = c.tvmmSeq) as 'hostEmail' 
+            , a.tvmmSeq
+            , d.tvmmName
+            , d.tvmmTelNumber
+            , d.tvmmEmailAccount
+		from tvPayment a
+			left join tvCoupon b on a.tvcpSeq = b.tvcpSeq
+            left join tvLodging c on a.tvamSeq = c.tvamSeq
+            left join tvMember d on a.tvmmSeq = d.tvmmSeq
+		where 1 = 1
+			and tvpmDelNy = 0
+			and tvpmSeq = #{tvpmSeq}
+	</select>
+
+	<update id="DeletePayment">		<!-- 가짜삭제(tvpmDelNy=1로 바꿈) -->
+		update tvPayment set tvpmDelNy = 1 where 1=1 and tvpmSeq = #{tvpmSeq}
+	</update>	
+
+<!--  ===========================공통코드================================= -->
+
+	<select id="selectListForCacheLodging" resultMap="resultMapObj">
+		select
+			tvcdSeq
+		    , tvcdName
+		    , tvcgSeq
+		from
+			tvCode
+		where 1=1
+			and tvcdDelNy = 0
+	</select>	
+	
+
+<!--  ===========================페이징================================= -->	
+
+	<select id="selectOneCount" resultType="Integer">	<!-- selectCommon 사용 / 페이징 -->
+			select
+				count(*)
+			from tvLodging
+			where 1 = 1
+				and tvamDelNy = 0
+				<choose>
+					<when test="shOption == 1">and category like concat('%', #{shValue}, '%')</when>	<!-- 카테고리검색 -->
+					<when test="shOption == 2">and tvamLodgingName like concat('%', #{shValue}, '%')</when>
+					<when test="shOption == 3">and host like concat('%', #{shValue}, '%')</when> <!-- 호스트검색 -->
+				</choose>
+	</select>	
+		
+	<select id="selectOneCountCoupon" resultType="Integer">	<!-- selectCommon 사용 / 페이징 -->
+			select
+				count(*)
+			from tvCoupon a
+		        left join tvLodging b on a.tvamSeq = b.tvamSeq
+		        left join tvMember c on b.tvmmSeq = c.tvmmSeq
+			where 1 = 1
+				and tvcpDelNy = 0
+				<choose>
+					<when test="shOption == 1">and b.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소이름검색 -->
+					<when test="shOption == 2">and a.tvcpName like concat('%', #{shValue}, '%')</when>	<!-- 쿠폰이름검색 -->
+					<when test="shOption == 3">and host like concat('%', #{shValue}, '%')</when> <!-- 호스트검색 -->
+				</choose>
+	</select>	
+		
+	<select id="selectOneCountPayment" resultType="Integer">	<!-- selectCommon 사용 / 페이징 -->
+		select
+			count(*)
+		from tvPayment a
+			left join tvCoupon b on a.tvcpSeq = b.tvcpSeq
+            left join tvLodging c on a.tvamSeq = c.tvamSeq
+            left join tvMember d on a.tvmmSeq = d.tvmmSeq
+		where 1 = 1
+			and tvpmDelNy = 0
+		<choose>
+			<when test="shOption == 1">and c.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소 이름 검색 -->
+			<when test="shOption == 2">and d.tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이메일 검색 -->
+			<when test="shOption == 3">and d.tvmmName like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이름 검색 -->
+		</choose>				
+	</select>	
+		
+	<select id="selectOneCountHost" resultType="Integer">	<!-- selectCommon 사용 / 페이징 -->
+		select
+			count(*)
+		from tvMember
+		where 1 = 1
+			and tvmmDelNy = 0
+		    and tvmmHostNy = 1
+		<choose>
+			<when test="shOption == 1">and tvmmName like concat('%', #{shValue}, '%')</when>	<!-- 호스트 이름 검색 -->
+			<when test="shOption == 2">and tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 호스트 이메일 검색 -->
+		</choose>
+	</select>		
+	
+	<select id="selectOneCountMember" resultType="Integer">	<!-- selectCommon 사용 / 페이징 -->
+		select
+			count(*)
+		from tvMember
+		where 1 = 1
+			and tvmmDelNy = 0
+		    and tvmmHostNy = 0
+		    and tvmmAdminNy = 0
+		<choose>
+			<when test="shOption == 1">and tvmmName like concat('%', #{shValue}, '%')</when>	<!-- 이름 검색 -->
+			<when test="shOption == 2">and tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 이메일 검색 -->
+		</choose>
+	</select>		
+
+<!--  ===========================로그인================================= -->	
+	
+	<!--login Start-->
+	<select id="selectOneLogin" resultMap="resultMapObj">
+		select 
+			tvmmSeq
+			,tvmmName
+			,tvmmEmailAccount
+			,tvmmAdminNy
+		from tvMember
+		where tvmmEmailAccount = #{tvmmEmailAccount} and tvmmPassword = #{tvmmPassword}
+	</select>
+	
+	<!--login End-->
+
+<!--  ===========================메인뷰================================= -->		
+
+	<select id="selectOneMainView" resultMap="resultMapObj">
+		select 
+			sum(tvpmtotalPrice) as sales
+		    , sum(tvpmtotalPrice)*0.1 as fees
+		    , count(tvpmSeq) as reservationCount
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment
+		where 1=1 
+			and tvpmDelNy = 0
+			and regDateTime > date_add(now(), interval -1 month)
+	</select>
+
+	
+</mapper>
