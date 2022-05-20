@@ -138,6 +138,12 @@ public class UserServiceImpl implements UserService{
 //		}
 //		return item;
 //	}
+
+	@Override
+	public User selectOneLogin(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneLogin(dto);
+	}
 	
 	
 }

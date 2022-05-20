@@ -53,7 +53,7 @@ public class Host {
 	private String tvamCheckOutTime;
 	private String tvamSmokeNy;
 	private String tvamCookingNy;
-	private String tvmmSeq;
+	private Integer tvmmSeq;
 	private String tvamCategory;
 	private String tvamRoomCount;
 	// common
@@ -65,6 +65,17 @@ public class Host {
 	private String tvmmPassword;
 	private String tvmmName;
 	private Integer tvmmHostNy;
+	private String tvmmTelNumber;
+	private String tvmmDob;
+	private String tvmmDesc;
+	private String tvmmAddressFull;
+	
+	//reservation
+	private String tvpmAdNumber;
+	private String tvpmStartDate;
+	private String tvpmEndDate;
+	private String tvpmtotalPrice;
+	private String tvpmSeq;
 	// coupon
 	public Integer getTvcpSeq() {
 		return tvcpSeq;
@@ -428,11 +439,13 @@ public class Host {
 		this.tvamCookingNy = tvamCookingNy;
 	}
 
-	public String getTvmmSeq() {
+	
+
+	public Integer getTvmmSeq() {
 		return tvmmSeq;
 	}
 
-	public void setTvmmSeq(String tvmmSeq) {
+	public void setTvmmSeq(Integer tvmmSeq) {
 		this.tvmmSeq = tvmmSeq;
 	}
 
@@ -497,5 +510,77 @@ public class Host {
 		this.tvmmName = tvmmName;
 	}
 
+	public String getTvmmTelNumber() {
+		return tvmmTelNumber;
+	}
+
+	public void setTvmmTelNumber(String tvmmTelNumber) {
+		this.tvmmTelNumber = tvmmTelNumber;
+	}
+
+	public String getTvmmDob() {
+		return tvmmDob;
+	}
+
+	public void setTvmmDob(String tvmmDob) {
+		this.tvmmDob = tvmmDob;
+	}
+
+	public String getTvmmDesc() {
+		return tvmmDesc;
+	}
+
+	public void setTvmmDesc(String tvmmDesc) {
+		this.tvmmDesc = tvmmDesc;
+	}
+
+	public String getTvmmAddressFull() {
+		return tvmmAddressFull;
+	}
+
+	public void setTvmmAddressFull(String tvmmAddressFull) {
+		this.tvmmAddressFull = tvmmAddressFull;
+	}
+
+	public String getTvpmAdNumber() {
+		return tvpmAdNumber;
+	}
+
+	public void setTvpmAdNumber(String tvpmAdNumber) {
+		this.tvpmAdNumber = tvpmAdNumber;
+	}
+
+	public String getTvpmStartDate() {
+		return tvpmStartDate;
+	}
+
+	public void setTvpmStartDate(String tvpmStartDate) {
+		this.tvpmStartDate = tvpmStartDate;
+	}
+
+	public String getTvpmEndDate() {
+		return tvpmEndDate;
+	}
+
+	public void setTvpmEndDate(String tvpmEndDate) {
+		this.tvpmEndDate = tvpmEndDate;
+	}
+
+	public String getTvpmtotalPrice() {
+		return tvpmtotalPrice;
+	}
+
+	public void setTvpmtotalPrice(String tvpmtotalPrice) {
+		this.tvpmtotalPrice = tvpmtotalPrice;
+	}
+
+	public String getTvpmSeq() {
+		return tvpmSeq;
+	}
+
+	public void setTvpmSeq(String tvpmSeq) {
+		this.tvpmSeq = tvpmSeq;
+	}
+	
 	
 }

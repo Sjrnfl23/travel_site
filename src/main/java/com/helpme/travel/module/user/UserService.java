@@ -41,4 +41,5 @@ public interface UserService {
 //	public int updateMap(User dto) throws Exception;
 //	public int deleteMap(UserVo vo) throws Exception;
 	
+	public User selectOneLogin(User dto) throws Exception;
 }

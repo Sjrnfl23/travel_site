@@ -162,5 +162,22 @@
 			)
 	</insert>
 
+	<!--login Start-->
+	<select id="selectOneLogin" resultMap="resultMapObj">
+	
+	select 
+	tvmmSeq
+	,tvmmName
+	,tvmmEmailAccount
+	,tvmmHostNy
+	
+		
+	from
+	tvMember
+	where tvmmEmailAccount = #{tvmmEmailAccount} and tvmmPassword = #{tvmmPassword}
+	
+	</select>
+	
+	<!--login End-->
 	
 </mapper>

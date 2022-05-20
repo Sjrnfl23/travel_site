@@ -116,13 +116,13 @@
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 이름 :</th>
-                                                            <td class="text-muted">호스트</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvmmName}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 이메일 :</th>
-                                                            <td class="text-muted">ejenit@google.com</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvmmEmailAccount}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
@@ -134,30 +134,24 @@
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 전화번호 :</th>
-                                                            <td class="text-muted">010-1234-1234</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvmmTelNumber}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 주소 :</th>
-                                                            <td class="text-muted">제주특별자치도 서귀포시 안덕면 사계북로 120</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvmmAddressFull}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">생년월일 :</th>
-                                                            <td class="text-muted">1999-09-09</td>
-                                                        </tr>
-                                                        <!-- end tr -->
-
-                                                        <tr>
-                                                            <th class="fw-bold">사용언어 :</th>
-                                                            <td class="text-muted">한국어, 영어</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvmmDob}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
 
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
-                                                            <td class="text-muted">2022-04-26</td>
+                                                            <td class="text-muted"><c:out value="${rt.regDateTime}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                     </tbody><!-- end tbody -->
@@ -171,7 +165,7 @@
                                                     <div class="col-12">
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">소개</h5>
-                                                            <p class="text-muted mb-0" style="text-align: left;">.....</p>
+                                                            <p class="text-muted mb-0" style="text-align: left;"><c:out value="${rt.tvmmDesc}"/></p>
                                                         </div>
                                                     </div>
 
