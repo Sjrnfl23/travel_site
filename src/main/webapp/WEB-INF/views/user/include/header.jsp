@@ -27,7 +27,6 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/user/loginForm" id="login">Login</a>
                                         <a class="nav-link" href="loginForm" id="login">Login</a>
                                       	<a class="nav-link" href="#" id="logout">Logout</a>
                                     </li>
