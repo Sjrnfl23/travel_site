@@ -115,9 +115,19 @@ public class User {
 	private Date tvarDate;
 	//private String tvamSeq;
 	
+	//예약관리
+	private String tvpmSeq;
+	private Integer tvpmAdNumber;
+	private Date tvpmStartDate;
+	private Date tvpmEndDate;
+	private String tvpmtotalPrice;
+	private String tvpmPrice;
+	private String tvcpSeq;
+	private String tvcpPrice;
+	private Integer tvpmPayTypeCd;
+	private String tvpmDesc;
+	
 
-	
-	
 //	===============================================	
 	
 	
@@ -548,6 +558,67 @@ public class User {
 		this.tvplDesc = tvplDesc;
 
 	}
+<<<<<<< HEAD
+	public String getTvpmSeq() {
+		return tvpmSeq;
+	}
+	public void setTvpmSeq(String tvpmSeq) {
+		this.tvpmSeq = tvpmSeq;
+	}
+	public Integer getTvpmAdNumber() {
+		return tvpmAdNumber;
+	}
+	public void setTvpmAdNumber(Integer tvpmAdNumber) {
+		this.tvpmAdNumber = tvpmAdNumber;
+	}
+	public Date getTvpmStartDate() {
+		return tvpmStartDate;
+	}
+	public void setTvpmStartDate(Date tvpmStartDate) {
+		this.tvpmStartDate = tvpmStartDate;
+	}
+	public Date getTvpmEndDate() {
+		return tvpmEndDate;
+	}
+	public void setTvpmEndDate(Date tvpmEndDate) {
+		this.tvpmEndDate = tvpmEndDate;
+	}
+	public String getTvpmtotalPrice() {
+		return tvpmtotalPrice;
+	}
+	public void setTvpmtotalPrice(String tvpmtotalPrice) {
+		this.tvpmtotalPrice = tvpmtotalPrice;
+	}
+	public String getTvpmPrice() {
+		return tvpmPrice;
+	}
+	public void setTvpmPrice(String tvpmPrice) {
+		this.tvpmPrice = tvpmPrice;
+	}
+	public String getTvcpSeq() {
+		return tvcpSeq;
+	}
+	public void setTvcpSeq(String tvcpSeq) {
+		this.tvcpSeq = tvcpSeq;
+	}
+	public String getTvcpPrice() {
+		return tvcpPrice;
+	}
+	public void setTvcpPrice(String tvcpPrice) {
+		this.tvcpPrice = tvcpPrice;
+	}
+	public Integer getTvpmPayTypeCd() {
+		return tvpmPayTypeCd;
+	}
+	public void setTvpmPayTypeCd(Integer tvpmPayTypeCd) {
+		this.tvpmPayTypeCd = tvpmPayTypeCd;
+	}
+	public String getTvpmdesc() {
+		return tvpmDesc;
+	}
+	public void setTvpmdesc(String tvpmdesc) {
+		this.tvpmDesc = tvpmdesc;
+=======
 	public String getTableName() {
 		return tableName;
 	}
@@ -662,6 +733,7 @@ public class User {
 	}
 	public void setFile1(MultipartFile[] file1) {
 		this.file1 = file1;
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 	}	
 
 	

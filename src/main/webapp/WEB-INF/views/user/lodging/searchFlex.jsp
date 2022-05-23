@@ -190,7 +190,7 @@
 	                        <div class="col-md-4 card-2">
 	                            <!-- card-1 -->
 	                            <div class="card">
-	                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
+	                                <a href="/user/lodgingView?tvamSeq=<c:out value="${item.tvamSeq}"/>"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
 	                                <div class="card-body" style="height: 269px;">
 	                                    <h5 class="card-title"><c:out value="${item.tvamLodgingName}"/></h5>
 	                                    <ul class="card-rating">
@@ -202,7 +202,6 @@
 	                                </div>
 	                                <div class="card-bottom">
 	                                    <p><i class="ti-location-pin"></i><c:out value="${item.tvamAddress1}"/></p>
-	                                    <span>Closed Now</span>
 	                                </div>
 	                            </div>
 	                        </div>
