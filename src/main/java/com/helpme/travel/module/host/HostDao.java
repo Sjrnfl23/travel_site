@@ -34,18 +34,21 @@ public class HostDao {
    public int updateLodging(Host dto){ return sqlSession.update(namespace + ".updateLodging",dto); }
    public int deleteLodging(HostVo vo) { return sqlSession.delete(namespace+".deleteLodging",vo); }
    
-   //main
+   //login,signUp,hostView
    
    public Host selectOneLogin(Host dto) {return sqlSession.selectOne(namespace + ".selectOneLogin", dto);}
    public Host selectOneHost(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneHost", vo); }
+   public int insertHost(Host dto) {return sqlSession.insert(namespace + ".insertHost",dto); }
    
    //reservation
-   public List<Host> selectReservation(Host dto){return sqlSession.selectList(namespace+".selectReservation",dto);}
+   public List<Host> selectReservation(Host dto){return sqlSession.selectList(namespace + ".selectReservation",dto); }
    
    //paging
-   public int selectOneCountLodging(HostVo vo) {return sqlSession.selectOne(namespace+".selectOneCountLodging",vo);}
-   public int selectOneCountCoupon(HostVo vo) {return sqlSession.selectOne(namespace+".selectOneCountCoupon",vo);}
-   public int selectOneCountReservation(HostVo vo) {return sqlSession.selectOne(namespace+".selectOneCountReservation",vo);}
+   public int selectOneCountLodging(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountLodging",vo);}
+   public int selectOneCountCoupon(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountCoupon",vo);}
+   public int selectOneCountReservation(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountReservation",vo);}
+   
+   
    
 }
 

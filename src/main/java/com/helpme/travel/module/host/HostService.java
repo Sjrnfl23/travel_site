@@ -19,9 +19,10 @@ public interface HostService {
 	public int updatelodging(Host dto) throws Exception;
 	public int deletelodging(HostVo Vo) throws Exception;
 	
-	//main
+	 //login,signUp,hostView
 	public Host selectOneLogin(Host dto) throws Exception;
 	public Host selectOneHost(HostVo vo) throws Exception;
+	public int insertHost(Host dto) throws Exception;
 	
 	//Reservation
 	public List<Host> selectReservation(Host dto) throws Exception;

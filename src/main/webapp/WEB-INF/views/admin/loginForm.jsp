@@ -93,7 +93,7 @@
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <p class="mb-0">계정이 없으신가요? <a href="auth-register.html" class="fw-medium text-primary"> 회원가입 </a> </p>
+                                            <p class="mb-0">계정이 없으신가요? <a href="" class="fw-medium text-primary"> 회원가입 </a> </p>
                                         </div>
                                     </form>
                                 </div>

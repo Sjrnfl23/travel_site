@@ -5,14 +5,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="/user/mainView"><img src="/resources/user/images/nowTravel_logo.jpg" alt="logo"></a>
+                            <a class="navbar-brand" href="/"><img src="/resources/user/images/nowTravel_logo.jpg" alt="logo"></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="ti-menu"></span>
               </button>
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/user/searchFlex">유연한검색</a>
+                                        <a class="nav-link" href="searchFlex">유연한검색</a>
                                     </li>
 
                                     <li class="nav-item dropdown">
@@ -21,13 +21,15 @@
                     						<span class="ti-angle-down"></span>
                   						</a>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="/user/reservation">예약내역</a>
-                                            <a class="dropdown-item" href="/user/mapList">여행지도</a>
-                                            <a class="dropdown-item" href="/user/userInfoView">회원정보 수정</a>
+                                            <a class="dropdown-item" href="reservation">예약내역</a>
+                                            <a class="dropdown-item" href="mapList">여행지도</a>
+                                            <a class="dropdown-item" href="userInfoView">회원정보 수정</a>
                                         </div>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/user/loginForm" id="login">Login</a>
+                                        <a class="nav-link" href="loginForm" id="login">Login</a>
+                                      	<a class="nav-link" href="#" id="logout">Logout</a>
                                     </li>
                                     <li style="margin-right: 10px;"><a href="/host/loginForm" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>호스트 로그인</a></li>
                                     <li><a href="/admin/loginForm" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>관리자 로그인</a></li>
@@ -48,22 +50,24 @@ $(function init(){
 	
 	 let loginNy=0;
 	 
+	 
+	 
 	 $.ajax({
 	 		async: true 
 	 		,cache: false
 	 		,type: "post"
-	 		,url: "/user/loginCheck"
+	 		,url: "/loginCheck"
 	 		,data : {}
 	 		,success: function(response) {
 	 			if(response.rt == "pass") {
 	 				let loginNy=1;
 	 				
-	 				$("#login").replaceWith('<a class="nav-link logout" href="#" id="logout">Logout</a>');
+	 				$("#login").hide();
 	 				
 	 				console.log(loginNy);
 	 			} else {
 	 				let loginNy=0;
-	 				console.log("오류")
+	 				$("#logout").hide();
 	 			}
 	 		}
 	 		,error : function(jqXHR, textStatus, errorThrown){
@@ -85,11 +89,11 @@ $("#logout").on("click",function(){
  		async: true 
  		,cache: false
  		,type: "post"
- 		,url: "/user/logoutProc"
+ 		,url: "/logoutProc"
  		,data : {}
  		,success: function(response) {
  			if(response.rt == "success") {
- 				location.href = "/user/loginForm";
+ 				location.href = ""
  			} else {
  				alert("에러");
  			}

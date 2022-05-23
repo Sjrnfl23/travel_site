@@ -29,9 +29,11 @@ public class UserVo {
 		this.tvamSeq = tvamSeq;
 	}
 
+
 	public String getTvpmSeq() {
 		return tvpmSeq;
 	}
+
 	public String getTvplSeq() {
 		return tvplSeq;
 	}

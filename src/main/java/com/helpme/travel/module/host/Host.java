@@ -69,6 +69,8 @@ public class Host {
 	private String tvmmDob;
 	private String tvmmDesc;
 	private String tvmmAddressFull;
+	private String tvmmAddress1;
+	private String tvmmAddress2;
 	
 	//reservation
 	private String tvpmAdNumber;
@@ -580,6 +582,22 @@ public class Host {
 
 	public void setTvpmSeq(String tvpmSeq) {
 		this.tvpmSeq = tvpmSeq;
+	}
+
+	public String getTvmmAddress1() {
+		return tvmmAddress1;
+	}
+
+	public void setTvmmAddress1(String tvmmAddress1) {
+		this.tvmmAddress1 = tvmmAddress1;
+	}
+
+	public String getTvmmAddress2() {
+		return tvmmAddress2;
+	}
+
+	public void setTvmmAddress2(String tvmmAddress2) {
+		this.tvmmAddress2 = tvmmAddress2;
 	}
 	
 	
