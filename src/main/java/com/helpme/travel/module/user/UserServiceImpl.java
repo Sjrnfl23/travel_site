@@ -70,11 +70,10 @@ public class UserServiceImpl implements UserService{
 //			return dao.insertPayment(dto);
 //		}
 //		// 예약내역
-//	@Override
-//	public int insertReservation(User dto) throws Exception {
-//		
-//		return dao.insertReservation(dto);
-//	}
+	@Override
+	public User selectOneReservation(UserVo vo) throws Exception {	
+		return dao.selectOneReservation(vo);
+	}
 //		//리뷰
 //	@Override
 //	public int insertReview(User dto) throws Exception {

@@ -1,23 +1,13 @@
 package com.helpme.travel.module.user;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.helpme.travel.module.user.User;
-import com.helpme.travel.module.user.UserVo;
-import com.helpme.travel.module.user.UserServiceImpl;
 
 
 
@@ -98,10 +88,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/lodgingView")
-	public String UserLodgingView(@ModelAttribute("vo") UserVo vo,Model model) throws Exception {
+	public String UserLodgingView(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
 		
-		User item= service.selectOneLodgingView(vo);
-		model.addAttribute("item", item);
+		User list= service.selectOneLodgingView(vo);
+		model.addAttribute("list", list);
 		
 		return "user/lodging/lodgingView";
 	}
@@ -111,7 +101,10 @@ public class UserController {
 		return "user/lodging/payment";
 	}
 	@RequestMapping(value = "/user/reservation")
-	public String UserReservation(Model model) throws Exception {
+	public String UserReservation(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
+		
+		User item= service.selectOneReservation(vo);
+		model.addAttribute("item", item);
 		
 		return "user/lodging/reservation";
 	}

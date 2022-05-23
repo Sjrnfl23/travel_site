@@ -6,6 +6,9 @@ public class UserVo {
 	
 //	lodging
 	private String tvamSeq;
+
+// reservation
+	private String tvpmSeq;
 	
 	
 	// --------------------------------
@@ -25,7 +28,15 @@ public class UserVo {
 		this.tvamSeq = tvamSeq;
 	}
 
+	public String getTvpmSeq() {
+		return tvpmSeq;
+	}
 
+	public void setTvpmSeq(String tvpmSeq) {
+		this.tvpmSeq = tvpmSeq;
+	}
+
+	
 	
 	
 	

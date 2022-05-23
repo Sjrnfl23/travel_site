@@ -128,7 +128,6 @@
                 <div class="col-md-10">
                     <div class="titile-block title-block_subpage">
                         <h2>예약 내역</h2>
-                        <p> 예약중 / 지난예약</p>
                     </div>
                 </div>
             </div>
@@ -145,47 +144,101 @@
                             <!-- General Information -->
                             <div class="listing-title">
                                 <span class="ti-gift"></span>
-                                <h4>예약중</h4>
-                                <p>현재 예약된 내역을 확인하세요.</p>
                             </div>
 	                        <div class="row">
 	                            <div class="col-12">
 	                                <div class="card">
 	                                    <div class="card-body">
-	                                        <!-- js/pages/reservationList.init.js 파일에 테이블 데이터있음 -->
-	                                        <div id="table-ecommerce-orders"></div>
+	                                    <div class="position-relative">
+                                            <!-- <div class="modal-button mt-2">
+                                                <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">선택삭제</button>
+                                            </div> -->
+                                        </div>
+	                                        <div class="table table-responsive" style="white-space:nowrap; margin:auto;">
+										 <table class="table table-responsive">
+<%--                                         		<div class="gridjs-head">
+                                        		 	<div class="gridjs-search">
+                                        				<div style ="display: inline-block; padding-right: 0;">
+				                            				<select name="shOption" id="shOption" class="form-select form-select-sm">
+																<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색구분::
+																<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>숙소이름
+																<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>사용자메일
+																<option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>사용자이름
+															</select>                                         			
+                                        				</div> 
+                                        				<div style ="display: inline-block; padding-right: 0;">
+                                        					<input type="text" name="shValue" id="shValue" value="<c:out value="${vo.shValue}"/>" class="gridjs-input gridjs-search-input" placeholder="검색어를 입력해주세요.">
+                                        				</div>
+		                             	   				<button type="submit" class="btn btn-outline-secondary" name="search" id="btnSubmit">
+															<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+																<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+															</svg>   				
+			   											</button>           				
+                                        			</div>
+                                        		</div>	 --%>									 
+											<thead style="background-color: rgb(248,249,250);">
+												<tr>
+													<th><input type="checkbox" id="checkboxAll" name="" value="" class="form-check-input"></th>
+													<th style="text-align: center;">No.</th>
+													<th>예약현황</th>
+													<th>숙소이름</th>
+													<th>호스트</th>
+													<th>사용자</th>
+													<th>이름</th>
+													<th>연락처</th>
+													<th>인원</th>
+													<th>시작일</th>
+													<th>종료일</th>
+													<th>가격</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+										<c:choose>
+											<c:when test="${fn:length(list) eq 0}">
+												<tr>
+													<td class="text-center" colspan="12">검색된 내용이 없습니다.</td>
+												</tr>	
+											</c:when>
+											<c:otherwise>												
+												
+													<tr>
+														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${list.tvmmSeq}"/>" class="form-check-input"></td>
+														<td><c:out value="${list.tvmmSeq}"/></td>
+														<td>예약현황</td>
+														<td><c:out value="${list.tvamLodgingName}"/></td>
+														<td><c:out value="${list.hostEmail}"/></td>
+														<td><c:out value="${list.tvmmEmailAccount}"/></td>
+														<td><c:out value="${list.tvmmName}"/></td>
+														<td><c:out value="${list.tvmmTelNumber}"/></td>
+														<td><c:out value="${list.tvpmAdNumber}"/>명</td>
+														<td><c:out value="${list.tvpmStartDate}"/></td>
+														<td><c:out value="${list.tvpmEndDate}"/></td>
+														<td><c:out value="${list.tvpmtotalPrice}"/>원</td>
+														<td>
+															<div class="d-flex gap-3">
+																<a href="/user/reservation?tvmmSeq=<c:out value="${list.tvmmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="상세" class="text-success">
+																	<i class="mdi mdi-pencil font-size-18"></i>
+																</a>
+																<button type="button" class="btn" id="btnDelete" value="<c:out value="${list.tvmmSeq}"/>" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>
+															</div>													
+														</td>
+													</tr>
+												
+											</c:otherwise>
+										</c:choose>
+											</tbody>
+										</table>
+                                    </div>	                                       
 	                                    </div>
 	                                </div>
 	                            </div>
 	                        </div>
+
                         <!-- end row -->
                     <!-- container-fluid -->
                         </form>
-                    </div>
-                    <br>
-                    
-                    <div class="listing-wrap">
-                        <form action="#">
-                            <!-- General Information -->
-                            <div class="listing-title">
-                                <span class="ti-time"></span>
-                                <h4>지난예약</h4>
-                                <p>지난 예약 내역을 확인하세요.</p>
-                            </div>
-	                        <div class="row">
-	                            <div class="col-12">
-	                                <div class="card">
-	                                    <div class="card-body">
-	                                        <!-- js/pages/reservationList.init.js 파일에 테이블 데이터있음 -->
-	                                        <div id="table-ecommerce-orders2"></div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-                        <!-- end row -->
-                    <!-- container-fluid -->
-                        </form>
-                    </div>
+                    </div>               
                 </div>
             </div>
         </div>
