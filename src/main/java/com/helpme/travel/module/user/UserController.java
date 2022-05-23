@@ -1,42 +1,36 @@
 package com.helpme.travel.module.user;
 
-<<<<<<< HEAD
-=======
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 import java.util.List;
-<<<<<<< HEAD
-=======
 import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
-=======
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-<<<<<<< HEAD
 
 
-=======
+
+
 import com.helpme.travel.module.host.Host;
 import com.helpme.travel.module.user.User;
 import com.helpme.travel.module.user.UserVo;
 import com.helpme.travel.module.user.UserServiceImpl;
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
 
 @Controller
 public class UserController {
@@ -125,17 +119,13 @@ public class UserController {
 
 	@RequestMapping(value = "/user/lodgingView")
 	public String UserLodgingView(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
-<<<<<<< HEAD
 		
 		User list= service.selectOneLodgingView(vo);
 		model.addAttribute("list", list);
 		
-=======
-
 		User item = service.selectOneLodgingView(vo);
 		model.addAttribute("item", item);
 
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 		return "user/lodging/lodgingView";
 	}
 
@@ -146,16 +136,11 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/user/reservation")
-<<<<<<< HEAD
 	public String UserReservation(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
 		
 		User item= service.selectOneReservation(vo);
 		model.addAttribute("item", item);
-		
-=======
-	public String UserReservation(Model model) throws Exception {
 
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 		return "user/lodging/reservation";
 	}
 
