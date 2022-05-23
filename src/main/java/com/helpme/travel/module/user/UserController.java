@@ -1,11 +1,13 @@
 package com.helpme.travel.module.user;
 
-
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
+
+
 import java.util.List;
+
 
 import java.util.Locale;
 import java.util.Map;
@@ -23,8 +25,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.context.support.HttpRequestHandlerServlet;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+
 
 
 import com.helpme.travel.module.host.Host;
@@ -43,6 +49,12 @@ public class UserController {
 	 */
 
 	// User
+
+	
+	
+
+	
+	
 	@RequestMapping(value = "/loginForm")
 	public String UserLoginProc(Model model) throws Exception {
 
@@ -104,7 +116,7 @@ public class UserController {
 
 	// Lodging
 
-	@RequestMapping(value = "")
+	@RequestMapping(value = "/")
 	public String mainView(Model model,HttpServletRequest httpservletrequest) throws Exception {
 		
 		return "user/lodging/mainView";
@@ -116,7 +128,6 @@ public class UserController {
 		User list= service.selectOneLodgingView(vo);
 		model.addAttribute("list", list);
 		
-
 
 		User item = service.selectOneLodgingView(vo);
 		model.addAttribute("item", item);
@@ -131,17 +142,18 @@ public class UserController {
 		return "user/lodging/payment";
 	}
 
-	@RequestMapping(value = "/reservation")
 
+	
+	@RequestMapping(value = "/reservation")
 	public String UserReservation(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
 		
 		User item= service.selectOneReservation(vo);
 		model.addAttribute("item", item);
+
 		return "user/lodging/reservation";
 	}
-
+	@RequestMapping(value = "/reservation")
 	public String UserReservation(Model model) throws Exception {
-
 
 		return "user/lodging/reservation";
 	}

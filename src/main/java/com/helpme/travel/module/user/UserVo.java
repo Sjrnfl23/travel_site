@@ -44,7 +44,6 @@ public class UserVo {
 
 
 
-
 	public void setTvpmSeq(String tvpmSeq) {
 		this.tvpmSeq = tvpmSeq;
 	}

@@ -619,6 +619,7 @@ public class User {
 	public void setTvpmdesc(String tvpmdesc) {
 		this.tvpmDesc = tvpmdesc;
 	}
+
 	public String getTableName() {
 		return tableName;
 	}
