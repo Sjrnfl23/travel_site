@@ -150,6 +150,7 @@
 												</tr>
 											</thead>
 											<tbody>
+											
 										<c:choose>
 											<c:when test="${fn:length(list) eq 0}">
 												<tr>

@@ -129,7 +129,7 @@
                                     <h6 class="mb-0"> <c:out value="${adminSessName}"/></h6>
                                     <p class="mb-0 font-size-11 text-muted"><c:out value="${adminSessEmail}"/></p>
                                 </div>
-                                <a class="dropdown-item" href="hostInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
+                                <a class="dropdown-item" href="adminInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle" id="logOut">로그아웃</span></a>
