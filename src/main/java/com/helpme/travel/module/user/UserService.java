@@ -30,7 +30,7 @@ public interface UserService {
 //	public int insertPayment(User dto) throws Exception;
 //	
 //	//예약 내역
-//	public int insertReservation(User dto) throws Exception;
+	public User selectOneReservation(UserVo vo) throws Exception;
 //	public int insertReview(User dto) throws Exception;
 //	public int updateReview(User dto) throws Exception;
 //	int deleteReview(UserVo vo) throws Exception;

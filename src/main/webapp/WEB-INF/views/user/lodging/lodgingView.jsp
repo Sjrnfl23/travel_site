@@ -316,7 +316,7 @@
                         <div class="customer-review_wrap">
                             <div class="customer-img">
                                 <img src="/resources/user/images/review1.jpg" class="img-fluid" alt="#">
-                                <p>화영</p>
+                                <p><%-- <c:out value="${item.tvmmName"/> --%></p>
                             </div>
                             <div class="customer-content-wrap">
                                 <div class="customer-content">
@@ -329,7 +329,7 @@
                                         <span class="round-icon-blank"></span>
                                         <p><%-- <c:out value="${item.tvarDate"/> --%></p>
                                     </div>
-                                    <div class="customer-rating"><%-- <c:out value="${item.tvarStarPoint}"/> --%></div>
+                                    <div class="customer-rating"><%-- <c:out value="${item.tvarStarPoint"/> --%></div>
                                 </div>
                                 <p class="customer-text"><%-- <c:out value="${item.tvarReview}"/> --%></p>
 

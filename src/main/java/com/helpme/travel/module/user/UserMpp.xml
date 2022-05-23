@@ -51,7 +51,8 @@
 	<!-- SearchFlex List -->
 	 <select id="selectListSearchFlex" resultMap="resultMapObj">
 			SELECT 
-				tvamLodgingName
+				tvamSeq
+				,tvamLodgingName
 				,tvamDesc
 				,tvamAddress1
 			FROM
@@ -68,26 +69,38 @@
 				</choose>
 
 	</select>
-<!-- 	
-	Reservation List
-	<select id="selectListReservation" resultMap="resultMapObj">
-		SELECT
-			tvamSeq
-			,tvamLodgingName
-			,tvamPrice
-			,tvamCheckInTime
-			,tvamCheckOutTime
-			
-			
-		FROM
-			tvLodging
-		WHERE 1=1
-			AND tvamDelNy = 0
-			
-				
+	
+	<!-- Reservation -->
+	<select id="selectOneReservation" resultMap="resultMapObj">
+		select 
+			a.tvpmSeq
+		    , a.tvpmAdNumber
+		    , a.tvpmStartDate
+		    , a.tvpmEndDate
+		    , a.tvpmPrice
+		    , a.tvcpSeq
+		    , b.tvcpPrice
+		    , a.tvpmtotalPrice
+		    , a.tvpmPayTypeCd
+		    , a.tvpmDesc
+            , a.tvamSeq
+            , c.tvamLodgingName
+            , c.tvamTelNumber
+            , (select tvmmEmailAccount from tvMember e where e.tvmmSeq = c.tvmmSeq) as 'hostEmail' 
+            , a.tvmmSeq
+            , d.tvmmName
+            , d.tvmmTelNumber
+            , d.tvmmEmailAccount
+		from tvPayment a
+			left join tvCoupon b on a.tvcpSeq = b.tvcpSeq
+            left join tvLodging c on a.tvamSeq = c.tvamSeq
+            left join tvMember d on a.tvmmSeq = d.tvmmSeq
+		where 1 = 1
+			and tvpmDelNy = 0
+			and tvpmSeq = #{tvpmSeq}
 	</select>
 
-	 -->
+	
 	<!-- LodgingView -->
 	<select id="selectOneLodgingView" resultMap="resultMapObj">
 		SELECT
@@ -106,15 +119,17 @@
 			,a.tvamDesc
 			,a.tvamHostName
 			,a.tvmmSeq
-			,b.tvmmEmailAccount
 			<!-- ,b.tvarSeq
 			,b.tvarReview
 			,b.tvarStarPoint
-			,b.tvarDate -->
+			,b.tvarDate 
+			,c.tvmmSeq
+			,c.tvmmName
+			,c.tvmmEmailAccount -->
 		FROM
 			travel_site.tvLodging a
-			<!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  -->
-			LEFT OUTER JOIN travel_site.tvMember AS b ON b.tvmmSeq = a.tvmmSeq
+			<!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  
+			LEFT OUTER JOIN travel_site.tvMember AS c ON c.tvmmSeq = a.tvmmSeq -->
 		WHERE 1=1
 			AND a.tvamDelNy = 0 
 			AND a.tvamSeq = #{tvamSeq}
