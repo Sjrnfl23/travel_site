@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.helpme.travel.module.host.HostMpp" >
+<mapper namespace="com.helpme.travel.module.host.HostMpp">
 
-<resultMap id="resultMapObj" type="com.helpme.travel.module.host.Host" ></resultMap>
+	<resultMap id="resultMapObj" type="com.helpme.travel.module.host.Host"></resultMap>
 
 	<select id="selectCoupon" resultMap="resultMapObj">
 	 select
@@ -24,7 +24,7 @@
 			where 
 				1=1
 				and tvcpDelNy=0
-				and b.tvmmSeq=1
+				and b.tvmmSeq= #{tvmmSeq}
 				
 	</select>
 	<select id="selectOneCoupon" resultMap="resultMapObj">
@@ -47,26 +47,19 @@
 				and tvcpDelNy=0
 				and tvcpSeq=#{tvcpSeq} 
 	</select>
+
+	<select id="selectCouponOption" resultMap="resultMapObj">
 	
-<select id="selectCouponOption" resultMap="resultMapObj">
-	 select		
-	 			a.tvamSeq
-				,a.tvcpSeq
-				,b.tvamLodgingName
-				
+				select
+					tvamLodgingName
+					,tvamSeq
 				from
-				tvCoupon a
-				
-			left join tvLodging b on a.tvamseq=b.tvamseq
-			
-			where 
-				1=1
-				and tvcpDelNy=0
-				and b.tvmmSeq=1
-				group by b.tvamSeq ;
+					tvLodging
+				where
+					tvmmSeq=#{tvmmSeq}	
 				
 	</select>
-	
+
 
 	<insert id="insertCoupon">
 		insert into tvCoupon(
@@ -108,7 +101,7 @@
 				and tvcpSeq=#{tvcpSeq} 
 		
 	</update>
-		
+
 	<delete id="deleteCoupon">
 		delete 
 			from tvCoupon a
@@ -116,11 +109,11 @@
 			tvcpSeq=#{tvcpSeq}
 	</delete>
 
-		<!--coupon end -->
-		
-		<!--lodging start-->
-		
-		<select id="selectLodging" resultMap="resultMapObj">
+	<!--coupon end -->
+
+	<!--lodging start-->
+
+	<select id="selectLodging" resultMap="resultMapObj">
 	 	select
 	 			a.tvamSeq
 				,a.tvamLodgingName
@@ -139,11 +132,11 @@
 			where 
 				1=1
 				and tvamDelNy=0
-				and a.tvmmSeq=1
+				and a.tvmmSeq = #{tvmmSeq}
 				
 	</select>
-	
-			<select id="selectOneLodging" resultMap="resultMapObj">
+
+	<select id="selectOneLodging" resultMap="resultMapObj">
 	 	select
 	 			a.tvamSeq
 				,a.tvamLodgingName
@@ -170,8 +163,8 @@
 				and tvamDelNy=0
 				and tvamSeq=#{tvamSeq}
 	</select>
-	
-	
+
+
 	<insert id="insertLodging">
 		insert into tvLodging(
 				
@@ -204,14 +197,14 @@
 				,#{tvamCheckInTime}
 				,#{tvamCheckOutTime}
 				,#{tvamDesc}
-				,1
+				,#{tvmmSeq}
 				,0
 			)
 	
 	
-	</insert>	
-	
-<update id="updateLodging">
+	</insert>
+
+	<update id="updateLodging">
 		update tvLodging a
 			set 
 				a.tvamLodgingName =#{tvamLodgingName}
@@ -232,41 +225,41 @@
 		
 	</update>
 
-<delete id="deleteLodging">
+	<delete id="deleteLodging">
 		delete 
 			from tvLodging a
 		where
 			tvamSeq=#{tvamSeq}
 	</delete>
-	
+
 	<!--main-->
-	
+
 	<!--userInfo start-->
 	<select id="selectOneHost" resultMap="resultMapObj">
 	select
 	 
 	tvmmName
-	,tvmmEmailFull
+	,tvmmEmailAccount
+	,tvmmPassword
 	,tvmmAddressFull
 	,tvmmTelNumber
 	,tvmmDob
 	,regDateTime
+	,tvmmDesc
 	
 	from
 		tvMember a
 		where 1=1
 		and tvmmHostNy=1
-		and tvmmSeq=1
+		and tvmmSeq=#{tvmmSeq}
 		
 	</select>
-	
-	<update id="updateHost">
-	
-	</update>
-	
+
+	<update id="updateHost"></update>
+
 	<!--userInfo End-->
-	
-	
+
+
 	<!--login Start-->
 	<select id="selectOneLogin" resultMap="resultMapObj">
 	
@@ -282,7 +275,60 @@
 	where tvmmEmailAccount = #{tvmmEmailAccount} and tvmmPassword = #{tvmmPassword}
 	
 	</select>
-	
+
 	<!--login End-->
+
+	<!--reservation Start-->
+
+	<select id="selectReservation" resultMap="resultMapObj">
+	select
+		tvpmSeq
+		,tvamLodgingName
+		,tvpmStartDate
+		,tvpmEndDate
+		,tvpmtotalPrice
+		,tvmmEmailAccount
+		,tvmmName
+		,tvmmTelNumber
+		,tvpmAdNumber
+		
 	
+		
+		from tvPayment a
+			left join tvMember b on a.tvmmSeq=b.tvmmSeq 
+			left join tvLodging c on a.tvamSeq=c.tvamSeq 
+		where tvpmDelNy=0 and c.tvmmSeq = #{tvmmSeq}
+				
+		
+	
+	</select>
+	
+	<select id="selectOneCountLodging" resultType="Integer" >	<!-- selectCommon 사용 / 페이징 -->
+			select
+				count(*)
+			from tvLodging
+			where tvmmSeq= #{tvmmSeq}
+				and tvamDelNy = 0
+				
+	</select>
+	<select id="selectOneCountCoupon" resultType="Integer" >	<!-- selectCommon 사용 / 페이징 -->
+			select
+				count(*)
+			from tvCoupon a
+			left join tvLodging b on a.tvamseq=b.tvamseq
+			where b.tvmmSeq= #{tvmmSeq}
+				and a.tvcpDelNy = 0
+				
+	</select>
+	<select id="selectOneCountReservation" resultType="Integer" >	<!-- selectCommon 사용 / 페이징 -->
+			select
+				count(*)
+			from tvPayment a
+			left join tvLodging c on a.tvamSeq=c.tvamSeq 
+		where tvpmDelNy=0 and c.tvmmSeq = #{tvmmSeq}
+				
+	</select>
+	
+
+	<!--reservation End-->
 </mapper> 

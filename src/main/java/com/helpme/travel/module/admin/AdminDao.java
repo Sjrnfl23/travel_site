@@ -68,6 +68,8 @@ public class AdminDao {
    public int selectOneCountHost(AdminVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountHost", vo);}
    public int selectOneCountMember(AdminVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountMember", vo);}
 
+   // ==========================mainView===================================
 
+   public Admin selectOneMainView(Admin dto){return sqlSession.selectOne(namespace + ".selectOneMainView", dto);}
 }
 

@@ -51,7 +51,8 @@
 	<!-- SearchFlex List -->
 	 <select id="selectListSearchFlex" resultMap="resultMapObj">
 			SELECT 
-				tvamLodgingName
+				tvamSeq
+				,tvamLodgingName
 				,tvamDesc
 				,tvamAddress1
 			FROM
@@ -139,20 +140,27 @@
 	<!-- PhotoMap -->
 	<select id="selectMap" resultMap="resultMapObj">
 		SELECT 
-			tvplSeq
-			,tvplLat
-			,tvplLng
-			,tvplTitle
-			,tvplDesc
-			,tvplEmotionCd
-			,tvplDelNy
-			,tvmmSeq
+			a.tvplSeq
+			,a.tvplLat
+			,a.tvplLng
+			,a.tvplTitle
+			,a.tvplDesc
+			,a.tvplEmotionCd
+			,a.tvplDelNy
+			,a.tvmmSeq
+			,b.year
+			,b.month
+			,b.day
+			,b.uuidName
+			,b.type
+			,b.sort
 		FROM
-			tvPhotoMapLocation
+			tvPhotoMapLocation a
+			left join travel_site.tvPhotoMapPhoto as b on b.pseq = a.tvplSeq and b.delNy = 0 and b.sort = 0 and b.type = 0
 		WHERE 1=1
 			AND tvplDelNy = 0
 			AND tvmmSeq = 1
-	</select>    
+	</select>     
 	
 	<insert id="insertMap">
 		INSERT INTO tvPhotoMapLocation (
@@ -163,6 +171,7 @@
 			,tvplDesc
 			,tvplEmotionCd
 			,tvplDelNy
+			,regDateTime
 			,tvmmSeq
 			) VALUES (
 			#{tvplSeq}
@@ -172,9 +181,62 @@
 			,#{tvplDesc}
 			,#{tvplEmotionCd}
 			,0
+			,#{regDateTime}
 			,1
 			)
+			
+			<selectKey resultType="String" keyProperty="tvplSeq" order="AFTER">		<!-- 파생테이블 seq값을 넣을 수 있도록 해준다 -->
+			SELECT last_insert_id()
+			</selectKey>
+	</insert>
+	<insert id="insertPhotoMapUploaded">
+		INSERT INTO ${tableName} (
+			type
+			,defaultNy
+			,sort
+			,originalName
+			,uuidName
+			,ext
+			,size
+			,delNy
+			,year
+			,month
+			,day
+			,regDateTime
+			,pseq
+		) values (
+			#{type}
+			,#{defaultNy}
+			,#{sort}
+			,#{originalName}
+			,#{uuidName}
+			,#{ext}
+			,#{size}
+			,0
+			,#{year}
+			,#{month}
+			,#{day}
+			,#{regDateTime}
+			,#{pseq}
+		)
 	</insert>
 
+	<!--login Start-->
+	<select id="selectOneLogin" resultMap="resultMapObj">
+	
+	select 
+	tvmmSeq
+	,tvmmName
+	,tvmmEmailAccount
+	,tvmmHostNy
+	
+		
+	from
+	tvMember
+	where tvmmEmailAccount = #{tvmmEmailAccount} and tvmmPassword = #{tvmmPassword}
+	
+	</select>
+	
+	<!--login End-->
 	
 </mapper>

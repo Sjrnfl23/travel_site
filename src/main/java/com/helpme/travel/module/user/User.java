@@ -2,6 +2,8 @@ package com.helpme.travel.module.user;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class User {
 	
 	// 숙소정보
@@ -72,13 +74,38 @@ public class User {
 	
 
 	// photomap
-	private Integer tvplSeq;
+	private String tvplSeq;
 	private double tvplLat;
 	private double tvplLng;
 	private String tvplTitle;
 	private String tvplDesc;
 	private String tvplMarkerImage;
 	private String tvplEmotionCd;
+	
+	private String tableName;
+	
+	// image start
+	private String seq;
+	private Integer type;
+	private Integer defaultNy;
+	private Integer sort;
+	private String originalName;
+	private String uuidName;
+	private String fileName;
+	private String ext;
+	private Long size;
+	private Integer delNy;
+	private String pseq;
+	
+	// image date 
+	private String year;
+	private String month;
+	private String day;
+	
+	private String originalFileName;
+	private String uuidFileName;
+	private MultipartFile[] file0;
+    private MultipartFile[] file1;
 
 	//리뷰작성
 
@@ -485,11 +512,14 @@ public class User {
 		this.tvarDate = tvarDate;
 	}	
 
-	public Integer getTvplSeq() {
+	public String getTvplSeq() {
 		return tvplSeq;
 	}
-	public void setTvplSeq(Integer tvplSeq) {
+	public void setTvplSeq(String tvplSeq) {
 		this.tvplSeq = tvplSeq;
+	}
+	public void setSize(Long size) {
+		this.size = size;
 	}
 	public double getTvplLat() {
 		return tvplLat;
@@ -528,6 +558,7 @@ public class User {
 		this.tvplDesc = tvplDesc;
 
 	}
+<<<<<<< HEAD
 	public String getTvpmSeq() {
 		return tvpmSeq;
 	}
@@ -587,6 +618,122 @@ public class User {
 	}
 	public void setTvpmdesc(String tvpmdesc) {
 		this.tvpmDesc = tvpmdesc;
+=======
+	public String getTableName() {
+		return tableName;
+	}
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
+	public String getSeq() {
+		return seq;
+	}
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
+	public Integer getType() {
+		return type;
+	}
+	public void setType(Integer type) {
+		this.type = type;
+	}
+	public Integer getDefaultNy() {
+		return defaultNy;
+	}
+	public void setDefaultNy(Integer defaultNy) {
+		this.defaultNy = defaultNy;
+	}
+	public Integer getSort() {
+		return sort;
+	}
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+	public String getOriginalName() {
+		return originalName;
+	}
+	public void setOriginalName(String originalName) {
+		this.originalName = originalName;
+	}
+	public String getUuidName() {
+		return uuidName;
+	}
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String getExt() {
+		return ext;
+	}
+	public void setExt(String ext) {
+		this.ext = ext;
+	}
+	public long getSize() {
+		return size;
+	}
+	public void setSize(long size) {
+		this.size = size;
+	}
+	public Integer getDelNy() {
+		return delNy;
+	}
+	public void setDelNy(Integer delNy) {
+		this.delNy = delNy;
+	}
+
+	public String getPseq() {
+		return pseq;
+	}
+	public void setPseq(String pseq) {
+		this.pseq = pseq;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public String getMonth() {
+		return month;
+	}
+	public void setMonth(String month) {
+		this.month = month;
+	}
+	public String getDay() {
+		return day;
+	}
+	public void setDay(String day) {
+		this.day = day;
+	}
+	public String getOriginalFileName() {
+		return originalFileName;
+	}
+	public void setOriginalFileName(String originalFileName) {
+		this.originalFileName = originalFileName;
+	}
+	public String getUuidFileName() {
+		return uuidFileName;
+	}
+	public void setUuidFileName(String uuidFileName) {
+		this.uuidFileName = uuidFileName;
+	}
+	public MultipartFile[] getFile0() {
+		return file0;
+	}
+	public void setFile0(MultipartFile[] file0) {
+		this.file0 = file0;
+	}
+	public MultipartFile[] getFile1() {
+		return file1;
+	}
+	public void setFile1(MultipartFile[] file1) {
+		this.file1 = file1;
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 	}	
 
 	

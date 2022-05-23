@@ -471,7 +471,7 @@
                                             <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
                                             <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
                                             <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,136,000원</span></p>
-                                            <br><a href="/user/payment" class="btn btn-danger btn-block">예약하기</a>
+                                            <br><button class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
                                         </div>
                                     </div>
                                 </div>
@@ -609,6 +609,58 @@
 	    showMonthAfterYear: true,
 	    yearSuffix: '년'
 	});
+</script>
+		
+		<!-- Login Ajax -->
+       <script type="text/javascript">
+        
+$("#btnReservation").on("click" , function(){
+	
+	/* if($("#tvmmEmailAccount").val() == "" || $("#tvmmPassword").val() == ""){
+		alert("이메일 또는 비밀번호를 입력해주세요");
+		
+		return false;
+	}else{
+		
+	} */
+	
+	$.ajax({
+		async: true 
+		,cache: false
+		,type: "post"
+		,url: "/user/loginCheck"
+		,data : {}
+		,success: function(response) {
+			
+			if(response.rt == "pass") {
+				
+				 location.href = "/user/payment"; 
+				
+			}else{			
+				var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
+				
+				if(answer ==true){
+					
+					location.href="/user/loginForm"
+					
+				}
+				
+				}
+				
+			}
+			
+			
+		
+		,error : function(jqXHR, textStatus, errorThrown){
+			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		}
+		
+	});
+	
+});
+
+
+
 </script>
 </body>
 

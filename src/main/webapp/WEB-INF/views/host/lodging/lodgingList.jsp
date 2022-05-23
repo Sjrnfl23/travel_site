@@ -93,7 +93,22 @@
 										 <table class="table table-responsive">
                                         		<div class="gridjs-head">
                                         			<div class="gridjs-search">
-                                        				<input type="search" placeholder="Type a keyword..." aria-label="Type a keyword..." class="gridjs-input gridjs-search-input">
+                                        				<div style ="display: inline-block; padding-right: 0;">
+				                            				<select name="shOption" id="shOption" class="form-select form-select-sm">
+																<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색구분::
+																<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>숙소이름
+																<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>사용자메일
+																<option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>사용자이름
+															</select>                                         			
+                                        				</div>
+                                        				<div style ="display: inline-block; padding-right: 0;">
+                                        					<input type="text" name="shValue" id="shValue" value="<c:out value="${vo.shValue}"/>" class="gridjs-input gridjs-search-input" placeholder="검색어를 입력해주세요.">
+                                        				</div>
+		                             	   				<button type="submit" class="btn btn-outline-secondary" name="search" id="btnSubmit">
+															<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+																<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+															</svg>   				
+			   											</button>           				
                                         			</div>
                                         		</div>										 
 											<thead style="background-color: rgb(248,249,250);">
@@ -137,7 +152,36 @@
 											</tbody>
 										</table>
                                     </div>
-                                        <!-- js/pages/lodgingList.init.js 파일에 테이블 데이터있음 -->
+                                        <div class="gridjs-footer">
+                                   		<div class="gridjs-pagination">
+                                   			<div role="status" aria-live="polite" class="gridjs-summary" title="Page 1 of 4">
+                                   				Showing <b><c:out value="${vo.startRnumForOracle}"/></b> to <b><c:out value="${vo.endRnumForOracle}"/></b> of <b><c:out value="${vo.totalRows}"/></b> results
+                                   			</div>
+                                   		<div class="gridjs-pages">
+											<nav aria-label="...">
+											  <ul class="pagination">
+											<c:if test="${vo.startPage gt vo.pageNumToShow}">
+											     <li class="page-item"><a class="page-link" href="/host/lodgingList?thisPage=${vo.startPage - 1}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">Previous</a></li>
+											</c:if>
+											<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+												<c:choose>
+													<c:when test="${i.index eq vo.thisPage}">
+											                <li class="page-item active"><a class="page-link" href="/host/lodgingList?thisPage=${i.index}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">${i.index}</a></li>
+													</c:when>
+													<c:otherwise>             
+											            <li class="page-item"><a class="page-link" href="/host/lodgingList?thisPage=${i.index}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">${i.index}</a></li>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>     
+											<c:if test="${vo.endPage ne vo.totalPages}">                
+											    <li class="page-item"><a class="page-link" href="/host/lodgingList?thisPage=${vo.endPage + 1}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">Next</a></li>
+											</c:if>  
+											  </ul>
+											</nav>
+                                   		</div>
+                                   	</div>
+                                   </div>  
+                                   
                                         <div id="table-ecommerce-orders"></div>
                                     </div>
                                 </div>

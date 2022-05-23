@@ -76,7 +76,7 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-<form id="formList" name="formList">
+<form id="formList" name="formList" action="/admin/reservationList">
 
 	<input type="hidden" id="thisPage" name="thisPage"  value="<c:out value="${vo.thisPage}" default="1"/>">
 	<input type="hidden" id="rowNumToShow" name="rowNumToShow"  value="<c:out value="${vo.rowNumToShow}" default="1"/>">
@@ -93,9 +93,29 @@
                                     <div class="card-body">
                                     	<div class="position-relative">
                                             <div class="modal-button mt-2">
-                                                <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">선택삭제</button>
+                                                 <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target="#modalConfirm">선택삭제</button>
                                             </div>
                                         </div>
+                                        
+				                		<!-- 삭제버튼 Modal -->
+										<div class="modal fade" id="modalConfirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">숙소 삭제</h5>
+										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										      </div>
+										      <div class="modal-body">
+										        삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+										        <button type="button" id ="btnModalDelete" class="btn btn-primary">삭제</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>                                         
+                                        
 										<div class="table table-responsive" style="white-space:nowrap; margin:auto;">
 										 <table class="table table-responsive">
                                         		<div class="gridjs-head">
@@ -144,7 +164,7 @@
 											<c:otherwise>												
 												<c:forEach items="${list}" var="rt" varStatus="status">
 													<tr>
-														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvmmSeq}"/>" class="form-check-input"></td>
+														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvpmSeq}"/>" class="form-check-input"></td>
 														<td><c:out value="${rt.tvmmSeq}"/></td>
 														<td><c:out value="${rt.tvamLodgingName}"/></td>
 														<td><c:out value="${rt.hostEmail}"/></td>
@@ -160,7 +180,29 @@
 																<a href="/admin/reservationView?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="상세" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
-																<button type="button" class="btn" id="btnDelete" value="<c:out value="${rt.tvpmSeq}"/>" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>
+																<button type="button" class="btn" id="btnDelete" value="<c:out value="${rt.tvpmSeq}"/>"  data-bs-toggle="modal" data-bs-target="#modalConfirm<c:out value="${rt.tvpmSeq}"/>" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>
+																					
+										                		<!-- 삭제버튼 Modal -->
+																<div class="modal fade" id="modalConfirm<c:out value="${rt.tvpmSeq}"/>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																  <div class="modal-dialog">
+																    <div class="modal-content">
+																      <div class="modal-header">
+																        <h5 class="modal-title" id="exampleModalLabel">숙소 삭제</h5>
+																        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																      </div>
+																      <div class="modal-body">
+																        삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.
+																      </div>
+																      <div class="modal-footer">
+																        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+																        <button type="button" onclick="location.href='javascript:goFelete(<c:out value="${rt.tvpmSeq}"/>);'" id ="" class="btn btn-primary">삭제</button>
+																      </div>
+																    </div>
+																  </div>
+																</div>  															
+															
+															
+															
 															</div>													
 														</td>
 													</tr>
@@ -267,16 +309,61 @@
 
 <script type="text/javascript">
 	
-$("#btnDelete").on("click", function(seq){
-	var answer = confirm('삭제 하시겠습니까? 삭제된 정보는 복구되지 않습니다.');
+goFelete = function(seq){
 	
-	if(answer == true){
- 		location.href='/admin/reservationDel?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>';
-	}else{
-		return false;
-	}
-});
+	var goUrlDel = "/admin/reservationDel";
+	
+	$("#tvpmSeq").val(seq);
+	
+	$("#formList").attr("action", goUrlDel);
+	$("#formList").submit();
+};
+
 </script>
+
+
+<script type="text/javascript">
+	var goUrlList = "/admin/reservationList";
+	var goUrlForm = "/admin/reservationhostForm";
+	var goUrlMultiDel = "/admin/reservationMultiDel";
+	
+	var seq = $("input:hidden[name=tvpmSeq]");
+	var form = $("form[name=formList]");
+	
+	var checkboxSeqArray = [];
+
+	$("#checkboxAll").click(function() {
+		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+		else $("input[name=checkboxSeq]").prop("checked", false);
+	});
+
+	$("input[name=checkboxSeq]:checked").each(function() { 
+		var total = $("input[name=checkboxSeq]").length;
+		var checked = $("input[name=checkboxSeq]:checked").length;
+		
+		if(total != checked) $("#checkboxAll").prop("checked", false);
+		else $("#checkboxAll").prop("checked", true);
+	});
+	
+
+	$("#btnModalDelete").on("click", function(){
+		
+		$("input[name=checkboxSeq]:checked").each(function() {
+			checkboxSeqArray.push($(this).val());	
+		});
+		
+		
+		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+		
+		/* $("#modalConfirm").modal("hide"); */
+		
+		/* $("#formList").attr("action", "memberMultiUele").submit(); */
+ 		$("#formList").attr("action", goUrlMultiDel).submit();
+	});
+		
+	
+</script>
+
 
     </body>
 
