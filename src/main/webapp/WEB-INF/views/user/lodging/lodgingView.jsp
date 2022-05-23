@@ -628,20 +628,20 @@ $("#btnReservation").on("click" , function(){
 		async: true 
 		,cache: false
 		,type: "post"
-		,url: "/user/loginCheck"
+		,url: "/loginCheck"
 		,data : {}
 		,success: function(response) {
 			
 			if(response.rt == "pass") {
 				
-				 location.href = "/user/payment"; 
+				 location.href = "/payment"; 
 				
 			}else{			
 				var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
 				
 				if(answer ==true){
 					
-					location.href="/user/loginForm"
+					location.href="/loginForm"
 					
 				}
 				

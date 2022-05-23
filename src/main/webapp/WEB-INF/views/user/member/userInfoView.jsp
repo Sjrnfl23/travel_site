@@ -167,7 +167,7 @@
                                         <p class="form-control"><c:out value="${item.tvmmDob}"/></p> 
                                     </div>
                                     <button href="#"  style="margin-top:10px;" class="btn btn-dark float-left" >탈퇴</button>
-                                       <a href="/user/userInfoEdit" style="margin-top:10px;" class="btn btn-danger float-right">수정</a>
+                                       <a href="/userInfoEdit" style="margin-top:10px;" class="btn btn-danger float-right">수정</a>
                                 </div>
                              
                             </div>

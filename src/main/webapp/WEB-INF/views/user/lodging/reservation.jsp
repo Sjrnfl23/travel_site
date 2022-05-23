@@ -217,7 +217,7 @@
 														<td><c:out value="${list.tvpmtotalPrice}"/>원</td>
 														<td>
 															<div class="d-flex gap-3">
-																<a href="/user/reservation?tvmmSeq=<c:out value="${list.tvmmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="상세" class="text-success">
+																<a href="/reservation?tvmmSeq=<c:out value="${list.tvmmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="상세" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
 																<button type="button" class="btn" id="btnDelete" value="<c:out value="${list.tvmmSeq}"/>" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>

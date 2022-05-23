@@ -126,7 +126,7 @@
                         </div>
 						<div class="col-md-8 featured-responsive">
                             <div class="detail-filter">
-                                <a class="btn btn-outline-danger" href="/user/mapForm" role="button"><span class="ti-pencil"></span>기록</a>
+                                <a class="btn btn-outline-danger" href="mapForm" role="button"><span class="ti-pencil"></span>기록</a>
                             </div>
                         </div>
                     </div>
@@ -136,9 +136,9 @@
 	                            <div class="card input-form">
                                 <a href="/resources/user/images/cherryblossom.jpg"><img class="card-img-top img_inside" src="/resources/user/images/cherryblossom.jpg" alt="Card image cap"></a>
 	                                <div class="card-body">
-	                                    <a class="nav-link jal" href="/user/mapEdit"><h2>굴포천 반월공원</h2><img src="/resources/user/images/human_emotions/smile.png" width="50px" height="50px" alt="I'm smile"/></a>
+	                                    <a class="nav-link jal" href="mapEdit"><h2>굴포천 반월공원</h2><img src="/resources/user/images/human_emotions/smile.png" width="50px" height="50px" alt="I'm smile"/></a>
 	                                    <div class="h3 ft">봄이 오고 있단 말이고 벚꽃축제가 시작된다는 말이기도 하죠~첫번째, 서울 벚꽃놀이 명소 불광천 비교적 낮은 벚꽃나무로 가까이서 벚꽃</div>
-	                                    <a class="btn btn-outline-danger" href="/user/mapForm" role="button">삭제</a>
+	                                    <a class="btn btn-outline-danger" href="mapForm" role="button">삭제</a>
 	                                </div>
                             </div>
 	                        </div>

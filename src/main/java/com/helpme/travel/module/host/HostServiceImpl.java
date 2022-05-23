@@ -93,12 +93,21 @@ public class HostServiceImpl implements HostService{
 		// TODO Auto-generated method stub
 		return dao.selectOneHost(vo);
 	}
-
+	
+	
+	//Reservation
 	@Override
 	public List<Host> selectReservation(Host dto) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectReservation(dto);
 	}
+	@Override
+	public int selectOneCountReservation(HostVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneCountReservation(vo);
+	}
+
+	 //login,signUp,hostView
 
 	@Override
 	public int selectOneCountLodging(HostVo vo) throws Exception {
@@ -106,16 +115,17 @@ public class HostServiceImpl implements HostService{
 		return dao.selectOneCountLodging(vo);
 	}
 
-	@Override
-	public int selectOneCountReservation(HostVo vo) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.selectOneCountReservation(vo);
-	}
 
 	@Override
 	public int selectOneCountCoupon(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectOneCountCoupon(vo);
+	}
+
+	@Override
+	public int insertHost(Host dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.insertHost(dto);
 	}
 
 	

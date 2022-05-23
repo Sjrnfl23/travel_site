@@ -330,5 +330,38 @@
 	</select>
 	
 
-	<!--reservation End-->
+	<!-- reservation End -->
+	
+	<!-- host signup start -->
+	<insert id="insertHost">
+	insert into tvMember(
+	
+		tvmmName
+		,tvmmEmailAccount
+		,tvmmPassword
+		,tvmmTelNumber
+		,tvmmDob
+		,tvmmAddress1
+		,tvmmAddress2
+		,tvmmHostNy
+		,tvmmDelNy
+		
+	)values(
+	
+		#{tvmmName}
+		,#{tvmmEmailAccount}
+		,#{tvmmPassword}
+		,#{tvmmTelNumber}
+		,#{tvmmDob}
+		,#{tvmmAddress1}
+		,#{tvmmAddress2}
+		,1
+		,0
+	)
+	
+	</insert>
+	
+	<!-- host signup end -->
+	
+	
 </mapper> 

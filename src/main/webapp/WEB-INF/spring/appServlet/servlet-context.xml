@@ -37,7 +37,8 @@
 			
 			<exclude-mapping path="/host/loginProc" />
 			<exclude-mapping path="/host/loginForm" />
-			
+			<exclude-mapping path="/host/insertHost" />
+			<exclude-mapping path="/host/signUpForm" />
 			<beans:bean id="checkLoginSessionInterception" class="com.helpme.travel.module.interceptor.CheckLoginSessionInterception"/>
 	
 		</interceptor>

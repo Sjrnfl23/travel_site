@@ -558,7 +558,7 @@ public class User {
 		this.tvplDesc = tvplDesc;
 
 	}
-<<<<<<< HEAD
+
 	public String getTvpmSeq() {
 		return tvpmSeq;
 	}
@@ -618,7 +618,7 @@ public class User {
 	}
 	public void setTvpmdesc(String tvpmdesc) {
 		this.tvpmDesc = tvpmdesc;
-=======
+	}
 	public String getTableName() {
 		return tableName;
 	}
@@ -733,7 +733,7 @@ public class User {
 	}
 	public void setFile1(MultipartFile[] file1) {
 		this.file1 = file1;
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
 	}	
 
 	

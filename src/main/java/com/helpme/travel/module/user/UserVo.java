@@ -29,11 +29,11 @@ public class UserVo {
 		this.tvamSeq = tvamSeq;
 	}
 
-<<<<<<< HEAD
+
 	public String getTvpmSeq() {
 		return tvpmSeq;
 	}
-=======
+
 	public String getTvplSeq() {
 		return tvplSeq;
 	}
@@ -43,7 +43,7 @@ public class UserVo {
 	}
 
 
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
 
 	public void setTvpmSeq(String tvpmSeq) {
 		this.tvpmSeq = tvpmSeq;

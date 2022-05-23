@@ -152,7 +152,7 @@
                         <div class="col-md-6 card-2">
                             <!-- card-1 -->
                             <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
+                                <a href="/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">헬로반디vandi룸/수플레팬케잌&빠네 등(조식무료), 도자기컵체험무료,넷플릭스(55인치)</h5>
                                     <ul class="card-rating">
@@ -170,7 +170,7 @@
                         </div>
                         <div class="col-md-6 card-2">
                             <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex2.jpg" alt="Card image cap"></a>
+                                <a href="/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex2.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">사랑하는 가족들과 일상에서 벗어나 소중한 추억을 만들 수 있는 숙소의 ROOM 301</h5>
                                     <ul class="card-rating">
@@ -188,7 +188,7 @@
                         </div>
                         <div class="col-md-6 card-2">
                             <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex3.jpg" alt="Card image cap"></a>
+                                <a href="/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex3.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">바다전망 프라이빗 풀빌라[하도스테이] #하루한팀#깨끗한침구#셀프체크인
 									</h5>
@@ -205,7 +205,7 @@
                         </div>
                         <div class="col-md-6 card-2">
                             <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex4.jpg" alt="Card image cap"></a>
+                                <a href="/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex4.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">농촌의 한옥을 느낄 수 있는 부여농부의집
 </h5>
@@ -222,7 +222,7 @@
                         </div>
                         <div class="col-md-6 card-2">
                             <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex5.jpg" alt="Card image cap"></a>
+                                <a href="/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex5.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">몽상가의 시골집, LP and ART Stay
 </h5>
@@ -239,7 +239,7 @@
                         </div>
                         <div class="col-md-6 card-2">
                             <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex7.jpg" alt="Card image cap"></a>
+                                <a href="/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex7.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">장산리 밭가운데 집</h5>
                                     <ul class="card-rating">
@@ -257,7 +257,7 @@
                         </div>
                         <div class="col-md-6 card-2">
                             <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
+                                <a href="/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">슬로우리제주A, 애월펜션,테라스한라산뷰,아늑하고깨끗한실내,욕조</h5>
                                     <ul class="card-rating">
@@ -273,7 +273,7 @@
                         </div>
                         <div class="col-md-6 card-2">
                             <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
+                                <a href="/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">슬로우리제주A, 애월펜션,테라스한라산뷰,아늑하고깨끗한실내,욕조</h5>
                                     <ul class="card-rating">
@@ -289,7 +289,7 @@
                         </div>
                         <div class="col-md-6 card-2">
                             <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex2.jpg" alt="Card image cap"></a>
+                                <a href="/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex2.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">섬진강 시골집...매화.벚꽃.텃밭이 있는</h5>
                                     <ul class="card-rating">
@@ -307,7 +307,7 @@
                         </div>
                         <div class="col-md-6 card-2">
                             <div class="card">
-                                <a href="/user/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex3.jpg" alt="Card image cap"></a>
+                                <a href="/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex3.jpg" alt="Card image cap"></a>
                                 <div class="card-body" style="height: 269px;">
                                     <h5 class="card-title">감귤밭안 작은독채-작은집-제주 맑은 별을 가장가까이 볼수있는 침실 옆 낭만다락테라스,
 </h5>

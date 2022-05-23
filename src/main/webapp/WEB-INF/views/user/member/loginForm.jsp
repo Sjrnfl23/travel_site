@@ -40,7 +40,7 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
 
                         <div class="mb-4 pb-2">
-                            <a href="/user/mainView" class="d-block auth-logo">
+                            <a href="/mainView" class="d-block auth-logo">
                                 <img src="/resources/user/assets/images/nowTravel_logo_200.jpg" alt="" class="auth-logo-dark me-start">
                                 <img src="/resources/user/assets/images/logo-light.png" alt="" height="30" class="auth-logo-light me-start">
                             </a>
@@ -113,7 +113,7 @@
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <p class="mb-0">계정이 없으신가요? <a href="/user/signupForm" class="fw-medium text-primary"> 회원가입 </a> </p>
+                                            <p class="mb-0">계정이 없으신가요? <a href="/signupForm" class="fw-medium text-primary"> 회원가입 </a> </p>
                                         </div>
                                   
                                 </div>
@@ -155,14 +155,14 @@ $("#btnLogin").on("click" , function(){
 		async: true 
 		,cache: false
 		,type: "post"
-		,url: "/user/loginProc"
+		,url: "/loginProc"
 		,data : {"tvmmEmailAccount" : $("#tvmmEmailAccount").val(), "tvmmPassword" : $("#tvmmPassword").val()}
 	
 		,success: function(response) {
 			
 			if(response.rt == "success") {
 				
-				 location.href = "/user/mainView"; 
+				 location.href = "/"; 
 				
 			}
 			

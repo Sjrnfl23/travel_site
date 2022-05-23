@@ -1,42 +1,37 @@
 package com.helpme.travel.module.user;
 
-<<<<<<< HEAD
-=======
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
 import java.util.List;
-<<<<<<< HEAD
-=======
+
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
-=======
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+import org.springframework.web.context.support.HttpRequestHandlerServlet;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-<<<<<<< HEAD
 
-
-=======
 import com.helpme.travel.module.host.Host;
 import com.helpme.travel.module.user.User;
 import com.helpme.travel.module.user.UserVo;
 import com.helpme.travel.module.user.UserServiceImpl;
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
 
 @Controller
 public class UserController {
@@ -48,19 +43,19 @@ public class UserController {
 	 */
 
 	// User
-	@RequestMapping(value = "/user/loginForm")
+	@RequestMapping(value = "/loginForm")
 	public String UserLoginProc(Model model) throws Exception {
 
 		return "user/member/loginForm";
 	}
 
-	@RequestMapping(value = "/user/signupForm")
+	@RequestMapping(value = "/signupForm")
 	public String UserSignupForm(Model model) throws Exception {
 
 		return "user/member/signupForm";
 	}
 
-	@RequestMapping(value = "/user/userInst")
+	@RequestMapping(value = "/userInst")
 	public String memberInst(@ModelAttribute("vo") UserVo vo, User dto, RedirectAttributes redirectAttributes)
 			throws Exception {
 
@@ -70,7 +65,7 @@ public class UserController {
 		return "redirect:/user/loginForm";
 	}
 
-	@RequestMapping(value = "/user/userInfoView")
+	@RequestMapping(value = "/userInfoView")
 	public String UserSignupView(UserVo vo, Model model) throws Exception {
 
 		User item = service.selectOneMember(vo);
@@ -79,26 +74,26 @@ public class UserController {
 		return "user/member/userInfoView";
 	}
 
-	@RequestMapping(value = "/user/userInfoEdit")
+	@RequestMapping(value = "/userInfoEdit")
 	public String UserSignupEdit(Model model) throws Exception {
 
 		return "user/member/userInfoEdit";
 	}
 
-	@RequestMapping(value = "/user/SignupDelete")
+	@RequestMapping(value = "/SignupDelete")
 	public String UserSignupDelete(Model model) throws Exception {
 
 		return "user/member/signupDelete";
 	}
 
 	// Search
-	@RequestMapping(value = "/user/search")
+	@RequestMapping(value = "/search")
 	public String UserSearch(Model model) throws Exception {
 
 		return "user/lodging/search";
 	}
 
-	@RequestMapping(value = "/user/searchFlex")
+	@RequestMapping(value = "/searchFlex")
 	public String UserSearchFlex(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
 
 		List<User> list = service.selectListSearchFlex(vo);
@@ -109,50 +104,50 @@ public class UserController {
 
 	// Lodging
 
-	@RequestMapping(value = "/user/mainView")
-	public String mainView(Model model) throws Exception {
-
+	@RequestMapping(value = "")
+	public String mainView(Model model,HttpServletRequest httpservletrequest) throws Exception {
+		
 		return "user/lodging/mainView";
 	}
 
-	@RequestMapping(value = "/user/lodgingView")
+	@RequestMapping(value = "/lodgingView")
 	public String UserLodgingView(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
-<<<<<<< HEAD
-		
+
 		User list= service.selectOneLodgingView(vo);
 		model.addAttribute("list", list);
 		
-=======
+
 
 		User item = service.selectOneLodgingView(vo);
 		model.addAttribute("item", item);
+		
 
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 		return "user/lodging/lodgingView";
 	}
 
-	@RequestMapping(value = "/user/payment")
+	@RequestMapping(value = "/payment")
 	public String UserPayment(Model model) throws Exception {
 
 		return "user/lodging/payment";
 	}
 
-	@RequestMapping(value = "/user/reservation")
-<<<<<<< HEAD
+	@RequestMapping(value = "/reservation")
+
 	public String UserReservation(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
 		
 		User item= service.selectOneReservation(vo);
 		model.addAttribute("item", item);
-		
-=======
+		return "user/lodging/reservation";
+	}
+
 	public String UserReservation(Model model) throws Exception {
 
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+
 		return "user/lodging/reservation";
 	}
 
 	// PhotoMap
-	@RequestMapping(value = "/user/mapList")
+	@RequestMapping(value = "/mapList")
 	public String UserMapList(Model model, UserVo vo) throws Exception {
 
 		List<User> list = service.selectMap(vo);
@@ -161,13 +156,13 @@ public class UserController {
 		return "user/map/mapList";
 	}
 
-	@RequestMapping(value = "/user/mapForm")
+	@RequestMapping(value = "/mapForm")
 	public String UserMapForm(Model model) throws Exception {
 
 		return "user/map/mapForm";
 	}
 
-	@RequestMapping(value = "/user/mapInst")
+	@RequestMapping(value = "/mapInst")
 	public String mapInst(@ModelAttribute("vo") UserVo vo, User dto, RedirectAttributes redirectAttributes)
 			throws Exception {
 
@@ -178,13 +173,13 @@ public class UserController {
 		return "redirect:/user/mapList";
 	}
 
-	@RequestMapping(value = "/user/mapEdit")
+	@RequestMapping(value = "/mapEdit")
 	public String UserMapEdit(Model model) throws Exception {
 
 		return "user/map/mapEdit";
 	}
 
-	@RequestMapping(value = "/user/UserMapDelete")
+	@RequestMapping(value = "/UserMapDelete")
 	public String UserMapDelete(Model model) throws Exception {
 
 		return "redirect:/user/mapList";
@@ -192,7 +187,7 @@ public class UserController {
 
 	// login & logout ======================================================
 	@ResponseBody
-	@RequestMapping(value = "/user/loginProc")
+	@RequestMapping(value = "/loginProc")
 	public Map<String, Object> loginProc(User dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
@@ -214,7 +209,7 @@ public class UserController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/user/logoutProc")
+	@RequestMapping(value = "/logoutProc")
 	public Map<String, Object> logOutProc(User dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		System.out.println("로그아웃");
@@ -228,7 +223,7 @@ public class UserController {
 
 	
 	@ResponseBody
-	@RequestMapping(value = "/user/loginCheck")
+	@RequestMapping(value = "/loginCheck")
 	public Map<String, Object> loginCheck(User dto, HttpServletRequest request) throws Exception {
 		
 		Map<String, Object> returnMap = new HashMap<String, Object>();

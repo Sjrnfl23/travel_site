@@ -204,6 +204,14 @@ public class HostController {
 
 		return "/host/main/signUpForm";
 	}
+	@RequestMapping(value = "/host/hostInsert")
+	public String insertHost(@ModelAttribute("dto")Host dto) throws Exception {
+		String tvmmAddressFull = dto.getTvmmAddress1()+dto.getTvmmAddress2();
+		dto.setTvmmAddressFull(tvmmAddressFull);
+		service.insertHost(dto);
+		
+		return "redirect:loginForm";
+	}
 
 	@RequestMapping(value = "/host/hostInfoEdit")
 	public String hostInfoEdit() throws Exception {
@@ -279,5 +287,7 @@ public class HostController {
 		return returnMap;
 
 	}
+	
+	
 
 }
