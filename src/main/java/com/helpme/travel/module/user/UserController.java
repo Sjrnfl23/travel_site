@@ -43,11 +43,6 @@ public class UserController {
 
 	// User
 	
-	@RequestMapping(value = "/")
-	public String main(Model model) throws Exception {
-
-		return "user/lodging/mainView";
-	}	
 	
 	
 	@RequestMapping(value = "/user/loginForm")

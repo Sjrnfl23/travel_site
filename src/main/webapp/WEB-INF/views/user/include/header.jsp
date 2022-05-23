@@ -28,9 +28,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/user/loginForm" id="login">Login</a>
-                                      
                                     </li>
-                                    <li><a href="../../host/loginForm" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>호스트 되기</a></li>
+                                    <li style="margin-right: 10px;"><a href="/host/loginForm" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>호스트 로그인</a></li>
+                                    <li><a href="/admin/loginForm" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>관리자 로그인</a></li>
                                 </ul>
                             </div>
                         </nav>
