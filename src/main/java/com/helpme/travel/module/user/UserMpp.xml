@@ -51,7 +51,8 @@
 	<!-- SearchFlex List -->
 	 <select id="selectListSearchFlex" resultMap="resultMapObj">
 			SELECT 
-				tvamLodgingName
+				tvamSeq
+				,tvamLodgingName
 				,tvamDesc
 				,tvamAddress1
 			FROM
