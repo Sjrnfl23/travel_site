@@ -126,7 +126,7 @@
                         </div>
 						<div class="col-md-8 featured-responsive">
                             <div class="detail-filter">
-                                <a class="btn btn-outline-danger" href="mapForm" role="button"><span class="ti-pencil"></span>기록</a>
+                                <a class="btn btn-outline-danger" href="/user/mapForm" role="button"><span class="ti-pencil"></span>기록</a>
                             </div>
                         </div>
                     </div>
@@ -134,15 +134,23 @@
 	                        <div class="col-md-6">
 	                            <!-- card-1 -->
 	                            <div class="card input-form">
-                                <a href="/resources/user/images/cherryblossom.jpg"><img class="card-img-top img_inside" src="/resources/user/images/cherryblossom.jpg" alt="Card image cap"></a>
+	                            <div id="List1">
+                                	<a href="/resources/user/images/cherryblossom.jpg"><img class="card-img-top img_inside" src="/resources/user/images/cherryblossom.jpg" alt="Card image cap"></a>
+                                </div>
 	                                <div class="card-body">
+	                                <div id="List2">
 	                                    <a class="nav-link jal" href="mapEdit"><h2>굴포천 반월공원</h2><img src="/resources/user/images/human_emotions/smile.png" width="50px" height="50px" alt="I'm smile"/></a>
-	                                    <div class="h3 ft">봄이 오고 있단 말이고 벚꽃축제가 시작된다는 말이기도 하죠~첫번째, 서울 벚꽃놀이 명소 불광천 비교적 낮은 벚꽃나무로 가까이서 벚꽃</div>
+	                                </div>
+	                                <div id="List3">
+	                                    <div class="h3 ft">지도에 있는 마커를 선택하세요</div>
+	                                </div>
 	                                    <a class="btn btn-outline-danger" href="mapForm" role="button">삭제</a>
 	                                </div>
                             </div>
 	                        </div>
 	                    </div>
+                    </div>
+                </div>
                     </div>
                 </div>
  				<form id="formList" name="formList" method="post" action="/user/mapList">
@@ -195,7 +203,6 @@
         averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
         minLevel: 10 // 클러스터 할 최소 지도 레벨 
     }); 
-  
  	
     
      var markers =[];	//markers 배열 생성 
@@ -204,7 +211,8 @@
 	 	var name = '${item.tvplTitle}';
 	 	var desc = '${item.tvplDesc}';
 	 	var lat = ${item.tvplLat};
-	 	var lng = ${item.tvplLng};    	
+	 	var lng = ${item.tvplLng};
+	 	
 	 	
 	       var markerPosition  = new kakao.maps.LatLng(lat,lng);
 	    
@@ -222,40 +230,24 @@
 	    		clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정
 	    	});
 	        markers.push(marker);	//marker객체를 markers에 추가
-	      // 내용
-		    var iwContent = '<div class="modal-body" style="text-align: center;">'+
-		    '<h5>스토리 이미지</h5>'+
-		    '<hr>'+
-		    '<img src="/resources/user/Photomapuploaded/user/<c:out value="${item.year}"/>/<c:out value="${item.month}"/>/<c:out value="${item.day}"/>/<c:out value="${item.uuidName}"/>" width="100px" height="100px"/><br><br>'+
-		    '<h5>여행 스토리</h5>'+
-		    '<hr>'+
-		    '<p class="modal-body">'+desc+'</p>'+
-		  	'</div>'
-		  	,iwRemoveable = true;
-		  	// desc길이에 따라 화면이 안나오는 에러가 발생 따라서 기존에 사용하던 infowindow이외에 다른 창을 띄우는 것을 고려해봐야함
-		  	
-		  var infowindow = new kakao.maps.InfoWindow({
-			    content : iwContent,
-			     removable : iwRemoveable 
-			});
-		    kakao.maps.event.addListener(marker, 'click', makeClickListener(map, marker, infowindow));
-	    
-	    
-	     </c:forEach>	// for문 끝 
-    
+	        
+			 
+			 kakao.maps.event.addListener(marker, 'click', function() {
+			        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+			        $("#List1").empty();
+			        $("#List2").empty();
+			        $("#List3").empty();
+				 $('#List1').append('<a href="/resources/user/Photomapuploaded/user/<c:out value="${item.year}"/>/<c:out value="${item.month}"/>/<c:out value="${item.day}"/>/<c:out value="${item.uuidName}"/>"><img class="card-img-top img_inside" src="/resources/user/Photomapuploaded/user/<c:out value="${item.year}"/>/<c:out value="${item.month}"/>/<c:out value="${item.day}"/>/<c:out value="${item.uuidName}"/>" alt="Card image cap"></a>');
+				 $('#List2').append('<a class="nav-link jal" href="/user/mapEdit"><h2><c:out value="${item.tvplTitle}"/></h2><img src="/resources/user/images/human_emotions/smile.png" width="50px" height="50px" alt="Im smile"/></a>');
+				 $('#List3').append('<div class="h3 ft"><c:out value="${item.tvplDesc}"/></div>');
+			    });
 
-    
-    function makeClickListener(map, marker, infowindow) {
-        return function() {
-            infowindow.open(map, marker);
-            setMap(null);
-        };
-    }
+	     </c:forEach>	// for문 끝 
     
     clusterer.addMarkers(markers);
 
 </script>
-	
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

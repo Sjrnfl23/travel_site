@@ -347,6 +347,15 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 
 });
 </script>
+<script>
+// 엔터키 잠금
+    $(document).keypress(function(e) { 
+
+    	if (e.keyCode == 13) e.preventDefault(); 
+
+    });
+
+</script>
     <!-- Validate JS -->
     <script src="/resources/user/js/validate.js"></script>
     <!-- Contact JS -->
