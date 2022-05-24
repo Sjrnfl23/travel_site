@@ -75,8 +75,11 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/userInfoView")
-	public String UserSignupView(UserVo vo, Model model) throws Exception {
-
+	public String UserSignupView(UserVo vo, Model model, HttpSession httpSession) throws Exception {
+		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
+		vo.setTvmmSeq(sessSeq);
+		
+		
 		User item = service.selectOneMember(vo);
 		model.addAttribute("item", item);
 
@@ -173,8 +176,10 @@ public class UserController {
 
 	// PhotoMap
 	@RequestMapping(value = "/mapList")
-	public String UserMapList(Model model, UserVo vo) throws Exception {
-
+	public String UserMapList(Model model, UserVo vo, HttpSession httpSession) throws Exception {
+		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
+		vo.setTvmmSeq(sessSeq);
+		
 		List<User> list = service.selectMap(vo);
 		model.addAttribute("list", list);
 
@@ -182,20 +187,25 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/mapForm")
-	public String UserMapForm(Model model) throws Exception {
-
+	public String UserMapForm(Model model, UserVo vo, HttpSession httpSession) throws Exception {
+		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
+		vo.setTvmmSeq(sessSeq);
+		
 		return "user/map/mapForm";
 	}
 
 	@RequestMapping(value = "/mapInst")
-	public String mapInst(@ModelAttribute("vo") UserVo vo, User dto, RedirectAttributes redirectAttributes)
-			throws Exception {
+	public String mapInst(@ModelAttribute("vo") UserVo vo, User dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+		String sessSeq = httpSession.getAttribute("sessSeq").toString();
 
+		dto.setTvmmSeq(sessSeq);
+		vo.setTvmmSeq(sessSeq);
+		
 		int result = service.insertMap(dto);
 		System.out.println("result: " + result);
 		System.out.println("dto.getTvplSeq: " + dto.getTvplSeq());
 
-		return "redirect:/user/mapList";
+		return "redirect:/mapList";
 	}
 
 	@RequestMapping(value = "/mapEdit")

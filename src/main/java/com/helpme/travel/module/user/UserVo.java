@@ -4,6 +4,7 @@ public class UserVo {
 
 	private String shCheck;
 	private String tvplSeq;
+	private String tvmmSeq;
 	
 //	lodging
 	private String tvamSeq;
@@ -46,6 +47,14 @@ public class UserVo {
 
 	public void setTvpmSeq(String tvpmSeq) {
 		this.tvpmSeq = tvpmSeq;
+	}
+
+	public String getTvmmSeq() {
+		return tvmmSeq;
+	}
+
+	public void setTvmmSeq(String tvmmSeq) {
+		this.tvmmSeq = tvmmSeq;
 	}
 
 	

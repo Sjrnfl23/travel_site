@@ -19,7 +19,7 @@
 				tvMember
 			WHERE 1=1
 				AND tvmmDelNy = 0
-				AND tvmmSeq = 4
+				AND tvmmSeq = #{tvmmSeq}
 	</select>    
 	
 	<insert id="insertMember">
@@ -160,7 +160,7 @@
 			left join travel_site.tvPhotoMapPhoto as b on b.pseq = a.tvplSeq and b.delNy = 0 and b.sort = 0 and b.type = 0
 		WHERE 1=1
 			AND tvplDelNy = 0
-			AND tvmmSeq = 1
+			AND tvmmSeq = #{tvmmSeq}
 	</select>     
 	
 	<insert id="insertMap">
@@ -183,7 +183,7 @@
 			,#{tvplEmotionCd}
 			,0
 			,#{regDateTime}
-			,1
+			,#{tvmmSeq}
 			)
 			
 			<selectKey resultType="String" keyProperty="tvplSeq" order="AFTER">		<!-- 파생테이블 seq값을 넣을 수 있도록 해준다 -->
