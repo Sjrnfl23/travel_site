@@ -479,7 +479,7 @@
                                         </div>
                                         <div class="booking-cost" >
                                             <h5>요금 정보</h5>
-                                            <p style="font-size: 16px;"><u id="price"> x 7박</u> <span style="font-size: 18px;">1,960,000원</span></p>
+                                            <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;">1,960,000원</span></p>
                                             <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
                                             <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
                                             <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,136,000원</span></p>
@@ -611,7 +611,7 @@
 			 $("#datepicker1").val();
 			 $("#datepicker1").on("change",function(){
 				var selected1 = $(this).val();
-			   alert(selected1);
+			   /* alert(selected1); */
 			   $('#startDate').empty();
 			   $('#startDate').append(selected1);
 			   $('#hiddenStartDate').val(selected1);
@@ -622,11 +622,11 @@
 			 $("#datepicker2").val();
 			 $("#datepicker2").on("change",function(){
 			   var selected2 = $(this).val();
-			   alert(selected2);
+			   /* alert(selected2); */
 			   $('#endDate').empty();
 			   $('#endDate').append(' ~ ' + selected2);
 			   $('#hiddenEndDate').val(selected2);
-			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/> x' );
+			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/> x 박' );
 			 });				 
 		}); 
 		$.datepicker.setDefaults({
