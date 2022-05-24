@@ -126,7 +126,7 @@
                         </div>
 						<div class="col-md-8 featured-responsive">
                             <div class="detail-filter">
-                                <a class="btn btn-outline-danger" href="/user/mapForm" role="button"><span class="ti-pencil"></span>기록</a>
+                                <a class="btn btn-outline-danger" href="/mapForm" role="button"><span class="ti-pencil"></span>기록</a>
                             </div>
                         </div>
                     </div>
@@ -162,6 +162,7 @@
 				  <input type="hidden" id="month" name="month" > 
 				  <input type="hidden" id="day" name="day" > 
 				  <input type="hidden" id="uuidName" name="uuidName" >
+				  <input type="hidden" id="tvmmSeq" name="tvmmSeq" >
                 <div class="col-md-5 responsive-wrap map-wrap">
                     <div class="map-fix">
                         <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->

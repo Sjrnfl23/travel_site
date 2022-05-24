@@ -164,9 +164,10 @@
                         <div class="col-md-6">
                             <div class="contact-form pl-4 py-4">
 
-                                <form action="/user/mapInst" method="post" enctype="multipart/form-data">
+                                <form action="mapInst" method="post" enctype="multipart/form-data">
                                 	<div class="form-group">
                                         <label>여행 사진</label>
+                                        <input type="hidden" id="tvmmSeq" name="tvmmSeq" >
                                         <div class="row">
 			                                <div class="col-md-12">
 			                                    <div class="custom-file">
