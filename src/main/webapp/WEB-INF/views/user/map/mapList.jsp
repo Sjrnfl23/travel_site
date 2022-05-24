@@ -208,6 +208,11 @@
      var markers =[];	//markers 배열 생성 
 
      <c:forEach items='${list}' var='item' varStatus='status'>	//for문으로 position배열 안에 있는 좌표에 마커 입력
+	 	var name = '${item.tvplTitle}';
+	 	var desc = '${item.tvplDesc}';
+	 	var lat = ${item.tvplLat};
+	 	var lng = ${item.tvplLng};
+	 	
 	 	
 	       var markerPosition  = new kakao.maps.LatLng(lat,lng);
 	    
