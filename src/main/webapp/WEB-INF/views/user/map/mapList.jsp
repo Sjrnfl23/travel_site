@@ -208,11 +208,6 @@
      var markers =[];	//markers 배열 생성 
 
      <c:forEach items='${list}' var='item' varStatus='status'>	//for문으로 position배열 안에 있는 좌표에 마커 입력
-	 	var name = '${item.tvplTitle}';
-	 	var desc = '${item.tvplDesc}';
-	 	var lat = ${item.tvplLat};
-	 	var lng = ${item.tvplLng};
-	 	
 	 	
 	       var markerPosition  = new kakao.maps.LatLng(lat,lng);
 	    
@@ -231,7 +226,6 @@
 	    	});
 	        markers.push(marker);	//marker객체를 markers에 추가
 	        
-	       
 			 
 			 kakao.maps.event.addListener(marker, 'click', function() {
 			        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
