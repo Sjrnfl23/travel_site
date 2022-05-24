@@ -523,7 +523,137 @@
 
 <!--  ===========================메인뷰================================= -->		
 
-	<select id="selectOneMainView" resultMap="resultMapObj">
+	<select id="selectOneMainView1" resultMap="resultMapObj">
+		select 
+			month(regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , sum(tvpmtotalPrice)*0.1 as 'fees'
+		    , count(tvpmSeq) as 'reservationCount'
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(regDateTime) = 1    
+		 	group by month
+	</select>
+	<select id="selectOneMainView2" resultMap="resultMapObj">
+		select 
+			month(regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , sum(tvpmtotalPrice)*0.1 as 'fees'
+		    , count(tvpmSeq) as 'reservationCount'
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(regDateTime) = 2    
+		 	group by month
+	</select>
+	<select id="selectOneMainView3" resultMap="resultMapObj">
+		select 
+			month(regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , sum(tvpmtotalPrice)*0.1 as 'fees'
+		    , count(tvpmSeq) as 'reservationCount'
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(regDateTime) = 3    
+		 	group by month
+	</select>
+	<select id="selectOneMainView4" resultMap="resultMapObj">
+		select 
+			month(regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , sum(tvpmtotalPrice)*0.1 as 'fees'
+		    , count(tvpmSeq) as 'reservationCount'
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(regDateTime) = 4    
+		 	group by month
+	</select>
+	<select id="selectOneMainView5" resultMap="resultMapObj">
+		select 
+			month(regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , sum(tvpmtotalPrice)*0.1 as 'fees'
+		    , count(tvpmSeq) as 'reservationCount'
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(regDateTime) = 5    
+		 	group by month
+	</select>
+	<select id="selectOneMainView6" resultMap="resultMapObj">
+		select 
+			month(regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , sum(tvpmtotalPrice)*0.1 as 'fees'
+		    , count(tvpmSeq) as 'reservationCount'
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(regDateTime) = 6    
+		 	group by month
+	</select>
+	<select id="selectOneMainView7" resultMap="resultMapObj">
+		select 
+			month(regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , sum(tvpmtotalPrice)*0.1 as 'fees'
+		    , count(tvpmSeq) as 'reservationCount'
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(regDateTime) = 7    
+		 	group by month
+	</select>
+	<select id="selectOneMainView8" resultMap="resultMapObj">
+		select 
+			month(regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , sum(tvpmtotalPrice)*0.1 as 'fees'
+		    , count(tvpmSeq) as 'reservationCount'
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(regDateTime) = 8    
+		 	group by month
+	</select>
+	<select id="selectOneMainView9" resultMap="resultMapObj">
+		select 
+			month(regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , sum(tvpmtotalPrice)*0.1 as 'fees'
+		    , count(tvpmSeq) as 'reservationCount'
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(regDateTime) = 9    
+		 	group by month
+	</select>
+	<select id="selectOneMainView10" resultMap="resultMapObj">
+		select 
+			month(regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , sum(tvpmtotalPrice)*0.1 as 'fees'
+		    , count(tvpmSeq) as 'reservationCount'
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(regDateTime) = 10    
+		 	group by month
+	</select>
+<!-- 	<select id="selectOneMainView" resultMap="resultMapObj">
 		select 
 			sum(tvpmtotalPrice) as sales
 		    , sum(tvpmtotalPrice)*0.1 as fees
@@ -533,7 +663,7 @@
 		where 1=1 
 			and tvpmDelNy = 0
 			and regDateTime > date_add(now(), interval -1 month)
-	</select>
+	</select> -->
 
 	
 </mapper>

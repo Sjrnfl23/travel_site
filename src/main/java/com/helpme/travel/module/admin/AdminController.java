@@ -441,11 +441,27 @@ public class AdminController {
 	@RequestMapping(value = "/admin/mainView")
 	public String AdminMainView(Admin dto, Model model) throws Exception {
 		
-		
-		 Admin rt = service.selectOneMainView(dto); 
-		 model.addAttribute("rt", rt);
+		 Admin rt1 = service.selectOneMainView1(dto); 
+		 model.addAttribute("rt1", rt1);
+		 Admin rt2 = service.selectOneMainView2(dto); 
+		 model.addAttribute("rt2", rt2);
+		 Admin rt3 = service.selectOneMainView3(dto); 
+		 model.addAttribute("rt3", rt3);
+		 Admin rt4 = service.selectOneMainView4(dto); 
+		 model.addAttribute("rt4", rt4);
+		 Admin rt5 = service.selectOneMainView5(dto); 
+		 model.addAttribute("rt5", rt5);
+		 Admin rt6 = service.selectOneMainView6(dto); 
+		 model.addAttribute("rt6", rt6);
+		 Admin rt7 = service.selectOneMainView7(dto); 
+		 model.addAttribute("rt7", rt7);
+		 Admin rt8 = service.selectOneMainView8(dto); 
+		 model.addAttribute("rt8", rt8);
+		 Admin rt9 = service.selectOneMainView9(dto); 
+		 model.addAttribute("rt9", rt9);
+		 Admin rt10 = service.selectOneMainView10(dto); 
+		 model.addAttribute("rt10", rt10);
 		 
-		
 		return "admin/mainView";
 	}
 	

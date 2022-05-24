@@ -166,10 +166,44 @@ public class AdminServiceImpl implements AdminService{
 //  ===========================mainView=================================	
 
 	@Override
-	public Admin selectOneMainView(Admin dto) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.selectOneMainView(dto);
-		
+	public Admin selectOneMainView1(Admin dto) throws Exception {
+		return dao.selectOneMainView1(dto);
+	}	
+	@Override
+	public Admin selectOneMainView2(Admin dto) throws Exception {
+		return dao.selectOneMainView2(dto);
+	}	
+	@Override
+	public Admin selectOneMainView3(Admin dto) throws Exception {
+		return dao.selectOneMainView3(dto);
+	}	
+	@Override
+	public Admin selectOneMainView4(Admin dto) throws Exception {
+		return dao.selectOneMainView4(dto);
+	}	
+	@Override
+	public Admin selectOneMainView5(Admin dto) throws Exception {
+		return dao.selectOneMainView5(dto);
+	}	
+	@Override
+	public Admin selectOneMainView6(Admin dto) throws Exception {
+		return dao.selectOneMainView6(dto);
+	}	
+	@Override
+	public Admin selectOneMainView7(Admin dto) throws Exception {
+		return dao.selectOneMainView7(dto);
+	}	
+	@Override
+	public Admin selectOneMainView8(Admin dto) throws Exception {
+		return dao.selectOneMainView8(dto);
+	}	
+	@Override
+	public Admin selectOneMainView9(Admin dto) throws Exception {
+		return dao.selectOneMainView9(dto);
+	}	
+	@Override
+	public Admin selectOneMainView10(Admin dto) throws Exception {
+		return dao.selectOneMainView10(dto);
 	}	
 }
 
