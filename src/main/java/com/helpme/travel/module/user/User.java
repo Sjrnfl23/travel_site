@@ -24,7 +24,7 @@ public class User {
 	private String tvamCity;	
 	private String tvamLat;
 	private String tvamLng;
-	private Integer tvamPrice;
+	private Integer tvamAdultPrice;
 	private Integer tvamMaxPersonCount;
 	private Integer tvamBedCount;
 	private Integer tvamRoomCount;
@@ -50,6 +50,15 @@ public class User {
 	private Date regDateTimeSvr;
 	private Date modDateTime;
 	private Date modDateTimeSvr;
+	
+	private String hiddenName;
+	private String hiddenSeq;
+	private String hiddenStartDate;
+	private String hiddenEndDate;
+	private String hiddenNumber;
+	private String hiddenPay;	
+	
+	
 	
 	
 	// 회원정보 member
@@ -210,11 +219,11 @@ public class User {
 	public void setTvamLng(String tvamLng) {
 		this.tvamLng = tvamLng;
 	}
-	public Integer getTvamPrice() {
-		return tvamPrice;
+	public Integer getTvamAdultPrice() {
+		return tvamAdultPrice;
 	}
-	public void setTvamPrice(Integer tvamPrice) {
-		this.tvamPrice = tvamPrice;
+	public void setTvamAdultPrice(Integer tvamAdultPrice) {
+		this.tvamAdultPrice = tvamAdultPrice;
 	}
 	public Integer getTvamMaxPersonCount() {
 		return tvamMaxPersonCount;
@@ -735,8 +744,53 @@ public class User {
 	public void setFile1(MultipartFile[] file1) {
 		this.file1 = file1;
 
+	}
+	public String getHiddenName() {
+		return hiddenName;
+	}
+	public void setHiddenName(String hiddenName) {
+		this.hiddenName = hiddenName;
+	}
+	public String getHiddenSeq() {
+		return hiddenSeq;
+	}
+	public void setHiddenSeq(String hiddenSeq) {
+		this.hiddenSeq = hiddenSeq;
+	}
+	public String getHiddenStartDate() {
+		return hiddenStartDate;
+	}
+	public void setHiddenStartDate(String hiddenStartDate) {
+		this.hiddenStartDate = hiddenStartDate;
+	}
+	public String getHiddenEndDate() {
+		return hiddenEndDate;
+	}
+	public void setHiddenEndDate(String hiddenEndDate) {
+		this.hiddenEndDate = hiddenEndDate;
+	}
+	public String getHiddenNumber() {
+		return hiddenNumber;
+	}
+	public void setHiddenNumber(String hiddenNumber) {
+		this.hiddenNumber = hiddenNumber;
+	}
+	public String getHiddenPay() {
+		return hiddenPay;
+	}
+	public void setHiddenPay(String hiddenPay) {
+		this.hiddenPay = hiddenPay;
+	}
+	public String getTvpmDesc() {
+		return tvpmDesc;
+	}
+	public void setTvpmDesc(String tvpmDesc) {
+		this.tvpmDesc = tvpmDesc;
 	}	
 
+	
+	
+	
 	
 	
 	

@@ -124,6 +124,15 @@
     
     
     <!--============================= BOOKING =============================-->
+ <form action="/payment">
+	
+	<input type="text" id="hiddenName" name="tvamLodgingName"/>
+	<input type="text" id="hiddenSeq" name="tvamSeq"/>
+	<input type="text" id="hiddenStartDate" name="hiddenStartDate"/>
+	<input type="text" id="hiddenEndDate" name="hiddenEndDate"/>
+	<input type="text" id="hiddenNumber" name="hiddenNumber"/>	
+	<input type="text" id="hiddenPay" name="hiddenPay"/> 
+ 
     <div>
         <!-- Swiper -->
         <div class="swiper-container">
@@ -169,6 +178,9 @@
     </div>
     <!--//END BOOKING -->
     <!--============================= RESERVE A SEAT =============================-->
+
+
+
     <section class="reserve-block">
         <div class="container">
             <div class="row">
@@ -462,16 +474,16 @@
 									    <div class="input-group"><input type="number" class="form-control" placeholder="게스트"></div>
 							  			</div>
                                         <div class="booking-cost">
-                                            <p style="font-size: 16px;">날짜 <span style="font-size: 16px;">8월 26일 ~ 9월 2일</span></p>
+                                            <p style="font-size: 16px; ">날짜 <span id="endDate" style="font-size: 16px;"></span><span id="startDate" style="font-size: 16px;"></span> </p>
                                             <p style="font-size: 16px;">게스트 <span style="font-size: 16px;">성인 1명</span></p>
                                         </div>
                                         <div class="booking-cost" >
                                             <h5>요금 정보</h5>
-                                            <p style="font-size: 16px;"><u>280,000 x 7박</u> <span style="font-size: 18px;">1,960,000원</span></p>
+                                            <p style="font-size: 16px;"><u id="price"> x 7박</u> <span style="font-size: 18px;">1,960,000원</span></p>
                                             <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
                                             <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
                                             <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,136,000원</span></p>
-                                            <br><button class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
+                                            <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
                                         </div>
                                     </div>
                                 </div>
@@ -532,6 +544,7 @@
             </div>
         </div>
     </section>
+    </form>
     <!--//END BOOKING DETAILS -->
     <!--=============================// 컨텐츠 끝 =============================-->
     
@@ -590,78 +603,115 @@
         }
     </script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> <!-- datepicker -->
-<script type="text/javascript">
-	$(document).ready(function(){
-		 $("#datepicker1").datepicker();
-	}); 
-	$(document).ready(function(){
-		 $("#datepicker2").datepicker();
-	}); 
-	$.datepicker.setDefaults({
-	    dateFormat: 'yy-mm-dd',
-	    prevText: '이전 달',
-	    nextText: '다음 달',
-	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-	    showMonthAfterYear: true,
-	    yearSuffix: '년'
-	});
-</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			 $("#datepicker1").datepicker();
+			 $('#startDate').empty();
+			 $("#datepicker1").val();
+			 $("#datepicker1").on("change",function(){
+				var selected1 = $(this).val();
+			   alert(selected1);
+			   $('#startDate').empty();
+			   $('#startDate').append(selected1);
+			   $('#hiddenStartDate').val(selected1);
+			 });					 
+		}); 
+		$(document).ready(function(){
+			 $("#datepicker2").datepicker();
+			 $("#datepicker2").val();
+			 $("#datepicker2").on("change",function(){
+			   var selected2 = $(this).val();
+			   alert(selected2);
+			   $('#endDate').empty();
+			   $('#endDate').append(' ~ ' + selected2);
+			   $('#hiddenEndDate').val(selected2);
+			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/> x' );
+			 });				 
+		}); 
+		$.datepicker.setDefaults({
+		    dateFormat: 'yy-mm-dd',
+		    prevText: '이전 달',
+		    nextText: '다음 달',
+		    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		    showMonthAfterYear: true,
+		    yearSuffix: '년'
+		    
+		});
+		
+	</script>
+	
+	<script>
+	
+	
+	
+	</script>
 		
 		<!-- Login Ajax -->
-       <script type="text/javascript">
-        
-$("#btnReservation").on("click" , function(){
-	
-	/* if($("#tvmmEmailAccount").val() == "" || $("#tvmmPassword").val() == ""){
-		alert("이메일 또는 비밀번호를 입력해주세요");
+	<script type="text/javascript">
+	        
+/* 	$("#btnReservation").on("click" , function(){
 		
-		return false;
-	}else{
-		
-	} */
-	
-	$.ajax({
-		async: true 
-		,cache: false
-		,type: "post"
-		,url: "/loginCheck"
-		,data : {}
-		,success: function(response) {
+		/* if($("#tvmmEmailAccount").val() == "" || $("#tvmmPassword").val() == ""){
+			alert("이메일 또는 비밀번호를 입력해주세요");
 			
-			if(response.rt == "pass") {
+			return false;
+		}else{
+			
+		} */
+		
+	 	/* $.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/loginCheck"
+			,data : {}
+			,success: function(response) {
 				
-				 location.href = "/payment"; 
-				
-			}else{			
-				var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
-				
-				if(answer ==true){
+				if(response.rt == "pass") {
+					$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
+					$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
+					$('#hiddenStartDate').val("2022-08-26");
+					$('#hiddenEndDate').val("2022-09-02");
+					$('#hiddenNumber').val("1");
+					$('#hiddenPay').val("2136000");					
 					
-					location.href="/loginForm"
+					 location.href = "/payment"; 
 					
+				}else{			
+					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
+					
+					if(answer ==true){
+						
+						location.href="/loginForm"
+					}
+					}
 				}
-				
-				}
-				
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 			}
-			
-			
-		
-		,error : function(jqXHR, textStatus, errorThrown){
-			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-		}
-		
-	});
+		});
+	});   */
 	
-});
-
-
-
-</script>
+	</script>
+	
+	<script>
+	
+	$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
+	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
+	/* $('#hiddenStartDate').val("2022-08-26"); */
+	/* $('#hiddenEndDate').val("2022-09-02"); */
+	$('#hiddenNumber').val("1");
+	$('#hiddenPay').val("2136000");
+	
+	
+	
+	
+	</script>
 </body>
 
 </html>

@@ -119,6 +119,7 @@
 			,a.tvamDesc
 			,a.tvamHostName
 			,a.tvmmSeq
+			,a.tvamAdultPrice
 			<!-- ,b.tvarSeq
 			,b.tvarReview
 			,b.tvarStarPoint

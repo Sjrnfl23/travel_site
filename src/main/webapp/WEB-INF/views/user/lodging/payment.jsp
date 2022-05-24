@@ -58,7 +58,7 @@
                             <h5 class="modal-title"><img src="/resources/user/images/logo.png" alt="logo"></h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span class="ti-close"></span>
-        </button>
+        					</button>
                         </div>
                         <div class="modal-body">
                             <form>
@@ -79,7 +79,7 @@
                             <h5 class="modal-title" id="exampleModalLabel"><img src="/resources/user/images/logo.png" alt="logo"></h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span class="ti-close"></span>
-        </button>
+        					</button>
                         </div>
                         <div class="modal-body">
                             <form>
@@ -112,6 +112,15 @@
     <!--============================= 컨텐츠시작 =============================-->
     
     <!--============================= SUBPAGE HEADER BG =============================-->
+ <form>
+	<input type="hidden" id="hiddenName" name="tvamLodgingName"/>
+	<input type="hidden" id="hiddenSeq" name="tvamSeq"/>
+	<input type="hidden" id="hiddenStartDate" name="hiddenStartDate"/>
+	<input type="hidden" id="hiddenEndDate" name="hiddenEndDate"/>
+	<input type="hidden" id="hiddenNumber" name="hiddenNumber"/>	
+	<input type="hidden" id="hiddenPay" name="hiddenPay"/>     
+ </form>
+    
     <section class="subpage-bg">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -150,7 +159,7 @@
                                         <div class="col-md-6">
                                             <div>
                                                 <span style="font-size:20px;"><b>날짜</b></span>
-                                                <p style="font-size : 18px;">8월 26일 ~ 9월 2일</p>
+                                                <p style="font-size : 18px;"><c:out value="${rtStartDate}"/> ~ <c:out value="${rtEndDate}"/></p>
                                             </div>
                                         </div>
                                         <div class="col-md-6" style="text-align: right; vertical-align: bottom;">
@@ -161,7 +170,7 @@
                                         <div class="col-md-6">
                                             <div>
                                                 <span style="font-size:20px;"><b>게스트</b></span>
-                                                <p style="font-size : 18px;">성인 1명</p>
+                                                <p style="font-size : 18px;">성인 <c:out value="${rtNumber}"/>명</p>
                                             </div>
                                         </div>
                                         <div class="col-md-6" style="text-align: right; vertical-align: bottom;">
@@ -306,7 +315,6 @@
                                     <a href="/reservation"><button type="button" class="btn btn-primary">결제하기</button></a>
                                     <!-- <a href="/admin/reservation"><button type="submit" class="btn btn-primary">결제하기</button></a> -->
                                 </div>
-                            </form>
                             <!--// 결제수단 -->
                         </div>
 
@@ -314,7 +322,7 @@
                             <div class="booking-summary_block">
                                 <img src="/resources/user/images/payment.png" class="img-fluid" alt="#">
                                 <div class="booking-summary-box">
-                                    <h4>퀄리티&인테리어, 특별한 독채팬션_[봄보름] #해수욕장5분.돌집독채.월풀.바베큐</h4>
+                                    <h4><c:out value="${item.tvamLodgingName}"/></h4>
                                     <span style="font-size: 18px;">제주도, 제주시</span>
 
                                     <div class="booking-summary_contact">
@@ -324,15 +332,15 @@
                                     <div class="booking-summary_deatail">
                                         <h5>예약 정보</h5>
                                         <div class="booking-cost">
-                                            <p style="font-size: 16px;">날짜 <span style="font-size: 16px;">8월 26일 ~ 9월 2일</span></p>
-                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;">성인 1명</span></p>
+                                            <p style="font-size: 16px;">날짜 <span style="font-size: 16px;"><c:out value="${rtStartDate}"/> ~ <c:out value="${rtEndDate}"/></span></p>
+                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;">성인 <c:out value="${rtNumber}"/>명</span></p>
                                         </div>
                                         <div class="booking-cost" >
                                             <h5>요금 정보</h5>
                                             <p style="font-size: 16px;"><u>280,000 x 7박</u> <span style="font-size: 18px;">1,960,000원</span></p>
                                             <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
                                             <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
-                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,136,000원</span></p>
+                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;"><c:out value="${rtPay}"/></span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -345,6 +353,8 @@
         </div>
     </section>
     <!--//END PAYMENT METHORD -->
+  </form>
+    
     <!--=============================// 컨텐츠 끝 =============================-->
     
  	<!--============================= 공통부분 푸터 시작 =============================-->

@@ -120,21 +120,42 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/lodgingView")
-	public String UserLodgingView(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
-
-		User list= service.selectOneLodgingView(vo);
-		model.addAttribute("list", list);
+	public String UserLodgingView(UserVo vo, User dto, Model model) throws Exception {
+		/*
+		 * public String UserLodgingView(@ModelAttribute("vo") UserVo vo, User dto,
+		 * Model model) throws Exception {
+		 */
 		
+		/*
+		 * User list= service.selectOneLodgingView(vo); model.addAttribute("list",
+		 * list);
+		 */
 
 		User item = service.selectOneLodgingView(vo);
 		model.addAttribute("item", item);
 		
-
 		return "user/lodging/lodgingView";
 	}
 
 	@RequestMapping(value = "/payment")
-	public String UserPayment(Model model) throws Exception {
+	public String UserPayment(UserVo vo, User dto, Model model) throws Exception {
+		
+		
+
+		
+		model.addAttribute("rtStartDate", dto.getHiddenStartDate());
+		model.addAttribute("rtEndDate", dto.getHiddenEndDate());
+		model.addAttribute("rtNumber", dto.getHiddenNumber());
+		model.addAttribute("rtPay", dto.getHiddenPay());
+	
+		System.out.println("dto.getTvamLodgingName(): " + dto.getTvamLodgingName());
+		System.out.println("dto.getTvamSeq(): " + dto.getTvamSeq());
+		System.out.println("dto.getHiddenStartDate(): " + dto.getHiddenStartDate());
+		System.out.println("dto.getHiddenEndDate(): " + dto.getHiddenEndDate());			
+		
+		
+		 User item = service.selectOneLodgingView(vo); 
+		 model.addAttribute("item",item);
 
 		return "user/lodging/payment";
 	}
@@ -192,7 +213,7 @@ public class UserController {
 	// login & logout ======================================================
 	@ResponseBody
 	@RequestMapping(value = "/loginProc")
-	public Map<String, Object> loginProc(User dto, HttpSession httpSession) throws Exception {
+	public Map<String, Object> loginProc(User dto, HttpSession httpSession, Model model) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 		User rtMember = service.selectOneLogin(dto);
