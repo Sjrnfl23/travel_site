@@ -220,7 +220,6 @@
                                                             <p class="text-muted mb-0" style="text-align: left;">
                                                             	<textarea class="form-control" name="tvmmDesc" placeholder="<c:out value="${rt.tvmmDesc}"/>" value="<c:out value="${rt.tvmmDesc}"/>"></textarea>
                                                             </p>                                                            
-                                                            </p>
                                                         </div>
                                                     </div>
 
@@ -233,7 +232,7 @@
                                                      		<button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" >수정</button>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="memberView">
+                                                    	<a href="memberView?tvmmSeq=<c:out value="${rt.tvmmSeq}"/>">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">취소</button>
                                                     	</a>
                                                     </li>

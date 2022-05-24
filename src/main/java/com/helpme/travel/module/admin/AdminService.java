@@ -13,6 +13,9 @@ public interface AdminService {
 	public int updateMember(Admin dto) throws Exception;
 	public int DeleteMember(AdminVo vo) throws Exception;
 	
+//  ===========================member=================================
+	public Admin selectOneAdmin(Admin dto) throws Exception; 
+	
 //  ===========================lodging=================================
 	public List<Admin> selectLodging(AdminVo vo) throws Exception; 
 	public Admin selectOneLodging(AdminVo vo) throws Exception; 
