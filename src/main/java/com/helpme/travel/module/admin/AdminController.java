@@ -259,17 +259,36 @@ public class AdminController {
 	/* memberAdmin 관리자 회원정보--------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/admin/adminInfoEdit")
-	public String AdminMemberEditAdmin(Model model) throws Exception {
+	public String AdminMemberEditAdmin(AdminVo vo, Model model) throws Exception {
+		
+		   Admin rt = service.selectOneMember(vo);
+		   model.addAttribute("rt", rt);			
 		
 		return "admin/memberAdmin/adminInfoEdit";
 	}
 	
 
 	@RequestMapping(value = "/admin/adminInfoView")
-	public String AdminMemberViewAdmin(Model model) throws Exception {
+	public String AdminMemberViewAdmin(@ModelAttribute("dto")Admin dto, Model model, HttpSession httpSession) throws Exception {
+		
+		String adminSessSeq = String.valueOf(httpSession.getAttribute("adminSessSeq").toString());	
+		dto.setTvmmSeq(adminSessSeq);
+		
+	   Admin rt = service.selectOneAdmin(dto);
+	   model.addAttribute("rt", rt);			
 		
 		return "admin/memberAdmin/adminInfoView";
 	}
+	
+	@RequestMapping(value = "/admin/adminInfoUpdt")
+	public String AdminInfoUpdt(AdminVo vo, Admin dto, Model model) throws Exception {
+		
+		service.updateMember(dto);	
+		
+		return "redirect:/admin/adminInfoView?tvmmSeq=" + dto.getTvmmSeq(); 
+	}	
+	
+	
 	
 	/*---------------------------------------------------------------------------*/
 	/* member--------------------------------------------------------------------*/
@@ -458,6 +477,7 @@ public class AdminController {
 					httpSession.setAttribute("adminSessUserType","어드민");
 					httpSession.setAttribute("adminSessName", rtMember.getTvmmName());
 					httpSession.setAttribute("adminSessEmail", rtMember.getTvmmEmailAccount());
+					httpSession.setAttribute("adminSessSeq", rtMember.getTvmmSeq());
 
 					returnMap.put("rt", "success");
 				}else {

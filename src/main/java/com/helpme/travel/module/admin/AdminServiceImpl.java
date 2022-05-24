@@ -41,6 +41,12 @@ public class AdminServiceImpl implements AdminService{
 	public int DeleteMember(AdminVo vo) throws Exception {
 		return dao.DeleteMember(vo);
 	}
+	
+//  ===========================admin=================================	
+	@Override
+	public Admin selectOneAdmin(Admin dto) throws Exception {
+		return dao.selectOneAdmin(dto); 
+	}
 //  ===========================lodging=================================
 	
 	@Override

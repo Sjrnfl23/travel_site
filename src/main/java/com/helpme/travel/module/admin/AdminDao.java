@@ -23,12 +23,15 @@ public class AdminDao {
    public Admin selectOneHost(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneHost", vo);}  
    
    //  ===========================member=================================
-   
 
    public Admin selectOneMember(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneMember", vo);}
    public List<Admin> selectMember(AdminVo vo){return sqlSession.selectList(namespace + ".selectMember", vo);}
    public int updateMember(Admin dto) {return sqlSession.update(namespace + ".updateMember", dto);}
    public int DeleteMember(AdminVo vo) {return sqlSession.update(namespace + ".DeleteMember", vo);}
+   
+   //  ===========================member=================================
+   
+   public Admin selectOneAdmin(Admin dto){return sqlSession.selectOne(namespace + ".selectOneAdmin", dto);}
    
    //  ===========================lodging=================================
    

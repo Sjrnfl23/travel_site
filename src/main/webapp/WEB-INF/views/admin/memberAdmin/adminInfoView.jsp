@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>넥솔위즈빌
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
@@ -164,7 +164,7 @@
                                                     <div class="col-12">
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">소개</h5>
-                                                            <p class="text-muted mb-0" style="text-align: left;">.....</p>
+                                                            <p class="text-muted mb-0" style="text-align: left;"><c:out value="${rt.tvmmDesc}"/></p>
                                                         </div>
                                                     </div>
 
@@ -175,7 +175,7 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="/host/adminInfoEdit">
+                                                       <a href="/admin/adminInfoEdit?tvmmSeq=<c:out value="${rt.tvmmSeq}"/>">
                                                      		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
                                                        </a>
                                                     </li>

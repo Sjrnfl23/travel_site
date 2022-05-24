@@ -123,6 +123,36 @@
 		update tvMember set tvmmDelNy = 1 where 1=1 and tvmmSeq = #{tvmmSeq}
 	</update>	
 
+
+
+<!--  ===========================lodging================================= -->
+
+	<select id="selectOneAdmin" resultMap="resultMapObj">
+		select 
+			tvmmSeq
+		    , tvmmName
+		    , tvmmPassword
+		    , tvmmDob
+		    , tvmmZipCode
+		    , tvmmAddress1
+		    , tvmmAddress2
+		    , tvmmAddressFull
+		    , tvmmEmailAccount
+		    , tvmmEmailDomain
+		    , tvmmEmailDomainCd
+		    , tvmmTelecomCd
+		    , tvmmTelNumber
+		    , tvmmAdminNy
+		    , tvmmHostNy
+		    , tvmmDesc
+		from tvMember
+		where 1 = 1
+			and tvmmDelNy = 0
+		    and tvmmSeq = #{tvmmSeq}
+	</select>
+
+
+
 <!--  ===========================lodging================================= -->
 
 	<select id="selectLodging" resultMap="resultMapObj">
