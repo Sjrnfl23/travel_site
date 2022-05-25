@@ -78,6 +78,10 @@ public class Host {
 	private String tvpmEndDate;
 	private String tvpmtotalPrice;
 	private String tvpmSeq;
+	private String tvpmPrice;
+	private String tvpmDelNy;
+	private String tvpmDesc;
+	
 	// coupon
 	public Integer getTvcpSeq() {
 		return tvcpSeq;
@@ -598,6 +602,30 @@ public class Host {
 
 	public void setTvmmAddress2(String tvmmAddress2) {
 		this.tvmmAddress2 = tvmmAddress2;
+	}
+
+	public String getTvpmPrice() {
+		return tvpmPrice;
+	}
+
+	public void setTvpmPrice(String tvpmPrice) {
+		this.tvpmPrice = tvpmPrice;
+	}
+
+	public String getTvpmDelNy() {
+		return tvpmDelNy;
+	}
+
+	public void setTvpmDelNy(String tvpmDelNy) {
+		this.tvpmDelNy = tvpmDelNy;
+	}
+
+	public String getTvpmDesc() {
+		return tvpmDesc;
+	}
+
+	public void setTvpmDesc(String tvpmDesc) {
+		this.tvpmDesc = tvpmDesc;
 	}
 	
 	
