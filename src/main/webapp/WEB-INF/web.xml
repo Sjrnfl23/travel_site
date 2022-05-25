@@ -45,4 +45,8 @@
 	</filter-mapping>
 <!-- for korean breaking e 2022.02.25 -->
 
+	<session-config>
+		<session-timeout>600</session-timeout>
+	</session-config>
+
 </web-app>
