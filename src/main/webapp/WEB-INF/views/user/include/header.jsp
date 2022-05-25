@@ -22,7 +22,7 @@
                   						</a>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="reservation">예약내역</a>
-                                            <a class="dropdown-item" href="mapList">여행지도</a>
+                                            <a class="dropdown-item" id="btnPhotomap" href="">여행지도</a>
                                             <a class="dropdown-item" href="userInfoView">회원정보 수정</a>
                                         </div>
                                     </li>
@@ -108,3 +108,36 @@ $("#logout").on("click",function(){
 })
 
 </script>
+    <script type="text/javascript">
+	        
+ 	$("#btnPhotomap").on("click" , function(){
+		
+	 	 $.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/loginCheck"
+			,data : {}
+			,success: function(response) {
+				
+				if(response.rt == "pass") {
+			
+				
+					 location.href = "/mapList"; 
+					
+				}else{			
+					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
+					
+					if(answer ==true){
+						
+						location.href="/loginForm"
+					}
+					}
+				}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+	});   
+	
+	</script>
