@@ -40,7 +40,7 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
 
                         <div class="mb-4 pb-2">
-                            <a href="loginForm" class="d-block auth-logo">
+                            <a href="../" class="d-block auth-logo">
                                 <img src="../../resources/host/images/nowTravel_logo_200.jpg" alt="" class="auth-logo-dark me-start">
                                 <img src="../../resources/host/images/logo-light.png" alt="" height="30" class="auth-logo-light me-start">
                             </a>
@@ -58,7 +58,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="username">이메일</label>
                                             <div class="position-relative input-custom-icon">
-                                                <input type="text" class="form-control"  name="tvmmEmailAccount" id="tvmmEmailAccount" placeholder="가입하신 이메일주소를 입력해주세요" >
+                                                <input type="text" class="form-control"  name="tvmmEmailAccount" id="tvmmEmailAccount" value="ina@google.com" placeholder="가입하신 이메일주소를 입력해주세요" >
                                                  <span class="bx bx-user"></span>
                                             </div>	
                                         </div>
@@ -70,7 +70,7 @@
                                             <label class="form-label" for="password-input"  >Password</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
-                                                <input type="password" class="form-control" name="tvmmPassword" id="tvmmPassword" placeholder="비밀번호를 입력해주세요" >
+                                                <input type="password" class="form-control" name="tvmmPassword" value="12345" id="tvmmPassword" placeholder="비밀번호를 입력해주세요" >
                                                 <button type="button" class="btn btn-link position-absolute h-100 end-0 top-0" id="password-addon">
                                                     <i class="mdi mdi-eye-outline font-size-18 text-muted"></i>
                                                 </button>
@@ -83,7 +83,7 @@
                                         </div>
                                         
                                         <div class="mt-3">
-                                           <button class="btn btn-primary w-100 waves-effect waves-light" id="btnLogin" >로그인</button>
+                                           <button class="btn btn-primary w-100 waves-effect waves-light" id="btnLogin"  >로그인</button>
                                         </div>
 
                                         <div class="mt-4 text-center">

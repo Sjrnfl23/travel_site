@@ -128,6 +128,18 @@ public class HostServiceImpl implements HostService{
 		return dao.insertHost(dto);
 	}
 
+	@Override
+	public Host selectOneReservation(Host dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneReservation(dto);
+	}
+
+	@Override
+	public int updateReservation(Host dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.updateReservation(dto);
+	}
+
 	
 	
 	

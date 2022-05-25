@@ -174,7 +174,7 @@
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">가격 :</th>
-                                                            <td class="text-muted"><c:out value="${rt.tvpmtotalPrice}"/>원</td>
+                                                            <td class="text-muted"><c:out value="${rt.tvpmPrice}"/>원</td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>

@@ -255,7 +255,21 @@
 		
 	</select>
 
-	<update id="updateHost"></update>
+	<update id="updateHost">
+	update tvMember
+	set
+	tvmmName = #{tvmmName}
+	,tvmmEmailAccount = #{tvmmEmailAccount}
+	,tvmmPassword = #{tvmmPassword}
+	,tvmmTelNumber = #{tvmmTelNumber}
+	,tvamAddress1 = #{tvmmAddress1} 
+	,tvamAddress2 = #{tvmmAddress2}
+	,tvmmDob = #{tvmmDob}
+	,tvmmDesc = #{tvmmDesc} 
+	
+	where
+		tvmmSeq=#{tvmmSeq}
+	</update>
 
 	<!--userInfo End-->
 
@@ -303,6 +317,96 @@
 	
 	</select>
 	
+	<select id="selectOneReservation" resultMap="resultMapObj">
+	
+		select 
+			a.tvpmSeq
+		    , a.tvpmAdNumber
+		    , a.tvpmStartDate
+		    , a.tvpmEndDate
+		    , a.tvpmPrice
+		    , a.tvcpSeq
+		    , b.tvcpPrice
+		    , a.tvpmtotalPrice
+		    , a.tvpmPayTypeCd
+		    , a.tvpmPrice
+		    , a.tvpmDesc
+            , a.tvamSeq
+            , c.tvamLodgingName
+            , c.tvamTelNumber
+            , (select tvmmEmailAccount from tvMember e where e.tvmmSeq = c.tvmmSeq) as 'hostEmail' 
+            , a.tvmmSeq
+            , d.tvmmName
+            , d.tvmmTelNumber
+            , d.tvmmEmailAccount
+            , a.regDateTime
+		from tvPayment a
+			left join tvCoupon b on a.tvcpSeq = b.tvcpSeq
+            left join tvLodging c on a.tvamSeq = c.tvamSeq
+            left join tvMember d on a.tvmmSeq = d.tvmmSeq
+		where 1 = 1
+			and tvpmDelNy = 0
+			and tvpmSeq = #{tvpmSeq}
+	
+	
+	</select>
+	<update id="updateReservation">
+	update
+		tvPayment a
+		left join tvMember d on a.tvmmSeq = d.tvmmSeq
+	set 
+		d.tvmmTelNumber = #{tvmmTelNumber}
+		,a.tvpmDesc = #{tvpmDesc}
+		,a.tvpmAdNumber = #{tvpmAdNumber}
+		,a.tvpmStartDate = #{tvpmStartDate}
+		,a.tvpmEndDate = #{tvpmEndDate}
+			
+	
+		
+        
+        
+		where tvpmDelNy=0 and tvpmSeq = #{tvpmSeq}
+	
+	</update>
+
+	<!-- reservation End -->
+	
+	<!-- host signup start -->
+	<insert id="insertHost">
+	insert into tvMember(
+	
+		tvmmName
+		,tvmmEmailAccount
+		,tvmmPassword
+		,tvmmTelNumber
+		,tvmmDob
+		,tvmmAddress1
+		,tvmmAddress2
+		,tvmmAddressFull
+		,tvmmHostNy
+		,tvmmDelNy
+		,regDateTime
+	)values(
+	
+		#{tvmmName}
+		,#{tvmmEmailAccount}
+		,#{tvmmPassword}
+		,#{tvmmTelNumber}
+		,#{tvmmDob}
+		,#{tvmmAddress1}
+		,#{tvmmAddress2}
+		,concat(#{tvmmAddress1} ," ", #{tvmmAddress2} )
+		,1
+		,0
+		,now()
+	)
+	
+	</insert>
+	
+	
+	<!-- host signup end -->
+	
+	<!-- paging start-->
 	<select id="selectOneCountLodging" resultType="Integer" >	<!-- selectCommon 사용 / 페이징 -->
 			select
 				count(*)
@@ -328,40 +432,6 @@
 		where tvpmDelNy=0 and c.tvmmSeq = #{tvmmSeq}
 				
 	</select>
-	
-
-	<!-- reservation End -->
-	
-	<!-- host signup start -->
-	<insert id="insertHost">
-	insert into tvMember(
-	
-		tvmmName
-		,tvmmEmailAccount
-		,tvmmPassword
-		,tvmmTelNumber
-		,tvmmDob
-		,tvmmAddress1
-		,tvmmAddress2
-		,tvmmHostNy
-		,tvmmDelNy
-		
-	)values(
-	
-		#{tvmmName}
-		,#{tvmmEmailAccount}
-		,#{tvmmPassword}
-		,#{tvmmTelNumber}
-		,#{tvmmDob}
-		,#{tvmmAddress1}
-		,#{tvmmAddress2}
-		,1
-		,0
-	)
-	
-	</insert>
-	
-	<!-- host signup end -->
-	
+	<!--paging end-->
 	
 </mapper> 

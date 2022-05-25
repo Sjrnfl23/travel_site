@@ -42,7 +42,8 @@ public class HostDao {
    
    //reservation
    public List<Host> selectReservation(Host dto){return sqlSession.selectList(namespace + ".selectReservation",dto); }
-   
+   public Host selectOneReservation(Host dto) {return sqlSession.selectOne(namespace+".selectOneReservation",dto); }
+   public int updateReservation(Host dto) { return sqlSession.update(namespace+".updateReservation",dto); }
    //paging
    public int selectOneCountLodging(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountLodging",vo);}
    public int selectOneCountCoupon(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountCoupon",vo);}
