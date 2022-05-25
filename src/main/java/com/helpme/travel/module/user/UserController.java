@@ -71,7 +71,7 @@ public class UserController {
 		int result = service.insertMember(dto);
 		System.out.println("result: " + result);
 
-		return "redirect:/user/loginForm";
+		return "redirect:loginForm";
 	}
 
 	@RequestMapping(value = "/userInfoView")

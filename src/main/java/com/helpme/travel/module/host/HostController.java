@@ -171,8 +171,13 @@ public class HostController {
 
 	// main
 	@RequestMapping(value = "/host/mainView")
-	public String mainView() throws Exception {
-
+	public String mainView(@ModelAttribute("dto")Host dto,HttpSession httpSession,Model model) throws Exception {
+		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
+		dto.setTvmmSeq(sessSeq);
+		
+		Host host = service.selectOneSales(dto);
+		model.addAttribute("item", host);
+		
 		return "/host/main/mainView";
 	}
 

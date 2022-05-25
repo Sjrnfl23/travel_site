@@ -73,6 +73,21 @@
                                     <span class="menu-item" data-key="t">문의관리</span>
                                 </a>
                             </li>
+                             
+                            <li class="menu-title" data-key="t-applications">바로가기</li>
+
+                            <li>
+                                <a href="/">
+                                    <i class="bx bx-share-alt icon nav-icon"></i>
+                                    <span class="menu-item" data-key="t-contacts">now travel 바로가기</span>
+                                </a>
+                            </li>
+                            <li>
+                               <a href="/admin/mainView">
+                                    <i class="bx bx-share-alt icon nav-icon"></i>
+                                    <span class="menu-item" data-key="t-contacts">어드민페이지 바로가기</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <!-- Sidebar -->

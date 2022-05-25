@@ -24,28 +24,32 @@
 	
 	<insert id="insertMember">
 			INSERT INTO tvMember (
-			tvmmSeq
-			,tvmmName
+			
+			tvmmName
 			,tvmmEmailAccount
 			,tvmmPassword
 			,tvmmTelNumber
+			,tvmmAddress1
+			,tvmmAddress2
 			,tvmmAddressFull
 			,tvmmDob
 			,tvmmAdminNy
 			,tvmmHostNy
 			,tvmmDelNy
 			) VALUES (
-			#{tvmmSeq}
-			,#{tvmmName}
+			
+			#{tvmmName}
 			,#{tvmmEmailAccount}
 			,#{tvmmPassword}
 			,#{tvmmTelNumber}
-			,#{tvmmAddressFull}
+			,#{tvmmAddress1}
+			,#{tvmmAddress2}
+			,concat(#{tvmmAddress1} ," ", #{tvmmAddress2} )
 			,#{tvmmDob}
 			,0
 			,0
 			,0
-			);
+			)
 	</insert>
 	
 	<!-- SearchFlex List -->

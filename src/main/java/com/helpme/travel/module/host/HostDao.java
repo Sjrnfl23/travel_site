@@ -49,6 +49,8 @@ public class HostDao {
    public int selectOneCountCoupon(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountCoupon",vo);}
    public int selectOneCountReservation(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountReservation",vo);}
    
+   //mainView
+   public Host selectOneSales(Host dto) { return sqlSession.selectOne(namespace + ".selectOneSales",dto ); }
    
    
 }

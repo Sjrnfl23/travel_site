@@ -434,4 +434,20 @@
 	</select>
 	<!--paging end-->
 	
+	<select id="selectOneSales" resultMap="resultMapObj">
+		select 
+			month(a.regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , count(tvpmSeq) as 'reservationCount'
+		    
+		from tvPayment as a
+		left join tvLodging b on a.tvamSeq=b.tvamSeq 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(a.regDateTime) = 1   
+		    and b.tvmmSeq = #{tvmmSeq}  
+		 	group by month
+	
+	</select>
+	
 </mapper> 

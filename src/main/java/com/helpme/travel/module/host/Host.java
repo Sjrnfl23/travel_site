@@ -82,6 +82,27 @@ public class Host {
 	private String tvpmDelNy;
 	private String tvpmDesc;
 	
+	//mainView
+	private Integer sales;
+	private String reservationCount;
+	
+	
+	public Integer getSales() {
+		return sales;
+	}
+
+	public void setSales(Integer sales) {
+		this.sales = sales;
+	}
+
+	public String getReservationCount() {
+		return reservationCount;
+	}
+
+	public void setReservationCount(String reservationCount) {
+		this.reservationCount = reservationCount;
+	}
+
 	// coupon
 	public Integer getTvcpSeq() {
 		return tvcpSeq;

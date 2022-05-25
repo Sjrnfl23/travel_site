@@ -140,6 +140,12 @@ public class HostServiceImpl implements HostService{
 		return dao.updateReservation(dto);
 	}
 
+	@Override
+	public Host selectOneSales(Host dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneSales(dto);
+	}
+
 	
 	
 	
