@@ -57,5 +57,6 @@ public interface AdminService {
 
 //  ===========================파일업로드==================================
 	public int updateUploaded(Admin dto) throws Exception;
+	public Admin selectOneUploaded(AdminVo vo) throws Exception; 
 	
 }

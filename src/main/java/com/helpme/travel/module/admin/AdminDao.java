@@ -87,5 +87,5 @@ public class AdminDao {
 // ==========================파일업로드===================================
    
 	public int updateUploaded(Admin dto) {return sqlSession.update(namespace + ".updateUploaded", dto);}
-
+	public Admin selectOneUploaded(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneUploaded", vo);}
 }

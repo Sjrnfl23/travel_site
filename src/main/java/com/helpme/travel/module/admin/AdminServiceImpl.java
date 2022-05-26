@@ -39,7 +39,6 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public int updateMember(Admin dto) throws Exception {
-		
 			
 			dao.updateMember(dto);
 			
@@ -236,5 +235,11 @@ public class AdminServiceImpl implements AdminService{
 	public int updateUploaded(Admin dto) throws Exception {
 		return dao.updateUploaded(dto);
 	}	
+	@Override
+	public Admin selectOneUploaded(AdminVo vo) throws Exception {
+		return dao.selectOneUploaded(vo);
+	}	
+	
+	
 }
 

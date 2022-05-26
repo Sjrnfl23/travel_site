@@ -79,7 +79,7 @@
             <!-- Start right Content here -->
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
-    <form action="/admin/memberUpdt" method="get" autocomplete="off" enctype="multipart/form-data">
+    <form action="/admin/memberUpdt" method="post" autocomplete="off" enctype="multipart/form-data">
     	<input type="hidden" name="tvmmSeq" value="<c:out value="${rt.tvmmSeq}"/>">
            
             <div class="main-content">
@@ -103,7 +103,7 @@
                                         <div class="p-4 pt-0">
                                             
                                             <div class="mt-n5 position-relative text-center border-bottom pb-3">
-                                                <img src="/resources/admin/assets/images/users/avatar-1.jpg" alt="" class="avatar-xl rounded-circle img-thumbnail">
+                                                <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt2.year}"/>/<c:out value="${rt2.month}"/>/<c:out value="${rt2.day}"/>/<c:out value="${rt2.uuidName}"/>" alt="" class="avatar-xl rounded-circle img-thumbnail">
                                               
                                                 <div class="mt-3">
                                                    <h5 class="mb-1"><c:out value="${rt.tvmmName}"/></h5>

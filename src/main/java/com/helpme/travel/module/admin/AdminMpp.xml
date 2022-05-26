@@ -671,11 +671,33 @@
 			, year = #{year}
 			, month = #{month}
 			, day = #{day}
-			, pseq = #{pseq}
+			, tvmmSeq = #{tvmmSeq}
 		where 1=1
 			and tvmmSeq = #{tvmmSeq}
 	</update>
+	
+	<select id="selectOneUploaded" resultMap="resultMapObj">
+		select
+			type
+			, defaultNy
+			, sort
+			, originalName
+			, uuidName
+			, ext
+			, size
+			, delNy
+			, year
+			, month
+			, day
+			, tvmmSeq
+		from tvMemberUploaded
+		where 1=1
+			and tvmmSeq = #{tvmmSeq} 		
+	</select>	
+	
 	<!-- uploaded e -->
+
+
 
 	
 </mapper>
