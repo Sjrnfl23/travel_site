@@ -160,78 +160,83 @@
                         <div class="col-md-6">
                             <div class="contact-form pl-4 py-4">
 
-                                <form action="php/contact.php" id="phpcontactform" method="post">
+                                <form action="mapUpdt" method="post" enctype="multipart/form-data">
                                 	<div class="form-group">
                                         <label>여행 사진</label>
+                                        <input type="hidden" id="tvplSeq" name="tvplSeq" value="<c:out value="${item2.tvplSeq}"/>">
                                         <div class="row">
 			                                <div class="col-md-12">
 			                                    <div class="custom-file">
 			                                        <div class="add-gallery-text">
 			                                            <i class="ti-gallery"></i>
-			                                            <span>이미지 변경</span>
+			                                            <span>추억을 넣어보세요!</span>
 			                                        </div>
-			                                        <input type="file" class="custom-file-input" id="customFile">
+													<input class="custom-file-input" id="file0" name="file0" type="file" onChange="upload(0, 2);">
+													<ul id="ulFile0" class="list-group">
+													</ul>                       
 			                                    </div>
 			                                </div>
                             			</div>
                                     </div>
                                     <div class="form-group">
                                     	<label>여행 제목</label>
-                                    	<input type="text" name="title" class="form-control" rows="3">
+                                    	<input type="text" name="tvplTitle" class="form-control" rows="3" value="<c:out value="${item2.tvplTitle}"/>">
                                     </div>
                                     <div class="form-group">
                                     	<label>여행 기분</label><br>
                                     	<div>
-                                    		<input type="radio" name="emotion" id="smile" class="input-hidden" value="1"/>
+                                    		<input type="radio" name="tvplEmotionCd" id="smile" class="input-hidden" <c:if test="${item2.tvplEmotionCd==1}">checked</c:if> value="1"/>
 											<label for="smile">
 											  <img src="/resources/user/images/human_emotions/smile.png"  alt="I'm smile"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="smile2" class="input-hidden" value="2"/>
+											<input type="radio" name="tvplEmotionCd" id="smile2" class="input-hidden" <c:if test="${item2.tvplEmotionCd==2}">checked</c:if> value="2"/>
 											<label for="smile2">
 											  <img src="/resources/user/images/human_emotions/smile2.png" alt="I'm smile2"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="amazed" class="input-hidden" value="3"/>
+											<input type="radio" name="tvplEmotionCd" id="amazed" class="input-hidden" <c:if test="${item2.tvplEmotionCd==3}">checked</c:if> value="3"/>
 											<label for="amazed">
 											  <img src="/resources/user/images/human_emotions/amazed.png" alt="I'm amazed"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="wink" class="input-hidden" value="4"/>
+											<input type="radio" name="tvplEmotionCd" id="wink" class="input-hidden" <c:if test="${item2.tvplEmotionCd==4}">checked</c:if> value="4"/>
 											<label for="wink">
 											  <img src="/resources/user/images/human_emotions/wink.png" alt="I'm wink"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="curious" class="input-hidden" value="5"/>
+											<input type="radio" name="tvplEmotionCd" id="curious" class="input-hidden" <c:if test="${item2.tvplEmotionCd==5}">checked</c:if> value="5"/>
 											<label for="curious">
 											  <img src="/resources/user/images/human_emotions/curious.png" alt="I'm curious"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="unhappy" class="input-hidden" value="6"/>
+											<input type="radio" name="tvplEmotionCd" id="unhappy" class="input-hidden" <c:if test="${item2.tvplEmotionCd==6}">checked</c:if> value="6"/>
 											<label for="unhappy">
 											  <img src="/resources/user/images/human_emotions/unhappy.png" alt="I'm unhappy"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="sad" class="input-hidden" value="7"/>
+											<input type="radio" name="tvplEmotionCd" id="sad" class="input-hidden" <c:if test="${item2.tvplEmotionCd==7}">checked</c:if> value="7"/>
 											<label for="sad">
 											  <img src="/resources/user/images/human_emotions/sad.png" alt="I'm sad"/>
 											</label>
 											
-											<input type="radio" name="emotion" id="angry" class="input-hidden" value="8"/>
+											<input type="radio" name="tvplEmotionCd" id="angry" class="input-hidden" <c:if test="${item2.tvplEmotionCd==8}">checked</c:if> value="8"/>
 											<label for="angry">
 											  <img src="/resources/user/images/human_emotions/angry.png" alt="I'm happy"/>
 											</label>
-
 									    </div>
                                     </div>
                                     <div class="form-group">
                                         <label>여행 스토리</label>
-                                        <textarea name="message" class="form-control" rows="3"></textarea>
+                                        <textarea name="tvplDesc" class="form-control" rows="3"><c:out value="${item2.tvplDesc}"/></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn-submit" id="js-contact-btn">기록하기</button>
+                                        <input type="submit" class="btn-submit" id="js-contact-btn" value="기록하기">
                                     </div>
-                                    <div id="js-contact-result" data-success-msg="Success, We will get back to you soon" data-error-msg="Oops! Something went wrong"></div>
+                                    <div id="js-contact-result" data-success-msg="Success, We will get back to you soon" data-error-msg="Oops! Something went wrong">                            	
+                                    	<input type="hidden" id="tvplLat" name="tvplLat" value="<c:out value="${item2.tvplLat}"/>"/>
+										<input type="hidden" id="tvplLng" name="tvplLng" value="<c:out value="${item2.tvplLng}"/>"/>
+									</div>
                                 </form>
                             </div>
                         </div>
@@ -259,11 +264,100 @@
     <script src="/resources/user/js/bootstrap.min.js"></script>
     <script src="/resources/user/js/script.js"></script>
     <!-- Map JS (Please change the API key below. Read documentation for more info) -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyDMTUkJAmi1ahsx9uCGSgmcSmqDTBF9ygg"></script>
     <!-- Validate JS -->
     <script src="/resources/user/js/validate.js"></script>
     <!-- Contact JS -->
     <script src="/resources/user/js/contact.js"></script>
+    <script src = "/resources/user/js/common.js"></script><!-- image -->
+	<script src = "/resources/user/js/commonXdmin.js"></script><!-- image -->
+	<script src = "/resources/user/js/constantsXdmin.js"></script><!-- image -->
+    <script>
+upload = function(seq,div){
+	
+	$("#ulFile" + seq).children().remove();
+	
+	var fileCount = $("input[type=file]")[seq].files.length;
+	
+	if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
+	
+	var totalFileSize;
+	for(var i = 0; i < fileCount; i++){
+		if(div==1){
+			if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else if(div==2){
+			if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else {
+			return false;
+		}
+		
+		if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		totalFileSize += $("input[type=file]")[seq].files[i].size;
+	}
+	if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
+	
+	for(var i=0; i<fileCount; i++){
+		addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+	}
+}
+addUploadLi = function(seq,index,name){
+	
+	var ul_list = $("#ulFile0");
+	
+	li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+	li = li + name;
+	li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+index +')"><i class="bi bi-x-circle"></i></span>';
+	li = li + '</li>';
+	
+	$("#ulFile"+seq).append(li);
+}
+delLi = function(seq, index){
+	$("#li_"+seq+"_"+index).remove();
+}
+	
+</script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7cd4aacffe9949b52780dbc9332fce55"></script>
+    <script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(36.458812516698835, 128.16112057538854), // 지도의 중심좌표
+        level: 13 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+// 지도를 클릭한 위치에 표출할 마커입니다
+var marker = new kakao.maps.Marker({ 
+    // 지도 중심좌표에 마커를 생성합니다 
+    position: new kakao.maps.LatLng(<c:out value="${item2.tvplLat}"/>, <c:out value="${item2.tvplLng}"/>)
+}); 
+// 지도에 마커를 표시합니다
+marker.setMap(map);
+
+// 지도에 클릭 이벤트를 등록합니다
+// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+    
+    // 클릭한 위도, 경도 정보를 가져옵니다 
+    var latlng = mouseEvent.latLng; 
+    
+    // 마커 위치를 클릭한 위치로 옮깁니다
+    marker.setPosition(latlng);
+    
+
+    document.getElementById("tvplLat").value=latlng.getLat();
+    document.getElementById("tvplLng").value=latlng.getLng();
+
+});
+</script>
+<script>
+// 엔터키 잠금
+    $(document).keypress(function(e) { 
+
+    	if (e.keyCode == 13) e.preventDefault(); 
+
+    });
+
+</script>
 </body>
 
 </html>

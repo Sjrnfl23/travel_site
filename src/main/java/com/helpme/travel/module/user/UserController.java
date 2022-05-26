@@ -180,7 +180,7 @@ public class UserController {
 		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
 		vo.setTvmmSeq(sessSeq);
 		
-		List<User> list = service.selectMap(vo);
+		List<User> list = service.selectListMap(vo);
 		model.addAttribute("list", list);
 
 		return "user/map/mapList";
@@ -209,15 +209,32 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/mapEdit")
-	public String UserMapEdit(Model model) throws Exception {
+	public String UserMapEdit(Model model, UserVo vo, User dto) throws Exception {
 
+		User item= service.selectOneMap(vo);
+		model.addAttribute("item2", item);
+		
 		return "user/map/mapEdit";
+	}
+	
+	@RequestMapping(value = "/mapUpdt")
+	public String UserMapUpdt(Model model, UserVo vo, User dto, RedirectAttributes redirectAttributes) throws Exception {
+		
+		int result = service.updateMap(dto);
+		System.out.println("result: " + result);
+		System.out.println("dto.getTvplSeq: " + dto.getTvplSeq());
+		
+		
+		return "redirect:/mapList?tvplSeq=" +dto.getTvplSeq();
 	}
 
 	@RequestMapping(value = "/UserMapDelete")
-	public String UserMapDelete(Model model) throws Exception {
+	public String UserMapDelete(Model model, UserVo vo) throws Exception {
 
-		return "redirect:/user/mapList";
+		service.deleteMap(vo);
+		service.deleteMapPhoto(vo);
+		
+		return "redirect:/mapList";
 	}
 
 	// login & logout ======================================================

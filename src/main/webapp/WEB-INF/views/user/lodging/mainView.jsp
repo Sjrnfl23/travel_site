@@ -374,6 +374,7 @@
     <script src="/resources/user/js/popper.min.js"></script>
     <script src="/resources/user/js/bootstrap.min.js"></script>
 
+
 </body>
 
 </html>

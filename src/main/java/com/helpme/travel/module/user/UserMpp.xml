@@ -143,7 +143,7 @@
 	
 	
 	<!-- PhotoMap -->
-	<select id="selectMap" resultMap="resultMapObj">
+	<select id="selectListMap" resultMap="resultMapObj">
 		SELECT 
 			a.tvplSeq
 			,a.tvplLat
@@ -166,7 +166,20 @@
 			AND tvplDelNy = 0
 			AND tvmmSeq = #{tvmmSeq}
 	</select>     
-	
+	<select id="selectOneMap" resultMap="resultMapObj">
+	SELECT 
+			tvplSeq
+			,tvplLat
+			,tvplLng
+			,tvplTitle
+			,tvplDesc
+			,tvplEmotionCd
+		FROM
+			tvPhotoMapLocation
+		WHERE 1=1
+			AND tvplDelNy = 0
+			AND tvplSeq = #{tvplSeq}
+	</select>
 	<insert id="insertMap">
 		INSERT INTO tvPhotoMapLocation (
 			tvplSeq
@@ -225,22 +238,67 @@
 			,#{pseq}
 		)
 	</insert>
+	<update id="updateMap">
+		UPDATE
+				tvPhotoMapLocation
+			SET 
+				tvplLat = #{tvplLat}
+				,tvplLng = #{tvplLng}
+				,tvplTitle = #{tvplTitle}
+				,tvplDesc = #{tvplDesc}
+				,tvplEmotionCd = #{tvplEmotionCd}
+			WHERE 1=1
+				AND tvplSeq = #{tvplSeq}
+	</update>
+	<update id="updatePhotoMapUploaded">
+		UPDATE
+			tvPhotoMapPhoto
+		SET
+			type = #{type}
+			,defaultNy = #{defaultNy}
+			,sort = #{sort}
+			,originalName = #{originalName}
+			,uuidName = #{uuidName}
+			,ext = #{ext}
+			,size = #{size}
+			,delNy = 0
+			,pseq = #{pseq}
+			,year = #{year}
+			,month = #{month}
+			,day = #{day}
+		WHERE 1=1
+			AND pseq = #{pseq}
+	</update>
+	
+	<delete id="deleteMap">
+		DELETE FROM 
+			tvPhotoMapLocation
+		WHERE 1=1
+			AND tvplSeq = #{tvplSeq}
+	</delete>
+	<delete id="deleteMapPhoto">
+		DELETE FROM 
+			tvPhotoMapPhoto
+		WHERE 1=1
+			AND pseq = #{tvplSeq}
+	</delete>
+	
 
 	<!--login Start-->
 	<select id="selectOneLogin" resultMap="resultMapObj">
 	
 	select 
-	tvmmSeq
-	,tvmmName
-	,tvmmEmailAccount
-	,tvmmHostNy
-	
-		
+		tvmmSeq
+		,tvmmName
+		,tvmmEmailAccount
+		,tvmmHostNy
 	from
-	tvMember
-	where tvmmEmailAccount = #{tvmmEmailAccount} and tvmmPassword = #{tvmmPassword}
-	
+		tvMember
+	where 
+		tvmmEmailAccount = #{tvmmEmailAccount} and tvmmPassword = #{tvmmPassword}
 	</select>
+	
+	
 	
 	<!--login End-->
 	
