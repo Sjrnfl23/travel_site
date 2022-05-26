@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Admin {
 	
 	// 숙소정보
@@ -98,24 +100,50 @@ public class Admin {
 	private String hostEmail;
 
 	
-// mainView
+	// mainView
 	
 	private Integer sales;
 	private Integer fees;
 	private Integer reservationCount;
 	private Integer memberCount;
 	
+	// image
+	private String seq;
+	private Integer type;
+	private Integer defaultNy;
+	private Integer sort;
+	private String originalName;
+	private String uuidName;
+	private String fileName;
+	private String ext;
+	private Long size;
+	private Integer delNy;
+	private String pseq;
+	private String tableName;
+
 	
+	// image date 
+	private String year;
+	private String month;
+	private String day;
+	
+	private String originalFileName;
+	private String uuidFileName;
+	private MultipartFile[] file0;
+    private MultipartFile[] file1;
+    
 	// 코드
 	private String tvcdName;
 	private String tvcdSeq;
 	private String tvcgSeq;
-	
+
 
 //	for cache
 	public static List<Admin> cachedCodeArrayList = new ArrayList<Admin>();	//메모리에 리스트가 상주돼있음
 
-
+	
+//	===========================================================
+	
 	public String getTvamSeq() {
 		return tvamSeq;
 	}
@@ -882,21 +910,16 @@ public class Admin {
 
 
 	public void setSales(Integer sales) {
-		
-		
 		this.sales = sales;
 	}
 
 
 	public Integer getFees() {
-		
 		return fees;
 	}
 
 
 	public void setFees(Integer fees) {
-		
-		
 		this.fees = fees;
 	}
 
@@ -918,6 +941,196 @@ public class Admin {
 
 	public void setMemberCount(Integer memberCount) {
 		this.memberCount = memberCount;
+	}
+
+
+	public String getSeq() {
+		return seq;
+	}
+
+
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
+
+
+	public Integer getType() {
+		return type;
+	}
+
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+
+	public Integer getDefaultNy() {
+		return defaultNy;
+	}
+
+
+	public void setDefaultNy(Integer defaultNy) {
+		this.defaultNy = defaultNy;
+	}
+
+
+	public Integer getSort() {
+		return sort;
+	}
+
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+
+
+	public String getOriginalName() {
+		return originalName;
+	}
+
+
+	public void setOriginalName(String originalName) {
+		this.originalName = originalName;
+	}
+
+
+	public String getUuidName() {
+		return uuidName;
+	}
+
+
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+
+
+	public String getFileName() {
+		return fileName;
+	}
+
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+
+	public String getExt() {
+		return ext;
+	}
+
+
+	public void setExt(String ext) {
+		this.ext = ext;
+	}
+
+
+	public Long getSize() {
+		return size;
+	}
+
+
+	public void setSize(Long size) {
+		this.size = size;
+	}
+
+
+	public Integer getDelNy() {
+		return delNy;
+	}
+
+
+	public void setDelNy(Integer delNy) {
+		this.delNy = delNy;
+	}
+
+
+	public String getPseq() {
+		return pseq;
+	}
+
+
+	public void setPseq(String pseq) {
+		this.pseq = pseq;
+	}
+
+
+	public String getTableName() {
+		return tableName;
+	}
+
+
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
+
+
+	public String getYear() {
+		return year;
+	}
+
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+
+	public String getMonth() {
+		return month;
+	}
+
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
+
+	public String getDay() {
+		return day;
+	}
+
+
+	public void setDay(String day) {
+		this.day = day;
+	}
+
+
+	public String getOriginalFileName() {
+		return originalFileName;
+	}
+
+
+	public void setOriginalFileName(String originalFileName) {
+		this.originalFileName = originalFileName;
+	}
+
+
+	public String getUuidFileName() {
+		return uuidFileName;
+	}
+
+
+	public void setUuidFileName(String uuidFileName) {
+		this.uuidFileName = uuidFileName;
+	}
+
+
+	public MultipartFile[] getFile0() {
+		return file0;
+	}
+
+
+	public void setFile0(MultipartFile[] file0) {
+		this.file0 = file0;
+	}
+
+
+	public MultipartFile[] getFile1() {
+		return file1;
+	}
+
+
+	public void setFile1(MultipartFile[] file1) {
+		this.file1 = file1;
 	}
 
 
@@ -960,10 +1173,14 @@ public class Admin {
 		Admin.cachedCodeArrayList = cachedCodeArrayList;
 	}
 
+	
+	
 
 
 
-
+	
+	
+	
 	
 	
 }

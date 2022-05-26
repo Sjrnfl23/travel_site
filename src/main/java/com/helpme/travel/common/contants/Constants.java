@@ -10,5 +10,6 @@ public class Constants {
 	
 	
 	public static final String UPLOAD_PATH_PREFIX = "C://factory/ws_sts_4130/travel_site/src/main/webapp/resources/user/Photomapuploaded";
+	public static final String UPLOAD_PATH_PREFIX2 = "C://factory/ws_sts_4130/travel_site/src/main/webapp/resources/admin/memberUploaded";
 	
 }

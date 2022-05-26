@@ -653,17 +653,29 @@
 		    and month(regDateTime) = 10    
 		 	group by month
 	</select>
-<!-- 	<select id="selectOneMainView" resultMap="resultMapObj">
-		select 
-			sum(tvpmtotalPrice) as sales
-		    , sum(tvpmtotalPrice)*0.1 as fees
-		    , count(tvpmSeq) as reservationCount
-		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
-		from tvPayment
-		where 1=1 
-			and tvpmDelNy = 0
-			and regDateTime > date_add(now(), interval -1 month)
-	</select> -->
+
+
+
+
+	<!-- uploaded s -->
+	<update id="updateUploaded">
+		update tvMemberUploaded set
+			type = #{type}
+			, defaultNy = #{defaultNy}
+			, sort = #{sort}
+			, originalName = #{originalName}
+			, uuidName = #{uuidName}
+			, ext = #{ext}
+			, size = #{size}
+			, delNy = 0
+			, year = #{year}
+			, month = #{month}
+			, day = #{day}
+			, pseq = #{pseq}
+		where 1=1
+			and tvmmSeq = #{tvmmSeq}
+	</update>
+	<!-- uploaded e -->
 
 	
 </mapper>

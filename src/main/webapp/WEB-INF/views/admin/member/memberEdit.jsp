@@ -26,6 +26,11 @@
         <!-- datepicker css -->
         <link rel="stylesheet" href="../../../../resources/admin/assets/libs/flatpickr/flatpickr.min.css">
 
+	    <!-- Themify Icon -->
+	    <link rel="stylesheet" href="/resources/user/css/themify-icons.css">
+	    <!-- Font Awesome -->
+	    <link rel="stylesheet" href="/resources/user/css/font-awesome.min.css">
+
         <!-- Bootstrap Css -->
         <link href="../../../../resources/admin/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
@@ -114,24 +119,14 @@
 							                            <div class="col-12">
 							                                <div class="card">
 							                                    <div class="card-body">
-							                                        <div>
-							                                            <form action="#" class="dropzone">
-							                                                <div class="fallback">
-							                                                    <input name="file" type="file" multiple="multiple">
-							                                                </div>
-							                                                <div class="dz-message needsclick">
-							                                                    <div class="mb-3">
-							                                                        <i class="display-4 text-muted mdi mdi-cloud-upload"></i>
-							                                                    </div>
-							                                                    
-							                                                    <h4>Drop files here or click to upload.</h4>
-							                                                </div>
-							                                            </form>
-							                                        </div>
-							        
-							                                        <div class="text-center mt-4">
-							                                            <button type="button" class="btn btn-primary waves-effect waves-light">사진첨부</button>
-							                                        </div>
+					                                                <div class="fallback">
+																		<input class="form-control" id="file0" name="file0" type="file" style="display: none;" onChange="upload(0,2);">
+																		<div class="addScroll" style="overflow: auto;">
+																			<ul id="ulFile0" class="list-group">
+																			</ul>
+																		</div>
+																		<label for="file0" class="form-label btn btn-info btn-sm" style="margin-top: 10px;">이미지첨부</label>
+					                                                </div>
 							                                    </div>
 							                                </div>
 							                            </div> <!-- end col -->
@@ -297,10 +292,71 @@
         <script src="../../../../resources/admin/assets/js/app.js"></script>
         
         <!-- Plugins js -->
-        <script src="../../../../resources/admin/assets/libs/dropzone/min/dropzone.min.js"></script>        
+        <!-- <script src="../../../../resources/admin/assets/libs/dropzone/min/dropzone.min.js"></script>       -->  
 
+	    <!-- jQuery, Bootstrap JS. -->
+	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="/resources/user/js/jquery-3.2.1.min.js"></script>
+	    <script src="/resources/user/js/popper.min.js"></script>
+	    <script src="/resources/user/js/bootstrap.min.js"></script>
+	    <script src="/resources/user/js/script.js"></script>
+	    
+	    <!-- Validate JS -->
+	    <script src="/resources/user/js/validate.js"></script>
+	    <!-- Contact JS -->
+	    <script src="/resources/user/js/contact.js"></script>	    
+		
+		<!-- image -->
+	    <script src = "/resources/user/js/common.js"></script><!-- image -->
+		<script src = "/resources/user/js/commonXdmin.js"></script><!-- image -->
+		<script src = "/resources/user/js/constantsXdmin.js"></script><!-- image -->
+    
+    
+<!-- 이미지, 파일 업로드 -->
+<script>
+upload = function(seq,div){
+	
+	$("#ulFile" + seq).children().remove();
+	
+	var fileCount = $("input[type=file]")[seq].files.length;
+	
+	if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
+	
+	var totalFileSize;
+	for(var i = 0; i < fileCount; i++){
+		if(div==1){
+			if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else if(div==2){
+			if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else {
+			return false;
+		}
+		
+		if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		totalFileSize += $("input[type=file]")[seq].files[i].size;
+	}
+	if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
+	
+	for(var i=0; i<fileCount; i++){
+		addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+	}
+}
+addUploadLi = function(seq,index,name){
+	
+	var ul_list = $("#ulFile0");
+	
+	li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+	li = li + name;
+	li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+index +')"><i class="bi bi-x-circle"></i></span>';
+	li = li + '</li>';
+	
+	$("#ulFile"+seq).append(li);
+}
+delLi = function(seq, index){
+	$("#li_"+seq+"_"+index).remove();
+}
+</script>    
 
-
-    </body>
+</body>   
 
 </html>
