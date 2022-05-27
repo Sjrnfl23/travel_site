@@ -98,6 +98,7 @@ public class UserServiceImpl implements UserService{
 //	}
 //	
 	// 포토맵
+
 	@Override
 	public List<User> selectListMap(UserVo vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -203,16 +204,27 @@ public class UserServiceImpl implements UserService{
 //		return item;
 //	}
 
+	// count
+	@Override
+	public int selectPhotomapCount(UserVo vo) throws Exception {
+		return dao.selectPhotomapCount(vo);
+	}
+	
+	@Override
+	public int selectSearchFlexCount(UserVo vo) throws Exception {
+		return dao.selectSearchFlexCount(vo);
+	}
+	
+	// 로그인
 
 	@Override
 	public User selectOneLogin(User dto) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectOneLogin(dto);
 	}
-	private void setRegMod(User dto) {
-		// TODO Auto-generated method stub
-		
-	}
+
+	
+	// 업로드
 	@Override
 	public int insertPhotoMapUploaded(User dto) throws Exception {
 		// TODO Auto-generated method stub
@@ -224,5 +236,11 @@ public class UserServiceImpl implements UserService{
 		return dao.updatePhotoMapUploaded(dto);
 	}
 	
+	// common
+	
+	private void setRegMod(User dto) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

@@ -51,6 +51,10 @@ public class UserDao {
 	public int insertPhotoMapUploaded(User dto) {return sqlSession.insert( namespace + ".insertPhotoMapUploaded", dto);}
 	public int updatePhotoMapUploaded(User dto) {return sqlSession.update( namespace + ".updatePhotoMapUploaded", dto);}
 	
+	// count
+	public int selectPhotomapCount(UserVo vo) {return sqlSession.selectOne(namespace + ".selectPhotomapCount", vo);}
+	public int selectSearchFlexCount(UserVo vo) {return sqlSession.selectOne(namespace + ".selectSearchFlexCount", vo);}
+	
 	//로그인
 	public User selectOneLogin(User dto) { return sqlSession.selectOne(namespace+".selectOneLogin",dto); }
 	

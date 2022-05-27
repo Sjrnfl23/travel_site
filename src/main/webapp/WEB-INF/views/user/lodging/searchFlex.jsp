@@ -125,7 +125,7 @@
 	                    <div class="row detail-filter-wrap"> 
 	                        <div class="col-md-4 featured-responsive">
 	                            <div class="detail-filter-text">
-	                                <p>34개의 결과</p>
+	                                <p><c:out value="${vo.totalRows}"/>개의 결과</p>
 	                            </div>
 	                        </div>
 	                        <div class="col-md-8 featured-responsive">

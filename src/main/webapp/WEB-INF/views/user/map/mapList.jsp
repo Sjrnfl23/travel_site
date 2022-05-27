@@ -121,7 +121,7 @@
                     <div class="row detail-filter-wrap">
                         <div class="col-md-4 featured-responsive">
                             <div class="detail-filter-text">
-                                <p>34개의 <span>여행기록</span></p>
+                                <p><c:out value="${vo.totalRows}"/>개의 <span>여행기록</span></p>
                             </div>
                         </div>
 						<div class="col-md-8 featured-responsive">
@@ -170,7 +170,7 @@
                         <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
                         <a href="javascript:void(0);" class="map-close"><span class="ti-close"></span></a>
                         <div id="map" data-lat="40.674" data-lon="-73.945" data-zoom="12"></div>
-                    </div>
+                    </div>  
                 </div>
                  </form> 
             </div>

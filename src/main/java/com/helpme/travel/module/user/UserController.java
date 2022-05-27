@@ -108,8 +108,16 @@ public class UserController {
 	@RequestMapping(value = "/searchFlex")
 	public String UserSearchFlex(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
 
+		int count = service.selectSearchFlexCount(vo);
+		vo.setParamsPaging(count);
+		
+		if(count != 0) {
 		List<User> list = service.selectListSearchFlex(vo);
 		model.addAttribute("list", list);
+		} else {
+			// by pass
+		}
+		model.addAttribute("vo", vo);
 
 		return "user/lodging/searchFlex";
 	}
@@ -180,9 +188,17 @@ public class UserController {
 		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
 		vo.setTvmmSeq(sessSeq);
 		
+		int count = service.selectPhotomapCount(vo);
+		vo.setParamsPaging(count);
+		
+		if(count != 0) {
 		List<User> list = service.selectListMap(vo);
 		model.addAttribute("list", list);
-
+		} else {
+			// by pass
+		}
+		model.addAttribute("vo", vo);
+		
 		return "user/map/mapList";
 	}
 

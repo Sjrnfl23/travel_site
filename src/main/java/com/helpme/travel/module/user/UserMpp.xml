@@ -143,6 +143,29 @@
 	
 	
 	<!-- PhotoMap -->
+	<select id="selectPhotomapCount" resultType="Integer">
+			SELECT 
+				count(*)
+			FROM 
+				tvPhotoMapLocation
+			WHERE 1=1
+				AND tvmmSeq = #{tvmmSeq}
+	</select>
+	<select id="selectSearchFlexCount" resultType="Integer">
+			SELECT 
+				count(*)
+			FROM 
+				tvLodging
+			WHERE 1=1
+				<choose>
+				<when test="shCheck == 1">AND tvamCategoryCd = 1</when>
+				<when test="shCheck == 2">AND tvamCategoryCd = 2</when>
+				<when test="shCheck == 3">AND tvamCategoryCd = 3</when>
+				<when test="shCheck == 4">AND tvamCategoryCd = 4</when>
+				<when test="shCheck == 5">AND tvamCategoryCd = 5</when>
+				<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
+				</choose>
+	</select>
 	<select id="selectListMap" resultMap="resultMapObj">
 		SELECT 
 			a.tvplSeq

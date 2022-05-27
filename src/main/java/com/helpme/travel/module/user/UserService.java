@@ -45,5 +45,9 @@ public interface UserService {
 	public int insertPhotoMapUploaded(User dto) throws Exception;
 	public int updatePhotoMapUploaded(User dto) throws Exception;
 	
+	// count
+	int selectPhotomapCount(UserVo vo) throws Exception;
+	int selectSearchFlexCount(UserVo vo) throws Exception;
+	
 	public User selectOneLogin(User dto) throws Exception;
 }
