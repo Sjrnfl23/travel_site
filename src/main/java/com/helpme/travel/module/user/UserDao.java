@@ -33,7 +33,7 @@ public class UserDao {
 	
 
 //	// 숙소 결제
-//	public int insertPayment(User dto) {return sqlSession.insert( namespace + ".insertPayment", dto);}
+	public int insertReservation(User dto) {return sqlSession.insert( namespace + ".insertReservation", dto);}
 //	
 //	// 예약 내역
 	public User selectOneReservation(UserVo vo) {return sqlSession.selectOne( namespace + ".selectOneReservation", vo);}

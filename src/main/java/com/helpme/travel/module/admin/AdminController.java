@@ -109,7 +109,10 @@ public class AdminController {
 	public String AdminHostEdit(AdminVo vo, Model model) throws Exception {
 		
 		   Admin rt = service.selectOneMember(vo);
-		   model.addAttribute("rt", rt);		
+		   model.addAttribute("rt", rt);
+		   
+		   Admin rt2 = service.selectOneUploaded(vo);
+		   model.addAttribute("rt2", rt2);			   
 		
 		return "admin/host/hostEdit";
 	}
@@ -151,7 +154,10 @@ public class AdminController {
 	public String AdminHostView(AdminVo vo, Model model) throws Exception {
 		
 		   Admin rt = service.selectOneMember(vo);
-		   model.addAttribute("rt", rt);		
+		   model.addAttribute("rt", rt);
+		   
+		   Admin rt2 = service.selectOneUploaded(vo);
+		   model.addAttribute("rt2", rt2);			   
 		
 		return "admin/host/hostView";
 	}

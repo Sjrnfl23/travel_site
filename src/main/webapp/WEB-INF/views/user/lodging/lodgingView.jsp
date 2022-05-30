@@ -706,7 +706,7 @@
 	/* $('#hiddenStartDate').val("2022-08-26"); */
 	/* $('#hiddenEndDate').val("2022-09-02"); */
 	$('#hiddenNumber').val("1");
-	$('#hiddenPay').val("2136000");
+	$('#hiddenPay').val("1");
 	
 	
 	

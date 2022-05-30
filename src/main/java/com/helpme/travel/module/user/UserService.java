@@ -27,7 +27,7 @@ public interface UserService {
 	
 //	
 //	// 결제
-//	public int insertPayment(User dto) throws Exception;
+	public int insertReservation(User dto) throws Exception;
 //	
 //	//예약 내역
 	public User selectOneReservation(UserVo vo) throws Exception;

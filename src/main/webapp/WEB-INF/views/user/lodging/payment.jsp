@@ -112,14 +112,14 @@
     <!--============================= 컨텐츠시작 =============================-->
     
     <!--============================= SUBPAGE HEADER BG =============================-->
- <form>
-	<input type="hidden" id="hiddenName" name="tvamLodgingName"/>
-	<input type="hidden" id="hiddenSeq" name="tvamSeq"/>
-	<input type="hidden" id="hiddenStartDate" name="hiddenStartDate"/>
-	<input type="hidden" id="hiddenEndDate" name="hiddenEndDate"/>
-	<input type="hidden" id="hiddenNumber" name="hiddenNumber"/>	
-	<input type="hidden" id="hiddenPay" name="hiddenPay"/>     
- </form>
+ <form id="reservationInst" method="post" action="/reservationInst">
+	<input type="text" id="hiddenName" name="tvamLodgingName"/>
+	<input type="text" id="hiddenSeq" name="tvamSeq"/>
+<!-- 	<input type="text" id="hiddenStartDate" name="tvpmStartDate"/>
+	<input type="text" id="hiddenEndDate" name="tvpmEndDate"/> -->
+	<input type="text" id="hiddenNumber" name="tvpmAdNumber"/>	
+	<input type="text" id="hiddenPay" name="tvpmtotalPrice"/>     
+
     
     <section class="subpage-bg">
         <div class="container-fluid">
@@ -312,7 +312,7 @@
                                         </div>
                                     </div>
 
-                                    <a href="/reservation"><button type="button" class="btn btn-primary">결제하기</button></a>
+                                    <button type="button" id="iamportPayment" class="btn btn-primary">결제하기</button>
                                     <!-- <a href="/admin/reservation"><button type="submit" class="btn btn-primary">결제하기</button></a> -->
                                 </div>
                             <!--// 결제수단 -->
@@ -340,7 +340,7 @@
                                             <p style="font-size: 16px;"><u>280,000 x 7박</u> <span style="font-size: 18px;">1,960,000원</span></p>
                                             <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
                                             <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
-                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;"><c:out value="${rtPay}"/></span></p>
+                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;"><c:out value="${rtPay}"/>원</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -363,15 +363,75 @@
     <!--//END FOOTER -->
 	<!--=============================// 공통부분 푸터 끝 =============================-->
 
-
-
-
-
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="/resources/user/js/jquery-3.2.1.min.js"></script>
     <script src="/resources/user/js/popper.min.js"></script>
     <script src="/resources/user/js/bootstrap.min.js"></script>
+    
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+	<!-- iamport.payment.js -->
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+ 
+ 
+ <script>
+	$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
+	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
+	$('#hiddenStartDate').val("<c:out value="${rtStartDate}"/>");
+	$('#hiddenEndDate').val("<c:out value="${rtEndDate}"/>");
+	$('#hiddenNumber').val("1");
+	$('#hiddenPay').val("1"); 
+</script>
+ 
+ 
+    
+<!-- 아임포트 카카오 결제 API -->
+
+<script>
+$(document).ready(function(){
+	$("#iamportPayment").click(function(){
+		payment();	// 버튼 클릭하면 호출
+	});
+})
+
+function payment(data){
+	var IMP = window.IMP; // 생략가능
+	IMP.init('imp30541609');  // 가맹점 식별코드
+	// IMP.request_pay(param, callback) 결제창 호출
+	IMP.request_pay({
+	    pg : 'kakaopay', //pg사 선택 (kakao, kakaopay 둘다 가능)
+	    pay_method: 'card',
+	    merchant_uid : 'iamport_test_id' + new Date().getTime(), //주문번호
+/* 	    merchant_uid : 'merchant_' + new Date().getTime(), //주문번호 */
+	    name : '<c:out value="${item.tvamLodgingName}"/>', // 상품명
+	    amount : 1,
+/* 	    amount : '<c:out value="${rtPay}"/>', */
+/* 	    amount : amount, */
+	    //customer_uid 파라메터가 있어야 빌링키 발급을 시도함
+	    customer_uid : '홍길동' + new Date().getTime(),
+	    buyer_email : "test@naver.com",
+	    buyer_name : "<c:out value="${item.tvmmName}"/>",
+	    buyer_tel : "010-1234-1234",
+	}, function(rsp) { //callback
+	    if ( rsp.success ) {
+	      console.log('빌링키 발급 성공', rsp)
+	      //빌링키 발급이 완료되었으므로, 서버에 결제 요청
+	      alert('결제가 완료되었습니다!');
+	    } else {
+	      var msg = '결제에 실패하였습니다.\n';
+	      msg += rsp.error_msg;
+	      alert(msg);
+	      return false;
+	    }
+	
+	    $("#reservationInst").submit();
+	});    
+}    
+</script>
+
+
+
 
 </body>
 
