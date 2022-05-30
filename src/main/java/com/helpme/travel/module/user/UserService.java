@@ -36,11 +36,18 @@ public interface UserService {
 //	int deleteReview(UserVo vo) throws Exception;
 //	
 //	//포토맵
-	List<User> selectMap(UserVo vo) throws Exception;
+	List<User> selectListMap(UserVo vo) throws Exception;
+	public User selectOneMap(UserVo vo) throws Exception;
 	public int insertMap(User dto) throws Exception;
-//	public int updateMap(User dto) throws Exception;
-//	public int deleteMap(UserVo vo) throws Exception;
+	public int updateMap(User dto) throws Exception;
+	public int deleteMap(UserVo vo) throws Exception;
+	public int deleteMapPhoto(UserVo vo) throws Exception;
 	public int insertPhotoMapUploaded(User dto) throws Exception;
+	public int updatePhotoMapUploaded(User dto) throws Exception;
+	
+	// count
+	int selectPhotomapCount(UserVo vo) throws Exception;
+	int selectSearchFlexCount(UserVo vo) throws Exception;
 	
 	public User selectOneLogin(User dto) throws Exception;
 }

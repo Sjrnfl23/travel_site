@@ -28,16 +28,14 @@
 	<context:component-scan base-package="com.helpme.travel" />
 	
 		<!-- session interceptor s 2022.03.13 for logincheck -->
-		
-				
-	<interceptors>
 	
+	<interceptors>
 		<interceptor>
 			<mapping path="/host/**"/>
 			
 			<exclude-mapping path="/host/loginProc" />
 			<exclude-mapping path="/host/loginForm" />
-			<exclude-mapping path="/host/insertHost" />
+			<exclude-mapping path="/host/hostInsert" />
 			<exclude-mapping path="/host/signUpForm" />
 			<beans:bean id="checkLoginSessionInterception" class="com.helpme.travel.module.interceptor.CheckLoginSessionInterception"/>
 	

@@ -297,7 +297,11 @@ public class AdminController {
 	public String AdminMemberEdit(AdminVo vo, Model model) throws Exception {
 
 		   Admin rt = service.selectOneMember(vo);
-		   model.addAttribute("rt", rt);			
+		   model.addAttribute("rt", rt);	
+
+		   Admin rt2 = service.selectOneUploaded(vo);
+		   model.addAttribute("rt2", rt2);	
+		   
 		
 		return "admin/member/memberEdit";
 	}
@@ -338,6 +342,9 @@ public class AdminController {
 		
 		   Admin rt = service.selectOneMember(vo);
 		   model.addAttribute("rt", rt);	
+		   
+		   Admin rt2 = service.selectOneUploaded(vo);
+		   model.addAttribute("rt2", rt2);	
 		   
 		return "admin/member/memberView";
 	}

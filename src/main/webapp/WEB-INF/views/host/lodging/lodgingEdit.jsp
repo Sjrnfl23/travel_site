@@ -148,8 +148,8 @@
                                             
                                               
                                                 <form method="get" action="lodgingUpdate">
-   <input type="hidden" name="tvamSeq" id="tvamSeq" value="<c:out value="${rt.tvamSeq}"/>">
-                                                <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
+  							 <input type="hidden" name="tvamSeq" id="tvamSeq" value="<c:out value="${rt.tvamSeq}"/>">
+   	                                             <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
                                                     <tbody>
 
                                                         <tr>

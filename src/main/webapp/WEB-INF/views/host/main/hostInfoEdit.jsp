@@ -148,7 +148,7 @@
                                                             <th class="fw-bold">
                                                                 이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="김이젠">
+                                                            	<input type="text" class="form-control" value="<c:out value="${rt.tvmmName}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -156,7 +156,7 @@
                                                             <th class="fw-bold">
                                                                 이메일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="ejenit@google.com">
+                                                            	<input type="text" class="form-control" value="<c:out value="${rt.tvmmEmailAccount}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -164,7 +164,7 @@
                                                             <th class="fw-bold">
                                                                 비밀번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="password" class="form-control" placeholder="*******************">
+                                                            	<input type="password" class="form-control" value="<c:out value="${rt.tvmmPassword}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -172,7 +172,7 @@
                                                             <th class="fw-bold">
                                                                 비밀번호 확인 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="password" class="form-control" placeholder="*******************">
+                                                            	<input type="password" class="form-control" value="<c:out value="${rt.tvmmName}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -180,14 +180,32 @@
                                                             <th class="fw-bold">
                                                                 전화번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="010-1234-1234">
+                                                            	<input type="text" class="form-control" value="<c:out value="${rt.tvmmTelNumber}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">주소 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="제주특별자치도 서귀포시 안덕면 사계북로 120">
+                                                            	 
+                                            
+                                         
+                                                
+                                                 			<div class="input-group mb-3">
+		 
+	        
+							        						<input type="text" class="form-control" id="tvmmAddress1" name="tvmmAddress1" placeholder="주소" value="<c:out value="${rt.tvmmAddress1}"/>">
+							        						
+							        						<div class="input-group-append">
+							           				 			<button onClick="sample4_execDaumPostcode()" class="btn btn-outline-secondary" type="button">주소검색</button>
+							       							</div>
+						    								</div>
+						
+						    								<div class="input-group mb-3">
+						       									<input  type="text" class="form-control" placeholder="상세주소" id="tvmmAddress2" name="tvmmAddress2" value="<c:out value="${rt.tvmmAddress2}"/>">
+						    								</div>
+                                            
+                                       
                                                            	</td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -195,21 +213,15 @@
                                                         <tr>
                                                             <th class="fw-bold">생년월일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="date" class="form-control" placeholder="1999-09-09">
+                                                            	<input type="date" class="form-control" value="<c:out value="${rt.tvmmDob}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
-                                                        <tr>
-                                                            <th class="fw-bold">사용언어 :</th>
-                                                            <td class="text-muted">
-                                                            	<input type="text" class="form-control" placeholder="한국어, 영어">
-                                                            </td>
-                                                        </tr>
-                                                        <!-- end tr -->
+                                                       
 
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
-                                                            <td class="text-muted">2022-04-26</td>
+                                                            <td class="text-muted"><c:out value="${rt.regDateTime}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                     </tbody><!-- end tbody -->

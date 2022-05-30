@@ -7,6 +7,10 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.helpme.travel.common.util.UtilDateTime;
+import com.helpme.travel.common.util.UtilUpload;
 
 
 @Service
@@ -18,6 +22,7 @@ public class AdminServiceImpl implements AdminService{
 //  ===========================host=================================	
 	@Override
 	public List<Admin> selectHost(AdminVo vo) throws Exception {
+		
 		return dao.selectHost(vo); 
 	}
 
@@ -34,7 +39,25 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public int updateMember(Admin dto) throws Exception {
-		return dao.updateMember(dto);
+			
+			dao.updateMember(dto);
+			
+			int j = 0;
+			for(MultipartFile multipartFile : dto.getFile0() ) {
+				String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+				UtilUpload.uploadAdmin(multipartFile, pathModule, dto);
+				dto.setTableName("tvMemberUploaded");
+				dto.setType(0);
+				dto.setDefaultNy(0);
+				dto.setSort(j);
+				dto.setDefaultNy(0);
+				dto.setPseq(dto.getTvmmSeq());
+				
+				dao.updateUploaded(dto);
+				j++;
+			}
+		
+		return dao.updateMember(dto);		
 	}
 	
 	@Override
@@ -204,6 +227,19 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public Admin selectOneMainView10(Admin dto) throws Exception {
 		return dao.selectOneMainView10(dto);
+	}
+
+//  ===========================파일업로드=================================		
+	
+	@Override
+	public int updateUploaded(Admin dto) throws Exception {
+		return dao.updateUploaded(dto);
 	}	
+	@Override
+	public Admin selectOneUploaded(AdminVo vo) throws Exception {
+		return dao.selectOneUploaded(vo);
+	}	
+	
+	
 }
 

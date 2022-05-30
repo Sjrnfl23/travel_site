@@ -26,9 +26,13 @@ public interface HostService {
 	
 	//Reservation
 	public List<Host> selectReservation(Host dto) throws Exception;
-	
+	public Host selectOneReservation(Host dto) throws Exception;
+	public int updateReservation(Host dto) throws Exception;
 	//Paging
 	public int selectOneCountLodging(HostVo vo) throws Exception;
 	public int selectOneCountReservation(HostVo vo) throws Exception;
 	public int selectOneCountCoupon(HostVo vo) throws Exception;
+	
+	//mainView
+	public Host selectOneSales(Host dto) throws Exception;
 }

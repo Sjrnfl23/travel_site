@@ -83,5 +83,9 @@ public class AdminDao {
    public Admin selectOneMainView8(Admin dto){return sqlSession.selectOne(namespace + ".selectOneMainView8", dto);}
    public Admin selectOneMainView9(Admin dto){return sqlSession.selectOne(namespace + ".selectOneMainView9", dto);}
    public Admin selectOneMainView10(Admin dto){return sqlSession.selectOne(namespace + ".selectOneMainView10", dto);}
-}
 
+// ==========================파일업로드===================================
+   
+	public int updateUploaded(Admin dto) {return sqlSession.update(namespace + ".updateUploaded", dto);}
+	public Admin selectOneUploaded(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneUploaded", vo);}
+}

@@ -98,10 +98,11 @@ public class UserServiceImpl implements UserService{
 //	}
 //	
 	// 포토맵
+
 	@Override
-	public List<User> selectMap(UserVo vo) throws Exception {
+	public List<User> selectListMap(UserVo vo) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.selectMap(vo); 
+		return dao.selectListMap(vo); 
 	}
 	@Override
 	public int insertMap(User dto) throws Exception {
@@ -137,19 +138,49 @@ public class UserServiceImpl implements UserService{
 		return 0;
 		
 	}
-//	@Override
-//	public int updateMap(User dto) throws Exception {
-//		// TODO Auto-generated method stub
-//		return dao.updateMap(dto);
-//	}
-//	@Override
-//	public int deleteMap(UserVo vo) throws Exception {
-//		// TODO Auto-generated method stub
-//		return dao.deleteMap(vo);
-//	}
-//
-//	
-//	
+	
+	@Override
+	public User selectOneMap(UserVo vo) throws Exception {
+	return dao.selectOneMap(vo);
+	}
+	
+	@Override
+	public int updateMap(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		
+			dao.updateMap(dto);
+		
+		int j = 0;
+		for(MultipartFile multipartFile : dto.getFile0() ) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.upload(multipartFile, pathModule, dto);
+			dto.setTableName("tvPhotoMapPhoto");
+			dto.setType(0);
+			dto.setDefaultNy(0);
+			dto.setSort(j);
+			dto.setDefaultNy(0);
+			dto.setPseq(dto.getTvplSeq());
+			
+			dao.updatePhotoMapUploaded(dto);
+			j++;
+		}
+		
+		
+		return dao.updateMap(dto);
+	}
+	@Override
+	public int deleteMap(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.deleteMap(vo);
+	}
+	@Override
+	public int deleteMapPhoto(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.deleteMapPhoto(vo);
+	}
+
+	
+	
 //	@PostConstruct
 //	public void selectListForCache() {
 //		
@@ -173,24 +204,43 @@ public class UserServiceImpl implements UserService{
 //		return item;
 //	}
 
+	// count
+	@Override
+	public int selectPhotomapCount(UserVo vo) throws Exception {
+		return dao.selectPhotomapCount(vo);
+	}
+	
+	@Override
+	public int selectSearchFlexCount(UserVo vo) throws Exception {
+		return dao.selectSearchFlexCount(vo);
+	}
+	
+	// 로그인
 
 	@Override
 	public User selectOneLogin(User dto) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectOneLogin(dto);
 	}
+
+	
+	// 업로드
+	@Override
+	public int insertPhotoMapUploaded(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.insertPhotoMapUploaded(dto);
+	}
+	@Override
+	public int updatePhotoMapUploaded(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.updatePhotoMapUploaded(dto);
+	}
+	
+	// common
+	
 	private void setRegMod(User dto) {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public int insertPhotoMapUploaded(User dto) throws Exception {
-		// TODO Auto-generated method stub
-		
-		
-		return dao.insertPhotoMapUploaded(dto);
-
-	}
-	
 	
 }

@@ -54,4 +54,9 @@ public interface AdminService {
 	public Admin selectOneMainView8(Admin dto) throws Exception;
 	public Admin selectOneMainView9(Admin dto) throws Exception;
 	public Admin selectOneMainView10(Admin dto) throws Exception;
+
+//  ===========================파일업로드==================================
+	public int updateUploaded(Admin dto) throws Exception;
+	public Admin selectOneUploaded(AdminVo vo) throws Exception; 
+	
 }

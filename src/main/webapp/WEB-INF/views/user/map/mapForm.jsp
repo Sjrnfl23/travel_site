@@ -270,7 +270,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
     <!-- Map JS (Please change the API key below. Read documentation for more info) -->
-    <script>
+   
+<script>
 upload = function(seq,div){
 	
 	$("#ulFile" + seq).children().remove();
@@ -314,6 +315,7 @@ delLi = function(seq, index){
 }
 	
 </script>
+
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7cd4aacffe9949b52780dbc9332fce55"></script>
     <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

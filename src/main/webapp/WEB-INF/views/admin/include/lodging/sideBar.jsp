@@ -76,6 +76,22 @@
                                     <li><a href="/admin/memberList" data-key="t-user-list">사용자 관리</a></li>
                                 </ul>
                             </li>
+                            
+                            <li class="menu-title" data-key="t-applications">바로가기</li>
+
+                            <li>
+                                <a href="/">
+                                    <i class="bx bx-share-alt icon nav-icon"></i>
+                                    <span class="menu-item" data-key="t-contacts">now travel 바로가기</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/host/mainView">
+                                    <i class="bx bx-share-alt icon nav-icon"></i>
+                                    <span class="menu-item" data-key="t-contacts">호스트페이지 바로가기</span>
+                                </a>
+                            </li>                            
+                            
                         </ul>
                      </div>
                     <!-- Sidebar -->

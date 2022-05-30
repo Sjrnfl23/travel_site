@@ -171,8 +171,13 @@ public class HostController {
 
 	// main
 	@RequestMapping(value = "/host/mainView")
-	public String mainView() throws Exception {
-
+	public String mainView(@ModelAttribute("dto")Host dto,HttpSession httpSession,Model model) throws Exception {
+		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
+		dto.setTvmmSeq(sessSeq);
+		
+		Host host = service.selectOneSales(dto);
+		model.addAttribute("item", host);
+		
 		return "/host/main/mainView";
 	}
 
@@ -188,6 +193,23 @@ public class HostController {
 		return "/host/main/loginForm";
 	}
 
+	
+
+	@RequestMapping(value = "/host/signUpForm")
+	public String signUpForm() throws Exception {
+
+		return "/host/main/signUpForm";
+	}
+	@RequestMapping(value = "/host/hostInsert")
+	public String hostInsert(@ModelAttribute("dto")Host dto) throws Exception {
+		/*
+		 * String tvmmAddressFull = dto.getTvmmAddress1() + dto.getTvmmAddress2();
+		 * dto.setTvmmAddressFull(tvmmAddressFull);
+		 */
+		service.insertHost(dto);
+		
+		return "redirect:loginForm";
+	}
 	@RequestMapping(value = "/host/hostInfoView")
 	public String hostInfoView(Model model, @ModelAttribute("vo") HostVo vo, HttpSession httpSession) throws Exception {
 		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
@@ -199,32 +221,19 @@ public class HostController {
 		return "/host/main/hostInfoView";
 	}
 
-	@RequestMapping(value = "/host/signUpForm")
-	public String signUpForm() throws Exception {
-
-		return "/host/main/signUpForm";
-	}
-	@RequestMapping(value = "/host/hostInsert")
-	public String insertHost(@ModelAttribute("dto")Host dto) throws Exception {
-		String tvmmAddressFull = dto.getTvmmAddress1()+dto.getTvmmAddress2();
-		dto.setTvmmAddressFull(tvmmAddressFull);
-		service.insertHost(dto);
-		
-		return "redirect:loginForm";
-	}
-
 	@RequestMapping(value = "/host/hostInfoEdit")
-	public String hostInfoEdit() throws Exception {
-
+	public String hostInfoEdit(Model model, @ModelAttribute("vo") HostVo vo,HttpSession httpSession) throws Exception {
+		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
+		vo.setTvmmSeq(sessSeq);
+		
+		Host host=service.selectOneHost(vo);
+		model.addAttribute("rt",host);
+		
 		return "/host/main/hostInfoEdit";
 	}
 
 	// reservation
-	@RequestMapping(value = "/host/reservationEdit")
-	public String reservationEdit() throws Exception {
 
-		return "/host/reservation/reservationEdit";
-	}
 
 	@RequestMapping(value = "/host/reservationList")
 	public String reservationList(Model model,@ModelAttribute("dto")Host dto,HttpSession httpSession,@ModelAttribute("vo")HostVo vo) throws Exception {
@@ -242,9 +251,34 @@ public class HostController {
 	}
 
 	@RequestMapping(value = "/host/reservationView")
-	public String reservationView() throws Exception {
-
+	public String reservationView(@ModelAttribute("dto")Host dto,Model model,HttpSession httpSession) throws Exception {
+		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
+		dto.setTvmmSeq(sessSeq);
+		
+		Host host=service.selectOneReservation(dto);
+		model.addAttribute("rt",host);
+		
 		return "/host/reservation/reservationView";
+	}
+	
+	@RequestMapping(value = "/host/reservationEdit")
+	public String reservationEdit(@ModelAttribute("dto")Host dto,Model model,HttpSession httpSession) throws Exception {
+		
+		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
+		dto.setTvmmSeq(sessSeq);
+		
+		Host host=service.selectOneReservation(dto);
+		model.addAttribute("rt",host);
+		
+		return "/host/reservation/reservationEdit";
+	}
+	
+	@RequestMapping(value = "/host/reservationUpdate")
+	public String reservationUpdate(Host dto,Model model) throws Exception {
+		service.updateReservation(dto);
+		
+		
+		return "redirect:reservationList";
 	}
 
 	// login & logout

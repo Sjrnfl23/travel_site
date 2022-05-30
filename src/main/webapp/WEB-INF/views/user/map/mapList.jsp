@@ -121,7 +121,7 @@
                     <div class="row detail-filter-wrap">
                         <div class="col-md-4 featured-responsive">
                             <div class="detail-filter-text">
-                                <p>34개의 <span>여행기록</span></p>
+                                <p><c:out value="${vo.totalRows}"/>개의 <span>여행기록</span></p>
                             </div>
                         </div>
 						<div class="col-md-8 featured-responsive">
@@ -144,8 +144,10 @@
 	                                <div id="List3">
 	                                    <div class="h3 ft">지도에 있는 마커를 선택하세요</div>
 	                                </div>
-	                                    <a class="btn btn-outline-danger" href="mapForm" role="button">삭제</a>
+	                                <div id="List4">
+	                                    <a class="btn btn-outline-danger"  href="" role="button">삭제</a>
 	                                </div>
+	                            </div>
                             </div>
 	                        </div>
 	                    </div>
@@ -168,7 +170,7 @@
                         <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
                         <a href="javascript:void(0);" class="map-close"><span class="ti-close"></span></a>
                         <div id="map" data-lat="40.674" data-lon="-73.945" data-zoom="12"></div>
-                    </div>
+                    </div>  
                 </div>
                  </form> 
             </div>
@@ -238,9 +240,11 @@
 			        $("#List1").empty();
 			        $("#List2").empty();
 			        $("#List3").empty();
+			        $("#List4").empty();
 				 $('#List1').append('<a href="/resources/user/Photomapuploaded/user/<c:out value="${item.year}"/>/<c:out value="${item.month}"/>/<c:out value="${item.day}"/>/<c:out value="${item.uuidName}"/>"><img class="card-img-top img_inside" src="/resources/user/Photomapuploaded/user/<c:out value="${item.year}"/>/<c:out value="${item.month}"/>/<c:out value="${item.day}"/>/<c:out value="${item.uuidName}"/>" alt="Card image cap"></a>');
-				 $('#List2').append('<a class="nav-link jal" href="/user/mapEdit"><h2><c:out value="${item.tvplTitle}"/></h2><img src="/resources/user/images/human_emotions/smile.png" width="50px" height="50px" alt="Im smile"/></a>');
+				 $('#List2').append('<a class="nav-link jal" href="mapEdit?tvplSeq=<c:out value="${item.tvplSeq}"/>"><h2><c:out value="${item.tvplTitle}"/></h2><c:choose><c:when test = "${item.tvplEmotionCd eq 1}"><img src="/resources/user/images/human_emotions/smile.png" width="50px" height="50px" alt="Im smile"/></c:when><c:when test = "${item.tvplEmotionCd eq 2}"><img src="/resources/user/images/human_emotions/smile2.png" width="50px" height="50px" alt="Im smile2"/></c:when><c:when test = "${item.tvplEmotionCd eq 3}"><img src="/resources/user/images/human_emotions/amazed.png" width="50px" height="50px" alt="Im amazed"/></c:when><c:when test = "${item.tvplEmotionCd eq 4}"><img src="/resources/user/images/human_emotions/wink.png" width="50px" height="50px" alt="Im wink"/></c:when><c:when test = "${item.tvplEmotionCd eq 5}"><img src="/resources/user/images/human_emotions/curious.png" width="50px" height="50px" alt="Im curious"/></c:when><c:when test = "${item.tvplEmotionCd eq 6}"><img src="/resources/user/images/human_emotions/unhappy.png" width="50px" height="50px" alt="Im unhappy"/></c:when><c:when test = "${item.tvplEmotionCd eq 7}"><img src="/resources/user/images/human_emotions/sad.png" width="50px" height="50px" alt="Im sad"/></c:when><c:when test = "${item.tvplEmotionCd eq 8}"><img src="/resources/user/images/human_emotions/angry.png" width="50px" height="50px" alt="Im angry"/></c:when></c:choose></a>');
 				 $('#List3').append('<div class="h3 ft"><c:out value="${item.tvplDesc}"/></div>');
+				 $('#List4').append('<a class="btn btn-outline-danger" href="/UserMapDelete?tvplSeq=<c:out value="${item.tvplSeq}"/>" onclick="if(!confirm(`정말로 삭제하시겠습니까?`)){return false;}" role="button">삭제</a>');
 			    });
 
 	     </c:forEach>	// for문 끝 
@@ -248,7 +252,6 @@
     clusterer.addMarkers(markers);
 
 </script>
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
