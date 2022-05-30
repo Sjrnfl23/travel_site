@@ -113,12 +113,12 @@
     
     <!--============================= SUBPAGE HEADER BG =============================-->
  <form>
-	<input type="hidden" id="hiddenName" name="tvamLodgingName"/>
-	<input type="hidden" id="hiddenSeq" name="tvamSeq"/>
-	<input type="hidden" id="hiddenStartDate" name="hiddenStartDate"/>
-	<input type="hidden" id="hiddenEndDate" name="hiddenEndDate"/>
-	<input type="hidden" id="hiddenNumber" name="hiddenNumber"/>	
-	<input type="hidden" id="hiddenPay" name="hiddenPay"/>     
+	<input type="text" id="hiddenName" name="tvamLodgingName"/>
+	<input type="text" id="hiddenSeq" name="tvamSeq"/>
+	<input type="text" id="hiddenStartDate" name="hiddenStartDate"/>
+	<input type="text" id="hiddenEndDate" name="hiddenEndDate"/>
+	<input type="text" id="hiddenNumber" name="hiddenNumber"/>	
+	<input type="text" id="hiddenPay" name="hiddenPay"/>     
  </form>
     
     <section class="subpage-bg">
