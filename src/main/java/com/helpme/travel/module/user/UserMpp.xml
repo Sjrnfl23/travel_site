@@ -104,6 +104,30 @@
 			and tvpmSeq = #{tvpmSeq}
 	</select>
 
+	<insert id="insertReservation">
+		INSERT INTO tvPayment (
+			tvpmSeq
+<!-- 			, tvpmStartDate
+			, tvpmEndDate -->
+			, tvpmtotalPrice
+			, tvamSeq
+			, tvpmAdNumber
+			, tvmmSeq
+			, tvpmDelNy
+			, regDateTime
+		) VALUES (
+			#{tvpmSeq}
+<!-- 			, #{tvpmStartDate}
+			, #{tvpmEndDate} -->
+			, #{tvpmtotalPrice}
+			, #{tvamSeq}
+			, #{tvpmAdNumber}
+			, #{tvmmSeq}
+			, 0
+			, now()
+		)
+	</insert>	
+	
 	
 	<!-- LodgingView -->
 	<select id="selectOneLodgingView" resultMap="resultMapObj">
