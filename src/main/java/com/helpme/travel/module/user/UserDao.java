@@ -25,7 +25,7 @@ public class UserDao {
 //	public int deleteMember(UserVo vo) {return sqlSession.delete( namespace + ".delete", vo);}
 //	
 //	// 숙소 검색
-//	public List<User> selectListSearch(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearch", vo); return list; } 
+	public List<User> selectListSearch(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearch", vo); return list; } 
 	public List<User> selectListSearchFlex(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearchFlex", vo); return list; } 
 //	
 //	// 숙소 상세
@@ -33,7 +33,7 @@ public class UserDao {
 	
 
 //	// 숙소 결제
-	public int insertReservation(User dto) {return sqlSession.insert( namespace + ".insertReservation", dto);}
+//	public int insertPayment(User dto) {return sqlSession.insert( namespace + ".insertPayment", dto);}
 //	
 //	// 예약 내역
 	public User selectOneReservation(UserVo vo) {return sqlSession.selectOne( namespace + ".selectOneReservation", vo);}

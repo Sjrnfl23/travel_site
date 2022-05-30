@@ -15,19 +15,19 @@ public interface UserService {
 //	public int updateMember(User dto) throws Exception;
 	public User selectOneMember(UserVo vo) throws Exception;
 //	int deleteMember(UserVo vo) throws Exception;
-//	
-//	//지역 검색
-//	List<User> selectListSearch(UserVo vo) throws Exception;
-//	
+	
+	//지역 검색
+	List<User> selectListSearch(UserVo vo) throws Exception;
+	
 	//유연한 검색
 	List<User> selectListSearchFlex(UserVo vo) throws Exception;
-//	
+	
 //	//숙소 상세
 	public User selectOneLodgingView(UserVo vo) throws Exception;
 	
 //	
 //	// 결제
-	public int insertReservation(User dto) throws Exception;
+//	public int insertPayment(User dto) throws Exception;
 //	
 //	//예약 내역
 	public User selectOneReservation(UserVo vo) throws Exception;
