@@ -104,22 +104,21 @@
 	<!-- LodgingView -->
 	<select id="selectOneLodgingView" resultMap="resultMapObj">
 		SELECT
-			a.tvamSeq
-			,a.tvamMaxPersonCount
-			,a.tvamRoomCount
-			,a.tvamBedCount
-			,a.tvamShowerRoomCount
-			,a.tvamState
-			,a.tvamCity
-			,a.tvamTelNumber
-			,a.tvamAddressFull
-			,a.tvamCheckInTime
-			,a.tvamCheckOutTime
-			,a.tvamLodgingName
-			,a.tvamDesc
-			,a.tvamHostName
-			,a.tvmmSeq
-			,a.tvamAdultPrice
+			tvamSeq
+			,tvamMaxPersonCount
+			,tvamRoomCount
+			,tvamBedCount
+			,tvamShowerRoomCount
+			,tvamState
+			,tvamCity
+			,tvamTelNumber
+			,tvamAddressFull
+			,tvamCheckInTime
+			,tvamCheckOutTime
+			,tvamLodgingName
+			,tvamDesc
+			,tvamHostName
+			,tvamAdultPrice
 			<!-- ,b.tvarSeq
 			,b.tvarReview
 			,b.tvarStarPoint
@@ -128,12 +127,25 @@
 			,c.tvmmName
 			,c.tvmmEmailAccount -->
 		FROM
-			travel_site.tvLodging a
+			tvLodging 
 			<!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  
 			LEFT OUTER JOIN travel_site.tvMember AS c ON c.tvmmSeq = a.tvmmSeq -->
 		WHERE 1=1
-			AND a.tvamDelNy = 0 
-			AND a.tvamSeq = #{tvamSeq}
+			AND tvamDelNy = 0 
+<!-- 		AND tvamApproveNy = 1
+			AND tvamPoolNy = 1
+			AND tvamJacuzziNy = 1
+			AND tvamBbqGrillNy = 1
+			AND tvamFirePlaceNy = 1
+			AND tvamGymNy = 1
+			AND tvamWifiNy = 1
+			AND tvamTvNy = 1
+			AND tvamParkingRoomNy = 1
+			AND tvamAirConditionerNy = 1
+			AND tvamHeaterNy = 1
+			AND tvamFridgeNy = 1
+			AND tvamMicrowaveNy = 1  -->
+			AND tvamSeq = #{tvamSeq}
 			
 	</select>
 	
