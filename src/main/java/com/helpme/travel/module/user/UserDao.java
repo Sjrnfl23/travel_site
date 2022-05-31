@@ -23,24 +23,24 @@ public class UserDao {
 //	public int updateMember(User dto) {return sqlSession.update( namespace + ".updateMember", dto);}
 	public User selectOneMember(UserVo vo) { return sqlSession.selectOne(namespace + ".selectOneMember", vo);}
 //	public int deleteMember(UserVo vo) {return sqlSession.delete( namespace + ".delete", vo);}
-//	
-//	// 숙소 검색
+	
+	// 숙소 검색
 	public List<User> selectListSearch(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearch", vo); return list; } 
 	public List<User> selectListSearchFlex(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListSearchFlex", vo); return list; } 
-//	
+	
 //	// 숙소 상세
 	public User selectOneLodgingView(UserVo vo) {return sqlSession.selectOne(namespace + ".selectOneLodgingView", vo);}
 	
 
 //	// 숙소 결제
-//	public int insertPayment(User dto) {return sqlSession.insert( namespace + ".insertPayment", dto);}
-//	
+	public int insertReservation(User dto) {return sqlSession.insert( namespace + ".insertReservation", dto);}
+	
 //	// 예약 내역
 	public User selectOneReservation(UserVo vo) {return sqlSession.selectOne( namespace + ".selectOneReservation", vo);}
 //	public int insertReview(User dto) {return sqlSession.insert( namespace + ".insertReview", dto);}
 //	public int updateReview(User dto) {return sqlSession.update( namespace + ".updateReview", dto);}
 //	public int deleteReview(UserVo vo) {return sqlSession.delete( namespace + ".deleteReview", vo);}
-//	
+	
 	// 포토맵
 	public List<User> selectListMap(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListMap", vo); return list; }
 	public User selectOneMap(UserVo vo) { return sqlSession.selectOne(namespace + ".selectOneMap", vo);}

@@ -57,13 +57,12 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return dao.selectListSearchFlex(vo); 
 		}
-	
+
 	@Override
 	public List<User> selectListSearch(UserVo vo) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectListSearch(vo); 
 	}
-
 	
 	
 	
@@ -76,11 +75,12 @@ public class UserServiceImpl implements UserService{
 
 	
 //		// 결제
-//	@Override
-//		public int insertPayment(User dto) throws Exception {
-//			
-//			return dao.insertPayment(dto);
-//		}
+	@Override
+	public int insertReservation(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.insertReservation(dto);
+	}
+
 //		// 예약내역
 	@Override
 	public User selectOneReservation(UserVo vo) throws Exception {	
