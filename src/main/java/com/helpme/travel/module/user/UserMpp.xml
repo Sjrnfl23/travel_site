@@ -122,22 +122,22 @@
 	<insert id="insertReservation">
 		INSERT INTO tvPayment (
 			tvpmSeq
-<!-- 			, tvpmStartDate
-			, tvpmEndDate -->
+			, tvpmStartDate
+			, tvpmEndDate
 			, tvpmtotalPrice
-			, tvamSeq
 			, tvpmAdNumber
 			, tvmmSeq
+			, tvamSeq
 			, tvpmDelNy
 			, regDateTime
 		) VALUES (
 			#{tvpmSeq}
-<!-- 			, #{tvpmStartDate}
-			, #{tvpmEndDate} -->
+ 			, #{tvpmStartDate}
+			, #{tvpmEndDate}
 			, #{tvpmtotalPrice}
-			, #{tvamSeq}
 			, #{tvpmAdNumber}
 			, #{tvmmSeq}
+			, #{tvamSeq}
 			, 0
 			, now()
 		)

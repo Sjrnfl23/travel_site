@@ -127,8 +127,8 @@ public class User {
 	//예약관리
 	private String tvpmSeq;
 	private Integer tvpmAdNumber;
-	private Date tvpmStartDate;
-	private Date tvpmEndDate;
+	private String tvpmStartDate;
+	private String tvpmEndDate;
 	private String tvpmtotalPrice;
 	private String tvpmPrice;
 	private String tvcpSeq;
@@ -580,16 +580,16 @@ public class User {
 	public void setTvpmAdNumber(Integer tvpmAdNumber) {
 		this.tvpmAdNumber = tvpmAdNumber;
 	}
-	public Date getTvpmStartDate() {
+	public String getTvpmStartDate() {
 		return tvpmStartDate;
 	}
-	public void setTvpmStartDate(Date tvpmStartDate) {
+	public void setTvpmStartDate(String tvpmStartDate) {
 		this.tvpmStartDate = tvpmStartDate;
 	}
-	public Date getTvpmEndDate() {
+	public String getTvpmEndDate() {
 		return tvpmEndDate;
 	}
-	public void setTvpmEndDate(Date tvpmEndDate) {
+	public void setTvpmEndDate(String tvpmEndDate) {
 		this.tvpmEndDate = tvpmEndDate;
 	}
 	public String getTvpmtotalPrice() {

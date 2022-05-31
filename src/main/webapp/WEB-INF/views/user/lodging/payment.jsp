@@ -115,8 +115,8 @@
  <form id="reservationInst" method="post" action="/reservationInst">
 	<input type="text" id="hiddenName" name="tvamLodgingName"/>
 	<input type="text" id="hiddenSeq" name="tvamSeq"/>
-<!-- 	<input type="text" id="hiddenStartDate" name="tvpmStartDate"/>
-	<input type="text" id="hiddenEndDate" name="tvpmEndDate"/> -->
+	<input type="text" id="hiddenStartDate" name="tvpmStartDate"/>
+	<input type="text" id="hiddenEndDate" name="tvpmEndDate"/>
 	<input type="text" id="hiddenNumber" name="tvpmAdNumber"/>	
 	<input type="text" id="hiddenPay" name="tvpmtotalPrice"/>     
 

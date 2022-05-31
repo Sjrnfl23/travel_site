@@ -70,6 +70,15 @@ public class UtilUpload {
 		System.out.println("month::::::::::::::::" +month );
 		System.out.println("day::::::::::::::::" +day);
 		
+		System.out.println("fileName: " + fileName);
+		System.out.println("ext: " + ext);
+		System.out.println("uuid: " + uuid);
+		System.out.println("uuidFileName: " + uuidFileName);
+		System.out.println("pathModule: " + pathModule);
+		System.out.println("nowString: " + nowString);
+		System.out.println("pathDate: " + pathDate);
+		System.out.println("path: " + path);
+		
 		dto.setYear(year);
 		dto.setMonth(month);
 		dto.setDay(day);
