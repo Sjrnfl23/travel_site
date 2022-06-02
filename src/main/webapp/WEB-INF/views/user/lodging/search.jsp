@@ -115,10 +115,10 @@
     <section class="featured-wrap">
     	<form name="formList" id="formList" method="post">
 	        <div class="container-fluid container-subpage">
- 	        <input type="text" id="neLat" name="neLat">
-	        <input type="text" id="neLng" name="neLng"> 
-	        <input type="text" id="swLat" name="swLat"> 
-	        <input type="text" id="swLng" name="swLng"> 
+ 	        <input type="hidden" id="neLat" name="neLat">
+	        <input type="hidden" id="neLng" name="neLng"> 
+	        <input type="hidden" id="swLat" name="swLat"> 
+	        <input type="hidden" id="swLng" name="swLng"> 
 	            <div class="row">
 	                <div class="col-md-7 responsive-wrap">
 	                    <div class="row detail-filter-wrap">
@@ -160,7 +160,7 @@
 	                    <div class="map-fix">
 	                        <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
 	                        <a href="javascript:void(0);" class="map-close"><span class="ti-close"></span></a>
-	                        <div id="map" data-lat="40.674" data-lon="-73.945" style="padding-top: 25px;"></div>
+	                        <div id="map" data-lat="40.674" data-lon="-73.945" style="margin-top: 25px;"></div>
 	                    </div>
 	                </div>
 	            </div>
@@ -192,9 +192,6 @@
 		 getNowLatLng();
 	});
     
-
-		
-		
 		function getNowLatLng(){
 			if (navigator.geolocation) {
 				var options = {timeout:60000};
@@ -211,63 +208,34 @@
 			var container = document.getElementById('map');
 			var options = {
 				center: new kakao.maps.LatLng(lat,lng),
-			level: 15
+			level: 8
 			};
-			
+				
 			map = new kakao.maps.Map(container, options);
 			map.setMaxLevel(13);	// level 13 이하로 제한
 
 			/* kakao source e */
-			
+
 		// 지도 영역 변경시 실행되는 이벤트
 		kakao.maps.event.addListener(map, 'bounds_changed', function() {             
-		    
-		    // 지도의 현재 중심좌표를 얻어옵니다 
-		    var center = map.getCenter(); 
-		    
-		    // 지도의 현재 레벨을 얻어옵니다
-		    var level = map.getLevel();
-		    
-		    // 지도타입을 얻어옵니다
-		    var mapTypeId = map.getMapTypeId(); 
-		    
-		    // 지도의 현재 영역을 얻어옵니다 
-		    var bounds = map.getBounds();
-		    
+		    	    
 		    var neLat = this.getBounds().getNorthEast().getLat();
 		    var neLng = this.getBounds().getNorthEast().getLng();
 		    var swLat = this.getBounds().getSouthWest().getLat();
 		    var swLng = this.getBounds().getSouthWest().getLng();
 		    
-		    // 영역의 남서쪽 좌표를 얻어옵니다 
-		    var swLatLng = bounds.getSouthWest(); 
-		    
-		    // 영역의 북동쪽 좌표를 얻어옵니다 
-		    var neLatLng = bounds.getNorthEast(); 
-		    
-		    // 영역정보를 문자열로 얻어옵니다. ((남,서), (북,동)) 형식입니다
-		    var boundsStr = bounds.toString();
-		    
- 		    var message = '지도 중심좌표는 위도 ' + center.getLat() + ', <br>';
-		    message += '경도 ' + center.getLng() + ' 이고 <br>';
-		    message += '지도 레벨은 ' + level + ' 입니다 <br> <br>';
-		    message += '지도 타입은 ' + mapTypeId + ' 이고 <br> ';
-		    message += '지도 영역은 ' + map.getBounds() + ' 이고 <br> ';
-		    message += '지도의 남서쪽 좌표는 ' + swLatLng.getLat() + ', ' + swLatLng.getLng() + ' 이고 <br>';
-		    message += '북동쪽 좌표는 ' + neLatLng.getLat() + ', ' + neLatLng.getLng() + ' 입니다'; 
-		    
-		     console.log(message); 
-				document.getElementById("neLat").value=neLat;
-				document.getElementById("neLng").value=neLng;
-				document.getElementById("swLat").value=swLat;
-				document.getElementById("swLng").value=swLng;
+			document.getElementById("neLat").value=neLat;
+			document.getElementById("neLng").value=neLng;
+			document.getElementById("swLat").value=swLat;
+			document.getElementById("swLng").value=swLng;
+			
 			// 아작스
 			$.ajax({
 				async: true 
 				,cache: false
 				,type: "post"
 				,url: "/locationAjaxList"
-				,data : {"neLat" : neLat, "neLng":neLng, "swLat" : swLat, "swLng" : swLng}
+				,data : {"neLat" : neLat, "neLng" : neLng, "swLat" : swLat, "swLng" : swLng}
 				,success: function(response) {
 					if(response.rt == "success") {
 						var listHtml = "";
@@ -276,12 +244,13 @@
 							listHtml += '<tr>';
 							listHtml += '	<td class="text-center" colspan="11">There is no data!</td>';
 							listHtml += '</tr>';
+							$("#lodgingapnd").empty();	//초기화
 							$("#lodgingapnd").append(listHtml);
 						} else {
 							for(var i in response.lodglist) {
 							    listHtml += '<div class="col-md-6 card-2">';
 							    listHtml += '<div class="card">';
-							    listHtml += '<a href="/lodgingView"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>';
+							    listHtml += '<a href="/lodgingView?tvamSeq='+nullToEmpty(response.lodglist[i].tvamSeq)+'"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg"  alt="Card image cap"></a>';
 							    listHtml += '<div class="card-body" style="height: 269px;">';
 							    listHtml += '<h5 class="card-title">'+nullToEmpty(response.lodglist[i].tvamLodgingName)+'</h5>';
 							    listHtml += '<ul class="card-rating">';
