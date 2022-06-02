@@ -74,7 +74,7 @@
             <!-- Start right Content here -->
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
-    <form action="/admin/adminInfoUpdt" method="get" autocomplete="off" enctype="multipart/form-data">
+    <form action="/admin/adminInfoUpdt" method="post" autocomplete="off" enctype="multipart/form-data">
     	<input type="hidden" name="tvmmSeq" value="<c:out value="${rt.tvmmSeq}"/>">
            
             <div class="main-content">
@@ -98,44 +98,27 @@
                                         <div class="p-4 pt-0">
                                             
                                             <div class="mt-n5 position-relative text-center border-bottom pb-3">
-                                                <img src="/resources/admin/assets/images/users/avatar-1.jpg" alt="" class="avatar-xl rounded-circle img-thumbnail">
+                                                <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt2.year}"/>/<c:out value="${rt2.month}"/>/<c:out value="${rt2.day}"/>/<c:out value="${rt2.uuidName}"/>" alt="" class="avatar-xl rounded-circle img-thumbnail">
                                               
                                                 <div class="mt-3">
-                                                   <h5 class="mb-1">관리자</h5>
-                                                    <p class="text-muted mb-0">
-                                                        <i class="bx bxs-star text-warning font-size-14"></i>
-                                                        <i class="bx bxs-star text-warning font-size-14"></i>
-                                                        <i class="bx bxs-star text-warning font-size-14"></i>
-                                                        <i class="bx bxs-star text-warning font-size-14"></i>
-                                                        <i class="bx bxs-star-half text-warning font-size-14"></i>
-                                                    </p>
+                                                   <h5 class="mb-1"><c:out value="${rt.tvmmName}"/></h5>
                                                     
 							                        <div class="row">
 							                            <div class="col-12">
 							                                <div class="card">
 							                                    <div class="card-body">
-							                                        <div>
-							                                            <form action="#" class="dropzone">
-							                                                <div class="fallback">
-							                                                    <input name="file" type="file" multiple="multiple">
-							                                                </div>
-							                                                <div class="dz-message needsclick">
-							                                                    <div class="mb-3">
-							                                                        <i class="display-4 text-muted mdi mdi-cloud-upload"></i>
-							                                                    </div>
-							                                                    
-							                                                    <h4>Drop files here or click to upload.</h4>
-							                                                </div>
-							                                            </form>
-							                                        </div>
-							        
-							                                        <div class="text-center mt-4">
-							                                            <button type="button" class="btn btn-primary waves-effect waves-light">사진첨부</button>
-							                                        </div>
+					                                                <div class="fallback">
+																		<input class="form-control" id="file0" name="file0" type="file" style="display: none;" onChange="upload(0,2);">
+																		<div class="addScroll" style="overflow: auto;">
+																			<ul id="ulFile0" class="list-group">
+																			</ul>
+																		</div>
+																		<label for="file0" class="form-label btn btn-info btn-sm" style="margin-top: 10px;">이미지첨부</label>
+					                                                </div>
 							                                    </div>
 							                                </div>
 							                            </div> <!-- end col -->
-							                        </div> <!-- end row -->                                                    
+							                        </div> <!-- end row -->                                                     
                                                     
                                                 </div>
 
@@ -298,7 +281,69 @@
         <!-- Plugins js -->
         <script src="../../../../resources/admin/assets/libs/dropzone/min/dropzone.min.js"></script>        
 
+	    <!-- jQuery, Bootstrap JS. -->
+	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="/resources/user/js/jquery-3.2.1.min.js"></script>
+	    <script src="/resources/user/js/popper.min.js"></script>
+	    <script src="/resources/user/js/bootstrap.min.js"></script>
+	    <script src="/resources/user/js/script.js"></script>
+	    
+	    <!-- Validate JS -->
+	    <script src="/resources/user/js/validate.js"></script>
+	    <!-- Contact JS -->
+	    <script src="/resources/user/js/contact.js"></script>	    
+		
+		<!-- image -->
+	    <script src = "/resources/user/js/common.js"></script><!-- image -->
+		<script src = "/resources/user/js/commonXdmin.js"></script><!-- image -->
+		<script src = "/resources/user/js/constantsXdmin.js"></script><!-- image -->
 
+
+
+<!-- 이미지, 파일 업로드 -->
+<script>
+upload = function(seq,div){
+	
+	$("#ulFile" + seq).children().remove();
+	
+	var fileCount = $("input[type=file]")[seq].files.length;
+	
+	if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
+	
+	var totalFileSize;
+	for(var i = 0; i < fileCount; i++){
+		if(div==1){
+			if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else if(div==2){
+			if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else {
+			return false;
+		}
+		
+		if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		totalFileSize += $("input[type=file]")[seq].files[i].size;
+	}
+	if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
+	
+	for(var i=0; i<fileCount; i++){
+		addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+	}
+}
+addUploadLi = function(seq,index,name){
+	
+	var ul_list = $("#ulFile0");
+	
+	li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+	li = li + name;
+	li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+index +')"><i class="bi bi-x-circle"></i></span>';
+	li = li + '</li>';
+	
+	$("#ulFile"+seq).append(li);
+}
+delLi = function(seq, index){
+	$("#li_"+seq+"_"+index).remove();
+}
+</script>   
 
     </body>
 

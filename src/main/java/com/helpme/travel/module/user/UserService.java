@@ -17,7 +17,7 @@ public interface UserService {
 //	int deleteMember(UserVo vo) throws Exception;
 //	
 //	//지역 검색
-//	List<User> selectListSearch(UserVo vo) throws Exception;
+	List<User> selectListSearch(UserVo vo) throws Exception;
 //	
 	//유연한 검색
 	List<User> selectListSearchFlex(UserVo vo) throws Exception;
@@ -27,10 +27,11 @@ public interface UserService {
 	
 //	
 //	// 결제
-//	public int insertPayment(User dto) throws Exception;
+	public int insertReservation(User dto) throws Exception;
 //	
 //	//예약 내역
 	public User selectOneReservation(UserVo vo) throws Exception;
+	List<User> selectReservation(UserVo vo) throws Exception;
 //	public int insertReview(User dto) throws Exception;
 //	public int updateReview(User dto) throws Exception;
 //	int deleteReview(UserVo vo) throws Exception;
