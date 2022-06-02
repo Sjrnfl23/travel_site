@@ -54,7 +54,7 @@
     }
 
     .card {
-        height: 500px;
+        height: 800px;
         border-radius: 15px !important;
         background-color: rgba(0, 0, 0, 0.4) !important;
     }
