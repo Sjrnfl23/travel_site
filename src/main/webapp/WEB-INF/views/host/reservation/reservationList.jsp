@@ -74,7 +74,7 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-           <form id="formList" name="formList">
+           <form id="formList" name="formList" action="reservationList" method="get">
 
 	<input type="hidden" id="thisPage" name="thisPage"  value="<c:out value="${vo.thisPage}" default="1"/>">
 	<input type="hidden" id="rowNumToShow" name="rowNumToShow"  value="<c:out value="${vo.rowNumToShow}" default="1"/>">
@@ -91,9 +91,29 @@
                                     <div class="card-body">
                                     	<div class="position-relative">
                                             <div class="modal-button mt-2">
-                                                <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">선택삭제</button>
+                                                 <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target="#modalConfirm">선택삭제</button>
                                             </div>
                                         </div>
+                                        
+                                        <!-- modal -->
+                                           <div class="modal fade" id="modalConfirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">숙소 삭제</h5>
+										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										      </div>
+										      <div class="modal-body">
+										        삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+										        <button type="button" id ="btnModalDelete" class="btn btn-primary">삭제</button>
+										      </div>
+										    </div>
+										  </div>
+										</div> 
+										 
 										<div class="table table-responsive" style="white-space:nowrap; margin:auto;">
 										 <table class="table table-responsive">
                                         		<div class="gridjs-head">
@@ -101,9 +121,9 @@
                                         				<div style ="display: inline-block; padding-right: 0;">
 				                            				<select name="shOption" id="shOption" class="form-select form-select-sm">
 																<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색구분::
-																<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>숙소이름
-																<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>사용자메일
-																<option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>사용자이름
+																<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>숙소 이름
+																<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>사용자 이름
+																<option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>사용자 이메일
 															</select>                                         			
                                         				</div>
                                         				<div style ="display: inline-block; padding-right: 0;">
@@ -158,7 +178,27 @@
 																<a href="/host/reservationView?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="상세" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
-																<button type="button" class="btn" id="btnDelete" value="<c:out value="${rt.tvpmSeq}"/>" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>
+																<button type="button" class="btn" id="btnDelete" value="<c:out value="${rt.tvpmSeq}"/>"  data-bs-toggle="modal" data-bs-target="#modalConfirm<c:out value="${rt.tvpmSeq}"/>" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>
+																					
+										                		<!-- 삭제버튼 Modal -->
+																<div class="modal fade" id="modalConfirm<c:out value="${rt.tvpmSeq}"/>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																  <div class="modal-dialog">
+																    <div class="modal-content">
+																      <div class="modal-header">
+																        <h5 class="modal-title" id="exampleModalLabel">숙소 삭제</h5>
+																        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																      </div>
+																      <div class="modal-body">
+																        삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.
+																      </div>
+																      <div class="modal-footer">
+																        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+																        <button type="button" onclick="location.href='javascript:goDelete(<c:out value="${rt.tvpmSeq}"/>);'" id ="" class="btn btn-primary">삭제</button>
+																      </div>
+																    </div>
+																  </div>
+																</div>
+																
 															</div>													
 														</td>
 													</tr>
@@ -202,7 +242,7 @@
                          </div>
                          </div>
                          </div>
-                         
+                         </form>
 
                 <footer class="footer">
                     <div class="container-fluid">
@@ -257,6 +297,64 @@
         <script src="../../resources/host/js/app.js"></script>
 
 
-    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
+    </body>
+    
+    <script type="text/javascript">
+	var goUrlList = "/host/reservationList";
+	var goUrlForm = "/host/reservationForm";
+	var goUrlMultiDel = "/host/reservationMultiDel";
+	
+	var seq = $("input:hidden[name=tvpmSeq]");
+	var form = $("form[name=formList]");
+	
+	var checkboxSeqArray = [];
+
+	$("#checkboxAll").click(function() {
+		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+		else $("input[name=checkboxSeq]").prop("checked", false);
+	});
+
+	$("input[name=checkboxSeq]:checked").each(function() { 
+		var total = $("input[name=checkboxSeq]").length;
+		var checked = $("input[name=checkboxSeq]:checked").length;
+		
+		if(total != checked) $("#checkboxAll").prop("checked", false);
+		else $("#checkboxAll").prop("checked", true);
+	});
+	
+
+	$("#btnModalDelete").on("click", function(){
+		
+		$("input[name=checkboxSeq]:checked").each(function() {
+			checkboxSeqArray.push($(this).val());	
+		});
+		
+		
+		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+		
+		/* $("#modalConfirm").modal("hide"); */
+		
+		/* $("#formList").attr("action", "memberMultiUele").submit(); */
+ 		$("#formList").attr("action", goUrlMultiDel).submit();
+	});
+		
+	
+	
+</script>
+<script type="text/javascript">
+	
+goDelete = function(seq){
+	
+	var goUrlDel = "/host/ReservationDelete";
+	
+	$("#tvpmSeq").val(seq);
+	
+	$("#formList").attr("action", goUrlDel);
+	$("#formList").submit();
+};
+
+</script>
 </html>

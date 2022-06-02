@@ -201,7 +201,7 @@
                                                     	</a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="/host/reservationList">
+                                                    	<a href="lodgingDelete?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>">
                                                        		<button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">삭제</button>
                                                     	</a>
                                                     </li>

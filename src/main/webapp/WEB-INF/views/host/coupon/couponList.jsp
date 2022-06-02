@@ -72,7 +72,13 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-           
+          <form id="formList" name="formList" action="/host/couponList">
+
+	<input type="hidden" id="thisPage" name="thisPage"  value="<c:out value="${vo.thisPage}" default="1"/>">
+	<input type="hidden" id="rowNumToShow" name="rowNumToShow"  value="<c:out value="${vo.rowNumToShow}" default="1"/>">
+	<input type="hidden" id="tvcpSeq" name="tvcpSeq">
+	<input type="hidden" id="checkboxSeqArray" name="checkboxSeqArray">
+	
               <div class="main-content">
                 <div class="page-content">
                     <div class="container-fluid">
@@ -84,9 +90,28 @@
                                     	<div class="position-relative">
                                             <div class="modal-button mt-2">
                                                <a href="/host/couponForm"><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">+ 등록</button></a>
-                                                <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">선택삭제</button>
+                                                <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target="#modalConfirm">선택삭제</button>
                                             </div>
                                         </div>
+                                        
+                                         <div class="modal fade" id="modalConfirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">쿠폰 삭제</h5>
+										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										      </div>
+										      <div class="modal-body">
+										        삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+										        <button type="button" id ="btnModalDelete" class="btn btn-primary">삭제</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>  
+										
 										<div class="table table-responsive" style="white-space:nowrap; margin:auto;">
 										 <table class="table table-responsive">
                                         		<div class="gridjs-head">
@@ -94,9 +119,9 @@
                                         				<div style ="display: inline-block; padding-right: 0;">
 				                            				<select name="shOption" id="shOption" class="form-select form-select-sm">
 																<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색구분::
-																<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>숙소이름
-																<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>사용자메일
-																<option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>사용자이름
+																<option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>쿠폰 이름
+																<option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>숙소 이름
+																
 															</select>                                         			
                                         				</div>
                                         				<div style ="display: inline-block; padding-right: 0;">
@@ -106,7 +131,8 @@
 															<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 																<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
 															</svg>   				
-			   											</button>           				
+			   											</button>  
+			   											     				
                                         			</div>
                                         		</div>										 
 											<thead style="background-color: rgb(248,249,250);">
@@ -123,14 +149,21 @@
 												</tr>
 											</thead>
 											<tbody>
+											<c:choose>
+											<c:when test="${fn:length(list) eq 0}">
+												<tr>
+													<td class="text-center" colspan="12">검색된 내용이 없습니다.</td>
+												</tr>	
+											</c:when>
+											<c:otherwise>	
 												<c:forEach items="${list}" var="rt" varStatus="status">
 													<tr>
-														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvcpSeq}"/>" class="form-check-input"></td>
+														<td style="width:4%;"><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${rt.tvcpSeq}"/>" class="form-check-input"></td>
 														<td class="text-center"><c:out value="${rt.tvcpSeq}"/></td>
 														<td><c:out value="${rt.tvamLodgingName}"/></td>
 														
 														<td><c:out value="${rt.tvcpName}"/></td>
-														<td><c:out value="${rt.tvcpPrice}"/></td>
+														<td><c:out value="${rt.tvcpPrice}"/>원</td>
 														<td><c:out value="${rt.tvcpStartDate}"/></td>
 														<td><c:out value="${rt.tvcpEndDate}"/></td>
 														<td>
@@ -138,13 +171,32 @@
 																<a href="/host/couponView?tvcpSeq=<c:out value="${rt.tvcpSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="수정" class="text-success">
 																	<i class="mdi mdi-pencil font-size-18"></i>
 																</a>
-																<a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제" class="text-danger">
-																	<i class="mdi mdi-delete font-size-18"></i>
-																</a>
+																<button type="button" class="btn" id="btnDelete" value="<c:out value="${rt.tvcpSeq}"/>"  data-bs-toggle="modal" data-bs-target="#modalConfirm<c:out value="${rt.tvcpSeq}"/>" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>
+																
+																<!-- 삭제버튼 Modal -->
+																<div class="modal fade" id="modalConfirm<c:out value="${rt.tvcpSeq}"/>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																  <div class="modal-dialog">
+																    <div class="modal-content">
+																      <div class="modal-header">
+																        <h5 class="modal-title" id="exampleModalLabel">숙소 삭제</h5>
+																        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																      </div>
+																      <div class="modal-body">
+																        삭제 하시겠습니까? 삭제된 내용은 복구되지 않습니다.
+																      </div>
+																      <div class="modal-footer">
+																        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+																        <button type="button" onclick="location.href='javascript:goDelete(<c:out value="${rt.tvcpSeq}"/>);'" id ="" class="btn btn-primary">삭제</button>
+																      </div>
+																    </div>
+																  </div>
+																</div> 
 															</div>													
 														</td>
 													</tr>
 												</c:forEach>
+													</c:otherwise>
+										</c:choose>
 											</tbody>
 										</table>
                                     </div>
@@ -157,20 +209,20 @@
 											<nav aria-label="...">
 											  <ul class="pagination">
 											<c:if test="${vo.startPage gt vo.pageNumToShow}">
-											     <li class="page-item"><a class="page-link" href="/host/lodgingList?thisPage=${vo.startPage - 1}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">Previous</a></li>
+											     <li class="page-item"><a class="page-link" href="/host/couponList?thisPage=${vo.startPage - 1}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">Previous</a></li>
 											</c:if>
 											<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
 												<c:choose>
 													<c:when test="${i.index eq vo.thisPage}">
-											                <li class="page-item active"><a class="page-link" href="/host/lodgingList?thisPage=${i.index}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">${i.index}</a></li>
+											                <li class="page-item active"><a class="page-link" href="/host/couponList?thisPage=${i.index}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">${i.index}</a></li>
 													</c:when>
 													<c:otherwise>             
-											            <li class="page-item"><a class="page-link" href="/host/lodgingList?thisPage=${i.index}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">${i.index}</a></li>
+											            <li class="page-item"><a class="page-link" href="/host/couponList?thisPage=${i.index}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">${i.index}</a></li>
 													</c:otherwise>
 												</c:choose>
 											</c:forEach>     
 											<c:if test="${vo.endPage ne vo.totalPages}">                
-											    <li class="page-item"><a class="page-link" href="/host/lodgingList?thisPage=${vo.endPage + 1}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">Next</a></li>
+											    <li class="page-item"><a class="page-link" href="/host/couponList?thisPage=${vo.endPage + 1}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">Next</a></li>
 											</c:if>  
 											  </ul>
 											</nav>
@@ -191,95 +243,7 @@
                 <br>
                 
 
-<!--                  Extra Large modal example
-                <div class="modal fade add-new-order" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="myExtraLargeModalLabel">Add New Order</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                               <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="AddOrder-Product">Choose Product</label>
-                                        <select class="form-select">
-                                            <option  selected> Select Product </option>
-                                            <option>Adidas Running Shoes</option>
-                                            <option>Puma P103 Shoes</option>
-                                            <option>Adidas AB23 Shoes</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                   <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Billing-Name">Billing Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter Billing Name" id="AddOrder-Billing-Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label">Date</label>
-                                            <input type="text" class="form-control" placeholder="Select Date" id="order-date">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Total">Total</label>
-                                            <input type="text" class="form-control" placeholder="$565" id="AddOrder-Total">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Payment-Status">Payment Status</label>
-                                            <select class="form-select">
-                                                <option  selected> Select Card Type </option>
-                                                <option>Paid</option>
-                                                <option>Chargeback</option>
-                                                <option>Refund</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="AddOrder-Payment-Method">Payment Method</label>
-                                            <select class="form-select">
-                                                <option  selected> Select Payment Method </option>
-                                                <option> Mastercard</option>
-                                                <option>Visa</option>
-                                                <option>Paypal</option>
-                                                <option>COD</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                               </div>
-                               <div class="row mt-2">
-                                <div class="col-12 text-end">
-                                    <button type="button" class="btn btn-danger me-1" data-bs-dismiss="modal"><i class="bx bx-x me-1"></i> Cancel</button>
-                                    <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#success-btn" id="btn-save-event"><i class="bx bx-check me-1"></i> Confirm</button>
-                                </div>
-                            </div>
 
-                            </div>
-                        </div>/.modal-content
-                    </div>/.modal-dialog
-                </div>/.modal
-
- -->
-<!--                  successfully modal 
-                <div id="success-btn" class="modal fade" tabindex="-1" aria-labelledby="success-btnLabel" aria-hidden="true" data-bs-scroll="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                               <div class="text-center">
-                                   <i class="bx bx-check-circle display-1 text-success"></i>
-                                   <h4 class="mt-3">Order Completed Successfully</h4>
-                               </div>
-                            </div>
-                        </div>/.modal-content
-                    </div>/.modal-dialog
-                </div>/.modal -->
 
                 <!-- Modal -->
                 <div class="modal fade orderdetailsModal" tabindex="-1" role="dialog" aria-labelledby=orderdetailsModalLabel" aria-hidden="true">
@@ -289,76 +253,7 @@
                                 <h5 class="modal-title" id="orderdetailsModalLabel">Order Details</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
-                                <p class="mb-2">Product id: <span class="text-primary">#SK2540</span></p>
-                                <p class="mb-4">Billing Name: <span class="text-primary">Martin Gurley</span></p>
-
-                                <div class="table-responsive">
-                                    <table class="table align-middle table-nowrap">
-                                        <thead>
-                                            <tr>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Product Name</th>
-                                            <th scope="col">Price</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div>
-                                                        <img src="/resources/admin/assets/images/product/img-1.png" alt="" class="rounded avatar-md">
-                                                    </div>
-                                                </th>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="text-truncate font-size-14">Home & Office Chair Crime</h5>
-                                                        <p class="text-muted mb-0">$ 225 x 1</p>
-                                                    </div>
-                                                </td>
-                                                <td>$ 255</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div>
-                                                        <img src="/resources/admin/assets/images/product/img-2.png" alt="" class="rounded avatar-md">
-                                                    </div>
-                                                </th>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="text-truncate font-size-14">Tuition Classes Chair Crime</h5>
-                                                        <p class="text-muted mb-0">$ 145 x 1</p>
-                                                    </div>
-                                                </td>
-                                                <td>$ 145</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Sub Total:</h6>
-                                                </td>
-                                                <td>
-                                                    $ 400
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Shipping:</h6>
-                                                </td>
-                                                <td>
-                                                    Free
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Total:</h6>
-                                                </td>
-                                                <td>
-                                                    $ 400
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                            
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
@@ -388,7 +283,7 @@
         </div>
         <!-- END layout-wrapper -->
 
-
+</form>    
  
 
         <!-- chat offcanvas -->
@@ -426,7 +321,66 @@
         <script src="../../resources/host/js/app.js"></script>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
+    </body>
+    
+    <script type="text/javascript">
+	var goUrlList = "/host/couponList";
+	var goUrlForm = "/host/couponForm";
+	var goUrlMultiDel = "/host/couponMultiDel";
+	
+	var seq = $("input:hidden[name=tvcpSeq]");
+	var form = $("form[name=formList]");
+	
+	var checkboxSeqArray = [];
+
+	$("#checkboxAll").click(function() {
+		if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+		else $("input[name=checkboxSeq]").prop("checked", false);
+	});
+
+	$("input[name=checkboxSeq]:checked").each(function() { 
+		var total = $("input[name=checkboxSeq]").length;
+		var checked = $("input[name=checkboxSeq]:checked").length;
+		
+		if(total != checked) $("#checkboxAll").prop("checked", false);
+		else $("#checkboxAll").prop("checked", true);
+	});
+	
+
+	$("#btnModalDelete").on("click", function(){
+		
+		$("input[name=checkboxSeq]:checked").each(function() {
+			checkboxSeqArray.push($(this).val());	
+		});
+		
+		
+		$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+		
+		/* $("#modalConfirm").modal("hide"); */
+		
+		/* $("#formList").attr("action", "memberMultiUele").submit(); */
+ 		$("#formList").attr("action", goUrlMultiDel).submit();
+	});
+		
+	
+	
+</script>
+<script type="text/javascript">
+	
+goDelete = function(seq){
+	
+	var goUrlDel = "/host/couponDelete";
+	
+	$("#tvcpSeq").val(seq);
+	
+	$("#formList").attr("action", goUrlDel);
+	$("#formList").submit();
+};
+
+</script>
     </body>
 
 </html>

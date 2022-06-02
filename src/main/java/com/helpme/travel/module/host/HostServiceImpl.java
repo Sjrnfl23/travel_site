@@ -4,6 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.helpme.travel.common.util.UtilUpload;
+import com.helpme.travel.module.admin.Admin;
+import com.helpme.travel.module.admin.AdminVo;
 
 
 @Service
@@ -82,52 +87,16 @@ public class HostServiceImpl implements HostService{
 		return dao.deleteLodging(vo);
 	}
 
-	@Override
-	public Host selectOneLogin(Host dto) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.selectOneLogin(dto);
-	}
+	
 
-	@Override
-	public Host selectOneHost(HostVo vo) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.selectOneHost(vo);
-	}
 	
 	
 	//Reservation
 	@Override
-	public List<Host> selectReservation(Host dto) throws Exception {
+	public List<Host> selectReservation(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.selectReservation(dto);
+		return dao.selectReservation(vo);
 	}
-	@Override
-	public int selectOneCountReservation(HostVo vo) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.selectOneCountReservation(vo);
-	}
-
-	 //login,signUp,hostView
-
-	@Override
-	public int selectOneCountLodging(HostVo vo) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.selectOneCountLodging(vo);
-	}
-
-
-	@Override
-	public int selectOneCountCoupon(HostVo vo) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.selectOneCountCoupon(vo);
-	}
-
-	@Override
-	public int insertHost(Host dto) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.insertHost(dto);
-	}
-
 	@Override
 	public Host selectOneReservation(Host dto) throws Exception {
 		// TODO Auto-generated method stub
@@ -146,7 +115,87 @@ public class HostServiceImpl implements HostService{
 		return dao.selectOneSales(dto);
 	}
 
+	@Override
+	public int deleteReservation(HostVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.deleteReservation(vo);
+	}
 	
+
+	 //paging
+
+	@Override
+	public int selectOneCountLodging(HostVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneCountLodging(vo);
+	}
+
+
+	@Override
+	public int selectOneCountCoupon(HostVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneCountCoupon(vo);
+	}
+	@Override
+	public int selectOneCountReservation(HostVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneCountReservation(vo);
+	}
+	//login
+	@Override
+	public Host selectOneLogin(Host dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneLogin(dto);
+	}
+	
+	//signUp
+	@Override
+	public int insertHost(Host dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.insertHost(dto);
+	}
+
+	
+
+	//uploaded
+	
+	@Override
+	public Host selectOneUploaded(HostVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneUploaded(vo);
+	}
+	
+
+	
+	//hostInfoView
+	@Override
+	public Host selectOneHost(HostVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneHost(vo);
+	}
+
+	@Override
+	public int updateHost(Host dto) throws Exception {
+		 dao.updateHost(dto); 
+		
+		int j = 0;
+		for(MultipartFile multipartFile : dto.getFile0() ) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.uploadHost(multipartFile, pathModule, dto);
+			dto.setTableName("tvMemberUploaded");
+			dto.setType(0);
+			dto.setDefaultNy(0);
+			dto.setSort(j);
+			dto.setDefaultNy(0);
+			dto.setPseq(dto.getTvmmSeq());
+			
+			dao.updateUploaded(dto);
+			j++;
+		}
+	
+	return dao.updateHost(dto);
+	
+	}
 	
 	
 	

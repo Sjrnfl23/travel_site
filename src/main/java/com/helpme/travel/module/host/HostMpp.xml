@@ -25,7 +25,12 @@
 				1=1
 				and tvcpDelNy=0
 				and b.tvmmSeq= #{tvmmSeq}
-				
+					<choose>
+			<when test="shOption == 1">and a.tvcpName like concat('%', #{shValue}, '%')</when>	<!-- 쿠폰 이름 검색 -->
+			<when test="shOption == 2">and b.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소 이름 검색 -->
+			
+		</choose>			
+			limit #{startRnumForMysql}, #{rowNumToShow}	
 	</select>
 	<select id="selectOneCoupon" resultMap="resultMapObj">
 	 select
@@ -133,7 +138,13 @@
 				1=1
 				and tvamDelNy=0
 				and a.tvmmSeq = #{tvmmSeq}
-				
+						<choose>
+						
+			<when test="shOption == 1">and a.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소 이름 검색 -->
+			
+			<when test="shOption == 2">and a.tvamAddressFull like concat('%', #{shValue}, '%')</when>	<!-- 주소 검색 -->
+		</choose>			
+			limit #{startRnumForMysql}, #{rowNumToShow}	
 	</select>
 
 	<select id="selectOneLodging" resultMap="resultMapObj">
@@ -241,6 +252,8 @@
 	tvmmName
 	,tvmmEmailAccount
 	,tvmmPassword
+	,tvmmAddress1
+	,tvmmAddress2
 	,tvmmAddressFull
 	,tvmmTelNumber
 	,tvmmDob
@@ -262,8 +275,8 @@
 	,tvmmEmailAccount = #{tvmmEmailAccount}
 	,tvmmPassword = #{tvmmPassword}
 	,tvmmTelNumber = #{tvmmTelNumber}
-	,tvamAddress1 = #{tvmmAddress1} 
-	,tvamAddress2 = #{tvmmAddress2}
+	,tvmmAddress1 = #{tvmmAddress1} 
+	,tvmmAddress2 = #{tvmmAddress2}
 	,tvmmDob = #{tvmmDob}
 	,tvmmDesc = #{tvmmDesc} 
 	
@@ -312,7 +325,13 @@
 			left join tvMember b on a.tvmmSeq=b.tvmmSeq 
 			left join tvLodging c on a.tvamSeq=c.tvamSeq 
 		where tvpmDelNy=0 and c.tvmmSeq = #{tvmmSeq}
-				
+					<choose>
+			<when test="shOption == 1">and c.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소 이름 검색 -->
+			<when test="shOption == 2">and b.tvmmName like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이름 검색 -->
+			<when test="shOption == 3">and b.tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이메일 검색 -->
+			
+		</choose>			
+			limit #{startRnumForMysql}, #{rowNumToShow}		
 		
 	
 	</select>
@@ -368,9 +387,15 @@
 		where tvpmDelNy=0 and tvpmSeq = #{tvpmSeq}
 	
 	</update>
-
-	<!-- reservation End -->
+	<delete id="deleteReservation">
+		delete 
+			from tvPayment a
+		where
+			tvpmSeq=#{tvpmSeq}
+	</delete>
 	
+	<!-- reservation End -->
+
 	<!-- host signup start -->
 	<insert id="insertHost">
 	insert into tvMember(
@@ -449,5 +474,45 @@
 		 	group by month
 	
 	</select>
+	
+	<!-- uploaded s -->
+	<update id="updateUploaded">
+		update tvMemberUploaded set
+			type = #{type}
+			, defaultNy = #{defaultNy}
+			, sort = #{sort}
+			, originalName = #{originalName}
+			, uuidName = #{uuidName}
+			, ext = #{ext}
+			, size = #{size}
+			, delNy = 0
+			, year = #{year}
+			, month = #{month}
+			, day = #{day}
+			, tvmmSeq = #{tvmmSeq}
+		where 1=1
+			and tvmmSeq = #{tvmmSeq}
+	</update>
+	
+	<select id="selectOneUploaded" resultMap="resultMapObj">
+		select
+			type
+			, defaultNy
+			, sort
+			, originalName
+			, uuidName
+			, ext
+			, size
+			, delNy
+			, year
+			, month
+			, day
+			, tvmmSeq
+		from tvMemberUploaded
+		where 1=1
+			and tvmmSeq = #{tvmmSeq} 		
+	</select>	
+	
+	<!-- uploaded e -->
 	
 </mapper> 

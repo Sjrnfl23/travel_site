@@ -2,6 +2,8 @@ package com.helpme.travel.module.host;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Host {
 
 	// coupon
@@ -86,7 +88,52 @@ public class Host {
 	private Integer sales;
 	private String reservationCount;
 	
+	//search
+	private String shOption;
+	private String shValue;
 	
+	// image
+		private String seq;
+		private Integer type;
+		private Integer defaultNy;
+		private Integer sort;
+		private String originalName;
+		private String uuidName;
+		private String fileName;
+		private String ext;
+		private Long size;
+		private Integer delNy;
+		private Integer pseq;
+		private String tableName;
+		
+		
+		// image date 
+		private String year;
+		private String month;
+		private String day;
+		
+		private String originalFileName;
+		private String uuidFileName;
+		private MultipartFile[] file0;
+	    private MultipartFile[] file1;
+	
+	
+	public String getShOption() {
+		return shOption;
+	}
+
+	public void setShOption(String shOption) {
+		this.shOption = shOption;
+	}
+
+	public String getShValue() {
+		return shValue;
+	}
+
+	public void setShValue(String shValue) {
+		this.shValue = shValue;
+	}
+
 	public Integer getSales() {
 		return sales;
 	}
@@ -648,6 +695,159 @@ public class Host {
 	public void setTvpmDesc(String tvpmDesc) {
 		this.tvpmDesc = tvpmDesc;
 	}
+
+	public String getSeq() {
+		return seq;
+	}
+
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public Integer getDefaultNy() {
+		return defaultNy;
+	}
+
+	public void setDefaultNy(Integer defaultNy) {
+		this.defaultNy = defaultNy;
+	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+
+	public String getOriginalName() {
+		return originalName;
+	}
+
+	public void setOriginalName(String originalName) {
+		this.originalName = originalName;
+	}
+
+	public String getUuidName() {
+		return uuidName;
+	}
+
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getExt() {
+		return ext;
+	}
+
+	public void setExt(String ext) {
+		this.ext = ext;
+	}
+
+	public Long getSize() {
+		return size;
+	}
+
+	public void setSize(Long size) {
+		this.size = size;
+	}
+
+	public Integer getDelNy() {
+		return delNy;
+	}
+
+	public void setDelNy(Integer delNy) {
+		this.delNy = delNy;
+	}
+
+	public Integer getPseq() {
+		return pseq;
+	}
+
+	public void setPseq(Integer pseq) {
+		this.pseq = pseq;
+	}
+
+	public String getTableName() {
+		return tableName;
+	}
+
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
+	}
+
+	public String getOriginalFileName() {
+		return originalFileName;
+	}
+
+	public void setOriginalFileName(String originalFileName) {
+		this.originalFileName = originalFileName;
+	}
+
+	public String getUuidFileName() {
+		return uuidFileName;
+	}
+
+	public void setUuidFileName(String uuidFileName) {
+		this.uuidFileName = uuidFileName;
+	}
+
+	public MultipartFile[] getFile0() {
+		return file0;
+	}
+
+	public void setFile0(MultipartFile[] file0) {
+		this.file0 = file0;
+	}
+
+	public MultipartFile[] getFile1() {
+		return file1;
+	}
+
+	public void setFile1(MultipartFile[] file1) {
+		this.file1 = file1;
+	}
+	
 	
 	
 }

@@ -74,7 +74,7 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-           <form method="get" action="reservationUpdate">
+           <form method="get" action="reservationUpdate" >
            <input type="hidden" name="tvpmSeq" value="<c:out value= "${rt.tvpmSeq}"/>">
            <input type="hidden" name="tvmmSeq" value="<c:out value= "${rt.tvmmSeq}"/>">
            <div class="main-content">
