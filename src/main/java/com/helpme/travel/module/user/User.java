@@ -135,6 +135,7 @@ public class User {
 	private String tvcpPrice;
 	private Integer tvpmPayTypeCd;
 	private String tvpmDesc;
+	private String hostEmail;
 	
 
 //	===============================================	
@@ -786,6 +787,12 @@ public class User {
 	}
 	public void setTvpmDesc(String tvpmDesc) {
 		this.tvpmDesc = tvpmDesc;
+	}
+	public String getHostEmail() {
+		return hostEmail;
+	}
+	public void setHostEmail(String hostEmail) {
+		this.hostEmail = hostEmail;
 	}	
 
 	

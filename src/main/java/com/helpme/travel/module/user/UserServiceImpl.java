@@ -86,6 +86,14 @@ public class UserServiceImpl implements UserService{
 	public User selectOneReservation(UserVo vo) throws Exception {	
 		return dao.selectOneReservation(vo);
 	}
+	
+	@Override
+	public List<User> selectReservation(UserVo vo) throws Exception {
+		
+		return dao.selectReservation(vo); 
+	}	
+	
+	
 //		//리뷰
 //	@Override
 //	public int insertReview(User dto) throws Exception {

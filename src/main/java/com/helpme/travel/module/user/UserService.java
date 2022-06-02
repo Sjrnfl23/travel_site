@@ -31,6 +31,7 @@ public interface UserService {
 //	
 //	//예약 내역
 	public User selectOneReservation(UserVo vo) throws Exception;
+	List<User> selectReservation(UserVo vo) throws Exception;
 //	public int insertReview(User dto) throws Exception;
 //	public int updateReview(User dto) throws Exception;
 //	int deleteReview(UserVo vo) throws Exception;

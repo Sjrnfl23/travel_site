@@ -7,6 +7,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.helpme.travel.module.admin.Admin;
+import com.helpme.travel.module.admin.AdminVo;
+
 @Repository
 public class UserDao {
 	
@@ -40,6 +43,8 @@ public class UserDao {
 //	public int insertReview(User dto) {return sqlSession.insert( namespace + ".insertReview", dto);}
 //	public int updateReview(User dto) {return sqlSession.update( namespace + ".updateReview", dto);}
 //	public int deleteReview(UserVo vo) {return sqlSession.delete( namespace + ".deleteReview", vo);}
+	public List<User> selectReservation(UserVo vo){return sqlSession.selectList(namespace + ".selectReservation", vo);}
+	
 	
 	// 포토맵
 	public List<User> selectListMap(UserVo vo) {List<User> list = sqlSession.selectList(namespace + ".selectListMap", vo); return list; }

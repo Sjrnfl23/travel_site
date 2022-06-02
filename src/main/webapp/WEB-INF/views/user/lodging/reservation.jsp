@@ -6,7 +6,7 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
 <head>
     <!-- Required meta tags -->
@@ -70,7 +70,7 @@
                             <h5 class="modal-title"><img src="/resources/user/images/logo.png" alt="logo"></h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span class="ti-close"></span>
-        </button>
+        					</button>
                         </div>
                         <div class="modal-body">
                             <form>
@@ -91,7 +91,7 @@
                             <h5 class="modal-title" id="exampleModalLabel"><img src="/resources/user/images/logo.png" alt="logo"></h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span class="ti-close"></span>
-        </button>
+        					</button>
                         </div>
                         <div class="modal-body">
                             <form>
@@ -142,13 +142,11 @@
                     <div class="listing-wrap">
                         <form action="#">
                             <!-- General Information -->
-                            <div class="listing-title">
-                                <span class="ti-gift"></span>
-                            </div>
+
 	                        <div class="row">
 	                            <div class="col-12">
 	                                <div class="card">
-	                                    <div class="card-body">
+	                                   <!--  <div class="card-body"> -->
 	                                    <div class="position-relative">
                                             <!-- <div class="modal-button mt-2">
                                                 <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target=".add-new-order">선택삭제</button>
@@ -178,9 +176,7 @@
                                         		</div>	 --%>									 
 											<thead style="background-color: rgb(248,249,250);">
 												<tr>
-													<th><input type="checkbox" id="checkboxAll" name="" value="" class="form-check-input"></th>
-													<th style="text-align: center;">No.</th>
-													<th>예약현황</th>
+													<th>예약번호</th>
 													<th>숙소이름</th>
 													<th>호스트</th>
 													<th>사용자</th>
@@ -190,7 +186,6 @@
 													<th>시작일</th>
 													<th>종료일</th>
 													<th>가격</th>
-													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -201,36 +196,26 @@
 												</tr>	
 											</c:when>
 											<c:otherwise>												
-												
+												<c:forEach items="${list}" var="item" varStatus="status">
 													<tr>
-														<td><input type="checkbox" id="checkboxSeq" name="checkboxSeq" value="<c:out value="${list.tvmmSeq}"/>" class="form-check-input"></td>
-														<td><c:out value="${list.tvmmSeq}"/></td>
-														<td>예약현황</td>
-														<td><c:out value="${list.tvamLodgingName}"/></td>
-														<td><c:out value="${list.hostEmail}"/></td>
-														<td><c:out value="${list.tvmmEmailAccount}"/></td>
-														<td><c:out value="${list.tvmmName}"/></td>
-														<td><c:out value="${list.tvmmTelNumber}"/></td>
-														<td><c:out value="${list.tvpmAdNumber}"/>명</td>
-														<td><c:out value="${list.tvpmStartDate}"/></td>
-														<td><c:out value="${list.tvpmEndDate}"/></td>
-														<td><c:out value="${list.tvpmtotalPrice}"/>원</td>
-														<td>
-															<div class="d-flex gap-3">
-																<a href="/reservation?tvmmSeq=<c:out value="${list.tvmmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="상세" class="text-success">
-																	<i class="mdi mdi-pencil font-size-18"></i>
-																</a>
-																<button type="button" class="btn" id="btnDelete" value="<c:out value="${list.tvmmSeq}"/>" aria-label="Close" style="color: red; padding: 0;"><i class="mdi mdi-delete font-size-18"></i></button>
-															</div>													
-														</td>
+														<td><c:out value="${item.tvpmSeq}"/></td>
+														<td><c:out value="${item.tvamLodgingName}"/></td>
+														<td><c:out value="${item.hostEmail}"/></td>
+														<td><c:out value="${item.tvmmEmailAccount}"/></td>
+														<td><c:out value="${item.tvmmName}"/></td>
+														<td><c:out value="${item.tvmmTelNumber}"/></td>
+														<td><c:out value="${item.tvpmAdNumber}"/>명</td>
+														<td><c:out value="${item.tvpmStartDate}"/></td>
+														<td><c:out value="${item.tvpmEndDate}"/></td>
+														<td><c:out value="${item.tvpmtotalPrice}"/>원</td>
 													</tr>
-												
+												</c:forEach>
 											</c:otherwise>
 										</c:choose>
 											</tbody>
 										</table>
                                     </div>	                                       
-	                                    </div>
+	                                  <!--   </div> -->
 	                                </div>
 	                            </div>
 	                        </div>
