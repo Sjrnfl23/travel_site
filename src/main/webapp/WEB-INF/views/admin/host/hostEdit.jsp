@@ -112,13 +112,6 @@
                                               
                                                 <div class="mt-3">
                                                    <h5 class="mb-1"><c:out value="${rt.tvmmName}"/></h5>
-                                                    <p class="text-muted mb-0">
-                                                        <i class="bx bxs-star text-warning font-size-14"></i>
-                                                        <i class="bx bxs-star text-warning font-size-14"></i>
-                                                        <i class="bx bxs-star text-warning font-size-14"></i>
-                                                        <i class="bx bxs-star text-warning font-size-14"></i>
-                                                        <i class="bx bxs-star-half text-warning font-size-14"></i>
-                                                    </p>
                                                     
 							                        <div class="row">
 							                            <div class="col-12">
