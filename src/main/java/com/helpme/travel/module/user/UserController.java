@@ -98,8 +98,11 @@ public class UserController {
 
 	// Search
 	@RequestMapping(value = "/search")
-	public String UserSearch(Model model) throws Exception {
+	public String UserSearch(Model model, UserVo vo) throws Exception {
 
+//		List<User> list = service.selectListSearch(vo);
+//		model.addAttribute("list", list);
+		
 		return "user/lodging/search";
 	}
 
@@ -122,21 +125,30 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping(value = "locationAjaxList")
-	public Map<String, Object> locationAjaxList(UserVo vo) throws Exception {
+	public Map<String, Object> locationAjaxList(Model model, UserVo vo, User dto) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
-
-			List<User> list = service.selectListSearch(vo);
-			returnMap.put("list", list);
-			System.out.println(":::::::::::list:::::::::::" +list);
-			returnMap.put("count", list.size());
-			
 		
+
+		vo.setParamsPaging(service.selectSearchCount(vo));
+		
+		if (vo.getTotalRows() > 0) {
+			List<User> lodglist = service.selectListSearch(vo);
+			model.addAttribute("lodglist", lodglist);
+			returnMap.put("lodglist", lodglist);
+			System.out.println(":::::::::::lodglist:::::::::::" +lodglist);
+			System.out.println(":::::::::::vo.getTotalRows():::::::::::" +vo.getTotalRows());
+			dto.setNeLat(dto.getNeLat());
+			dto.setNeLng(dto.getNeLng());
+			dto.setSwLat(dto.getSwLat());
+			dto.setSwLng(dto.getSwLng());
+			returnMap.put("count", lodglist.size());
+		} else {
+			returnMap.put("count", 0);
+		}
 		returnMap.put("rt", "success");
 		
 		return returnMap;
 	}
-	
-	
 
 	// Lodging
 
@@ -201,51 +213,16 @@ public class UserController {
 	}	
 	
 
+	
 	@RequestMapping(value = "/reservation")
-	public String UserReservation(UserVo vo, Model model, HttpSession httpSession) throws Exception {
+	public String UserReservation(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
 		
-		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
-		vo.setTvmmSeq(sessSeq);
-		
-		
-		List<User> list = service.selectReservation(vo);
-		model.addAttribute("list", list);
+		User item= service.selectOneReservation(vo);
+		model.addAttribute("item", item);
 
 		return "user/lodging/reservation";
-	}	
-	
-	
-	
-	/*
-	 * @RequestMapping(value = "/reservation") public String
-	 * UserReservation(@ModelAttribute("vo") UserVo vo , User dto, Model model,
-	 * RedirectAttributes redirectAttributes, HttpSession httpSession) throws
-	 * Exception {
-	 * 
-	 * String sessSeq = httpSession.getAttribute("sessSeq").toString();
-	 * 
-	 * dto.setTvmmSeq(sessSeq); vo.setTvmmSeq(sessSeq);
-	 * 
-	 * // User item= service.selectOneReservation(vo); // model.addAttribute("item",
-	 * item);
-	 * 
-	 * List<User> list = service.selectReservation(vo); model.addAttribute("list",
-	 * list);
-	 * 
-	 * return "user/lodging/reservation"; }
-	 */
-	
-	// dm
+	}
 
-	@RequestMapping(value = "/userDm")
-	public String UserDm(UserVo vo, Model model, HttpSession httpSession) throws Exception {
-		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
-		vo.setTvmmSeq(sessSeq);
-
-		return "user/lodging/dm";
-	}	
-	
-	
 	// PhotoMap
 	@RequestMapping(value = "/mapList")
 	public String UserMapList(Model model, UserVo vo, HttpSession httpSession) throws Exception {

@@ -2,20 +2,28 @@ package com.helpme.travel.common.base;
 
 import java.util.Date;
 
+
 public class Base {
 
 	private String tableName;
-	
+	// image start
 	private String seq;
 	private Integer type;
 	private Integer defaultNy;
 	private Integer sort;
 	private String originalName;
 	private String uuidName;
+	private String fileName;
 	private String ext;
-	private long size;
 	private Integer delNy;
 	private String pseq;
+	
+	// image date 
+	private String year;
+	private String month;
+	private String day;
+	
+
 	
 	
 	// regmod
@@ -32,8 +40,6 @@ public class Base {
 	private Date modDateTime;
 	private Date modDateTimeSvr;
 	
-	private String originalFileName;
-	private String uuidFileName;
 	
 	
 	// ----------------------------------
@@ -82,17 +88,17 @@ public class Base {
 	public void setUuidName(String uuidName) {
 		this.uuidName = uuidName;
 	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	public String getExt() {
 		return ext;
 	}
 	public void setExt(String ext) {
 		this.ext = ext;
-	}
-	public long getSize() {
-		return size;
-	}
-	public void setSize(long size) {
-		this.size = size;
 	}
 	public Integer getDelNy() {
 		return delNy;
@@ -105,6 +111,24 @@ public class Base {
 	}
 	public void setPseq(String pseq) {
 		this.pseq = pseq;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public String getMonth() {
+		return month;
+	}
+	public void setMonth(String month) {
+		this.month = month;
+	}
+	public String getDay() {
+		return day;
+	}
+	public void setDay(String day) {
+		this.day = day;
 	}
 	public String getRegIp() {
 		return regIp;
@@ -178,18 +202,13 @@ public class Base {
 	public void setModDateTimeSvr(Date modDateTimeSvr) {
 		this.modDateTimeSvr = modDateTimeSvr;
 	}
-	public String getOriginalFileName() {
-		return originalFileName;
-	}
-	public void setOriginalFileName(String originalFileName) {
-		this.originalFileName = originalFileName;
-	}
-	public String getUuidFileName() {
-		return uuidFileName;
-	}
-	public void setUuidFileName(String uuidFileName) {
-		this.uuidFileName = uuidFileName;
-	}
+	
+	
+	
+
+	
+	
+	
 
 
 	
