@@ -135,6 +135,8 @@ public class UserController {
 		
 		return returnMap;
 	}
+	
+	
 
 	// Lodging
 
@@ -232,7 +234,18 @@ public class UserController {
 	 * 
 	 * return "user/lodging/reservation"; }
 	 */
+	
+	// dm
 
+	@RequestMapping(value = "/userDm")
+	public String UserDm(UserVo vo, Model model, HttpSession httpSession) throws Exception {
+		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
+		vo.setTvmmSeq(sessSeq);
+
+		return "user/lodging/dm";
+	}	
+	
+	
 	// PhotoMap
 	@RequestMapping(value = "/mapList")
 	public String UserMapList(Model model, UserVo vo, HttpSession httpSession) throws Exception {
