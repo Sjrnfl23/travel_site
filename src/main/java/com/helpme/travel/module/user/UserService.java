@@ -34,7 +34,6 @@ public interface UserService {
 //	
 //	//예약 내역
 	public User selectOneReservation(UserVo vo) throws Exception;
-	List<User> selectReservation(UserVo vo) throws Exception;
 //	public int insertReview(User dto) throws Exception;
 //	public int updateReview(User dto) throws Exception;
 //	int deleteReview(UserVo vo) throws Exception;
@@ -46,12 +45,13 @@ public interface UserService {
 	public int updateMap(User dto) throws Exception;
 	public int deleteMap(UserVo vo) throws Exception;
 	public int deleteMapPhoto(UserVo vo) throws Exception;
-	public int insertPhotoMapUploaded(User dto) throws Exception;
-	public int updatePhotoMapUploaded(User dto) throws Exception;
+//	public int insertPhotoMapUploaded(User dto) throws Exception;
+//	public int updatePhotoMapUploaded(User dto) throws Exception;
 	
 	// count
 	int selectPhotomapCount(UserVo vo) throws Exception;
 	int selectSearchFlexCount(UserVo vo) throws Exception;
+	int selectSearchCount(UserVo vo) throws Exception;
 	
 	public User selectOneLogin(User dto) throws Exception;
 }

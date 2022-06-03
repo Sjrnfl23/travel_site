@@ -84,8 +84,12 @@
 			FROM
 				tvLodging
 			WHERE 1=1
-				AND tvamDelNy = 0
-				AND tvamSeq = 1
+  				<if test="swLng != '' and swLng != null and neLng != '' and neLng != null">
+				    AND tvamLng BETWEEN #{swLng} AND #{neLng}
+				</if>
+				<if test="swLat != '' and swLat != null and neLat != '' and neLat != null">
+				    AND tvamLat BETWEEN #{swLat} AND #{neLat}
+				</if>  
 				<!-- 현재 숙소 데이터에 좌표데이터가 없는곳이 있어서 에러가 나기때문에 임시 seq 삽입 -->
 	</select>
 	
@@ -118,55 +122,26 @@
 			and tvpmDelNy = 0
 			and tvpmSeq = #{tvpmSeq}
 	</select>
-	
-	<select id="selectReservation" resultMap="resultMapObj">
-		select 
-			a.tvpmSeq
-		    , a.tvpmAdNumber
-		    , a.tvpmStartDate
-		    , a.tvpmEndDate
-		    , a.tvpmPrice
-		    , a.tvcpSeq
-		    , b.tvcpPrice
-		    , a.tvpmtotalPrice
-		    , a.tvpmPayTypeCd
-		    , a.tvpmDesc
-            , a.tvamSeq
-            , c.tvamLodgingName
-            , c.tvamTelNumber
-            , (select tvmmEmailAccount from tvMember e where e.tvmmSeq = c.tvmmSeq) as 'hostEmail' 
-            , a.tvmmSeq
-            , d.tvmmName
-            , d.tvmmTelNumber
-            , d.tvmmEmailAccount
-		from tvPayment a
-			left join tvCoupon b on a.tvcpSeq = b.tvcpSeq
-            left join tvLodging c on a.tvamSeq = c.tvamSeq
-            left join tvMember d on a.tvmmSeq = d.tvmmSeq
-		where 1 = 1
-			and tvpmDelNy = 0
-			and a.tvmmSeq = #{tvmmSeq}
-	</select>
 
 	<insert id="insertReservation">
 		INSERT INTO tvPayment (
 			tvpmSeq
-			, tvpmStartDate
-			, tvpmEndDate
+<!-- 			, tvpmStartDate
+			, tvpmEndDate -->
 			, tvpmtotalPrice
+			, tvamSeq
 			, tvpmAdNumber
 			, tvmmSeq
-			, tvamSeq
 			, tvpmDelNy
 			, regDateTime
 		) VALUES (
 			#{tvpmSeq}
- 			, #{tvpmStartDate}
-			, #{tvpmEndDate}
+<!-- 			, #{tvpmStartDate}
+			, #{tvpmEndDate} -->
 			, #{tvpmtotalPrice}
+			, #{tvamSeq}
 			, #{tvpmAdNumber}
 			, #{tvmmSeq}
-			, #{tvamSeq}
 			, 0
 			, now()
 		)
@@ -233,6 +208,12 @@
 				<when test="shCheck == 5">AND tvamCategoryCd = 5</when>
 				<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
 				</choose>
+	</select>
+	<select id="selectSearchCount" resultType="Integer">
+		SELECT 
+				count(*)
+			FROM 
+				tvLodging
 	</select>
 	<select id="selectListMap" resultMap="resultMapObj">
 		SELECT 

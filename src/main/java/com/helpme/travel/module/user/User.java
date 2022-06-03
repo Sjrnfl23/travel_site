@@ -4,7 +4,9 @@ import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class User {
+import com.helpme.travel.common.base.Base;
+
+public class User extends Base{
 	
 	// 숙소정보
 	private String tvamSeq;
@@ -58,9 +60,13 @@ public class User {
 	private String hiddenNumber;
 	private String hiddenPay;	
 	
+	// 좌표
+	private double neLat;
+	private double neLng;
+	private double swLat;
+	private double swLng;
 	
-	
-	
+	private Object size;
 	// 회원정보 member
 	
 	private String tvmmSeq;
@@ -91,28 +97,28 @@ public class User {
 	private String tvplMarkerImage;
 	private String tvplEmotionCd;
 	
-	private String tableName;
-	
-	// image start
-	private String seq;
-	private Integer type;
-	private Integer defaultNy;
-	private Integer sort;
-	private String originalName;
-	private String uuidName;
-	private String fileName;
-	private String ext;
-	private Long size;
-	private Integer delNy;
-	private String pseq;
-	
-	// image date 
-	private String year;
-	private String month;
-	private String day;
-	
-	private String originalFileName;
-	private String uuidFileName;
+//	private String tableName;
+//	
+//	// image start
+//	private String seq;
+//	private Integer type;
+//	private Integer defaultNy;
+//	private Integer sort;
+//	private String originalName;
+//	private String uuidName;
+//	private String fileName;
+//	private String ext;
+//	private Long size;
+//	private Integer delNy;
+//	private String pseq;
+//	
+//	// image date 
+//	private String year;
+//	private String month;
+//	private String day;
+//	
+//	private String originalFileName;
+//	private String uuidFileName;
 	private MultipartFile[] file0;
     private MultipartFile[] file1;
 
@@ -127,15 +133,14 @@ public class User {
 	//예약관리
 	private String tvpmSeq;
 	private Integer tvpmAdNumber;
-	private String tvpmStartDate;
-	private String tvpmEndDate;
+	private Date tvpmStartDate;
+	private Date tvpmEndDate;
 	private String tvpmtotalPrice;
 	private String tvpmPrice;
 	private String tvcpSeq;
 	private String tvcpPrice;
 	private Integer tvpmPayTypeCd;
 	private String tvpmDesc;
-	private String hostEmail;
 	
 
 //	===============================================	
@@ -528,9 +533,6 @@ public class User {
 	public void setTvplSeq(String tvplSeq) {
 		this.tvplSeq = tvplSeq;
 	}
-	public void setSize(Long size) {
-		this.size = size;
-	}
 	public double getTvplLat() {
 		return tvplLat;
 	}
@@ -581,16 +583,16 @@ public class User {
 	public void setTvpmAdNumber(Integer tvpmAdNumber) {
 		this.tvpmAdNumber = tvpmAdNumber;
 	}
-	public String getTvpmStartDate() {
+	public Date getTvpmStartDate() {
 		return tvpmStartDate;
 	}
-	public void setTvpmStartDate(String tvpmStartDate) {
+	public void setTvpmStartDate(Date tvpmStartDate) {
 		this.tvpmStartDate = tvpmStartDate;
 	}
-	public String getTvpmEndDate() {
+	public Date getTvpmEndDate() {
 		return tvpmEndDate;
 	}
-	public void setTvpmEndDate(String tvpmEndDate) {
+	public void setTvpmEndDate(Date tvpmEndDate) {
 		this.tvpmEndDate = tvpmEndDate;
 	}
 	public String getTvpmtotalPrice() {
@@ -630,109 +632,103 @@ public class User {
 		this.tvpmDesc = tvpmdesc;
 	}
 
-	public String getTableName() {
-		return tableName;
-	}
-	public void setTableName(String tableName) {
-		this.tableName = tableName;
-	}
-	public String getSeq() {
-		return seq;
-	}
-	public void setSeq(String seq) {
-		this.seq = seq;
-	}
-	public Integer getType() {
-		return type;
-	}
-	public void setType(Integer type) {
-		this.type = type;
-	}
-	public Integer getDefaultNy() {
-		return defaultNy;
-	}
-	public void setDefaultNy(Integer defaultNy) {
-		this.defaultNy = defaultNy;
-	}
-	public Integer getSort() {
-		return sort;
-	}
-	public void setSort(Integer sort) {
-		this.sort = sort;
-	}
-	public String getOriginalName() {
-		return originalName;
-	}
-	public void setOriginalName(String originalName) {
-		this.originalName = originalName;
-	}
-	public String getUuidName() {
-		return uuidName;
-	}
-	public void setUuidName(String uuidName) {
-		this.uuidName = uuidName;
-	}
-	public String getFileName() {
-		return fileName;
-	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-	public String getExt() {
-		return ext;
-	}
-	public void setExt(String ext) {
-		this.ext = ext;
-	}
-	public long getSize() {
-		return size;
-	}
-	public void setSize(long size) {
-		this.size = size;
-	}
-	public Integer getDelNy() {
-		return delNy;
-	}
-	public void setDelNy(Integer delNy) {
-		this.delNy = delNy;
-	}
-
-	public String getPseq() {
-		return pseq;
-	}
-	public void setPseq(String pseq) {
-		this.pseq = pseq;
-	}
-	public String getYear() {
-		return year;
-	}
-	public void setYear(String year) {
-		this.year = year;
-	}
-	public String getMonth() {
-		return month;
-	}
-	public void setMonth(String month) {
-		this.month = month;
-	}
-	public String getDay() {
-		return day;
-	}
-	public void setDay(String day) {
-		this.day = day;
-	}
-	public String getOriginalFileName() {
-		return originalFileName;
-	}
-	public void setOriginalFileName(String originalFileName) {
-		this.originalFileName = originalFileName;
-	}
-	public String getUuidFileName() {
-		return uuidFileName;
-	}
-	public void setUuidFileName(String uuidFileName) {
-		this.uuidFileName = uuidFileName;
-	}
+//	public String getTableName() {
+//		return tableName;
+//	}
+//	public void setTableName(String tableName) {
+//		this.tableName = tableName;
+//	}
+//	public String getSeq() {
+//		return seq;
+//	}
+//	public void setSeq(String seq) {
+//		this.seq = seq;
+//	}
+//	public Integer getType() {
+//		return type;
+//	}
+//	public void setType(Integer type) {
+//		this.type = type;
+//	}
+//	public Integer getDefaultNy() {
+//		return defaultNy;
+//	}
+//	public void setDefaultNy(Integer defaultNy) {
+//		this.defaultNy = defaultNy;
+//	}
+//	public Integer getSort() {
+//		return sort;
+//	}
+//	public void setSort(Integer sort) {
+//		this.sort = sort;
+//	}
+//	public String getOriginalName() {
+//		return originalName;
+//	}
+//	public void setOriginalName(String originalName) {
+//		this.originalName = originalName;
+//	}
+//	public String getUuidName() {
+//		return uuidName;
+//	}
+//	public void setUuidName(String uuidName) {
+//		this.uuidName = uuidName;
+//	}
+//	public String getFileName() {
+//		return fileName;
+//	}
+//	public void setFileName(String fileName) {
+//		this.fileName = fileName;
+//	}
+//	public String getExt() {
+//		return ext;
+//	}
+//	public void setExt(String ext) {
+//		this.ext = ext;
+//	}
+//	public Integer getDelNy() {
+//		return delNy;
+//	}
+//	public void setDelNy(Integer delNy) {
+//		this.delNy = delNy;
+//	}
+//
+//	public String getPseq() {
+//		return pseq;
+//	}
+//	public void setPseq(String pseq) {
+//		this.pseq = pseq;
+//	}
+//	public String getYear() {
+//		return year;
+//	}
+//	public void setYear(String year) {
+//		this.year = year;
+//	}
+//	public String getMonth() {
+//		return month;
+//	}
+//	public void setMonth(String month) {
+//		this.month = month;
+//	}
+//	public String getDay() {
+//		return day;
+//	}
+//	public void setDay(String day) {
+//		this.day = day;
+//	}
+//	public String getOriginalFileName() {
+//		return originalFileName;
+//	}
+//	public void setOriginalFileName(String originalFileName) {
+//		this.originalFileName = originalFileName;
+//	}
+//	public String getUuidFileName() {
+//		return uuidFileName;
+//	}
+//	public void setUuidFileName(String uuidFileName) {
+//		this.uuidFileName = uuidFileName;
+//	}
 	public MultipartFile[] getFile0() {
 		return file0;
 	}
@@ -788,12 +784,43 @@ public class User {
 	public void setTvpmDesc(String tvpmDesc) {
 		this.tvpmDesc = tvpmDesc;
 	}
-	public String getHostEmail() {
-		return hostEmail;
+	public double getNeLat() {
+		return neLat;
 	}
-	public void setHostEmail(String hostEmail) {
-		this.hostEmail = hostEmail;
-	}	
+	public void setNeLat(double neLat) {
+		this.neLat = neLat;
+	}
+	public double getNeLng() {
+		return neLng;
+	}
+	public void setNeLng(double neLng) {
+		this.neLng = neLng;
+	}
+	public double getSwLat() {
+		return swLat;
+	}
+	public void setSwLat(double swLat) {
+		this.swLat = swLat;
+	}
+	public double getSwLng() {
+		return swLng;
+	}
+	public void setSwLng(double swLng) {
+		this.swLng = swLng;
+	}
+//	public Long getSize() {
+//		return size;
+//	}
+//	public void setSize(Long size) {
+//		this.size = size;
+//	}
+	public Object getSize() {
+		return size;
+	}
+	public void setSize(Object size) {
+		this.size = size;
+	}
+
 
 	
 	

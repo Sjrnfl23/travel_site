@@ -86,14 +86,6 @@ public class UserServiceImpl implements UserService{
 	public User selectOneReservation(UserVo vo) throws Exception {	
 		return dao.selectOneReservation(vo);
 	}
-	
-	@Override
-	public List<User> selectReservation(UserVo vo) throws Exception {
-		
-		return dao.selectReservation(vo); 
-	}	
-	
-	
 //		//리뷰
 //	@Override
 //	public int insertReview(User dto) throws Exception {
@@ -229,6 +221,10 @@ public class UserServiceImpl implements UserService{
 		return dao.selectSearchFlexCount(vo);
 	}
 	
+	@Override
+	public int selectSearchCount(UserVo vo) throws Exception {
+		return dao.selectSearchCount(vo);
+	}
 	// 로그인
 
 	@Override
@@ -239,16 +235,16 @@ public class UserServiceImpl implements UserService{
 
 	
 	// 업로드
-	@Override
-	public int insertPhotoMapUploaded(User dto) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.insertPhotoMapUploaded(dto);
-	}
-	@Override
-	public int updatePhotoMapUploaded(User dto) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.updatePhotoMapUploaded(dto);
-	}
+//	@Override
+//	public int insertPhotoMapUploaded(User dto) throws Exception {
+//		// TODO Auto-generated method stub
+//		return dao.insertPhotoMapUploaded(dto);
+//	}
+//	@Override
+//	public int updatePhotoMapUploaded(User dto) throws Exception {
+//		// TODO Auto-generated method stub
+//		return dao.updatePhotoMapUploaded(dto);
+//	}
 	
 	// common
 	
