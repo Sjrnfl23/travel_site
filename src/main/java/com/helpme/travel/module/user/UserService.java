@@ -7,6 +7,9 @@ public interface UserService {
 	
 	// 로그인
 //	public User selectOneLogin(UserVo vo) throws Exception;
+	public int selectGoogleNy(User dto) throws Exception;
+	public User selectOneGlogin(User dto) throws Exception;
+	
 //	
 //	//회원가입
 	public int insertMember(User dto) throws Exception;
@@ -31,6 +34,7 @@ public interface UserService {
 //	
 //	//예약 내역
 	public User selectOneReservation(UserVo vo) throws Exception;
+	List<User> selectReservation(UserVo vo) throws Exception;
 //	public int insertReview(User dto) throws Exception;
 //	public int updateReview(User dto) throws Exception;
 //	int deleteReview(UserVo vo) throws Exception;

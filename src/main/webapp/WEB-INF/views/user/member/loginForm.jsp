@@ -97,8 +97,9 @@
                                             <ul class="list-inline mt-2">
                                                
                                                 <li class="list-inline-item">
-                                                    <a href="#" id="GgCustomLogin" class="social-list-item bg-danger text-white border-danger">
-                                                        <i class="bx bxl-google" ></i>
+                                                    <a href="#" id="GgCustomLogin">
+                                                        <!-- <i class="bx bxl-google" ></i> -->
+                                                        <img width="100%" src="/resources/user/images/google.png">
                                                     </a>  
                                                     <!--  <button class="btn btn-warning" type="button" id="GgCustomLogin" name="login1" value="login"> 구글 로그인</button> -->
                                                     
@@ -202,7 +203,7 @@ function onSignIn(googleUser) {
         // key에 자신의 API 키를 넣습니다.
         	/* url : "/infra/member/GloginProc" */
 		 data: {personFields:'birthdays', key:'AIzaSyBQ6fIJWYm4rSJSs_HGbegC-225Sg2m2Qc', 'access_token': access_token}
-		, method:'GET'
+		, method:'POST'
 	})
 	.done(function(e){
         //프로필을 가져온다.
@@ -218,12 +219,13 @@ function onSignIn(googleUser) {
 			,cache: false
 			,type: "post"
 			,url: "GloginProc"
-			,data : {"tvmmName" : profile.getName()}
+			,data : {"tvmmName" : profile.getName(),"tvmmEmailAccount" : profile.getEmail()}
 			,success: function(response) {
 				if(response.rt == "success") {
-					location.href = "/";
+					location.href = "../";
 				} else {
-					alert("구글 로그인 실패");
+					alert("회원가입 바람");
+					location.href = "/signupForm";
 				}
 			}
 			,error : function(jqXHR, textStatus, errorThrown){

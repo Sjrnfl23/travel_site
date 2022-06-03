@@ -62,6 +62,6 @@ public class HostDao {
 
 	public int updateUploaded(Host dto) {return sqlSession.update(namespace + ".updateUploaded", dto);}
 	public Host selectOneUploaded(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneUploaded", vo);}
-   
+	public int insertUploadedLodging(Host dto) {return sqlSession.insert(namespace + ".insertUploadedLodging", dto);}
 }
 

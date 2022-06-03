@@ -32,7 +32,11 @@
         <link href="../../resources/host/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="../../resources/host/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+ <style>
+   
 
+
+  </style>
 
     </head>
 
@@ -75,7 +79,7 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-           
+           <form method="post" action="lodgingInsert" enctype="multipart/form-data">
             <div class="main-content">
             
                 <div class="page-content">
@@ -102,33 +106,28 @@
                                                 <div class="mt-3">
 							                        <div class="row">
 							                            <div class="col-12">
+							                            
 							                                <div class="card">
+							                                
 							                                    <div class="card-body">
-							                                        <div>
-							                                            <form action="#" class="dropzone">
-							                                                <div class="fallback">
-							                                                    <input name="file" type="file" multiple="multiple">
-							                                                </div>
-							                                                <div class="dz-message needsclick">
-							                                                    <div class="mb-3">
-							                                                        <i class="display-4 text-muted mdi mdi-cloud-upload"></i>
-							                                                    </div>
-							                                                    
-							                                                    <h4>Drop files here or click to upload.</h4>
-							                                                </div>
-							                                            </form>
-							                                        </div>
-							        
-							                                        <div class="text-center mt-4">
-							                                            <button type="button" class="btn btn-primary waves-effect waves-light">사진첨부</button>
-							                                        </div>
+							                                  
+					                                                <div class="fallback">
+																		
+																		<input class="form-control" id="file0" name="file0" type="file" style="display: none;" onChange="upload(0,2);" multiple>
+																		<div class="addScroll" style="overflow: auto;">
+																			<ul id="ulFile0" class="list-group">
+																			</ul>
+																		</div>
+																		<label for="file0" class="form-label btn btn-info btn-sm" style="margin-top: 20px;">이미지첨부</label>
+																		  
+					                                                </div> 
 							                                    </div>
 							                                </div>
 							                            </div> <!-- end col -->
 							                        </div> <!-- end row -->
                                                 </div>
                                             </div>
-<form method="get" action="lodgingInsert">
+
                                             <div class="table-responsive mt-3 border-bottom pb-3">
                                                 <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
                                                     <tr>
@@ -172,7 +171,7 @@
                                                         <tr>
                                                             <th class="fw-bold">전화번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" id="tvamTelNumber" name="tvamTelNumber" >
+                                                            	<input type="text" class="form-control" id="tvamTelNumber" name="tvamTelNumber" value="01012341234">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -180,55 +179,56 @@
                                                         <tr>
                                                             <th class="fw-bold">최대인원 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" id="tvamMaxPersonCount" name="tvamMaxPersonCount"  >
+                                                            	<input type="text" class="form-control" id="tvamMaxPersonCount" name="tvamMaxPersonCount" value="4">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">방 수 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" id="tvamRoomCount" name="tvamRoomCount" >
+                                                            	<input type="text" class="form-control" id="tvamRoomCount" name="tvamRoomCount" value="1" >
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">욕실 수 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" id="tvamShowerRoomCount" name="tvamShowerRoomCount"  >
+                                                            	<input type="text" class="form-control" id="tvamShowerRoomCount" name="tvamShowerRoomCount" value="1" >
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">침대 수 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" id="tvamBedCount" name="tvamBedCount" >
+                                                            	<input type="text" class="form-control" id="tvamBedCount" name="tvamBedCount" value="2" >
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">금액(1박 기준) :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" id="tvamAdultPrice" name="tvamAdultPrice" >
+                                                            	<input type="text" class="form-control" id="tvamAdultPrice" name="tvamAdultPrice" value="60000">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">체크인 시간 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="time" class="form-control" id="tvamCheckInTime" name="tvamCheckInTime" placeholder="15:00" >
+                                                            	<input type="time" class="form-control" id="tvamCheckInTime" name="tvamCheckInTime" value="15:00" >
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <th class="fw-bold">체크아웃 시간 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="time" class="form-control" id="tvamCheckOutTime" name="tvamCheckOutTime" placeholder="11:00" >
+                                                            	<input type="time" class="form-control" id="tvamCheckOutTime" name="tvamCheckOutTime" value="11:00" >
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">영업시간 :</th>
+                                                       
                                                             <td class="text-muted">
-                                                            	<input type="time" class="form-control" placeholder="09:00~18:00">
+                                                               <input type="time" class="form-control" value="09:00">                                                             
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -312,6 +312,104 @@
 
         <!-- Plugins js -->
         <script src="../../resources/host/libs/dropzone/min/dropzone.min.js"></script>
+		<!-- image -->
+	    <script src = "/resources/user/js/common.js"></script><!-- image -->
+		<script src = "/resources/user/js/commonXdmin.js"></script><!-- image -->
+		<script src = "/resources/user/js/constantsXdmin.js"></script><!-- image -->
+    
+    		<!-- image -->
+	    <script src = "/resources/user/js/common.js"></script><!-- image -->
+		<script src = "/resources/user/js/commonXdmin.js"></script><!-- image -->
+		<script src = "/resources/user/js/constantsXdmin.js"></script><!-- image -->
+    
+    
+<!-- 이미지, 파일 업로드 -->
+<script>
+upload = function(seq,div){
+	
+	$("#ulFile" + seq).children().remove();
+	
+	var fileCount = $("#file0")[seq].files.length;
+	
+	if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
+	
+	var totalFileSize;
+	for(var i = 0; i < fileCount; i++){
+		if(div==1){
+			if(checkUploadedAllExt($("#file0")[seq].files[i].name, seq) == false) {return false;}
+		}else if(div==2){
+			if(checkUploadedImageExt($("#file0")[seq].files[i].name, seq) == false) {return false;}
+		}else {
+			return false;
+		}
+		
+		if(checkUploadedEachFileSize($("#file0")[seq].files[i].name, seq) == false) {return false;}
+		totalFileSize += $("#file0")[seq].files[i].size;
+	}
+	if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
+	
+	for(var i=0; i<fileCount; i++){
+		addUploadLi(seq, i, $("#file0")[seq].files[i].name);
+	}
+}
+addUploadLi = function(seq,index,name){
+	
+	var ul_list = $("#ulFile0");
+	
+	li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+	li = li + name;
+	li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+index +')"><i class="bi bi-x-circle"></i></span>';
+	li = li + '</li>';
+	
+	$("#ulFile"+seq).append(li);
+}
+delLi = function(seq, index){
+	$("#li_"+seq+"_"+index).remove();
+}
+</script>  
+<script>
+upload1 = function(seq,div){
+	
+	$("#ulFile" + seq).children().remove();
+	
+	var fileCount = $("#file1")[seq].files.length;
+	
+	if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
+	
+	var totalFileSize;
+	for(var i = 0; i < fileCount; i++){
+		if(div==1){
+			if(checkUploadedAllExt($("#file1")[seq].files[i].name, seq) == false) {return false;}
+		}else if(div==2){
+			if(checkUploadedImageExt($("#file1")[seq].files[i].name, seq) == false) {return false;}
+		}else {
+			return false;
+		}
+		
+		if(checkUploadedEachFileSize($("#file1")[seq].files[i].name, seq) == false) {return false;}
+		totalFileSize += $("#file1")[seq].files[i].size;
+	}
+	if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
+	
+	for(var i=0; i<fileCount; i++){
+		addUploadLi1(seq, i, $("#file1")[seq].files[i].name);
+	}
+}
+addUploadLi1 = function(seq,index,name){
+	
+	var ul_list = $("#ulFile1");
+	
+	li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+	li = li + name;
+	li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi1('+ seq +','+index +')"><i class="bi bi-x-circle"></i></span>';
+	li = li + '</li>';
+	
+	$("#ulFile"+seq).append(li);
+}
+delLi1 = function(seq, index){
+	$("#li_"+seq+"_"+index).remove();
+}
+</script> 
 
     </body>
 

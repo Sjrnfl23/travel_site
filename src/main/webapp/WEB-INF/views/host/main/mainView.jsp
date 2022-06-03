@@ -222,7 +222,7 @@
 				                    <div class="titile-block" style="position: relative;">
 				                        <img src="../../resources/host/images/hostHome.jpg" width="100%">
 				                        <span style="color:white; font-size:70px; font-weight:600; position: absolute; right:60%; top: 20%;">호스팅에 관해<br>궁금하신 점이<br>있나요?</span>
-				                        <a href="searchFlex.html"><button type="button" class="btn btn btn-light btn-lg" style="position: absolute; right:73%; top: 80%;">관리자에게 문의하세요</button></a>
+				                        <a href="hostDm"><button type="button" class="btn btn btn-light btn-lg" style="position: absolute; right:73%; top: 80%;">관리자에게 문의하세요</button></a>
 				                    </div>
 				                </div>
 				            </div>

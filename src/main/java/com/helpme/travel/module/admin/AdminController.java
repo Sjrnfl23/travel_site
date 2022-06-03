@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.helpme.travel.common.contants.Constants;
 import com.helpme.travel.module.host.Host;
 
 
@@ -503,6 +504,8 @@ public class AdminController {
 			if(rtMember != null)  {
 				System.out.println(rtMember.getTvmmAdminNy());
 				if(rtMember.getTvmmAdminNy() == 1) {
+					
+					httpSession.setMaxInactiveInterval( 60 * Constants.SESSION_MINUTE);	//60second * 600 = 600minute 시간지나면 로그아웃됨
 					httpSession.setAttribute("adminSessUserType","어드민");
 					httpSession.setAttribute("adminSessName", rtMember.getTvmmName());
 					httpSession.setAttribute("adminSessEmail", rtMember.getTvmmEmailAccount());

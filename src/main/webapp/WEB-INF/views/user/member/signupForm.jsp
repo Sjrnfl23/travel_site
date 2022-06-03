@@ -59,7 +59,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="username">이름</label>
                                             <div class="position-relative input-custom-icon">
-                                                <input type="text" class="form-control" id="username" name="tvmmName" placeholder="이름을 입력해주세요.">
+                                                <input type="text" class="form-control" id="tvmmName" name="tvmmName" placeholder="이름을 입력해주세요.">
                                                  <span class="bx bx-user"></span>
                                             </div>
                                         </div>
@@ -262,13 +262,13 @@
                <script>
                
                $("#btnSubmit").on("click",function(){
-            	   if(!checkNull($("#tvmmName"),$("#tvmmName").val(),"이메일을 입력해주세요")) {
+            	   if(!checkNull($("#tvmmName"),$("#tvmmName").val(),"이름을 입력해주세요")) {
            			return false;
            		}
             	   
-            	   if(!checkNull($("#tvmmEmailAccount"),$("#tvmmEmailAccount").val(),"이메일을 입력해주세요")) {
+            	if(!checkNull($("#tvmmEmailAccount"),$("#tvmmEmailAccount").val(),"이메일을 입력해주세요")) {
             			return false;
-            		}
+            	}
             	   
             	   
             	   

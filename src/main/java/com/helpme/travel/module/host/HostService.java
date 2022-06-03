@@ -41,7 +41,12 @@ public interface HostService {
 	public Host selectOneSales(Host dto) throws Exception;
 	public int updateHost(Host dto) throws Exception;
 	
+
+	
 	//upload
 	
 	public Host selectOneUploaded(HostVo vo) throws Exception;
+	
+
+	
 }

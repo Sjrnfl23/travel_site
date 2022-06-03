@@ -18,7 +18,7 @@ public class CheckLoginSessionInterception extends HandlerInterceptorAdapter {
 
 		if (splitURL[1].equals("host")) {
 			if (request.getSession().getAttribute("sessName") != null) {
-
+				
 			} else {
 				System.out.println("호스트 접근");
 				response.sendRedirect(hostURL);

@@ -12,9 +12,11 @@
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="searchFlex">유연한검색</a>
+                                        <a class="nav-link" href="search">주변숙소검색</a>
                                     </li>
-
+									<li class="nav-item">
+                                        <a class="nav-link" id="btnPhotomap" href="">여행지도</a>
+                                    </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     						회원정보
@@ -22,10 +24,10 @@
                   						</a>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="reservation">예약내역</a>
-                                            <a class="dropdown-item" id="btnPhotomap" href="">여행지도</a>
                                             <a class="dropdown-item" href="userInfoView">회원정보 수정</a>
                                         </div>
                                     </li>
+
                                     <li class="nav-item">
                                         <a class="nav-link" href="loginForm" id="login">Login</a>
                                       	<a class="nav-link" href="#" id="logout">Logout</a>

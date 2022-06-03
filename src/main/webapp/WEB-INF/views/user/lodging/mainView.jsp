@@ -126,7 +126,7 @@
                                     <div class="search-box1">
                                         <div class="search-box-title">
                                             <label>위치</label><br>
-                                            <input type="text" name="#" class="search-form" placeholder="제주도">
+                                            <input type="text" name="#" id="" class="search-form" placeholder="제주도">
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@
                                     <div class="search-box1">
                                         <div class="search-box-title">
                                             <label>체크인</label><br>
-                                            <input type="text" name="#" class="search-form" placeholder="2022-07-26">
+                                            <input type="text" name="#" id="" class="search-form" placeholder="2022-07-26">
                                         </div>
                                     </div>
                                 </div>
@@ -142,7 +142,7 @@
                                     <div class="search-box1">
                                         <div class="search-box-title">
                                             <label>체크아웃</label><br>
-                                            <input type="text" name="#" class="search-form" placeholder="2022-07-30">
+                                            <input type="text" name="#" id="" class="search-form" placeholder="2022-07-30">
                                         </div>
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                                     <div class="search-box1">
                                         <div class="search-box-title">
                                             <label>인원</label><br>
-                                            <input type="text" name="#" class="search-form" placeholder="성인 1명">
+                                            <input type="text" name="#" id="" class="search-form" placeholder="성인 1명">
                                         </div>
                                     </div>
                                 </div>
@@ -175,8 +175,8 @@
                 <div class="col-md-10">
                     <div class="titile-block" style="position: relative;">
                         <img src="/resources/user/images/flexSearch.jpg" width="100%">
-                        <span style="color:white; font-size:28px; font-weight:600; position: absolute; right:30%; top: 70%;">호기심을 자극하는 숙소로 떠나보세요</span>
-                        <a href="searchFlex"><button type="button" class="btn btn btn-danger btn-lg" style="position: absolute; right:43%; top: 80%;">유연한검색</button></a>
+                        <span style="color:white; font-size:28px; font-weight:600; position: absolute; right:35%; top: 70%;">가까운 숙소를 찾아보세요</span>
+                        <a href="search"><button type="button" class="btn btn btn-danger btn-lg" style="position: absolute; right:43%; top: 80%;">주변숙소 검색</button></a>
                     </div>
                 </div>
             </div>
@@ -201,7 +201,7 @@
                             <img src="/resources/user/images/jeju.jpg" alt="#" class="img-fluid">
                             <figcaption>
                                 <div class="effect-caption-wrap">
-                                   <a href="search" style="color: white;"><h1><b>제주</b></h1></a>
+                                   <a href="searchFlex" style="color: white;"><h1><b>제주</b></h1></a>
                                     <p>1500+ Listings</p>
                                 </div>
                             </figcaption>
@@ -217,7 +217,7 @@
                                     <img src="/resources/user/images/seoul.jpg" alt="#" class="img-fluid">
                                     <figcaption>
                                         <div class="effect-caption-wrap">
-                                            <a href="search" style="color: white;"><h1><b>서울</b></h1></a>
+                                            <a href="searchFlex" style="color: white;"><h1><b>서울</b></h1></a>
                                             <p>300+ Listings</p>
                                         </div>
                                     </figcaption>
@@ -231,7 +231,7 @@
                                 <figure class="effect-chico">
                                     <img src="/resources/user/images/busan.jpg" alt="#" class="img-fluid">
                                     <div class="effect-caption-wrap">
-                                        <a href="search" style="color: white;"><h1 style="color: white;"><b>부산</b></h1></a>
+                                        <a href="searchFlex" style="color: white;"><h1 style="color: white;"><b>부산</b></h1></a>
                                         <p>800+ Listings</p>
                                     </div>
                                 </figure>
@@ -242,7 +242,7 @@
                                 <figure class="effect-chico">
                                     <img src="/resources/user/images/jinhae.jpg" alt="#" class="img-fluid">
                                     <div class="effect-caption-wrap">
-                                        <a href="search" style="color: white;"><h1 style="color: white;"><b>진해</b></h1></a>
+                                        <a href="searchFlex" style="color: white;"><h1 style="color: white;"><b>진해</b></h1></a>
                                         <p>210+ Listings</p>
                                     </div>
                                 </figure>
@@ -356,7 +356,7 @@
                         <p>호스트가 되시면 숙소 등록이 가능합니다.</p>
                     </div>
                     <div class="btn-wrap btn-wrap2">
-                        <a href="../../host/loginForm" class="btn btn-simple">호스트 되기</a>
+                        <a href="../../host/loginForm" class="btn btn-simple">호스트로 가입하기</a>
                     </div>
                 </div>
             </div>

@@ -86,6 +86,13 @@ public class UserServiceImpl implements UserService{
 	public User selectOneReservation(UserVo vo) throws Exception {	
 		return dao.selectOneReservation(vo);
 	}
+	
+	@Override
+	public List<User> selectReservation(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectReservation(vo); 
+		}	
+	
 //		//리뷰
 //	@Override
 //	public int insertReview(User dto) throws Exception {
@@ -251,6 +258,18 @@ public class UserServiceImpl implements UserService{
 	private void setRegMod(User dto) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int selectGoogleNy(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectGoogleNy(dto);
+	}
+
+	@Override
+	public User selectOneGlogin(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneGlogin(dto);
 	}
 	
 }
