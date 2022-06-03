@@ -8,6 +8,12 @@ public class UserVo {
 // photomap
 	private String tvplSeq;
 	
+	// 좌표
+	private double neLat;
+	private double neLng;
+	private double swLat;
+	private double swLng;
+	
 //	lodging
 	private String tvamSeq;
 
@@ -256,6 +262,38 @@ public class UserVo {
 
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
+	}
+
+	public double getNeLat() {
+		return neLat;
+	}
+
+	public void setNeLat(double neLat) {
+		this.neLat = neLat;
+	}
+
+	public double getNeLng() {
+		return neLng;
+	}
+
+	public void setNeLng(double neLng) {
+		this.neLng = neLng;
+	}
+
+	public double getSwLat() {
+		return swLat;
+	}
+
+	public void setSwLat(double swLat) {
+		this.swLat = swLat;
+	}
+
+	public double getSwLng() {
+		return swLng;
+	}
+
+	public void setSwLng(double swLng) {
+		this.swLng = swLng;
 	}
 
 	

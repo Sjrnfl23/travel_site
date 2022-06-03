@@ -135,7 +135,7 @@
                                                             <th class="fw-bold">
                                                                 숙소이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" id="tvamLodgingName" name="tvamLodgingName"  >
+                                                            	<input type="text" class="form-control" id="tvamLodgingName" name="tvamLodgingName"  placeholder="숙소 이름" >
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->                                                                                                           
@@ -180,21 +180,21 @@
                                                         <tr>
                                                             <th class="fw-bold">최대인원 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" id="tvamMaxPersonCount" name="tvamMaxPersonCount" placeholder="8인" >
+                                                            	<input type="text" class="form-control" id="tvamMaxPersonCount" name="tvamMaxPersonCount"  >
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">방 수 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" id="tvamRoomCount" name="tvamRoomCount"  >
+                                                            	<input type="text" class="form-control" id="tvamRoomCount" name="tvamRoomCount" >
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">욕실 수 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" id="tvamShowerRoomCount" name="tvamShowerRoomCount" placeholder="1" >
+                                                            	<input type="text" class="form-control" id="tvamShowerRoomCount" name="tvamShowerRoomCount"  >
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->

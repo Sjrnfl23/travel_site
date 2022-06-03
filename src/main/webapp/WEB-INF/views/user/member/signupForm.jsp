@@ -50,7 +50,7 @@
                             <div class="card-body p-4"> 
                                 <div class="text-center mt-2">
                                     <h5>회원가입</h5>
-                                    <p class="text-muted">호스트 계정을 만들어보세요.</p>
+                                    <p class="text-muted">now travel 계정을 만들어보세요.</p>
                                 </div>
                                 <div class="p-2 mt-4">
                                     <form method="get" action="userInst">
@@ -66,7 +66,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="useremail">이메일주소</label>
                                             <div class="position-relative input-custom-icon">
-                                                <input type="email" class="form-control" id="useremail" name="tvmmEmailAccount" placeholder="이메일주소를 입력해주세요.">  
+                                                <input type="email" class="form-control" id="tvmmEmailAccount" name="tvmmEmailAccount" placeholder="이메일주소를 입력해주세요.">  
                                                 <span class="bx bx-mail-send"></span>
                                             </div>     
                                         </div>                
@@ -117,11 +117,44 @@
 
                                         <div class="form-check py-1">
                                             <input type="checkbox" class="form-check-input" id="auth-terms-condition-check">
-                                            <label class="form-check-label" for="auth-terms-condition-check">now travel의 <a href="">회원약관</a>에 동의합니다.</label>
+                                            <label class="form-check-label" for="auth-terms-condition-check">now travel의 <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">회원약관</a>에 동의합니다.</label>
+                                            
+                                            <!-- Modal -->
+										<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">회원 약관</h5>
+										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										      </div>
+										      <div class="modal-body" style="font-size: 17px;">
+										        <p>회사명(이하 ‘회사’라 한다)는 개인정보 보호법 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리지침을 수립․공개합니다.</p>
+<p>
+제1조 (개인정보의 처리목적)
+회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+</p>
+<p>
+1. 홈페이지 회원 가입 및 관리
+회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별․인증, 회원자격 유지․관리, 제한적 본인확인제 시행에 따른 본인확인, 서비스 부정이용 방지, 만 14세 미만 아동의 개인정보처리시 법정대리인의 동의여부 확인, 각종 고지․통지, 고충처리 등을 목적으로 개인정보를 처리합니다.
+</p>
+<p>
+2. 재화 또는 서비스 제공
+물품배송, 서비스 제공, 계약서․청구서 발송, 콘텐츠 제공, 맞춤서비스 제공, 본인인증, 연령인증, 요금결제․정산, 채권추심 등을 목적으로 개인정보를 처리합니다.
+</p>
+<p>
+3. 고충처리
+민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락․통지, 처리결과 통보 등의 목적으로 개인정보를 처리합니다.
+</p>
+										      </div>
+										      
+										    </div>
+										  </div>
+										</div>
+										
                                         </div>
                                         
                                         <div class="mt-3">
-                                            <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">가입완료</button>
+                                            <button class="btn btn-primary w-100 waves-effect waves-light" id="btnSubmit" type="submit">가입완료</button>
                                         </div>
 
                                         <div class="mt-4 text-center">
@@ -182,7 +215,7 @@
     </body>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+<script src="/resources/common/vaildation/vaildation.js"></script>
 
 
 <script>
@@ -224,4 +257,23 @@
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 
                 </script>
+               
+               <!-- vaildation -->
+               <script>
+               
+               $("#btnSubmit").on("click",function(){
+            	   if(!checkNull($("#tvmmName"),$("#tvmmName").val(),"이메일을 입력해주세요")) {
+           			return false;
+           		}
+            	   
+            	   if(!checkNull($("#tvmmEmailAccount"),$("#tvmmEmailAccount").val(),"이메일을 입력해주세요")) {
+            			return false;
+            		}
+            	   
+            	   
+            	   
+               })
+               
+               </script>
+               
 </html>

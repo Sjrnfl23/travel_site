@@ -13,8 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.helpme.travel.module.admin.Admin;
+
 
 @Controller
 public class HostController {
@@ -217,7 +222,13 @@ public class HostController {
 
 		Host host = service.selectOneHost(vo);
 		model.addAttribute("rt", host);
-
+		
+		Host rt2 = service.selectOneUploaded(vo);
+		model.addAttribute("rt2",rt2);
+		
+			
+		   
+		  
 		return "/host/main/hostInfoView";
 	}
 
@@ -229,7 +240,19 @@ public class HostController {
 		Host host=service.selectOneHost(vo);
 		model.addAttribute("rt",host);
 		
+		Host rt2 = service.selectOneUploaded(vo);
+		model.addAttribute("rt2",rt2);
+		
 		return "/host/main/hostInfoEdit";
+	}
+	@RequestMapping(value = "/host/hostInfoUpdate")
+	public String hostInfoUpdate(Model model, @ModelAttribute("dto")Host dto,HttpSession httpSession) throws Exception {
+		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
+		dto.setTvmmSeq(sessSeq);
+		
+		service.updateHost(dto);
+		
+		return "redirect:hostInfoView";
 	}
 
 	// reservation
@@ -239,13 +262,13 @@ public class HostController {
 	public String reservationList(Model model,@ModelAttribute("dto")Host dto,HttpSession httpSession,@ModelAttribute("vo")HostVo vo) throws Exception {
 		
 		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
-		dto.setTvmmSeq(sessSeq);
+		
 		vo.setTvmmSeq(sessSeq);
 		
 		int count=service.selectOneCountReservation(vo);
 		vo.setParamsPaging(count);
 	
-		List<Host> list= service.selectReservation(dto);
+		List<Host> list= service.selectReservation(vo);
 		model.addAttribute("list",list);
 		return "/host/reservation/reservationList";
 	}
@@ -280,7 +303,14 @@ public class HostController {
 		
 		return "redirect:reservationList";
 	}
-
+	@RequestMapping(value = "/host/reservationDelete")
+	public String reservationDelete(HostVo vo) throws Exception {
+		service.deleteReservation(vo);
+		
+		
+		return "redirect:reservationList";
+	}
+	
 	// login & logout
 	@ResponseBody
 	@RequestMapping(value = "/host/loginProc")
@@ -321,7 +351,46 @@ public class HostController {
 		return returnMap;
 
 	}
-	
+	//multi Del
+	 @RequestMapping(value = "/host/lodgingMultiDel")
+	   public String hostLodgingMultiDel(HostVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		   
+			String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+			
+			for(String checkboxSeq : checkboxSeqArray) {
+				vo.setTvamSeq(checkboxSeq);
+				 service.deletelodging(vo);	
+			}	   
+		   
+			redirectAttributes.addFlashAttribute("vo", vo);
+		   return "redirect:/host/lodgingList"; 
+	   }
+	 @RequestMapping(value = "/host/couponMultiDel")
+	   public String hostCouponMultiDel(HostVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		   
+			String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+			
+			for(String checkboxSeq : checkboxSeqArray) {
+				vo.setTvcpSeq(checkboxSeq);
+				 service.deleteCoupon(vo);	
+			}	   
+		   
+			redirectAttributes.addFlashAttribute("vo", vo);
+		   return "redirect:/host/couponList"; 
+	   }
+	 @RequestMapping(value = "/host/reservationMultiDel")
+	   public String hostReservationMultiDel(HostVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		   
+			String[] checkboxSeqArray = vo.getCheckboxSeqArray();
+			
+			for(String checkboxSeq : checkboxSeqArray) {
+				vo.setTvcpSeq(checkboxSeq);
+				 service.deleteReservation(vo);	
+			}	   
+		   
+			redirectAttributes.addFlashAttribute("vo", vo);
+		   return "redirect:/host/ReservationList"; 
+	   }
 	
 
 }

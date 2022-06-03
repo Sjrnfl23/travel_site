@@ -30,9 +30,7 @@ import org.springframework.web.context.support.HttpRequestHandlerServlet;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
-
-
+import com.helpme.travel.module.admin.Admin;
 import com.helpme.travel.module.host.Host;
 import com.helpme.travel.module.user.User;
 import com.helpme.travel.module.user.UserVo;
@@ -100,8 +98,11 @@ public class UserController {
 
 	// Search
 	@RequestMapping(value = "/search")
-	public String UserSearch(Model model) throws Exception {
+	public String UserSearch(Model model, UserVo vo) throws Exception {
 
+//		List<User> list = service.selectListSearch(vo);
+//		model.addAttribute("list", list);
+		
 		return "user/lodging/search";
 	}
 
@@ -120,6 +121,33 @@ public class UserController {
 		model.addAttribute("vo", vo);
 
 		return "user/lodging/searchFlex";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "locationAjaxList")
+	public Map<String, Object> locationAjaxList(Model model, UserVo vo, User dto) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+
+		vo.setParamsPaging(service.selectSearchCount(vo));
+		
+		if (vo.getTotalRows() > 0) {
+			List<User> lodglist = service.selectListSearch(vo);
+			model.addAttribute("lodglist", lodglist);
+			returnMap.put("lodglist", lodglist);
+			System.out.println(":::::::::::lodglist:::::::::::" +lodglist);
+			System.out.println(":::::::::::vo.getTotalRows():::::::::::" +vo.getTotalRows());
+			dto.setNeLat(dto.getNeLat());
+			dto.setNeLng(dto.getNeLng());
+			dto.setSwLat(dto.getSwLat());
+			dto.setSwLng(dto.getSwLng());
+			returnMap.put("count", lodglist.size());
+		} else {
+			returnMap.put("count", 0);
+		}
+		returnMap.put("rt", "success");
+		
+		return returnMap;
 	}
 
 	// Lodging
@@ -149,10 +177,10 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/payment")
-	public String UserPayment(UserVo vo, User dto, Model model) throws Exception {
+	public String UserPayment(@ModelAttribute("dto")User dto, Model model, UserVo vo,  HttpSession httpSession) throws Exception {
 		
-		
-
+		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
+		dto.setTvmmSeq(sessSeq);	
 		
 		model.addAttribute("rtStartDate", dto.getHiddenStartDate());
 		model.addAttribute("rtEndDate", dto.getHiddenEndDate());
@@ -164,13 +192,26 @@ public class UserController {
 		System.out.println("dto.getHiddenStartDate(): " + dto.getHiddenStartDate());
 		System.out.println("dto.getHiddenEndDate(): " + dto.getHiddenEndDate());			
 		
-		
-		 User item = service.selectOneLodgingView(vo); 
+		 User item = service.selectOneLodgingView(vo);
 		 model.addAttribute("item",item);
-
+				 
 		return "user/lodging/payment";
 	}
 
+	@RequestMapping(value = "/reservationInst")
+	public String reservationInst(@ModelAttribute("vo") UserVo vo, User dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+		
+		String sessSeq = httpSession.getAttribute("sessSeq").toString();
+
+		dto.setTvmmSeq(sessSeq);
+		vo.setTvmmSeq(sessSeq);
+		
+		int result = service.insertReservation(dto);
+		System.out.println("result: " + result);
+
+		return "redirect:/reservation?tvmmSeq=" + dto.getTvmmSeq();
+	}	
+	
 
 	
 	@RequestMapping(value = "/reservation")

@@ -15,6 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="여행을 떠나요. now travel!" name="description" />
         <meta content="Themesdesign" name="author" />
+        <meta name ="google-signin-client_id" content="1006974412811-rllmas5gq2pn7hvn9n1ml611tkjp9ljs.apps.googleusercontent.com">
         <!-- App favicon -->
         <link rel="shortcut icon" href="/resources/user/assets/images/favicon.ico">
 
@@ -94,21 +95,15 @@
                                             </div>
             
                                             <ul class="list-inline mt-2">
+                                               
                                                 <li class="list-inline-item">
-                                                    <a href="javascript:void()" class="social-list-item bg-primary text-white border-primary">
-                                                        <i class="bx bxl-facebook"></i>
-                                                    </a>
+                                                    <a href="#" id="GgCustomLogin" class="social-list-item bg-danger text-white border-danger">
+                                                        <i class="bx bxl-google" ></i>
+                                                    </a>  
+                                                    <!--  <button class="btn btn-warning" type="button" id="GgCustomLogin" name="login1" value="login"> 구글 로그인</button> -->
+                                                    
                                                 </li>
-                                                <li class="list-inline-item">
-                                                    <a href="javascript:void()" class="social-list-item bg-info text-white border-info">
-                                                        <i class="bx bxl-linkedin"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="javascript:void()" class="social-list-item bg-danger text-white border-danger">
-                                                        <i class="bx bxl-google"></i>
-                                                    </a>
-                                                </li>
+                                                 
                                             </ul>
                                         </div>
 
@@ -180,7 +175,75 @@ $("#btnLogin").on("click" , function(){
 	
 });
 
+</script>
+<script> //구글 로그인
 
+//처음 실행하는 함수
+function init() {
+	
+	gapi.load('auth2', function() {
+		gapi.auth2.init();
+		options = new gapi.auth2.SigninOptionsBuilder();
+		options.setPrompt('select_account');
+        // 추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
+		options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
+        // 인스턴스의 함수 호출 - element에 로그인 기능 추가
+        // GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
+		gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
+	})
+	
+}
+
+function onSignIn(googleUser) {
+	var access_token = googleUser.getAuthResponse().access_token
+	$.ajax({
+    	// people api를 이용하여 프로필 및 생년월일에 대한 선택동의후 가져온다.
+		/* url: 'https://people.googleapis.com/v1/people/me' */
+        // key에 자신의 API 키를 넣습니다.
+        	/* url : "/infra/member/GloginProc" */
+		 data: {personFields:'birthdays', key:'AIzaSyBQ6fIJWYm4rSJSs_HGbegC-225Sg2m2Qc', 'access_token': access_token}
+		, method:'GET'
+	})
+	.done(function(e){
+        //프로필을 가져온다.
+     
+		 var profile = googleUser.getBasicProfile();
+		/* console.log(profile); */
+		var id= profile.getId();
+		var username = profile.getName();
+		
+		console.log(username);
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "GloginProc"
+			,data : {"tvmmName" : profile.getName()}
+			,success: function(response) {
+				if(response.rt == "success") {
+					location.href = "/";
+				} else {
+					alert("구글 로그인 실패");
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		})
+		
+	})
+	.fail(function(e){
+		console.log(e);
+	})
+	
+}
+
+function onSignInFailure(t){	
+	
+	console.log(t);
+	
+}
 
 </script>
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </html>

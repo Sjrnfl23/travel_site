@@ -94,7 +94,7 @@
                                                     </div>
 
                                                     <div>
-                                                        <h4 class="mt-4 pt-1 mb-0 font-size-22"><c:out value="${item.sales}"/>원<span class="text-success fw-medium font-size-13 align-middle"> <i class="mdi mdi-arrow-up"></i> 8.34% </span> </h4>
+                                                        <h4 class="mt-4 pt-1 mb-0 font-size-22"><c:out value="${item.sales}"/>원</h4>
                                                         <div class="d-flex mt-1 align-items-end overflow-hidden">
                                                             <div class="flex-grow-1">
                                                                 <p class="text-muted mb-0 text-truncate">월간 총 매출</p>
@@ -152,7 +152,7 @@
                                                     </div>
 
                                                     <div>
-                                                        <h4 class="mt-4 pt-1 mb-0 font-size-22"><c:out value="${item.reservationCount}"/>건<span class="text-danger fw-medium font-size-13 align-middle"> <i class="mdi mdi-arrow-down"></i> 2.64% </span> </h4>
+                                                        <h4 class="mt-4 pt-1 mb-0 font-size-22"><c:out value="${item.reservationCount}"/>건</h4>
                                                         <div class="d-flex mt-1 align-items-end overflow-hidden">
                                                             <div class="flex-grow-1">
                                                                 <p class="text-muted mb-0 text-truncate">월간 예약수</p>

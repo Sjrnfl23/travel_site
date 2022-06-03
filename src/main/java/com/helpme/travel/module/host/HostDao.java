@@ -7,6 +7,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.helpme.travel.module.admin.Admin;
+import com.helpme.travel.module.admin.AdminVo;
+
 
 
 
@@ -41,9 +44,11 @@ public class HostDao {
    public int insertHost(Host dto) {return sqlSession.insert(namespace + ".insertHost",dto); }
    
    //reservation
-   public List<Host> selectReservation(Host dto){return sqlSession.selectList(namespace + ".selectReservation",dto); }
+   public List<Host> selectReservation(HostVo vo){return sqlSession.selectList(namespace + ".selectReservation",vo); }
    public Host selectOneReservation(Host dto) {return sqlSession.selectOne(namespace+".selectOneReservation",dto); }
    public int updateReservation(Host dto) { return sqlSession.update(namespace+".updateReservation",dto); }
+   public int deleteReservation(HostVo vo) {return sqlSession.delete(namespace+".deleteReservation",vo); }
+   
    //paging
    public int selectOneCountLodging(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountLodging",vo);}
    public int selectOneCountCoupon(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneCountCoupon",vo);}
@@ -51,7 +56,12 @@ public class HostDao {
    
    //mainView
    public Host selectOneSales(Host dto) { return sqlSession.selectOne(namespace + ".selectOneSales",dto ); }
+   public int updateHost(Host dto) { return sqlSession.update(namespace+".updateHost", dto); }
    
+   //upload
+
+	public int updateUploaded(Host dto) {return sqlSession.update(namespace + ".updateUploaded", dto);}
+	public Host selectOneUploaded(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneUploaded", vo);}
    
 }
 

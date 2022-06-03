@@ -26,6 +26,11 @@
         <!-- datepicker css -->
         <link rel="stylesheet" href="../../resources/host/libs/flatpickr/flatpickr.min.css">
 
+ 		<!-- Themify Icon -->
+	    <link rel="stylesheet" href="/resources/user/css/themify-icons.css">
+	    <!-- Font Awesome -->
+	    <link rel="stylesheet" href="/resources/user/css/font-awesome.min.css">
+	    
         <!-- Bootstrap Css -->
         <link href="../../resources/host/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
@@ -76,6 +81,8 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
+           <form method="post" action="hostInfoUpdate" enctype="multipart/form-data">
+           <input type="hidden" name="tvmmSeq" value="<c:out value="${rt.tvmmSeq}"/>">
            
             <div class="main-content">
                 <div class="page-content">
@@ -98,10 +105,10 @@
                                         <div class="p-4 pt-0">
                                             
                                             <div class="mt-n5 position-relative text-center border-bottom pb-3">
-                                                <img src="../../resources/host/images/users/avatar-1.jpg" alt="" class="avatar-xl rounded-circle img-thumbnail">
+                                               <img src="/resources/host/memberUploaded/host/<c:out value="${rt2.year}"/>/<c:out value="${rt2.month}"/>/<c:out value="${rt2.day}"/>/<c:out value="${rt2.uuidName}"/> " alt="" class="avatar-xl rounded-circle img-thumbnail">
                                               
                                                 <div class="mt-3">
-                                                   <h5 class="mb-1">김이젠</h5>
+                                                   <h5 class="mb-1"><c:out value="${rt.tvmmName}"/></h5>
                                                     <p class="text-muted mb-0">
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
@@ -109,29 +116,20 @@
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
                                                         <i class="bx bxs-star-half text-warning font-size-14"></i>
                                                     </p>
+                                                
                                                     
 							                        <div class="row">
 							                            <div class="col-12">
 							                                <div class="card">
 							                                    <div class="card-body">
-							                                        <div>
-							                                            <form action="#" class="dropzone">
-							                                                <div class="fallback">
-							                                                    <input name="file" type="file" multiple="multiple">
-							                                                </div>
-							                                                <div class="dz-message needsclick">
-							                                                    <div class="mb-3">
-							                                                        <i class="display-4 text-muted mdi mdi-cloud-upload"></i>
-							                                                    </div>
-							                                                    
-							                                                    <h4>Drop files here or click to upload.</h4>
-							                                                </div>
-							                                            </form>
-							                                        </div>
-							        
-							                                        <div class="text-center mt-4">
-							                                            <button type="button" class="btn btn-primary waves-effect waves-light">사진첨부</button>
-							                                        </div>
+					                                                <div class="fallback">
+																		<input class="form-control" id="file0" name="file0" type="file" style="display: none;" onChange="upload(0,2);">
+																		<div class="addScroll" style="overflow: auto;">
+																			<ul id="ulFile0" class="list-group">
+																			</ul>
+																		</div>
+																		<label for="file0" class="form-label btn btn-info btn-sm" style="margin-top: 10px;">이미지첨부</label>
+					                                                </div>
 							                                    </div>
 							                                </div>
 							                            </div> <!-- end col -->
@@ -148,7 +146,7 @@
                                                             <th class="fw-bold">
                                                                 이름 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" value="<c:out value="${rt.tvmmName}"/>">
+                                                            	<input type="text" class="form-control" name="tvmmName" value="<c:out value="${rt.tvmmName}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -156,7 +154,7 @@
                                                             <th class="fw-bold">
                                                                 이메일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" value="<c:out value="${rt.tvmmEmailAccount}"/>">
+                                                            	<input type="text" class="form-control" name="tvmmEmailAccount" value="<c:out value="${rt.tvmmEmailAccount}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -164,7 +162,7 @@
                                                             <th class="fw-bold">
                                                                 비밀번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="password" class="form-control" value="<c:out value="${rt.tvmmPassword}"/>">
+                                                            	<input type="password" class="form-control" name="tvmmPassword" value="<c:out value="${rt.tvmmPassword}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -172,7 +170,7 @@
                                                             <th class="fw-bold">
                                                                 비밀번호 확인 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="password" class="form-control" value="<c:out value="${rt.tvmmName}"/>">
+                                                            	<input type="password" class="form-control" value="<c:out value="${rt.tvmmPassword}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -180,7 +178,7 @@
                                                             <th class="fw-bold">
                                                                 전화번호 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" value="<c:out value="${rt.tvmmTelNumber}"/>">
+                                                            	<input type="text" class="form-control" name="tvmmTelNumber" value="<c:out value="${rt.tvmmTelNumber}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -213,7 +211,7 @@
                                                         <tr>
                                                             <th class="fw-bold">생년월일 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="date" class="form-control" value="<c:out value="${rt.tvmmDob}"/>">
+                                                            	<input type="date" class="form-control" value="<c:out value="${rt.tvmmDob}"/>" name="tvmmDob">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -237,7 +235,7 @@
                                                             <h5 class="mb-1" style="text-align: left;">소개</h5>
                                                             <p class="text-muted mb-0" style="text-align: left;">
                                                             <p class="text-muted mb-0" style="text-align: left;">
-                                                            	<textarea class="form-control" placeholder="...."></textarea>
+                                                            	<textarea class="form-control" placeholder="...." name="tvmmDesc"></textarea>
                                                             </p>                                                            
                                                             </p>
                                                         </div>
@@ -249,12 +247,12 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <a href="../main/hostInfoView">
-                                                     		<button type="button" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
-                                                       </a>
+                                                       
+                                                     		<button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">수정</button>
+                                                      
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="../main/hostInfoView">
+                                                    	<a href="/host/hostInfoView">
                                                        		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">취소</button>
                                                     	</a>
                                                     </li>
@@ -270,7 +268,7 @@
         </div>
         <!-- END layout-wrapper -->
 
-
+</form>
 
         <!-- chat offcanvas -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasActivity" aria-labelledby="offcanvasActivityLabel">
@@ -302,9 +300,66 @@
 
         <script src="../../resources/host/js/app.js"></script>
         
+         <!-- jQuery, Bootstrap JS. -->
+	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="/resources/user/js/jquery-3.2.1.min.js"></script>
+	    <script src="/resources/user/js/popper.min.js"></script>
+	    <script src="/resources/user/js/bootstrap.min.js"></script>
+	    <script src="/resources/user/js/script.js"></script>
+	    
         <!-- Plugins js -->
         <script src="../../resources/host/libs/dropzone/min/dropzone.min.js"></script>        
 
+		<!-- image -->
+	    <script src = "/resources/user/js/common.js"></script><!-- image -->
+		<script src = "/resources/user/js/commonXdmin.js"></script><!-- image -->
+		<script src = "/resources/user/js/constantsXdmin.js"></script><!-- image -->
+    
+    
+<!-- 이미지, 파일 업로드 -->
+<script>
+upload = function(seq,div){
+	
+	$("#ulFile" + seq).children().remove();
+	
+	var fileCount = $("input[type=file]")[seq].files.length;
+	
+	if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
+	
+	var totalFileSize;
+	for(var i = 0; i < fileCount; i++){
+		if(div==1){
+			if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else if(div==2){
+			if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else {
+			return false;
+		}
+		
+		if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		totalFileSize += $("input[type=file]")[seq].files[i].size;
+	}
+	if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
+	
+	for(var i=0; i<fileCount; i++){
+		addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+	}
+}
+addUploadLi = function(seq,index,name){
+	
+	var ul_list = $("#ulFile0");
+	
+	li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+	li = li + name;
+	li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+index +')"><i class="bi bi-x-circle"></i></span>';
+	li = li + '</li>';
+	
+	$("#ulFile"+seq).append(li);
+}
+delLi = function(seq, index){
+	$("#li_"+seq+"_"+index).remove();
+}
+</script>   
 
 
     </body>

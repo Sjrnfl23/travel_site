@@ -17,7 +17,7 @@ public interface UserService {
 //	int deleteMember(UserVo vo) throws Exception;
 //	
 //	//지역 검색
-//	List<User> selectListSearch(UserVo vo) throws Exception;
+	List<User> selectListSearch(UserVo vo) throws Exception;
 //	
 	//유연한 검색
 	List<User> selectListSearchFlex(UserVo vo) throws Exception;
@@ -27,7 +27,7 @@ public interface UserService {
 	
 //	
 //	// 결제
-//	public int insertPayment(User dto) throws Exception;
+	public int insertReservation(User dto) throws Exception;
 //	
 //	//예약 내역
 	public User selectOneReservation(UserVo vo) throws Exception;
@@ -42,12 +42,13 @@ public interface UserService {
 	public int updateMap(User dto) throws Exception;
 	public int deleteMap(UserVo vo) throws Exception;
 	public int deleteMapPhoto(UserVo vo) throws Exception;
-	public int insertPhotoMapUploaded(User dto) throws Exception;
-	public int updatePhotoMapUploaded(User dto) throws Exception;
+//	public int insertPhotoMapUploaded(User dto) throws Exception;
+//	public int updatePhotoMapUploaded(User dto) throws Exception;
 	
 	// count
 	int selectPhotomapCount(UserVo vo) throws Exception;
 	int selectSearchFlexCount(UserVo vo) throws Exception;
+	int selectSearchCount(UserVo vo) throws Exception;
 	
 	public User selectOneLogin(User dto) throws Exception;
 }

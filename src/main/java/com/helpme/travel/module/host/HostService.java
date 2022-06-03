@@ -2,6 +2,9 @@ package com.helpme.travel.module.host;
 
 import java.util.List;
 
+import com.helpme.travel.module.admin.Admin;
+import com.helpme.travel.module.admin.AdminVo;
+
 public interface HostService {
 	
 	//coupon
@@ -25,9 +28,10 @@ public interface HostService {
 	public int insertHost(Host dto) throws Exception;
 	
 	//Reservation
-	public List<Host> selectReservation(Host dto) throws Exception;
+	public List<Host> selectReservation(HostVo vo) throws Exception;
 	public Host selectOneReservation(Host dto) throws Exception;
 	public int updateReservation(Host dto) throws Exception;
+	public int deleteReservation(HostVo vo) throws Exception;
 	//Paging
 	public int selectOneCountLodging(HostVo vo) throws Exception;
 	public int selectOneCountReservation(HostVo vo) throws Exception;
@@ -35,4 +39,9 @@ public interface HostService {
 	
 	//mainView
 	public Host selectOneSales(Host dto) throws Exception;
+	public int updateHost(Host dto) throws Exception;
+	
+	//upload
+	
+	public Host selectOneUploaded(HostVo vo) throws Exception;
 }

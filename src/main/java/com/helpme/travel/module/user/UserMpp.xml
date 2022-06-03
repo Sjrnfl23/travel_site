@@ -71,7 +71,26 @@
 				<when test="shCheck == 5">AND tvamCategoryCd = 5</when>
 				<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
 				</choose>
-
+	</select>
+	
+	<select id="selectListSearch" resultMap="resultMapObj">
+			SELECT 
+				tvamSeq
+				,tvamLodgingName
+				,tvamDesc
+				,tvamAddressFull
+				,tvamLat
+				,tvamLng
+			FROM
+				tvLodging
+			WHERE 1=1
+  				<if test="swLng != '' and swLng != null and neLng != '' and neLng != null">
+				    AND tvamLng BETWEEN #{swLng} AND #{neLng}
+				</if>
+				<if test="swLat != '' and swLat != null and neLat != '' and neLat != null">
+				    AND tvamLat BETWEEN #{swLat} AND #{neLat}
+				</if>  
+				<!-- 현재 숙소 데이터에 좌표데이터가 없는곳이 있어서 에러가 나기때문에 임시 seq 삽입 -->
 	</select>
 	
 	<!-- Reservation -->
@@ -104,6 +123,30 @@
 			and tvpmSeq = #{tvpmSeq}
 	</select>
 
+	<insert id="insertReservation">
+		INSERT INTO tvPayment (
+			tvpmSeq
+<!-- 			, tvpmStartDate
+			, tvpmEndDate -->
+			, tvpmtotalPrice
+			, tvamSeq
+			, tvpmAdNumber
+			, tvmmSeq
+			, tvpmDelNy
+			, regDateTime
+		) VALUES (
+			#{tvpmSeq}
+<!-- 			, #{tvpmStartDate}
+			, #{tvpmEndDate} -->
+			, #{tvpmtotalPrice}
+			, #{tvamSeq}
+			, #{tvpmAdNumber}
+			, #{tvmmSeq}
+			, 0
+			, now()
+		)
+	</insert>	
+	
 	
 	<!-- LodgingView -->
 	<select id="selectOneLodgingView" resultMap="resultMapObj">
@@ -177,6 +220,12 @@
 				<when test="shCheck == 5">AND tvamCategoryCd = 5</when>
 				<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
 				</choose>
+	</select>
+	<select id="selectSearchCount" resultType="Integer">
+		SELECT 
+				count(*)
+			FROM 
+				tvLodging
 	</select>
 	<select id="selectListMap" resultMap="resultMapObj">
 		SELECT 
