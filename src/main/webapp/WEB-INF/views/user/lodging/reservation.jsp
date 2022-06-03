@@ -199,7 +199,7 @@
 												<c:forEach items="${list}" var="item" varStatus="status">
 													<tr>
 														<td><c:out value="${item.tvpmSeq}"/></td>
-														<td><a href="/lodgingView?tvamSeq="<c:out value="${item.tvamSeq}"/>"><c:out value="${item.tvamLodgingName}"/></a></td>
+														<td><a href="/lodgingView?tvamSeq=<c:out value="${item.tvamSeq}"/>"><c:out value="${item.tvamLodgingName}"/></a></td>
 														<td><c:out value="${item.hostEmail}"/></td>
 														<td><c:out value="${item.tvmmEmailAccount}"/></td>
 														<td><c:out value="${item.tvmmName}"/></td>
