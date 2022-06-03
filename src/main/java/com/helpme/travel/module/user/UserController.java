@@ -216,10 +216,13 @@ public class UserController {
 
 	
 	@RequestMapping(value = "/reservation")
-	public String UserReservation(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
+	public String UserReservation(UserVo vo, Model model, HttpSession httpSession) throws Exception {
+
+		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
+		vo.setTvmmSeq(sessSeq);		
 		
-		User item= service.selectOneReservation(vo);
-		model.addAttribute("item", item);
+		List<User> list = service.selectReservation(vo);
+		model.addAttribute("list", list);
 
 		return "user/lodging/reservation";
 	}

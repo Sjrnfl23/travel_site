@@ -94,7 +94,7 @@
 	</select>
 	
 	<!-- Reservation -->
-	<select id="selectOneReservation" resultMap="resultMapObj">
+	<select id="selectReservation" resultMap="resultMapObj">
 		select 
 			a.tvpmSeq
 		    , a.tvpmAdNumber
@@ -120,14 +120,14 @@
             left join tvMember d on a.tvmmSeq = d.tvmmSeq
 		where 1 = 1
 			and tvpmDelNy = 0
-			and tvpmSeq = #{tvpmSeq}
+			and a.tvmmSeq = #{tvmmSeq}
 	</select>
 
 	<insert id="insertReservation">
 		INSERT INTO tvPayment (
 			tvpmSeq
-<!-- 			, tvpmStartDate
-			, tvpmEndDate -->
+ 			, tvpmStartDate
+			, tvpmEndDate
 			, tvpmtotalPrice
 			, tvamSeq
 			, tvpmAdNumber
@@ -136,8 +136,8 @@
 			, regDateTime
 		) VALUES (
 			#{tvpmSeq}
-<!-- 			, #{tvpmStartDate}
-			, #{tvpmEndDate} -->
+ 			, #{tvpmStartDate}
+			, #{tvpmEndDate}
 			, #{tvpmtotalPrice}
 			, #{tvamSeq}
 			, #{tvpmAdNumber}

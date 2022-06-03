@@ -133,14 +133,15 @@ public class User extends Base{
 	//예약관리
 	private String tvpmSeq;
 	private Integer tvpmAdNumber;
-	private Date tvpmStartDate;
-	private Date tvpmEndDate;
+	private String tvpmStartDate;
+	private String tvpmEndDate;
 	private String tvpmtotalPrice;
 	private String tvpmPrice;
 	private String tvcpSeq;
 	private String tvcpPrice;
 	private Integer tvpmPayTypeCd;
 	private String tvpmDesc;
+	private String hostEmail;
 	
 
 //	===============================================	
@@ -583,16 +584,16 @@ public class User extends Base{
 	public void setTvpmAdNumber(Integer tvpmAdNumber) {
 		this.tvpmAdNumber = tvpmAdNumber;
 	}
-	public Date getTvpmStartDate() {
+	public String getTvpmStartDate() {
 		return tvpmStartDate;
 	}
-	public void setTvpmStartDate(Date tvpmStartDate) {
+	public void setTvpmStartDate(String tvpmStartDate) {
 		this.tvpmStartDate = tvpmStartDate;
 	}
-	public Date getTvpmEndDate() {
+	public String getTvpmEndDate() {
 		return tvpmEndDate;
 	}
-	public void setTvpmEndDate(Date tvpmEndDate) {
+	public void setTvpmEndDate(String tvpmEndDate) {
 		this.tvpmEndDate = tvpmEndDate;
 	}
 	public String getTvpmtotalPrice() {
@@ -819,6 +820,12 @@ public class User extends Base{
 	}
 	public void setSize(Object size) {
 		this.size = size;
+	}
+	public String getHostEmail() {
+		return hostEmail;
+	}
+	public void setHostEmail(String hostEmail) {
+		this.hostEmail = hostEmail;
 	}
 
 
