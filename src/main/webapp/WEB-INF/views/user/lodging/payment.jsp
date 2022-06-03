@@ -264,13 +264,17 @@
                                             <div id="accordion" class="payment-method-collapse">
                                                 <div class="card">
                                                     <div class="card-header btn btn-link collapsed" id="headingThree" data-toggle="collapse" data-target="#collapseThree">
-                                                        <h5 class="mb-0"><b>신용카드 / 체크카드</b></h5>
+                                                        <h5 class="mb-0"><b>현금 / 신용카드</b></h5>
                                                         <img src="/resources/user/images/credit.png" class="img-fluid" alt="#">
                                                     </div>
                                                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                                         <div class="card-body">
-
-                                                            <div class="row">
+                                                        	<div class="row">
+                                                        		<div class="col-md-6">
+															<button type="button" id="" class="btn btn-warning">카카오페이</button>
+															</div>
+															
+                                                            <!-- <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label>이름</label>
@@ -302,7 +306,7 @@
                                                                         <label>CCV</label>
                                                                         <input type="number" class="form-control add-listing_form" placeholder="533">
                                                                     </div>
-                                                                </div>
+                                                                </div> -->
                                                             </div>
 
                                                         </div>
