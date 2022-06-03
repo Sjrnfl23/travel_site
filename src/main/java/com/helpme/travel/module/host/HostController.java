@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.helpme.travel.common.contants.Constants;
 import com.helpme.travel.module.admin.Admin;
 
 
@@ -322,6 +323,9 @@ public class HostController {
 		if (rtMember != null) {
 
 			if (rtMember.getTvmmHostNy() == 1) {
+				
+				httpSession.setMaxInactiveInterval( 60 * Constants.SESSION_MINUTE);	//60second * 600 = 600minute 시간지나면 로그아웃됨
+				
 				httpSession.setAttribute("sessUserType", "호스트");
 				httpSession.setAttribute("sessName", rtMember.getTvmmName());
 				httpSession.setAttribute("sessEmail", rtMember.getTvmmEmailAccount());

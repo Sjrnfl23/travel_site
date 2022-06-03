@@ -7,6 +7,7 @@ public class Constants {
 
 	
 	public static final int DATE_INTERVAL = -60;
+	public static final int SESSION_MINUTE = 600;
 	
 	
 	public static final String UPLOAD_PATH_PREFIX = "C://factory/ws_sts_4130/travel_site/src/main/webapp/resources/user/Photomapuploaded";

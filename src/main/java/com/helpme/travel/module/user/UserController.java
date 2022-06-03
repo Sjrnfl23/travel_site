@@ -30,6 +30,7 @@ import org.springframework.web.context.support.HttpRequestHandlerServlet;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.helpme.travel.common.contants.Constants;
 import com.helpme.travel.module.admin.Admin;
 import com.helpme.travel.module.host.Host;
 import com.helpme.travel.module.user.User;
@@ -303,6 +304,8 @@ public class UserController {
 		User rtMember = service.selectOneLogin(dto);
 
 		if (rtMember != null) {
+			
+			httpSession.setMaxInactiveInterval( 60 * Constants.SESSION_MINUTE);	//60second * 600 = 600minute 시간지나면 로그아웃됨
 
 			httpSession.setAttribute("sessUserType", "일반 유저");
 			httpSession.setAttribute("sessName", rtMember.getTvmmName());
