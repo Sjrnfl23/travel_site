@@ -114,7 +114,6 @@ public class HostController {
 		
 		
 		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
-		
 		vo.setTvmmSeq(sessSeq);
 		
 		int count=service.selectOneCountLodging(vo);
@@ -176,12 +175,15 @@ public class HostController {
 
 	// main
 	@RequestMapping(value = "/host/mainView")
-	public String mainView(@ModelAttribute("dto")Host dto,HttpSession httpSession,Model model) throws Exception {
+	public String mainView(@ModelAttribute("dto")Host dto,HttpSession httpSession,Model model,@ModelAttribute("vo")HostVo vo) throws Exception {
 		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
 		dto.setTvmmSeq(sessSeq);
+		vo.setTvmmSeq(sessSeq);
 		
 		Host host = service.selectOneSales(dto);
 		model.addAttribute("item", host);
+		
+	
 		
 		return "/host/main/mainView";
 	}
@@ -226,9 +228,6 @@ public class HostController {
 		Host rt2 = service.selectOneUploaded(vo);
 		model.addAttribute("rt2",rt2);
 		
-			
-		   
-		  
 		return "/host/main/hostInfoView";
 	}
 
@@ -246,11 +245,18 @@ public class HostController {
 		return "/host/main/hostInfoEdit";
 	}
 	@RequestMapping(value = "/host/hostInfoUpdate")
-	public String hostInfoUpdate(Model model, @ModelAttribute("dto")Host dto,HttpSession httpSession) throws Exception {
+	public String hostInfoUpdate(Model model, @ModelAttribute("dto")Host dto,HttpSession httpSession,@ModelAttribute("vo")HostVo vo) throws Exception {
 		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
 		dto.setTvmmSeq(sessSeq);
+		vo.setTvmmSeq(sessSeq);
 		
 		service.updateHost(dto);
+		
+		Host imgMember = service.selectOneUploaded(vo);
+		httpSession.setAttribute("sessYear", imgMember.getYear());
+		httpSession.setAttribute("sessMonth", imgMember.getMonth());
+		httpSession.setAttribute("sessDay", imgMember.getDay());
+		httpSession.setAttribute("sessUuidName", imgMember.getUuidName());
 		
 		return "redirect:hostInfoView";
 	}
@@ -314,18 +320,28 @@ public class HostController {
 	// login & logout
 	@ResponseBody
 	@RequestMapping(value = "/host/loginProc")
-	public Map<String, Object> loginProc(Host dto, HttpSession httpSession) throws Exception {
+	public Map<String, Object> loginProc(Host dto,@ModelAttribute("vo")HostVo vo, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 		Host rtMember = service.selectOneLogin(dto);
-
+		
 		if (rtMember != null) {
 
 			if (rtMember.getTvmmHostNy() == 1) {
+				
 				httpSession.setAttribute("sessUserType", "호스트");
 				httpSession.setAttribute("sessName", rtMember.getTvmmName());
 				httpSession.setAttribute("sessEmail", rtMember.getTvmmEmailAccount());
 				httpSession.setAttribute("sessSeq", rtMember.getTvmmSeq());
+				
+				vo.setTvmmSeq(rtMember.getTvmmSeq());
+				
+				Host imgMember = service.selectOneUploaded(vo);
+				httpSession.setAttribute("sessYear", imgMember.getYear());
+				httpSession.setAttribute("sessMonth", imgMember.getMonth());
+				httpSession.setAttribute("sessDay", imgMember.getDay());
+				httpSession.setAttribute("sessUuidName", imgMember.getUuidName());
+				
 				returnMap.put("rt", "success");
 			} else {
 				returnMap.put("rt", "notHost");
@@ -391,6 +407,7 @@ public class HostController {
 			redirectAttributes.addFlashAttribute("vo", vo);
 		   return "redirect:/host/ReservationList"; 
 	   }
+	
 	
 
 }

@@ -388,6 +388,21 @@
 	where 
 		tvmmEmailAccount = #{tvmmEmailAccount} and tvmmPassword = #{tvmmPassword}
 	</select>
+	<select id="selectOneGlogin" resultMap="resultMapObj">
+	
+	select 
+		tvmmSeq
+		,tvmmName
+		,tvmmEmailAccount
+		,tvmmHostNy
+	from
+		tvMember
+	where 
+		tvmmEmailAccount = #{tvmmEmailAccount} 
+	</select>
+	<select id="selectGoogleNy" resultType="Integer">
+	select count(*) from tvMember where tvmmEmailAccount = #{tvmmEmailAccount}
+	</select>
 	
 	
 	

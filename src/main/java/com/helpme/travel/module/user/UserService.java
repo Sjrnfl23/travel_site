@@ -7,6 +7,9 @@ public interface UserService {
 	
 	// 로그인
 //	public User selectOneLogin(UserVo vo) throws Exception;
+	public int selectGoogleNy(User dto) throws Exception;
+	public User selectOneGlogin(User dto) throws Exception;
+	
 //	
 //	//회원가입
 	public int insertMember(User dto) throws Exception;

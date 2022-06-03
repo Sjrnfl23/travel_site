@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.context.support.HttpRequestHandlerServlet;
@@ -34,6 +35,7 @@ import com.helpme.travel.module.admin.Admin;
 import com.helpme.travel.module.host.Host;
 import com.helpme.travel.module.user.User;
 import com.helpme.travel.module.user.UserVo;
+
 import com.helpme.travel.module.user.UserServiceImpl;
 
 
@@ -376,5 +378,38 @@ public class UserController {
 
 		return returnMap;
 
+	}
+	@ResponseBody //구글 로그인
+	@RequestMapping(value = "/GloginProc")
+	public Map<String, Object> GloginProc(@RequestParam("tvmmEmailAccount")String email,@ModelAttribute("dto")User dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		System.out.println(email);
+		  dto.setTvmmEmailAccount(email);
+		  int userNy=service.selectGoogleNy(dto);
+		  if(userNy==1) {
+			  User user=service.selectOneGlogin(dto);
+			  httpSession.setAttribute("sessSeq",user.getTvmmSeq());
+			  httpSession.setAttribute("sessName",user.getTvmmName());
+			  httpSession.setAttribute("sessId",user.getTvmmEmailAccount());
+			  returnMap.put("rt", "success");
+			  
+		  }else {
+			  returnMap.put("rt","signUp");
+		  }
+		 
+		return returnMap;
+		
+		
+		/*
+		 * if(rtMember != null) { // rtMember = service.selectOneLogin(dto);
+		 * httpSession.setAttribute("sessSeq", rtMember.getIfmmSeq());
+		 * httpSession.setAttribute("sessId", rtMember.getIfmmId());
+		 * httpSession.setAttribute("sessName", rtMember.getIfmmName());
+		 * 
+		 * returnMap.put("rt", "success"); } else { returnMap.put("rt", "fail"); }
+		 * return returnMap;
+		 */
+		
+		
 	}
 }

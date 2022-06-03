@@ -256,5 +256,17 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int selectGoogleNy(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectGoogleNy(dto);
+	}
+
+	@Override
+	public User selectOneGlogin(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOneGlogin(dto);
+	}
 	
 }
