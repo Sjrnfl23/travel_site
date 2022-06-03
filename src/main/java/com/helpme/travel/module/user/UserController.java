@@ -31,6 +31,7 @@ import org.springframework.web.context.support.HttpRequestHandlerServlet;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.helpme.travel.common.contants.Constants;
 import com.helpme.travel.module.admin.Admin;
 import com.helpme.travel.module.host.Host;
 import com.helpme.travel.module.user.User;
@@ -217,10 +218,13 @@ public class UserController {
 
 	
 	@RequestMapping(value = "/reservation")
-	public String UserReservation(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
+	public String UserReservation(UserVo vo, Model model, HttpSession httpSession) throws Exception {
+
+		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
+		vo.setTvmmSeq(sessSeq);		
 		
-		User item= service.selectOneReservation(vo);
-		model.addAttribute("item", item);
+		List<User> list = service.selectReservation(vo);
+		model.addAttribute("list", list);
 
 		return "user/lodging/reservation";
 	}
@@ -305,6 +309,8 @@ public class UserController {
 		User rtMember = service.selectOneLogin(dto);
 
 		if (rtMember != null) {
+			
+			httpSession.setMaxInactiveInterval( 60 * Constants.SESSION_MINUTE);	//60second * 600 = 600minute 시간지나면 로그아웃됨
 
 			httpSession.setAttribute("sessUserType", "일반 유저");
 			httpSession.setAttribute("sessName", rtMember.getTvmmName());

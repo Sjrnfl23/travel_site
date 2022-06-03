@@ -71,7 +71,26 @@ public class HostServiceImpl implements HostService{
 
 	@Override
 	public int insertlodging(Host dto) throws Exception {
-		// TODO Auto-generated method stub
+		dao.insertLodging(dto);
+		
+		
+		int j = 0;
+		for(MultipartFile multipartFile : dto.getFile0() ) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.uploadHost(multipartFile, pathModule, dto);
+			dto.setTableName("tvLodgingUploaded");
+			dto.setType(0);
+			if(j==0) {
+				dto.setDefaultNy(1);
+			}else {
+				dto.setDefaultNy(0);
+			}
+			
+			dto.setSort(j);
+			dto.setTvamSeq(dto.getTvamSeq());
+			dao.insertUploadedLodging(dto);
+			j++;
+		}
 		return dao.insertLodging(dto);
 	}
 
@@ -196,6 +215,8 @@ public class HostServiceImpl implements HostService{
 	return dao.updateHost(dto);
 	
 	}
+
+
 	
 	
 	

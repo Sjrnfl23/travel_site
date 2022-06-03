@@ -211,7 +211,10 @@
 				,#{tvmmSeq}
 				,0
 			)
-	
+			
+	<selectKey resultType="Integer" keyProperty="tvamSeq" order="AFTER">		<!-- 파생테이블 seq값을 넣을 수 있도록 해준다 -->
+			SELECT last_insert_id()
+			</selectKey>
 	
 	</insert>
 
@@ -493,7 +496,35 @@
 		where 1=1
 			and tvmmSeq = #{tvmmSeq}
 	</update>
-	
+	<insert id="insertUploadedLodging">
+	insert into tvLodgingUploaded(
+			type
+			, defaultNy
+			, sort
+			, originalName
+			, uuidName
+			, ext
+			, size
+			, delNy
+			, year
+			, month
+			, day
+			, tvamSeq
+		)values(
+			 #{type}
+			,#{defaultNy}
+			,#{sort}
+			,#{originalName}
+			,#{uuidName}
+			,#{ext}
+			,#{size}
+			,0
+			,#{year}
+			,#{month}
+			,#{day}
+			,#{tvamSeq}
+	)
+	</insert>
 	<select id="selectOneUploaded" resultMap="resultMapObj">
 		select
 			type
