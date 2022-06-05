@@ -134,13 +134,6 @@
 	                                <form class="filter-dropdown">
 										<div class="row">
 										  <div class="col">
-										    <input type="date" class="form-control" placeholder="출발일" aria-label="" style="height: 40px;">
-										  </div>
-										</div>
-	                                </form>
-	                                <form class="filter-dropdown">
-										<div class="row">
-										  <div class="col">
 										    <a href="" class="btn btn-danger top-btn" style="margin-left: 10px;">검색</a>
 										  </div>
 										</div>
