@@ -124,7 +124,7 @@
 	                    <div class="row detail-filter-wrap">
 	                        <div class="col-md-7 featured-responsive">
 	                            <div class="detail-filter-text">
-	                                <p><b>서울에 위치한 숙소</b></p>
+	                                <p><b>숙소</b></p>
 	                            </div>
 	                        </div>
 	                        <br>
@@ -193,6 +193,7 @@
 				alert("현재 위치 정보 사용이 불가능합니다.");
 			}
 		}
+
 		function showLocation(position) {
 			lat = position.coords.latitude;
 			lng = position.coords.longitude;
@@ -200,12 +201,14 @@
 			/* kakao source s */
 			var container = document.getElementById('map');
 			var options = {
-				center: new kakao.maps.LatLng(lat,lng),
+				center: new kakao.maps.LatLng(33.452613,126.570888),
 			level: 9
 			};
 				
 			map = new kakao.maps.Map(container, options);
 			map.setMaxLevel(13);	// level 13 이하로 제한
+			
+
 
 			/* kakao source e */
 
@@ -278,6 +281,12 @@
 				}
 			});
 		});
+			
+	    var moveLatLon = new kakao.maps.LatLng(lat, lng);
+	    
+	    // 지도 중심을 부드럽게 이동시킵니다
+	    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+	    map.panTo(moveLatLon);
 		}	
 		
 		function nullToEmpty (paramData) {
