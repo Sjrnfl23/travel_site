@@ -24,6 +24,7 @@ public class UserVo {
 	private String shOption;
 	private String shCheck;
 	private String shValue;
+	private String shlctValue;
 	
 	private String modDateTime;
 	private String regDateTime;
@@ -295,6 +296,15 @@ public class UserVo {
 	public void setSwLng(double swLng) {
 		this.swLng = swLng;
 	}
+
+	public String getShlctValue() {
+		return shlctValue;
+	}
+
+	public void setShlctValue(String shlctValue) {
+		this.shlctValue = shlctValue;
+	}
+
 
 	
 	

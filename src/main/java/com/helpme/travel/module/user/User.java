@@ -66,7 +66,7 @@ public class User extends Base{
 	private double swLat;
 	private double swLng;
 	
-	private Object size;
+	private double size;
 	// 회원정보 member
 	
 	private String tvmmSeq;
@@ -142,6 +142,7 @@ public class User extends Base{
 	private Integer tvpmPayTypeCd;
 	private String tvpmDesc;
 	private String hostEmail;
+
 	
 
 //	===============================================	
@@ -809,23 +810,17 @@ public class User extends Base{
 	public void setSwLng(double swLng) {
 		this.swLng = swLng;
 	}
-//	public Long getSize() {
-//		return size;
-//	}
-//	public void setSize(Long size) {
-//		this.size = size;
-//	}
-	public Object getSize() {
-		return size;
-	}
-	public void setSize(Object size) {
-		this.size = size;
-	}
 	public String getHostEmail() {
 		return hostEmail;
 	}
 	public void setHostEmail(String hostEmail) {
 		this.hostEmail = hostEmail;
+	}
+	public double getSize() {
+		return size;
+	}
+	public void setSize(double size) {
+		this.size = size;
 	}
 
 

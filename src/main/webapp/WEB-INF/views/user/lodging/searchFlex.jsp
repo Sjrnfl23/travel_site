@@ -125,10 +125,10 @@
 	                    <div class="row detail-filter-wrap"> 
 	                        <div class="col-md-4 featured-responsive">
 	                            <div class="detail-filter-text">
-	                                <p><c:out value="${vo.totalRows}"/>개의 결과</p>
+	                                <p><c:out value="${vo.shlctValue}"/> <c:out value="${vo.totalRows}"/>개의 결과</p>
 	                            </div>
 	                        </div>
-	                        <div class="col-md-8 featured-responsive">
+	                        <div class="featured-responsive">
 	                            <div class="detail-filter">
 	                                <form class="filter-dropdown">
 	                                </form>
@@ -143,6 +143,12 @@
 		                        <div class="col-xs-12 col-sm-12 col-md-12">
 		                            <div class="detail-checkbox">
 		                            	<div class="row">
+		                            		<div class="col">
+				                                <div class="md-checkbox">
+				                                    <input id="i19" type="checkbox" name="shCheck" value="0" onclick='checkOnlyOne(this)' <c:if test="${vo.shCheck eq 0 }">checked</c:if>>
+				                                    <label for="i19" style="font-size: 18px;">전체</label>
+				                                </div>
+			                                </div>
 			                            	<div class="col">
 				                                <div class="md-checkbox">
 				                                    <input id="i20" type="checkbox" name="shCheck" value="1" onclick='checkOnlyOne(this)' <c:if test="${vo.shCheck eq 1 }">checked</c:if>>
