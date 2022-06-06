@@ -53,6 +53,27 @@
 	</insert>
 	
 	<!-- SearchFlex List -->
+	 <select id="selectSearchFlexCount" resultType="Integer">
+		SELECT 
+			count(*)
+		FROM 
+			tvLodging
+		WHERE 1=1
+			<choose>
+				<when test="shCheck == 1">AND tvamCategoryCd = 1</when>
+				<when test="shCheck == 2">AND tvamCategoryCd = 2</when>
+				<when test="shCheck == 3">AND tvamCategoryCd = 3</when>
+				<when test="shCheck == 4">AND tvamCategoryCd = 4</when>
+				<when test="shCheck == 5">AND tvamCategoryCd = 5</when>
+				<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
+			</choose>
+			<choose>
+				<when test="shlctValue == '제주'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+				<when test="shlctValue == '서울'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+				<when test="shlctValue == '부산'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+				<when test="shlctValue == '진해'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+			</choose>
+	 </select>
 	 <select id="selectListSearchFlex" resultMap="resultMapObj">
 			SELECT 
 				tvamSeq
@@ -78,7 +99,8 @@
 					<when test="shlctValue == '진해'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
 				</choose>
 	</select>
-	
+
+	<!-- Search -->
 	<select id="selectListSearch" resultMap="resultMapObj">
 			SELECT 
 				tvamSeq
@@ -97,6 +119,20 @@
 				    AND tvamLat BETWEEN #{swLat} AND #{neLat}
 				</if>  
 				<!-- 현재 숙소 데이터에 좌표데이터가 없는곳이 있어서 에러가 나기때문에 임시 seq 삽입 -->
+	</select>
+	
+	<select id="selectSearchCount" resultType="Integer">
+		SELECT 
+				count(*)
+			FROM 
+				tvLodging
+			WHERE 1=1
+  				<if test="swLng != '' and swLng != null and neLng != '' and neLng != null">
+				    AND tvamLng BETWEEN #{swLng} AND #{neLng}
+				</if>
+				<if test="swLat != '' and swLat != null and neLat != '' and neLat != null">
+				    AND tvamLat BETWEEN #{swLat} AND #{neLat}
+				</if>  
 	</select>
 	
 	<!-- Reservation -->
@@ -200,33 +236,7 @@
 			WHERE 1=1
 				AND tvmmSeq = #{tvmmSeq}
 	</select>
-	<select id="selectSearchFlexCount" resultType="Integer">
-			SELECT 
-				count(*)
-			FROM 
-				tvLodging
-			WHERE 1=1
-				<choose>
-					<when test="shCheck == 1">AND tvamCategoryCd = 1</when>
-					<when test="shCheck == 2">AND tvamCategoryCd = 2</when>
-					<when test="shCheck == 3">AND tvamCategoryCd = 3</when>
-					<when test="shCheck == 4">AND tvamCategoryCd = 4</when>
-					<when test="shCheck == 5">AND tvamCategoryCd = 5</when>
-					<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
-				</choose>
-				<choose>
-					<when test="shlctValue == '제주'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
-					<when test="shlctValue == '서울'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
-					<when test="shlctValue == '부산'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
-					<when test="shlctValue == '진해'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
-				</choose>
-	</select>
-	<select id="selectSearchCount" resultType="Integer">
-		SELECT 
-				count(*)
-			FROM 
-				tvLodging
-	</select>
+
 	<select id="selectListMap" resultMap="resultMapObj">
 		SELECT 
 			a.tvplSeq

@@ -124,7 +124,7 @@
 	                    <div class="row detail-filter-wrap">
 	                        <div class="col-md-7 featured-responsive">
 	                            <div class="detail-filter-text">
-	                                <p><b>숙소</b></p>
+	                                <div id="pglodge"></div>
 	                            </div>
 	                        </div>
 	                        <br>
@@ -134,7 +134,6 @@
 	                                <form class="filter-dropdown">
 										<div class="row">
 										  <div class="col">
-										    <a href="" class="btn btn-danger top-btn" style="margin-left: 10px;">검색</a>
 										  </div>
 										</div>
 	                                </form>
@@ -235,13 +234,20 @@
 				,success: function(response) {
 					if(response.rt == "success") {
 						var listHtml = "";
-
+						var pgHtml = "";
+						
 						if (response.count == 0) {
 							listHtml += '<tr>';
 							listHtml += '	<td class="text-center" colspan="11">There is no data!</td>';
 							listHtml += '</tr>';
+							
 							$("#lodgingapnd").empty();	//초기화
 							$("#lodgingapnd").append(listHtml);
+							
+							pgHtml += '<p><b>숙소가 없습니다</b></p>'
+							
+							$("#pglodge").empty();	//초기화
+							$("#pglodge").append(pgHtml);	
 						} else {
 							for(var i in response.lodglist) {
 							    listHtml += '<div class="col-md-6 card-2">';
@@ -268,8 +274,12 @@
 								marker.setMap(null);   
 								marker.setMap(map);
 							}
+							pgHtml += '<p><b>'+nullToEmpty(response.vo.totalRows)+'개의 숙소</b></p>'
+							
 							$("#lodgingapnd").empty();	//초기화
 							$("#lodgingapnd").append(listHtml);				
+							$("#pglodge").empty();	//초기화
+							$("#pglodge").append(pgHtml);				
 							
 						}
 					} else {

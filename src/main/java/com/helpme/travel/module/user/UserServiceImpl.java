@@ -232,6 +232,7 @@ public class UserServiceImpl implements UserService{
 	public int selectSearchCount(UserVo vo) throws Exception {
 		return dao.selectSearchCount(vo);
 	}
+
 	// 로그인
 
 	@Override

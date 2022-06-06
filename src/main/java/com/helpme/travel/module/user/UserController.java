@@ -137,19 +137,25 @@ public class UserController {
 		if (vo.getTotalRows() > 0) {
 			List<User> lodglist = service.selectListSearch(vo);
 			model.addAttribute("lodglist", lodglist);
+			model.addAttribute("vo", vo);
 			returnMap.put("lodglist", lodglist);
+			returnMap.put("vo", vo);
+			
 			System.out.println(":::::::::::lodglist:::::::::::" +lodglist);
 			System.out.println(":::::::::::vo.getTotalRows():::::::::::" +vo.getTotalRows());
+			
 			dto.setNeLat(dto.getNeLat());
 			dto.setNeLng(dto.getNeLng());
 			dto.setSwLat(dto.getSwLat());
 			dto.setSwLng(dto.getSwLng());
+			
+			
 			returnMap.put("count", lodglist.size());
 		} else {
 			returnMap.put("count", 0);
 		}
 		returnMap.put("rt", "success");
-		
+
 		return returnMap;
 	}
 
