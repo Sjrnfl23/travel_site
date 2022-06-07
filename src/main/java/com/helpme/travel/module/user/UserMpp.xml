@@ -76,12 +76,24 @@
 	 </select>
 	 <select id="selectListSearchFlex" resultMap="resultMapObj">
 			SELECT 
-				tvamSeq
-				,tvamLodgingName
-				,tvamDesc
-				,tvamAddress1
+				a.tvamSeq
+				,a.tvamLodgingName
+				,a.tvamDesc
+				,a.tvamAddress1
+				,b.type
+				,b.defaultNy
+				,b.sort
+				,b.originalName
+				,b.uuidName
+				,b.ext
+				,b.size
+				,b.delNy
+				,b.year
+				,b.month
+				,b.day
 			FROM
-				tvLodging
+				tvLodging a
+			left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
 			WHERE 1=1
 				AND tvamDelNy = 0
 				<choose>

@@ -238,12 +238,24 @@
 		    , a.tvamCheckOutTime
 		    , a.tvmmSeq
 		    , a.tvamTelNumber
+		    , c.type
+			, c.defaultNy
+			, c.sort
+			, c.originalName
+			, c.uuidName
+			, c.ext
+			, c.size
+			, c.delNy
+			, c.year
+			, c.month
+			, c.day
 		    , (select tvcdName from tvCode where a.tvamCategoryCd = tvcdSeq) as 'category'
 		    , (select tvmmEmailAccount from tvMember b where a.tvmmSeq = b.tvmmSeq) as 'host'
 		from tvLodging a
+		left join tvLodgingUploaded c on a.tvamSeq = c.tvamSeq
 		where 1 = 1
 			and tvamDelNy = 0
-			and tvamSeq = #{tvamSeq}
+			and a.tvamSeq = #{tvamSeq}
 	</select>
 
 	<update id="updateLodging">

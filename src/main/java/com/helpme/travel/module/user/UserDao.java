@@ -64,4 +64,7 @@ public class UserDao {
 	public User selectOneLogin(User dto) { return sqlSession.selectOne(namespace+".selectOneLogin",dto); }
 	public int selectGoogleNy(User dto) { return sqlSession.selectOne(namespace+".selectGoogleNy",dto); }
 	public User selectOneGlogin(User dto) { return sqlSession.selectOne(namespace+".selectOneGlogin",dto); }
+	
+	
+	
 }

@@ -163,16 +163,28 @@
 				,a.tvamCheckOutTime
 				,a.regDateTime
 				,a.tvamDesc
+				,c.type
+				,c.defaultNy
+				,c.sort
+				,c.originalName
+				,c.uuidName
+				,c.ext
+				,c.size
+				,c.delNy
+				,c.year
+				,c.month
+				,c.day
 				
 				from
 				tvLodging a
 				
 			left join tvMember b on a.tvmmseq=b.tvmmseq
+			left join tvLodgingUploaded c on a.tvamSeq = c.tvamSeq
 			
 			where 
 				1=1
 				and tvamDelNy=0
-				and tvamSeq=#{tvamSeq}
+				and a.tvamSeq=#{tvamSeq}
 	</select>
 
 

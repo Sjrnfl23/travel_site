@@ -54,5 +54,7 @@ public interface UserService {
 	int selectSearchFlexCount(UserVo vo) throws Exception;
 	int selectSearchCount(UserVo vo) throws Exception;
 	
+	
 	public User selectOneLogin(User dto) throws Exception;
+
 }

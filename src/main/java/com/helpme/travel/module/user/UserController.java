@@ -121,6 +121,8 @@ public class UserController {
 		} else {
 			// by pass
 		}
+		
+		
 		model.addAttribute("vo", vo);
 
 		return "user/lodging/searchFlex";
