@@ -77,7 +77,10 @@
             <!-- 컨텐츠 시작 -->
             <!-- ============================================================== -->
 
-          
+               
+                   <form method="post" action="lodgingUpdate" enctype="multipart/form-data">
+                   <input type="hidden" name="tvamSeq" id="tvamSeq" value="<c:out value="${rt.tvamSeq}"/>">
+                   
             <div class="main-content">
           
                 <div class="page-content">
@@ -119,24 +122,16 @@
 							                            <div class="col-12">
 							                                <div class="card">
 							                                    <div class="card-body">
-							                                        <div>
-							                                            <form action="#" class="dropzone">
-							                                                <div class="fallback">
-							                                                    <input name="file" type="file" multiple="multiple">
-							                                                </div>
-							                                                <div class="dz-message needsclick">
-							                                                    <div class="mb-3">
-							                                                        <i class="display-4 text-muted mdi mdi-cloud-upload"></i>
-							                                                    </div>
-							                                                    
-							                                                    <h4>Drop files here or click to upload.</h4>
-							                                                </div>
-							                                            </form>
-							                                        </div>
+							                                      <div class="fallback">
+																		<input class="form-control" id="file0" name="file0" type="file" style="display: none;" onChange="upload(0,2);" multiple>
+																		<div class="addScroll" style="overflow: auto;">
+																			<ul id="ulFile0" class="list-group">
+																			</ul>
+																		</div>
+																		<label for="file0" class="form-label btn btn-info btn-sm" style="margin-top: 10px;">이미지첨부</label>
+					                                                </div>
 							        
-							                                        <div class="text-center mt-4">
-							                                            <button type="button" class="btn btn-primary waves-effect waves-light">사진첨부</button>
-							                                        </div>
+							                                        
 							                                    </div>
 							                                </div> 
 							                            </div> <!-- end col -->
@@ -146,9 +141,8 @@
                                             <div class="table-responsive mt-3 border-bottom pb-3">
                                              
                                             
-                                              
-                                                <form method="get" action="lodgingUpdate">
-  							 <input type="hidden" name="tvamSeq" id="tvamSeq" value="<c:out value="${rt.tvamSeq}"/>">
+                                         
+  							 
    	                                             <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
                                                     <tbody>
 
@@ -263,7 +257,7 @@
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">소개</h5>
                                                             <p class="text-muted mb-0" style="text-align: left;">
-                                                            	<textarea class="form-control" id="tvamDesc" name="tvamDesc" value="<c:out value="${tvamDesc}"/>"></textarea>
+                                                            	<textarea class="form-control" id="tvamDesc" name="tvamDesc"><c:out value="${tvamDesc}"/></textarea>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -284,7 +278,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                             </form>
+                                           
                                         </div>
                                         
                                         
@@ -295,8 +289,8 @@
 					</div>
 				</div>
 				
-        </div>
         
+          </form>
         <!-- END layout-wrapper -->
 
  
@@ -333,7 +327,56 @@
         
         <!-- Plugins js -->
         <script src="../../resources/host/libs/dropzone/min/dropzone.min.js"></script>
-
+		<!-- image -->
+	    <script src = "/resources/user/js/common.js"></script><!-- image -->
+		<script src = "/resources/user/js/commonXdmin.js"></script><!-- image -->
+		<script src = "/resources/user/js/constantsXdmin.js"></script><!-- image -->
+    
+    
+<!-- 이미지, 파일 업로드 -->
+<script>
+upload = function(seq,div){
+	
+	$("#ulFile" + seq).children().remove();
+	
+	var fileCount = $("input[type=file]")[seq].files.length;
+	
+	if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
+	
+	var totalFileSize;
+	for(var i = 0; i < fileCount; i++){
+		if(div==1){
+			if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else if(div==2){
+			if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		}else {
+			return false;
+		}
+		
+		if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+		totalFileSize += $("input[type=file]")[seq].files[i].size;
+	}
+	if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
+	
+	for(var i=0; i<fileCount; i++){
+		addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+	}
+}
+addUploadLi = function(seq,index,name){
+	
+	var ul_list = $("#ulFile0");
+	
+	li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+	li = li + name;
+	li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+index +')"><i class="bi bi-x-circle"></i></span>';
+	li = li + '</li>';
+	
+	$("#ulFile"+seq).append(li);
+}
+delLi = function(seq, index){
+	$("#li_"+seq+"_"+index).remove();
+}
+</script>   
 
     </body>
 

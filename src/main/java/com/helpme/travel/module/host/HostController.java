@@ -168,7 +168,8 @@ public class HostController {
 
 	@RequestMapping(value = "/host/lodgingUpdate")
 	public String LodgingUpdate(Host dto, Model model) throws Exception {
-
+		
+		
 		service.updatelodging(dto);
 
 		return "redirect:lodgingList";

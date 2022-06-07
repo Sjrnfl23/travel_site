@@ -695,6 +695,25 @@
 			and tvmmSeq = #{tvmmSeq} 		
 	</select>	
 	
+	<update id="updateUploadedLodging">
+	
+		update tvLodgingUploaded set
+			type = #{type}
+			, defaultNy = #{defaultNy}
+			, sort = #{sort}
+			, originalName = #{originalName}
+			, uuidName = #{uuidName}
+			, ext = #{ext}
+			, size = #{size}
+			, delNy = 0
+			, year = #{year}
+			, month = #{month}
+			, day = #{day}
+			, tvamSeq = #{tvamSeq}
+		where 1=1
+			and tvamSeq = #{tvamSeq}
+			
+	</update>
 	<!-- uploaded e -->
 
 

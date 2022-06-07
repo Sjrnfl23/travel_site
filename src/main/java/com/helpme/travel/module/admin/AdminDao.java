@@ -88,4 +88,5 @@ public class AdminDao {
    
 	public int updateUploaded(Admin dto) {return sqlSession.update(namespace + ".updateUploaded", dto);}
 	public Admin selectOneUploaded(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneUploaded", vo);}
+	public int updateUploadedLodging(Admin dto) {return sqlSession.update(namespace+".updateUploadedLodging",dto); }
 }

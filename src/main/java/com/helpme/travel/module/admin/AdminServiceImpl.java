@@ -84,6 +84,27 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Override
 	public int updateLodging(Admin dto) throws Exception {
+		dao.updateLodging(dto);
+		
+		int j = 0;
+		for(MultipartFile multipartFile : dto.getFile0() ) {
+			
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.uploadAdmin(multipartFile, pathModule, dto);
+			dto.setTableName("tvLodgingUploaded");
+			dto.setType(0);
+			if(j==0) {
+				dto.setDefaultNy(1);
+			}else {
+				dto.setDefaultNy(0);
+			}
+			dto.setSort(j);
+			dto.setTvamSeq(dto.getTvamSeq());
+			dao.updateUploadedLodging(dto);
+			j++;
+			
+		}
+		
 		return dao.updateLodging(dto);
 	}	
 	@Override
