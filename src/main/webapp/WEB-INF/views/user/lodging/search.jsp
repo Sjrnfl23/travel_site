@@ -124,7 +124,7 @@
 	                    <div class="row detail-filter-wrap">
 	                        <div class="col-md-7 featured-responsive">
 	                            <div class="detail-filter-text">
-	                                <p><b>서울에 위치한 숙소</b></p>
+	                                <div id="pglodge"></div>
 	                            </div>
 	                        </div>
 	                        <br>
@@ -134,7 +134,6 @@
 	                                <form class="filter-dropdown">
 										<div class="row">
 										  <div class="col">
-										    <a href="" class="btn btn-danger top-btn" style="margin-left: 10px;">검색</a>
 										  </div>
 										</div>
 	                                </form>
@@ -193,6 +192,7 @@
 				alert("현재 위치 정보 사용이 불가능합니다.");
 			}
 		}
+
 		function showLocation(position) {
 			lat = position.coords.latitude;
 			lng = position.coords.longitude;
@@ -200,12 +200,14 @@
 			/* kakao source s */
 			var container = document.getElementById('map');
 			var options = {
-				center: new kakao.maps.LatLng(lat,lng),
+				center: new kakao.maps.LatLng(33.452613,126.570888),
 			level: 9
 			};
 				
 			map = new kakao.maps.Map(container, options);
 			map.setMaxLevel(13);	// level 13 이하로 제한
+			
+
 
 			/* kakao source e */
 
@@ -232,13 +234,20 @@
 				,success: function(response) {
 					if(response.rt == "success") {
 						var listHtml = "";
-
+						var pgHtml = "";
+						
 						if (response.count == 0) {
 							listHtml += '<tr>';
 							listHtml += '	<td class="text-center" colspan="11">There is no data!</td>';
 							listHtml += '</tr>';
+							
 							$("#lodgingapnd").empty();	//초기화
 							$("#lodgingapnd").append(listHtml);
+							
+							pgHtml += '<p><b>숙소가 없습니다</b></p>'
+							
+							$("#pglodge").empty();	//초기화
+							$("#pglodge").append(pgHtml);	
 						} else {
 							for(var i in response.lodglist) {
 							    listHtml += '<div class="col-md-6 card-2">';
@@ -265,8 +274,12 @@
 								marker.setMap(null);   
 								marker.setMap(map);
 							}
+							pgHtml += '<p><b>'+nullToEmpty(response.vo.totalRows)+'개의 숙소</b></p>'
+							
 							$("#lodgingapnd").empty();	//초기화
 							$("#lodgingapnd").append(listHtml);				
+							$("#pglodge").empty();	//초기화
+							$("#pglodge").append(pgHtml);				
 							
 						}
 					} else {
@@ -278,6 +291,12 @@
 				}
 			});
 		});
+			
+	    var moveLatLon = new kakao.maps.LatLng(lat, lng);
+	    
+	    // 지도 중심을 부드럽게 이동시킵니다
+	    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+	    map.panTo(moveLatLon);
 		}	
 		
 		function nullToEmpty (paramData) {
