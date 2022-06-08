@@ -312,6 +312,12 @@ public class UserController {
 		
 		return "redirect:/mapList";
 	}
+	//dm
+	@RequestMapping(value = "/dm")
+	public String dm(Model model, UserVo vo, HttpSession httpSession) throws Exception {
+		
+		return "user/lodging/dm";
+	}
 
 	// login & logout ======================================================
 	@ResponseBody

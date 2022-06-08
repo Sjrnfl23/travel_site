@@ -554,7 +554,7 @@
                             <p>월 - 일 09:30 am - 05:30 pm </p>
                             <a href="#" class="featured-open">OPEN NOW</a>
                         </div>
-                        <a href="/userDm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
+                        <a href="/dm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
                     </div>
                     <div class="follow">
                         <div class="follow-img">
