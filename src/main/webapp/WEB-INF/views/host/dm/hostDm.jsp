@@ -363,19 +363,18 @@
 						                </div>
                                     </div>
 									<!-- original code Start-->
-					                <div class="card-footer">
-					                    <div class="input-group">
-					                        <div class="input-group-append">
-					                            <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
-					                        </div>
-					                        <textarea name="message" id="message" class="form-control type_msg"
-					                                  placeholder="Type your message..."></textarea>
-					                        <div class="input-group-append">
-					                            <button id="submit" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i>
-					                            </button>
-					                        </div>
-					                    </div>
-					                </div>
+                                    <div class="p-3 border-top">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="position-relative">
+                                                    <input type="text" name="message" id="message" class="form-control border bg-soft-light" placeholder="메시지를 입력해주세요....">
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button id="submit" class="btn btn-primary chat-send w-md waves-effect waves-light"><span class="d-none d-sm-inline-block me-2">전송</span> <i class="mdi mdi-send float-end"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
 					                <!-- original code End-->
                                 </div>
                             </div>
