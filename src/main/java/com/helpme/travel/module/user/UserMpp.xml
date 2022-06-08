@@ -179,8 +179,7 @@
 
 	<insert id="insertReservation">
 		INSERT INTO tvPayment (
-			tvpmSeq
- 			, tvpmStartDate
+ 			tvpmStartDate
 			, tvpmEndDate
 			, tvpmtotalPrice
 			, tvamSeq
@@ -189,8 +188,7 @@
 			, tvpmDelNy
 			, regDateTime
 		) VALUES (
-			#{tvpmSeq}
- 			, #{tvpmStartDate}
+ 			#{tvpmStartDate}
 			, #{tvpmEndDate}
 			, #{tvpmtotalPrice}
 			, #{tvamSeq}
