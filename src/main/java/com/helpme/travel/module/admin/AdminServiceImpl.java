@@ -100,6 +100,9 @@ public class AdminServiceImpl implements AdminService{
 			}
 			dto.setSort(j);
 			dto.setTvamSeq(dto.getTvamSeq());
+			if(dto.getOriginalName().equals("") || dto.getOriginalName().equals(null)) { //값만 바꿀때 사진은 그대로 유지하기 위해 
+				break;
+			}
 			dao.updateUploadedLodging(dto);
 			j++;
 			
