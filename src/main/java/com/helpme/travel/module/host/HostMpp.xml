@@ -153,6 +153,8 @@
 				,a.tvamLodgingName
 				,(select tvcdName from tvCode where a.tvamCategoryCd=tvcdSeq) as tvamCategory
 				,a.tvamTelNumber
+				,a.tvamAddress1
+				,a.tvamAddress2
 				,a.tvamAddressFull
 				,a.tvamMaxPersonCount
 				,a.tvamAdultPrice
@@ -192,6 +194,8 @@
 		insert into tvLodging(
 				
 				tvamLodgingName
+				,tvamAddress1
+				,tvamAddress2
 				,tvamAddressFull
 				,tvamMaxPersonCount
 				,tvamCategoryCd
@@ -209,7 +213,9 @@
 			)values(
 				
 				#{tvamLodgingName}
-				,#{tvamAddressFull}
+				,#{tvamAddress1}
+				,#{tvamAddress2}
+				,concat(#{tvamAddress1} ," ", #{tvamAddress2} )
 				,#{tvamMaxPersonCount}
 				,#{tvamCategoryCd}
 				,#{tvamTelNumber}
@@ -234,10 +240,12 @@
 		update tvLodging a
 			set 
 				a.tvamLodgingName =#{tvamLodgingName}
-				
-				,a.tvamAddressFull =  #{tvamAddressFull}
+				,a.tvamAddress1 = #{tvamAddress1}
+				,a.tvamAddress2 = #{tvamAddress2}
+				,a.tvamAddressFull = concat(#{tvamAddress1} ," ", #{tvamAddress2} )
 				,a.tvamMaxPersonCount = #{tvamMaxPersonCount}
 				,a.tvamAdultPrice = #{tvamAdultPrice}
+				,a.tvamTelNumber = #{tvamTelNumber}
 				,a.tvamBedCount = #{tvamBedCount}
 				,a.tvamRoomCount = #{tvamRoomCount}
 				,a.tvamShowerRoomCount = #{tvamShowerRoomCount}

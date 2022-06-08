@@ -100,8 +100,8 @@ public class HostServiceImpl implements HostService{
 		int j = 0;
 		for(MultipartFile multipartFile : dto.getFile0() ) {
 			
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-			UtilUpload.uploadHost(multipartFile, pathModule, dto);
+			//String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.uploadHost(multipartFile, "admin", dto);
 			dto.setTableName("tvLodgingUploaded");
 			dto.setType(0);
 			if(j==0) {

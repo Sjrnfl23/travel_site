@@ -265,7 +265,7 @@
 			, tvamZipCode = #{tvamZipCode}
 			, tvamAddress1 = #{tvamAddress1}
 			, tvamAddress2 = #{tvamAddress2}
-			, tvamAddressFull = #{tvamAddressFull}
+			, tvamAddressFull = concat(#{tvamAddress1} ," ", #{tvamAddress2} )
 			, tvamState = #{tvamState}
 			, tvamAdultPrice = #{tvamAdultPrice}
 			, tvamMaxPersonCount = #{tvamMaxPersonCount}

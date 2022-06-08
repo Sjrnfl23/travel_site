@@ -120,7 +120,7 @@
                <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item user text-start d-flex align-items-center" id="page-header-user-dropdown-v"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="../../resources/host/images/users/avatar-3.jpg"
+                                <img class="rounded-circle header-profile-user" src="/resources/admin/memberUploaded/admin/<c:out value="${sessYear2}"/>/<c:out value="${sessMonth2}"/>/<c:out value="${sessDay2}"/>/<c:out value="${sessUuidName2}"/> "
                                 alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-2 fw-medium font-size-15"> <c:out value="${adminSessUserType}"/> </span>
                             </button>

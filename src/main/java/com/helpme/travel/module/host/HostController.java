@@ -341,12 +341,20 @@ public class HostController {
 				httpSession.setAttribute("sessSeq", rtMember.getTvmmSeq());
 				
 				vo.setTvmmSeq(rtMember.getTvmmSeq());
-				
-				Host imgMember = service.selectOneUploaded(vo);
-				httpSession.setAttribute("sessYear", imgMember.getYear());
-				httpSession.setAttribute("sessMonth", imgMember.getMonth());
-				httpSession.setAttribute("sessDay", imgMember.getDay());
-				httpSession.setAttribute("sessUuidName", imgMember.getUuidName());
+				try { //npe 발생할수 있어서 예외처리 해줌
+					
+					Host imgMember = service.selectOneUploaded(vo);
+					httpSession.setAttribute("sessYear", imgMember.getYear());
+					httpSession.setAttribute("sessMonth", imgMember.getMonth());
+					httpSession.setAttribute("sessDay", imgMember.getDay());
+					httpSession.setAttribute("sessUuidName", imgMember.getUuidName());
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}finally {
+					returnMap.put("rt", "success");
+				}
+			
 				
 				returnMap.put("rt", "success");
 			} else {
