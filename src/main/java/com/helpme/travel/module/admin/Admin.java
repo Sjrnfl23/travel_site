@@ -94,7 +94,7 @@ public class Admin {
 	private String tvpmStartDate;
 	private String tvpmEndDate;
 	private String tvpmPrice;
-	private Integer tvpmtotalPrice;
+	private String tvpmtotalPrice;
 	private String tvpmPayTypeCd;
 	private String tvpmDesc;
 	private String hostEmail;
@@ -864,12 +864,12 @@ public class Admin {
 	}
 
 
-	public Integer getTvpmtotalPrice() {
+	public String getTvpmtotalPrice() {
 		return tvpmtotalPrice;
 	}
 
 
-	public void setTvpmtotalPrice(Integer tvpmtotalPrice) {
+	public void setTvpmtotalPrice(String tvpmtotalPrice) {
 		this.tvpmtotalPrice = tvpmtotalPrice;
 	}
 
