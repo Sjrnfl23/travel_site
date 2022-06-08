@@ -58,7 +58,10 @@ public class User extends Base{
 	private String hiddenStartDate;
 	private String hiddenEndDate;
 	private String hiddenNumber;
+	private String hiddenPriceOrigin;
+	private String hiddenPriceFee;
 	private String hiddenPay;	
+	private String hiddenDay;	
 	
 	// 좌표
 	private double neLat;
@@ -142,18 +145,20 @@ public class User extends Base{
 	private Integer tvpmPayTypeCd;
 	private String tvpmDesc;
 	private String hostEmail;
-
 	
-
-//	===============================================	
-	
-	
+//	===============================================			
 	
 	public String getTvamSeq() {
 		return tvamSeq;
 	}
 	public void setTvamSeq(String tvamSeq) {
 		this.tvamSeq = tvamSeq;
+	}
+	public String getTvamLodgingName() {
+		return tvamLodgingName;
+	}
+	public void setTvamLodgingName(String tvamLodgingName) {
+		this.tvamLodgingName = tvamLodgingName;
 	}
 	public String getTvamAcName() {
 		return tvamAcName;
@@ -214,6 +219,24 @@ public class User extends Base{
 	}
 	public void setTvamAddressCity(String tvamAddressCity) {
 		this.tvamAddressCity = tvamAddressCity;
+	}
+	public String getTvamTelNumber() {
+		return tvamTelNumber;
+	}
+	public void setTvamTelNumber(String tvamTelNumber) {
+		this.tvamTelNumber = tvamTelNumber;
+	}
+	public String getTvamState() {
+		return tvamState;
+	}
+	public void setTvamState(String tvamState) {
+		this.tvamState = tvamState;
+	}
+	public String getTvamCity() {
+		return tvamCity;
+	}
+	public void setTvamCity(String tvamCity) {
+		this.tvamCity = tvamCity;
 	}
 	public String getTvamLat() {
 		return tvamLat;
@@ -377,6 +400,90 @@ public class User extends Base{
 	public void setModDateTimeSvr(Date modDateTimeSvr) {
 		this.modDateTimeSvr = modDateTimeSvr;
 	}
+	public String getHiddenName() {
+		return hiddenName;
+	}
+	public void setHiddenName(String hiddenName) {
+		this.hiddenName = hiddenName;
+	}
+	public String getHiddenSeq() {
+		return hiddenSeq;
+	}
+	public void setHiddenSeq(String hiddenSeq) {
+		this.hiddenSeq = hiddenSeq;
+	}
+	public String getHiddenStartDate() {
+		return hiddenStartDate;
+	}
+	public void setHiddenStartDate(String hiddenStartDate) {
+		this.hiddenStartDate = hiddenStartDate;
+	}
+	public String getHiddenEndDate() {
+		return hiddenEndDate;
+	}
+	public void setHiddenEndDate(String hiddenEndDate) {
+		this.hiddenEndDate = hiddenEndDate;
+	}
+	public String getHiddenNumber() {
+		return hiddenNumber;
+	}
+	public void setHiddenNumber(String hiddenNumber) {
+		this.hiddenNumber = hiddenNumber;
+	}
+	public String getHiddenPriceOrigin() {
+		return hiddenPriceOrigin;
+	}
+	public void setHiddenPriceOrigin(String hiddenPriceOrigin) {
+		this.hiddenPriceOrigin = hiddenPriceOrigin;
+	}
+	public String getHiddenPriceFee() {
+		return hiddenPriceFee;
+	}
+	public void setHiddenPriceFee(String hiddenPriceFee) {
+		this.hiddenPriceFee = hiddenPriceFee;
+	}
+	public String getHiddenPay() {
+		return hiddenPay;
+	}
+	public void setHiddenPay(String hiddenPay) {
+		this.hiddenPay = hiddenPay;
+	}
+	public String getHiddenDay() {
+		return hiddenDay;
+	}
+	public void setHiddenDay(String hiddenDay) {
+		this.hiddenDay = hiddenDay;
+	}
+	public double getNeLat() {
+		return neLat;
+	}
+	public void setNeLat(double neLat) {
+		this.neLat = neLat;
+	}
+	public double getNeLng() {
+		return neLng;
+	}
+	public void setNeLng(double neLng) {
+		this.neLng = neLng;
+	}
+	public double getSwLat() {
+		return swLat;
+	}
+	public void setSwLat(double swLat) {
+		this.swLat = swLat;
+	}
+	public double getSwLng() {
+		return swLng;
+	}
+	public void setSwLng(double swLng) {
+		this.swLng = swLng;
+	}
+	public double getSize() {
+		return size;
+	}
+	public void setSize(double size) {
+		this.size = size;
+	}
 	public String getTvmmSeq() {
 		return tvmmSeq;
 	}
@@ -479,30 +586,59 @@ public class User extends Base{
 	public void setTvmmDelNy(Integer tvmmDelNy) {
 		this.tvmmDelNy = tvmmDelNy;
 	}
-	public String getTvamLodgingName() {
-		return tvamLodgingName;
+	public String getTvplSeq() {
+		return tvplSeq;
 	}
-	public void setTvamLodgingName(String tvamLodgingName) {
-		this.tvamLodgingName = tvamLodgingName;
+	public void setTvplSeq(String tvplSeq) {
+		this.tvplSeq = tvplSeq;
 	}
-
-	public String getTvamState() {
-		return tvamState;
+	public double getTvplLat() {
+		return tvplLat;
 	}
-	public void setTvamState(String tvamState) {
-		this.tvamState = tvamState;
+	public void setTvplLat(double tvplLat) {
+		this.tvplLat = tvplLat;
 	}
-	public String getTvamCity() {
-		return tvamCity;
+	public double getTvplLng() {
+		return tvplLng;
 	}
-	public void setTvamCity(String tvamCity) {
-		this.tvamCity = tvamCity;
+	public void setTvplLng(double tvplLng) {
+		this.tvplLng = tvplLng;
 	}
-	public String getTvamTelNumber() {
-		return tvamTelNumber;
+	public String getTvplTitle() {
+		return tvplTitle;
 	}
-	public void setTvamTelNumber(String tvamTelNumber) {
-		this.tvamTelNumber = tvamTelNumber;
+	public void setTvplTitle(String tvplTitle) {
+		this.tvplTitle = tvplTitle;
+	}
+	public String getTvplDesc() {
+		return tvplDesc;
+	}
+	public void setTvplDesc(String tvplDesc) {
+		this.tvplDesc = tvplDesc;
+	}
+	public String getTvplMarkerImage() {
+		return tvplMarkerImage;
+	}
+	public void setTvplMarkerImage(String tvplMarkerImage) {
+		this.tvplMarkerImage = tvplMarkerImage;
+	}
+	public String getTvplEmotionCd() {
+		return tvplEmotionCd;
+	}
+	public void setTvplEmotionCd(String tvplEmotionCd) {
+		this.tvplEmotionCd = tvplEmotionCd;
+	}
+	public MultipartFile[] getFile0() {
+		return file0;
+	}
+	public void setFile0(MultipartFile[] file0) {
+		this.file0 = file0;
+	}
+	public MultipartFile[] getFile1() {
+		return file1;
+	}
+	public void setFile1(MultipartFile[] file1) {
+		this.file1 = file1;
 	}
 	public String getTvarSeq() {
 		return tvarSeq;
@@ -527,52 +663,7 @@ public class User extends Base{
 	}
 	public void setTvarDate(Date tvarDate) {
 		this.tvarDate = tvarDate;
-	}	
-
-	public String getTvplSeq() {
-		return tvplSeq;
 	}
-	public void setTvplSeq(String tvplSeq) {
-		this.tvplSeq = tvplSeq;
-	}
-	public double getTvplLat() {
-		return tvplLat;
-	}
-	public void setTvplLat(double tvplLat) {
-		this.tvplLat = tvplLat;
-	}
-	public double getTvplLng() {
-		return tvplLng;
-	}
-	public void setTvplLng(double tvplLng) {
-		this.tvplLng = tvplLng;
-	}
-	public String getTvplMarkerImage() {
-		return tvplMarkerImage;
-	}
-	public void setTvplMarkerImage(String tvplMarkerImage) {
-		this.tvplMarkerImage = tvplMarkerImage;
-	}
-	public String getTvplEmotionCd() {
-		return tvplEmotionCd;
-	}
-	public void setTvplEmotionCd(String tvplEmotionCd) {
-		this.tvplEmotionCd = tvplEmotionCd;
-	}
-	public String getTvplTitle() {
-		return tvplTitle;
-	}
-	public void setTvplTitle(String tvplTitle) {
-		this.tvplTitle = tvplTitle;
-	}
-	public String getTvplDesc() {
-		return tvplDesc;
-	}
-	public void setTvplDesc(String tvplDesc) {
-		this.tvplDesc = tvplDesc;
-
-	}
-
 	public String getTvpmSeq() {
 		return tvpmSeq;
 	}
@@ -627,188 +718,11 @@ public class User extends Base{
 	public void setTvpmPayTypeCd(Integer tvpmPayTypeCd) {
 		this.tvpmPayTypeCd = tvpmPayTypeCd;
 	}
-	public String getTvpmdesc() {
-		return tvpmDesc;
-	}
-	public void setTvpmdesc(String tvpmdesc) {
-		this.tvpmDesc = tvpmdesc;
-	}
-
-//	public String getTableName() {
-//		return tableName;
-//	}
-//	public void setTableName(String tableName) {
-//		this.tableName = tableName;
-//	}
-//	public String getSeq() {
-//		return seq;
-//	}
-//	public void setSeq(String seq) {
-//		this.seq = seq;
-//	}
-//	public Integer getType() {
-//		return type;
-//	}
-//	public void setType(Integer type) {
-//		this.type = type;
-//	}
-//	public Integer getDefaultNy() {
-//		return defaultNy;
-//	}
-//	public void setDefaultNy(Integer defaultNy) {
-//		this.defaultNy = defaultNy;
-//	}
-//	public Integer getSort() {
-//		return sort;
-//	}
-//	public void setSort(Integer sort) {
-//		this.sort = sort;
-//	}
-//	public String getOriginalName() {
-//		return originalName;
-//	}
-//	public void setOriginalName(String originalName) {
-//		this.originalName = originalName;
-//	}
-//	public String getUuidName() {
-//		return uuidName;
-//	}
-//	public void setUuidName(String uuidName) {
-//		this.uuidName = uuidName;
-//	}
-//	public String getFileName() {
-//		return fileName;
-//	}
-//	public void setFileName(String fileName) {
-//		this.fileName = fileName;
-//	}
-//	public String getExt() {
-//		return ext;
-//	}
-//	public void setExt(String ext) {
-//		this.ext = ext;
-//	}
-//	public Integer getDelNy() {
-//		return delNy;
-//	}
-//	public void setDelNy(Integer delNy) {
-//		this.delNy = delNy;
-//	}
-//
-//	public String getPseq() {
-//		return pseq;
-//	}
-//	public void setPseq(String pseq) {
-//		this.pseq = pseq;
-//	}
-//	public String getYear() {
-//		return year;
-//	}
-//	public void setYear(String year) {
-//		this.year = year;
-//	}
-//	public String getMonth() {
-//		return month;
-//	}
-//	public void setMonth(String month) {
-//		this.month = month;
-//	}
-//	public String getDay() {
-//		return day;
-//	}
-//	public void setDay(String day) {
-//		this.day = day;
-//	}
-//	public String getOriginalFileName() {
-//		return originalFileName;
-//	}
-//	public void setOriginalFileName(String originalFileName) {
-//		this.originalFileName = originalFileName;
-//	}
-//	public String getUuidFileName() {
-//		return uuidFileName;
-//	}
-//	public void setUuidFileName(String uuidFileName) {
-//		this.uuidFileName = uuidFileName;
-//	}
-	public MultipartFile[] getFile0() {
-		return file0;
-	}
-	public void setFile0(MultipartFile[] file0) {
-		this.file0 = file0;
-	}
-	public MultipartFile[] getFile1() {
-		return file1;
-	}
-	public void setFile1(MultipartFile[] file1) {
-		this.file1 = file1;
-
-	}
-	public String getHiddenName() {
-		return hiddenName;
-	}
-	public void setHiddenName(String hiddenName) {
-		this.hiddenName = hiddenName;
-	}
-	public String getHiddenSeq() {
-		return hiddenSeq;
-	}
-	public void setHiddenSeq(String hiddenSeq) {
-		this.hiddenSeq = hiddenSeq;
-	}
-	public String getHiddenStartDate() {
-		return hiddenStartDate;
-	}
-	public void setHiddenStartDate(String hiddenStartDate) {
-		this.hiddenStartDate = hiddenStartDate;
-	}
-	public String getHiddenEndDate() {
-		return hiddenEndDate;
-	}
-	public void setHiddenEndDate(String hiddenEndDate) {
-		this.hiddenEndDate = hiddenEndDate;
-	}
-	public String getHiddenNumber() {
-		return hiddenNumber;
-	}
-	public void setHiddenNumber(String hiddenNumber) {
-		this.hiddenNumber = hiddenNumber;
-	}
-	public String getHiddenPay() {
-		return hiddenPay;
-	}
-	public void setHiddenPay(String hiddenPay) {
-		this.hiddenPay = hiddenPay;
-	}
 	public String getTvpmDesc() {
 		return tvpmDesc;
 	}
 	public void setTvpmDesc(String tvpmDesc) {
 		this.tvpmDesc = tvpmDesc;
-	}
-	public double getNeLat() {
-		return neLat;
-	}
-	public void setNeLat(double neLat) {
-		this.neLat = neLat;
-	}
-	public double getNeLng() {
-		return neLng;
-	}
-	public void setNeLng(double neLng) {
-		this.neLng = neLng;
-	}
-	public double getSwLat() {
-		return swLat;
-	}
-	public void setSwLat(double swLat) {
-		this.swLat = swLat;
-	}
-	public double getSwLng() {
-		return swLng;
-	}
-	public void setSwLng(double swLng) {
-		this.swLng = swLng;
 	}
 	public String getHostEmail() {
 		return hostEmail;
@@ -816,15 +730,10 @@ public class User extends Base{
 	public void setHostEmail(String hostEmail) {
 		this.hostEmail = hostEmail;
 	}
-	public double getSize() {
-		return size;
-	}
-	public void setSize(double size) {
-		this.size = size;
-	}
-
-
 	
+	
+
+		
 	
 	
 	

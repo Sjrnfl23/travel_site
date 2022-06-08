@@ -195,7 +195,10 @@ public class UserController {
 		
 		model.addAttribute("rtStartDate", dto.getHiddenStartDate());
 		model.addAttribute("rtEndDate", dto.getHiddenEndDate());
+		model.addAttribute("rtDay", dto.getHiddenDay());
 		model.addAttribute("rtNumber", dto.getHiddenNumber());
+		model.addAttribute("rtPriceOrigin", dto.getHiddenPriceOrigin());
+		model.addAttribute("rtPriceFee", dto.getHiddenPriceFee());
 		model.addAttribute("rtPay", dto.getHiddenPay());
 	
 		System.out.println("dto.getTvamLodgingName(): " + dto.getTvamLodgingName());

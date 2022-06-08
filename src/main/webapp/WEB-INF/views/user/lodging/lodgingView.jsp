@@ -23,6 +23,7 @@
     <title id="ctl00_headerTitle">여행을 떠나요. now travel!</title>  
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/resources/user/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
     <!-- Themify Icon -->
@@ -129,8 +130,11 @@
 	<input type="text" id="hiddenName" name="tvamLodgingName"/>
 	<input type="text" id="hiddenSeq" name="tvamSeq"/>
 	<input type="text" id="hiddenStartDate" name="hiddenStartDate"/>
+	<input type="text" id="hiddenDay" name="hiddenDay"/>
 	<input type="text" id="hiddenEndDate" name="hiddenEndDate"/>
 	<input type="text" id="hiddenNumber" name="hiddenNumber"/>	
+	<input type="text" id="hiddenPriceOrigin" name="hiddenPriceOrigin"/> 
+	<input type="text" id="hiddenPriceFee" name="hiddenPriceFee"/> 
 	<input type="text" id="hiddenPay" name="hiddenPay"/> 
  
     <div>
@@ -188,7 +192,7 @@
                 <div class="col-md-11">
                     <h3><c:out value="${item.tvamLodgingName}"/></h3>
                     <p class="reserve-description" style="font-size: 20px;">최대 인원 <c:out value="${item.tvamMaxPersonCount}"/>명 * 침실 <c:out value="${item.tvamRoomCount}"/>개 * 침대 <c:out value="${item.tvamBedCount}"/>개 * 욕실 <c:out value="${item.tvamShowerRoomCount}"/>개</p><br>
-                    <p class="reserve-description" style="font-size: 20px;"><c:out value="${item.tvamState}"/>, <c:out value="${item.tvamCity}"/></p>
+                    <p class="reserve-description" style="font-size: 20px;"><c:out value="${item.tvamCity}"/></p>
                 </div>
                 <div class="col-md-1">
                     <div class="reserve-seat-block">
@@ -458,7 +462,7 @@
                             <div class="contact-info">
                                 <div class="booking-summary-box">
                                     <h4><c:out value="${item.tvamLodgingName}"/></h4>
-                                    <span style="font-size: 18px;"><c:out value="${item.tvamState}"/>, <c:out value="${item.tvamCity}"/></span>
+                                    <span style="font-size: 18px;"><c:out value="${item.tvamCity}"/></span>
 
                                     <div class="booking-summary_contact">
                                         <p style="font-size: 18px;"><c:out value="${item.tvamTelNumber}"/></p>
@@ -471,18 +475,33 @@
 										    <input type="text" class="form-control form-control-sm" id="datepicker1" placeholder="시작일" >
 										    <input type="text" class="form-control form-control-sm" id="datepicker2" placeholder="종료일">
 										  </div>
-									    <div class="input-group"><input type="number" class="form-control" placeholder="게스트"></div>
+									    <div class="input-group">
+											<select class="form-select" name="selectNumber" id="selectNumber" aria-label="Default select example">
+											  <option selected>인원</option>
+											  <option value="1">1</option>
+											  <option value="2">2</option>
+											  <option value="3">3</option>
+											  <option value="4">4</option>
+											  <option value="5">5</option>
+											  <option value="6">6</option>
+											</select>									    
+									    </div>
 							  			</div>
                                         <div class="booking-cost">
-                                            <p style="font-size: 16px; ">날짜 <span id="endDate" style="font-size: 16px;"></span><span id="startDate" style="font-size: 16px;"></span> </p>
-                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;">성인 1명</span></p>
+                                            <p style="font-size: 16px; ">
+                                            	날짜
+                                            	<span id="endDate" style="font-size: 16px;"></span>
+                                            	<span id="startDate" style="font-size: 16px;"></span>
+                                            	<span id="day" style="font-size: 16px;"></span>
+                                            </p>
+                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;" id="outputNumber"></span></p>
                                         </div>
                                         <div class="booking-cost" >
                                             <h5>요금 정보</h5>
-                                            <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;">1,960,000원</span></p>
-                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
-                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
-                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,136,000원</span></p>
+                                            <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;" id="price1"></span></p>
+                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;" id="price2"></span></p>
+                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;" id="couponPrice"></span></p>
+                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;" id="price3"></span></p>
                                             <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
                                         </div>
                                     </div>
@@ -602,6 +621,8 @@
             });
         }
     </script>
+    
+    <!-- 날짜 선택 -->
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> <!-- datepicker -->
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -609,24 +630,62 @@
 			 $("#datepicker1").datepicker();
 			 $('#startDate').empty();
 			 $("#datepicker1").val();
+
 			 $("#datepicker1").on("change",function(){
-				var selected1 = $(this).val();
+			 
+				var selected1 = $(this).val();		// 선택된 시작날짜 값 받아오기
+				var stDate = new Date(selected1);	// 받아온 값 stDate로 선언
+				var btMs1 = stDate.getTime();		// 받아온 값 시간(밀리세컨드)으로 변환
+				
+				$('#hiddenDay').val(btMs1);			// hiddenDay에 btMs1 전역변수 담기
+				 
 			   /* alert(selected1); */
-			   $('#startDate').empty();
-			   $('#startDate').append(selected1);
-			   $('#hiddenStartDate').val(selected1);
-			 });					 
+			   $('#startDate').empty();				// 날짜 표시 부분 비움
+			   $('#startDate').append(selected1);	// 날짜 표시 부분에 날짜넣기
+ 			   $('#hiddenStartDate').val(selected1);	// hiddenStartDate에 날짜 넣기 (payment 페이지로 전달해야 함)
+ 			  
+			 });	
 		}); 
+		
 		$(document).ready(function(){
 			 $("#datepicker2").datepicker();
 			 $("#datepicker2").val();
 			 $("#datepicker2").on("change",function(){
-			   var selected2 = $(this).val();
+				 
+				var selected2 = $(this).val();		// 선택된 종료날짜 값 받아오기
+				var btMs1 = $('#hiddenDay').val();	// hiddenDay에 담은 btMs1 값 가져오기
+			   
+				var edDate = new Date(selected2);	// 받아온 종료날짜 값 edDate로 선언
+				var btMs2 = edDate.getTime() - btMs1;	// 받아온 종료날짜 값 시간(밀리세컨드)으로 변환해서 시작날짜값(밀리세컨드)만큼 차감
+				var vtDay = btMs2 / (1000*60*60*24);	// 일수로 계산
+				
 			   /* alert(selected2); */
 			   $('#endDate').empty();
-			   $('#endDate').append(' ~ ' + selected2);
+			   $('#price').empty();
+			   $('#price1').empty();
+			   $('#price2').empty();
+			   
+			   $('#endDate').append(' ~ ' + selected2 + '(' + vtDay + '박)' );
 			   $('#hiddenEndDate').val(selected2);
-			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/> x 박' );
+			   $('#hiddenDay').val(vtDay);
+			   
+			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/>'+ ' x ' + vtDay + '박' );
+			   
+			   var priceOrigin = '<c:out value="${item.tvamAdultPrice}"/>'*vtDay;
+			   var price1 = priceOrigin.toLocaleString();
+			   $('#price1').append(price1 + '원');
+			   $('#hiddenPriceOrigin').val(price1);
+			   
+			   var priceFee = priceOrigin/10;
+			   var price2 = priceFee.toLocaleString();
+			   $('#price2').append(price2 + '원');
+			   $('#hiddenPriceFee').val(price2);
+			  
+			   var priceTotal = priceOrigin + priceFee;
+			   var price3 = priceTotal.toLocaleString();
+			   $('#price3').append(price3 + '원');
+			   $('#hiddenPay').val(price3);
+			   
 			 });				 
 		}); 
 		$.datepicker.setDefaults({
@@ -640,14 +699,22 @@
 		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 		    showMonthAfterYear: true,
 		    yearSuffix: '년'
-		    
 		});
 		
 	</script>
 	
+	
+	<!-- 인원 선택 -->	
 	<script>
-	
-	
+
+	$("select[name=selectNumber]").change(function(){
+		
+		 $('#outputNumber').empty();	
+		 var selectNumber = $(this).val(); //value값 가져오기
+		 $('#outputNumber').append($("select[name=selectNumber] option:selected").text() + '명');
+		 $('#hiddenNumber').val($("select[name=selectNumber] option:selected").text());
+		 
+		});
 	
 	</script>
 		
@@ -705,11 +772,8 @@
 	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
 	/* $('#hiddenStartDate').val("2022-08-26"); */
 	/* $('#hiddenEndDate').val("2022-09-02"); */
-	$('#hiddenNumber').val("1");
-	$('#hiddenPay').val("1");
-	
-	
-	
+	/* $('#hiddenNumber').val("1"); */
+	/* $('#hiddenPay').val("1"); */
 	
 	</script>
 </body>
