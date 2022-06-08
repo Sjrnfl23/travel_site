@@ -99,12 +99,12 @@
                                                 </div>
                                             </div>
                                             <div class="chat-user-status">
-                                                <img src="../../resources/host/images/users/avatar-3.jpg" class="avatar-md rounded-circle" alt="">
+                                                <img src="/resources/host/memberUploaded/host/<c:out value="${sessYear}"/>/<c:out value="${sessMonth}"/>/<c:out value="${sessDay}"/>/<c:out value="${sessUuidName}"/> " class="avatar-md rounded-circle" alt="">
                                                 <div class="">
                                                     <div class="status"></div>
                                                 </div>
                                             </div>
-                                            <h5 class="font-size-16 mb-1 mt-3"><a href="#" class="text-dark">호스트</a></h5>
+                                            <h5 class="font-size-16 mb-1 mt-3"><a href="#" class="text-dark"><c:out value="${sessName}"/></a></h5>
                                             <p class="text-muted mb-0">답변가능</p>
                                    </div>
                                 </div>
@@ -132,9 +132,10 @@
                                                     <div class="px-3">
                                                         <h5 class="font-size-14 mb-3">사용자</h5>
                                                     </div>
-                                                     <div class="list-unstyled chat-list p-3" id="chatUserList">
-
-                                                     </div>
+                                                    <ul class="list-unstyled chat-list p-3">
+                                                    	<li class="active" id="chatuserList">
+                                                    	</li>
+                                					</ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -453,6 +454,7 @@
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
 
+
     var myName = prompt("Enter your name");
 
     submit.addEventListener('click', (e) => {
@@ -460,6 +462,7 @@
         var name = myName;
 
         const id = push(child(ref(database), 'messages')).key;
+        
 
         set(ref(database, 'messages/' + id), {
             name: name,
@@ -479,7 +482,7 @@
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content">\n' +
-                                '                    <div class="conversation-name"><span class="time">10:04</span></div>\n' +
+                                '                    <div class="conversation-name"><span class="name">'+data.val().name+'</span><span class="time">10:04</span></div>\n' +
                                 '                    <p class="mb-0 msg_cotainer">\n' +
                                 '                        '+data.val().message+'' +
                                 '                    </p>\n' +
@@ -534,6 +537,29 @@
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
         }
+    });
+
+	const chatuserList = ref(database, 'ChatRoom/');
+    onChildAdded(chatuserList, (data) => {
+            var divDataChat = '    <a href="#">\n' +
+                                '        <div class="d-flex align-items-center">\n' +
+                                '            <div class="flex-shrink-0 user-img online align-self-center me-3">\n' +
+                                '                <div class="avatar-sm align-self-center">\n' +
+                                '                    <span class="avatar-title rounded-circle bg-soft-primary text-primary">\n' +
+								'						S\n' +
+                                '                    </span>\n' +
+                                '                </div>\n' +
+                                '                <span class="user-status"></span>\n' +
+                                '            </div>\n' +
+                                '            <div class="flex-grow-1 overflow-hidden">\n' +
+                                '                <h5 class="text-truncate font-size-14 mb-0">'+data.val().username+'</h5>\n' +
+                                '            </div>\n' +
+                                '            <div class="flex-shrink-0">\n' +
+                                '            </div>\n' +
+                                '        </div>\n' +
+                                '    </a><br>';
+            var d2 = document.getElementById('chatuserList');
+            d2.insertAdjacentHTML('beforebegin', divDataChat);
     });
 </script>
 
