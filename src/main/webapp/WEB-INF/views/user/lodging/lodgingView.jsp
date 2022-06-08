@@ -135,6 +135,7 @@
 	<input type="text" id="hiddenNumber" name="hiddenNumber"/>	
 	<input type="text" id="hiddenPriceOrigin" name="hiddenPriceOrigin"/> 
 	<input type="text" id="hiddenPriceFee" name="hiddenPriceFee"/> 
+	<input type="text" id="hiddenCoupon" name="hiddenCoupon"/> 
 	<input type="text" id="hiddenPay" name="hiddenPay"/> 
  
     <div>
@@ -526,8 +527,8 @@
                                             <h5>요금 정보</h5>
                                             <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;" id="price1"></span></p>
                                             <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;" id="price2"></span></p>
-                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;" id="couponPrice"></span></p>
-                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;" id="price3"></span></p>
+                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red" style="font-size: 18px;" id="couponPrice"></span></p>
+                                            <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;" id="price3"></span></p>
                                             <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
                                         </div>
                                     </div>
@@ -658,18 +659,26 @@
 			 $("#datepicker1").val();
 
 			 $("#datepicker1").on("change",function(){
-			 
+
+				 $('#hiddenStartDate').empty();
+				 $('#hiddenEndDate').empty();
+				 
 				var selected1 = $(this).val();		// 선택된 시작날짜 값 받아오기
 				var stDate = new Date(selected1);	// 받아온 값 stDate로 선언
 				var btMs1 = stDate.getTime();		// 받아온 값 시간(밀리세컨드)으로 변환
 				
 				$('#hiddenDay').val(btMs1);			// hiddenDay에 btMs1 전역변수 담기
-				 
+
 			   /* alert(selected1); */
 			   $('#startDate').empty();				// 날짜 표시 부분 비움
 			   $('#startDate').append(selected1);	// 날짜 표시 부분에 날짜넣기
  			   $('#hiddenStartDate').val(selected1);	// hiddenStartDate에 날짜 넣기 (payment 페이지로 전달해야 함)
- 			  
+				$('#couponPrice').empty();
+				$('#endDate').empty();
+			   $('#price').empty();
+			   $('#price1').empty();
+			   $('#price2').empty();				
+ 			   $('#price3').empty();			  
 			 });	
 		}); 
 		
@@ -677,6 +686,8 @@
 			 $("#datepicker2").datepicker();
 			 $("#datepicker2").val();
 			 $("#datepicker2").on("change",function(){
+				 $('#hiddenEndDate').empty();
+				 $('#endDate').empty();
 				 
 				var selected2 = $(this).val();		// 선택된 종료날짜 값 받아오기
 				var btMs1 = $('#hiddenDay').val();	// hiddenDay에 담은 btMs1 값 가져오기
@@ -686,10 +697,11 @@
 				var vtDay = btMs2 / (1000*60*60*24);	// 일수로 계산
 				
 			   /* alert(selected2); */
-			   $('#endDate').empty();
 			   $('#price').empty();
 			   $('#price1').empty();
 			   $('#price2').empty();
+			   $('#couponPrice').empty();
+			   $('#price3').empty();
 			   
 			   $('#endDate').append(' ~ ' + selected2 + '(' + vtDay + '박)' );
 			   $('#hiddenEndDate').val(selected2);
@@ -697,17 +709,26 @@
 			   
 			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/>'+ ' x ' + vtDay + '박' );
 			   
+			   
+			   /* 정상가 */
 			   var priceOrigin = '<c:out value="${item.tvamAdultPrice}"/>'*vtDay;
 			   var price1 = priceOrigin.toLocaleString();
 			   $('#price1').append(price1 + '원');
 			   $('#hiddenPriceOrigin').val(price1);
 			   
-			   var priceFee = priceOrigin/10;
+			   /* 수수료 */
+			   var priceFee = priceOrigin/10;			
 			   var price2 = priceFee.toLocaleString();
 			   $('#price2').append(price2 + '원');
 			   $('#hiddenPriceFee').val(price2);
 			  
-			   var priceTotal = priceOrigin + priceFee;
+			   /* 쿠폰*/
+			   var priceCoupon = '<c:out value="${item.tvcpPrice}"/>'
+			   $('#couponPrice').append('-' + '<fmt:formatNumber value="${item.tvcpPrice}"/>' + '원');
+			   $('#hiddenCoupon').val('<fmt:formatNumber value="${item.tvcpPrice}"/>');		   
+			   
+			   /* 총 합계 (정상가+수수료-쿠폰) */
+			   var priceTotal = priceOrigin + priceFee - priceCoupon;	
 			   var price3 = priceTotal.toLocaleString();
 			   $('#price3').append(price3 + '원');
 			   $('#hiddenPay').val(price3);
@@ -800,6 +821,29 @@
 	/* $('#hiddenEndDate').val("2022-09-02"); */
 	/* $('#hiddenNumber').val("1"); */
 	/* $('#hiddenPay').val("1"); */
+	
+	</script>
+	
+	<script>
+	$("#btnReservation").on("click" , function(){
+		if($('#hiddenStartDate').val() == null || $('#hiddenStartDate').val() == ""){
+			alert('시작일을 선택해주세요.');
+			return false;
+		} 
+		
+		if($('#hiddenEndDate').val() == null || $('#hiddenEndDate').val() == ""){
+			alert('종료일을 선택해주세요.');
+			return false;
+		} 
+		
+		if($('#hiddenNumber').val() == null || $('#hiddenNumber').val() == ""){
+			alert('인원을 선택해주세요.');
+			return false;
+		} else {
+			return true;
+		}
+		
+	});
 	
 	</script>
 </body>

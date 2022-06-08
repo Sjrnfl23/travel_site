@@ -64,8 +64,15 @@ public class User extends Base{
 	private String hiddenNumber;
 	private String hiddenPriceOrigin;
 	private String hiddenPriceFee;
+	private String hiddenCoupon;
 	private String hiddenPay;	
 	private String hiddenDay;	
+	
+	// 쿠폰
+	private Date tvcpStartDate;
+	private Date tvcpEndDate;
+	private String tvcpName;
+	
 	
 	// 좌표
 	private double neLat;
@@ -74,8 +81,8 @@ public class User extends Base{
 	private double swLng;
 	
 	private double size;
-	// 회원정보 member
 	
+	// 회원정보 member
 	private String tvmmSeq;
 	private String tvmmName;
 	private String tvmmPassword;
@@ -149,6 +156,10 @@ public class User extends Base{
 	private Integer tvpmPayTypeCd;
 	private String tvpmDesc;
 	private String hostEmail;
+	
+	
+	
+	
 	public String getTvamSeq() {
 		return tvamSeq;
 	}
@@ -479,6 +490,24 @@ public class User extends Base{
 	public void setHiddenDay(String hiddenDay) {
 		this.hiddenDay = hiddenDay;
 	}
+	public Date getTvcpStartDate() {
+		return tvcpStartDate;
+	}
+	public void setTvcpStartDate(Date tvcpStartDate) {
+		this.tvcpStartDate = tvcpStartDate;
+	}
+	public Date getTvcpEndDate() {
+		return tvcpEndDate;
+	}
+	public void setTvcpEndDate(Date tvcpEndDate) {
+		this.tvcpEndDate = tvcpEndDate;
+	}
+	public String getTvcpName() {
+		return tvcpName;
+	}
+	public void setTvcpName(String tvcpName) {
+		this.tvcpName = tvcpName;
+	}
 	public double getNeLat() {
 		return neLat;
 	}
@@ -755,9 +784,13 @@ public class User extends Base{
 	public void setHostEmail(String hostEmail) {
 		this.hostEmail = hostEmail;
 	}
+	public String getHiddenCoupon() {
+		return hiddenCoupon;
+	}
+	public void setHiddenCoupon(String hiddenCoupon) {
+		this.hiddenCoupon = hiddenCoupon;
+	}
 
-	
-	
 	
 	
 	

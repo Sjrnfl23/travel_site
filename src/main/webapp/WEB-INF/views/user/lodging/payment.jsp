@@ -169,7 +169,7 @@
                                         <div class="col-md-6">
                                             <div>
                                                 <span style="font-size:20px;"><b>게스트</b></span>
-                                                <p style="font-size : 18px;">성인 <c:out value="${rtNumber}"/>명</p>
+                                                <p style="font-size : 18px;"><c:out value="${rtNumber}"/>명</p>
                                             </div>
                                         </div>
                                         <div class="col-md-6" style="text-align: right; vertical-align: bottom;">
@@ -266,7 +266,7 @@
                                                         <h5 class="mb-0"><b>현금 / 신용카드</b></h5>
                                                         <img src="/resources/user/images/credit.png" class="img-fluid" alt="#">
                                                     </div>
-                                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                                    <div id="collapseThree" class="collapse collapse show" aria-labelledby="headingThree" data-parent="#accordion">
                                                         <div class="card-body">
                                                         	<div class="row">
                                                         		<div class="col-md-6">
@@ -342,8 +342,8 @@
                                             <h5>요금 정보</h5>
                                             <p style="font-size: 16px;"><u><c:out value="${item.tvamAdultPrice}"/> x <c:out value="${rtDay}"/>박</u> <span style="font-size: 18px;"><c:out value="${rtPriceOrigin}"/>원</span></p>
                                             <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;"><c:out value="${rtPriceFee}"/>원</span></p>
-                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;"></span></p>
-                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;"><c:out value="${rtPay}"/>원</span></p>
+                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red"  style="font-size: 18px;">-<c:out value="${rtCoupon}"/></span></p>
+                                            <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;"><c:out value="${rtPay}"/>원</span></p>
                                         </div>
                                     </div>
                                 </div>

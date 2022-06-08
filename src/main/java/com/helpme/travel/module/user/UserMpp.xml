@@ -234,13 +234,18 @@
 			,a.tvamSmokeNy
 			,a.tvamPetNy
 			,a.tvamPartyNy
+			,b.tvcpName
+			,b.tvcpPrice
 		FROM
 			travel_site.tvLodging a
+			left join tvCoupon b on a.tvamSeq = b.tvamSeq and tvcpDelNy = 0
+			<![CDATA[
+            	AND date(b.tvcpStartDate) <= date(now()) and date(b.tvcpEndDate) >= date(now())
+            ]]>
          WHERE 1=1
 			AND a.tvamDelNy = 0 
 			AND a.tvamSeq = #{tvamSeq}
-            <!-- AND b.tvcpStartDate < now() and b.tvcpEndDate > now() -->
-			
+
 	</select>
 	
 	

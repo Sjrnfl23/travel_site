@@ -200,6 +200,8 @@ public class UserController {
 		model.addAttribute("rtPriceOrigin", dto.getHiddenPriceOrigin());
 		model.addAttribute("rtPriceFee", dto.getHiddenPriceFee());
 		model.addAttribute("rtPay", dto.getHiddenPay());
+		model.addAttribute("rtCoupon", dto.getHiddenCoupon());
+		model.addAttribute("rtTvmmSeq", dto.getTvmmSeq());
 	
 		System.out.println("dto.getTvamLodgingName(): " + dto.getTvamLodgingName());
 		System.out.println("dto.getTvamSeq(): " + dto.getTvamSeq());
