@@ -116,8 +116,8 @@
                     <h3>당신의 여행지를 검색해보세요. </h3>
                 </div>
             </div>
-            <form>
-            <div class="row">
+ <!--            <form>
+              <div class="row">
                 <div class="col-md-12">
                     
                         <div class="search-box">
@@ -162,8 +162,8 @@
                     
                     <p class="search-bottom-title">By using this website, you are agreeing to our <a href="#"> terms and conditions</a></p>
                 </div>
-            </div>
-            </form>
+            </div> 
+            </form> -->
         </div>
     </section>
     <!--//END MAIN TITLE -->

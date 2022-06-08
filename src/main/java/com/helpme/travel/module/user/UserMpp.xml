@@ -219,20 +219,27 @@
 			,a.tvamHostName
 			,a.tvmmSeq
 			,a.tvamAdultPrice
-			<!-- ,b.tvarSeq
-			,b.tvarReview
-			,b.tvarStarPoint
-			,b.tvarDate 
-			,c.tvmmSeq
-			,c.tvmmName
-			,c.tvmmEmailAccount -->
+			,a.tvamSeaNy
+			,a.tvamCookingNy
+			,a.tvamWifiNy
+			,a.tvamParkingRoomNy
+			,a.tvamJacuzziNy
+			,a.tvamTvNy
+			,a.tvamMicrowaveNy
+			,a.tvamAirConditionerNy
+			,a.tvamBbqGrillNy
+			,a.tvamPoolNy
+			,a.tvamFridgeNy
+			,a.tvamHeaterNy
+			,a.tvamSmokeNy
+			,a.tvamPetNy
+			,a.tvamPartyNy
 		FROM
 			travel_site.tvLodging a
-			<!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  
-			LEFT OUTER JOIN travel_site.tvMember AS c ON c.tvmmSeq = a.tvmmSeq -->
-		WHERE 1=1
+         WHERE 1=1
 			AND a.tvamDelNy = 0 
 			AND a.tvamSeq = #{tvamSeq}
+            <!-- AND b.tvcpStartDate < now() and b.tvcpEndDate > now() -->
 			
 	</select>
 	

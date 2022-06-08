@@ -47,6 +47,10 @@ public class User extends Base{
 	private String tvamCheckOutTime;
 	private Integer tvamSmokeNy;
 	private Integer tvamCookingNy;
+	private Integer tvamSeaNy;
+	private Integer tvamAirConditionerNy;
+	private Integer tvamPetNy;
+	private Integer tvamPartyNy;
 	
 	private Date regDateTime;
 	private Date regDateTimeSvr;
@@ -145,9 +149,6 @@ public class User extends Base{
 	private Integer tvpmPayTypeCd;
 	private String tvpmDesc;
 	private String hostEmail;
-	
-//	===============================================			
-	
 	public String getTvamSeq() {
 		return tvamSeq;
 	}
@@ -375,6 +376,30 @@ public class User extends Base{
 	}
 	public void setTvamCookingNy(Integer tvamCookingNy) {
 		this.tvamCookingNy = tvamCookingNy;
+	}
+	public Integer getTvamSeaNy() {
+		return tvamSeaNy;
+	}
+	public void setTvamSeaNy(Integer tvamSeaNy) {
+		this.tvamSeaNy = tvamSeaNy;
+	}
+	public Integer getTvamAirConditionerNy() {
+		return tvamAirConditionerNy;
+	}
+	public void setTvamAirConditionerNy(Integer tvamAirConditionerNy) {
+		this.tvamAirConditionerNy = tvamAirConditionerNy;
+	}
+	public Integer getTvamPetNy() {
+		return tvamPetNy;
+	}
+	public void setTvamPetNy(Integer tvamPetNy) {
+		this.tvamPetNy = tvamPetNy;
+	}
+	public Integer getTvamPartyNy() {
+		return tvamPartyNy;
+	}
+	public void setTvamPartyNy(Integer tvamPartyNy) {
+		this.tvamPartyNy = tvamPartyNy;
 	}
 	public Date getRegDateTime() {
 		return regDateTime;
@@ -730,10 +755,10 @@ public class User extends Base{
 	public void setHostEmail(String hostEmail) {
 		this.hostEmail = hostEmail;
 	}
-	
-	
 
-		
+	
+	
+	
 	
 	
 	
