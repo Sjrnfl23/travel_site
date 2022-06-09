@@ -455,7 +455,7 @@
     const database = getDatabase(app);
 
 
-    var myName = prompt("Enter your name");
+    var myName = '<c:out value="${sessName}"/>'
 
     submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;
