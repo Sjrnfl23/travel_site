@@ -6,7 +6,7 @@
 	<resultMap id="resultMapObj" type="com.helpme.travel.module.host.Host"></resultMap>
 
 	<select id="selectCoupon" resultMap="resultMapObj">
-	 select
+		select
 				a.tvcpSeq
 				,a.tvcpName
 				,b.tvamLodgingName
@@ -25,12 +25,12 @@
 				1=1
 				and tvcpDelNy=0
 				and b.tvmmSeq= #{tvmmSeq}
-					<choose>
-			<when test="shOption == 1">and a.tvcpName like concat('%', #{shValue}, '%')</when>	<!-- 쿠폰 이름 검색 -->
-			<when test="shOption == 2">and b.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소 이름 검색 -->
-			
-		</choose>			
-			limit #{startRnumForMysql}, #{rowNumToShow}	
+		<choose>
+			<when test="shOption == 1">and a.tvcpName like concat('%', #{shValue}, '%')</when> <!-- 쿠폰 이름 검색 -->
+			<when test="shOption == 2">and b.tvamLodgingName like concat('%', #{shValue}, '%')</when> <!-- 숙소 이름 검색 -->
+
+		</choose>
+		limit #{startRnumForMysql}, #{rowNumToShow}
 	</select>
 	<select id="selectOneCoupon" resultMap="resultMapObj">
 	 select
@@ -119,7 +119,7 @@
 	<!--lodging start-->
 
 	<select id="selectLodging" resultMap="resultMapObj">
-	 	select
+		select
 	 			a.tvamSeq
 				,a.tvamLodgingName
 				,(select tvcdName from tvCode b where a.tvamCategoryCd=b.tvcdSeq) as tvamCategory
@@ -138,13 +138,13 @@
 				1=1
 				and tvamDelNy=0
 				and a.tvmmSeq = #{tvmmSeq}
-						<choose>
-						
-			<when test="shOption == 1">and a.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소 이름 검색 -->
-			
-			<when test="shOption == 2">and a.tvamAddressFull like concat('%', #{shValue}, '%')</when>	<!-- 주소 검색 -->
-		</choose>			
-			limit #{startRnumForMysql}, #{rowNumToShow}	
+		<choose>
+
+			<when test="shOption == 1">and a.tvamLodgingName like concat('%', #{shValue}, '%')</when> <!-- 숙소 이름 검색 -->
+
+			<when test="shOption == 2">and a.tvamAddressFull like concat('%', #{shValue}, '%')</when> <!-- 주소 검색 -->
+		</choose>
+		limit #{startRnumForMysql}, #{rowNumToShow}
 	</select>
 
 	<select id="selectOneLodging" resultMap="resultMapObj">
@@ -209,6 +209,23 @@
 				,tvamDesc
 				,tvmmSeq
 				,tvamDelNy
+				,tvamSeaNy
+				,tvamPoolNy
+				,tvamJacuzziNy
+				,tvamBbqGrillNy
+				,tvamFirePlaceNy
+				,tvamGymNy
+				,tvamWifiNy
+				,tvamTvNy
+				,tvamParkingRoomNy
+				,tvamAirConditionerNy
+				,tvamHeaterNy
+				,tvamFridgeNy
+				,tvamMicrowaveNy
+				,tvamSmokeNy
+				,tvamCookingNy
+				,tvamPetNy
+				,tvamPartyNy
 	
 			)values(
 				
@@ -228,12 +245,29 @@
 				,#{tvamDesc}
 				,#{tvmmSeq}
 				,0
+				,#{tvamSeaNy}           
+				,#{tvamPoolNy}
+				,#{tvamJacuzziNy}
+				,#{tvamBbqGrillNy}
+				,#{tvamFirePlaceNy}
+				,#{tvamGymNy}
+				,#{tvamWifiNy}
+				,#{tvamTvNy}
+				,#{tvamParkingRoomNy}
+				,#{tvamAirConditionerNy}
+				,#{tvamHeaterNy}
+				,#{tvamFridgeNy}
+				,#{tvamMicrowaveNy}				
+				,#{tvamSmokeNy}
+				,#{tvamCookingNy}
+				,#{tvamPetNy}
+				,#{tvamPartyNy}
 			)
-			
-	<selectKey resultType="Integer" keyProperty="tvamSeq" order="AFTER">		<!-- 파생테이블 seq값을 넣을 수 있도록 해준다 -->
+		<selectKey resultType="Integer" keyProperty="tvamSeq" order="AFTER">
+			<!-- 파생테이블 seq값을 넣을 수 있도록 해준다 -->
 			SELECT last_insert_id()
-			</selectKey>
-	
+		</selectKey>
+
 	</insert>
 
 	<update id="updateLodging">
@@ -331,7 +365,7 @@
 	<!--reservation Start-->
 
 	<select id="selectReservation" resultMap="resultMapObj">
-	select
+		select
 		tvpmSeq
 		,tvamLodgingName
 		,tvpmStartDate
@@ -348,17 +382,15 @@
 			left join tvMember b on a.tvmmSeq=b.tvmmSeq 
 			left join tvLodging c on a.tvamSeq=c.tvamSeq 
 		where tvpmDelNy=0 and c.tvmmSeq = #{tvmmSeq}
-					<choose>
-			<when test="shOption == 1">and c.tvamLodgingName like concat('%', #{shValue}, '%')</when>	<!-- 숙소 이름 검색 -->
-			<when test="shOption == 2">and b.tvmmName like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이름 검색 -->
-			<when test="shOption == 3">and b.tvmmEmailAccount like concat('%', #{shValue}, '%')</when>	<!-- 사용자 이메일 검색 -->
-			
-		</choose>			
-			limit #{startRnumForMysql}, #{rowNumToShow}		
-		
-	
+		<choose>
+			<when test="shOption == 1">and c.tvamLodgingName like concat('%', #{shValue}, '%')</when> <!-- 숙소 이름 검색 -->
+			<when test="shOption == 2">and b.tvmmName like concat('%', #{shValue}, '%')</when> <!-- 사용자 이름 검색 -->
+			<when test="shOption == 3">and b.tvmmEmailAccount like concat('%', #{shValue}, '%')</when> <!-- 사용자 이메일 검색 -->
+
+		</choose>
+		limit #{startRnumForMysql}, #{rowNumToShow}
 	</select>
-	
+
 	<select id="selectOneReservation" resultMap="resultMapObj">
 	
 		select 
@@ -416,7 +448,7 @@
 		where
 			tvpmSeq=#{tvpmSeq}
 	</delete>
-	
+
 	<!-- reservation End -->
 
 	<!-- host signup start -->
@@ -450,38 +482,38 @@
 	)
 	
 	</insert>
-	
-	
+
+
 	<!-- host signup end -->
-	
+
 	<!-- paging start-->
-	<select id="selectOneCountLodging" resultType="Integer" >	<!-- selectCommon 사용 / 페이징 -->
-			select
+	<select id="selectOneCountLodging" resultType="Integer">
+		<!-- selectCommon 사용 / 페이징 -->
+		select
 				count(*)
 			from tvLodging
 			where tvmmSeq= #{tvmmSeq}
 				and tvamDelNy = 0
-				
 	</select>
-	<select id="selectOneCountCoupon" resultType="Integer" >	<!-- selectCommon 사용 / 페이징 -->
-			select
+	<select id="selectOneCountCoupon" resultType="Integer">
+		<!-- selectCommon 사용 / 페이징 -->
+		select
 				count(*)
 			from tvCoupon a
 			left join tvLodging b on a.tvamseq=b.tvamseq
 			where b.tvmmSeq= #{tvmmSeq}
 				and a.tvcpDelNy = 0
-				
 	</select>
-	<select id="selectOneCountReservation" resultType="Integer" >	<!-- selectCommon 사용 / 페이징 -->
-			select
+	<select id="selectOneCountReservation" resultType="Integer">
+		<!-- selectCommon 사용 / 페이징 -->
+		select
 				count(*)
 			from tvPayment a
 			left join tvLodging c on a.tvamSeq=c.tvamSeq 
 		where tvpmDelNy=0 and c.tvmmSeq = #{tvmmSeq}
-				
 	</select>
 	<!--paging end-->
-	
+
 	<select id="selectOneSales" resultMap="resultMapObj">
 		select 
 			month(a.regDateTime) as 'month' 
@@ -497,7 +529,7 @@
 		 	group by month
 	
 	</select>
-	
+
 	<!-- uploaded s -->
 	<update id="updateUploaded">
 		update tvMemberUploaded set
@@ -562,7 +594,7 @@
 		from tvMemberUploaded
 		where 1=1
 			and tvmmSeq = #{tvmmSeq} 		
-	</select>	
+	</select>
 	<update id="updateUploadedLodging">
 	
 		update tvLodgingUploaded set
@@ -583,5 +615,5 @@
 			
 	</update>
 	<!-- uploaded e -->
-	
+
 </mapper> 

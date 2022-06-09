@@ -103,8 +103,8 @@ public class UserController {
 	@RequestMapping(value = "/search")
 	public String UserSearch(Model model, UserVo vo) throws Exception {
 
-//		List<User> list = service.selectListSearch(vo);
-//		model.addAttribute("list", list);
+		//User list = service.selectOneLodgingView(vo);
+		//model.addAttribute("item", list);
 		
 		return "user/lodging/search";
 	}

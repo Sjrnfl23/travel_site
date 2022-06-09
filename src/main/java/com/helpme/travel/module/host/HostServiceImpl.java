@@ -90,7 +90,7 @@ public class HostServiceImpl implements HostService{
 			dao.insertUploadedLodging(dto);
 			j++;
 		}
-		return dao.insertLodging(dto);
+		return 1;
 	}
 
 	@Override
