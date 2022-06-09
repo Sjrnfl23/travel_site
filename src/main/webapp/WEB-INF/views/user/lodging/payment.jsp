@@ -340,10 +340,10 @@
                                         </div>
                                         <div class="booking-cost" >
                                             <h5>요금 정보</h5>
-                                            <p style="font-size: 16px;"><u><c:out value="${item.tvamAdultPrice}"/> x <c:out value="${rtDay}"/>박</u> <span style="font-size: 18px;"><c:out value="${rtPriceOrigin}"/>원</span></p>
+                                            <p style="font-size: 16px;"><u><c:out value="${rtPriceOrigin}"/> x <c:out value="${rtDay}"/>박</u> <span style="font-size: 18px;"><c:out value="${rtPriceOrigin}"/>원</span></p>
                                             <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;"><c:out value="${rtPriceFee}"/>원</span></p>
                                             <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red"  style="font-size: 18px;">-<c:out value="${rtCoupon}"/></span></p>
-                                            <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;"><c:out value="${rtPay}"/>원</span></p>
+                                            <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;"><fmt:formatNumber value="${rtPay}"/>원</span></p>
                                         </div>
                                     </div>
                                 </div>

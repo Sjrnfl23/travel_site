@@ -131,6 +131,7 @@
 	<input type="text" id="hiddenSeq" name="tvamSeq"/>
 	<input type="text" id="hiddenStartDate" name="hiddenStartDate"/>
 	<input type="text" id="hiddenDay" name="hiddenDay"/>
+	<input type="text" id="hiddenDay1" name="hiddenDay1"/>
 	<input type="text" id="hiddenEndDate" name="hiddenEndDate"/>
 	<input type="text" id="hiddenNumber" name="hiddenNumber"/>	
 	<input type="text" id="hiddenPriceOrigin" name="hiddenPriceOrigin"/> 
@@ -667,7 +668,7 @@
 				var stDate = new Date(selected1);	// 받아온 값 stDate로 선언
 				var btMs1 = stDate.getTime();		// 받아온 값 시간(밀리세컨드)으로 변환
 				
-				$('#hiddenDay').val(btMs1);			// hiddenDay에 btMs1 전역변수 담기
+				$('#hiddenDay1').val(btMs1);			// hiddenDay에 btMs1 전역변수 담기
 
 			   /* alert(selected1); */
 			   $('#startDate').empty();				// 날짜 표시 부분 비움
@@ -690,7 +691,7 @@
 				 $('#endDate').empty();
 				 
 				var selected2 = $(this).val();		// 선택된 종료날짜 값 받아오기
-				var btMs1 = $('#hiddenDay').val();	// hiddenDay에 담은 btMs1 값 가져오기
+				var btMs1 = $('#hiddenDay1').val();	// hiddenDay에 담은 btMs1 값 가져오기
 			   
 				var edDate = new Date(selected2);	// 받아온 종료날짜 값 edDate로 선언
 				var btMs2 = edDate.getTime() - btMs1;	// 받아온 종료날짜 값 시간(밀리세컨드)으로 변환해서 시작날짜값(밀리세컨드)만큼 차감
@@ -731,7 +732,7 @@
 			   var priceTotal = priceOrigin + priceFee - priceCoupon;	
 			   var price3 = priceTotal.toLocaleString();
 			   $('#price3').append(price3 + '원');
-			   $('#hiddenPay').val(price3);
+			   $('#hiddenPay').val(priceTotal);
 			   
 			 });				 
 		}); 

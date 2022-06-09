@@ -463,7 +463,9 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin/mainView")
 	public String AdminMainView(Admin dto, Model model) throws Exception {
-		
+
+		 Admin rt = service.selectOneMainView(dto); 
+		 model.addAttribute("rt", rt);		
 		 Admin rt1 = service.selectOneMainView1(dto); 
 		 model.addAttribute("rt1", rt1);
 		 Admin rt2 = service.selectOneMainView2(dto); 

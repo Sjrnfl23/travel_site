@@ -535,6 +535,19 @@
 
 <!--  ===========================메인뷰================================= -->		
 
+	<select id="selectOneMainView" resultMap="resultMapObj">
+		select 
+			month(regDateTime) as 'month' 
+		    , sum(tvpmtotalPrice) as 'sales'
+		    , sum(tvpmtotalPrice)*0.1 as 'fees'
+		    , count(tvpmSeq) as 'reservationCount'
+		    , (select count(*) from tvMember where tvmmDelNy = 0 and tvmmAdminNy = 0 and tvmmHostNy = 0) as memberCount
+		from tvPayment 
+		where 1=1 
+			and tvpmDelNy = 0
+		    and month(regDateTime) = month(now())   
+		 	group by month
+	</select>
 	<select id="selectOneMainView1" resultMap="resultMapObj">
 		select 
 			month(regDateTime) as 'month' 
@@ -545,7 +558,7 @@
 		from tvPayment 
 		where 1=1 
 			and tvpmDelNy = 0
-		    and month(regDateTime) = 1    
+		    and month(regDateTime) = 1   
 		 	group by month
 	</select>
 	<select id="selectOneMainView2" resultMap="resultMapObj">

@@ -73,6 +73,7 @@ public class AdminDao {
 
    // ==========================mainView===================================
 
+   public Admin selectOneMainView(Admin dto){return sqlSession.selectOne(namespace + ".selectOneMainView", dto);}
    public Admin selectOneMainView1(Admin dto){return sqlSession.selectOne(namespace + ".selectOneMainView1", dto);}
    public Admin selectOneMainView2(Admin dto){return sqlSession.selectOne(namespace + ".selectOneMainView2", dto);}
    public Admin selectOneMainView3(Admin dto){return sqlSession.selectOne(namespace + ".selectOneMainView3", dto);}

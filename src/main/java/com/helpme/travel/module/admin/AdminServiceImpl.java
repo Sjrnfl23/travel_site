@@ -213,6 +213,11 @@ public class AdminServiceImpl implements AdminService{
 //  ===========================mainView=================================	
 
 	@Override
+	public Admin selectOneMainView(Admin dto) throws Exception {
+		return dao.selectOneMainView(dto);
+	}
+	
+	@Override
 	public Admin selectOneMainView1(Admin dto) throws Exception {
 		return dao.selectOneMainView1(dto);
 	}	
