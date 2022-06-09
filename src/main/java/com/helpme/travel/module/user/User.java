@@ -47,6 +47,10 @@ public class User extends Base{
 	private String tvamCheckOutTime;
 	private Integer tvamSmokeNy;
 	private Integer tvamCookingNy;
+	private Integer tvamSeaNy;
+	private Integer tvamAirConditionerNy;
+	private Integer tvamPetNy;
+	private Integer tvamPartyNy;
 	
 	private Date regDateTime;
 	private Date regDateTimeSvr;
@@ -60,8 +64,15 @@ public class User extends Base{
 	private String hiddenNumber;
 	private String hiddenPriceOrigin;
 	private String hiddenPriceFee;
+	private String hiddenCoupon;
 	private String hiddenPay;	
 	private String hiddenDay;	
+	
+	// 쿠폰
+	private Date tvcpStartDate;
+	private Date tvcpEndDate;
+	private String tvcpName;
+	
 	
 	// 좌표
 	private double neLat;
@@ -70,8 +81,8 @@ public class User extends Base{
 	private double swLng;
 	
 	private double size;
-	// 회원정보 member
 	
+	// 회원정보 member
 	private String tvmmSeq;
 	private String tvmmName;
 	private String tvmmPassword;
@@ -146,7 +157,8 @@ public class User extends Base{
 	private String tvpmDesc;
 	private String hostEmail;
 	
-//	===============================================			
+	
+	
 	
 	public String getTvamSeq() {
 		return tvamSeq;
@@ -376,6 +388,30 @@ public class User extends Base{
 	public void setTvamCookingNy(Integer tvamCookingNy) {
 		this.tvamCookingNy = tvamCookingNy;
 	}
+	public Integer getTvamSeaNy() {
+		return tvamSeaNy;
+	}
+	public void setTvamSeaNy(Integer tvamSeaNy) {
+		this.tvamSeaNy = tvamSeaNy;
+	}
+	public Integer getTvamAirConditionerNy() {
+		return tvamAirConditionerNy;
+	}
+	public void setTvamAirConditionerNy(Integer tvamAirConditionerNy) {
+		this.tvamAirConditionerNy = tvamAirConditionerNy;
+	}
+	public Integer getTvamPetNy() {
+		return tvamPetNy;
+	}
+	public void setTvamPetNy(Integer tvamPetNy) {
+		this.tvamPetNy = tvamPetNy;
+	}
+	public Integer getTvamPartyNy() {
+		return tvamPartyNy;
+	}
+	public void setTvamPartyNy(Integer tvamPartyNy) {
+		this.tvamPartyNy = tvamPartyNy;
+	}
 	public Date getRegDateTime() {
 		return regDateTime;
 	}
@@ -453,6 +489,24 @@ public class User extends Base{
 	}
 	public void setHiddenDay(String hiddenDay) {
 		this.hiddenDay = hiddenDay;
+	}
+	public Date getTvcpStartDate() {
+		return tvcpStartDate;
+	}
+	public void setTvcpStartDate(Date tvcpStartDate) {
+		this.tvcpStartDate = tvcpStartDate;
+	}
+	public Date getTvcpEndDate() {
+		return tvcpEndDate;
+	}
+	public void setTvcpEndDate(Date tvcpEndDate) {
+		this.tvcpEndDate = tvcpEndDate;
+	}
+	public String getTvcpName() {
+		return tvcpName;
+	}
+	public void setTvcpName(String tvcpName) {
+		this.tvcpName = tvcpName;
 	}
 	public double getNeLat() {
 		return neLat;
@@ -730,10 +784,14 @@ public class User extends Base{
 	public void setHostEmail(String hostEmail) {
 		this.hostEmail = hostEmail;
 	}
-	
-	
+	public String getHiddenCoupon() {
+		return hiddenCoupon;
+	}
+	public void setHiddenCoupon(String hiddenCoupon) {
+		this.hiddenCoupon = hiddenCoupon;
+	}
 
-		
+	
 	
 	
 	
