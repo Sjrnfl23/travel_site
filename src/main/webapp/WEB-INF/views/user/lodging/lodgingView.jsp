@@ -555,7 +555,7 @@
                             <p>월 - 일 09:30 am - 05:30 pm </p>
                             <a href="#" class="featured-open">OPEN NOW</a>
                         </div>
-                        <a href="/dm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
+                        <a id="btnDm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
                     </div>
                     <div class="follow">
                         <div class="follow-img">
@@ -845,6 +845,39 @@
 		}
 		
 	});
+	
+	</script>
+		 <script type="text/javascript">
+	        
+ 	$("#btnDm").on("click" , function(){
+		
+	 	 $.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/loginCheck"
+			,data : {}
+			,success: function(response) {
+				
+				if(response.rt == "pass") {
+			
+				
+					 location.href = "/dm"; 
+					
+				}else{			
+					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
+					
+					if(answer ==true){
+						
+						location.href="/loginForm"
+					}
+					}
+				}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+	});   
 	
 	</script>
 </body>
