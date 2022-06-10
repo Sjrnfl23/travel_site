@@ -786,15 +786,7 @@
 			,url: "/loginCheck"
 			,data : {}
 			,success: function(response) {
-				
 				if(response.rt == "pass") {
-					$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
-					$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
-					$('#hiddenStartDate').val("2022-08-26");
-					$('#hiddenEndDate').val("2022-09-02");
-					$('#hiddenNumber').val("1");
-					$('#hiddenPay').val("2136000");					
-					
 					 location.href = "/payment"; 
 					
 				}else{			

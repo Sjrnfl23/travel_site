@@ -266,8 +266,8 @@
 			,a.tvamSmokeNy
 			,a.tvamPetNy
 			,a.tvamPartyNy
-			,b.tvcpName
-			,b.tvcpPrice
+			,c.tvcpName
+			,c.tvcpPrice
 
 		FROM
 			travel_site.tvLodging a
@@ -275,11 +275,9 @@
 			<!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  
 			LEFT OUTER JOIN travel_site.tvMember AS c ON c.tvmmSeq = a.tvmmSeq -->
 			left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
-		WHERE 1=1
-
-			left join tvCoupon b on a.tvamSeq = b.tvamSeq and tvcpDelNy = 0
+			left join tvCoupon c on a.tvamSeq = c.tvamSeq and tvcpDelNy = 0
 			<![CDATA[
-            	AND date(b.tvcpStartDate) <= date(now()) and date(b.tvcpEndDate) >= date(now())
+            	AND date(c.tvcpStartDate) <= date(now()) and date(c.tvcpEndDate) >= date(now())
             ]]>
          WHERE 1=1
 
