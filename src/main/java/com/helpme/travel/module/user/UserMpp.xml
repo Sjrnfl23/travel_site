@@ -187,7 +187,19 @@
 		where 1 = 1
 			and tvpmDelNy = 0
 			and a.tvmmSeq = #{tvmmSeq}
+		order by a.tvpmSeq DESC
+		limit #{startRnumForMysql}, #{rowNumToShow}	
 	</select>
+
+	<select id="selectOneCountReservation" resultType="Integer">	<!-- selectCommon 사용 / 페이징 -->
+			select
+				count(*)
+			from tvPayment
+			where 1 = 1
+				and tvpmDelNy = 0
+				and tvmmSeq = #{tvmmSeq}
+	</select>	
+
 
 	<insert id="insertReservation">
 		INSERT INTO tvPayment (
