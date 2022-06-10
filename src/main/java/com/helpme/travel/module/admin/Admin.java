@@ -46,6 +46,12 @@ public class Admin {
 	private String tvamTelNumber;
 	private String host;
 	private String category;
+	private Integer tvamSeaNy;
+	private Integer tvamCookingNy;
+	private Integer tvamPetNy;
+	private Integer tvamPartyNy;
+	private Integer tvamSmokeNy;
+	
 	
 	
 	private Date regDateTime;
@@ -144,8 +150,65 @@ public class Admin {
 	
 //	===========================================================
 	
+	
+	
+	
+	
+	
+	
 	public String getTvamSeq() {
 		return tvamSeq;
+	}
+
+
+	public Integer getTvamSmokeNy() {
+		return tvamSmokeNy;
+	}
+
+
+	public void setTvamSmokeNy(Integer tvamSmokeNy) {
+		this.tvamSmokeNy = tvamSmokeNy;
+	}
+
+
+	public Integer getTvamSeaNy() {
+		return tvamSeaNy;
+	}
+
+
+	public void setTvamSeaNy(Integer tvamSeaNy) {
+		this.tvamSeaNy = tvamSeaNy;
+	}
+
+	
+	
+	public Integer getTvamCookingNy() {
+		return tvamCookingNy;
+	}
+
+
+	public void setTvamCookingNy(Integer tvamCookingNy) {
+		this.tvamCookingNy = tvamCookingNy;
+	}
+
+
+	public Integer getTvamPetNy() {
+		return tvamPetNy;
+	}
+
+
+	public void setTvamPetNy(Integer tvamPetNy) {
+		this.tvamPetNy = tvamPetNy;
+	}
+
+
+	public Integer getTvamPartyNy() {
+		return tvamPartyNy;
+	}
+
+
+	public void setTvamPartyNy(Integer tvamPartyNy) {
+		this.tvamPartyNy = tvamPartyNy;
 	}
 
 
