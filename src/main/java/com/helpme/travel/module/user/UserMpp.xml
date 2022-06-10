@@ -68,10 +68,10 @@
 				<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
 			</choose>
 			<choose>
-				<when test="shlctValue == '제주'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
-				<when test="shlctValue == '서울'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
-				<when test="shlctValue == '부산'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
-				<when test="shlctValue == '진해'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+				<when test="shlctValue == '제주'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+				<when test="shlctValue == '서울'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+				<when test="shlctValue == '부산'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+				<when test="shlctValue == '진해'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
 			</choose>
 	 </select>
 	 <select id="selectListSearchFlex" resultMap="resultMapObj">
@@ -105,10 +105,10 @@
 				<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
 				</choose>
 				<choose>
-					<when test="shlctValue == '제주'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
-					<when test="shlctValue == '서울'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
-					<when test="shlctValue == '부산'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
-					<when test="shlctValue == '진해'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+					<when test="shlctValue == '제주'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+					<when test="shlctValue == '서울'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+					<when test="shlctValue == '부산'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+					<when test="shlctValue == '진해'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
 				</choose>
 	</select>
 
