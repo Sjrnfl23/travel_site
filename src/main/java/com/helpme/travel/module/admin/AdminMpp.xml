@@ -177,7 +177,7 @@
 		    , a.tvamPoolNy
 		    , a.tvamJacuzziNy
 		    , a.tvamBbqGrillNy
-		    , a.tvamFirePlaceNy
+		    <!-- , a.tvamFirePlaceNy -->
 		    , a.tvamGymNy
 		    , a.tvamWifiNy
 		    , a.tvamTvNy

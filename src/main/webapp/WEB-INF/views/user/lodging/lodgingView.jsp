@@ -223,7 +223,7 @@
 	                        <c:if test="${item.tvamSeaNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">해변과 인접</span>
 				                     </label>
 				                 </div>
@@ -231,7 +231,7 @@
 				            <c:if test="${item.tvamCookingNy eq '1'}">
 				                 <div class="col-md-4">    
 	                                <label class="custom-checkbox">
-				                       <span class="ti-check-box"></span>
+				                       <span class="ti-check-box" style="color: blue;"></span>
 				                       <span class="custom-control-description">주방</span>
 			                       </label>
 	                            </div>
@@ -239,7 +239,7 @@
 	                       	<c:if test="${item.tvamWifiNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                     <span class="ti-check-box"></span>
+				                     <span class="ti-check-box" style="color: blue;"></span>
 				                     <span class="custom-control-description">무선 인터넷</span>
 				                   </label>
 				                </div>
@@ -247,7 +247,7 @@
                         	<c:if test="${item.tvamParkingRoomNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">건물 내 무료 주차</span>
 				                     </label>
 				                 </div>
@@ -255,7 +255,7 @@
 			                 <c:if test="${item.tvamJacuzziNy eq '1'}">
 				                 <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                       <span class="ti-check-box"></span>
+				                       <span class="ti-check-box" style="color: blue;"></span>
 				                       <span class="custom-control-description">자쿠지</span>
 			                       </label>
 	                            </div>
@@ -263,7 +263,7 @@
 	                        <c:if test="${item.tvamTvNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                     <span class="ti-check-box"></span>
+				                     <span class="ti-check-box" style="color: blue;"></span>
 				                     <span class="custom-control-description">TV</span>
 				                   </label>
 				                </div>
@@ -271,7 +271,7 @@
 							<c:if test="${item.tvamMicrowaveNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">전자레인지</span>
 				                     </label>
 				                 </div>
@@ -279,7 +279,7 @@
 							<c:if test="${item.tvamAirConditionerNy eq '1'}">
 				                 <div class="col-md-4">    
 	                                <label class="custom-checkbox">
-				                       <span class="ti-check-box"></span>
+				                       <span class="ti-check-box" style="color: blue;"></span>
 				                       <span class="custom-control-description">에어컨</span>
 			                       </label>
 	                            </div>
@@ -287,7 +287,7 @@
 							<c:if test="${item.tvamBbqGrillNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                     <span class="ti-check-box"></span>
+				                     <span class="ti-check-box" style="color: blue;"></span>
 				                     <span class="custom-control-description">바베큐</span>
 				                   </label>
 				                </div>
@@ -295,7 +295,7 @@
 				           <c:if test="${item.tvamPoolNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">수영장</span>
 				                     </label>
 				                 </div>
@@ -303,7 +303,7 @@
 				           <c:if test="${item.tvamFridgeNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">냉장고</span>
 				                     </label>
 				                 </div>
@@ -311,7 +311,7 @@
 				           <c:if test="${item.tvamHeaterNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">히터</span>
 				                     </label>
 				                 </div>
@@ -439,7 +439,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="custom-checkbox">
-			                        <span class="ti-check-box"></span>
+			                        <span class="ti-check-box" style="color: blue;"></span>
 			                        <span class="custom-control-description">체크인 : 오후 <c:out value="${item.tvamCheckInTime}"/>이후</span>
 			                     </label>
 			                 </div>
@@ -447,7 +447,7 @@
 			             <div class="row">
 			                 <div class="col-md-6">    
                                 <label class="custom-checkbox">
-			                       <span class="ti-check-box"></span>
+			                       <span class="ti-check-box" style="color: blue;"></span>
 			                       <span class="custom-control-description">체크아웃 : 오전 <c:out value="${item.tvamCheckOutTime}"/>시</span>
 		                       </label>
                             </div>
@@ -456,7 +456,7 @@
 	                        <div class="row">
 		                            <div class="col-md-6">
 		                                <label class="custom-checkbox">
-					                        <span class="ti-check-box"></span>
+					                        <span class="ti-check-box" style="color: blue;"></span>
 					                        <span class="custom-control-description">흡연 금지</span>
 					                     </label>
 					                 </div>
@@ -464,9 +464,9 @@
 				        </c:if>
 			            <c:if test="${item.tvamPetNy eq '1'}">
 				            <div class="row">
-				                 <div class="col-md-4">    
+				                 <div class="col-md-4">     
 	                                <label class="custom-checkbox">
-				                       <span class="ti-check-box"></span>
+				                       <span class="ti-check-box" style="color: blue;"></span>
 				                       <span class="custom-control-description">반려동물 동반 불가</span>
 			                       </label>
 	                            </div>
@@ -476,7 +476,7 @@
 	                        <div class="row">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                     <span class="ti-check-box"></span>
+				                     <span class="ti-check-box" style="color: blue;"></span>
 				                     <span class="custom-control-description">파티나 이벤트 금지</span>
 				                   </label>
 				                </div>
