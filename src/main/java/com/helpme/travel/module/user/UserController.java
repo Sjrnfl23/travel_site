@@ -103,8 +103,8 @@ public class UserController {
 	@RequestMapping(value = "/search")
 	public String UserSearch(Model model, UserVo vo) throws Exception {
 
-//		List<User> list = service.selectListSearch(vo);
-//		model.addAttribute("list", list);
+		//User list = service.selectOneLodgingView(vo);
+		//model.addAttribute("item", list);
 		
 		return "user/lodging/search";
 	}
@@ -121,6 +121,8 @@ public class UserController {
 		} else {
 			// by pass
 		}
+		
+		
 		model.addAttribute("vo", vo);
 
 		return "user/lodging/searchFlex";
@@ -137,19 +139,25 @@ public class UserController {
 		if (vo.getTotalRows() > 0) {
 			List<User> lodglist = service.selectListSearch(vo);
 			model.addAttribute("lodglist", lodglist);
+			model.addAttribute("vo", vo);
 			returnMap.put("lodglist", lodglist);
+			returnMap.put("vo", vo);
+			
 			System.out.println(":::::::::::lodglist:::::::::::" +lodglist);
 			System.out.println(":::::::::::vo.getTotalRows():::::::::::" +vo.getTotalRows());
+			
 			dto.setNeLat(dto.getNeLat());
 			dto.setNeLng(dto.getNeLng());
 			dto.setSwLat(dto.getSwLat());
 			dto.setSwLng(dto.getSwLng());
+			
+			
 			returnMap.put("count", lodglist.size());
 		} else {
 			returnMap.put("count", 0);
 		}
 		returnMap.put("rt", "success");
-		
+
 		return returnMap;
 	}
 
@@ -187,8 +195,13 @@ public class UserController {
 		
 		model.addAttribute("rtStartDate", dto.getHiddenStartDate());
 		model.addAttribute("rtEndDate", dto.getHiddenEndDate());
+		model.addAttribute("rtDay", dto.getHiddenDay());
 		model.addAttribute("rtNumber", dto.getHiddenNumber());
+		model.addAttribute("rtPriceOrigin", dto.getHiddenPriceOrigin());
+		model.addAttribute("rtPriceFee", dto.getHiddenPriceFee());
 		model.addAttribute("rtPay", dto.getHiddenPay());
+		model.addAttribute("rtCoupon", dto.getHiddenCoupon());
+		model.addAttribute("rtTvmmSeq", dto.getTvmmSeq());
 	
 		System.out.println("dto.getTvamLodgingName(): " + dto.getTvamLodgingName());
 		System.out.println("dto.getTvamSeq(): " + dto.getTvamSeq());
@@ -218,14 +231,23 @@ public class UserController {
 
 	
 	@RequestMapping(value = "/reservation")
-	public String UserReservation(UserVo vo, Model model, HttpSession httpSession) throws Exception {
+	public String UserReservation(@ModelAttribute("vo") UserVo vo, Model model, HttpSession httpSession) throws Exception {
 
 		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
 		vo.setTvmmSeq(sessSeq);		
-		
-		List<User> list = service.selectReservation(vo);
-		model.addAttribute("list", list);
 
+	   int count = service.selectOneCountReservation(vo);				// count 가져올 것
+	   vo.setParamsPaging(count);
+	   
+	   if(count != 0) {										// count가 0이 아니면 list 가져오는 부분 수행 후 model 개체에 담기
+			List<User> list = service.selectReservation(vo);
+			model.addAttribute("list", list);
+	   } else {
+		   // by pass
+	   }			
+		
+		
+		
 		return "user/lodging/reservation";
 	}
 
@@ -298,6 +320,12 @@ public class UserController {
 		service.deleteMapPhoto(vo);
 		
 		return "redirect:/mapList";
+	}
+	//dm
+	@RequestMapping(value = "/dm")
+	public String dm(Model model, UserVo vo, HttpSession httpSession) throws Exception {
+		
+		return "user/lodging/dm";
 	}
 
 	// login & logout ======================================================

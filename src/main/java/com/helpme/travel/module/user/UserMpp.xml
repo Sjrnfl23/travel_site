@@ -53,14 +53,47 @@
 	</insert>
 	
 	<!-- SearchFlex List -->
+	 <select id="selectSearchFlexCount" resultType="Integer">
+		SELECT 
+			count(*)
+		FROM 
+			tvLodging
+		WHERE 1=1
+			<choose>
+				<when test="shCheck == 1">AND tvamCategoryCd = 1</when>
+				<when test="shCheck == 2">AND tvamCategoryCd = 2</when>
+				<when test="shCheck == 3">AND tvamCategoryCd = 3</when>
+				<when test="shCheck == 4">AND tvamCategoryCd = 4</when>
+				<when test="shCheck == 5">AND tvamCategoryCd = 5</when>
+				<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
+			</choose>
+			<choose>
+				<when test="shlctValue == '제주'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+				<when test="shlctValue == '서울'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+				<when test="shlctValue == '부산'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+				<when test="shlctValue == '진해'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+			</choose>
+	 </select>
 	 <select id="selectListSearchFlex" resultMap="resultMapObj">
 			SELECT 
-				tvamSeq
-				,tvamLodgingName
-				,tvamDesc
-				,tvamAddress1
+				a.tvamSeq
+				,a.tvamLodgingName
+				,a.tvamDesc
+				,a.tvamAddress1
+				,b.type
+				,b.defaultNy
+				,b.sort
+				,b.originalName
+				,b.uuidName
+				,b.ext
+				,b.size
+				,b.delNy
+				,b.year
+				,b.month
+				,b.day
 			FROM
-				tvLodging
+				tvLodging a
+			left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
 			WHERE 1=1
 				AND tvamDelNy = 0
 				<choose>
@@ -71,18 +104,37 @@
 				<when test="shCheck == 5">AND tvamCategoryCd = 5</when>
 				<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
 				</choose>
+				<choose>
+					<when test="shlctValue == '제주'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+					<when test="shlctValue == '서울'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+					<when test="shlctValue == '부산'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+					<when test="shlctValue == '진해'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
+				</choose>
 	</select>
-	
+
+	<!-- Search -->
 	<select id="selectListSearch" resultMap="resultMapObj">
 			SELECT 
-				tvamSeq
-				,tvamLodgingName
-				,tvamDesc
-				,tvamAddressFull
-				,tvamLat
-				,tvamLng
+				a.tvamSeq
+				,a.tvamLodgingName
+				,a.tvamDesc
+				,a.tvamAddressFull
+				,a.tvamLat
+				,a.tvamLng
+				,b.type
+				,b.defaultNy
+				,b.sort
+				,b.originalName
+				,b.uuidName
+				,b.ext
+				,b.size
+				,b.delNy
+				,b.year
+				,b.month
+				,b.day
 			FROM
-				tvLodging
+				tvLodging a
+				left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
 			WHERE 1=1
   				<if test="swLng != '' and swLng != null and neLng != '' and neLng != null">
 				    AND tvamLng BETWEEN #{swLng} AND #{neLng}
@@ -91,6 +143,20 @@
 				    AND tvamLat BETWEEN #{swLat} AND #{neLat}
 				</if>  
 				<!-- 현재 숙소 데이터에 좌표데이터가 없는곳이 있어서 에러가 나기때문에 임시 seq 삽입 -->
+	</select>
+	
+	<select id="selectSearchCount" resultType="Integer">
+		SELECT 
+				count(*)
+			FROM 
+				tvLodging
+			WHERE 1=1
+  				<if test="swLng != '' and swLng != null and neLng != '' and neLng != null">
+				    AND tvamLng BETWEEN #{swLng} AND #{neLng}
+				</if>
+				<if test="swLat != '' and swLat != null and neLat != '' and neLat != null">
+				    AND tvamLat BETWEEN #{swLat} AND #{neLat}
+				</if>  
 	</select>
 	
 	<!-- Reservation -->
@@ -121,12 +187,23 @@
 		where 1 = 1
 			and tvpmDelNy = 0
 			and a.tvmmSeq = #{tvmmSeq}
+		order by a.tvpmSeq DESC
+		limit #{startRnumForMysql}, #{rowNumToShow}	
 	</select>
+
+	<select id="selectOneCountReservation" resultType="Integer">	<!-- selectCommon 사용 / 페이징 -->
+			select
+				count(*)
+			from tvPayment
+			where 1 = 1
+				and tvpmDelNy = 0
+				and tvmmSeq = #{tvmmSeq}
+	</select>	
+
 
 	<insert id="insertReservation">
 		INSERT INTO tvPayment (
-			tvpmSeq
- 			, tvpmStartDate
+ 			tvpmStartDate
 			, tvpmEndDate
 			, tvpmtotalPrice
 			, tvamSeq
@@ -135,8 +212,7 @@
 			, tvpmDelNy
 			, regDateTime
 		) VALUES (
-			#{tvpmSeq}
- 			, #{tvpmStartDate}
+ 			#{tvpmStartDate}
 			, #{tvpmEndDate}
 			, #{tvpmtotalPrice}
 			, #{tvamSeq}
@@ -151,6 +227,7 @@
 	<!-- LodgingView -->
 	<select id="selectOneLodgingView" resultMap="resultMapObj">
 		SELECT
+<<<<<<< HEAD
 			tvamSeq
 			,tvamMaxPersonCount
 			,tvamRoomCount
@@ -166,6 +243,36 @@
 			,tvamDesc
 			,tvamHostName
 			,tvamAdultPrice
+=======
+			a.tvamSeq
+			,a.tvamMaxPersonCount
+			,a.tvamRoomCount
+			,a.tvamBedCount
+			,a.tvamShowerRoomCount
+			,a.tvamState
+			,a.tvamCity
+			,a.tvamTelNumber
+			,a.tvamAddressFull
+			,a.tvamCheckInTime
+			,a.tvamCheckOutTime
+			,a.tvamLodgingName
+			,a.tvamDesc
+			,a.tvamHostName
+			,a.tvmmSeq
+			,a.tvamAdultPrice
+
+			,b.type
+			,b.defaultNy
+			,b.sort
+			,b.originalName
+			,b.uuidName
+			,b.ext
+			,b.size
+			,b.delNy
+			,b.year
+			,b.month
+			,b.day
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 			<!-- ,b.tvarSeq
 			,b.tvarReview
 			,b.tvarStarPoint
@@ -173,10 +280,35 @@
 			,c.tvmmSeq
 			,c.tvmmName
 			,c.tvmmEmailAccount -->
+
+			,a.tvamSeaNy
+			,a.tvamCookingNy
+			,a.tvamWifiNy
+			,a.tvamParkingRoomNy
+			,a.tvamJacuzziNy
+			,a.tvamTvNy
+			,a.tvamMicrowaveNy
+			,a.tvamAirConditionerNy
+			,a.tvamBbqGrillNy
+			,a.tvamPoolNy
+			,a.tvamFridgeNy
+			,a.tvamHeaterNy
+			,a.tvamSmokeNy
+			,a.tvamPetNy
+			,a.tvamPartyNy
+			,c.tvcpName
+			,c.tvcpPrice
+
 		FROM
+<<<<<<< HEAD
 			tvLodging 
+=======
+			travel_site.tvLodging a
+
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 			<!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  
 			LEFT OUTER JOIN travel_site.tvMember AS c ON c.tvmmSeq = a.tvmmSeq -->
+<<<<<<< HEAD
 		WHERE 1=1
 			AND tvamDelNy = 0 
 <!-- 		AND tvamApproveNy = 1
@@ -194,6 +326,18 @@
 			AND tvamMicrowaveNy = 1  -->
 			AND tvamSeq = #{tvamSeq}
 			
+=======
+			left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
+			left join tvCoupon c on a.tvamSeq = c.tvamSeq and tvcpDelNy = 0
+			<![CDATA[
+            	AND date(c.tvcpStartDate) <= date(now()) and date(c.tvcpEndDate) >= date(now())
+            ]]>
+         WHERE 1=1
+
+			AND a.tvamDelNy = 0 
+			AND a.tvamSeq = #{tvamSeq}
+
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 	</select>
 	
 	
@@ -206,27 +350,7 @@
 			WHERE 1=1
 				AND tvmmSeq = #{tvmmSeq}
 	</select>
-	<select id="selectSearchFlexCount" resultType="Integer">
-			SELECT 
-				count(*)
-			FROM 
-				tvLodging
-			WHERE 1=1
-				<choose>
-				<when test="shCheck == 1">AND tvamCategoryCd = 1</when>
-				<when test="shCheck == 2">AND tvamCategoryCd = 2</when>
-				<when test="shCheck == 3">AND tvamCategoryCd = 3</when>
-				<when test="shCheck == 4">AND tvamCategoryCd = 4</when>
-				<when test="shCheck == 5">AND tvamCategoryCd = 5</when>
-				<when test="shCheck == 6">AND tvamCategoryCd = 6</when>
-				</choose>
-	</select>
-	<select id="selectSearchCount" resultType="Integer">
-		SELECT 
-				count(*)
-			FROM 
-				tvLodging
-	</select>
+
 	<select id="selectListMap" resultMap="resultMapObj">
 		SELECT 
 			a.tvplSeq
@@ -401,4 +525,5 @@
 	
 	<!--login End-->
 	
+		
 </mapper>

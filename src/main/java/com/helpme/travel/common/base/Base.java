@@ -23,8 +23,6 @@ public class Base {
 	private String month;
 	private String day;
 	
-
-	
 	
 	// regmod
 	private String regIp;
@@ -202,8 +200,7 @@ public class Base {
 	public void setModDateTimeSvr(Date modDateTimeSvr) {
 		this.modDateTimeSvr = modDateTimeSvr;
 	}
-	
-	
+
 	
 
 	

@@ -106,14 +106,14 @@ public class UtilUpload {
 		String month = nowString.substring(5,7);
 		String day = nowString.substring(8,10);
 		String pathDate = year + "/" + month + "/" + day;
-		String path = Constants.UPLOAD_PATH_PREFIX_HOST + "/" + pathModule + "/" + pathDate + "/";	
+		String path = Constants.UPLOAD_PATH_PREFIX2 + "/" + pathModule + "/" + pathDate + "/";	
 		
 		createPath(path);
 		
 		multipartFile.transferTo(new File(path + uuidFileName));
 		
-		System.out.println("year::::::::::::::::" +year );
-		System.out.println("month::::::::::::::::" +month );
+		System.out.println("year::::::::::::::::" +year);
+		System.out.println("month::::::::::::::::" +month);
 		System.out.println("day::::::::::::::::" +day);
 		
 		dto.setYear(year);

@@ -84,7 +84,7 @@
                                 <div class="card">
                                     <div class="card-body p-0">
                                         <div class="user-profile-img">
-                                            <img src="/../../resources/host/images/pattern-bg.jpg"
+                                            <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>"
                                                 class="profile-img profile-foreground-img rounded-top" style="height: 120px;"
                                                 alt="">
 
@@ -96,7 +96,7 @@
                                         <div class="p-4 pt-0">
                                             
                                             <div class="mt-n5 position-relative text-center border-bottom pb-3">
-                                                <img src="/../../resources/host/images/users/busan.jpg" alt="" class="avatar-xl rounded-circle img-thumbnail">
+                                                <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/> " alt="" class="avatar-xl rounded-circle img-thumbnail">
                                               
                                                 <div class="mt-3">
                                                    <h5 class="mb-1">제주하르방</h5>
@@ -185,6 +185,103 @@
                                                             <td class="text-muted">2022-04-26</td>
                                                         </tr>
                                                         <!-- end tr -->
+                                                         <tr>
+                                                            <th class="fw-bold" style="margin-top:20px;">편의시설 보기</th>
+                                                        <td>
+                                            <input type="button" style="margin-top:15px;" class="btn btn-info btn-sm" id="auth-terms-condition-check" data-bs-toggle="modal" data-bs-target="#exampleModal" value="편의시설 선택">
+                                           
+                                                 <!-- Modal -->
+													<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+													  <div class="modal-dialog">
+													    <div class="modal-content">
+													      <div class="modal-header">
+													        <h5 class="modal-title" id="exampleModalLabel">편의 시설</h5>
+													        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													      </div>
+													      <div class="modal-body" style="font-size: 17px;">
+													  
+													      <div class="row">
+													      
+													  <div class="col-4"><input type="checkbox" id="tvamSeaNy" name="tvamSeaNy" style="margin-right:5px;" value="1">
+													  <label for="tvamSeaNy">해변과 인접</label></div>
+													  
+													  <div class="col-4"><input type="checkbox" id="tvamCookingNy" name="tvamCookingNy" style="margin-right:5px;" value="1">
+													  <label for="tvamCookingNy">주방</label>
+													  </div>
+													  
+													  <div class="col-4"><input type="checkbox" id="tvamWifiNy" name="tvamWifiNy" style="margin-right:5px;" value="1">
+													  <label for="tvamWifiNy">무선인터넷</label>
+													  </div>
+													  
+													  </div>
+													  
+													     <div class="row" style="margin-top:5px;">
+													    <div class="col-4"><input type="checkbox" id="tvamParkingRoomNy" name="tvamParkingRoomNy" style="margin-right:5px;" value="1">
+													    <label for="tvamParkingRoomNy">무료 주차</label>
+													    </div>
+													  <div class="col-4"><input type="checkbox" id="tvamJacuzziNy" name="tvamJacuzziNy" style="margin-right:5px;" value="1">
+													  <label for="tvamJacuzziNy">자쿠지</label>
+													  </div>
+													  <div class="col-4"><input type="checkbox" id="tvamTvNy" name="tvamTvNy" style="margin-right:5px;" value="1">
+													  <label for="tvamTvNy">TV</label>
+													  </div>
+													  
+													  </div>
+													  
+													     <div class="row" style="margin-top:5px;">			
+													  <div class="col-4"><input type="checkbox" id="tvamMicrowaveNy" name="tvamMicrowaveNy" style="margin-right:5px;" value="1">
+													  <label for="tvamMicrowaveNy">전자레인지</label>
+													  </div>
+													  <div class="col-4"><input type="checkbox" id="tvamAirConditionerNy" name="tvamAirConditionerNy" style="margin-right:5px;" value="1">
+													  <label for="tvamAirConditionerNy">에어컨</label>
+													  </div>
+													  <div class="col-4"><input type="checkbox" id="tvamBbqGrillNy" name="tvamBbqGrillNy" style="margin-right:5px;" value="1">
+													  <label for="tvamBbqGrillNy">바베큐</label>
+													  </div>
+													  
+													  </div>
+													  
+													   <div class="row" style="margin-top:5px;">			
+													  <div class="col-4"><input type="checkbox" id="tvamPoolNy" name="tvamPoolNy" style="margin-right:5px;" value="1">
+													  <label for="tvamPoolNy">수영장</label>
+													  </div>
+													  <div class="col-4"><input type="checkbox" id="tvamFridgeNy" name="tvamFridgeNy" style="margin-right:5px;" value="1">
+													  <label for="tvamFridgeNy">냉장고</label>
+													  </div>
+													  <div class="col-4"><input type="checkbox" id="tvamHeaterNy" name="tvamHeaterNy" style="margin-right:5px;" value="1">
+													  <label for="tvamHeaterNy">히터</label>
+													  </div>
+													  
+													  </div>
+													  
+													  </div>
+													  
+													  <div class="modal-header">
+													        <h5 class="modal-title" id="exampleModalLabel">유의 사항</h5>
+													        
+													      </div>
+													       <div class="modal-body" style="font-size: 17px;">
+													       
+													       <div class="row">
+													  <div class="col-3"><input type="checkbox" id="tvamSmokeNy" name="tvamSmokeNy" style="margin-right:5px;" value="1" checked><label for="tvamSmokeNy">흡연 불가</label></div>
+													  <div class="col-4"><input type="checkbox" id="tvamPetNy" name="tvamPetNy" style="margin-right:5px;" value="1"><label for="tvamPetNy">반려동물 동반 불가</label></div>
+													  <div class="col-4" style="margin-left:8px;"><input type="checkbox" id="tvamPartyNy" name="tvamPartyNy" style="margin-right:5px;" value="1"><label for="tvamPartyNy">파티나 이벤트 금지</label></div>
+													  </div>
+													  
+													  </div>
+													    <div class="modal-footer">
+			        						
+			        						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">저장</button>
+      									</div>
+										     
+										    </div>
+										  </div>
+										</div>
+                                       
+                                              
+                                        </td>                                                                                                                                       
+                                                        </tr>
+                                                        <!-- end tr -->
                                                     </tbody><!-- end tbody -->
                                                 </table>
                                             </div>
@@ -203,9 +300,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="pt-2 text-center border-bottom pb-4">
-                                                <a href="" class="btn btn-primary waves-effect waves-light btn-sm">메시지 전송<i class="bx bx-send ms-1 align-middle"></i></a>
-                                            </div>
+                                           
 
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">

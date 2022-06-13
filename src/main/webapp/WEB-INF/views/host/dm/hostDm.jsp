@@ -28,6 +28,16 @@
         <!-- App Css-->
         <link href="../../resources/host/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
     </head>
 
     
@@ -89,12 +99,12 @@
                                                 </div>
                                             </div>
                                             <div class="chat-user-status">
-                                                <img src="../../resources/host/images/users/avatar-3.jpg" class="avatar-md rounded-circle" alt="">
+                                                <img src="/resources/host/memberUploaded/host/<c:out value="${sessYear}"/>/<c:out value="${sessMonth}"/>/<c:out value="${sessDay}"/>/<c:out value="${sessUuidName}"/> " class="avatar-md rounded-circle" alt="">
                                                 <div class="">
                                                     <div class="status"></div>
                                                 </div>
                                             </div>
-                                            <h5 class="font-size-16 mb-1 mt-3"><a href="#" class="text-dark">호스트</a></h5>
+                                            <h5 class="font-size-16 mb-1 mt-3"><a href="#" class="text-dark"><c:out value="${sessName}"/></a></h5>
                                             <p class="text-muted mb-0">답변가능</p>
                                    </div>
                                 </div>
@@ -123,152 +133,9 @@
                                                         <h5 class="font-size-14 mb-3">사용자</h5>
                                                     </div>
                                                     <ul class="list-unstyled chat-list p-3">
-                                                        <li class="active">
-                                                            <a href="#">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="flex-shrink-0 user-img online align-self-center me-3">
-                                                                        <img src="../../resources/host/images/users/avatar-6.jpg" class="rounded-circle avatar-sm" alt="">
-                                                                        <span class="user-status"></span>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 overflow-hidden">
-                                                                        <h5 class="text-truncate font-size-14 mb-0">권순형</h5>
-                                                                    </div>
-                                                                    <div class="flex-shrink-0">
-                                                                        <span class="badge bg-danger rounded-pill">1</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="flex-shrink-0 user-img online align-self-center me-3">
-                                                                        <div class="avatar-sm align-self-center">
-                                                                            <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                                                                                S
-                                                                            </span>
-                                                                        </div>
-                                                                        <span class="user-status"></span>
-                                                                    </div>
-                                                                    
-                                                                    <div class="flex-grow-1 overflow-hidden">
-                                                                        <h5 class="text-truncate font-size-14 mb-0">윤이나</h5>
-                                                                    </div>
-                                                                    <div class="flex-shrink-0">
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="flex-shrink-0 user-img away align-self-center me-3">
-                                                                        <img src="../../resources/host/images/users/avatar-3.jpg" class="rounded-circle avatar-sm" alt="">
-                                                                        <span class="user-status"></span>
-                                                                    </div>
-                                                                    
-                                                                    <div class="flex-grow-1 overflow-hidden">
-                                                                        <h5 class="text-truncate font-size-14 mb-0">이상원</h5>
-                                                                    </div>
-                                                                    <div class="flex-shrink-0">
-                                                                        <span class="badge bg-warning rounded-pill">4</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="flex-shrink-0 user-img align-self-center me-3">
-                                                                        <img src="../../resources/host/images/users/avatar-4.jpg" class="rounded-circle avatar-sm" alt="">
-                                                                        <span class="user-status"></span>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 overflow-hidden">
-                                                                        <h5 class="text-truncate font-size-14 mb-0">김도현</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="flex-shrink-0 user-img online align-self-center me-3">
-                                                                        <div class="avatar-sm align-self-center">
-                                                                            <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                                                                                J
-                                                                            </span>
-                                                                        </div>
-                                                                        <span class="user-status"></span>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 overflow-hidden">
-                                                                        <h5 class="text-truncate font-size-14 mb-0">장원영</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-        
-                                                        <li>
-                                                            <a href="#">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="flex-shrink-0 user-img align-self-center me-3">
-                                                                        <img src="../../resources/host/images/users/avatar-5.jpg" class="rounded-circle avatar-sm" alt="">
-                                                                        <span class="user-status"></span>
-                                                                    </div>
-                                                                    <div class="flex-grow-1 overflow-hidden">
-                                                                        <h5 class="text-truncate font-size-14 mb-0">김나리</h5>
-                                                                    </div>
-                                                                    <div class="flex-shrink-0">
-                                                                        <span class="badge bg-success rounded-pill">23</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="#">
-                                                                <div class="d-flex align-items-center">
-                                                                    
-                                                                    <div class="flex-shrink-0 user-img align-self-center me-3">
-                                                                        <img src="../../resources/host/images/users/avatar-6.jpg" class="rounded-circle avatar-sm" alt="">
-                                                                        <span class="user-status"></span>
-                                                                    </div>
-                                                                    
-                                                                    <div class="flex-grow-1 overflow-hidden">
-                                                                        <h5 class="text-truncate font-size-14 mb-0">정미림</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="flex-shrink-0 user-img away align-self-center me-3">
-                                                                        <img src="../../resources/host/images/users/avatar-3.jpg" class="rounded-circle avatar-sm" alt="">
-                                                                        <span class="user-status"></span>
-                                                                    </div>
-                                                                    
-                                                                    <div class="flex-grow-1 overflow-hidden">
-                                                                        <h5 class="text-truncate font-size-14 mb-0">윤수빈</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <div class="d-flex align-items-center">
-                                                                    
-                                                                    <div class="flex-shrink-0 user-img align-self-center me-3">
-                                                                        <img src="../../resources/host/images/users/avatar-4.jpg" class="rounded-circle avatar-sm" alt="">
-                                                                        <span class="user-status"></span>
-                                                                    </div>
-                                                                    
-                                                                    <div class="flex-grow-1 overflow-hidden">
-                                                                        <h5 class="text-truncate font-size-14 mb-0">차경석</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
+                                                    	<li class="active" id="chatuserList">
+                                                    	</li>
+                                					</ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -492,231 +359,24 @@
                                     </div>
 
                                     <div class="chat-conversation p-3" data-simplebar>
-                                        <ul class="list-unstyled mb-0">
-                                            <li class="chat-day-title"> 
-                                                <span class="title">Today</span>
-                                            </li>
-                                            <li>
-                                                <div class="conversation-list">
-                                                    <div class="d-flex">
-                                                        <img src="../../resources/host/images/users/avatar-6.jpg" class="rounded-circle avatar" alt="">
-                                                        <div class="flex-1">
-                                                            <div class="ctext-wrap">
-                                                                <div class="ctext-wrap-content">
-                                                                    <div class="conversation-name"><span class="time">10:00</span></div>
-                                                                    <p class="mb-0">안녕하세요! <br>
-                                                                        숙소 예약하려는데 문의사항이 있습니다.</p>
-                                                                    
-                                                                </div>
-                                                                <div class="dropdown align-self-start">
-                                                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                                                    </a>
-                                                                    <div class="dropdown-menu">
-                                                                        <a class="dropdown-item" href="#">Copy</a>
-                                                                        <a class="dropdown-item" href="#">Save</a>
-                                                                        <a class="dropdown-item" href="#">Forward</a>
-                                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li class="right">
-                                                <div class="conversation-list">
-                                                    <div class="d-flex">
-                                                        <div class="flex-1">
-                                                            <div class="ctext-wrap">
-                                                                <div class="ctext-wrap-content">
-                                                                    <div class="conversation-name"><span class="time">10:02</span></div>
-                                                                    <p class="mb-0 text-start">
-                                                                    	안녕하세요, 제주하르방입니다.
-                                                                    	<br>
-                                                                    	어떤 문의가 있으신가요?
-                                                                    </p>
-                                                                   
-                                                                </div>
-                                                                <div class="dropdown align-self-start">
-                                                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                                                    </a>
-                                                                    <div class="dropdown-menu">
-                                                                        <a class="dropdown-item" href="#">Copy</a>
-                                                                        <a class="dropdown-item" href="#">Save</a>
-                                                                        <a class="dropdown-item" href="#">Forward</a>
-                                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <img src="../../resources/host/images/users/avatar-3.jpg" class="rounded-circle avatar" alt="">
-                                                    </div>
-                                                    
-                                                </div>
-                                                
-                                            </li>
-
-                                            <li>
-                                                <div class="conversation-list">
-                                                    <div class="d-flex">
-                                                        <img src="../../resources/host/images/users/avatar-6.jpg" class="rounded-circle avatar" alt="">
-                                                        <div class="flex-1">
-                                                            <div class="ctext-wrap">
-                                                                <div class="ctext-wrap-content">
-                                                                    <div class="conversation-name"><span class="time">10:04</span></div>
-                                                                    <p class="mb-0">
-                                                                        바다가 얼마나 가까운지 모르겠어서요. <br>
-                                                                        도보로 가능한 거리인가요? 근처에 편의점은 있나요?
-                                                                    </p>
-                                                                </div>
-                                                                <div class="dropdown align-self-start">
-                                                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                                                    </a>
-                                                                    <div class="dropdown-menu">
-                                                                        <a class="dropdown-item" href="#">Copy</a>
-                                                                        <a class="dropdown-item" href="#">Save</a>
-                                                                        <a class="dropdown-item" href="#">Forward</a>
-                                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                </div>
-                                                
-                                            </li>
-
-                                            <li class="right">
-                                                <div class="conversation-list">
-                                                    <div class="d-flex">
-                                                        <div class="flex-1">
-                                                            <div class="ctext-wrap">
-                                                                <div class="ctext-wrap-content">
-                                                                    <div class="conversation-name"><span class="time">10:08</span></div>
-                                                                    <p class="mb-0 text-start">
-                                                                        그럼요~ 성인 걸음으로 10분정도 걸어가시면 해수욕장이 있습니다. <br>
-                                                                        편의점은 저희 건물 바로 앞 1층에 운영중인데, 밤 11시면 문을 닫아요.
-                                                                    </p>
-
-                                                                    <p class="mb-0 text-start mt-2">
-                                                                        img-1.jpg & img-2.jpg images for a New Projects
-                                                                    </p>
-
-                                                                    <ul class="list-inline message-img mt-2 mb-0">
-                                                                        <li class="list-inline-item message-img-list">
-                                                                            <a class="d-inline-block" href="">
-                                                                                <img src="../../resources/host/images/small/img-1.jpg" alt="" class="rounded img-thumbnail">
-                                                                            </a>                                                                  
-                                                                        </li>
-                
-                                                                        <li class="list-inline-item message-img-list">
-                                                                            <a class="d-inline-block" href="">
-                                                                                <img src="../../resources/host/images/small/img-2.jpg" alt="" class="rounded img-thumbnail">
-                                                                            </a>                                                                 
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                                
-                                                                <div class="dropdown align-self-start">
-                                                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                                                    </a>
-                                                                    <div class="dropdown-menu">
-                                                                        <a class="dropdown-item" href="#">Copy</a>
-                                                                        <a class="dropdown-item" href="#">Save</a>
-                                                                        <a class="dropdown-item" href="#">Forward</a>
-                                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                           
-                                                        </div>
-                                                        <img src="../../resources/host/images/users/avatar-3.jpg" class="rounded-circle avatar" alt="">
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="conversation-list">
-                                                    <div class="d-flex">
-                                                        <img src="../../resources/host/images/users/avatar-6.jpg" class="rounded-circle avatar" alt="">
-                                                        <div class="flex-1">
-                                                            <div class="ctext-wrap">
-                                                                <div class="ctext-wrap-content">
-                                                                    <div class="conversation-name"><span class="time">10:06</span></div>
-                                                                    <p class="mb-0">
-                                                                       아~ 감사합니다! 내일로 예약할건데 잘 부탁드립니다~~
-                                                                    </p>
-                                                                </div>
-                                                                <div class="dropdown align-self-start">
-                                                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                                                    </a>
-                                                                    <div class="dropdown-menu">
-                                                                        <a class="dropdown-item" href="#">Copy</a>
-                                                                        <a class="dropdown-item" href="#">Save</a>
-                                                                        <a class="dropdown-item" href="#">Forward</a>
-                                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            
-
-                                            <li class="right">
-                                                <div class="conversation-list">
-                                                    <div class="d-flex">
-                                                        <div class="flex-1">
-                                                            <div class="ctext-wrap">
-                                                                <div class="ctext-wrap-content">
-                                                                    <div class="conversation-name"><span class="time">10:08</span></div>
-                                                                    <p class="mb-0 text-start">
-                                                                        네, 예약하시고 들어오실 때 한 번 더 연락 부탁드려요.<br>
-                                                                        좋은 하루 되세요^_^
-                                                                    </p>
-                                                                </div>
-                                                                
-                                                                <div class="dropdown align-self-start">
-                                                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                                                    </a>
-                                                                    <div class="dropdown-menu">
-                                                                        <a class="dropdown-item" href="#">Copy</a>
-                                                                        <a class="dropdown-item" href="#">Save</a>
-                                                                        <a class="dropdown-item" href="#">Forward</a>
-                                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                           
-                                                        </div>
-                                                        <img src="../../resources/host/images/users/avatar-3.jpg" class="rounded-circle avatar" alt="">
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+						                <div class="card-body msg_card_body" id="bodyContent">
+						
+						                </div>
                                     </div>
-
+									<!-- original code Start-->
                                     <div class="p-3 border-top">
                                         <div class="row">
                                             <div class="col">
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control border bg-soft-light" placeholder="메시지를 입력해주세요....">
+                                                    <input type="text" name="message" id="message" class="form-control border bg-soft-light" placeholder="메시지를 입력해주세요....">
                                                 </div>
                                             </div>
                                             <div class="col-auto">
-                                                <button type="submit" class="btn btn-primary chat-send w-md waves-effect waves-light"><span class="d-none d-sm-inline-block me-2">전송</span> <i class="mdi mdi-send float-end"></i></button>
+                                                <button id="submit" class="btn btn-primary chat-send w-md waves-effect waves-light"><span class="d-none d-sm-inline-block me-2">전송</span> <i class="mdi mdi-send float-end"></i></button>
                                             </div>
                                         </div>
                                     </div>
+					                <!-- original code End-->
                                 </div>
                             </div>
                             <!-- end user chat -->
@@ -761,5 +421,152 @@
         <script src="../../resources/host/js/app.js"></script>
 
     </body>
-
 </html>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+    import {
+        getDatabase,
+        set,
+        ref,
+        push,
+        child,
+        onValue,
+        onChildAdded
+    } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCmteF2NjV-6_R7850tLu6AKIZfsdLwMMk",
+    authDomain: "nowtravel-32e60.firebaseapp.com",
+    databaseURL: "https://nowtravel-32e60-default-rtdb.firebaseio.com",
+    projectId: "nowtravel-32e60",
+    storageBucket: "nowtravel-32e60.appspot.com",
+    messagingSenderId: "236407906769",
+    appId: "1:236407906769:web:1fa7b1ee992c4f7dcf00f0"
+  };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+
+    var myName = '<c:out value="${sessName}"/>'
+
+    submit.addEventListener('click', (e) => {
+        var message = document.getElementById('message').value;
+        var name = myName;
+
+        const id = push(child(ref(database), 'messages')).key;
+        
+
+        set(ref(database, 'messages/' + id), {
+            name: name,
+            message: message
+        });
+        document.getElementById('message').value = "";
+        alert('message has sent');
+
+    });
+
+    const newMsg = ref(database, 'messages/');
+    onChildAdded(newMsg, (data) => {
+        if(data.val().name != myName) {
+            var divData = '<div class="conversation-list" id="fromDiv">\n' +
+                                '    <div class="d-flex">\n' +
+                                '        <img src="../../resources/host/images/users/avatar-6.jpg" class="rounded-circle avatar" alt="">\n' +
+                                '        <div class="flex-1">\n' +
+                                '            <div class="ctext-wrap">\n' +
+                                '                <div class="ctext-wrap-content">\n' +
+                                '                    <div class="conversation-name"><span class="name">'+data.val().name+'</span><span class="time">10:04</span></div>\n' +
+                                '                    <p class="mb-0 msg_cotainer">\n' +
+                                '                        '+data.val().message+'' +
+                                '                    </p>\n' +
+                                '                </div>\n' +
+                                '                <div class="dropdown align-self-start">\n' +
+                                '                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
+                                '                        <i class="bx bx-dots-vertical-rounded"></i>\n' +
+                                '                    </a>\n' +
+                                '                    <div class="dropdown-menu">\n' +
+                                '                        <a class="dropdown-item" href="#">Copy</a>\n' +
+                                '                        <a class="dropdown-item" href="#">Save</a>\n' +
+                                '                        <a class="dropdown-item" href="#">Forward</a>\n' +
+                                '                        <a class="dropdown-item" href="#">Delete</a>\n' +
+                                '                    </div>\n' +
+                                '                </div>\n' +
+                                '            </div>\n' +
+                                '        </div>\n' +
+                                '    </div>\n' +
+                                '</div>';
+            var d1 = document.getElementById('bodyContent');
+            d1.insertAdjacentHTML('beforebegin', divData);
+        }else{
+            var divData = '<li class="right">\n' +
+								'<div class="conversation-list">\n' +
+                                '    <div class="d-flex">\n' +
+                                '        <div class="flex-1">\n' +
+                                '            <div class="ctext-wrap">\n' +
+                                '                <div class="ctext-wrap-content" id="sendDiv">\n' +
+                                '                    <div class="conversation-name"><span class="time">10:02</span></div>\n' +
+                                '                    <p class="mb-0 text-start">\n' +
+                                '                        '+data.val().message+'' +
+                                '                        <span class="msg_time_send">8:55 AM, Today</span>\n' +
+                                '                    </p>\n' +
+                                '                </div>\n' +
+                                '                <div class="dropdown align-self-start">\n' +
+                                '                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
+                                '                        <i class="bx bx-dots-vertical-rounded"></i>\n' +
+                                '                    </a>\n' +
+                                '                    <div class="dropdown-menu">\n' +
+                                '                        <a class="dropdown-item" href="#">Copy</a>\n' +
+                                '                        <a class="dropdown-item" href="#">Save</a>\n' +
+                                '                        <a class="dropdown-item" href="#">Forward</a>\n' +
+                                '                        <a class="dropdown-item" href="#">Delete</a>\n' +
+                                '                    </div>\n' +
+                                '                </div>\n' +
+                                '            </div>\n' +
+                                '        </div>\n' +
+                                '        <img src="../../resources/host/images/users/avatar-3.jpg" class="rounded-circle avatar" alt="">\n' +
+                                '    </div>\n' +
+                                '</div>\n' +
+								'</li>';
+            var d1 = document.getElementById('bodyContent');
+            d1.insertAdjacentHTML('beforebegin', divData);
+        }
+    });
+
+	const chatuserList = ref(database, 'ChatRoom/');
+    onChildAdded(chatuserList, (data) => {
+            var divDataChat = '    <a href="#">\n' +
+                                '        <div class="d-flex align-items-center">\n' +
+                                '            <div class="flex-shrink-0 user-img online align-self-center me-3">\n' +
+                                '                <div class="avatar-sm align-self-center">\n' +
+                                '                    <span class="avatar-title rounded-circle bg-soft-primary text-primary">\n' +
+								'						S\n' +
+                                '                    </span>\n' +
+                                '                </div>\n' +
+                                '                <span class="user-status"></span>\n' +
+                                '            </div>\n' +
+                                '            <div class="flex-grow-1 overflow-hidden">\n' +
+                                '                <h5 class="text-truncate font-size-14 mb-0">'+data.val().username+'</h5>\n' +
+                                '            </div>\n' +
+                                '            <div class="flex-shrink-0">\n' +
+                                '            </div>\n' +
+                                '        </div>\n' +
+                                '    </a><br>';
+            var d2 = document.getElementById('chatuserList');
+            d2.insertAdjacentHTML('beforebegin', divDataChat);
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#action_menu_btn').click(function () {
+            $('.action_menu').toggle();
+        });
+    });
+</script>

@@ -288,9 +288,18 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/admin/adminInfoUpdt")
-	public String AdminInfoUpdt(AdminVo vo, Admin dto, Model model) throws Exception {
+	public String AdminInfoUpdt(@ModelAttribute("vo")AdminVo vo, @ModelAttribute("dto")Admin dto, Model model,HttpSession httpSession) throws Exception {
+		String adminSessSeq = String.valueOf(httpSession.getAttribute("adminSessSeq").toString());	
+		dto.setTvmmSeq(adminSessSeq);
+		vo.setTvmmSeq(adminSessSeq);
+		service.updateMember(dto);
 		
-		service.updateMember(dto);	
+		Admin imgMember = service.selectOneUploaded(vo);
+		httpSession.setAttribute("sessYear2", imgMember.getYear());
+		httpSession.setAttribute("sessMonth2", imgMember.getMonth());
+		httpSession.setAttribute("sessDay2", imgMember.getDay());
+		httpSession.setAttribute("sessUuidName2", imgMember.getUuidName());
+			
 		
 		return "redirect:/admin/adminInfoView?tvmmSeq=" + dto.getTvmmSeq(); 
 	}	
@@ -454,7 +463,9 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin/mainView")
 	public String AdminMainView(Admin dto, Model model) throws Exception {
-		
+
+		 Admin rt = service.selectOneMainView(dto); 
+		 model.addAttribute("rt", rt);		
 		 Admin rt1 = service.selectOneMainView1(dto); 
 		 model.addAttribute("rt1", rt1);
 		 Admin rt2 = service.selectOneMainView2(dto); 
@@ -495,7 +506,7 @@ public class AdminController {
 	//login & logout---------------------------------------------------------------------------
 		@ResponseBody
 		@RequestMapping(value = "/admin/loginProc")
-		public Map<String, Object> loginProc(Admin dto, HttpSession httpSession) throws Exception {
+		public Map<String, Object> loginProc(Admin dto, HttpSession httpSession,@ModelAttribute("vo")AdminVo vo) throws Exception {
 			Map<String, Object> returnMap = new HashMap<String, Object>();
 
 			
@@ -505,12 +516,28 @@ public class AdminController {
 				System.out.println(rtMember.getTvmmAdminNy());
 				if(rtMember.getTvmmAdminNy() == 1) {
 					
+					
 					httpSession.setMaxInactiveInterval( 60 * Constants.SESSION_MINUTE);	//60second * 600 = 600minute 시간지나면 로그아웃됨
 					httpSession.setAttribute("adminSessUserType","어드민");
 					httpSession.setAttribute("adminSessName", rtMember.getTvmmName());
 					httpSession.setAttribute("adminSessEmail", rtMember.getTvmmEmailAccount());
 					httpSession.setAttribute("adminSessSeq", rtMember.getTvmmSeq());
-
+					
+					vo.setTvmmSeq(rtMember.getTvmmSeq());
+					
+					try{ //npe 발생할수 있어서 예외처리 해줌
+						
+						Admin imgMember = service.selectOneUploaded(vo);
+						httpSession.setAttribute("sessYear2", imgMember.getYear());
+						httpSession.setAttribute("sessMonth2", imgMember.getMonth());
+						httpSession.setAttribute("sessDay2", imgMember.getDay());
+						httpSession.setAttribute("sessUuidName2", imgMember.getUuidName());
+						
+					}catch (Exception e){
+					    e.printStackTrace();       
+					}finally{
+						returnMap.put("rt", "success");
+					} 					
 					returnMap.put("rt", "success");
 				}else {
 					returnMap.put("rt","notAdmin");

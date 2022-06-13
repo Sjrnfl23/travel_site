@@ -41,7 +41,7 @@ public class Host {
 	private String tvamCategoryCd;
 	private String tvamPoolNy;
 	private String tvamJacuzziNy;
-	private String tvamBbbqGrillNy;
+	private String tvamBbqGrillNy;
 	private String tvamFirePlaceNy;
 	private String tvamGymNy;
 	private String tvamWifiNy;
@@ -58,11 +58,13 @@ public class Host {
 	private Integer tvmmSeq;
 	private String tvamCategory;
 	private String tvamRoomCount;
+	private String tvamSeaNy;
+	private String tvamPetNy;
+	private String tvamPartyNy;
 	// common
 	private String regDateTime;
-	
-	
-	//member
+
+	// member
 	private String tvmmEmailAccount;
 	private String tvmmPassword;
 	private String tvmmName;
@@ -73,8 +75,8 @@ public class Host {
 	private String tvmmAddressFull;
 	private String tvmmAddress1;
 	private String tvmmAddress2;
-	
-	//reservation
+
+	// reservation
 	private String tvpmAdNumber;
 	private String tvpmStartDate;
 	private String tvpmEndDate;
@@ -83,41 +85,67 @@ public class Host {
 	private String tvpmPrice;
 	private String tvpmDelNy;
 	private String tvpmDesc;
-	
-	//mainView
+
+	// mainView
 	private Integer sales;
 	private String reservationCount;
-	
-	//search
+
+	// search
 	private String shOption;
 	private String shValue;
-	
+
 	// image
-		private String seq;
-		private Integer type;
-		private Integer defaultNy;
-		private Integer sort;
-		private String originalName;
-		private String uuidName;
-		private String fileName;
-		private String ext;
-		private Long size;
-		private Integer delNy;
-		private Integer pseq;
-		private String tableName;
-		
-		
-		// image date 
-		private String year;
-		private String month;
-		private String day;
-		
-		private String originalFileName;
-		private String uuidFileName;
-		private MultipartFile[] file0;
-	    private MultipartFile[] file1;
+	private String seq;
+	private Integer type;
+	private Integer defaultNy;
+	private Integer sort;
+	private String originalName;
+	private String uuidName;
+	private String fileName;
+	private String ext;
+	private Long size;
+	private Integer delNy;
+	private Integer pseq;
+	private String tableName;
+
+	// image date
+	private String year;
+	private String month;
+	private String day;
+
+	private String originalFileName;
+	private String uuidFileName;
+	private MultipartFile[] file0;
+	private MultipartFile[] file1;
 	
 	
+	//getter & setter
+	
+	
+	public String getTvamSeaNy() {
+		return tvamSeaNy;
+	}
+
+	public String getTvamPetNy() {
+		return tvamPetNy;
+	}
+
+	public void setTvamPetNy(String tvamPetNy) {
+		this.tvamPetNy = tvamPetNy;
+	}
+
+	public String getTvamPartyNy() {
+		return tvamPartyNy;
+	}
+
+	public void setTvamPartyNy(String tvamPartyNy) {
+		this.tvamPartyNy = tvamPartyNy;
+	}
+
+	public void setTvamSeaNy(String tvamSeaNy) {
+		this.tvamSeaNy = tvamSeaNy;
+	}
+
 	public String getShOption() {
 		return shOption;
 	}
@@ -401,12 +429,12 @@ public class Host {
 		this.tvamJacuzziNy = tvamJacuzziNy;
 	}
 
-	public String getTvamBbbqGrillNy() {
-		return tvamBbbqGrillNy;
+	public String getTvamBbqGrillNy() {
+		return tvamBbqGrillNy;
 	}
 
-	public void setTvamBbbqGrillNy(String tvamBbbqGrillNy) {
-		this.tvamBbbqGrillNy = tvamBbbqGrillNy;
+	public void setTvamBbbqGrillNy(String tvamBbqGrillNy) {
+		this.tvamBbqGrillNy = tvamBbqGrillNy;
 	}
 
 	public String getTvamFirePlaceNy() {
@@ -513,8 +541,6 @@ public class Host {
 		this.tvamCookingNy = tvamCookingNy;
 	}
 
-	
-
 	public Integer getTvmmSeq() {
 		return tvmmSeq;
 	}
@@ -547,10 +573,8 @@ public class Host {
 	public void setRegDateTime(String regDateTime) {
 		this.regDateTime = regDateTime;
 	}
-	
-	
-	//member
-	
+
+	// member
 
 	public String getTvmmEmailAccount() {
 		return tvmmEmailAccount;
@@ -847,7 +871,5 @@ public class Host {
 	public void setFile1(MultipartFile[] file1) {
 		this.file1 = file1;
 	}
-	
-	
-	
+
 }

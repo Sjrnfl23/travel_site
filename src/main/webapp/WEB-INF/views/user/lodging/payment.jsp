@@ -163,18 +163,16 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6" style="text-align: right; vertical-align: bottom;">
-                                            <p><u>수정하기</u></p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div>
                                                 <span style="font-size:20px;"><b>게스트</b></span>
-                                                <p style="font-size : 18px;">성인 <c:out value="${rtNumber}"/>명</p>
+                                                <p style="font-size : 18px;"><c:out value="${rtNumber}"/>명</p>
                                             </div>
                                         </div>
                                         <div class="col-md-6" style="text-align: right; vertical-align: bottom;">
-                                            <p><u>수정하기</u></p>
                                         </div>
                                     </div>
 
@@ -194,7 +192,8 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <span style="font-size:18px;">
-                                            	7월 27일 오후 12:00 전에 예약을 취소하면 요금이 전액 환불됩니다.<br>
+                                            	<c:out value="${rtStartDate}"/>일 오전 00:00시까지만 환불이 가능합니다.<br>
+                                            	환불 시에는 위약금이 발생할 수 있습니다.<br>
                                             	코로나19로 인한 여행 문제에는 정상참작이 가능한 상황 정책이 적용되지 않습니다.
                                             </span>
                                         </div>
@@ -267,7 +266,7 @@
                                                         <h5 class="mb-0"><b>현금 / 신용카드</b></h5>
                                                         <img src="/resources/user/images/credit.png" class="img-fluid" alt="#">
                                                     </div>
-                                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                                    <div id="collapseThree" class="collapse collapse show" aria-labelledby="headingThree" data-parent="#accordion">
                                                         <div class="card-body">
                                                         	<div class="row">
                                                         		<div class="col-md-6">
@@ -327,24 +326,24 @@
                                 <img src="/resources/user/images/payment.png" class="img-fluid" alt="#">
                                 <div class="booking-summary-box">
                                     <h4><c:out value="${item.tvamLodgingName}"/></h4>
-                                    <span style="font-size: 18px;">제주도, 제주시</span>
+                                    <span style="font-size: 18px;"><c:out value="${item.tvamCity}"/></span>
 
                                     <div class="booking-summary_contact">
-                                        <p style="font-size: 18px;">070-5022-5867</p>
+                                        <p style="font-size: 18px;"><c:out value="${item.tvamTelNumber}"/></p>
                                     </div>
 
                                     <div class="booking-summary_deatail">
                                         <h5>예약 정보</h5>
                                         <div class="booking-cost">
                                             <p style="font-size: 16px;">날짜 <span style="font-size: 16px;"><c:out value="${rtStartDate}"/> ~ <c:out value="${rtEndDate}"/></span></p>
-                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;">성인 <c:out value="${rtNumber}"/>명</span></p>
+                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;"><c:out value="${rtNumber}"/>명</span></p>
                                         </div>
                                         <div class="booking-cost" >
                                             <h5>요금 정보</h5>
-                                            <p style="font-size: 16px;"><u>280,000 x 7박</u> <span style="font-size: 18px;">1,960,000원</span></p>
-                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
-                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
-                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;"><c:out value="${rtPay}"/>원</span></p>
+                                            <p style="font-size: 16px;"><u><c:out value="${rtPriceOrigin}"/> x <c:out value="${rtDay}"/>박</u> <span style="font-size: 18px;"><c:out value="${rtPriceOrigin}"/>원</span></p>
+                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;"><c:out value="${rtPriceFee}"/>원</span></p>
+                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red"  style="font-size: 18px;">-<c:out value="${rtCoupon}"/></span></p>
+                                            <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;"><fmt:formatNumber value="${rtPay}"/>원</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -384,8 +383,8 @@
 	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
 	$('#hiddenStartDate').val("<c:out value="${rtStartDate}"/>");
 	$('#hiddenEndDate').val("<c:out value="${rtEndDate}"/>");
-	$('#hiddenNumber').val("1");
-	$('#hiddenPay').val("1"); 
+	$('#hiddenNumber').val("<c:out value="${rtNumber}"/>");
+	$('#hiddenPay').val("<c:out value="${rtPay}"/>"); 
 </script>
  
  
@@ -409,7 +408,7 @@ function payment(data){
 	    merchant_uid : 'iamport_test_id' + new Date().getTime(), //주문번호
 /* 	    merchant_uid : 'merchant_' + new Date().getTime(), //주문번호 */
 	    name : '<c:out value="${item.tvamLodgingName}"/>', // 상품명
-	    amount : 1,
+	    amount : '<c:out value="${rtPay}"/>', // 상품명
 /* 	    amount : '<c:out value="${rtPay}"/>', */
 /* 	    amount : amount, */
 	    //customer_uid 파라메터가 있어야 빌링키 발급을 시도함

@@ -84,6 +84,30 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Override
 	public int updateLodging(Admin dto) throws Exception {
+		dao.updateLodging(dto);
+		
+		int j = 0;
+		for(MultipartFile multipartFile : dto.getFile0() ) {
+			
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.uploadAdmin(multipartFile, pathModule, dto);
+			dto.setTableName("tvLodgingUploaded");
+			dto.setType(0);
+			if(j==0) {
+				dto.setDefaultNy(1);
+			}else {
+				dto.setDefaultNy(0);
+			}
+			dto.setSort(j);
+			dto.setTvamSeq(dto.getTvamSeq());
+			if(dto.getOriginalName().equals("") || dto.getOriginalName().equals(null)) { //값만 바꿀때 사진은 그대로 유지하기 위해 
+				break;
+			}
+			dao.updateUploadedLodging(dto);
+			j++;
+			
+		}
+		
 		return dao.updateLodging(dto);
 	}	
 	@Override
@@ -188,6 +212,11 @@ public class AdminServiceImpl implements AdminService{
 	
 //  ===========================mainView=================================	
 
+	@Override
+	public Admin selectOneMainView(Admin dto) throws Exception {
+		return dao.selectOneMainView(dto);
+	}
+	
 	@Override
 	public Admin selectOneMainView1(Admin dto) throws Exception {
 		return dao.selectOneMainView1(dto);

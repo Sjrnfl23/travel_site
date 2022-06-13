@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+	<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -125,10 +125,10 @@
 	                    <div class="row detail-filter-wrap"> 
 	                        <div class="col-md-4 featured-responsive">
 	                            <div class="detail-filter-text">
-	                                <p><c:out value="${vo.totalRows}"/>개의 결과</p>
+	                                <p><c:out value="${vo.shlctValue}"/> <c:out value="${vo.totalRows}"/>개의 결과</p>
 	                            </div>
 	                        </div>
-	                        <div class="col-md-8 featured-responsive">
+	                        <div class="featured-responsive">
 	                            <div class="detail-filter">
 	                                <form class="filter-dropdown">
 	                                </form>
@@ -143,6 +143,12 @@
 		                        <div class="col-xs-12 col-sm-12 col-md-12">
 		                            <div class="detail-checkbox">
 		                            	<div class="row">
+		                            		<div class="col">
+				                                <div class="md-checkbox">
+				                                    <input id="i19" type="checkbox" name="shCheck" value="0" onclick='checkOnlyOne(this)' <c:if test="${vo.shCheck eq 0 }">checked</c:if>>
+				                                    <label for="i19" style="font-size: 18px;">전체</label>
+				                                </div>
+			                                </div>
 			                            	<div class="col">
 				                                <div class="md-checkbox">
 				                                    <input id="i20" type="checkbox" name="shCheck" value="1" onclick='checkOnlyOne(this)' <c:if test="${vo.shCheck eq 1 }">checked</c:if>>
@@ -190,7 +196,7 @@
 	                        <div class="col-md-4 card-2">
 	                            <!-- card-1 -->
 	                            <div class="card">
-	                                <a href="/lodgingView?tvamSeq=<c:out value="${item.tvamSeq}"/>"><img class="card-img-top" src="/resources/user/images/searchflex1.jpg" alt="Card image cap"></a>
+	                                <a href="/lodgingView?tvamSeq=<c:out value="${item.tvamSeq}"/>"><img class="card-img-top" width="470" height="352" src="/resources/admin/memberUploaded/admin/<c:out value="${item.year}"/>/<c:out value="${item.month}"/>/<c:out value="${item.day}"/>/<c:out value="${item.uuidName}"/> " alt="Card image cap"></a>
 	                                <div class="card-body" style="height: 269px;">
 	                                    <h5 class="card-title"><c:out value="${item.tvamLodgingName}"/></h5>
 	                                    <ul class="card-rating">

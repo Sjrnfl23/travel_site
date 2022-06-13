@@ -5,6 +5,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+
+<% pageContext.setAttribute("br", "\n"); %>
+
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -207,7 +210,7 @@
 														<td><c:out value="${item.tvpmAdNumber}"/>명</td>
 														<td><c:out value="${item.tvpmStartDate}"/></td>
 														<td><c:out value="${item.tvpmEndDate}"/></td>
-														<td><c:out value="${item.tvpmtotalPrice}"/>원</td>
+														<td><fmt:formatNumber value="${item.tvpmtotalPrice}"/>원</td>
 													</tr>
 												</c:forEach>
 											</c:otherwise>
@@ -216,6 +219,38 @@
 										</table>
                                     </div>	                                       
 	                                  <!--   </div> -->
+	                                  
+                                   	<div class="gridjs-footer">
+                                   		<div class="gridjs-pagination">
+                                   			<div role="status" aria-live="polite" class="gridjs-summary" title="Page 1 of 4">
+                                   				Showing <b><c:out value="${vo.startRnumForOracle}"/></b> to <b><c:out value="${vo.endRnumForOracle}"/></b> of <b><c:out value="${vo.totalRows}"/></b> results
+                                   			</div>
+                                   		<div class="gridjs-pages">
+											<nav aria-label="...">
+											  <ul class="pagination">
+											<c:if test="${vo.startPage gt vo.pageNumToShow}">
+											     <li class="page-item"><a class="page-link" href="/reservation?thisPage=${vo.startPage - 1}">Previous</a></li>
+											</c:if>
+											<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+												<c:choose>
+													<c:when test="${i.index eq vo.thisPage}">
+											                <li class="page-item active"><a class="page-link" href="/reservation?thisPage=${i.index}">${i.index}</a></li>
+													</c:when>
+													<c:otherwise>             
+											            <li class="page-item"><a class="page-link" href="/reservation?thisPage=${i.index}">${i.index}</a></li>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>     
+											<c:if test="${vo.endPage ne vo.totalPages}">                
+											    <li class="page-item"><a class="page-link" href="/reservation?thisPage=${vo.endPage + 1}">Next</a></li>
+											</c:if>  
+											  </ul>
+											</nav>
+                                   		</div>
+                                   	</div>
+                                   </div>	                                  
+	                                  
+	                                  
 	                                </div>
 	                            </div>
 	                        </div>

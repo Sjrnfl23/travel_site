@@ -110,7 +110,7 @@
 	                                            </div>
 	
 	                                            <div>
-	                                                <h4 class="mt-4 pt-1 mb-0 font-size-22"><fmt:formatNumber value="${rt5.sales}"/>원 </h4>
+	                                                <h4 class="mt-4 pt-1 mb-0 font-size-22"><fmt:formatNumber value="${rt.sales}"/>원 </h4>
 	                                                <div class="d-flex mt-1 align-items-end overflow-hidden">
 	                                                    <div class="flex-grow-1">
 	                                                        <p class="text-muted mb-0 text-truncate">모든 호스트 총 매출</p>
@@ -139,7 +139,7 @@
 	                                            </div>
 	
 	                                            <div>
-	                                                <h4 class="mt-4 pt-1 mb-0 font-size-22"><fmt:formatNumber value="${rt5.fees}"/>원</h4>
+	                                                <h4 class="mt-4 pt-1 mb-0 font-size-22"><fmt:formatNumber value="${rt.fees}"/>원</h4>
 	                                                <div class="d-flex mt-1 align-items-end overflow-hidden">
 	                                                    <div class="flex-grow-1">
 	                                                        <p class="text-muted mb-0 text-truncate">모든 호스트 총 수수료</p>
@@ -168,7 +168,7 @@
 	                                            </div>
 	
 	                                            <div>
-	                                                <h4 class="mt-4 pt-1 mb-0 font-size-22"><fmt:formatNumber value="${rt5.reservationCount}"/>건 </h4>
+	                                                <h4 class="mt-4 pt-1 mb-0 font-size-22"><fmt:formatNumber value="${rt.reservationCount}"/>건 </h4>
 	                                                <div class="d-flex mt-1 align-items-end overflow-hidden">
 	                                                    <div class="flex-grow-1">
 	                                                        <p class="text-muted mb-0 text-truncate">월간 예약수</p>
@@ -197,7 +197,7 @@
 	                                            </div>
 	
 	                                            <div>
-	                                                <h4 class="mt-4 pt-1 mb-0 font-size-22"><fmt:formatNumber value="${rt5.memberCount}"/>명</h4>
+	                                                <h4 class="mt-4 pt-1 mb-0 font-size-22"><fmt:formatNumber value="${rt.memberCount}"/>명</h4>
 	                                                 <div class="d-flex mt-1 align-items-end overflow-hidden">
 	                                                     <div class="flex-grow-1">
 	                                                         <p class="text-muted mb-0 text-truncate">총 사용자 수</p>

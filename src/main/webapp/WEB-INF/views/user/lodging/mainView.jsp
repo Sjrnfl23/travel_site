@@ -116,8 +116,8 @@
                     <h3>당신의 여행지를 검색해보세요. </h3>
                 </div>
             </div>
-            <form>
-            <div class="row">
+ <!--            <form>
+              <div class="row">
                 <div class="col-md-12">
                     
                         <div class="search-box">
@@ -162,8 +162,8 @@
                     
                     <p class="search-bottom-title">By using this website, you are agreeing to our <a href="#"> terms and conditions</a></p>
                 </div>
-            </div>
-            </form>
+            </div> 
+            </form> -->
         </div>
     </section>
     <!--//END MAIN TITLE -->
@@ -201,7 +201,7 @@
                             <img src="/resources/user/images/jeju.jpg" alt="#" class="img-fluid">
                             <figcaption>
                                 <div class="effect-caption-wrap">
-                                   <a href="searchFlex" style="color: white;"><h1><b>제주</b></h1></a>
+                                   <a href="searchFlex?shlctValue=제주" style="color: white;"><h1><b>제주</b></h1></a>
                                     <p>1500+ Listings</p>
                                 </div>
                             </figcaption>
@@ -217,7 +217,7 @@
                                     <img src="/resources/user/images/seoul.jpg" alt="#" class="img-fluid">
                                     <figcaption>
                                         <div class="effect-caption-wrap">
-                                            <a href="searchFlex" style="color: white;"><h1><b>서울</b></h1></a>
+                                            <a href="searchFlex?shlctValue=서울" style="color: white;"><h1><b>서울</b></h1></a>
                                             <p>300+ Listings</p>
                                         </div>
                                     </figcaption>
@@ -231,7 +231,7 @@
                                 <figure class="effect-chico">
                                     <img src="/resources/user/images/busan.jpg" alt="#" class="img-fluid">
                                     <div class="effect-caption-wrap">
-                                        <a href="searchFlex" style="color: white;"><h1 style="color: white;"><b>부산</b></h1></a>
+                                        <a href="searchFlex?shlctValue=부산" style="color: white;"><h1 style="color: white;"><b>부산</b></h1></a>
                                         <p>800+ Listings</p>
                                     </div>
                                 </figure>
@@ -242,7 +242,7 @@
                                 <figure class="effect-chico">
                                     <img src="/resources/user/images/jinhae.jpg" alt="#" class="img-fluid">
                                     <div class="effect-caption-wrap">
-                                        <a href="searchFlex" style="color: white;"><h1 style="color: white;"><b>진해</b></h1></a>
+                                        <a href="searchFlex?shlctValue=진해" style="color: white;"><h1 style="color: white;"><b>진해</b></h1></a>
                                         <p>210+ Listings</p>
                                     </div>
                                 </figure>

@@ -23,6 +23,7 @@
     <title id="ctl00_headerTitle">여행을 떠나요. now travel!</title>  
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/resources/user/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
     <!-- Themify Icon -->
@@ -124,13 +125,18 @@
     
     
     <!--============================= BOOKING =============================-->
- <form action="/payment">
+ <form action="/payment" autocomplete=off>
 	
 	<input type="text" id="hiddenName" name="tvamLodgingName"/>
 	<input type="text" id="hiddenSeq" name="tvamSeq"/>
 	<input type="text" id="hiddenStartDate" name="hiddenStartDate"/>
+	<input type="text" id="hiddenDay" name="hiddenDay"/>
+	<input type="text" id="hiddenDay1" name="hiddenDay1"/>
 	<input type="text" id="hiddenEndDate" name="hiddenEndDate"/>
 	<input type="text" id="hiddenNumber" name="hiddenNumber"/>	
+	<input type="text" id="hiddenPriceOrigin" name="hiddenPriceOrigin"/> 
+	<input type="text" id="hiddenPriceFee" name="hiddenPriceFee"/> 
+	<input type="text" id="hiddenCoupon" name="hiddenCoupon"/> 
 	<input type="text" id="hiddenPay" name="hiddenPay"/> 
  
     <div>
@@ -187,8 +193,8 @@
             	
                 <div class="col-md-11">
                     <h3><c:out value="${item.tvamLodgingName}"/></h3>
-                    <p class="reserve-description" style="font-size: 20px;">최대 인원 <c:out value="${item.tvamMaxPersonCount}"/>명 * 침실 <c:out value="${item.tvamRoomCount}"/>개 * 침대 <c:out value="${item.tvamBedCount}"/>개 * 욕실 <c:out value="${item.tvamShowerRoomCount}"/>개</p><br>
-                    <p class="reserve-description" style="font-size: 20px;"><c:out value="${item.tvamState}"/>, <c:out value="${item.tvamCity}"/></p>
+                    <p class="reserve-description" style="font-size: 20px;">침실 <c:out value="${item.tvamRoomCount}"/>개 * 침대 <c:out value="${item.tvamBedCount}"/>개 * 욕실 <c:out value="${item.tvamShowerRoomCount}"/>개</p><br>
+                    <p class="reserve-description" style="font-size: 20px;"><c:out value="${item.tvamCity}"/></p>
                 </div>
                 <div class="col-md-1">
                     <div class="reserve-seat-block">
@@ -214,74 +220,102 @@
                         </div>
                         <h4 style="text-align: left;">숙소 편의시설</h4> <br>
                         <div class="row">
-                            <div class="col-md-4">
-                           
-                                <label class="custom-checkbox">
-			                        <span class="ti-check-box"></span>
-			                        <span class="custom-control-description">해변과 인접</span>
-			                     </label>
-			                 </div>
-			                 <div class="col-md-4">    
-                                <label class="custom-checkbox">
-			                       <span class="ti-check-box"></span>
-			                       <span class="custom-control-description">주방  </span>
-		                       </label>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-			                     <span class="ti-check-box"></span>
-			                     <span class="custom-control-description">무선 인터넷  </span>
-			                   </label>
-			                </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-			                        <span class="ti-check-box"></span>
-			                        <span class="custom-control-description">건물 내 무료 주차</span>
-			                     </label>
-			                 </div>
-			                 <div class="col-md-4">
-			                 <c:out value="${item.tvamJacuzziNy}"/>
-                                <label class="custom-checkbox">
-			                       <span class="ti-check-box"></span>
-			                       <span class="custom-control-description">자쿠지</span>
-		                       </label>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-			                     <span class="ti-check-box"></span>
-			                     <span class="custom-control-description">TV</span>
-			                   </label>
-			                </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-			                        <span class="ti-check-box"></span>
-			                        <span class="custom-control-description">세탁기</span>
-			                     </label>
-			                 </div>
-			                 <div class="col-md-4">    
-                                <label class="custom-checkbox">
-			                       <span class="ti-check-box"></span>
-			                       <span class="custom-control-description">에어컨</span>
-		                       </label>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-			                     <span class="ti-check-box"></span>
-			                     <span class="custom-control-description">전용 발코니</span>
-			                   </label>
-			                </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-			                        <span class="ti-check-box"></span>
-			                        <span class="custom-control-description">뒷마당</span>
-			                     </label>
-			                 </div>
+	                        <c:if test="${item.tvamSeaNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box" style="color: blue;"></span>
+				                        <span class="custom-control-description">해변과 인접</span>
+				                     </label>
+				                 </div>
+				            </c:if>
+				            <c:if test="${item.tvamCookingNy eq '1'}">
+				                 <div class="col-md-4">    
+	                                <label class="custom-checkbox">
+				                       <span class="ti-check-box" style="color: blue;"></span>
+				                       <span class="custom-control-description">주방</span>
+			                       </label>
+	                            </div>
+	                       	</c:if>
+	                       	<c:if test="${item.tvamWifiNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                     <span class="ti-check-box" style="color: blue;"></span>
+				                     <span class="custom-control-description">무선 인터넷</span>
+				                   </label>
+				                </div>
+				            </c:if>
+                        	<c:if test="${item.tvamParkingRoomNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box" style="color: blue;"></span>
+				                        <span class="custom-control-description">건물 내 무료 주차</span>
+				                     </label>
+				                 </div>
+			                 </c:if>
+			                 <c:if test="${item.tvamJacuzziNy eq '1'}">
+				                 <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                       <span class="ti-check-box" style="color: blue;"></span>
+				                       <span class="custom-control-description">자쿠지</span>
+			                       </label>
+	                            </div>
+	                        </c:if>
+	                        <c:if test="${item.tvamTvNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                     <span class="ti-check-box" style="color: blue;"></span>
+				                     <span class="custom-control-description">TV</span>
+				                   </label>
+				                </div>
+							</c:if>
+							<c:if test="${item.tvamMicrowaveNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box" style="color: blue;"></span>
+				                        <span class="custom-control-description">전자레인지</span>
+				                     </label>
+				                 </div>
+							</c:if>
+							<c:if test="${item.tvamAirConditionerNy eq '1'}">
+				                 <div class="col-md-4">    
+	                                <label class="custom-checkbox">
+				                       <span class="ti-check-box" style="color: blue;"></span>
+				                       <span class="custom-control-description">에어컨</span>
+			                       </label>
+	                            </div>
+							</c:if>
+							<c:if test="${item.tvamBbqGrillNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                     <span class="ti-check-box" style="color: blue;"></span>
+				                     <span class="custom-control-description">바베큐</span>
+				                   </label>
+				                </div>
+				           </c:if>
+				           <c:if test="${item.tvamPoolNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box" style="color: blue;"></span>
+				                        <span class="custom-control-description">수영장</span>
+				                     </label>
+				                 </div>
+				           </c:if>
+				           <c:if test="${item.tvamFridgeNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box" style="color: blue;"></span>
+				                        <span class="custom-control-description">냉장고</span>
+				                     </label>
+				                 </div>
+				           </c:if>
+				           <c:if test="${item.tvamHeaterNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box" style="color: blue;"></span>
+				                        <span class="custom-control-description">히터</span>
+				                     </label>
+				                 </div>
+				           </c:if>
                         </div>
                     </div>
                     <div class="booking-checkbox_wrap booking-your-review">
@@ -405,7 +439,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="custom-checkbox">
-			                        <span class="ti-check-box"></span>
+			                        <span class="ti-check-box" style="color: blue;"></span>
 			                        <span class="custom-control-description">체크인 : 오후 <c:out value="${item.tvamCheckInTime}"/>이후</span>
 			                     </label>
 			                 </div>
@@ -413,43 +447,41 @@
 			             <div class="row">
 			                 <div class="col-md-6">    
                                 <label class="custom-checkbox">
-			                       <span class="ti-check-box"></span>
+			                       <span class="ti-check-box" style="color: blue;"></span>
 			                       <span class="custom-control-description">체크아웃 : 오전 <c:out value="${item.tvamCheckOutTime}"/>시</span>
 		                       </label>
                             </div>
                          </div>
-                         <div class="row">
-                            <div class="col-md-6">
-                                <label class="custom-checkbox">
-			                     <span class="ti-check-box"></span>
-			                     <span class="custom-control-description">스마트록으로 셀프 체크인</span>
-			                   </label>
-			                </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label class="custom-checkbox">
-			                        <span class="ti-check-box"></span>
-			                        <span class="custom-control-description">흡연 금지</span>
-			                     </label>
-			                 </div>
-			            </div>
-			            <div class="row">
-			                 <div class="col-md-4">    
-                                <label class="custom-checkbox">
-			                       <span class="ti-check-box"></span>
-			                       <span class="custom-control-description">반려동물 동반 불가</span>
-		                       </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-			                     <span class="ti-check-box"></span>
-			                     <span class="custom-control-description">파티나 이벤트 금지</span>
-			                   </label>
-			                </div>
-                        </div>
+                        <c:if test="${item.tvamSmokeNy eq '1'}">
+	                        <div class="row">
+		                            <div class="col-md-6">
+		                                <label class="custom-checkbox">
+					                        <span class="ti-check-box" style="color: blue;"></span>
+					                        <span class="custom-control-description">흡연 금지</span>
+					                     </label>
+					                 </div>
+				            </div>
+				        </c:if>
+			            <c:if test="${item.tvamPetNy eq '1'}">
+				            <div class="row">
+				                 <div class="col-md-4">     
+	                                <label class="custom-checkbox">
+				                       <span class="ti-check-box" style="color: blue;"></span>
+				                       <span class="custom-control-description">반려동물 동반 불가</span>
+			                       </label>
+	                            </div>
+	                        </div>
+                        </c:if>
+                        <c:if test="${item.tvamPartyNy eq '1'}">
+	                        <div class="row">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                     <span class="ti-check-box" style="color: blue;"></span>
+				                     <span class="custom-control-description">파티나 이벤트 금지</span>
+				                   </label>
+				                </div>
+	                        </div>
+	                    </c:if>
                     </div>
                 </div>
                 
@@ -458,7 +490,7 @@
                             <div class="contact-info">
                                 <div class="booking-summary-box">
                                     <h4><c:out value="${item.tvamLodgingName}"/></h4>
-                                    <span style="font-size: 18px;"><c:out value="${item.tvamState}"/>, <c:out value="${item.tvamCity}"/></span>
+                                    <span style="font-size: 18px;"><c:out value="${item.tvamCity}"/></span>
 
                                     <div class="booking-summary_contact">
                                         <p style="font-size: 18px;"><c:out value="${item.tvamTelNumber}"/></p>
@@ -471,18 +503,40 @@
 										    <input type="text" class="form-control form-control-sm" id="datepicker1" placeholder="시작일" >
 										    <input type="text" class="form-control form-control-sm" id="datepicker2" placeholder="종료일">
 										  </div>
-									    <div class="input-group"><input type="number" class="form-control" placeholder="게스트"></div>
+									    <div class="input-group">
+											<select class="form-select" name="selectNumber" id="selectNumber" aria-label="Default select example">
+											  <option selected>인원</option>
+											  <option value="1">1</option>
+											  <option value="2">2</option>
+											  <option value="3">3</option>
+											  <option value="4">4</option>
+											  <option value="5">5</option>
+											  <option value="6">6</option>
+											</select>									    
+									    </div>
 							  			</div>
                                         <div class="booking-cost">
-                                            <p style="font-size: 16px; ">날짜 <span id="endDate" style="font-size: 16px;"></span><span id="startDate" style="font-size: 16px;"></span> </p>
-                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;">성인 1명</span></p>
+                                            <p style="font-size: 16px; ">
+                                            	날짜
+                                            	<span id="endDate" style="font-size: 16px;"></span>
+                                            	<span id="startDate" style="font-size: 16px;"></span>
+                                            	<span id="day" style="font-size: 16px;"></span>
+                                            </p>
+                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;" id="outputNumber"></span></p>
                                         </div>
                                         <div class="booking-cost" >
                                             <h5>요금 정보</h5>
+<<<<<<< HEAD
                                             <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;"></span></p>
                                             <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
                                             <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
                                             <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,136,000원</span></p>
+=======
+                                            <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;" id="price1"></span></p>
+                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;" id="price2"></span></p>
+                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red" style="font-size: 18px;" id="couponPrice"></span></p>
+                                            <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;" id="price3"></span></p>
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                                             <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
                                         </div>
                                     </div>
@@ -508,7 +562,7 @@
                             <p>월 - 일 09:30 am - 05:30 pm </p>
                             <a href="#" class="featured-open">OPEN NOW</a>
                         </div>
-                        <a href="/userDm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
+                        <a id="btnDm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
                     </div>
                     <div class="follow">
                         <div class="follow-img">
@@ -602,6 +656,8 @@
             });
         }
     </script>
+    
+    <!-- 날짜 선택 -->
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> <!-- datepicker -->
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -609,27 +665,98 @@
 			 $("#datepicker1").datepicker();
 			 $('#startDate').empty();
 			 $("#datepicker1").val();
+
 			 $("#datepicker1").on("change",function(){
-				var selected1 = $(this).val();
+
+				 $('#hiddenStartDate').empty();
+				 $('#hiddenEndDate').empty();
+				 
+				var selected1 = $(this).val();		// 선택된 시작날짜 값 받아오기
+				var stDate = new Date(selected1);	// 받아온 값 stDate로 선언
+				var btMs1 = stDate.getTime();		// 받아온 값 시간(밀리세컨드)으로 변환
+				
+				$('#hiddenDay1').val(btMs1);			// hiddenDay에 btMs1 전역변수 담기
+
 			   /* alert(selected1); */
+<<<<<<< HEAD
 			   $('#startDate').empty();
 			   $('#startDate').append(selected1);
 			   $('#hiddenStartDate').val(selected1);
 			 });					 
 		
+=======
+			   $('#startDate').empty();				// 날짜 표시 부분 비움
+			   $('#startDate').append(selected1);	// 날짜 표시 부분에 날짜넣기
+ 			   $('#hiddenStartDate').val(selected1);	// hiddenStartDate에 날짜 넣기 (payment 페이지로 전달해야 함)
+				$('#couponPrice').empty();
+				$('#endDate').empty();
+			   $('#price').empty();
+			   $('#price1').empty();
+			   $('#price2').empty();				
+ 			   $('#price3').empty();			  
+			 });	
+		}); 
+		
+		$(document).ready(function(){
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 			 $("#datepicker2").datepicker();
 			 $("#datepicker2").val();
 			 $("#datepicker2").on("change",function(){
-			   var selected2 = $(this).val();
+				 $('#hiddenEndDate').empty();
+				 $('#endDate').empty();
+				 
+				var selected2 = $(this).val();		// 선택된 종료날짜 값 받아오기
+				var btMs1 = $('#hiddenDay1').val();	// hiddenDay에 담은 btMs1 값 가져오기
+			   
+				var edDate = new Date(selected2);	// 받아온 종료날짜 값 edDate로 선언
+				var btMs2 = edDate.getTime() - btMs1;	// 받아온 종료날짜 값 시간(밀리세컨드)으로 변환해서 시작날짜값(밀리세컨드)만큼 차감
+				var vtDay = btMs2 / (1000*60*60*24);	// 일수로 계산
+				
 			   /* alert(selected2); */
-			   $('#endDate').empty();
-			   $('#endDate').append(' ~ ' + selected2);
+			   $('#price').empty();
+			   $('#price1').empty();
+			   $('#price2').empty();
+			   $('#couponPrice').empty();
+			   $('#price3').empty();
+			   
+			   $('#endDate').append(' ~ ' + selected2 + '(' + vtDay + '박)' );
 			   $('#hiddenEndDate').val(selected2);
+<<<<<<< HEAD
 			   
 			   /* 날짜 차이 계산 */
 			  /*  var btMs = Math.ceil(selected2.getTime() - selected1.getTime())/(1000*3600*24); */
 			   
 			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/> x 박'); 
+=======
+			   $('#hiddenDay').val(vtDay);
+			   
+			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/>'+ ' x ' + vtDay + '박' );
+			   
+			   
+			   /* 정상가 */
+			   var priceOrigin = '<c:out value="${item.tvamAdultPrice}"/>'*vtDay;
+			   var price1 = priceOrigin.toLocaleString();
+			   $('#price1').append(price1 + '원');
+			   $('#hiddenPriceOrigin').val(price1);
+			   
+			   /* 수수료 */
+			   var priceFee = priceOrigin/10;			
+			   var price2 = priceFee.toLocaleString();
+			   $('#price2').append(price2 + '원');
+			   $('#hiddenPriceFee').val(price2);
+			  
+			   /* 쿠폰*/
+			   var priceCoupon = '<c:out value="${item.tvcpPrice}"/>'
+			   $('#couponPrice').append('-' + '<fmt:formatNumber value="${item.tvcpPrice}"/>' + '원');
+			   $('#hiddenCoupon').val('<fmt:formatNumber value="${item.tvcpPrice}"/>');		   
+			   
+			   /* 총 합계 (정상가+수수료-쿠폰) */
+			   var priceTotal = priceOrigin + priceFee - priceCoupon;	
+			   var price3 = priceTotal.toLocaleString();
+			   $('#price3').append(price3 + '원');
+			   $('#hiddenPay').val(priceTotal);
+			   
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 			 });				 
 		}); 
 		$.datepicker.setDefaults({
@@ -643,14 +770,22 @@
 		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 		    showMonthAfterYear: true,
 		    yearSuffix: '년'
-		    
 		});
 		
 	</script>
 	
+	
+	<!-- 인원 선택 -->	
 	<script>
-	
-	
+
+	$("select[name=selectNumber]").change(function(){
+		
+		 $('#outputNumber').empty();	
+		 var selectNumber = $(this).val(); //value값 가져오기
+		 $('#outputNumber').append($("select[name=selectNumber] option:selected").text() + '명');
+		 $('#hiddenNumber').val($("select[name=selectNumber] option:selected").text());
+		 
+		});
 	
 	</script>
 		
@@ -681,15 +816,7 @@
 			,url: "/loginCheck"
 			,data : {}
 			,success: function(response) {
-				
 				if(response.rt == "pass") {
-					$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
-					$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
-					$('#hiddenStartDate').val("2022-08-26");
-					$('#hiddenEndDate').val("2022-09-02");
-					$('#hiddenNumber').val("1");
-					$('#hiddenPay').val("2136000");					
-					
 					 location.href = "/payment"; 
 					
 				}else{			
@@ -716,11 +843,64 @@
 	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
 	/* $('#hiddenStartDate').val("2022-08-26"); */
 	/* $('#hiddenEndDate').val("2022-09-02"); */
-	$('#hiddenNumber').val("1");
-	$('#hiddenPay').val("1");
+	/* $('#hiddenNumber').val("1"); */
+	/* $('#hiddenPay').val("1"); */
 	
+	</script>
 	
+	<script>
+	$("#btnReservation").on("click" , function(){
+		if($('#hiddenStartDate').val() == null || $('#hiddenStartDate').val() == ""){
+			alert('시작일을 선택해주세요.');
+			return false;
+		} 
+		
+		if($('#hiddenEndDate').val() == null || $('#hiddenEndDate').val() == ""){
+			alert('종료일을 선택해주세요.');
+			return false;
+		} 
+		
+		if($('#hiddenNumber').val() == null || $('#hiddenNumber').val() == ""){
+			alert('인원을 선택해주세요.');
+			return false;
+		} else {
+			return true;
+		}
+		
+	});
 	
+	</script>
+		 <script type="text/javascript">
+	        
+ 	$("#btnDm").on("click" , function(){
+		
+	 	 $.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/loginCheck"
+			,data : {}
+			,success: function(response) {
+				
+				if(response.rt == "pass") {
+			
+				
+					 location.href = "/dm"; 
+					
+				}else{			
+					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
+					
+					if(answer ==true){
+						
+						location.href="/loginForm"
+					}
+					}
+				}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+	});   
 	
 	</script>
 </body>

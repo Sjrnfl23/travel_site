@@ -82,16 +82,20 @@ public class UserServiceImpl implements UserService{
 	}
 
 //		// 예약내역
-	@Override
-	public User selectOneReservation(UserVo vo) throws Exception {	
-		return dao.selectOneReservation(vo);
-	}
+	/*
+	 * @Override public User selectOneReservation(UserVo vo) throws Exception {
+	 * return dao.selectOneReservation(vo); }
+	 */
 	
 	@Override
 	public List<User> selectReservation(UserVo vo) throws Exception {
-		// TODO Auto-generated method stub
 		return dao.selectReservation(vo); 
 		}	
+	
+	@Override
+	public int selectOneCountReservation(UserVo vo) throws Exception {
+		return dao.selectOneCountReservation(vo);
+	}	
 	
 //		//리뷰
 //	@Override
@@ -232,6 +236,7 @@ public class UserServiceImpl implements UserService{
 	public int selectSearchCount(UserVo vo) throws Exception {
 		return dao.selectSearchCount(vo);
 	}
+
 	// 로그인
 
 	@Override
@@ -271,5 +276,9 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return dao.selectOneGlogin(dto);
 	}
+
+	
+	
+	
 	
 }
