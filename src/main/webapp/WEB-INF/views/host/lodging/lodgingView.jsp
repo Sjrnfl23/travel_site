@@ -31,7 +31,19 @@
         <link href="../../resources/host/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="../../resources/host/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
+  	<!-- Themify Icon -->
+    <link rel="stylesheet" href="/resources/user/css/themify-icons.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/resources/user/css/font-awesome.min.css">
+    <!-- line icons -->
+    <link rel="stylesheet" href="/resources/user/css/simple-line-icons.css">
+    <!-- Swipper Slider -->
+    <link rel="stylesheet" href="/resources/user/css/swiper.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="/resources/user/css/magnific-popup.css">
+    <!-- Hover Effects -->
+    <link href="/resources/user/css/set1.css" rel="stylesheet">
+   
 
     </head>
 
@@ -186,11 +198,139 @@
                                                         </tr>
                                                         <!-- end tr -->
                                                          <tr>
-                                                            <th class="fw-bold" style="margin-top:20px;">편의시설 보기</th>
+                                                            <th class="fw-bold" style="margin-top:20px;">편의시설</th>
                                                         <td>
-                                            <input type="button" style="margin-top:15px;" class="btn btn-info btn-sm" id="auth-terms-condition-check" data-bs-toggle="modal" data-bs-target="#exampleModal" value="편의시설 선택">
+                                            <input type="button" style="margin-top:15px;" class="btn btn-info btn-sm" id="auth-terms-condition-check" data-bs-toggle="modal" data-bs-target="#exampleModal" value="편의시설 보기">
                                            
                                                  <!-- Modal -->
+
+										<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">편의 보기</h5>
+										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										      </div>
+										      <div class="modal-body" style="font-size: 17px;">
+										  
+										   <div class="row">
+	                        <c:if test="${rt.tvamSeaNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description" >해변과 인접</span>
+				                     </label>
+				                 </div>
+				            </c:if>
+				            <c:if test="${rt.tvamCookingNy eq '1'}">
+				                 <div class="col-md-4">    
+	                                <label class="custom-checkbox">
+				                       <span class="ti-check-box"></span>
+				                       <span class="custom-control-description">주방</span>
+			                       </label>
+	                            </div>
+	                       	</c:if>
+	                       	<c:if test="${rt.tvamWifiNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                     <span class="ti-check-box"></span>
+				                     <span class="custom-control-description">무선 인터넷</span>
+				                   </label>
+				                </div>
+				            </c:if>
+                        	<c:if test="${rt.tvamParkingRoomNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description">건물 내 무료 주차</span>
+				                     </label>
+				                 </div>
+			                 </c:if>
+			                 <c:if test="${rt.tvamJacuzziNy eq '1'}">
+				                 <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                       <span class="ti-check-box"></span>
+				                       <span class="custom-control-description">자쿠지</span>
+			                       </label>
+	                            </div>
+	                        </c:if>
+	                        <c:if test="${rt.tvamTvNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                     <span class="ti-check-box"></span>
+				                     <span class="custom-control-description">TV</span>
+				                   </label>
+				                </div>
+							</c:if>
+							<c:if test="${rt.tvamMicrowaveNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description">전자레인지</span>
+				                     </label>
+				                 </div>
+							</c:if>
+							<c:if test="${rt.tvamAirConditionerNy eq '1'}">
+				                 <div class="col-md-4">    
+	                                <label class="custom-checkbox">
+				                       <span class="ti-check-box"></span>
+				                       <span class="custom-control-description">에어컨</span>
+			                       </label>
+	                            </div>
+							</c:if>
+							<c:if test="${rt.tvamBbqGrillNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                     <span class="ti-check-box"></span>
+				                     <span class="custom-control-description">바베큐</span>
+				                   </label>
+				                </div>
+				           </c:if>
+				           <c:if test="${rt.tvamPoolNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description">수영장</span>
+				                     </label>
+				                 </div>
+				           </c:if>
+				           <c:if test="${rt.tvamFridgeNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description">냉장고</span>
+				                     </label>
+				                 </div>
+				           </c:if>
+				           <c:if test="${rt.tvamHeaterNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description">히터</span>
+				                     </label>
+				                 </div>
+				           </c:if>
+                        </div>
+										  
+										  </div>
+										  
+										  <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">유의 사항</h5>
+										        
+										      </div>
+										       <div class="modal-body" style="font-size: 17px;">
+										       
+										       <div class="row">
+										  <div class="col-3"><input type="checkbox" id="tvamSmokeNy" name="tvamSmokeNy" style="margin-right:5px;" value="1" checked><label for="tvamSmokeNy">흡연 불가</label></div>
+										  <div class="col-4"><input type="checkbox" id="tvamPetNy" name="tvamPetNy" style="margin-right:5px;" value="1"><label for="tvamPetNy">반려동물 동반 불가</label></div>
+										  <div class="col-4" style="margin-left:8px;"><input type="checkbox" id="tvamPartyNy" name="tvamPartyNy" style="margin-right:5px;" value="1"><label for="tvamPartyNy">파티나 이벤트 금지</label></div>
+										  </div>
+										  
+										  </div>
+										    <div class="modal-footer">
+        						
+        						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">저장</button>
+
 													<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 													  <div class="modal-dialog">
 													    <div class="modal-content">
@@ -272,6 +412,7 @@
 													    <div class="modal-footer">
 			        						
 			        						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">저장</button>
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
       									</div>
 										     
 										    </div>

@@ -157,9 +157,22 @@ public class User extends Base{
 	private String tvpmDesc;
 	private String hostEmail;
 	
+	private Integer tvarCount;
+	private String starpoint;
 	
 	
-	
+	public String getStarpoint() {
+		return starpoint;
+	}
+	public void setStarpoint(String starpoint) {
+		this.starpoint = starpoint;
+	}
+	public Integer getTvarCount() {
+		return tvarCount;
+	}
+	public void setTvarCount(Integer tvarCount) {
+		this.tvarCount = tvarCount;
+	}
 	public String getTvamSeq() {
 		return tvamSeq;
 	}

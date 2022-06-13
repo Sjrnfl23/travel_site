@@ -67,6 +67,9 @@ public class UserDao {
 	public int selectGoogleNy(User dto) { return sqlSession.selectOne(namespace+".selectGoogleNy",dto); }
 	public User selectOneGlogin(User dto) { return sqlSession.selectOne(namespace+".selectOneGlogin",dto); }
 	
-	
+	// Review
+	public int insertReview(User dto) { return sqlSession.insert(namespace+".insertReview",dto); }
+	public List<User> selectListReview(UserVo vo) { return sqlSession.selectList(namespace+".selectListReview",vo); } 
+	public int selectReviewCount(UserVo vo) { return sqlSession.selectOne(namespace + ".selectReviewCount", vo); }
 	
 }

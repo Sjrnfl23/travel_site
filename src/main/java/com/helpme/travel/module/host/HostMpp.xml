@@ -176,6 +176,22 @@
 				,c.year
 				,c.month
 				,c.day
+				,a.tvamSeaNy
+				,a.tvamPoolNy
+				,a.tvamJacuzziNy
+				,a.tvamBbqGrillNy								
+				,a.tvamWifiNy
+				,a.tvamTvNy
+				,a.tvamParkingRoomNy
+				,a.tvamAirConditionerNy
+				,a.tvamHeaterNy
+				,a.tvamFridgeNy
+				,a.tvamMicrowaveNy
+				,a.tvamSmokeNy
+				,a.tvamCookingNy
+				,a.tvamPetNy
+				,a.tvamPartyNy
+				
 				
 				from
 				tvLodging a
@@ -213,7 +229,6 @@
 				,tvamPoolNy
 				,tvamJacuzziNy
 				,tvamBbqGrillNy
-				,tvamFirePlaceNy
 				,tvamGymNy
 				,tvamWifiNy
 				,tvamTvNy
@@ -249,7 +264,7 @@
 				,#{tvamPoolNy}
 				,#{tvamJacuzziNy}
 				,#{tvamBbqGrillNy}
-				,#{tvamFirePlaceNy}
+				
 				,#{tvamGymNy}
 				,#{tvamWifiNy}
 				,#{tvamTvNy}
@@ -286,6 +301,23 @@
 				,a.tvamCheckInTime = #{tvamCheckInTime}
 				,a.tvamCheckOutTime = #{tvamCheckOutTime}
 				,a.tvamDesc = #{tvamDesc}
+				,a.tvamSeaNy = #{tvamSeaNy}
+				,a.tvamPoolNy = #{tvamPoolNy}
+				,a.tvamJacuzziNy =#{tvamJacuzziNy}									                
+				,a.tvamBbqGrillNy = #{tvamBbqGrillNy}
+				,a.tvamFirePlaceNy =#{tvamFirePlaceNy}
+				,a.tvamGymNy =#{tvamGymNy}
+				,a.tvamWifiNy =#{tvamWifiNy}
+				,a.tvamTvNy =#{tvamTvNy}
+				,a.tvamParkingRoomNy =#{tvamParkingRoomNy}
+				,a.tvamAirConditionerNy =#{tvamAirConditionerNy}
+				,a.tvamHeaterNy =#{tvamHeaterNy}
+				,a.tvamFridgeNy =#{tvamFridgeNy}
+				,a.tvamMicrowaveNy =#{tvamMicrowaveNy}
+				,a.tvamSmokeNy =#{tvamSmokeNy}
+				,a.tvamCookingNy =#{tvamCookingNy}
+				,a.tvamPetNy =#{tvamPetNy}
+				,a.tvamPartyNy =#{tvamPartyNy}  
 				
 			where 1=1
 				and tvamDelNy=0

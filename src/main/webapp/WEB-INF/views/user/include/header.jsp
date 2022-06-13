@@ -17,7 +17,8 @@
 									<li class="nav-item">
                                         <a class="nav-link" id="btnPhotomap" href="">여행지도</a>
                                     </li>
-                                    <li class="nav-item dropdown">
+                                    
+                                    <li class="nav-item dropdown" id="userInfoHeader">
                                         <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     						회원정보
                     						<span class="ti-angle-down"></span>
@@ -62,13 +63,14 @@ $(function init(){
 	 		,success: function(response) {
 	 			if(response.rt == "pass") {
 	 				let loginNy=1;
-	 				
+	 				$("#userInfoHeader").show();
 	 				$("#login").hide();
 	 				
 	 				console.log(loginNy);
 	 			} else {
 	 				let loginNy=0;
 	 				$("#logout").hide();
+	 				$("#userInfoHeader").hide();
 	 			}
 	 		}
 	 		,error : function(jqXHR, textStatus, errorThrown){
@@ -94,7 +96,12 @@ $("#logout").on("click",function(){
  		,data : {}
  		,success: function(response) {
  			if(response.rt == "success") {
+<<<<<<< HEAD
  				location.href = "/"
+=======
+ 				
+ 				location.href = ""
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
  			} else {
  				alert("에러");
  			}
@@ -123,7 +130,7 @@ $("#logout").on("click",function(){
 			,success: function(response) {
 				
 				if(response.rt == "pass") {
-			
+					
 				
 					 location.href = "/mapList"; 
 					

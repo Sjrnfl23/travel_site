@@ -47,6 +47,8 @@ public class UserVo {
 	
 	private int startRnumForMysql = 0;
 	
+	//review
+	private Integer tvarCount;
 	
 	public void setParamsPaging(int totalRowsParam) {
 		
@@ -94,6 +96,15 @@ public class UserVo {
 	}
 	
 	// --------------------------------
+	
+	
+	
+	public Integer getTvarCount() {
+		return tvarCount;
+	}
+	public void setTvarCount(Integer tvarCount) {
+		this.tvarCount = tvarCount;
+	}
 	public String getShCheck() {
 		return shCheck;
 	}
