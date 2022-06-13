@@ -154,7 +154,7 @@
     
     
     <!--============================= BOOKING =============================-->
- <form action="/payment" autocomplete=off>
+ <form action="/payment" id="formReservation" autocomplete=off>
 	
 	<input type="hidden" id="hiddenName" name="tvamLodgingName"/>
 	<input type="hidden" id="hiddenSeq" name="tvamSeq" value="<c:out value="${item.tvamSeq}"/>"/>
@@ -592,7 +592,8 @@
                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;" id="price2"></span></p>
                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red" style="font-size: 18px;" id="couponPrice"></span></p>
                                            <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;" id="price3"></span></p>
-                                           <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
+                                           <br><button type="button" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
+<!--                                            <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button> -->
                                        </div>
                                    </div>
                                </div>
@@ -956,7 +957,40 @@
 	});
 	
 	</script>
-		 <script type="text/javascript">
+	<script type="text/javascript">
+	        
+ 	$("#btnReservation").on("click" , function(){
+		
+	 	 $.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/loginCheck"
+			,data : {}
+			,success: function(response) {
+				
+				if(response.rt == "pass") {
+				
+					 /* location.href = "/dm" */
+					$("#formReservation").submit();
+					
+				}else{			
+					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
+					
+					if(answer ==true){
+						
+						location.href="/loginForm"
+					}
+					}
+				}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+	});   
+	
+	</script>
+	<script type="text/javascript">
 	        
  	$("#btnDm").on("click" , function(){
 		
@@ -996,8 +1030,6 @@
 	       $("form").attr("action", "insertReview");
 	});
 	 
-	
-	
 	
 	</script>
 	

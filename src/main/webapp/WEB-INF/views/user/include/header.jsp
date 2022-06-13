@@ -96,12 +96,8 @@ $("#logout").on("click",function(){
  		,data : {}
  		,success: function(response) {
  			if(response.rt == "success") {
-<<<<<<< HEAD
- 				location.href = "/"
-=======
  				
- 				location.href = ""
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
+ 				location.href = /
  			} else {
  				alert("에러");
  			}
