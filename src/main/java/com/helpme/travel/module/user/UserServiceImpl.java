@@ -273,6 +273,25 @@ public class UserServiceImpl implements UserService{
 		return dao.selectOneGlogin(dto);
 	}
 
+	@Override
+	public int insertReview(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.insertReview(dto);
+	}
+
+	@Override
+	public List<User> selectListReview(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectListReview(vo);
+	}
+
+	@Override
+	public int selectReviewCount(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectReviewCount(vo);
+	}
+	
+	
 	
 	
 	

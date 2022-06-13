@@ -31,7 +31,19 @@
         <link href="../../resources/host/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="../../resources/host/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
+  	<!-- Themify Icon -->
+    <link rel="stylesheet" href="/resources/user/css/themify-icons.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/resources/user/css/font-awesome.min.css">
+    <!-- line icons -->
+    <link rel="stylesheet" href="/resources/user/css/simple-line-icons.css">
+    <!-- Swipper Slider -->
+    <link rel="stylesheet" href="/resources/user/css/swiper.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="/resources/user/css/magnific-popup.css">
+    <!-- Hover Effects -->
+    <link href="/resources/user/css/set1.css" rel="stylesheet">
+   
 
     </head>
 
@@ -186,73 +198,118 @@
                                                         </tr>
                                                         <!-- end tr -->
                                                          <tr>
-                                                            <th class="fw-bold" style="margin-top:20px;">편의시설 보기</th>
+                                                            <th class="fw-bold" style="margin-top:20px;">편의시설</th>
                                                         <td>
-                                            <input type="button" style="margin-top:15px;" class="btn btn-info btn-sm" id="auth-terms-condition-check" data-bs-toggle="modal" data-bs-target="#exampleModal" value="편의시설 선택">
+                                            <input type="button" style="margin-top:15px;" class="btn btn-info btn-sm" id="auth-terms-condition-check" data-bs-toggle="modal" data-bs-target="#exampleModal" value="편의시설 보기">
                                            
                                                  <!-- Modal -->
 										<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 										  <div class="modal-dialog">
 										    <div class="modal-content">
 										      <div class="modal-header">
-										        <h5 class="modal-title" id="exampleModalLabel">편의 시설</h5>
+										        <h5 class="modal-title" id="exampleModalLabel">편의 보기</h5>
 										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 										      </div>
 										      <div class="modal-body" style="font-size: 17px;">
 										  
-										      <div class="row">
-										      
-										  <div class="col-4"><input type="checkbox" id="tvamSeaNy" name="tvamSeaNy" style="margin-right:5px;" value="1">
-										  <label for="tvamSeaNy">해변과 인접</label></div>
-										  
-										  <div class="col-4"><input type="checkbox" id="tvamCookingNy" name="tvamCookingNy" style="margin-right:5px;" value="1">
-										  <label for="tvamCookingNy">주방</label>
-										  </div>
-										  
-										  <div class="col-4"><input type="checkbox" id="tvamWifiNy" name="tvamWifiNy" style="margin-right:5px;" value="1">
-										  <label for="tvamWifiNy">무선인터넷</label>
-										  </div>
-										  
-										  </div>
-										  
-										     <div class="row" style="margin-top:5px;">
-										    <div class="col-4"><input type="checkbox" id="tvamParkingRoomNy" name="tvamParkingRoomNy" style="margin-right:5px;" value="1">
-										    <label for="tvamParkingRoomNy">무료 주차</label>
-										    </div>
-										  <div class="col-4"><input type="checkbox" id="tvamJacuzziNy" name="tvamJacuzziNy" style="margin-right:5px;" value="1">
-										  <label for="tvamJacuzziNy">자쿠지</label>
-										  </div>
-										  <div class="col-4"><input type="checkbox" id="tvamTvNy" name="tvamTvNy" style="margin-right:5px;" value="1">
-										  <label for="tvamTvNy">TV</label>
-										  </div>
-										  
-										  </div>
-										  
-										     <div class="row" style="margin-top:5px;">			
-										  <div class="col-4"><input type="checkbox" id="tvamMicrowaveNy" name="tvamMicrowaveNy" style="margin-right:5px;" value="1">
-										  <label for="tvamMicrowaveNy">전자레인지</label>
-										  </div>
-										  <div class="col-4"><input type="checkbox" id="tvamAirConditionerNy" name="tvamAirConditionerNy" style="margin-right:5px;" value="1">
-										  <label for="tvamAirConditionerNy">에어컨</label>
-										  </div>
-										  <div class="col-4"><input type="checkbox" id="tvamBbqGrillNy" name="tvamBbqGrillNy" style="margin-right:5px;" value="1">
-										  <label for="tvamBbqGrillNy">바베큐</label>
-										  </div>
-										  
-										  </div>
-										  
-										   <div class="row" style="margin-top:5px;">			
-										  <div class="col-4"><input type="checkbox" id="tvamPoolNy" name="tvamPoolNy" style="margin-right:5px;" value="1">
-										  <label for="tvamPoolNy">수영장</label>
-										  </div>
-										  <div class="col-4"><input type="checkbox" id="tvamFridgeNy" name="tvamFridgeNy" style="margin-right:5px;" value="1">
-										  <label for="tvamFridgeNy">냉장고</label>
-										  </div>
-										  <div class="col-4"><input type="checkbox" id="tvamHeaterNy" name="tvamHeaterNy" style="margin-right:5px;" value="1">
-										  <label for="tvamHeaterNy">히터</label>
-										  </div>
-										  
-										  </div>
+										   <div class="row">
+	                        <c:if test="${rt.tvamSeaNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description" >해변과 인접</span>
+				                     </label>
+				                 </div>
+				            </c:if>
+				            <c:if test="${rt.tvamCookingNy eq '1'}">
+				                 <div class="col-md-4">    
+	                                <label class="custom-checkbox">
+				                       <span class="ti-check-box"></span>
+				                       <span class="custom-control-description">주방</span>
+			                       </label>
+	                            </div>
+	                       	</c:if>
+	                       	<c:if test="${rt.tvamWifiNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                     <span class="ti-check-box"></span>
+				                     <span class="custom-control-description">무선 인터넷</span>
+				                   </label>
+				                </div>
+				            </c:if>
+                        	<c:if test="${rt.tvamParkingRoomNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description">건물 내 무료 주차</span>
+				                     </label>
+				                 </div>
+			                 </c:if>
+			                 <c:if test="${rt.tvamJacuzziNy eq '1'}">
+				                 <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                       <span class="ti-check-box"></span>
+				                       <span class="custom-control-description">자쿠지</span>
+			                       </label>
+	                            </div>
+	                        </c:if>
+	                        <c:if test="${rt.tvamTvNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                     <span class="ti-check-box"></span>
+				                     <span class="custom-control-description">TV</span>
+				                   </label>
+				                </div>
+							</c:if>
+							<c:if test="${rt.tvamMicrowaveNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description">전자레인지</span>
+				                     </label>
+				                 </div>
+							</c:if>
+							<c:if test="${rt.tvamAirConditionerNy eq '1'}">
+				                 <div class="col-md-4">    
+	                                <label class="custom-checkbox">
+				                       <span class="ti-check-box"></span>
+				                       <span class="custom-control-description">에어컨</span>
+			                       </label>
+	                            </div>
+							</c:if>
+							<c:if test="${rt.tvamBbqGrillNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                     <span class="ti-check-box"></span>
+				                     <span class="custom-control-description">바베큐</span>
+				                   </label>
+				                </div>
+				           </c:if>
+				           <c:if test="${rt.tvamPoolNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description">수영장</span>
+				                     </label>
+				                 </div>
+				           </c:if>
+				           <c:if test="${rt.tvamFridgeNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description">냉장고</span>
+				                     </label>
+				                 </div>
+				           </c:if>
+				           <c:if test="${rt.tvamHeaterNy eq '1'}">
+	                            <div class="col-md-4">
+	                                <label class="custom-checkbox">
+				                        <span class="ti-check-box"></span>
+				                        <span class="custom-control-description">히터</span>
+				                     </label>
+				                 </div>
+				           </c:if>
+                        </div>
 										  
 										  </div>
 										  

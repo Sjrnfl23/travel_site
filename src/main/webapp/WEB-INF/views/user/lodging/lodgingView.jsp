@@ -44,7 +44,36 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"><!-- datepicker -->
 	<link rel="stylesheet" href="/resources/demos/style.css"><!-- datepicker -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script><!-- datepicker -->
-	
+<style>
+.starpoint_wrap{display:inline-block;}
+.starpoint_box{position:relative;background:url(https://hsecode.github.io/images_codepen/codepen_sp_star.png) 0 0 no-repeat;font-size:0;}
+.starpoint_box .starpoint_bg{display:block;position:absolute;top:0;left:0;height:18px;background:url(https://hsecode.github.io/images_codepen/codepen_sp_star.png) 0 -20px no-repeat;pointer-events:none;}
+.starpoint_box .label_star{display:inline-block;width:10px;height:13px;box-sizing:border-box;}
+.starpoint_box .star_radio{opacity:0;width:0;height:0;position:absolute;}
+.starpoint_box .star_radio:nth-of-type(1):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(1):checked ~ .starpoint_bg{width:10%;}
+.starpoint_box .star_radio:nth-of-type(2):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(2):checked ~ .starpoint_bg{width:20%;}
+.starpoint_box .star_radio:nth-of-type(3):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(3):checked ~ .starpoint_bg{width:30%;}
+.starpoint_box .star_radio:nth-of-type(4):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(4):checked ~ .starpoint_bg{width:40%;}
+.starpoint_box .star_radio:nth-of-type(5):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(5):checked ~ .starpoint_bg{width:50%;}
+.starpoint_box .star_radio:nth-of-type(6):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(6):checked ~ .starpoint_bg{width:60%;}
+.starpoint_box .star_radio:nth-of-type(7):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(7):checked ~ .starpoint_bg{width:70%;}
+.starpoint_box .star_radio:nth-of-type(8):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(8):checked ~ .starpoint_bg{width:80%;}
+.starpoint_box .star_radio:nth-of-type(9):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(9):checked ~ .starpoint_bg{width:90%;}
+.starpoint_box .star_radio:nth-of-type(10):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(10):checked ~ .starpoint_bg{width:100%;}
+
+.blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}
+
+</style>
     
 </head>
 
@@ -127,17 +156,18 @@
     <!--============================= BOOKING =============================-->
  <form action="/payment" autocomplete=off>
 	
-	<input type="text" id="hiddenName" name="tvamLodgingName"/>
-	<input type="text" id="hiddenSeq" name="tvamSeq"/>
-	<input type="text" id="hiddenStartDate" name="hiddenStartDate"/>
-	<input type="text" id="hiddenDay" name="hiddenDay"/>
-	<input type="text" id="hiddenDay1" name="hiddenDay1"/>
-	<input type="text" id="hiddenEndDate" name="hiddenEndDate"/>
-	<input type="text" id="hiddenNumber" name="hiddenNumber"/>	
-	<input type="text" id="hiddenPriceOrigin" name="hiddenPriceOrigin"/> 
-	<input type="text" id="hiddenPriceFee" name="hiddenPriceFee"/> 
-	<input type="text" id="hiddenCoupon" name="hiddenCoupon"/> 
-	<input type="text" id="hiddenPay" name="hiddenPay"/> 
+	<input type="hidden" id="hiddenName" name="tvamLodgingName"/>
+	<input type="hidden" id="hiddenSeq" name="tvamSeq" value="<c:out value="${item.tvamSeq}"/>"/>
+	<input type="hidden" id="hiddenStartDate" name="hiddenStartDate"/>
+	<input type="hidden" id="hiddenDay" name="hiddenDay"/>
+	<input type="hidden" id="hiddenDay1" name="hiddenDay1"/>
+	<input type="hidden" id="hiddenEndDate" name="hiddenEndDate"/>
+	<input type="hidden" id="hiddenNumber" name="hiddenNumber"/>	
+	<input type="hidden" id="hiddenPriceOrigin" name="hiddenPriceOrigin"/> 
+	<input type="hidden" id="hiddenPriceFee" name="hiddenPriceFee"/> 
+	<input type="hidden" id="hiddenCoupon" name="hiddenCoupon"/> 
+	<input type="hidden" id="hiddenPay" name="hiddenPay"/> 
+	
  
     <div>
         <!-- Swiper -->
@@ -317,8 +347,12 @@
 				                 </div>
 				           </c:if>
                         </div>
+                        
                     </div>
+                    
+                    
                     <div class="booking-checkbox_wrap booking-your-review">
+                    
                         <h5>Write a Review</h5>
                         <hr>
                         <div class="customer-review_wrap">
@@ -326,18 +360,38 @@
                                 <img src="/resources/user/images/avatar.jpg" class="img-fluid" alt="#">
                             </div>
                             <div class="customer-content-wrap">
-                                <div class="your-rating-wrap">
-                                    <span>평점</span>
-                                    <div class="customer-review">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span class="round-icon-blank"></span>
-                                    </div>
-                                </div>
+                       
+
+<div class="starpoint_wrap">
+  <div class="starpoint_box">
+    <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+    <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+    <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+    <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+    <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+    <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+    <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+    <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+    <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+    <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+    <input type="radio" value="1" name="starpoint" id="starpoint_1" class="star_radio">
+    <input type="radio" value="2" name="starpoint" id="starpoint_2" class="star_radio">
+    <input type="radio" value="3" name="starpoint" id="starpoint_3" class="star_radio">
+    <input type="radio" value="4" name="starpoint" id="starpoint_4" class="star_radio">
+    <input type="radio" value="5" name="starpoint" id="starpoint_5" class="star_radio">
+    <input type="radio" value="6" name="starpoint" id="starpoint_6" class="star_radio">
+    <input type="radio" value="7" name="starpoint" id="starpoint_7" class="star_radio">
+    <input type="radio" value="8" name="starpoint" id="starpoint_8" class="star_radio">
+    <input type="radio" value="9" name="starpoint" id="starpoint_9" class="star_radio">
+    <input type="radio" value="10" name="starpoint" id="starpoint_10" class="star_radio">
+    <span class="starpoint_bg"></span>
+  </div>
+</div>
+
+
+
                                 <div class="your-comment-wrap">
-                                    <textarea name="#" class="your-rating-content" placeholder="리뷰를 입력해주세요."></textarea>
+                                    <textarea name="tvarReview" name="tvarReview" class="your-rating-content" placeholder="리뷰를 입력해주세요."></textarea>
                                     <h6 class="your-rating-notify">140자 이상 작성해주세요.</h6>
                                 </div>
 
@@ -349,88 +403,98 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="your-rating-btn">
-                                            <a href="#" class="btn btn-danger btn-block">리뷰작성</a>
+                                        
+                                            <input type="submit" id="insertReview" name="insertReview" class="btn btn-danger btn-block" value="리뷰작성">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                  
+                 
                     <div class="booking-checkbox_wrap my-4">
-                        <h4>192개 리뷰</h4>
+                        <h4><c:out value="${vo.totalRows}"/>개 리뷰</h4>
                         <hr>
+                             <c:forEach items="${rt}" var="item" varStatus="status">
                         <div class="customer-review_wrap">
                             <div class="customer-img">
                                 <img src="/resources/user/images/review1.jpg" class="img-fluid" alt="#">
-                                <p><%-- <c:out value="${item.tvmmName"/> --%></p>
+                           
+                                <p><c:out value="${item.tvmmName}"/></p>
+                               
                             </div>
                             <div class="customer-content-wrap">
                                 <div class="customer-content">
                                     <div class="customer-review">
-                                        <h5>제주도에 와서 제일 좋은 숙소</h5>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span class="round-icon-blank"></span>
-                                        <p><%-- <c:out value="${item.tvarDate"/> --%></p>
-                                    </div>
-                                    <div class="customer-rating"><%-- <c:out value="${item.tvarStarPoint"/> --%></div>
-                                </div>
-                                <p class="customer-text"><%-- <c:out value="${item.tvarReview}"/> --%></p>
+                                        
+                                      
+ <div class="starpoint_wrap">
+  <div class="starpoint_box">
+    <label for="starpoint1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+    <label for="starpoint2" class="label_star" title="1"><span class="blind">1점</span></label>
+    <label for="starpoint3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+    <label for="starpoint4" class="label_star" title="2"><span class="blind">2점</span></label>
+    <label for="starpoint5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+    <label for="starpoint6" class="label_star" title="3"><span class="blind">3점</span></label>
+    <label for="starpoint7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+    <label for="starpoint8" class="label_star" title="4"><span class="blind">4점</span></label>
+    <label for="starpoint9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+    <label for="starpoint10" class="label_star" title="5"><span class="blind">5점</span></label>
+   <input type="radio" name="starpoint" id="starpoint1" class="star_radio" disabled <c:if test="${item.starpoint eq 1}"> checked</c:if> >
+    <input type="radio" name="starpoint" id="starpoint2" class="star_radio" disabled <c:if test="${item.starpoint eq 2}"> checked</c:if> >
+    <input type="radio" name="starpoint" id="starpoint3" class="star_radio" disabled <c:if test="${item.starpoint eq 3}"> checked</c:if> >
+    <input type="radio" name="starpoint" id="starpoint4" class="star_radio" disabled <c:if test="${item.starpoint eq 4}"> checked</c:if> >
+    <input type="radio" name="starpoint" id="starpoint5" class="star_radio" disabled <c:if test="${item.starpoint eq 5}"> checked</c:if> >
+    <input type="radio" name="starpoint" id="starpoint6" class="star_radio" disabled <c:if test="${item.starpoint eq 6}"> checked</c:if> >
+    <input type="radio" name="starpoint" id="starpoint7" class="star_radio" disabled <c:if test="${item.starpoint eq 7}"> checked</c:if> >
+    <input type="radio" name="starpoint" id="starpoint8" class="star_radio" disabled <c:if test="${item.starpoint eq 8}"> checked</c:if> >
+    <input type="radio" name="starpoint" id="starpoint9" class="star_radio" disabled <c:if test="${item.starpoint eq 9}"> checked</c:if> >
+    <input type="radio" name="starpoint" id="starpoint10" class="star_radio" disabled <c:if test="${item.starpoint eq 10}"> checked</c:if> > 
+    
+    <span class="starpoint_bg"></span>
+  </div>
+</div> 
 
-                                <ul>
-                                    <li><img src="/resources/user/images/review-img1.jpg" class="img-fluid" alt="#"></li>
-                                    <li><img src="/resources/user/images/review-img2.jpg" class="img-fluid" alt="#"></li>
-                                    <li><img src="/resources/user/images/review-img3.jpg" class="img-fluid" alt="#"></li>
-                                </ul>
+                                        <p><%-- <c:out value="${rt.tvarDate"/> --%></p>
+                                    </div>
+                                    <div class="customer-rating" style="margin-bottom:10px;"><c:out value="${item.starpoint/2}"/></div>
+                                </div>
+                                <p class="customer-text"><c:out value="${item.tvarReview}"/></p>
+
+                             
 
                             </div>
                         </div>
                         <hr>
-                        <div class="customer-review_wrap">
-                            <div class="customer-img">
-                                <img src="/resources/user/images/review2.jpg" class="img-fluid" alt="#">
-                                <p>선희</p>
-                            </div>
-                            <div class="customer-content-wrap">
-                                <div class="customer-content">
-                                    <div class="customer-review">
-                                        <h5>신행으로 왔었고 두쌍의 부부가 묵었습니다.</h5>
-                                        <span class="customer-rating-red"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <p>2022년 4월</p>
-                                    </div>
-                                    <div class="customer-rating customer-rating-red">2.0</div>
-                                </div>
-                                <p class="customer-text">신행으로 왔었고 두쌍의 부부가 묵었습니다.
-									제주스러운 집이었고 감성샷 찍을수 있는 곳이 많아서 완전 만족했습니다~</p>
-                            </div>
-                        </div>
-                        <div class="customer-review_wrap">
-                            <div class="customer-img">
-                                <img src="/resources/user/images/review3.jpg" class="img-fluid" alt="#">
-                                <p>Donghwan</p>
-                            </div>r
-                            <div class="customer-content-wrap">
-                                <div class="customer-content">
-                                    <div class="customer-review">
-                                        <h5>세자매 여행에 특별한선물같은 숙소였습니다.</h5>
-                                        <span class="customer-rating-red"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <p>2022년 3월</p>
-                                    </div>
-                                    <div class="customer-rating">4.0</div>
-                                </div>
-                                <p class="customer-text">세자매 여행에 특별한선물같은 숙소였습니다. 추워서 바베큐는 포기했지만 월풀로 휴식풀고 준비해두신 와인나눠마시고 넘 좋은시간보냈습니다. </p>
-                            </div>
-                        </div>
+                        
+                         </c:forEach>
+                         
+                        <div class="gridjs-pagination">
+                                   			
+                                   		<div class="gridjs-pages">
+											<nav aria-label="...">
+											  <ul class="pagination justify-content-center">
+											<c:if test="${vo.startPage gt vo.pageNumToShow}">
+											     <li class="page-item"><a class="page-link" href="lodgingView?tvamSeq=${item.tvamSeq}&thisPage=${vo.startPage - 1}">Previous</a></li>
+											</c:if>
+											<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+												<c:choose>
+													<c:when test="${i.index eq vo.thisPage}">
+											                <li class="page-item active"><a class="page-link" href="lodgingView?tvamSeq=${item.tvamSeq}&thisPage=${i.index}">${i.index}</a></li>
+													</c:when>
+													<c:otherwise>             
+											            <li class="page-item"><a class="page-link" href="lodgingView?tvamSeq=${item.tvamSeq}&thisPage=${i.index}">${i.index}</a></li>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>     
+											<c:if test="${vo.endPage ne vo.totalPages}">                
+											    <li class="page-item"><a class="page-link" href="lodgingView?tvamSeq=${item.tvamSeq}&thisPage=${vo.endPage + 1}">Next</a></li>
+											</c:if>  
+											  </ul>
+											</nav>
+                                   		</div>
+                                   	</div>
                     </div>
 
 					<div class="booking-checkbox_wrap">
@@ -566,7 +630,7 @@
                         <ul class="d-flex">
                             <li class=" flex-fill">
                                 <span><b>후기</b></span>
-                                <h6>190개</h6>
+                                <h6><%-- <c:out value="${rt.tvarCount}"/> --%>개</h6>
                             </li>
                             <li class=" flex-fill">
                             	 <span><b>언어</b></span>
@@ -880,6 +944,19 @@
 	});   
 	
 	</script>
+	
+	<script type="text/javascript">
+	
+	$("#insertReview").click(function () {
+	       $("form").attr("action", "insertReview");
+	});
+	 
+	
+	
+	
+	</script>
+	
+	
 </body>
 
 </html>

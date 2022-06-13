@@ -170,19 +170,20 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/lodgingView")
-	public String UserLodgingView(UserVo vo, User dto, Model model) throws Exception {
-		/*
-		 * public String UserLodgingView(@ModelAttribute("vo") UserVo vo, User dto,
-		 * Model model) throws Exception {
-		 */
+	public String UserLodgingView(@ModelAttribute("vo")UserVo vo, User dto, Model model) throws Exception {
 		
-		/*
-		 * User list= service.selectOneLodgingView(vo); model.addAttribute("list",
-		 * list);
-		 */
-
-		User item = service.selectOneLodgingView(vo);
-		model.addAttribute("item", item);
+		
+		
+		int count = service.selectReviewCount(vo);
+		vo.setParamsPaging(count);
+		 if(count != 0) {										
+			 List<User> item1 = service.selectListReview(vo);
+				model.addAttribute("rt", item1);
+	   } else {
+		   // by pass
+	   }
+		User item2 = service.selectOneLodgingView(vo);
+		model.addAttribute("item", item2);
 		
 		return "user/lodging/lodgingView";
 	}
@@ -367,6 +368,7 @@ public class UserController {
 		if(request.getSession().getAttribute("sessName")!=null) {
 			System.out.println(request.getSession().getAttribute("sessName"));
 			passNy=1;
+			
 		}
 		
 		
@@ -413,5 +415,14 @@ public class UserController {
 		 */
 		
 		
+	}
+	
+	@RequestMapping(value = "insertReview")
+	public String insertReview(Model model,@ModelAttribute("dto")User dto,HttpSession httpSession) throws Exception {
+		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
+		dto.setTvmmSeq(sessSeq);
+		service.insertReview(dto);
+		
+		return "redirect:lodgingView?tvamSeq="+dto.getTvamSeq()+"&thisPage=1";
 	}
 }

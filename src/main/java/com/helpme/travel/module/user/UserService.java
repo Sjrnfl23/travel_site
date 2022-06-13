@@ -56,5 +56,9 @@ public interface UserService {
 	
 	
 	public User selectOneLogin(User dto) throws Exception;
-
+	
+	//Review
+	public int insertReview(User dto) throws Exception;
+	public List<User> selectListReview(UserVo vo) throws Exception;
+	public int selectReviewCount(UserVo vo) throws Exception;
 }
