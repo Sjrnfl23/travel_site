@@ -550,7 +550,48 @@
                 </div>
                 
                 <div class="col-md-4 responsive-wrap">
-                		
+                
+                    <div class="follow" style="padding-bottom: 8px;">
+                        <div class="follow-img">
+                            <img src="/resources/admin/memberUploaded/admin/<c:out value="${item.year2}"/>/<c:out value="${item.month2}"/>/<c:out value="${item.day2}"/>/<c:out value="${item.uuidName2}"/>" width="200px" height="200px"  alt="#">
+                        </div>
+                        <ul class="d-flex">
+                            <li class=" flex-fill">
+                                <span><b>호스트</b></span>
+                                <h6><c:out value="${item.tvamHostName}"/></h6>
+                            </li>
+                            <li class=" flex-fill">
+                            	 <span><b>지역</b></span>
+                                <h6><c:out value="${item.tvamCity}"/></h6>
+                            </li>
+                            <li class=" flex-fill">
+                            	 <span><b>후기</b></span>
+                                <h6><%-- <c:out value="${rt.tvarCount}"/> --%>개</h6>
+                            </li>
+                        </ul>
+                        <a id="btnDm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
+                    </div>              
+                	<br>
+                    <div class="contact-info">
+                        <img src="/resources/user/images/map.jpg" class="img-fluid" alt="#">
+                        <div class="address">
+                            <span class="icon-location-pin"></span>
+                            <p><c:out value="${item.tvamAddressFull}"/></p>
+                        </div>
+                        <div class="address">
+                            <span class="icon-screen-smartphone"></span>
+                            <p><c:out value="${item.tvamTelNumber}"/></p>
+                        </div>
+                        <div class="address">
+                            <span class="icon-link"></span>
+                            <p><c:out value="${item.tvmmEmailAccount}"/></p>
+                        </div>
+                        <div class="address">
+                            <span class="icon-clock"></span>
+                            <p>월 - 일 09:30 am - 05:30 pm </p>
+                        </div>
+                    </div>                	
+                	
                            <div class="contact-info">
 						<div class="booking-summary-box">
 							<h4><c:out value="${item.tvamLodgingName}"/></h4>
@@ -599,57 +640,7 @@
                                </div>
                            </div>
                         
-                    <div class="contact-info">
-                        <img src="/resources/user/images/map.jpg" class="img-fluid" alt="#">
-                        <div class="address">
-                            <span class="icon-location-pin"></span>
-                            <p><c:out value="${item.tvamAddressFull}"/></p>
-                        </div>
-                        <div class="address">
-                            <span class="icon-screen-smartphone"></span>
-                            <p><c:out value="${item.tvamTelNumber}"/></p>
-                        </div>
-                        <div class="address">
-                            <span class="icon-link"></span>
-                            <p><c:out value="${item.tvmmEmailAccount}"/></p>
-                        </div>
-                        <div class="address">
-                            <span class="icon-clock"></span>
-                            <p>월 - 일 09:30 am - 05:30 pm </p>
-                            <a href="#" class="featured-open">OPEN NOW</a>
-                        </div>
-                        <a id="btnDm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
-                    </div>
-                    <div class="follow">
-                        <div class="follow-img">
-                            <img src="/resources/user/images/review4.jpg" class="img-fluid" alt="#">
-                            <h6><c:out value="${item.tvamHostName}"/></h6>
-                            <span><c:out value="${item.tvamState}"/> <c:out value="${item.tvamCity}"/></span>
-                        </div>
-                        <ul class="d-flex">
-                            <li class=" flex-fill">
-                                <span><b>후기</b></span>
-                                <h6><%-- <c:out value="${rt.tvarCount}"/> --%>개</h6>
-                            </li>
-                            <li class=" flex-fill">
-                            	 <span><b>언어</b></span>
-                                <h6>영어, 한국어</h6>
-                            </li>
-                            <li class=" flex-fill">
-                                <h6>본인인증<br>완료</h6>
-                            </li>
-                        </ul>
-                        <br>
-                        <div style="margin-left: 20px; margin-right: 20px;">
-                        	<span><b>숙박 중 게스트와의 교류</b></span>
-                        	<br><br>
-							<p>저희 숙소를 찾아주신 분들께 당연히 반갑게 마주하여 감사의 인사를 드려야 하나
-							불편하실것 같아 셀프 체크인 하시고
-							필요한 점 있으시면 언제든 연락주세요.
-							정성을 많이 기울였지만 부족한 부분은 지속적으로 보완해 나가겠습니다.</p>
-							<br>
-						</div>
-                    </div>
+
                 </div>
             </div>
         </div>

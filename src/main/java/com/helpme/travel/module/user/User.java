@@ -51,6 +51,7 @@ public class User extends Base{
 	private Integer tvamAirConditionerNy;
 	private Integer tvamPetNy;
 	private Integer tvamPartyNy;
+	private Integer delNy;
 	
 	private Date regDateTime;
 	private Date regDateTimeSvr;
@@ -114,22 +115,22 @@ public class User extends Base{
 //	private String tableName;
 //	
 //	// image start
-//	private String seq;
-//	private Integer type;
-//	private Integer defaultNy;
-//	private Integer sort;
-//	private String originalName;
-//	private String uuidName;
-//	private String fileName;
-//	private String ext;
-//	private Long size;
-//	private Integer delNy;
-//	private String pseq;
+	private String seq2;
+	private Integer type2;
+	private Integer defaultNy2;
+	private Integer sort2;
+	private String originalName2;
+	private String uuidName2;
+	private String fileName2;
+	private String ext2;
+	private Long size2;
+	private Integer delNy2;
+	private String pseq2;
 //	
 //	// image date 
-//	private String year;
-//	private String month;
-//	private String day;
+	private String year2;
+	private String month2;
+	private String day2;
 //	
 //	private String originalFileName;
 //	private String uuidFileName;
@@ -161,17 +162,97 @@ public class User extends Base{
 	private String starpoint;
 	
 	
-	public String getStarpoint() {
-		return starpoint;
+	
+	
+	
+	
+	
+	
+	
+	
+	public String getYear2() {
+		return year2;
 	}
-	public void setStarpoint(String starpoint) {
-		this.starpoint = starpoint;
+	public void setYear2(String year2) {
+		this.year2 = year2;
 	}
-	public Integer getTvarCount() {
-		return tvarCount;
+	public String getMonth2() {
+		return month2;
 	}
-	public void setTvarCount(Integer tvarCount) {
-		this.tvarCount = tvarCount;
+	public void setMonth2(String month2) {
+		this.month2 = month2;
+	}
+	public String getDay2() {
+		return day2;
+	}
+	public void setDay2(String day2) {
+		this.day2 = day2;
+	}
+	public String getSeq2() {
+		return seq2;
+	}
+	public void setSeq2(String seq2) {
+		this.seq2 = seq2;
+	}
+	public Integer getType2() {
+		return type2;
+	}
+	public void setType2(Integer type2) {
+		this.type2 = type2;
+	}
+	public Integer getDefaultNy2() {
+		return defaultNy2;
+	}
+	public void setDefaultNy2(Integer defaultNy2) {
+		this.defaultNy2 = defaultNy2;
+	}
+	public Integer getSort2() {
+		return sort2;
+	}
+	public void setSort2(Integer sort2) {
+		this.sort2 = sort2;
+	}
+	public String getOriginalName2() {
+		return originalName2;
+	}
+	public void setOriginalName2(String originalName2) {
+		this.originalName2 = originalName2;
+	}
+	public String getUuidName2() {
+		return uuidName2;
+	}
+	public void setUuidName2(String uuidName2) {
+		this.uuidName2 = uuidName2;
+	}
+	public String getFileName2() {
+		return fileName2;
+	}
+	public void setFileName2(String fileName2) {
+		this.fileName2 = fileName2;
+	}
+	public String getExt2() {
+		return ext2;
+	}
+	public void setExt2(String ext2) {
+		this.ext2 = ext2;
+	}
+	public Long getSize2() {
+		return size2;
+	}
+	public void setSize2(Long size2) {
+		this.size2 = size2;
+	}
+	public Integer getDelNy2() {
+		return delNy2;
+	}
+	public void setDelNy2(Integer delNy2) {
+		this.delNy2 = delNy2;
+	}
+	public String getPseq2() {
+		return pseq2;
+	}
+	public void setPseq2(String pseq2) {
+		this.pseq2 = pseq2;
 	}
 	public String getTvamSeq() {
 		return tvamSeq;
@@ -425,6 +506,12 @@ public class User extends Base{
 	public void setTvamPartyNy(Integer tvamPartyNy) {
 		this.tvamPartyNy = tvamPartyNy;
 	}
+	public Integer getDelNy() {
+		return delNy;
+	}
+	public void setDelNy(Integer delNy) {
+		this.delNy = delNy;
+	}
 	public Date getRegDateTime() {
 		return regDateTime;
 	}
@@ -490,6 +577,12 @@ public class User extends Base{
 	}
 	public void setHiddenPriceFee(String hiddenPriceFee) {
 		this.hiddenPriceFee = hiddenPriceFee;
+	}
+	public String getHiddenCoupon() {
+		return hiddenCoupon;
+	}
+	public void setHiddenCoupon(String hiddenCoupon) {
+		this.hiddenCoupon = hiddenCoupon;
 	}
 	public String getHiddenPay() {
 		return hiddenPay;
@@ -797,17 +890,21 @@ public class User extends Base{
 	public void setHostEmail(String hostEmail) {
 		this.hostEmail = hostEmail;
 	}
-	public String getHiddenCoupon() {
-		return hiddenCoupon;
+	public Integer getTvarCount() {
+		return tvarCount;
 	}
-	public void setHiddenCoupon(String hiddenCoupon) {
-		this.hiddenCoupon = hiddenCoupon;
+	public void setTvarCount(Integer tvarCount) {
+		this.tvarCount = tvarCount;
 	}
+	public String getStarpoint() {
+		return starpoint;
+	}
+	public void setStarpoint(String starpoint) {
+		this.starpoint = starpoint;
+	}
+	
+	
 
-	
-	
-	
-	
 	
 	
 }

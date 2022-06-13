@@ -273,16 +273,29 @@
             ,b.tvcpPrice-->
             ,c.tvcpName
             ,c.tvcpPrice
+            ,d.type as 'type2'
+            ,d.defaultNy as 'defaultNy2'
+            ,d.sort as 'sort2'
+            ,d.originalName as 'originalName2'
+            ,d.uuidName as 'uuidName2'
+            ,d.ext as 'ext2'
+            ,d.size as 'size2'
+            ,d.delNy as 'delNy2'
+            ,d.year as 'year2'
+            ,d.month as 'month2'
+            ,d.day as 'day2'
+            ,e.tvmmEmailAccount
         FROM
             tvLodging a
             <!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  
             LEFT OUTER JOIN travel_site.tvMember AS c ON c.tvmmSeq = a.tvmmSeq -->
             left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
             left join tvCoupon c on a.tvamSeq = c.tvamSeq and tvcpDelNy = 0
-            <!--left join tvCoupon b on a.tvamSeq = b.tvamSeq and tvcpDelNy = 0-->
             <!--<![CDATA[
-                AND date(b.tvcpStartDate) <= date(now()) and date(b.tvcpEndDate) >= date(now())
+                AND date(c.tvcpStartDate) <= date(now()) and date(c.tvcpEndDate) >= date(now())
             ]]>-->
+            left join tvMemberUploaded d on a.tvmmSeq = d.tvmmSeq and d.delNy = 0
+            left join tvMember e on a.tvmmSeq = e.tvmmSeq
         WHERE 1=1
             AND a.tvamDelNy = 0 
 <!--         AND tvamApproveNy = 1
