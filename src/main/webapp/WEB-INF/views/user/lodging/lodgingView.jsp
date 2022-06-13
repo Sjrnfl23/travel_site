@@ -709,6 +709,7 @@
 	
 	</script>
 	
+	<!-- 스크립트 -->
 	<script>
 	
 	$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
