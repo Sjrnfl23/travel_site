@@ -154,21 +154,9 @@
     
     
     <!--============================= BOOKING =============================-->
- <form id="formLodging" action="/payment" autocomplete=off>
+ <form action="/payment" autocomplete=off>
 	
 	<input type="hidden" id="hiddenName" name="tvamLodgingName"/>
-<<<<<<< HEAD
-	<input type="hidden" id="hiddenSeq" name="tvamSeq"/>
-	<input type="hidden" id="hiddenStartDate" name="hiddenStartDate"/>
-	<input type="hidden" id="hiddenDay" name="hiddenDay"/>
-	<input type="hidden" id="hiddenDay1" name="hiddenDay1"/>
-	<input type="hidden" id="hiddenEndDate" name="hiddenEndDate"/>
-	<input type="hidden" id="hiddenNumber" name="hiddenNumber"/>	
-	<input type="hidden" id="hiddenPriceOrigin" name="hiddenPriceOrigin"/> 
-	<input type="hidden" id="hiddenPriceFee" name="hiddenPriceFee"/> 
-	<input type="hidden" id="hiddenCoupon" name="hiddenCoupon"/> 
-	<input type="hidden" id="hiddenPay" name="hiddenPay"/> 
-=======
 	<input type="hidden" id="hiddenSeq" name="tvamSeq" value="<c:out value="${item.tvamSeq}"/>"/>
 	<input type="hidden" id="hiddenStartDate" name="hiddenStartDate"/>
 	<input type="hidden" id="hiddenDay" name="hiddenDay"/>
@@ -180,7 +168,6 @@
 	<input type="hidden" id="hiddenCoupon" name="hiddenCoupon"/> 
 	<input type="hidden" id="hiddenPay" name="hiddenPay"/> 
 	
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
  
     <div>
         <!-- Swiper -->
@@ -562,9 +549,9 @@
                     </div>
                 </div>
                 
-<<<<<<< HEAD
-				<div class="col-md-4 responsive-wrap">
-					<div class="contact-info">
+                <div class="col-md-4 responsive-wrap">
+                		
+                           <div class="contact-info">
 						<div class="booking-summary-box">
 							<h4><c:out value="${item.tvamLodgingName}"/></h4>
 							<span style="font-size: 18px;"><c:out value="${item.tvamCity}"/></span>
@@ -605,71 +592,11 @@
                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;" id="price2"></span></p>
                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red" style="font-size: 18px;" id="couponPrice"></span></p>
                                            <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;" id="price3"></span></p>
-                                           <br><button type="button" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
-                                           <!-- <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button> -->
+                                           <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
                                        </div>
                                    </div>
                                </div>
                            </div>
-=======
-                <div class="col-md-4 responsive-wrap">
-                		
-                            <div class="contact-info">
-                                <div class="booking-summary-box">
-                                    <h4><c:out value="${item.tvamLodgingName}"/></h4>
-                                    <span style="font-size: 18px;"><c:out value="${item.tvamCity}"/></span>
-
-                                    <div class="booking-summary_contact">
-                                        <p style="font-size: 18px;"><c:out value="${item.tvamTelNumber}"/></p>
-                                    </div>
-
-                                    <div class="booking-summary_deatail">
-                                        <h5>예약 정보</h5>
-                                        <div class="row" align=center>
-										  <div class="input-group">
-										    <input type="text" class="form-control form-control-sm" id="datepicker1" placeholder="시작일" >
-										    <input type="text" class="form-control form-control-sm" id="datepicker2" placeholder="종료일">
-										  </div>
-									    <div class="input-group">
-											<select class="form-select" name="selectNumber" id="selectNumber" aria-label="Default select example">
-											  <option selected>인원</option>
-											  <option value="1">1</option>
-											  <option value="2">2</option>
-											  <option value="3">3</option>
-											  <option value="4">4</option>
-											  <option value="5">5</option>
-											  <option value="6">6</option>
-											</select>									    
-									    </div>
-							  			</div>
-                                        <div class="booking-cost">
-                                            <p style="font-size: 16px; ">
-                                            	날짜
-                                            	<span id="endDate" style="font-size: 16px;"></span>
-                                            	<span id="startDate" style="font-size: 16px;"></span>
-                                            	<span id="day" style="font-size: 16px;"></span>
-                                            </p>
-                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;" id="outputNumber"></span></p>
-                                        </div>
-                                        <div class="booking-cost" >
-                                            <h5>요금 정보</h5>
-<<<<<<< HEAD
-                                            <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;"></span></p>
-                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
-                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
-                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,136,000원</span></p>
-=======
-                                            <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;" id="price1"></span></p>
-                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;" id="price2"></span></p>
-                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red" style="font-size: 18px;" id="couponPrice"></span></p>
-                                            <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;" id="price3"></span></p>
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
-                                            <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                         
                     <div class="contact-info">
                         <img src="/resources/user/images/map.jpg" class="img-fluid" alt="#">
@@ -787,6 +714,8 @@
     
     <!-- 날짜 선택 -->
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> <!-- datepicker -->
+ <!-- 날짜 선택 -->
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> <!-- datepicker -->
 	<script type="text/javascript">
 		$(document).ready(function(){
 			
@@ -806,13 +735,6 @@
 				$('#hiddenDay1').val(btMs1);			// hiddenDay에 btMs1 전역변수 담기
 
 			   /* alert(selected1); */
-<<<<<<< HEAD
-			   $('#startDate').empty();
-			   $('#startDate').append(selected1);
-			   $('#hiddenStartDate').val(selected1);
-			 });					 
-		
-=======
 			   $('#startDate').empty();				// 날짜 표시 부분 비움
 			   $('#startDate').append(selected1);	// 날짜 표시 부분에 날짜넣기
  			   $('#hiddenStartDate').val(selected1);	// hiddenStartDate에 날짜 넣기 (payment 페이지로 전달해야 함)
@@ -826,7 +748,6 @@
 		}); 
 		
 		$(document).ready(function(){
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 			 $("#datepicker2").datepicker();
 			 $("#datepicker2").val();
 			 $("#datepicker2").on("change",function(){
@@ -849,13 +770,6 @@
 			   
 			   $('#endDate').append(' ~ ' + selected2 + '(' + vtDay + '박)' );
 			   $('#hiddenEndDate').val(selected2);
-<<<<<<< HEAD
-			   
-			   /* 날짜 차이 계산 */
-			  /*  var btMs = Math.ceil(selected2.getTime() - selected1.getTime())/(1000*3600*24); */
-			   
-			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/> x 박'); 
-=======
 			   $('#hiddenDay').val(vtDay);
 			   
 			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/>'+ ' x ' + vtDay + '박' );
@@ -884,7 +798,6 @@
 			   $('#price3').append(price3 + '원');
 			   $('#hiddenPay').val(priceTotal);
 			   
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 			 });				 
 		}); 
 		$.datepicker.setDefaults({
@@ -900,6 +813,51 @@
 		    yearSuffix: '년'
 		});
 		
+	</script>
+	
+	
+	<!-- 인원 선택 -->	
+	<script>
+
+	$("select[name=selectNumber]").change(function(){
+		
+		 $('#outputNumber').empty();	
+		 var selectNumber = $(this).val(); //value값 가져오기
+		 $('#outputNumber').append($("select[name=selectNumber] option:selected").text() + '명');
+		 $('#hiddenNumber').val($("select[name=selectNumber] option:selected").text());
+		 
+		});
+	
+	</script>
+9:48
+	<script>
+	
+	$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
+	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
+	
+	</script>
+	
+	<script>
+	$("#btnReservation").on("click" , function(){
+		if($('#hiddenStartDate').val() == null || $('#hiddenStartDate').val() == ""){
+			alert('시작일을 선택해주세요.');
+			return false;
+		} 
+		
+		if($('#hiddenEndDate').val() == null || $('#hiddenEndDate').val() == ""){
+			alert('종료일을 선택해주세요.');
+			return false;
+		} 
+		
+		if($('#hiddenNumber').val() == null || $('#hiddenNumber').val() == ""){
+			alert('인원을 선택해주세요.');
+			return false;
+		} else {
+			return true;
+		}
+		
+	});
+	
 	</script>
 	
 	
@@ -969,6 +927,10 @@
 	
 	$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
 	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
+	/* $('#hiddenStartDate').val("2022-08-26"); */
+	/* $('#hiddenEndDate').val("2022-09-02"); */
+	/* $('#hiddenNumber').val("1"); */
+	/* $('#hiddenPay').val("1"); */
 	
 	</script>
 	
@@ -994,41 +956,7 @@
 	});
 	
 	</script>
-	
-	<script type="text/javascript">
-	        
-  	 $("#btnReservation").on("click" , function(){
-		
-	 	 $.ajax({
-			async: true 
-			,cache: false
-			,type: "post"
-			,url: "/loginCheck"
-			,data : {}
-			,success: function(response) {
-				
-				if(response.rt == "pass") {
-					 /* location.href = "lodgingView?tvamSeq=<c:out value="${item.tvamSeq}"/>";  */
-					$("#formLodging").submit();
-					
-				}else{			
-					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
-					
-					if(answer ==true){
-						
-						location.href="/loginForm"
-					}
-					}
-				}
-			,error : function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-			}
-		});
-	});   
-	
-	</script>
-	
-	<script type="text/javascript">
+		 <script type="text/javascript">
 	        
  	$("#btnDm").on("click" , function(){
 		
