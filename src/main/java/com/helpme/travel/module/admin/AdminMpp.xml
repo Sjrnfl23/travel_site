@@ -177,7 +177,7 @@
 		    , a.tvamPoolNy
 		    , a.tvamJacuzziNy
 		    , a.tvamBbqGrillNy
-		    , a.tvamFirePlaceNy
+		    <!-- , a.tvamFirePlaceNy -->
 		    , a.tvamGymNy
 		    , a.tvamWifiNy
 		    , a.tvamTvNy
@@ -222,6 +222,7 @@
 		    , a.tvamShowerRoomCount
 		    , a.tvamApproveNy
 		    , a.tvamCategoryCd
+		    , a.tvamSeaNy
 		    , a.tvamPoolNy
 		    , a.tvamJacuzziNy
 		    , a.tvamBbqGrillNy
@@ -234,10 +235,15 @@
 		    , a.tvamHeaterNy
 		    , a.tvamFridgeNy
 		    , a.tvamMicrowaveNy
+			, a.tvamSmokeNy
+			, a.tvamCookingNy
+			, a.tvamPetNy
+			, a.tvamPartyNy		    
 		    , a.tvamCheckInTime
 		    , a.tvamCheckOutTime
 		    , a.tvmmSeq
 		    , a.tvamTelNumber
+		    , a.regDateTime
 		    , c.type
 			, c.defaultNy
 			, c.sort

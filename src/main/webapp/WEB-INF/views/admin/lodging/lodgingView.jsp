@@ -27,9 +27,11 @@
         <link href="../../../../resources/admin/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
         <link href="../../../../resources/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+        
         <!-- App Css-->
         <link href="../../../../resources/admin/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
+		
 
     </head>
 
@@ -192,9 +194,136 @@
 
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
-                                                            <td class="text-muted">2022-04-26</td>
+                                                            <td class="text-muted"><c:out value="${rt.regDateTime}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
+                                                         <tr>
+                                                            <th class="fw-bold">편의시설</th>
+                                                            <td class="text-muted">
+										                        <div class="row">
+											                        <c:if test="${rt.tvamSeaNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                        <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                        <span class="custom-control-description">해변과 인접</span>
+														                     </label>
+														                 </div>
+														            </c:if>
+														            <c:if test="${rt.tvamCookingNy eq '1'}">
+														                 <div class="col-md-4">    
+											                                <label class="custom-checkbox">
+														                       <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                       <span class="custom-control-description">주방</span>
+													                       </label>
+											                            </div>
+											                       	</c:if>
+											                       	<c:if test="${rt.tvamWifiNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                     <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                     <span class="custom-control-description">무선 인터넷</span>
+														                   </label>
+														                </div>
+														            </c:if>
+										                        	<c:if test="${rt.tvamParkingRoomNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                        <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                        <span class="custom-control-description">건물 내 무료 주차</span>
+														                     </label>
+														                 </div>
+													                 </c:if>
+													                 <c:if test="${rt.tvamJacuzziNy eq '1'}">
+														                 <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                       <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                       <span class="custom-control-description">자쿠지</span>
+													                       </label>
+											                            </div>
+											                        </c:if>
+											                        <c:if test="${rt.tvamTvNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                     <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                     <span class="custom-control-description">TV</span>
+														                   </label>
+														                </div>
+																	</c:if>
+																	<c:if test="${rt.tvamMicrowaveNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                        <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                        <span class="custom-control-description">전자레인지</span>
+														                     </label>
+														                 </div>
+																	</c:if>
+																	<c:if test="${rt.tvamAirConditionerNy eq '1'}">
+														                 <div class="col-md-4">    
+											                                <label class="custom-checkbox">
+														                       <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                       <span class="custom-control-description">에어컨</span>
+													                       </label>
+											                            </div>
+																	</c:if>
+																	<c:if test="${rt.tvamBbqGrillNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                     <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                     <span class="custom-control-description">바베큐</span>
+														                   </label>
+														                </div>
+														           </c:if>
+														           <c:if test="${rt.tvamPoolNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                        <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                        <span class="custom-control-description">수영장</span>
+														                     </label>
+														                 </div>
+														           </c:if>
+														           <c:if test="${rt.tvamFridgeNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                        <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                        <span class="custom-control-description">냉장고</span>
+														                     </label>
+														                 </div>
+														           </c:if>
+														           <c:if test="${rt.tvamHeaterNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                        <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                        <span class="custom-control-description">히터</span>
+														                     </label>
+														                 </div>
+														           </c:if>
+														           <c:if test="${rt.tvamSmokeNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                        <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                        <span class="custom-control-description">흡연 금지</span>
+														                     </label>
+														                 </div>
+														           </c:if>														           
+														           <c:if test="${rt.tvamPetNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                        <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                        <span class="custom-control-description">반려동물 동반 불가</span>
+														                     </label>
+														                 </div>
+														           </c:if>
+														           <c:if test="${rt.tvamPartyNy eq '1'}">
+											                            <div class="col-md-4">
+											                                <label class="custom-checkbox">
+														                        <span style="color: blue;"><i class="bi bi-check2-square"></i></span>
+														                        <span class="custom-control-description">파티나 이벤트 금지</span>
+														                     </label>
+														                 </div>
+														           </c:if>														           														           
+										                        </div>                                                            
+                                                            </td>
+										              	</tr>                                         
                                                     </tbody><!-- end tbody -->
                                                 </table>
                                             </div>

@@ -112,8 +112,8 @@ public class UtilUpload {
 		
 		multipartFile.transferTo(new File(path + uuidFileName));
 		
-		System.out.println("year::::::::::::::::" +year );
-		System.out.println("month::::::::::::::::" +month );
+		System.out.println("year::::::::::::::::" +year);
+		System.out.println("month::::::::::::::::" +month);
 		System.out.println("day::::::::::::::::" +day);
 		
 		dto.setYear(year);

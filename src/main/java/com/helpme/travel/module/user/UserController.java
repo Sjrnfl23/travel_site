@@ -232,14 +232,23 @@ public class UserController {
 
 	
 	@RequestMapping(value = "/reservation")
-	public String UserReservation(UserVo vo, Model model, HttpSession httpSession) throws Exception {
+	public String UserReservation(@ModelAttribute("vo") UserVo vo, Model model, HttpSession httpSession) throws Exception {
 
 		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
 		vo.setTvmmSeq(sessSeq);		
-		
-		List<User> list = service.selectReservation(vo);
-		model.addAttribute("list", list);
 
+	   int count = service.selectOneCountReservation(vo);				// count 가져올 것
+	   vo.setParamsPaging(count);
+	   
+	   if(count != 0) {										// count가 0이 아니면 list 가져오는 부분 수행 후 model 개체에 담기
+			List<User> list = service.selectReservation(vo);
+			model.addAttribute("list", list);
+	   } else {
+		   // by pass
+	   }			
+		
+		
+		
 		return "user/lodging/reservation";
 	}
 

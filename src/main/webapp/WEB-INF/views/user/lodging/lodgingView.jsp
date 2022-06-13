@@ -253,7 +253,7 @@
 	                        <c:if test="${item.tvamSeaNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">해변과 인접</span>
 				                     </label>
 				                 </div>
@@ -261,7 +261,7 @@
 				            <c:if test="${item.tvamCookingNy eq '1'}">
 				                 <div class="col-md-4">    
 	                                <label class="custom-checkbox">
-				                       <span class="ti-check-box"></span>
+				                       <span class="ti-check-box" style="color: blue;"></span>
 				                       <span class="custom-control-description">주방</span>
 			                       </label>
 	                            </div>
@@ -269,7 +269,7 @@
 	                       	<c:if test="${item.tvamWifiNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                     <span class="ti-check-box"></span>
+				                     <span class="ti-check-box" style="color: blue;"></span>
 				                     <span class="custom-control-description">무선 인터넷</span>
 				                   </label>
 				                </div>
@@ -277,7 +277,7 @@
                         	<c:if test="${item.tvamParkingRoomNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">건물 내 무료 주차</span>
 				                     </label>
 				                 </div>
@@ -285,7 +285,7 @@
 			                 <c:if test="${item.tvamJacuzziNy eq '1'}">
 				                 <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                       <span class="ti-check-box"></span>
+				                       <span class="ti-check-box" style="color: blue;"></span>
 				                       <span class="custom-control-description">자쿠지</span>
 			                       </label>
 	                            </div>
@@ -293,7 +293,7 @@
 	                        <c:if test="${item.tvamTvNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                     <span class="ti-check-box"></span>
+				                     <span class="ti-check-box" style="color: blue;"></span>
 				                     <span class="custom-control-description">TV</span>
 				                   </label>
 				                </div>
@@ -301,7 +301,7 @@
 							<c:if test="${item.tvamMicrowaveNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">전자레인지</span>
 				                     </label>
 				                 </div>
@@ -309,7 +309,7 @@
 							<c:if test="${item.tvamAirConditionerNy eq '1'}">
 				                 <div class="col-md-4">    
 	                                <label class="custom-checkbox">
-				                       <span class="ti-check-box"></span>
+				                       <span class="ti-check-box" style="color: blue;"></span>
 				                       <span class="custom-control-description">에어컨</span>
 			                       </label>
 	                            </div>
@@ -317,7 +317,7 @@
 							<c:if test="${item.tvamBbqGrillNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                     <span class="ti-check-box"></span>
+				                     <span class="ti-check-box" style="color: blue;"></span>
 				                     <span class="custom-control-description">바베큐</span>
 				                   </label>
 				                </div>
@@ -325,7 +325,7 @@
 				           <c:if test="${item.tvamPoolNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">수영장</span>
 				                     </label>
 				                 </div>
@@ -333,7 +333,7 @@
 				           <c:if test="${item.tvamFridgeNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">냉장고</span>
 				                     </label>
 				                 </div>
@@ -341,7 +341,7 @@
 				           <c:if test="${item.tvamHeaterNy eq '1'}">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                        <span class="ti-check-box"></span>
+				                        <span class="ti-check-box" style="color: blue;"></span>
 				                        <span class="custom-control-description">히터</span>
 				                     </label>
 				                 </div>
@@ -503,7 +503,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="custom-checkbox">
-			                        <span class="ti-check-box"></span>
+			                        <span class="ti-check-box" style="color: blue;"></span>
 			                        <span class="custom-control-description">체크인 : 오후 <c:out value="${item.tvamCheckInTime}"/>이후</span>
 			                     </label>
 			                 </div>
@@ -511,7 +511,7 @@
 			             <div class="row">
 			                 <div class="col-md-6">    
                                 <label class="custom-checkbox">
-			                       <span class="ti-check-box"></span>
+			                       <span class="ti-check-box" style="color: blue;"></span>
 			                       <span class="custom-control-description">체크아웃 : 오전 <c:out value="${item.tvamCheckOutTime}"/>시</span>
 		                       </label>
                             </div>
@@ -520,7 +520,7 @@
 	                        <div class="row">
 		                            <div class="col-md-6">
 		                                <label class="custom-checkbox">
-					                        <span class="ti-check-box"></span>
+					                        <span class="ti-check-box" style="color: blue;"></span>
 					                        <span class="custom-control-description">흡연 금지</span>
 					                     </label>
 					                 </div>
@@ -528,9 +528,9 @@
 				        </c:if>
 			            <c:if test="${item.tvamPetNy eq '1'}">
 				            <div class="row">
-				                 <div class="col-md-4">    
+				                 <div class="col-md-4">     
 	                                <label class="custom-checkbox">
-				                       <span class="ti-check-box"></span>
+				                       <span class="ti-check-box" style="color: blue;"></span>
 				                       <span class="custom-control-description">반려동물 동반 불가</span>
 			                       </label>
 	                            </div>
@@ -540,7 +540,7 @@
 	                        <div class="row">
 	                            <div class="col-md-4">
 	                                <label class="custom-checkbox">
-				                     <span class="ti-check-box"></span>
+				                     <span class="ti-check-box" style="color: blue;"></span>
 				                     <span class="custom-control-description">파티나 이벤트 금지</span>
 				                   </label>
 				                </div>
@@ -590,10 +590,17 @@
                                         </div>
                                         <div class="booking-cost" >
                                             <h5>요금 정보</h5>
+<<<<<<< HEAD
+                                            <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;"></span></p>
+                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
+                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
+                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,136,000원</span></p>
+=======
                                             <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;" id="price1"></span></p>
                                             <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;" id="price2"></span></p>
                                             <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red" style="font-size: 18px;" id="couponPrice"></span></p>
                                             <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;" id="price3"></span></p>
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
                                             <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
                                         </div>
                                     </div>
@@ -735,6 +742,13 @@
 				$('#hiddenDay1').val(btMs1);			// hiddenDay에 btMs1 전역변수 담기
 
 			   /* alert(selected1); */
+<<<<<<< HEAD
+			   $('#startDate').empty();
+			   $('#startDate').append(selected1);
+			   $('#hiddenStartDate').val(selected1);
+			 });					 
+		
+=======
 			   $('#startDate').empty();				// 날짜 표시 부분 비움
 			   $('#startDate').append(selected1);	// 날짜 표시 부분에 날짜넣기
  			   $('#hiddenStartDate').val(selected1);	// hiddenStartDate에 날짜 넣기 (payment 페이지로 전달해야 함)
@@ -748,6 +762,7 @@
 		}); 
 		
 		$(document).ready(function(){
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 			 $("#datepicker2").datepicker();
 			 $("#datepicker2").val();
 			 $("#datepicker2").on("change",function(){
@@ -770,6 +785,13 @@
 			   
 			   $('#endDate').append(' ~ ' + selected2 + '(' + vtDay + '박)' );
 			   $('#hiddenEndDate').val(selected2);
+<<<<<<< HEAD
+			   
+			   /* 날짜 차이 계산 */
+			  /*  var btMs = Math.ceil(selected2.getTime() - selected1.getTime())/(1000*3600*24); */
+			   
+			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/> x 박'); 
+=======
 			   $('#hiddenDay').val(vtDay);
 			   
 			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/>'+ ' x ' + vtDay + '박' );
@@ -798,6 +820,7 @@
 			   $('#price3').append(price3 + '원');
 			   $('#hiddenPay').val(priceTotal);
 			   
+>>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 			 });				 
 		}); 
 		$.datepicker.setDefaults({
@@ -830,8 +853,15 @@
 	
 	</script>
 		
-		<!-- Login Ajax -->
 	<script type="text/javascript">
+	$("#startDate, #endDate").on("change" , function(){
+		alert
+		var btMs = Math.ceil(selected2.getTime() - selected1.getTime())/(1000*3600*24);	
+	
+	});
+	
+	
+		<!-- Login Ajax -->
 	        
 /* 	$("#btnReservation").on("click" , function(){
 		
@@ -850,15 +880,7 @@
 			,url: "/loginCheck"
 			,data : {}
 			,success: function(response) {
-				
 				if(response.rt == "pass") {
-					$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
-					$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
-					$('#hiddenStartDate').val("2022-08-26");
-					$('#hiddenEndDate').val("2022-09-02");
-					$('#hiddenNumber').val("1");
-					$('#hiddenPay').val("2136000");					
-					
 					 location.href = "/payment"; 
 					
 				}else{			
@@ -878,6 +900,7 @@
 	
 	</script>
 	
+	<!-- 스크립트 -->
 	<script>
 	
 	$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
