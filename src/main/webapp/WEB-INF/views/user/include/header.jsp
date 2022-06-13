@@ -94,7 +94,7 @@ $("#logout").on("click",function(){
  		,data : {}
  		,success: function(response) {
  			if(response.rt == "success") {
- 				location.href = ""
+ 				location.href = "/"
  			} else {
  				alert("에러");
  			}

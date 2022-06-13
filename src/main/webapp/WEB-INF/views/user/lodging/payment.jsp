@@ -113,12 +113,12 @@
     
     <!--============================= SUBPAGE HEADER BG =============================-->
  <form id="reservationInst" method="post" action="/reservationInst">
-	<input type="text" id="hiddenName" name="tvamLodgingName"/>
-	<input type="text" id="hiddenSeq" name="tvamSeq"/>
-	<input type="text" id="hiddenStartDate" name="tvpmStartDate"/>
-	<input type="text" id="hiddenEndDate" name="tvpmEndDate"/>
-	<input type="text" id="hiddenNumber" name="tvpmAdNumber"/>	
-	<input type="text" id="hiddenPay" name="tvpmtotalPrice"/>     
+	<input type="hidden" id="hiddenName" name="tvamLodgingName"/>
+	<input type="hidden" id="hiddenSeq" name="tvamSeq"/>
+	<input type="hidden" id="hiddenStartDate" name="tvpmStartDate"/>
+	<input type="hidden" id="hiddenEndDate" name="tvpmEndDate"/>
+	<input type="hidden" id="hiddenNumber" name="tvpmAdNumber"/>	
+	<input type="hidden" id="hiddenPay" name="tvpmtotalPrice"/>     
 
     
     <section class="subpage-bg">
@@ -159,7 +159,7 @@
                                         <div class="col-md-6">
                                             <div>
                                                 <span style="font-size:20px;"><b>날짜</b></span>
-                                                <p style="font-size : 18px;"><c:out value="${rtStartDate}"/> ~ <c:out value="${rtEndDate}"/></p>
+                                                <p style="font-size : 18px;"><c:out value="${rtStartDate}"/> ~ <c:out value="${rtEndDate}"/> (<c:out value="${rtDay}"/>박)</p>
                                             </div>
                                         </div>
                                         <div class="col-md-6" style="text-align: right; vertical-align: bottom;">
@@ -335,7 +335,7 @@
                                     <div class="booking-summary_deatail">
                                         <h5>예약 정보</h5>
                                         <div class="booking-cost">
-                                            <p style="font-size: 16px;">날짜 <span style="font-size: 16px;"><c:out value="${rtStartDate}"/> ~ <c:out value="${rtEndDate}"/></span></p>
+                                            <p style="font-size: 16px;">날짜 <span style="font-size: 16px;"><c:out value="${rtStartDate}"/> ~ <c:out value="${rtEndDate}"/> (<c:out value="${rtDay}"/>박)</span></p>
                                             <p style="font-size: 16px;">게스트 <span style="font-size: 16px;"><c:out value="${rtNumber}"/>명</span></p>
                                         </div>
                                         <div class="booking-cost" >
