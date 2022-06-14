@@ -123,7 +123,7 @@
                          <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item user text-start d-flex align-items-center" id="page-header-user-dropdown-v"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <img class="rounded-circle header-profile-user" src="/resources/host/memberUploaded/host/<c:out value="${sessYear}"/>/<c:out value="${sessMonth}"/>/<c:out value="${sessDay}"/>/<c:out value="${sessUuidName}"/> "
+                                  <img class="rounded-circle header-profile-user" src="/resources/uploaded/member/<c:out value="${sessYear}"/>/<c:out value="${sessMonth}"/>/<c:out value="${sessDay}"/>/<c:out value="${sessUuidName}"/> "
                                 alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-2 fw-medium font-size-15"> <c:out value="${sessUserType}"/> </span>
                             </button>

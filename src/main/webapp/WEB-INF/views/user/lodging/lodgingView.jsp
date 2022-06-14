@@ -553,7 +553,7 @@
                 
                     <div class="follow" style="padding-bottom: 8px;">
                         <div class="follow-img">
-                            <img src="/resources/admin/memberUploaded/admin/<c:out value="${item.year2}"/>/<c:out value="${item.month2}"/>/<c:out value="${item.day2}"/>/<c:out value="${item.uuidName2}"/>" width="200px" height="200px"  alt="#">
+                            <img src="/resources/uploaded/member/<c:out value="${item.year2}"/>/<c:out value="${item.month2}"/>/<c:out value="${item.day2}"/>/<c:out value="${item.uuidName2}"/>" width="200px" height="200px"  alt="#">
                         </div>
                         <ul class="d-flex">
                             <li class=" flex-fill">

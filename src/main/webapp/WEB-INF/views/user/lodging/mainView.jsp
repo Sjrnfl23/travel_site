@@ -202,7 +202,7 @@
                             <figcaption>
                                 <div class="effect-caption-wrap">
                                    <a href="searchFlex?shlctValue=제주" style="color: white;"><h1><b>제주</b></h1></a>
-                                    <p>1500+ Listings</p>
+                                    <p>Jeju</p>
                                 </div>
                             </figcaption>
                         </figure>
@@ -218,7 +218,7 @@
                                     <figcaption>
                                         <div class="effect-caption-wrap">
                                             <a href="searchFlex?shlctValue=서울" style="color: white;"><h1><b>서울</b></h1></a>
-                                            <p>300+ Listings</p>
+                                            <p>Seoul</p>
                                         </div>
                                     </figcaption>
                                 </figure>
@@ -232,7 +232,7 @@
                                     <img src="/resources/user/images/busan.jpg" alt="#" class="img-fluid">
                                     <div class="effect-caption-wrap">
                                         <a href="searchFlex?shlctValue=부산" style="color: white;"><h1 style="color: white;"><b>부산</b></h1></a>
-                                        <p>800+ Listings</p>
+                                        <p>Busan</p>
                                     </div>
                                 </figure>
                             </div>
@@ -243,7 +243,7 @@
                                     <img src="/resources/user/images/jinhae.jpg" alt="#" class="img-fluid">
                                     <div class="effect-caption-wrap">
                                         <a href="searchFlex?shlctValue=진해" style="color: white;"><h1 style="color: white;"><b>진해</b></h1></a>
-                                        <p>210+ Listings</p>
+                                        <p>Jinhae</p>
                                     </div>
                                 </figure>
                             </div>

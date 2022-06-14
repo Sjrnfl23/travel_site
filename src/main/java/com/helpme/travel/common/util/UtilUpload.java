@@ -49,13 +49,13 @@ public class UtilUpload {
 		 */
 	}
 	
-	public static void uploadAdmin (MultipartFile multipartFile, String className, Admin dto) throws Exception {
+	public static void uploadAdminMember (MultipartFile multipartFile, Admin dto) throws Exception {
 		String fileName = multipartFile.getOriginalFilename();
 		System.out.println("fileName::::::::::::: "+fileName);
 		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
 		String uuid = UUID.randomUUID().toString();
 		String uuidFileName = uuid + "." + ext;
-		String pathModule = className;
+		String pathModule = "member";
 		String nowString = UtilDateTime.nowString();
 		String year = nowString.substring(0,4);
 		String month = nowString.substring(5,7);
@@ -94,13 +94,95 @@ public class UtilUpload {
 		 * dto.setYear(); dto.setMonth(); dto.setDay(pathDate);
 		 */
 	}
-	public static void uploadHost (MultipartFile multipartFile, String className, Host dto) throws Exception {
+	
+	public static void uploadAdminLodging (MultipartFile multipartFile, Admin dto) throws Exception {
 		String fileName = multipartFile.getOriginalFilename();
 		System.out.println("fileName::::::::::::: "+fileName);
 		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
 		String uuid = UUID.randomUUID().toString();
 		String uuidFileName = uuid + "." + ext;
-		String pathModule = className;
+		String pathModule = "lodging";
+		String nowString = UtilDateTime.nowString();
+		String year = nowString.substring(0,4);
+		String month = nowString.substring(5,7);
+		String day = nowString.substring(8,10);
+		String pathDate = year + "/" + month + "/" + day;
+		String path = Constants.UPLOAD_PATH_PREFIX2 + "/" + pathModule + "/" + pathDate + "/";	
+		
+		createPath(path);
+		
+		multipartFile.transferTo(new File(path + uuidFileName));
+		
+		System.out.println("year::::::::::::::::" +year );
+		System.out.println("month::::::::::::::::" +month );
+		System.out.println("day::::::::::::::::" +day);
+		
+		System.out.println("fileName: " + fileName);
+		System.out.println("ext: " + ext);
+		System.out.println("uuid: " + uuid);
+		System.out.println("uuidFileName: " + uuidFileName);
+		System.out.println("pathModule: " + pathModule);
+		System.out.println("nowString: " + nowString);
+		System.out.println("pathDate: " + pathDate);
+		System.out.println("path: " + path);
+		
+		dto.setYear(year);
+		dto.setMonth(month);
+		dto.setDay(day);
+		
+		
+		dto.setOriginalName(fileName);
+		dto.setUuidName(uuidFileName);
+		dto.setExt(ext);
+		dto.setSize(multipartFile.getSize());
+		
+		/*
+		 * dto.setYear(); dto.setMonth(); dto.setDay(pathDate);
+		 */
+	}
+	public static void uploadHostMember (MultipartFile multipartFile, Host dto) throws Exception {
+		String fileName = multipartFile.getOriginalFilename();
+		System.out.println("fileName::::::::::::: "+fileName);
+		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
+		String uuid = UUID.randomUUID().toString();
+		String uuidFileName = uuid + "." + ext;
+		String pathModule = "member";
+		String nowString = UtilDateTime.nowString();
+		String year = nowString.substring(0,4);
+		String month = nowString.substring(5,7);
+		String day = nowString.substring(8,10);
+		String pathDate = year + "/" + month + "/" + day;
+		String path = Constants.UPLOAD_PATH_PREFIX2 + "/" + pathModule + "/" + pathDate + "/";	
+		
+		createPath(path);
+		
+		multipartFile.transferTo(new File(path + uuidFileName));
+		
+		System.out.println("year::::::::::::::::" +year);
+		System.out.println("month::::::::::::::::" +month);
+		System.out.println("day::::::::::::::::" +day);
+		
+		dto.setYear(year);
+		dto.setMonth(month);
+		dto.setDay(day);
+		
+		
+		dto.setOriginalName(fileName);
+		dto.setUuidName(uuidFileName);
+		dto.setExt(ext);
+		dto.setSize(multipartFile.getSize());
+		
+		/*
+		 * dto.setYear(); dto.setMonth(); dto.setDay(pathDate);
+		 */
+	}
+	public static void uploadHostLodging (MultipartFile multipartFile, Host dto) throws Exception {
+		String fileName = multipartFile.getOriginalFilename();
+		System.out.println("fileName::::::::::::: "+fileName);
+		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
+		String uuid = UUID.randomUUID().toString();
+		String uuidFileName = uuid + "." + ext;
+		String pathModule = "lodging";
 		String nowString = UtilDateTime.nowString();
 		String year = nowString.substring(0,4);
 		String month = nowString.substring(5,7);
