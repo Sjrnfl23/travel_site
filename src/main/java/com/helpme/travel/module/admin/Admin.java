@@ -20,8 +20,10 @@ public class Admin {
 	private String tvamAddressFull;
 	private String tvamState;
 	private String tvamCity;
-	private String tvamLat;
-	private String tvamLng;
+	private Double[] tvamLatArray;
+	private Double[] tvamLngArray;
+	private Double tvamLat;
+	private Double tvamLng;	
 	private Integer tvamAdultPrice;
 	private Integer tvamMaxPersonCount;
 	private Integer tvamBedCount;
@@ -148,67 +150,10 @@ public class Admin {
 	public static List<Admin> cachedCodeArrayList = new ArrayList<Admin>();	//메모리에 리스트가 상주돼있음
 
 	
-//	===========================================================
-	
-	
-	
-	
-	
-	
-	
+//	===========================================================	
+
 	public String getTvamSeq() {
 		return tvamSeq;
-	}
-
-
-	public Integer getTvamSmokeNy() {
-		return tvamSmokeNy;
-	}
-
-
-	public void setTvamSmokeNy(Integer tvamSmokeNy) {
-		this.tvamSmokeNy = tvamSmokeNy;
-	}
-
-
-	public Integer getTvamSeaNy() {
-		return tvamSeaNy;
-	}
-
-
-	public void setTvamSeaNy(Integer tvamSeaNy) {
-		this.tvamSeaNy = tvamSeaNy;
-	}
-
-	
-	
-	public Integer getTvamCookingNy() {
-		return tvamCookingNy;
-	}
-
-
-	public void setTvamCookingNy(Integer tvamCookingNy) {
-		this.tvamCookingNy = tvamCookingNy;
-	}
-
-
-	public Integer getTvamPetNy() {
-		return tvamPetNy;
-	}
-
-
-	public void setTvamPetNy(Integer tvamPetNy) {
-		this.tvamPetNy = tvamPetNy;
-	}
-
-
-	public Integer getTvamPartyNy() {
-		return tvamPartyNy;
-	}
-
-
-	public void setTvamPartyNy(Integer tvamPartyNy) {
-		this.tvamPartyNy = tvamPartyNy;
 	}
 
 
@@ -317,22 +262,42 @@ public class Admin {
 	}
 
 
-	public String getTvamLat() {
+	public Double[] getTvamLatArray() {
+		return tvamLatArray;
+	}
+
+
+	public void setTvamLatArray(Double[] tvamLatArray) {
+		this.tvamLatArray = tvamLatArray;
+	}
+
+
+	public Double[] getTvamLngArray() {
+		return tvamLngArray;
+	}
+
+
+	public void setTvamLngArray(Double[] tvamLngArray) {
+		this.tvamLngArray = tvamLngArray;
+	}
+
+
+	public Double getTvamLat() {
 		return tvamLat;
 	}
 
 
-	public void setTvamLat(String tvamLat) {
+	public void setTvamLat(Double tvamLat) {
 		this.tvamLat = tvamLat;
 	}
 
 
-	public String getTvamLng() {
+	public Double getTvamLng() {
 		return tvamLng;
 	}
 
 
-	public void setTvamLng(String tvamLng) {
+	public void setTvamLng(Double tvamLng) {
 		this.tvamLng = tvamLng;
 	}
 
@@ -574,6 +539,56 @@ public class Admin {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+
+	public Integer getTvamSeaNy() {
+		return tvamSeaNy;
+	}
+
+
+	public void setTvamSeaNy(Integer tvamSeaNy) {
+		this.tvamSeaNy = tvamSeaNy;
+	}
+
+
+	public Integer getTvamCookingNy() {
+		return tvamCookingNy;
+	}
+
+
+	public void setTvamCookingNy(Integer tvamCookingNy) {
+		this.tvamCookingNy = tvamCookingNy;
+	}
+
+
+	public Integer getTvamPetNy() {
+		return tvamPetNy;
+	}
+
+
+	public void setTvamPetNy(Integer tvamPetNy) {
+		this.tvamPetNy = tvamPetNy;
+	}
+
+
+	public Integer getTvamPartyNy() {
+		return tvamPartyNy;
+	}
+
+
+	public void setTvamPartyNy(Integer tvamPartyNy) {
+		this.tvamPartyNy = tvamPartyNy;
+	}
+
+
+	public Integer getTvamSmokeNy() {
+		return tvamSmokeNy;
+	}
+
+
+	public void setTvamSmokeNy(Integer tvamSmokeNy) {
+		this.tvamSmokeNy = tvamSmokeNy;
 	}
 
 
@@ -1237,8 +1252,11 @@ public class Admin {
 	}
 
 	
-	
 
+	
+	
+	
+	
 
 
 	
