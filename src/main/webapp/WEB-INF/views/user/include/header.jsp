@@ -31,7 +31,7 @@
 
                                     <li class="nav-item">
                                         <a class="nav-link" href="loginForm" id="login">Login</a>
-                                      	<a class="nav-link" href="#" id="logout">Logout</a>
+                                      	<a class="nav-link" href="" id="logout">Logout</a>
                                     </li>
                                     <li style="margin-right: 10px;"><a href="/host/loginForm" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>호스트 로그인</a></li>
                                     <li><a href="/admin/loginForm" class="btn btn-outline-danger top-btn"><span class="ti-plus"></span>관리자 로그인</a></li>
@@ -97,7 +97,7 @@ $("#logout").on("click",function(){
  		,success: function(response) {
  			if(response.rt == "success") {
  				
- 				location.href = /
+ 				location.href = "/"
  			} else {
  				alert("에러");
  			}
