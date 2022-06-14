@@ -62,4 +62,7 @@ public interface UserService {
 	public int insertReview(User dto) throws Exception;
 	public List<User> selectListReview(UserVo vo) throws Exception;
 	public int selectReviewCount(UserVo vo) throws Exception;
+	
+	// Dm
+	public User selectHostDm(UserVo vo) throws Exception;
 }

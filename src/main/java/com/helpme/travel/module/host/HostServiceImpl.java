@@ -234,6 +234,12 @@ public class HostServiceImpl implements HostService{
 	
 	}
 
+	// Dm
+	@Override
+	public Host selectHostDm(HostVo vo) throws Exception {
+		
+		return dao.selectHostDm(vo);
+	}
 
 	
 	

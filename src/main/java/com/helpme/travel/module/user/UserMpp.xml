@@ -554,5 +554,19 @@
         and c.tvamSeq = #{tvamSeq}
         
     </select>
+    
+    <!-- dm -->
+    <select id="selectHostDm" resultMap="resultMapObj">
+    select
+    	tvmmSeq
+    	,tvmmName
+    	,tvmmEmailAccount
+    	,tvmmHostNy
+    from 
+        tvMember
+    WHERE 1=1
+    	and tvmmDelNy = 0
+    	and tvmmName = #{tvamHostName}
+    </select>
         
 </mapper>

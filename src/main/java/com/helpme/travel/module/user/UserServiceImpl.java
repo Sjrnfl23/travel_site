@@ -295,7 +295,12 @@ public class UserServiceImpl implements UserService{
 		return dao.selectReviewCount(vo);
 	}
 	
-	
+	// Dm
+	@Override
+	public User selectHostDm(UserVo vo) throws Exception {
+		
+		return dao.selectHostDm(vo);
+	}
 	
 	
 	

@@ -323,11 +323,16 @@ public class UserController {
 		return "redirect:/mapList";
 	}
 	//dm
-	@RequestMapping(value = "/dm")
-	public String dm(Model model, UserVo vo, HttpSession httpSession) throws Exception {
-		
-		return "user/lodging/dm";
-	}
+		@RequestMapping(value = "/dm")
+		public String dm(Model model, UserVo vo, User dto, HttpSession httpSession) throws Exception {
+			
+			User item = service.selectHostDm(vo);
+			model.addAttribute("item", item);
+			
+			System.out.println("::::::::::item:::::::::::: " + item);
+				
+			return "user/lodging/dm";
+		}
 
 	// login & logout ======================================================
 	@ResponseBody

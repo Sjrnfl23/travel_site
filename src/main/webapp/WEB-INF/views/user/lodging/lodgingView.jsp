@@ -166,7 +166,8 @@
 	<input type="hidden" id="hiddenPriceOrigin" name="hiddenPriceOrigin"/> 
 	<input type="hidden" id="hiddenPriceFee" name="hiddenPriceFee"/> 
 	<input type="hidden" id="hiddenCoupon" name="hiddenCoupon"/> 
-	<input type="hidden" id="hiddenPay" name="hiddenPay"/> 
+	<input type="hidden" id="hiddenPay" name="hiddenPay"/>
+	<input type="text" id="hiddenHostName" name="hiddenHostName" value="<c:out value="${item.tvamHostName}"/>"/>
 	
  
     <div>
@@ -179,7 +180,7 @@
                         <img src="/resources/user/images/view1.png" class="img-fluid" alt="#">
                     </a>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide">`
                     <a href="/resources/user/images/view2.png" class="grid image-link">
                         <img src="/resources/user/images/view2.png" class="img-fluid" alt="#">
                     </a>
@@ -996,7 +997,7 @@
 				if(response.rt == "pass") {
 			
 				
-					 location.href = "/dm"; 
+					location.href = "/dm?tvamHostName=<c:out value="${item.tvamHostName}"/>"; 
 					
 				}else{			
 					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");

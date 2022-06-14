@@ -103,10 +103,16 @@ public class HostController {
 
 	// dm
 	@RequestMapping(value = "/host/hostDm")
-	public String hostDm() throws Exception {
+	public String hostDm(Model model, HostVo vo) throws Exception {
 
+		Host item = service.selectHostDm(vo);
+		model.addAttribute("item", item);
+		
+		System.out.println("::::::::::item:::::::::::: " + item);
+		
 		return "/host/dm/hostDm";
 	}
+
 
 	// lodging
 
