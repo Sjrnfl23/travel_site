@@ -180,10 +180,10 @@
 											<thead style="background-color: rgb(248,249,250);">
 												<tr>
 													<th>예약번호</th>
+													<th>결제일</th>
 													<th>숙소이름</th>
 													<th>호스트</th>
-													<th>사용자</th>
-													<th>이름</th>
+													<th>예약자명</th>
 													<th>연락처</th>
 													<th>인원</th>
 													<th>시작일</th>
@@ -202,9 +202,9 @@
 												<c:forEach items="${list}" var="item" varStatus="status">
 													<tr>
 														<td><c:out value="${item.tvpmSeq}"/></td>
+														<td><fmt:formatDate value="${item.regDateTime}" pattern="yyyy-MM-dd"/></td>
 														<td><a href="/lodgingView?tvamSeq=<c:out value="${item.tvamSeq}"/>"><c:out value="${item.tvamLodgingName}"/></a></td>
 														<td><c:out value="${item.hostEmail}"/></td>
-														<td><c:out value="${item.tvmmEmailAccount}"/></td>
 														<td><c:out value="${item.tvmmName}"/></td>
 														<td><c:out value="${item.tvmmTelNumber}"/></td>
 														<td><c:out value="${item.tvpmAdNumber}"/>명</td>

@@ -148,7 +148,7 @@
 
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
-                                                            <td class="text-muted">2022-04-26</td>
+                                                            <td class="text-muted"><fmt:formatDate value="${rt.regDateTime}" pattern="yyyy-MM-dd"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                     </tbody><!-- end tbody -->

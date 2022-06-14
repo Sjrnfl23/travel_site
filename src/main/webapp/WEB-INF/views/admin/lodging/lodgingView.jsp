@@ -194,7 +194,7 @@
 
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
-                                                            <td class="text-muted"><c:out value="${rt.regDateTime}"/></td>
+                                                            <td class="text-muted"><fmt:formatDate value="${rt.regDateTime}" pattern="yyyy-MM-dd"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                          <tr>

@@ -163,6 +163,7 @@
             , a.tvpmEndDate
             , a.tvpmPrice
             , a.tvcpSeq
+            , a.regDateTime
             , b.tvcpPrice
             , a.tvpmtotalPrice
             , a.tvpmPayTypeCd

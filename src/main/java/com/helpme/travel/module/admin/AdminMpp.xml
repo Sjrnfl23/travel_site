@@ -94,6 +94,7 @@
 		    , tvmmAdminNy
 		    , tvmmHostNy
 		    , tvmmDesc
+		    , regDateTime
 		from tvMember
 		where 1 = 1
 			and tvmmDelNy = 0
@@ -258,7 +259,7 @@
 		    , (select tvcdName from tvCode where a.tvamCategoryCd = tvcdSeq) as 'category'
 		    , (select tvmmEmailAccount from tvMember b where a.tvmmSeq = b.tvmmSeq) as 'host'
 		from tvLodging a
-		left join tvLodgingUploaded c on a.tvamSeq = c.tvamSeq
+		left join tvLodgingUploaded c on a.tvamSeq = c.tvamSeq and c.defaultNy = 1
 		where 1 = 1
 			and tvamDelNy = 0
 			and a.tvamSeq = #{tvamSeq}
@@ -342,6 +343,7 @@
 		    , a.tvcpEndDate
 		    , a.tvcpDesc
 		    , a.tvamSeq
+		    , a.regDateTime
 		    , b.tvamLodgingName
             , c.tvmmEmailAccount
 		from tvCoupon a
@@ -417,6 +419,7 @@
 		    , a.tvpmPayTypeCd
 		    , a.tvpmDesc
             , a.tvamSeq
+            , a.regDateTime
             , c.tvamLodgingName
             , c.tvamTelNumber
             , (select tvmmEmailAccount from tvMember e where e.tvmmSeq = c.tvmmSeq) as 'hostEmail' 
