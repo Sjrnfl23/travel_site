@@ -76,8 +76,8 @@ public class HostServiceImpl implements HostService{
 		
 		int j = 0;
 		for(MultipartFile multipartFile : dto.getFile0() ) {
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-			UtilUpload.uploadHost(multipartFile, pathModule, dto);
+//			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.uploadHostLodging(multipartFile, dto);
 			dto.setTableName("tvLodgingUploaded");
 			dto.setType(0);
 			if(j==0) {
@@ -101,7 +101,7 @@ public class HostServiceImpl implements HostService{
 		for(MultipartFile multipartFile : dto.getFile0() ) {
 			
 			//String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-			UtilUpload.uploadHost(multipartFile, "admin", dto);
+			UtilUpload.uploadHostLodging(multipartFile, dto);
 			dto.setTableName("tvLodgingUploaded");
 			dto.setType(0);
 			if(j==0) {
@@ -217,8 +217,8 @@ public class HostServiceImpl implements HostService{
 		
 		int j = 0;
 		for(MultipartFile multipartFile : dto.getFile0() ) {
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-			UtilUpload.uploadHost(multipartFile, pathModule, dto);
+//			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.uploadHostMember(multipartFile, dto);
 			dto.setTableName("tvMemberUploaded");
 			dto.setType(0);
 			dto.setDefaultNy(0);
@@ -234,6 +234,12 @@ public class HostServiceImpl implements HostService{
 	
 	}
 
+	// Dm
+	@Override
+	public Host selectHostDm(HostVo vo) throws Exception {
+		
+		return dao.selectHostDm(vo);
+	}
 
 	
 	

@@ -100,7 +100,7 @@
 
                                         <div class="p-4 pt-0">
                                             <div class="mt-n5 position-relative text-center border-bottom pb-3">
-                                                <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt2.year}"/>/<c:out value="${rt2.month}"/>/<c:out value="${rt2.day}"/>/<c:out value="${rt2.uuidName}"/> " alt="" class="avatar-xl rounded-circle img-thumbnail">
+                                                <img src="/resources/uploaded/member/<c:out value="${rt2.year}"/>/<c:out value="${rt2.month}"/>/<c:out value="${rt2.day}"/>/<c:out value="${rt2.uuidName}"/> " alt="" class="avatar-xl rounded-circle img-thumbnail">
                                               
                                                 <div class="mt-3">
                                                    <h5 class="mb-1"><c:out value="${rt.tvmmName}"/></h5>
@@ -148,7 +148,7 @@
 
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
-                                                            <td class="text-muted">2022-04-26</td>
+                                                            <td class="text-muted"><fmt:formatDate value="${rt.regDateTime}" pattern="yyyy-MM-dd"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                     </tbody><!-- end tbody -->

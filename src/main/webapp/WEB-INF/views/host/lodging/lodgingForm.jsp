@@ -363,14 +363,14 @@
 
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
+                                                    <li class="list-inline-item"  >
                                                       
-                                                     		<input type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order" value="등록">
+                                                     		<input type="submit" id="btnSubmit"  class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order" value="등록">
                                                       
                                                     </li>
                                                     <li class="list-inline-item">
-                                                    	<a href="/host/lodgingView">
-                                                       		<button type="button" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">취소</button>
+                                                    	<a href="/host/lodgingList">
+                                                       		<button type="button" id="btnCancel" class="btn btn-outline-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order">취소</button>
                                                     	</a>
                                                     </li>
                                                 </ul>
@@ -434,6 +434,7 @@
     
 <!-- 이미지, 파일 업로드 -->
 <script>
+
 upload = function(seq,div){
 	
 	$("#ulFile" + seq).children().remove();
@@ -475,50 +476,29 @@ addUploadLi = function(seq,index,name){
 delLi = function(seq, index){
 	$("#li_"+seq+"_"+index).remove();
 }
+
+
+  
 </script>  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <script>
-upload1 = function(seq,div){
-	
-	$("#ulFile" + seq).children().remove();
-	
-	var fileCount = $("#file1")[seq].files.length;
-	
-	if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
-	
-	var totalFileSize;
-	for(var i = 0; i < fileCount; i++){
-		if(div==1){
-			if(checkUploadedAllExt($("#file1")[seq].files[i].name, seq) == false) {return false;}
-		}else if(div==2){
-			if(checkUploadedImageExt($("#file1")[seq].files[i].name, seq) == false) {return false;}
-		}else {
-			return false;
-		}
-		
-		if(checkUploadedEachFileSize($("#file1")[seq].files[i].name, seq) == false) {return false;}
-		totalFileSize += $("#file1")[seq].files[i].size;
+$("#btnSubmit").on("click",function(){
+	var fileCount = $("#file0")[0].files.length; 
+	if(fileCount==0){
+		alert("사진을 1장 이상 넣어주세요");
+		return false;	
+	}else{
+		return true; //pass
 	}
-	if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
 	
-	for(var i=0; i<fileCount; i++){
-		addUploadLi1(seq, i, $("#file1")[seq].files[i].name);
-	}
-}
-addUploadLi1 = function(seq,index,name){
 	
-	var ul_list = $("#ulFile1");
 	
-	li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
-	li = li + name;
-	li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi1('+ seq +','+index +')"><i class="bi bi-x-circle"></i></span>';
-	li = li + '</li>';
-	
-	$("#ulFile"+seq).append(li);
-}
-delLi1 = function(seq, index){
-	$("#li_"+seq+"_"+index).remove();
-}
-</script> 
+})
+
+
+</script>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 

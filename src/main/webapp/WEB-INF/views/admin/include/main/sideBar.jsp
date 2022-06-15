@@ -86,7 +86,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/host/mainView">
+                                <a href="/host/loginForm">
                                     <i class="bx bx-share-alt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-contacts">호스트페이지 바로가기</span>
                                 </a>

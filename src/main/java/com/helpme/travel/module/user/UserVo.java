@@ -50,6 +50,9 @@ public class UserVo {
 	//review
 	private Integer tvarCount;
 	
+	//dm
+	private String tvamHostName;
+	
 	public void setParamsPaging(int totalRowsParam) {
 		
 		totalRows = totalRowsParam;
@@ -314,6 +317,14 @@ public class UserVo {
 
 	public void setShlctValue(String shlctValue) {
 		this.shlctValue = shlctValue;
+	}
+
+	public String getTvamHostName() {
+		return tvamHostName;
+	}
+
+	public void setTvamHostName(String tvamHostName) {
+		this.tvamHostName = tvamHostName;
 	}
 
 

@@ -10,14 +10,16 @@ public class Constants {
 	public static final int SESSION_MINUTE = 600;
 	
 	
-	public static final String UPLOAD_PATH_PREFIX = "C://factory/ws_sts_4130/travel_site/src/main/webapp/resources/user/Photomapuploaded";
-	public static final String UPLOAD_PATH_PREFIX2 = "C://factory/ws_sts_4130/travel_site/src/main/webapp/resources/admin/memberUploaded";
-	public static final String UPLOAD_PATH_PREFIX_HOST = "C://factory/ws_sts_4130/travel_site/src/main/webapp/resources/host/memberUploaded";
+	
+	
 	
 	//public static final String UPLOAD_PATH_PREFIX = "/factory/workspace/travel_site/resources/user/Photomapuploaded";
 	//public static final String UPLOAD_PATH_PREFIX2 = "/factory/workspace/travel_site/resources/admin/memberUploaded";
 	//public static final String UPLOAD_PATH_PREFIX_HOST = "/factory/workspace/travel_site/resources/host/memberUploaded"; 
 	
+	public static final String UPLOAD_PATH_PREFIX = "C://factory/ws_sts_4130/travel_site/src/main/webapp/resources/user/Photomapuploaded";
+	public static final String UPLOAD_PATH_PREFIX2 = "C://factory/ws_sts_4130/travel_site/src/main/webapp/resources/uploaded";
+	public static final String UPLOAD_PATH_PREFIX_HOST = "C://factory/ws_sts_4130/travel_site/src/main/webapp/resources/host/memberUploaded";
 
 	
 	

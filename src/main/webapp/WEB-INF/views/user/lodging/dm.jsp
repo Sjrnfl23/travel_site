@@ -392,17 +392,23 @@ body {
 
 
     var myName = '<c:out value="${sessName}"/>'
+    var HostName = '<c:out value="${item.tvmmName}"/>';
+    var sendUser = '<c:out value="${sessName}"/>';
 
     submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;
-        var name = myName;
+        var username = myName;
+		var hostname = HostName;
+		var sendname = myName;
 
         const id = push(child(ref(database), 'messages')).key;
         
 
         set(ref(database, 'messages/' + id), {
-            name: name,
-            message: message
+			hostname: hostname,
+            username: username,
+            message: message,
+			sendname: sendname
         });
         document.getElementById('message').value = "";
         alert('message has sent');
@@ -411,14 +417,14 @@ body {
 
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
-        if(data.val().name != myName) {
+        if(data.val().sendname != myName && data.val().hostname == HostName) {
             var divData = '<div class="conversation-list" id="fromDiv">\n' +
                                 '    <div class="d-flex">\n' +
                                 '        <img src="../../resources/host/images/users/avatar-6.jpg" class="rounded-circle avatar" alt="">\n' +
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content">\n' +
-                                '                    <div class="conversation-name"><span class="name">'+data.val().name+'</span><span class="time">10:04</span></div>\n' +
+                                '                    <div class="conversation-name"><span class="name">'+data.val().sendname+'</span><span class="time">10:04</span></div>\n' +
                                 '                    <p class="mb-0 msg_cotainer">\n' +
                                 '                        '+data.val().message+'' +
                                 '                    </p>\n' +
@@ -440,17 +446,18 @@ body {
                                 '</div>';
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
-        }else{
+
+			$('.messages').scrollTop($('.messages')[0].scrollHeight);
+        }else if(data.val().sendname == myName && data.val().hostname == HostName){
             var divData = '<li class="right">\n' +
 								'<div class="conversation-list">\n' +
                                 '    <div class="d-flex">\n' +
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content" id="sendDiv">\n' +
-                                '                    <div class="conversation-name"><span class="time">10:02</span></div>\n' +
+                                '                    <div class="conversation-name">'+data.val().sendname+'<span class="time">10:02</span></div>\n' +
                                 '                    <p class="mb-0 text-start">\n' +
                                 '                        '+data.val().message+'' +
-                                '                        <span class="msg_time_send">8:55 AM, Today</span>\n' +
                                 '                    </p>\n' +
                                 '                </div>\n' +
                                 '                <div class="dropdown align-self-start">\n' +
@@ -472,6 +479,8 @@ body {
 								'</li>';
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
+
+			$('.messages').scrollTop($('.messages')[0].scrollHeight);
         }
     });
 
@@ -496,7 +505,10 @@ body {
                                 '    </a><br>';
             var d2 = document.getElementById('chatuserList');
             d2.insertAdjacentHTML('beforebegin', divDataChat);
+
+		$('.messages').scrollTop($('.messages')[0].scrollHeight);
     });
+		
 </script>
 
 <script>

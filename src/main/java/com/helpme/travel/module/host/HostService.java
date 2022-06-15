@@ -47,6 +47,9 @@ public interface HostService {
 	
 	public Host selectOneUploaded(HostVo vo) throws Exception;
 	
+	// Dm
+	public Host selectHostDm(HostVo vo) throws Exception;
+	
 
 	
 }

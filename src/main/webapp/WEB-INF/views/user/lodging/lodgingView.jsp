@@ -154,7 +154,7 @@
     
     
     <!--============================= BOOKING =============================-->
- <form action="/payment" autocomplete=off>
+ <form action="/payment" id="formReservation" autocomplete=off>
 	
 	<input type="hidden" id="hiddenName" name="tvamLodgingName"/>
 	<input type="hidden" id="hiddenSeq" name="tvamSeq" value="<c:out value="${item.tvamSeq}"/>"/>
@@ -166,7 +166,8 @@
 	<input type="hidden" id="hiddenPriceOrigin" name="hiddenPriceOrigin"/> 
 	<input type="hidden" id="hiddenPriceFee" name="hiddenPriceFee"/> 
 	<input type="hidden" id="hiddenCoupon" name="hiddenCoupon"/> 
-	<input type="hidden" id="hiddenPay" name="hiddenPay"/> 
+	<input type="hidden" id="hiddenPay" name="hiddenPay"/>
+	<input type="hidden" id="hiddenHostName" name="hiddenHostName" value="<c:out value="${item.tvamHostName}"/>"/>
 	
  
     <div>
@@ -179,8 +180,12 @@
                         <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="img-fluid" alt="#">
                     </a>
                 </div>
+
                 </c:forEach>
                 <!-- <div class="swiper-slide">
+
+                <div class="swiper-slide">`
+
                     <a href="/resources/user/images/view2.png" class="grid image-link">
                         <img src="/resources/user/images/view2.png" class="img-fluid" alt="#">
                     </a>
@@ -554,6 +559,7 @@
                 
                 <div class="col-md-4 responsive-wrap">
                 
+
                     		
                            <div class="contact-info">
 						<div class="booking-summary-box">
@@ -602,6 +608,29 @@
                                </div>
                            </div>
                         
+
+                    <div class="follow" style="padding-bottom: 8px;">
+                        <div class="follow-img">
+                            <img src="/resources/uploaded/member/<c:out value="${item.year2}"/>/<c:out value="${item.month2}"/>/<c:out value="${item.day2}"/>/<c:out value="${item.uuidName2}"/>" width="200px" height="200px"  alt="#">
+                        </div>
+                        <ul class="d-flex">
+                            <li class=" flex-fill">
+                                <span><b>호스트</b></span>
+                                <h6><c:out value="${item.tvamHostName}"/></h6>
+                            </li>
+                            <li class=" flex-fill">
+                            	 <span><b>지역</b></span>
+                                <h6><c:out value="${item.tvamCity}"/></h6>
+                            </li>
+                            <li class=" flex-fill">
+                            	 <span><b>후기</b></span>
+                                <h6><%-- <c:out value="${rt.tvarCount}"/> --%>개</h6>
+                            </li>
+                        </ul>
+                        <a id="btnDm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
+                    </div>              
+                	<br>
+
                     <div class="contact-info">
                         <img src="/resources/user/images/map.jpg" class="img-fluid" alt="#">
                         <div class="address">
@@ -619,8 +648,8 @@
                         <div class="address">
                             <span class="icon-clock"></span>
                             <p>월 - 일 09:30 am - 05:30 pm </p>
-                            <a href="#" class="featured-open">OPEN NOW</a>
                         </div>
+
                         <a id="btnDm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
                     </div>
                  <%--    <div class="follow">
@@ -653,7 +682,7 @@
 							<br>
 						</div>
                     </div> --%>
-                     <div class="follow">
+                   <%--   <div class="follow">
                         <div class="follow-img">
                             <img src="/resources/user/images/review4.jpg" class="img-fluid" alt="#">
                             <h6><c:out value="${item.tvamHostName}"/></h6>
@@ -662,7 +691,7 @@
                         <ul class="d-flex">
                             <li class=" flex-fill">
                                 <span><b>후기</b></span>
-                                <h6><%-- <c:out value="${rt.tvarCount}"/> --%>개</h6>
+                                <h6><c:out value="${rt.tvarCount}"/>개</h6>
                             </li>
                             
                         </ul>
@@ -676,7 +705,60 @@
 							정성을 많이 기울였지만 부족한 부분은 지속적으로 보완해 나가겠습니다.</p>
 							<br>
 						</div>
-                    </div>
+                    </div> --%>
+
+                    </div>                	
+                	
+                          <%--  <div class="contact-info">
+						<div class="booking-summary-box">
+							<h4><c:out value="${item.tvamLodgingName}"/></h4>
+							<span style="font-size: 18px;"><c:out value="${item.tvamCity}"/></span>
+							<div class="booking-summary_contact">
+								<p style="font-size: 18px;"><c:out value="${item.tvamTelNumber}"/></p>
+							</div>
+							<div class="booking-summary_deatail">
+								<h5>예약 정보</h5>
+								<div class="row" align=center>
+									<div class="input-group">
+										<input type="text" class="form-control form-control-sm" id="datepicker1" placeholder="시작일" >
+									    <input type="text" class="form-control form-control-sm" id="datepicker2" placeholder="종료일">
+									</div>
+								    <div class="input-group">
+										<select class="form-select" name="selectNumber" id="selectNumber" aria-label="Default select example">
+										  <option selected>인원</option>
+										  <option value="1">1</option>
+										  <option value="2">2</option>
+										  <option value="3">3</option>
+										  <option value="4">4</option>
+										  <option value="5">5</option>
+										  <option value="6">6</option>
+										</select>									    
+								    </div>
+						  			</div>
+                                       <div class="booking-cost">
+                                           <p style="font-size: 16px; ">
+                                           	날짜
+                                           	<span id="endDate" style="font-size: 16px;"></span>
+                                           	<span id="startDate" style="font-size: 16px;"></span>
+                                           	<span id="day" style="font-size: 16px;"></span>
+                                           </p>
+                                           <p style="font-size: 16px;">게스트 <span style="font-size: 16px;" id="outputNumber"></span></p>
+                                       </div>
+                                       <div class="booking-cost" >
+                                           <h5>요금 정보</h5>
+                                           <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;" id="price1"></span></p>
+                                           <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;" id="price2"></span></p>
+                                           <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red" style="font-size: 18px;" id="couponPrice"></span></p>
+                                           <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;" id="price3"></span></p>
+                                           <br><button type="button" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
+<!--                                            <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button> -->
+                                       </div>
+                                   </div>
+                               </div>
+                           </div> --%>
+                        
+
+
                 </div>
             </div>
         </div>
@@ -984,7 +1066,40 @@
 	});
 	
 	</script>
-		 <script type="text/javascript">
+	<script type="text/javascript">
+	        
+ 	$("#btnReservation").on("click" , function(){
+		
+	 	 $.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/loginCheck"
+			,data : {}
+			,success: function(response) {
+				
+				if(response.rt == "pass") {
+				
+					 /* location.href = "/dm" */
+					$("#formReservation").submit();
+					
+				}else{			
+					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
+					
+					if(answer ==true){
+						
+						location.href="/loginForm"
+					}
+					}
+				}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+	});   
+	
+	</script>
+	<script type="text/javascript">
 	        
  	$("#btnDm").on("click" , function(){
 		
@@ -999,7 +1114,7 @@
 				if(response.rt == "pass") {
 			
 				
-					 location.href = "/dm"; 
+					location.href = "/dm?tvamHostName=<c:out value="${item.tvamHostName}"/>"; 
 					
 				}else{			
 					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
@@ -1024,8 +1139,6 @@
 	       $("form").attr("action", "insertReview");
 	});
 	 
-	
-	
 	
 	</script>
 	

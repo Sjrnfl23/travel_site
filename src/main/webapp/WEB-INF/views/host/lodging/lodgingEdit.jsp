@@ -104,11 +104,11 @@
                                         <div class="p-4 pt-0">
                                             
                                             <div class="mt-n5 position-relative text-center border-bottom pb-3">
-                                                <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/> " alt="" class="avatar-xl rounded-circle img-thumbnail">
+                                                <img src="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/> " alt="" class="avatar-xl rounded-circle img-thumbnail">
                                               
                                                 <div class="mt-3">
                                                    <h5 class="mb-1">
-                                                   제주하르방
+                                                   <c:out value="${rt.tvamLodgingName}"/>
                                                    </h5>
                                                     <p class="text-muted mb-0">
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
@@ -239,13 +239,13 @@
                                                         <tr>
                                                             <th class="fw-bold">체크인 시간 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="time" class="form-control" id="tvamCheckInTime" name="tvamCheckInTime" placeholder="15:00" value="<c:out value="${tvamCheckInTime}"/>">
+                                                            	<input type="time" class="form-control" id="tvamCheckInTime" name="tvamCheckInTime" placeholder="15:00" value="<c:out value="${rt.tvamCheckInTime}"/>">
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <th class="fw-bold">체크아웃 시간 :</th>
                                                             <td class="text-muted">
-                                                            	<input type="time" class="form-control" id="tvamCheckOutTime" name="tvamCheckOutTime" placeholder="11:00" value="<c:out value="${tvamCheckInTime}"/>">
+                                                            	<input type="time" class="form-control" id="tvamCheckOutTime" name="tvamCheckOutTime" placeholder="11:00" value="<c:out value="${rt.tvamCheckOutTime}"/>">
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -378,7 +378,7 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                       <input type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order" value="수정">
+                                                       <input type="submit" id="btnSubmit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md" data-bs-toggle="modal" data-bs-target=".add-new-order" value="수정">
                                                     </li>
                                                     <li class="list-inline-item">
                                                     	<a href="/host/lodgingView?tvamSeq=<c:out value="${rt.tvamSeq}"/>">

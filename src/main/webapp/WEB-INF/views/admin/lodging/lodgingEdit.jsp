@@ -104,7 +104,7 @@
                                         <div class="p-4 pt-0">
                                             
                                             <div class="mt-n5 position-relative text-center border-bottom pb-3">
-                                               <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/> " alt="" class="avatar-xl rounded-circle img-thumbnail">
+                                               <img src="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/> " alt="" class="avatar-xl rounded-circle img-thumbnail">
                                               
                                                 <div class="mt-3">
                                                    <h5 class="mb-1">
@@ -184,12 +184,15 @@
 							        						<input type="text" class="form-control" id="tvamAddress1" name="tvamAddress1" placeholder="주소" value="<c:out value="${rt.tvamAddress1}"/>">
 							        						
 							        						<div class="input-group-append">
-							           				 			<button onClick="sample4_execDaumPostcode()" class="btn btn-outline-secondary" type="button">주소검색</button>
+							           				 			<button onclick="findAddr()" class="btn btn-outline-secondary" type="button">주소검색</button>
+<!-- 							           				 			<button onClick="sample4_execDaumPostcode()" class="btn btn-outline-secondary" type="button">주소검색</button> -->
 							       							</div>
 						    								</div>
 						
 						    								<div class="input-group mb-3">
 						       									<input  type="text" class="form-control" placeholder="상세주소" id="tvamAddress2" name="tvamAddress2" value="<c:out value="${rt.tvamAddress2}"/>">
+						                                    	<input type="hidden" id="tvamLat" name="tvamLat"/>
+																<input type="hidden" id="tvamLng" name="tvamLng"/>						       									
 						    								</div>
                                                             </td>
                                                         </tr>
@@ -490,47 +493,54 @@ delLi = function(seq, index){
 
 
         
-		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
+<!-- appkey : 윤이나 -->
+<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=e24be1770ff2a2001f5be79543c7a214&libraries=services"></script>
+  
+ <!-- 우편번호 찾기 -->
 <script>
-
-    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-
-  var roadAddr;
-    function sample4_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-               roadAddr = data.roadAddress; // 도로명 주소 변수
-                var extraRoadAddr = ''; // 참고 항목 변수
-
-                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
-                }
-                // 건물명이 있고, 공동주택일 경우 추가한다.
-                if(data.buildingName !== '' && data.apartment === 'Y'){
-                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
-
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-               
+function findAddr(){
+	new daum.Postcode({
+        oncomplete: function(data) {
+        	
+        	console.log(data);
+        	
+            var roadAddr = data.roadAddress; // 도로명 주소 변수
+            var jibunAddr = data.jibunAddress; // 지번 주소 변수
+            /* document.getElementById('member_post').value = data.zonecode; */
+            if(roadAddr !== ''){
                 document.getElementById("tvamAddress1").value = roadAddr;
-            }                     
-        }).open();
-        
+				
+            } 
+            else if(jibunAddr !== ''){
+                document.getElementById("tvamAddress1").value = jibunAddr;
+            }
+        	/* lat and lng from address s */
+			
+    		// 주소-좌표 변환 객체를 생성
+    		var geocoder = new daum.maps.services.Geocoder();
+    		
+    		// 주소로 좌표를 검색
+    		geocoder.addressSearch(roadAddr, function(result, status) {
+    		 
+    			// 정상적으로 검색이 완료됐으면,
+    			if (status == daum.maps.services.Status.OK) {
+    				
+    				document.getElementById("tvamLat").value=result[0].y;
+    				document.getElementById("tvamLng").value=result[0].x;
+    				
+    			}
+    		});
+    		/* lat and lng from address e */
         }
-                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-                
-                </script>
+    }).open();
+}
+</script> 
+    
+    
+    
+    
     </body>
 
 </html>

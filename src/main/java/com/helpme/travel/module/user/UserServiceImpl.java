@@ -301,7 +301,12 @@ public class UserServiceImpl implements UserService{
 		return dao.selectListLodgingUploaded(vo);
 	}
 	
-	
+	// Dm
+	@Override
+	public User selectHostDm(UserVo vo) throws Exception {
+		
+		return dao.selectHostDm(vo);
+	}
 	
 	
 	

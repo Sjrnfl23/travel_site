@@ -242,6 +242,7 @@
 				,tvamCookingNy
 				,tvamPetNy
 				,tvamPartyNy
+				,regDateTime
 	
 			)values(
 				
@@ -278,6 +279,7 @@
 				,#{tvamCookingNy}
 				,#{tvamPetNy}
 				,#{tvamPartyNy}
+				,now()
 			)
 		<selectKey resultType="Integer" keyProperty="tvamSeq" order="AFTER">
 			<!-- 파생테이블 seq값을 넣을 수 있도록 해준다 -->
@@ -649,4 +651,17 @@
 	</update>
 	<!-- uploaded e -->
 
+	<!-- dm -->
+    <select id="selectHostDm" resultMap="resultMapObj">
+    select
+    	tvmmSeq
+    	,tvmmName
+    	,tvmmEmailAccount
+    	,tvmmHostNy
+    from 
+        tvMember
+    WHERE 1=1
+    	and tvmmDelNy = 0
+    	and tvmmName = #{tvamHostName}
+    </select>
 </mapper> 

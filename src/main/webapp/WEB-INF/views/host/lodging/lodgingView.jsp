@@ -29,6 +29,7 @@
         <link href="../../resources/host/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
         <link href="../../resources/host/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
         <!-- App Css-->
         <link href="../../resources/host/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
   	<!-- Themify Icon -->
@@ -98,10 +99,13 @@
                                 <div class="card">
                                     <div class="card-body p-0">
                                         <div class="user-profile-img">
+
                                             <%-- <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>"
                                                 class="profile-img profile-foreground-img rounded-top" style="height: 120px;"
                                                 alt=""> --%>
-                                                 <img src="/resources/admin/assets/images/pattern-bg.jpg"
+                                                <!--  <img src="/resources/admin/assets/images/pattern-bg.jpg"> -->
+
+                                            <img src="/resources/admin/assets/images/pattern-bg.jpg"
                                                 class="profile-img profile-foreground-img rounded-top" style="height: 120px;"
                                                 alt="">
 
@@ -113,10 +117,10 @@
                                         <div class="p-4 pt-0">
                                             
                                             <div class="mt-n5 position-relative text-center border-bottom pb-3">
-                                                <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/> " alt="" class="avatar-xl rounded-circle img-thumbnail">
+                                                <img src="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/> " alt="" class="avatar-xl rounded-circle img-thumbnail">
                                               
                                                 <div class="mt-3">
-                                                   <h5 class="mb-1">제주하르방</h5>
+                                                   <h5 class="mb-1"><c:out value="${rt.tvamLodgingName}"/></h5>
                                                     <p class="text-muted mb-0">
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
                                                         <i class="bx bxs-star text-warning font-size-14"></i>
@@ -203,6 +207,7 @@
                                                         </tr>
                                                         <!-- end tr -->
                                                          <tr>
+
                                                             <th class="fw-bold" style="margin-top:20px;">편의시설</th>
                                                         <td class="text-muted">
 										                        <div class="row">
@@ -330,6 +335,8 @@
                                                             </td>                                                                                                                                     
                                                         </tr>
                                                         <!-- end tr -->
+										                                    
+
                                                     </tbody><!-- end tbody -->
                                                 </table>
                                             </div>

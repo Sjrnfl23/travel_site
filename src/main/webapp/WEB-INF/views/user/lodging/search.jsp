@@ -252,7 +252,7 @@
 							for(var i in response.lodglist) {
 							    listHtml += '<div class="col-md-6 card-2">';
 							    listHtml += '<div class="card">'; 
-							    listHtml += '<a href="/lodgingView?tvamSeq='+nullToEmpty(response.lodglist[i].tvamSeq)+'"><img class="card-img-top" width="470" height="352"  src="/resources/admin/memberUploaded/admin/'+nullToEmpty(response.lodglist[i].year)+'/'+nullToEmpty(response.lodglist[i].month)+'/'+nullToEmpty(response.lodglist[i].day)+'/'+nullToEmpty(response.lodglist[i].uuidName)+'"  alt="Card image cap"></a>';
+							    listHtml += '<a href="/lodgingView?tvamSeq='+nullToEmpty(response.lodglist[i].tvamSeq)+'"><img class="card-img-top" width="470" height="352"  src="/resources/uploaded/lodging/'+nullToEmpty(response.lodglist[i].year)+'/'+nullToEmpty(response.lodglist[i].month)+'/'+nullToEmpty(response.lodglist[i].day)+'/'+nullToEmpty(response.lodglist[i].uuidName)+'"  alt="Card image cap"></a>';
 							    listHtml += '<div class="card-body" style="height: 269px;">';
 							    listHtml += '<h5 class="card-title">'+nullToEmpty(response.lodglist[i].tvamLodgingName)+'</h5>';
 							    listHtml += '<ul class="card-rating">';

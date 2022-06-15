@@ -44,8 +44,8 @@ public class AdminServiceImpl implements AdminService{
 			
 			int j = 0;
 			for(MultipartFile multipartFile : dto.getFile0() ) {
-				String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-				UtilUpload.uploadAdmin(multipartFile, pathModule, dto);
+//				String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+				UtilUpload.uploadAdminMember(multipartFile, dto);
 				dto.setTableName("tvMemberUploaded");
 				dto.setType(0);
 				dto.setDefaultNy(0);
@@ -89,8 +89,9 @@ public class AdminServiceImpl implements AdminService{
 		int j = 0;
 		for(MultipartFile multipartFile : dto.getFile0() ) {
 			
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-			UtilUpload.uploadAdmin(multipartFile, pathModule, dto);
+//			String pathModule = host;
+//			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+			UtilUpload.uploadAdminLodging(multipartFile, dto);
 			dto.setTableName("tvLodgingUploaded");
 			dto.setType(0);
 			if(j==0) {
