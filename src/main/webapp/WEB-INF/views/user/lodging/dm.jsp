@@ -391,24 +391,35 @@ body {
     const database = getDatabase(app);
 
 
-    var myName = '<c:out value="${sessName}"/>'
+    var myName = '<c:out value="${sessName}"/>';
     var HostName = '<c:out value="${item.tvmmName}"/>';
     var sendUser = '<c:out value="${sessName}"/>';
 
+	var HostSeq = '<c:out value="${item.tvmmSeq}"/>';
+	var UserSeq = '<c:out value="${sessSeq}"/>';
+
     submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;
-        var username = myName;
-		var hostname = HostName;
-		var sendname = myName;
+        var username_s = myName;
+		var hostname_s = HostName;
+		var sendname_s = myName;
+
+		var hostseq_s = HostSeq;
+		var userseq_s = UserSeq;
 
         const id = push(child(ref(database), 'messages')).key;
         
 
+        set(ref(database, 'chatrooms/' + hostname_s+ '_'+ username_s), {
+			hostname: hostname_s,
+            username: username_s
+        });
+
         set(ref(database, 'messages/' + id), {
-			hostname: hostname,
-            username: username,
+			hostname: hostname_s,
+            username: username_s,
             message: message,
-			sendname: sendname
+			sendname: sendname_s
         });
         document.getElementById('message').value = "";
         alert('message has sent');
@@ -417,7 +428,7 @@ body {
 
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
-        if(data.val().sendname != myName && data.val().hostname == HostName) {
+        if(data.val().sendname != myName && data.val().hostname == HostName && data.val().username == myName) {
             var divData = '<div class="conversation-list" id="fromDiv">\n' +
                                 '    <div class="d-flex">\n' +
                                 '        <img src="../../resources/host/images/users/avatar-6.jpg" class="rounded-circle avatar" alt="">\n' +
@@ -448,7 +459,7 @@ body {
             d1.insertAdjacentHTML('beforebegin', divData);
 
 			$('.messages').scrollTop($('.messages')[0].scrollHeight);
-        }else if(data.val().sendname == myName && data.val().hostname == HostName){
+        }else if(data.val().sendname == myName && data.val().hostname == HostName && data.val().username == myName){
             var divData = '<li class="right">\n' +
 								'<div class="conversation-list">\n' +
                                 '    <div class="d-flex">\n' +
@@ -483,32 +494,6 @@ body {
 			$('.messages').scrollTop($('.messages')[0].scrollHeight);
         }
     });
-
-	const chatuserList = ref(database, 'ChatRoom/');
-    onChildAdded(chatuserList, (data) => {
-            var divDataChat = '    <a href="#">\n' +
-                                '        <div class="d-flex align-items-center">\n' +
-                                '            <div class="flex-shrink-0 user-img online align-self-center me-3">\n' +
-                                '                <div class="avatar-sm align-self-center">\n' +
-                                '                    <span class="avatar-title rounded-circle bg-soft-primary text-primary">\n' +
-								'						S\n' +
-                                '                    </span>\n' +
-                                '                </div>\n' +
-                                '                <span class="user-status"></span>\n' +
-                                '            </div>\n' +
-                                '            <div class="flex-grow-1 overflow-hidden">\n' +
-                                '                <h5 class="text-truncate font-size-14 mb-0">'+data.val().username+'</h5>\n' +
-                                '            </div>\n' +
-                                '            <div class="flex-shrink-0">\n' +
-                                '            </div>\n' +
-                                '        </div>\n' +
-                                '    </a><br>';
-            var d2 = document.getElementById('chatuserList');
-            d2.insertAdjacentHTML('beforebegin', divDataChat);
-
-		$('.messages').scrollTop($('.messages')[0].scrollHeight);
-    });
-		
 </script>
 
 <script>
