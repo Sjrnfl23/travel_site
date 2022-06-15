@@ -203,6 +203,7 @@
 				1=1
 				and tvamDelNy=0
 				and a.tvamSeq=#{tvamSeq}
+				and c.defaultNy = 1
 	</select>
 
 

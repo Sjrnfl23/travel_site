@@ -72,4 +72,7 @@ public class UserDao {
 	public List<User> selectListReview(UserVo vo) { return sqlSession.selectList(namespace+".selectListReview",vo); } 
 	public int selectReviewCount(UserVo vo) { return sqlSession.selectOne(namespace + ".selectReviewCount", vo); }
 	
+	//image
+	public List<User> selectListLodgingUploaded (UserVo vo) { return sqlSession.selectList(namespace+".selectListLodgingUploaded",vo); }
+	
 }

@@ -185,6 +185,9 @@ public class UserController {
 		User item2 = service.selectOneLodgingView(vo);
 		model.addAttribute("item", item2);
 		
+		List<User> lodglist = service.selectListLodgingUploaded(vo);
+		model.addAttribute("lodglist", lodglist);
+		
 		return "user/lodging/lodgingView";
 	}
 

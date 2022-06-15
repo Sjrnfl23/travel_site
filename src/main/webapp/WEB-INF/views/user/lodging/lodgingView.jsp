@@ -173,13 +173,14 @@
         <!-- Swiper -->
         <div class="swiper-container">
             <div class="swiper-wrapper">
-
+			<c:forEach items="${lodglist}" var="rt" varStatus="status">
                 <div class="swiper-slide">
-                    <a href="/resources/user/images/view1.png" class="grid image-link">
-                        <img src="/resources/user/images/view1.png" class="img-fluid" alt="#">
+                    <a href="/resources/admin/memberUploaded/admin/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="grid image-link">
+                        <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="img-fluid" alt="#">
                     </a>
                 </div>
-                <div class="swiper-slide">
+                </c:forEach>
+                <!-- <div class="swiper-slide">
                     <a href="/resources/user/images/view2.png" class="grid image-link">
                         <img src="/resources/user/images/view2.png" class="img-fluid" alt="#">
                     </a>
@@ -203,7 +204,8 @@
                     <a href="/resources/user/images/view6.png" class="grid image-link">
                         <img src="/resources/user/images/view6.png" class="img-fluid" alt="#">
                     </a>
-                </div>
+                </div> -->
+                
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination swiper-pagination-white"></div>
@@ -358,6 +360,7 @@
                         <div class="customer-review_wrap">
                             <div class="customer-img">
                                 <img src="/resources/user/images/avatar.jpg" class="img-fluid" alt="#">
+                                
                             </div>
                             <div class="customer-content-wrap">
                        
@@ -428,7 +431,7 @@
                                 <div class="customer-content">
                                     <div class="customer-review">
                                         
-                                      
+ <%--                                      
  <div class="starpoint_wrap">
   <div class="starpoint_box">
     <label for="starpoint1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
@@ -441,7 +444,7 @@
     <label for="starpoint8" class="label_star" title="4"><span class="blind">4점</span></label>
     <label for="starpoint9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
     <label for="starpoint10" class="label_star" title="5"><span class="blind">5점</span></label>
-   <input type="radio" name="starpoint" id="starpoint1" class="star_radio" disabled <c:if test="${item.starpoint eq 1}"> checked</c:if> >
+   <input type="ra	dio" name="starpoint" id="starpoint1" class="star_radio" disabled <c:if test="${item.starpoint eq 1}"> checked</c:if> >
     <input type="radio" name="starpoint" id="starpoint2" class="star_radio" disabled <c:if test="${item.starpoint eq 2}"> checked</c:if> >
     <input type="radio" name="starpoint" id="starpoint3" class="star_radio" disabled <c:if test="${item.starpoint eq 3}"> checked</c:if> >
     <input type="radio" name="starpoint" id="starpoint4" class="star_radio" disabled <c:if test="${item.starpoint eq 4}"> checked</c:if> >
@@ -454,7 +457,7 @@
     
     <span class="starpoint_bg"></span>
   </div>
-</div> 
+</div>  --%>
 
                                         <p><%-- <c:out value="${rt.tvarDate"/> --%></p>
                                     </div>
@@ -550,62 +553,54 @@
                 </div>
                 
                 <div class="col-md-4 responsive-wrap">
-                		
-                            <div class="contact-info">
-                                <div class="booking-summary-box">
-                                    <h4><c:out value="${item.tvamLodgingName}"/></h4>
-                                    <span style="font-size: 18px;"><c:out value="${item.tvamCity}"/></span>
-
-                                    <div class="booking-summary_contact">
-                                        <p style="font-size: 18px;"><c:out value="${item.tvamTelNumber}"/></p>
-                                    </div>
-
-                                    <div class="booking-summary_deatail">
-                                        <h5>예약 정보</h5>
-                                        <div class="row" align=center>
-										  <div class="input-group">
-										    <input type="text" class="form-control form-control-sm" id="datepicker1" placeholder="시작일" >
-										    <input type="text" class="form-control form-control-sm" id="datepicker2" placeholder="종료일">
-										  </div>
-									    <div class="input-group">
-											<select class="form-select" name="selectNumber" id="selectNumber" aria-label="Default select example">
-											  <option selected>인원</option>
-											  <option value="1">1</option>
-											  <option value="2">2</option>
-											  <option value="3">3</option>
-											  <option value="4">4</option>
-											  <option value="5">5</option>
-											  <option value="6">6</option>
-											</select>									    
-									    </div>
-							  			</div>
-                                        <div class="booking-cost">
-                                            <p style="font-size: 16px; ">
-                                            	날짜
-                                            	<span id="endDate" style="font-size: 16px;"></span>
-                                            	<span id="startDate" style="font-size: 16px;"></span>
-                                            	<span id="day" style="font-size: 16px;"></span>
-                                            </p>
-                                            <p style="font-size: 16px;">게스트 <span style="font-size: 16px;" id="outputNumber"></span></p>
-                                        </div>
-                                        <div class="booking-cost" >
-                                            <h5>요금 정보</h5>
-<<<<<<< HEAD
-                                            <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;"></span></p>
-                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;">196,000원</span></p>
-                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span style="font-size: 18px;">-20,000원</span></p>
-                                            <p style="font-size: 16px;">총 합계 <span class="total-red" style="font-size: 18px;">2,136,000원</span></p>
-=======
-                                            <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;" id="price1"></span></p>
-                                            <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;" id="price2"></span></p>
-                                            <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red" style="font-size: 18px;" id="couponPrice"></span></p>
-                                            <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;" id="price3"></span></p>
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
-                                            <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                
+                    		
+                           <div class="contact-info">
+						<div class="booking-summary-box">
+							<h4><c:out value="${item.tvamLodgingName}"/></h4>
+							<span style="font-size: 18px;"><c:out value="${item.tvamCity}"/></span>
+							<div class="booking-summary_contact">
+								<p style="font-size: 18px;"><c:out value="${item.tvamTelNumber}"/></p>
+							</div>
+							<div class="booking-summary_deatail">
+								<h5>예약 정보</h5>
+								<div class="row" align=center>
+									<div class="input-group">
+										<input type="text" class="form-control form-control-sm" id="datepicker1" placeholder="시작일" >
+									    <input type="text" class="form-control form-control-sm" id="datepicker2" placeholder="종료일">
+									</div>
+								    <div class="input-group">
+										<select class="form-select" name="selectNumber" id="selectNumber" aria-label="Default select example">
+										  <option selected>인원</option>
+										  <option value="1">1</option>
+										  <option value="2">2</option>
+										  <option value="3">3</option>
+										  <option value="4">4</option>
+										  <option value="5">5</option>
+										  <option value="6">6</option>
+										</select>									    
+								    </div>
+						  			</div>
+                                       <div class="booking-cost">
+                                           <p style="font-size: 16px; ">
+                                           	날짜
+                                           	<span id="endDate" style="font-size: 16px;"></span>
+                                           	<span id="startDate" style="font-size: 16px;"></span>
+                                           	<span id="day" style="font-size: 16px;"></span>
+                                           </p>
+                                           <p style="font-size: 16px;">게스트 <span style="font-size: 16px;" id="outputNumber"></span></p>
+                                       </div>
+                                       <div class="booking-cost" >
+                                           <h5>요금 정보</h5>
+                                           <p style="font-size: 16px;"><u id="price"></u> <span style="font-size: 18px;" id="price1"></span></p>
+                                           <p style="font-size: 16px;"><u>서비스 수수료</u> <span style="font-size: 18px;" id="price2"></span></p>
+                                           <p style="font-size: 16px;"><u>숙소 쿠폰</u> <span class="total-red" style="font-size: 18px;" id="couponPrice"></span></p>
+                                           <p style="font-size: 16px;">총 합계 <span style="font-size: 18px; color: blue;" id="price3"></span></p>
+                                           <br><button type="submit" class="btn btn-danger btn-block" id="btnReservation">예약하기</button>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
                         
                     <div class="contact-info">
                         <img src="/resources/user/images/map.jpg" class="img-fluid" alt="#">
@@ -628,7 +623,7 @@
                         </div>
                         <a id="btnDm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
                     </div>
-                    <div class="follow">
+                 <%--    <div class="follow">
                         <div class="follow-img">
                             <img src="/resources/user/images/review4.jpg" class="img-fluid" alt="#">
                             <h6><c:out value="${item.tvamHostName}"/></h6>
@@ -637,7 +632,7 @@
                         <ul class="d-flex">
                             <li class=" flex-fill">
                                 <span><b>후기</b></span>
-                                <h6><%-- <c:out value="${rt.tvarCount}"/> --%>개</h6>
+                                <h6><c:out value="${rt.tvarCount}"/>개</h6>
                             </li>
                             <li class=" flex-fill">
                             	 <span><b>언어</b></span>
@@ -649,6 +644,30 @@
                         </ul>
                         <br>
                         <div style="margin-left: 20px; margin-right: 20px;">
+                        	<span><b>숙박 중 게스트와의 교류</b></span>
+                        	<br><br>
+							<p>저희 숙소를 찾아주신 분들께 당연히 반갑게 마주하여 감사의 인사를 드려야 하나
+							불편하실것 같아 셀프 체크인 하시고
+							필요한 점 있으시면 언제든 연락주세요.
+							정성을 많이 기울였지만 부족한 부분은 지속적으로 보완해 나가겠습니다.</p>
+							<br>
+						</div>
+                    </div> --%>
+                     <div class="follow">
+                        <div class="follow-img">
+                            <img src="/resources/user/images/review4.jpg" class="img-fluid" alt="#">
+                            <h6><c:out value="${item.tvamHostName}"/></h6>
+                            <span style="margin-top:10px;"><c:out value="${item.tvamState}"/> <c:out value="${item.tvamCity}"/></span>
+                        </div>
+                        <ul class="d-flex">
+                            <li class=" flex-fill">
+                                <span><b>후기</b></span>
+                                <h6><%-- <c:out value="${rt.tvarCount}"/> --%>개</h6>
+                            </li>
+                            
+                        </ul>
+                        <br>
+                       <div style="margin-left: 20px; margin-right: 20px;">
                         	<span><b>숙박 중 게스트와의 교류</b></span>
                         	<br><br>
 							<p>저희 숙소를 찾아주신 분들께 당연히 반갑게 마주하여 감사의 인사를 드려야 하나
@@ -723,6 +742,8 @@
     
     <!-- 날짜 선택 -->
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> <!-- datepicker -->
+ <!-- 날짜 선택 -->
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> <!-- datepicker -->
 	<script type="text/javascript">
 		$(document).ready(function(){
 			
@@ -742,13 +763,6 @@
 				$('#hiddenDay1').val(btMs1);			// hiddenDay에 btMs1 전역변수 담기
 
 			   /* alert(selected1); */
-<<<<<<< HEAD
-			   $('#startDate').empty();
-			   $('#startDate').append(selected1);
-			   $('#hiddenStartDate').val(selected1);
-			 });					 
-		
-=======
 			   $('#startDate').empty();				// 날짜 표시 부분 비움
 			   $('#startDate').append(selected1);	// 날짜 표시 부분에 날짜넣기
  			   $('#hiddenStartDate').val(selected1);	// hiddenStartDate에 날짜 넣기 (payment 페이지로 전달해야 함)
@@ -762,7 +776,6 @@
 		}); 
 		
 		$(document).ready(function(){
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 			 $("#datepicker2").datepicker();
 			 $("#datepicker2").val();
 			 $("#datepicker2").on("change",function(){
@@ -785,13 +798,6 @@
 			   
 			   $('#endDate').append(' ~ ' + selected2 + '(' + vtDay + '박)' );
 			   $('#hiddenEndDate').val(selected2);
-<<<<<<< HEAD
-			   
-			   /* 날짜 차이 계산 */
-			  /*  var btMs = Math.ceil(selected2.getTime() - selected1.getTime())/(1000*3600*24); */
-			   
-			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/> x 박'); 
-=======
 			   $('#hiddenDay').val(vtDay);
 			   
 			   $('#price').append( '<fmt:formatNumber value="${item.tvamAdultPrice}"/>'+ ' x ' + vtDay + '박' );
@@ -820,7 +826,6 @@
 			   $('#price3').append(price3 + '원');
 			   $('#hiddenPay').val(priceTotal);
 			   
->>>>>>> branch 'main' of https://github.com/Sjrnfl23/travel_site.git
 			 });				 
 		}); 
 		$.datepicker.setDefaults({
@@ -836,6 +841,51 @@
 		    yearSuffix: '년'
 		});
 		
+	</script>
+	
+	
+	<!-- 인원 선택 -->	
+	<script>
+
+	$("select[name=selectNumber]").change(function(){
+		
+		 $('#outputNumber').empty();	
+		 var selectNumber = $(this).val(); //value값 가져오기
+		 $('#outputNumber').append($("select[name=selectNumber] option:selected").text() + '명');
+		 $('#hiddenNumber').val($("select[name=selectNumber] option:selected").text());
+		 
+		});
+	
+	</script>
+9:48
+	<script>
+	
+	$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
+	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
+	
+	</script>
+	
+	<script>
+	$("#btnReservation").on("click" , function(){
+		if($('#hiddenStartDate').val() == null || $('#hiddenStartDate').val() == ""){
+			alert('시작일을 선택해주세요.');
+			return false;
+		} 
+		
+		if($('#hiddenEndDate').val() == null || $('#hiddenEndDate').val() == ""){
+			alert('종료일을 선택해주세요.');
+			return false;
+		} 
+		
+		if($('#hiddenNumber').val() == null || $('#hiddenNumber').val() == ""){
+			alert('인원을 선택해주세요.');
+			return false;
+		} else {
+			return true;
+		}
+		
+	});
+	
 	</script>
 	
 	

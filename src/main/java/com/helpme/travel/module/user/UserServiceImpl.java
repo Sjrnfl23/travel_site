@@ -294,6 +294,12 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return dao.selectReviewCount(vo);
 	}
+
+	@Override
+	public List<User> selectListLodgingUploaded(UserVo vo) throws Exception{
+		// TODO Auto-generated method stub
+		return dao.selectListLodgingUploaded(vo);
+	}
 	
 	
 	

@@ -96,6 +96,7 @@
 			left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
 			WHERE 1=1
 				AND tvamDelNy = 0
+				and b.defaultNy = 1
 				<choose>
 				<when test="shCheck == 1">AND tvamCategoryCd = 1</when>
 				<when test="shCheck == 2">AND tvamCategoryCd = 2</when>
@@ -224,136 +225,82 @@
 	</insert>	
 	
 	
-	<!-- LodgingView -->
-	<select id="selectOneLodgingView" resultMap="resultMapObj">
-		SELECT
-
-			tvamSeq
-			,tvamMaxPersonCount
-			,tvamRoomCount
-			,tvamBedCount
-			,tvamShowerRoomCount
-			,tvamState
-			,tvamCity
-			,tvamTelNumber
-			,tvamAddressFull
-			,tvamCheckInTime
-			,tvamCheckOutTime
-			,tvamLodgingName
-			,tvamDesc
-			,tvamHostName
-			,tvamAdultPrice
-
-			a.tvamSeq
-			,a.tvamMaxPersonCount
-			,a.tvamRoomCount
-			,a.tvamBedCount
-			,a.tvamShowerRoomCount
-			,a.tvamState
-			,a.tvamCity
-			,a.tvamTelNumber
-			,a.tvamAddressFull
-			,a.tvamCheckInTime
-			,a.tvamCheckOutTime
-			,a.tvamLodgingName
-			,a.tvamDesc
-			,a.tvamHostName
-			,a.tvmmSeq
-			,a.tvamAdultPrice
-
-			,b.type
-			,b.defaultNy
-			,b.sort
-			,b.originalName
-			,b.uuidName
-			,b.ext
-			,b.size
-			,b.delNy
-			,b.year
-			,b.month
-			,b.day
-
-			<!-- ,b.tvarSeq
-			,b.tvarReview
-			,b.tvarStarPoint
-			,b.tvarDate 
-			,c.tvmmSeq
-			,c.tvmmName
-			,c.tvmmEmailAccount -->
-
-			,a.tvamSeaNy
-			,a.tvamCookingNy
-			,a.tvamWifiNy
-			,a.tvamParkingRoomNy
-			,a.tvamJacuzziNy
-			,a.tvamTvNy
-			,a.tvamMicrowaveNy
-			,a.tvamAirConditionerNy
-			,a.tvamBbqGrillNy
-			,a.tvamPoolNy
-			,a.tvamFridgeNy
-			,a.tvamHeaterNy
-			,a.tvamSmokeNy
-			,a.tvamPetNy
-			,a.tvamPartyNy
-
-			<!--,b.tvcpName
-			,b.tvcpPrice-->
-
-			,c.tvcpName
-			,c.tvcpPrice
-
-
-		FROM
-
-			tvLodging 
-
-			travel_site.tvLodging a
-
-
-			<!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  
-			LEFT OUTER JOIN travel_site.tvMember AS c ON c.tvmmSeq = a.tvmmSeq -->
-
-			left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
-		
-
-			<!--left join tvCoupon b on a.tvamSeq = b.tvamSeq and tvcpDelNy = 0-->
-			<!--<![CDATA[
-            	AND date(b.tvcpStartDate) <= date(now()) and date(b.tvcpEndDate) >= date(now())
-            ]]>-->
-
-		WHERE 1=1
-			AND tvamDelNy = 0 
-<!-- 		AND tvamApproveNy = 1
-			AND tvamPoolNy = 1
-			AND tvamJacuzziNy = 1
-			AND tvamBbqGrillNy = 1
-			AND tvamFirePlaceNy = 1
-			AND tvamGymNy = 1
-			AND tvamWifiNy = 1
-			AND tvamTvNy = 1
-			AND tvamParkingRoomNy = 1
-			AND tvamAirConditionerNy = 1
-			AND tvamHeaterNy = 1
-			AND tvamFridgeNy = 1
-			AND tvamMicrowaveNy = 1  -->
-			AND tvamSeq = #{tvamSeq}
-			
-
-			left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
-			left join tvCoupon c on a.tvamSeq = c.tvamSeq and tvcpDelNy = 0
-			<![CDATA[
-            	AND date(c.tvcpStartDate) <= date(now()) and date(c.tvcpEndDate) >= date(now())
-            ]]>
-
-         WHERE 1=1
-
-			AND a.tvamDelNy = 0 
-			AND a.tvamSeq = #{tvamSeq}
-
-
-	</select>
 	
+	 <!-- LodgingView -->
+    <select id="selectOneLodgingView" resultMap="resultMapObj">
+        SELECT
+            
+            a.tvamSeq
+            ,a.tvamMaxPersonCount
+            ,a.tvamRoomCount
+            ,a.tvamBedCount
+            ,a.tvamShowerRoomCount
+            ,a.tvamState
+            ,a.tvamCity
+            ,a.tvamTelNumber
+            ,a.tvamAddressFull
+            ,a.tvamCheckInTime
+            ,a.tvamCheckOutTime
+            ,a.tvamLodgingName
+            ,a.tvamDesc
+            ,a.tvamHostName
+            ,a.tvmmSeq
+            ,a.tvamAdultPrice
+            
+            <!-- ,b.tvarSeq
+            ,b.tvarReview
+            ,b.tvarStarPoint
+            ,b.tvarDate 
+            ,c.tvmmSeq
+            ,c.tvmmName
+            ,c.tvmmEmailAccount -->
+            ,a.tvamSeaNy
+            ,a.tvamCookingNy
+            ,a.tvamWifiNy
+            ,a.tvamParkingRoomNy
+            ,a.tvamJacuzziNy
+            ,a.tvamTvNy
+            ,a.tvamMicrowaveNy
+            ,a.tvamAirConditionerNy
+            ,a.tvamBbqGrillNy
+            ,a.tvamPoolNy
+            ,a.tvamFridgeNy
+            ,a.tvamHeaterNy
+            ,a.tvamSmokeNy
+            ,a.tvamPetNy
+            ,a.tvamPartyNy
+            <!--,b.tvcpName
+            ,b.tvcpPrice-->
+            ,c.tvcpName
+            ,c.tvcpPrice
+        FROM
+            tvLodging a
+            <!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  
+            LEFT OUTER JOIN travel_site.tvMember AS c ON c.tvmmSeq = a.tvmmSeq -->
+            <!--left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq-->
+            left join tvCoupon c on a.tvamSeq = c.tvamSeq and tvcpDelNy = 0
+            <!--left join tvCoupon b on a.tvamSeq = b.tvamSeq and tvcpDelNy = 0-->
+            <!--<![CDATA[
+                AND date(b.tvcpStartDate) <= date(now()) and date(b.tvcpEndDate) >= date(now())
+            ]]>-->
+        WHERE 1=1
+            AND a.tvamDelNy = 0 
+<!--         AND tvamApproveNy = 1
+            AND tvamPoolNy = 1
+            AND tvamJacuzziNy = 1
+            AND tvamBbqGrillNy = 1
+            AND tvamFirePlaceNy = 1
+            AND tvamGymNy = 1
+            AND tvamWifiNy = 1
+            AND tvamTvNy = 1
+            AND tvamParkingRoomNy = 1
+            AND tvamAirConditionerNy = 1
+            AND tvamHeaterNy = 1
+            AND tvamFridgeNy = 1
+            AND tvamMicrowaveNy = 1  -->
+            AND a.tvamSeq = #{tvamSeq}
+        
+    </select>
 	
 	<!-- PhotoMap -->
 	<select id="selectPhotomapCount" resultType="Integer">
@@ -595,4 +542,44 @@
 		
 	</select>
 		
+		<!--image-->
+		<!--<select id="selectOneUploaded" resultMap="resultMapObj">
+		select
+			type
+			, defaultNy
+			, sort
+			, originalName
+			, uuidName
+			, ext
+			, size
+			, delNy
+			, year
+			, month
+			, day
+			, tvmmSeq
+		from tvMemberUploaded
+		where 1=1
+			and tvmmSeq = #{tvmmSeq} 		
+	</select>-->
+	
+	<select id="selectListLodgingUploaded" resultMap="resultMapObj">
+	    select
+			type
+			, defaultNy
+			, sort
+			, originalName
+			, uuidName
+			, ext
+			, size
+			, delNy
+			, year
+			, month
+			, day
+			
+		from tvLodgingUploaded
+		where 1=1
+			and tvamSeq = #{tvamSeq}
+			
+			</select>
+	<!--image e-->
 </mapper>
