@@ -224,7 +224,6 @@
     <!-- LodgingView -->
     <select id="selectOneLodgingView" resultMap="resultMapObj">
         SELECT
-            
             a.tvamSeq
             ,a.tvamMaxPersonCount
             ,a.tvamRoomCount
@@ -290,6 +289,7 @@
             ,d.month as 'month2'
             ,d.day as 'day2'
             ,e.tvmmEmailAccount
+            ,e.tvmmName
         FROM
             tvLodging a
             <!-- LEFT OUTER JOIN travel_site.tvReview AS b ON b.tvamSeq = a.tvamSeq  
@@ -317,7 +317,6 @@
             AND tvamFridgeNy = 1
             AND tvamMicrowaveNy = 1  -->
             AND a.tvamSeq = #{tvamSeq}
-        	
         	AND b.defaultNy = 1 
     </select>
     

@@ -168,7 +168,7 @@
 	<input type="hidden" id="hiddenPriceFee" name="hiddenPriceFee"/> 
 	<input type="hidden" id="hiddenCoupon" name="hiddenCoupon"/> 
 	<input type="hidden" id="hiddenPay" name="hiddenPay"/>
-	<input type="hidden" id="hiddenHostName" name="hiddenHostName" value="<c:out value="${item.tvamHostName}"/>"/>
+	<input type="hidden" id="hiddenHostName" name="hiddenHostName" value="<c:out value="${item.tvmmName}"/>"/>
 	
  
     <div>
@@ -624,7 +624,7 @@
                         <ul class="d-flex">
                             <li class=" flex-fill">
                                 <span><b>호스트</b></span>
-                                <h6><c:out value="${item.tvamHostName}"/></h6>
+                                <h6><c:out value="${item.tvmmName}"/></h6>
                             </li>
                             <li class=" flex-fill">
                             	 <span><b>지역</b></span>
@@ -1122,7 +1122,7 @@
 				if(response.rt == "pass") {
 			
 				
-					location.href = "/dm?tvamHostName=<c:out value="${item.tvamHostName}"/>"; 
+					location.href = "/dm?tvmmName=<c:out value="${item.tvmmName}"/>"; 
 					
 				}else{			
 					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
