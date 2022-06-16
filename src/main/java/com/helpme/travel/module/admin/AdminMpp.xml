@@ -275,6 +275,7 @@
 			, tvamAddress2 = #{tvamAddress2}
 			, tvamAddressFull = concat(#{tvamAddress1} ," ", #{tvamAddress2} )
 			, tvamState = #{tvamState}
+			, tvamCity = #{tvamCity}
 			, tvamAdultPrice = #{tvamAdultPrice}
 			, tvamMaxPersonCount = #{tvamMaxPersonCount}
 			, tvamBedCount = #{tvamBedCount}
