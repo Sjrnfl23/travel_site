@@ -947,7 +947,7 @@
 	$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
 	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
 	
-
+a
  	$("#btnReservation").on("click" , function(){
 		if($('#hiddenStartDate').val() == null || $('#hiddenStartDate').val() == ""){
 			alert('시작일을 선택해주세요.');
