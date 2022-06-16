@@ -938,144 +938,43 @@
 	<script>
 
 	$("select[name=selectNumber]").change(function(){
-		
 		 $('#outputNumber').empty();	
 		 var selectNumber = $(this).val(); //value값 가져오기
 		 $('#outputNumber').append($("select[name=selectNumber] option:selected").text() + '명');
 		 $('#hiddenNumber').val($("select[name=selectNumber] option:selected").text());
-		 
-		});
-	
-	</script>
-9:48
-	<script>
+	});
 	
 	$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
 	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
 	
-	</script>
-	
-	<script>
-	$("#btnReservation").on("click" , function(){
-		if($('#hiddenStartDate').val() == null || $('#hiddenStartDate').val() == ""){
-			alert('시작일을 선택해주세요.');
-			return false;
-		} 
-		
-		if($('#hiddenEndDate').val() == null || $('#hiddenEndDate').val() == ""){
-			alert('종료일을 선택해주세요.');
-			return false;
-		} 
-		
-		if($('#hiddenNumber').val() == null || $('#hiddenNumber').val() == ""){
-			alert('인원을 선택해주세요.');
-			return false;
-		} else {
-			return true;
-		}
-		
-	});
-	
-	</script>
-	
-	
-	<!-- 인원 선택 -->	
-	<script>
 
-	$("select[name=selectNumber]").change(function(){
-		
-		 $('#outputNumber').empty();	
-		 var selectNumber = $(this).val(); //value값 가져오기
-		 $('#outputNumber').append($("select[name=selectNumber] option:selected").text() + '명');
-		 $('#hiddenNumber').val($("select[name=selectNumber] option:selected").text());
-		 
-		});
-	
-	</script>
-		
-	<script type="text/javascript">
-	$("#startDate, #endDate").on("change" , function(){
-		alert
-		var btMs = Math.ceil(selected2.getTime() - selected1.getTime())/(1000*3600*24);	
-	
-	});
-	
-	
-		<!-- Login Ajax -->
-	        
-/* 	$("#btnReservation").on("click" , function(){
-		
-		/* if($("#tvmmEmailAccount").val() == "" || $("#tvmmPassword").val() == ""){
-			alert("이메일 또는 비밀번호를 입력해주세요");
-			
-			return false;
-		}else{
-			
-		} */
-		
-	 	/* $.ajax({
-			async: true 
-			,cache: false
-			,type: "post"
-			,url: "/loginCheck"
-			,data : {}
-			,success: function(response) {
-				if(response.rt == "pass") {
-					 location.href = "/payment"; 
-					
-				}else{			
-					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
-					
-					if(answer ==true){
-						
-						location.href="/loginForm"
-					}
-					}
-				}
-			,error : function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-			}
-		});
-	});   */
-	
-	</script>
-	
-	<!-- 스크립트 -->
-	<script>
-	
-	$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
-	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
-	/* $('#hiddenStartDate').val("2022-08-26"); */
-	/* $('#hiddenEndDate').val("2022-09-02"); */
-	/* $('#hiddenNumber').val("1"); */
-	/* $('#hiddenPay').val("1"); */
-	
-	</script>
-	
-	<script>
-	$("#btnReservation").on("click" , function(){
+ 	$("#btnReservation").on("click" , function(){
 		if($('#hiddenStartDate').val() == null || $('#hiddenStartDate').val() == ""){
 			alert('시작일을 선택해주세요.');
 			return false;
-		} 
+			
+		}
 		
-		if($('#hiddenEndDate').val() == null || $('#hiddenEndDate').val() == ""){
+ 		if($('#hiddenEndDate').val() == null || $('#hiddenEndDate').val() == ""){
 			alert('종료일을 선택해주세요.');
 			return false;
-		} 
+			
+		}  
 		
 		if($('#hiddenNumber').val() == null || $('#hiddenNumber').val() == ""){
 			alert('인원을 선택해주세요.');
 			return false;
-		} else {
-			return true;
+			
 		}
-		
 	});
 	
-	</script>
-	<script type="text/javascript">
-	        
+
+	
+	
+	$('#hiddenName').val("<c:out value="${item.tvamLodgingName}"/>");
+	$('#hiddenSeq').val("<c:out value="${item.tvamSeq}"/>");
+
+	
  	$("#btnReservation").on("click" , function(){
 		
 	 	 $.ajax({
