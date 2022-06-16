@@ -100,7 +100,7 @@
                             <h5 class="modal-title"><img src="/resources/user/images/logo.png" alt="logo"></h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span class="ti-close"></span>
-        </button>
+        					 </button>
                         </div>
                         <div class="modal-body">
                             <form>
@@ -121,7 +121,7 @@
                             <h5 class="modal-title" id="exampleModalLabel"><img src="/resources/user/images/logo.png" alt="logo"></h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span class="ti-close"></span>
-        </button>
+        					 </button>
                         </div>
                         <div class="modal-body">
                             <form>
@@ -176,20 +176,21 @@
         
         <div class="swiper-container justify-content-center">
             <div class="swiper-wrapper justify-content-center">
-            <div class="swiper-slide justify-content-center">
-			<c:forEach items="${lodglist}" var="rt" varStatus="status">
-			
-                <div class="swiper-slide justify-content-center">
-                    <a href="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="grid image-link">
-                        <img src="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="img-fluid content-center"  alt="#">
-                    </a>
-                </div>
-
-                </c:forEach>
-                </div>
-                
-            
-            
+	            <div class="swiper-slide justify-content-center">
+	                	<table>
+	                		<tr>
+		                		<c:forEach items="${lodglist}" var="rt" varStatus="status">
+			                		<td>
+					                    <a href="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="grid image-link">
+					                        <img src="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" style="width: 500px; height: 370px; " alt="#">
+					                    </a>
+			                		</td>
+		               			</c:forEach>
+	               			</tr>
+	               		</table>
+	               </div>
+             </div>
+        </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination swiper-pagination-white"></div>
             <!-- Add Arrows -->
