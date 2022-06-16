@@ -73,6 +73,7 @@
 
 .blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}
 
+
 </style>
     
 </head>
@@ -172,53 +173,60 @@
  
     <div>
         <!-- Swiper -->
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
+        
+        <div class="swiper-container justify-content-center">
+            <div class="swiper-wrapper justify-content-center">
+            <div class="swiper-slide justify-content-center">
 			<c:forEach items="${lodglist}" var="rt" varStatus="status">
-                <div class="swiper-slide">
-                    <a href="/resources/admin/memberUploaded/admin/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="grid image-link">
-                        <img src="/resources/admin/memberUploaded/admin/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="img-fluid" alt="#">
+			
+                <div class="swiper-slide justify-content-center">
+                    <a href="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="grid image-link">
+                        <img src="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="img-fluid content-center"  alt="#">
                     </a>
                 </div>
 
                 </c:forEach>
-                <!-- <div class="swiper-slide">
-
-                <div class="swiper-slide">`
-
-                    <a href="/resources/user/images/view2.png" class="grid image-link">
-                        <img src="/resources/user/images/view2.png" class="img-fluid" alt="#">
-                    </a>
                 </div>
-                <div class="swiper-slide">
-                    <a href="/resources/user/images/view3.png" class="grid image-link">
-                        <img src="/resources/user/images/view3.png" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="/resources/user/images/view4.png" class="grid image-link">
-                        <img src="/resources/user/images/view4.png" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="/resources/user/images/view5.png" class="grid image-link">
-                        <img src="/resources/user/images/view5.png" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="/resources/user/images/view6.png" class="grid image-link">
-                        <img src="/resources/user/images/view6.png" class="img-fluid" alt="#">
-                    </a>
-                </div> -->
                 
-            </div>
+            
+            
             <!-- Add Pagination -->
             <div class="swiper-pagination swiper-pagination-white"></div>
             <!-- Add Arrows -->
             <div class="swiper-button-next swiper-button-white"></div>
             <div class="swiper-button-prev swiper-button-white"></div>
-        </div>
+        </div> 
+        
+        </div> 
+        
+       
+        <%-- <div id="carouselExampleIndicators"  class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators" style="width:100px; height:100px;">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+  	<c:forEach items="${lodglist}" var="rt" varStatus="status">
+               <div class="carousel-item active">
+      <img src="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="d-block w-100" alt="...">
     </div>
+
+                </c:forEach>
+    
+    
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>  --%>
+        
+    
     <!--//END BOOKING -->
     <!--============================= RESERVE A SEAT =============================-->
 
@@ -236,7 +244,7 @@
                 <div class="col-md-1">
                     <div class="reserve-seat-block">
                         <div class="reserve-rating mx-0 mx-md-3">
-                            <span>4.96</span>
+                            <span>4.96<%-- <c:out value="${rt.starpoint}"/> --%></span>
                         </div>
                     </div>
                 </div>
@@ -405,9 +413,7 @@
 
                                 <div class="row">
                                     <div class="col-md-4 mr-auto">
-                                        <div class="add-photos-link mb-3 mb-md-0">
-                                            <a href="#"><i class="icon-picture"></i>사진첨부</a>
-                                        </div>
+                                       
                                     </div>
                                     <div class="col-md-4">
                                         <div class="your-rating-btn">
@@ -464,9 +470,10 @@
   </div>
 </div>  --%>
 
-                                        <p><%-- <c:out value="${rt.tvarDate"/> --%></p>
+                                         <div class="customer-rating" style="margin-bottom:10px;"><c:out value="${item.starpoint/2}"/></div>
                                     </div>
-                                    <div class="customer-rating" style="margin-bottom:10px;"><c:out value="${item.starpoint/2}"/></div>
+                                    <div class="customer-rating"> <c:out value="${item.tvarDate}"/></div>
+                                   
                                 </div>
                                 <p class="customer-text"><c:out value="${item.tvarReview}"/></p>
 
@@ -624,7 +631,7 @@
                             </li>
                             <li class=" flex-fill">
                             	 <span><b>후기</b></span>
-                                <h6><%-- <c:out value="${rt.tvarCount}"/> --%>개</h6>
+                                <h6><%-- <c:out value="${rt.tvarCount}"/> --%><c:out value="${vo.totalRows}"/>개</h6>
                             </li>
                         </ul>
                         <a id="btnDm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>

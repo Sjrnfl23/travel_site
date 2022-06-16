@@ -243,6 +243,10 @@
 				,tvamPetNy
 				,tvamPartyNy
 				,regDateTime
+				,tvamState
+				,tvamCity
+				,tvamLat
+				,tvamLng
 	
 			)values(
 				
@@ -280,6 +284,10 @@
 				,#{tvamPetNy}
 				,#{tvamPartyNy}
 				,now()
+				,#{tvamState}
+				,#{tvamCity}
+				,#{tvamLat}
+				,#{tvamLng}
 			)
 		<selectKey resultType="Integer" keyProperty="tvamSeq" order="AFTER">
 			<!-- 파생테이블 seq값을 넣을 수 있도록 해준다 -->
@@ -320,7 +328,11 @@
 				,a.tvamSmokeNy =#{tvamSmokeNy}
 				,a.tvamCookingNy =#{tvamCookingNy}
 				,a.tvamPetNy =#{tvamPetNy}
-				,a.tvamPartyNy =#{tvamPartyNy}  
+				,a.tvamPartyNy =#{tvamPartyNy}
+				,a.tvamCity = #{tvamCity}
+				,a.tvamState = #{tvamState}
+				,a.tvamLat =#{tvamLat}
+				,a.tvamLng = #{tvamLng}  
 				
 			where 1=1
 				and tvamDelNy=0

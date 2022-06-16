@@ -32,6 +32,9 @@ public class HostVo {
 	private String shOption;
 	private String shValue;
 	private String tvamCategory;
+	
+	//dm
+		private String tvamHostName;
 
 	public void setParamsPaging(int totalRowsParam) {
 
@@ -245,5 +248,14 @@ public class HostVo {
 	public void setCheckboxSeq(String checkboxSeq) {
 		this.checkboxSeq = checkboxSeq;
 	}
+
+	public String getTvamHostName() {
+		return tvamHostName;
+	}
+
+	public void setTvamHostName(String tvamHostName) {
+		this.tvamHostName = tvamHostName;
+	}
+	
 	
 }

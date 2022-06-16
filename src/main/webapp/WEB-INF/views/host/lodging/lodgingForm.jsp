@@ -384,6 +384,9 @@
 				</div>
         </div>
         <!-- END layout-wrapper -->
+        
+        <input type="hidden" name="tvamState" id="tvamState">
+        <input type="hidden" name="tvamCity" id="tvamCity">
 </form>
 
 
@@ -507,6 +510,7 @@ $("#btnSubmit").on("click",function(){
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 
   var roadAddr;
+    
     function sample4_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -515,6 +519,7 @@ $("#btnSubmit").on("click",function(){
                 // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
                 // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                roadAddr = data.roadAddress; // 도로명 주소 변수
+               
                 var extraRoadAddr = ''; // 참고 항목 변수
 
                 // 법정동명이 있을 경우 추가한다. (법정리는 제외)
@@ -534,6 +539,17 @@ $("#btnSubmit").on("click",function(){
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                
                 document.getElementById("tvamAddress1").value = roadAddr;
+                var sido = data.sido;
+                var sigungu = data.sigungu
+                if(sido == "서울" || sido == "대구" || sido == "대전" || sido == "광주" || sido == "부산" || sido == "울산"  ){
+                	sigungu = sido;
+                }
+                console.log(sido);
+                console.log(sigungu);
+               	console.log(data.x)
+                document.getElementById("tvamState").value = sido;
+                document.getElementById("tvamCity").value = sigungu;
+                
             }                     
         }).open();
         

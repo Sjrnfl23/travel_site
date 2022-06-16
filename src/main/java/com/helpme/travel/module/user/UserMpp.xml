@@ -54,7 +54,9 @@
             count(*)
         FROM 
             tvLodging
+         
         WHERE 1=1
+        
             <choose>
                 <when test="shCheck == 1">AND tvamCategoryCd = 1</when>
                 <when test="shCheck == 2">AND tvamCategoryCd = 2</when>
@@ -92,6 +94,7 @@
             left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
             WHERE 1=1
                 AND tvamDelNy = 0
+                AND b.defaultNy = 1
                 <choose>
                 <when test="shCheck == 1">AND tvamCategoryCd = 1</when>
                 <when test="shCheck == 2">AND tvamCategoryCd = 2</when>
@@ -131,6 +134,7 @@
                 tvLodging a
                 left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
             WHERE 1=1
+            AND b.defaultNy = 1
                 <if test="swLng != '' and swLng != null and neLng != '' and neLng != null">
                     AND tvamLng BETWEEN #{swLng} AND #{neLng}
                 </if>
@@ -313,7 +317,8 @@
             AND tvamFridgeNy = 1
             AND tvamMicrowaveNy = 1  -->
             AND a.tvamSeq = #{tvamSeq}
-        
+        	
+        	AND b.defaultNy = 1 
     </select>
     
     
@@ -348,6 +353,7 @@
         WHERE 1=1
             AND tvplDelNy = 0
             AND tvmmSeq = #{tvmmSeq}
+           
     </select>     
     <select id="selectOneMap" resultMap="resultMapObj">
     SELECT 
@@ -585,9 +591,11 @@
 				,a.day
 			FROM
 				tvLodgingUploaded a
-			
+			left join tvLodging b on a.tvamSeq = b.tvamSeq
 			WHERE 1=1 
-            and a.defaultNy=1
+			
+            
+            and a.tvamSeq = #{tvamSeq}
     </select>
         
 </mapper>

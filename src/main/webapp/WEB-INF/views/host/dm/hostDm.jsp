@@ -421,8 +421,7 @@
         <script src="../../resources/host/js/app.js"></script>
 
     </body>
-</html>
-<script type="module">
+    <script type="module">
     // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
     import {
@@ -570,3 +569,4 @@
         });
     });
 </script>
+</html>

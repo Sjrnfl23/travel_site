@@ -1,5 +1,10 @@
 package com.helpme.travel.module.host;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +23,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.helpme.travel.common.contants.Constants;
 import com.helpme.travel.module.admin.Admin;
 
@@ -155,10 +162,55 @@ public class HostController {
 
 	@RequestMapping(value = "/host/lodgingInsert")
 	public String LodgingInsert(HttpSession httpSession, @ModelAttribute("dto") Host dto) throws Exception {
+		
 		Integer sessSeq = Integer.valueOf(httpSession.getAttribute("sessSeq").toString());
 
 		dto.setTvmmSeq(sessSeq);
-		service.insertlodging(dto);
+		
+		
+		String address = dto.getTvamAddress1().toString();
+		String convertAddress = URLEncoder.encode(address, "utf-8");
+		String apiUrl="https://dapi.kakao.com/v2/local/search/address.json?query="+convertAddress+"&analyze_type=similar";
+		 
+		
+		URL url = new URL(apiUrl);
+		HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+		
+		httpURLConnection.setRequestMethod("GET");
+		httpURLConnection.setRequestProperty("Authorization","KakaoAK cf60841443fd23f3885b046664126641");
+		
+		
+		BufferedReader bufferedReader;
+		if(httpURLConnection.getResponseCode() >=200) {
+			bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+		}else {
+			bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getErrorStream()));
+		}
+		System.out.println(httpURLConnection.getResponseCode());
+		StringBuilder stringBuilder = new StringBuilder();
+		String line;
+		while((line = bufferedReader.readLine())!=null  ) {
+		
+			stringBuilder.append(line);
+			
+		}
+		bufferedReader.close();
+		httpURLConnection.disconnect();
+		System.out.println(stringBuilder.toString());
+		
+		  ObjectMapper objectMapper = new ObjectMapper();
+		
+			
+			JsonNode node = objectMapper.readTree(stringBuilder.toString());	
+			
+			String lng = node.get("documents").get(0).get("x").asText();
+			String lat = node.get("documents").get(0).get("y").asText();
+			System.out.println("x: " + lat);
+			System.out.println("y: " + lng);
+			dto.setTvamLng(lng);
+			dto.setTvamLat(lat);
+			
+			service.insertlodging(dto);
 
 		return "redirect:lodgingList";
 	}
@@ -174,7 +226,47 @@ public class HostController {
 
 	@RequestMapping(value = "/host/lodgingUpdate")
 	public String LodgingUpdate(Host dto, Model model) throws Exception {
+		String address = dto.getTvamAddress1().toString();
+		String convertAddress = URLEncoder.encode(address, "utf-8");
+		String apiUrl="https://dapi.kakao.com/v2/local/search/address.json?query="+convertAddress+"&analyze_type=similar";
+		 
 		
+		URL url = new URL(apiUrl);
+		HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+		
+		httpURLConnection.setRequestMethod("GET");
+		httpURLConnection.setRequestProperty("Authorization","KakaoAK cf60841443fd23f3885b046664126641");
+		
+		
+		BufferedReader bufferedReader;
+		if(httpURLConnection.getResponseCode() >=200) {
+			bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+		}else {
+			bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getErrorStream()));
+		}
+		System.out.println(httpURLConnection.getResponseCode());
+		StringBuilder stringBuilder = new StringBuilder();
+		String line;
+		while((line = bufferedReader.readLine())!=null  ) {
+		
+			stringBuilder.append(line);
+			
+		}
+		bufferedReader.close();
+		httpURLConnection.disconnect();
+		System.out.println(stringBuilder.toString());
+		
+		  ObjectMapper objectMapper = new ObjectMapper();
+		
+			
+			JsonNode node = objectMapper.readTree(stringBuilder.toString());	
+			
+			String lng = node.get("documents").get(0).get("x").asText();
+			String lat = node.get("documents").get(0).get("y").asText();
+			System.out.println("x: " + lat);
+			System.out.println("y: " + lng);
+			dto.setTvamLng(lng);
+			dto.setTvamLat(lat);
 		
 		service.updatelodging(dto);
 

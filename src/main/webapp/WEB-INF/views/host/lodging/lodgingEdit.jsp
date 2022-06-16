@@ -397,7 +397,8 @@
 						</div>
 					</div>
 				</div>
-				
+				  <input type="hidden" name="tvamState" id="tvamState">
+        <input type="hidden" name="tvamCity" id="tvamCity">
         
           </form>
         <!-- END layout-wrapper -->
@@ -521,6 +522,16 @@ delLi = function(seq, index){
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                
                 document.getElementById("tvamAddress1").value = roadAddr;
+                var sido = data.sido;
+                var sigungu = data.sigungu
+                if(sido == "서울" || sido == "대구" || sido == "대전" || sido == "광주" || sido == "부산" || sido == "울산"  ){
+                	sigungu = sido;
+                }
+                console.log(sido);
+                console.log(sigungu);
+               	console.log(data.x)
+                document.getElementById("tvamState").value = sido;
+                document.getElementById("tvamCity").value = sigungu;
             }                     
         }).open();
         

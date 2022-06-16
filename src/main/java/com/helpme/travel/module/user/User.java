@@ -142,7 +142,7 @@ public class User extends Base{
 	private String tvarSeq;
 	private String tvarReview;
 	private String tvarStarPoint;
-	private Date tvarDate;
+	private String tvarDate;
 	//private String tvamSeq;
 	
 	//예약관리
@@ -818,10 +818,10 @@ public class User extends Base{
 	public void setTvarStarPoint(String tvarStarPoint) {
 		this.tvarStarPoint = tvarStarPoint;
 	}
-	public Date getTvarDate() {
+	public String getTvarDate() {
 		return tvarDate;
 	}
-	public void setTvarDate(Date tvarDate) {
+	public void setTvarDate(String tvarDate) {
 		this.tvarDate = tvarDate;
 	}
 	public String getTvpmSeq() {

@@ -71,6 +71,7 @@ public class HostServiceImpl implements HostService{
 
 	@Override
 	public int insertlodging(Host dto) throws Exception {
+		
 		dao.insertLodging(dto);
 		
 		
