@@ -178,7 +178,7 @@
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">금액(1박 기준) :</th>
-                                                            <td class="text-muted"><c:out value="${rt.tvamAdultPrice}"/>원</td>
+                                                            <td class="text-muted"><fmt:formatNumber value="${rt.tvamAdultPrice}"/>원</td>
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>

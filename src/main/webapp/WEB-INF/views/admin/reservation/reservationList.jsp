@@ -174,7 +174,7 @@
 														<td><c:out value="${rt.tvpmAdNumber}"/>명</td>
 														<td><c:out value="${rt.tvpmStartDate}"/></td>
 														<td><c:out value="${rt.tvpmEndDate}"/></td>
-														<td><c:out value="${rt.tvpmtotalPrice}"/>원</td>
+														<td><fmt:formatNumber value="${rt.tvpmtotalPrice}"/>원</td>
 														<td>
 															<div class="d-flex gap-3">
 																<a href="/admin/reservationView?tvpmSeq=<c:out value="${rt.tvpmSeq}"/>" data-bs-toggle="tooltip" data-bs-placement="top" title="상세" class="text-success">
