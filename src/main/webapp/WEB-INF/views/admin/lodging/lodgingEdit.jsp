@@ -187,10 +187,10 @@
 								    							</div>
 							    								<div class="input-group mb-3">
 							       									<input  type="text" class="form-control" placeholder="상세주소" id="tvamAddress2" name="tvamAddress2" value="<c:out value="${rt.tvamAddress2}"/>">
-							                                    	<input type="hidden" id="tvamLat" name="tvamLat"/>		<!-- 위도 -->
-																	<input type="hidden" id="tvamLng" name="tvamLng"/>		<!-- 경도 -->
-																	<input type="hidden" name="tvamState" id="tvamState">	<!-- 시 -->
-        															<input type="hidden" name="tvamCity" id="tvamCity">		<!-- 군,구 -->				       									
+							                                    	<input type="hidden" id="tvamLat" name="tvamLat" value="<c:out value="${rt.tvamLat}"/>"/>		<!-- 위도 -->
+																	<input type="hidden" id="tvamLng" name="tvamLng" value="<c:out value="${rt.tvamLng}"/>"/>		<!-- 경도 -->
+																	<input type="hidden" name="tvamState" id="tvamState" value="<c:out value="${rt.tvamState}"/>">	<!-- 시 -->
+        															<input type="hidden" name="tvamCity" id="tvamCity" value="<c:out value="${rt.tvamCity}"/>">		<!-- 군,구 -->				       									
 							    								</div>
                                                             </td>
                                                         </tr>

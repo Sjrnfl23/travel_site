@@ -33,8 +33,10 @@ public class HostVo {
 	private String shValue;
 	private String tvamCategory;
 	
-	//dm
-		private String tvamHostName;
+	private String tvmmName;
+
+    // dm
+	private String tvamHostName;
 
 	public void setParamsPaging(int totalRowsParam) {
 
@@ -255,6 +257,14 @@ public class HostVo {
 
 	public void setTvamHostName(String tvamHostName) {
 		this.tvamHostName = tvamHostName;
+	}
+
+	public String getTvmmName() {
+		return tvmmName;
+	}
+
+	public void setTvmmName(String tvmmName) {
+		this.tvmmName = tvmmName;
 	}
 	
 	

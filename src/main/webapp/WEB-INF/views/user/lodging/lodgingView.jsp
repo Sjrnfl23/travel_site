@@ -640,7 +640,7 @@
                 	<br>
 
                     <div class="contact-info">
-                        <img src="/resources/user/images/map.jpg" class="img-fluid" alt="#">
+                        <div id="map" style="height:300px;"></div>
                         <div class="address">
                             <span class="icon-location-pin"></span>
                             <p><c:out value="${item.tvamAddressFull}"/></p>
@@ -657,8 +657,6 @@
                             <span class="icon-clock"></span>
                             <p>월 - 일 09:30 am - 05:30 pm </p>
                         </div>
-
-                        <a id="btnDm" class="btn btn-outline-danger btn-contact">메시지 보내기</a>
                     </div>
                  <%--    <div class="follow">
                         <div class="follow-img">
@@ -1021,7 +1019,7 @@ a
 				if(response.rt == "pass") {
 			
 				
-					location.href = "/dm?tvmmName=<c:out value="${item.tvmmName}"/>"; 
+					location.href = "/dm?tvmmSeq=<c:out value="${item.tvmmSeq}"/>"; 
 					
 				}else{			
 					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");
@@ -1048,8 +1046,25 @@ a
 	 
 	
 	</script>
-	
-	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7cd4aacffe9949b52780dbc9332fce55"></script>
+		<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(${item.tvamLat}, ${item.tvamLng}),
+			level: 7
+		};
+
+		var map = new kakao.maps.Map(container, options);
+		
+		// 마커가 표시될 위치입니다 
+		var markerPosition  = new kakao.maps.LatLng(${item.tvamLat}, ${item.tvamLng}); 
+
+		// 마커를 생성합니다
+		var marker = new kakao.maps.Marker({
+		    position: markerPosition
+		});
+		marker.setMap(map);
+	</script>
 </body>
 
 </html>

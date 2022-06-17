@@ -231,6 +231,8 @@
             ,a.tvamShowerRoomCount
             ,a.tvamState
             ,a.tvamCity
+            ,a.tvamLat
+            ,a.tvamLng
             ,a.tvamTelNumber
             ,a.tvamAddressFull
             ,a.tvamCheckInTime
@@ -571,7 +573,7 @@
         tvMember
     WHERE 1=1
     	and tvmmDelNy = 0
-    	and tvmmName = #{tvamHostName}
+    	and tvmmSeq = #{tvmmSeq}
     </select>
     
     <select id="selectListLodgingUploaded" resultMap="resultMapObj">

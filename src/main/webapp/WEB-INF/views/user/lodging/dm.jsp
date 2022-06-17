@@ -412,14 +412,18 @@ body {
 
         set(ref(database, 'chatrooms/' + hostname_s+ '_'+ username_s), {
 			hostname: hostname_s,
-            username: username_s
+            username: username_s,
+			hostseq: hostseq_s,
+			userseq: userseq_s
         });
 
         set(ref(database, 'messages/' + id), {
 			hostname: hostname_s,
             username: username_s,
             message: message,
-			sendname: sendname_s
+			sendname: sendname_s,
+			hostseq: hostseq_s,
+			userseq: userseq_s
         });
         document.getElementById('message').value = "";
         alert('message has sent');
@@ -428,7 +432,7 @@ body {
 
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
-        if(data.val().sendname != myName && data.val().hostname == HostName && data.val().username == myName) {
+        if(data.val().sendname != myName && data.val().hostseq == HostSeq && data.val().userseq == UserSeq) {
             var divData = '<div class="conversation-list" id="fromDiv">\n' +
                                 '    <div class="d-flex">\n' +
                                 '        <img src="../../resources/host/images/users/avatar-6.jpg" class="rounded-circle avatar" alt="">\n' +
@@ -459,7 +463,7 @@ body {
             d1.insertAdjacentHTML('beforebegin', divData);
 
 			$('.messages').scrollTop($('.messages')[0].scrollHeight);
-        }else if(data.val().sendname == myName && data.val().hostname == HostName && data.val().username == myName){
+        }else if(data.val().sendname == myName && data.val().hostname == HostName && data.val().userseq == UserSeq){
             var divData = '<li class="right">\n' +
 								'<div class="conversation-list">\n' +
                                 '    <div class="d-flex">\n' +
