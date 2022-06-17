@@ -61,6 +61,9 @@ public class Host {
 	private String tvamSeaNy;
 	private String tvamPetNy;
 	private String tvamPartyNy;
+	private String tvamOpeningTime1;
+	private String tvamOpeningTime2;
+	
 	// common
 	private String regDateTime;
 
@@ -124,6 +127,26 @@ public class Host {
 	
 	public String getTvamSeaNy() {
 		return tvamSeaNy;
+	}
+
+	public String getTvamOpeningTime1() {
+		return tvamOpeningTime1;
+	}
+
+	public void setTvamOpeningTime1(String tvamOpeningTime1) {
+		this.tvamOpeningTime1 = tvamOpeningTime1;
+	}
+
+	public String getTvamOpeningTime2() {
+		return tvamOpeningTime2;
+	}
+
+	public void setTvamOpeningTime2(String tvamOpeningTime2) {
+		this.tvamOpeningTime2 = tvamOpeningTime2;
+	}
+
+	public void setTvamBbqGrillNy(String tvamBbqGrillNy) {
+		this.tvamBbqGrillNy = tvamBbqGrillNy;
 	}
 
 	public String getTvamPetNy() {

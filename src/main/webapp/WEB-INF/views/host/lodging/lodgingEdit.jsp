@@ -158,15 +158,19 @@
                                                         <tr>
                                                             <th class="fw-bold">
                                                                 카테고리 :</th>
-                                                            <td class="text-muted">
-                                                            	<select class="form-select" id="">
-                                                            		<option>::카테고리::</option>
-                                                            		<option>농장</option>
-                                                            		<option>멋진 수영장</option>
-                                                            		<option selected>해변 근처</option>
-                                                            		<option>호텔</option>
-                                                            		<option>펜션</option>
-                                                            		<option>전통한옥</option>
+                                                           <td class="text-muted">
+                                                            	<select class="form-select" id="tvamCategoryCd" name="tvamCategoryCd">
+                                                            		<option value="0" >::카테고리::</option>
+                                                            		<option value="1" <c:if test="${rt.tvamCategoryCd eq 1 }">selected</c:if> >저택</option>
+                                                            		<option value="2" <c:if test="${rt.tvamCategoryCd eq 2 }">selected</c:if> >동굴</option>
+                                                            		<option value="3" <c:if test="${rt.tvamCategoryCd eq 3 }">selected</c:if> >서핑</option>
+                                                            		<option value="4" <c:if test="${rt.tvamCategoryCd eq 4 }">selected</c:if> >멋진 수영장</option>
+                                                            		<option value="5" <c:if test="${rt.tvamCategoryCd eq 5 }">selected</c:if> >해변 바로 앞</option>
+                                                            		<option value="6" <c:if test="${rt.tvamCategoryCd eq 6 }">selected</c:if> >통나무집</option>
+                                                            		<option value="7" <c:if test="${rt.tvamCategoryCd eq 7 }">selected</c:if> >료칸</option>
+                                                            		<option value="8" <c:if test="${rt.tvamCategoryCd eq 8 }">selected</c:if> >초소형주택</option>
+                                                            		<option value="9" <c:if test="${rt.tvamCategoryCd eq 9 }">selected</c:if> >농장</option>
+                                                            		
                                                             	</select>
                                                             </td>
                                                         </tr>
@@ -201,12 +205,12 @@
                                                         </tr>
                                                         <!-- end tr -->
 
-                                                        <tr>
+                                                       <%--  <tr>
                                                             <th class="fw-bold">최대인원 :</th>
                                                             <td class="text-muted">
                                                             	<input type="text" class="form-control" id="tvamMaxPersonCount" name="tvamMaxPersonCount" placeholder="8인" value="<c:out value="${rt.tvamMaxPersonCount}"/>">
                                                             </td>
-                                                        </tr>
+                                                        </tr> --%>
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">방 수 :</th>
@@ -232,7 +236,7 @@
                                                         <tr>
                                                             <th class="fw-bold">금액(1박 기준) :</th>
                                                             <td class="text-muted">
-                                                            	<input type="text" class="form-control" id="tvamAdultPrice" name="tvamAdultPrice" value="<c:out value="${rt.tvamAdultPrice}"/>">
+                                                            	<input type="text" class="form-control" id="tvamAdultPrice" name="tvamAdultPrice" value="<c:out value="${rt.tvamAdultPrice}"/>"  >
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -249,10 +253,20 @@
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
+                                                         <!-- end tr -->
                                                         <tr>
-                                                            <th class="fw-bold">영업시간 :</th>
+                                                            <th class="fw-bold">영업시작 시간:</th>
+                                                       
                                                             <td class="text-muted">
-                                                            	<input type="time" class="form-control" placeholder="09:00~18:00">
+                                                               <input type="time" class="form-control" name="tvamOpeningTime1" value="<c:out value="${rt.tvamOpeningTime1}"/>">                                                             
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">영업종료 시간 :</th>
+                                                       
+                                                            <td class="text-muted">
+                                                               <input type="time" class="form-control" name="tvamOpeningTime2" value="<c:out value="${rt.tvamOpeningTime2}"/>">                                                             
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -274,53 +288,53 @@
 										  
 										      <div class="row">
 										      
-										  <div class="col-4"><input type="checkbox" id="tvamSeaNy" name="tvamSeaNy" style="margin-right:5px;" value="1" <c:if test="${not empty tvamSeaNy}">checked</c:if> >
+										  <div class="col-4"><input type="checkbox" id="tvamSeaNy" name="tvamSeaNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamSeaNy}">checked</c:if> >
 										  <label for="tvamSeaNy">해변과 인접</label></div>
 										  
-										  <div class="col-4"><input type="checkbox" id="tvamCookingNy" name="tvamCookingNy" style="margin-right:5px;" value="1">
+										  <div class="col-4"><input type="checkbox" id="tvamCookingNy" name="tvamCookingNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamCookingNy}">checked</c:if>>
 										  <label for="tvamCookingNy">주방</label>
 										  </div>
 										  
-										  <div class="col-4"><input type="checkbox" id="tvamWifiNy" name="tvamWifiNy" style="margin-right:5px;" value="1">
+										  <div class="col-4"><input type="checkbox" id="tvamWifiNy" name="tvamWifiNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamWifiNy}">checked</c:if>>
 										  <label for="tvamWifiNy">무선인터넷</label>
 										  </div>
 										  
 										  </div>
 										  
 										     <div class="row" style="margin-top:5px;">
-										    <div class="col-4"><input type="checkbox" id="tvamParkingRoomNy" name="tvamParkingRoomNy" style="margin-right:5px;" value="1">
+										    <div class="col-4"><input type="checkbox" id="tvamParkingRoomNy" name="tvamParkingRoomNy" style="margin-right:5px;" value="1"<c:if test="${not empty rt.tvamParkingRoomNy}">checked</c:if>>
 										    <label for="tvamParkingRoomNy">무료 주차</label>
 										    </div>
-										  <div class="col-4"><input type="checkbox" id="tvamJacuzziNy" name="tvamJacuzziNy" style="margin-right:5px;" value="1">
+										  <div class="col-4"><input type="checkbox" id="tvamJacuzziNy" name="tvamJacuzziNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamJacuzziNy}">checked</c:if>>
 										  <label for="tvamJacuzziNy">자쿠지</label>
 										  </div>
-										  <div class="col-4"><input type="checkbox" id="tvamTvNy" name="tvamTvNy" style="margin-right:5px;" value="1">
+										  <div class="col-4"><input type="checkbox" id="tvamTvNy" name="tvamTvNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamTvNy}">checked</c:if>>
 										  <label for="tvamTvNy">TV</label>
 										  </div>
 										  
 										  </div>
 										  
 										     <div class="row" style="margin-top:5px;">			
-										  <div class="col-4"><input type="checkbox" id="tvamMicrowaveNy" name="tvamMicrowaveNy" style="margin-right:5px;" value="1">
+										  <div class="col-4"><input type="checkbox" id="tvamMicrowaveNy" name="tvamMicrowaveNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamMicrowaveNy}">checked</c:if>>
 										  <label for="tvamMicrowaveNy">전자레인지</label>
 										  </div>
-										  <div class="col-4"><input type="checkbox" id="tvamAirConditionerNy" name="tvamAirConditionerNy" style="margin-right:5px;" value="1">
+										  <div class="col-4"><input type="checkbox" id="tvamAirConditionerNy" name="tvamAirConditionerNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamAirConditionerNy}">checked</c:if>>
 										  <label for="tvamAirConditionerNy">에어컨</label>
 										  </div>
-										  <div class="col-4"><input type="checkbox" id="tvamBbqGrillNy" name="tvamBbqGrillNy" style="margin-right:5px;" value="1">
+										  <div class="col-4"><input type="checkbox" id="tvamBbqGrillNy" name="tvamBbqGrillNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamBbqGrillNy}">checked</c:if>>
 										  <label for="tvamBbqGrillNy">바베큐</label>
 										  </div>
 										  
 										  </div>
 										  
 										   <div class="row" style="margin-top:5px;">			
-										  <div class="col-4"><input type="checkbox" id="tvamPoolNy" name="tvamPoolNy" style="margin-right:5px;" value="1">
+										  <div class="col-4"><input type="checkbox" id="tvamPoolNy" name="tvamPoolNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamPoolNy}">checked</c:if>>
 										  <label for="tvamPoolNy">수영장</label>
 										  </div>
-										  <div class="col-4"><input type="checkbox" id="tvamFridgeNy" name="tvamFridgeNy" style="margin-right:5px;" value="1">
+										  <div class="col-4"><input type="checkbox" id="tvamFridgeNy" name="tvamFridgeNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamFridgeNy}">checked</c:if>>
 										  <label for="tvamFridgeNy">냉장고</label>
 										  </div>
-										  <div class="col-4"><input type="checkbox" id="tvamHeaterNy" name="tvamHeaterNy" style="margin-right:5px;" value="1">
+										  <div class="col-4"><input type="checkbox" id="tvamHeaterNy" name="tvamHeaterNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamHeaterNy}">checked</c:if>>
 										  <label for="tvamHeaterNy">히터</label>
 										  </div>
 										  
@@ -335,9 +349,9 @@
 										       <div class="modal-body" style="font-size: 17px;">
 										       
 										       <div class="row">
-										  <div class="col-3"><input type="checkbox" id="tvamSmokeNy" name="tvamSmokeNy" style="margin-right:5px;" value="1" checked><label for="tvamSmokeNy">흡연 불가</label></div>
-										  <div class="col-4"><input type="checkbox" id="tvamPetNy" name="tvamPetNy" style="margin-right:5px;" value="1"><label for="tvamPetNy">반려동물 동반 불가</label></div>
-										  <div class="col-4" style="margin-left:8px;"><input type="checkbox" id="tvamPartyNy" name="tvamPartyNy" style="margin-right:5px;" value="1"><label for="tvamPartyNy">파티나 이벤트 금지</label></div>
+										  <div class="col-3"><input type="checkbox" id="tvamSmokeNy" name="tvamSmokeNy" style="margin-right:5px;" value="1" checked><label for="tvamSmokeNy" >흡연 불가</label></div>
+										  <div class="col-4"><input type="checkbox" id="tvamPetNy" name="tvamPetNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamPetNy}">checked</c:if>><label for="tvamPetNy" >반려동물 동반 불가</label></div>
+										  <div class="col-4" style="margin-left:8px;"><input type="checkbox" id="tvamPartyNy" name="tvamPartyNy" style="margin-right:5px;" value="1" <c:if test="${not empty rt.tvamPartyNy}">checked</c:if>><label for="tvamPartyNy" >파티나 이벤트 금지</label></div>
 										  </div>
 										  
 										  </div>
@@ -366,7 +380,7 @@
                                                         <div class="p-1">
                                                             <h5 class="mb-1" style="text-align: left;">소개</h5>
                                                             <p class="text-muted mb-0" style="text-align: left;">
-                                                            	<textarea class="form-control" id="tvamDesc" name="tvamDesc"><c:out value="${tvamDesc}"/></textarea>
+                                                            	<textarea rows="5" class="form-control" id="tvamDesc" name="tvamDesc"><c:out value="${rt.tvamDesc}"/></textarea>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -397,8 +411,8 @@
 						</div>
 					</div>
 				</div>
-				  <input type="hidden" name="tvamState" id="tvamState">
-        <input type="hidden" name="tvamCity" id="tvamCity">
+				  <input type="hidden" name="tvamState" id="tvamState" value="<c:out value="${rt.tvamState}"/>" >
+        <input type="hidden" name="tvamCity" id="tvamCity" value="<c:out value="${rt.tvamCity}"/>">
         
           </form>
         <!-- END layout-wrapper -->
@@ -539,7 +553,31 @@ delLi = function(seq, index){
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 
                 </script>
-                
+                    <script>
+$("#btnSubmit").on("click",function(){
+	
+	var fileCount = $("#file0")[0].files.length; 
+	if(fileCount==0){
+		alert("사진을 1장 이상 넣어주세요");
+		return false;	
+	}
+	
+	if($("#tvamCategoryCd").val() == 0){
+		alert("카테고리를 선택해주세요.");
+		return false;
+	}
+	
+	if(document.getElementById("tvamAddress1").value == null || document.getElementById("tvamAddress1").value == "" ){
+		alert("주소를 입력해주세요");
+		return false;
+	}
+	
+	
+	
+})
+
+
+</script>            
     </body>
 
 </html>

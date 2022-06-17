@@ -144,7 +144,7 @@
                                                                 카테고리 :</th>
                                                             <td class="text-muted">
                                                             	<select class="form-select" id="tvamCategoryCd" name="tvamCategoryCd">
-                                                            		<option selected>::카테고리::</option>
+                                                            		<option value="0" selected>::카테고리::</option>
                                                             		<option value="1">저택</option>
                                                             		<option value="2">동굴</option>
                                                             		<option value="3">서핑</option>
@@ -187,12 +187,12 @@
                                                         </tr>
                                                         <!-- end tr -->
 
-                                                        <tr>
+                                                       <!--  <tr>
                                                             <th class="fw-bold">최대인원 :</th>
                                                             <td class="text-muted">
                                                             	<input type="text" class="form-control" id="tvamMaxPersonCount" name="tvamMaxPersonCount" value="4">
                                                             </td>
-                                                        </tr>
+                                                        </tr> -->
                                                         <!-- end tr -->
                                                         <tr>
                                                             <th class="fw-bold">방 수 :</th>
@@ -236,10 +236,18 @@
                                                         </tr>
                                                         <!-- end tr -->
                                                         <tr>
-                                                            <th class="fw-bold">영업시간 :</th>
+                                                            <th class="fw-bold">영업시작 시간:</th>
                                                        
                                                             <td class="text-muted">
-                                                               <input type="time" class="form-control" value="09:00">                                                             
+                                                               <input type="time" class="form-control" name="tvamOpeningTime1" value="09:00">                                                             
+                                                            </td>
+                                                        </tr>
+                                                        <!-- end tr -->
+                                                        <tr>
+                                                            <th class="fw-bold">영업종료 시간 :</th>
+                                                       
+                                                            <td class="text-muted">
+                                                               <input type="time" class="form-control" name="tvamOpeningTime2" value="18:00">                                                             
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -486,22 +494,7 @@ delLi = function(seq, index){
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<script>
-$("#btnSubmit").on("click",function(){
-	var fileCount = $("#file0")[0].files.length; 
-	if(fileCount==0){
-		alert("사진을 1장 이상 넣어주세요");
-		return false;	
-	}else{
-		return true; //pass
-	}
-	
-	
-	
-})
 
-
-</script>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
@@ -557,6 +550,32 @@ $("#btnSubmit").on("click",function(){
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 
                 </script>
+                
+                <script>
+$("#btnSubmit").on("click",function(){
+	
+	var fileCount = $("#file0")[0].files.length; 
+	if(fileCount==0){
+		alert("사진을 1장 이상 넣어주세요");
+		return false;	
+	}
+	
+	if($("#tvamCategoryCd").val() == 0){
+		alert("카테고리를 선택해주세요.");
+		return false;
+	}
+	
+	if(document.getElementById("tvamAddress1").value == null || document.getElementById("tvamAddress1").value == "" ){
+		alert("주소를 입력해주세요");
+		return false;
+	}
+	
+	
+	
+})
+
+
+</script>
     </body>
 
 </html>

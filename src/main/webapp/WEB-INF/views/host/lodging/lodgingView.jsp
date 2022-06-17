@@ -160,11 +160,11 @@
                                                         </tr>
                                                         <!-- end tr -->
 
-                                                        <tr>
+                                                       <%--  <tr>
                                                             <th class="fw-bold">최대인원 :</th>
                                                             <td class="text-muted"><c:out value="${rt.tvamMaxPersonCount}"/></td>
                                                         </tr>
-                                                        <!-- end tr -->
+                                                        <!-- end tr --> --%>
                                                         <tr>
                                                             <th class="fw-bold">방 수 :</th>
                                                             <td class="text-muted">거실<c:out value="${rt.tvamRoomCount}"/>/욕실<c:out value="${rt.tvamShowerRoomCount}"/>/방<c:out value="${rt.tvamRoomCount}"/></td>
@@ -203,7 +203,7 @@
 
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
-                                                            <td class="text-muted">2022-04-26</td>
+                                                            <td class="text-muted"><c:out value="${rt.regDateTime}"/></td>
                                                         </tr>
                                                         <!-- end tr -->
                                                          <tr>
