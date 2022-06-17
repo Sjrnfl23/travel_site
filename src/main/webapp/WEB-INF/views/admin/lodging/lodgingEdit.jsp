@@ -178,22 +178,20 @@
                                                             <th class="fw-bold">
                                                                 주소 :</th>
                                                             <td class="text-muted">
-                                                            		<div class="input-group mb-3">
-		 
-	        
-							        						<input type="text" class="form-control" id="tvamAddress1" name="tvamAddress1" placeholder="주소" value="<c:out value="${rt.tvamAddress1}"/>">
-							        						
-							        						<div class="input-group-append">
-							           				 			<button onclick="findAddr()" class="btn btn-outline-secondary" type="button">주소검색</button>
-<!-- 							           				 			<button onClick="sample4_execDaumPostcode()" class="btn btn-outline-secondary" type="button">주소검색</button> -->
-							       							</div>
-						    								</div>
-						
-						    								<div class="input-group mb-3">
-						       									<input  type="text" class="form-control" placeholder="상세주소" id="tvamAddress2" name="tvamAddress2" value="<c:out value="${rt.tvamAddress2}"/>">
-						                                    	<input type="hidden" id="tvamLat" name="tvamLat"/>
-																<input type="hidden" id="tvamLng" name="tvamLng"/>						       									
-						    								</div>
+                                                            	<div class="input-group mb-3">
+									        						<input type="text" class="form-control" id="tvamAddress1" name="tvamAddress1" placeholder="주소" value="<c:out value="${rt.tvamAddress1}"/>">
+									        						<div class="input-group-append">
+									           				 			<button onclick="findAddr()" class="btn btn-outline-secondary" type="button">주소검색</button>
+		<!-- 							           				 			<button onClick="sample4_execDaumPostcode()" class="btn btn-outline-secondary" type="button">주소검색</button> -->
+									       							</div>
+								    							</div>
+							    								<div class="input-group mb-3">
+							       									<input  type="text" class="form-control" placeholder="상세주소" id="tvamAddress2" name="tvamAddress2" value="<c:out value="${rt.tvamAddress2}"/>">
+							                                    	<input type="hidden" id="tvamLat" name="tvamLat"/>		<!-- 위도 -->
+																	<input type="hidden" id="tvamLng" name="tvamLng"/>		<!-- 경도 -->
+																	<input type="hidden" name="tvamState" id="tvamState">	<!-- 시 -->
+        															<input type="hidden" name="tvamCity" id="tvamCity">		<!-- 군,구 -->				       									
+							    								</div>
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -257,7 +255,7 @@
                                                         <tr>
                                                             <th class="fw-bold">등록일 :</th>
                                                             <td class="text-muted">
-                                                            	2022-04-26
+                                                            	<fmt:formatDate value="${rt.regDateTime}" pattern="yyyy-MM-dd"/>
                                                             </td>
                                                         </tr>
                                                         <!-- end tr -->
@@ -535,6 +533,18 @@ function findAddr(){
     			}
     		});
     		/* lat and lng from address e */
+    		
+            var sido = data.sido;
+            var sigungu = data.sigungu
+            if(sido == "서울" || sido == "대구" || sido == "대전" || sido == "광주" || sido == "부산" || sido == "울산"){
+            	sigungu = sido;
+            }
+            console.log(sido);
+            console.log(sigungu);
+           	console.log(data.x)
+            document.getElementById("tvamState").value = sido;
+            document.getElementById("tvamCity").value = sigungu;
+    		
         }
     }).open();
 }

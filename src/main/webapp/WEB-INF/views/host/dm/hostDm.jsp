@@ -99,7 +99,7 @@
                                                 </div>
                                             </div>
                                             <div class="chat-user-status">
-                                                <img src="/resources/host/memberUploaded/host/<c:out value="${sessYear}"/>/<c:out value="${sessMonth}"/>/<c:out value="${sessDay}"/>/<c:out value="${sessUuidName}"/> " class="avatar-md rounded-circle" alt="">
+                                                <img src="/resources/uploaded/member/<c:out value="${sessYear}"/>/<c:out value="${sessMonth}"/>/<c:out value="${sessDay}"/>/<c:out value="${sessUuidName}"/> " class="avatar-md rounded-circle" alt="">
                                                 <div class="">
                                                     <div class="status"></div>
                                                 </div>

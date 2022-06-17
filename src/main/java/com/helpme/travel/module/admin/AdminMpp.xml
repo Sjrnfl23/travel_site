@@ -263,7 +263,7 @@
 		where 1 = 1
 			and tvamDelNy = 0
 			and a.tvamSeq = #{tvamSeq}
-			and c.defaultNy = 1
+			<!-- and c.defaultNy = 1 -->
 	</select>
 
 	<update id="updateLodging">
@@ -275,6 +275,7 @@
 			, tvamAddress2 = #{tvamAddress2}
 			, tvamAddressFull = concat(#{tvamAddress1} ," ", #{tvamAddress2} )
 			, tvamState = #{tvamState}
+			, tvamCity = #{tvamCity}
 			, tvamAdultPrice = #{tvamAdultPrice}
 			, tvamMaxPersonCount = #{tvamMaxPersonCount}
 			, tvamBedCount = #{tvamBedCount}
