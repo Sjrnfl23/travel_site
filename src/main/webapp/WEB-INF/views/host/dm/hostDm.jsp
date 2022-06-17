@@ -318,7 +318,7 @@
                                                         <img src="../../resources/host/images/users/avatar-6.jpg" alt="" class="img-fluid d-block rounded-circle">
                                                     </div>
                                                     <div class="flex-grow-1">
-                                                        <h5 class="font-size-16 mb-1 text-truncate"><a href="#" class="text-dark">권순형</a></h5>
+                                                        <h5 class="font-size-16 mb-1 text-truncate"><a href="#" class="text-dark"><c:out value="${item2.tvmmName}"/></a></h5>
                                                         <p class="text-muted text-truncate mb-0">접속중</p>
                                                     </div>
                                                 </div>
@@ -421,7 +421,7 @@
         <script src="../../resources/host/js/app.js"></script>
 
     </body>
-    <script type="module">
+<script type="module">
     // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
     import {
@@ -454,34 +454,50 @@
     const database = getDatabase(app);
 
 
-    var myName = '<c:out value="${sessName}"/>'
+    var myName = '<c:out value="${sessName}"/>';
+	var HostName = '<c:out value="${sessName}"/>';
+	var username = '<c:out value="${item2.tvmmName}"/>';
+	var sendUser = '<c:out value="${sessName}"/>';
+
+	var HostSeq = '<c:out value="${sessSeq}"/>';
+	var UserSeq = '<c:out value="${item2.tvmmSeq}"/>';
 
     submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;
-        var name = myName;
+		var hostname_s = myName;
+		var username_s = username;
+		var sendname_s = myName;
+
+		var hostseq_s = HostSeq;
+		var userseq_s = UserSeq;
 
         const id = push(child(ref(database), 'messages')).key;
         
 
         set(ref(database, 'messages/' + id), {
-            name: name,
-            message: message
+			hostname: hostname_s,
+            username: username_s,
+            message: message,
+			sendname: sendname_s,
+			hostseq: hostseq_s,
+			userseq: userseq_s
         });
         document.getElementById('message').value = "";
         alert('message has sent');
 
     });
 
+	alert("데이터" + username);
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
-        if(data.val().name != myName) {
+        if(data.val().sendname != myName && data.val().hostseq == HostSeq && data.val().userseq == UserSeq) {
             var divData = '<div class="conversation-list" id="fromDiv">\n' +
                                 '    <div class="d-flex">\n' +
                                 '        <img src="../../resources/host/images/users/avatar-6.jpg" class="rounded-circle avatar" alt="">\n' +
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content">\n' +
-                                '                    <div class="conversation-name"><span class="name">'+data.val().name+'</span><span class="time">10:04</span></div>\n' +
+                                '                    <div class="conversation-name"><span class="name">'+data.val().sendname+'</span><span class="time">10:04</span></div>\n' +
                                 '                    <p class="mb-0 msg_cotainer">\n' +
                                 '                        '+data.val().message+'' +
                                 '                    </p>\n' +
@@ -503,14 +519,14 @@
                                 '</div>';
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
-        }else{
+        }else if(data.val().sendname == myName && data.val().hostseq == HostSeq && data.val().userseq == UserSeq){
             var divData = '<li class="right">\n' +
 								'<div class="conversation-list">\n' +
                                 '    <div class="d-flex">\n' +
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content" id="sendDiv">\n' +
-                                '                    <div class="conversation-name"><span class="time">10:02</span></div>\n' +
+                                '                    <div class="conversation-name">'+data.val().sendname+'<span class="time">10:02</span></div>\n' +
                                 '                    <p class="mb-0 text-start">\n' +
                                 '                        '+data.val().message+'' +
                                 '                        <span class="msg_time_send">8:55 AM, Today</span>\n' +
@@ -538,14 +554,15 @@
         }
     });
 
-	const chatuserList = ref(database, 'ChatRoom/');
+	const chatuserList = ref(database, 'chatrooms/');
     onChildAdded(chatuserList, (data) => {
-            var divDataChat = '    <a href="#">\n' +
+	if(data.val().hostseq == HostSeq ) {
+            var divDataChat = '    <a href="/host/hostDm?tvmmSeq='+data.val().userseq+'">\n' +
                                 '        <div class="d-flex align-items-center">\n' +
                                 '            <div class="flex-shrink-0 user-img online align-self-center me-3">\n' +
                                 '                <div class="avatar-sm align-self-center">\n' +
                                 '                    <span class="avatar-title rounded-circle bg-soft-primary text-primary">\n' +
-								'						S\n' +
+								'						\n' +
                                 '                    </span>\n' +
                                 '                </div>\n' +
                                 '                <span class="user-status"></span>\n' +
@@ -559,6 +576,7 @@
                                 '    </a><br>';
             var d2 = document.getElementById('chatuserList');
             d2.insertAdjacentHTML('beforebegin', divDataChat);
+}
     });
 </script>
 

@@ -1021,7 +1021,7 @@ a
 				if(response.rt == "pass") {
 			
 				
-					location.href = "/dm?tvmmName=<c:out value="${item.tvmmName}"/>"; 
+					location.href = "/dm?tvmmSeq=<c:out value="${item.tvmmSeq}"/>"; 
 					
 				}else{			
 					var answer=confirm("로그인이 필요합니다. 하시겠습니까?");

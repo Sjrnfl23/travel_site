@@ -52,6 +52,7 @@ public class UserVo {
 	
 	//dm
 	private String tvamHostName;
+	private String tvmmName;
 	
 	public void setParamsPaging(int totalRowsParam) {
 		
@@ -325,6 +326,14 @@ public class UserVo {
 
 	public void setTvamHostName(String tvamHostName) {
 		this.tvamHostName = tvamHostName;
+	}
+
+	public String getTvmmName() {
+		return tvmmName;
+	}
+
+	public void setTvmmName(String tvmmName) {
+		this.tvmmName = tvmmName;
 	}
 
 

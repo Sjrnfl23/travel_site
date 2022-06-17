@@ -112,10 +112,10 @@ public class HostController {
 	@RequestMapping(value = "/host/hostDm")
 	public String hostDm(Model model, HostVo vo) throws Exception {
 
-		Host item = service.selectHostDm(vo);
-		model.addAttribute("item", item);
+		Host item2 = service.selectHostDm(vo);
+		model.addAttribute("item2", item2);
 		
-		System.out.println("::::::::::item:::::::::::: " + item);
+		System.out.println("::::::::::item:::::::::::: " + item2);
 		
 		return "/host/dm/hostDm";
 	}
