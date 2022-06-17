@@ -245,6 +245,8 @@
 		    , a.tvmmSeq
 		    , a.tvamTelNumber
 		    , a.regDateTime
+		    , a.tvamLat
+		    , a.tvamLng
 		    , c.type
 			, c.defaultNy
 			, c.sort
