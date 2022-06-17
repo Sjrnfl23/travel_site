@@ -231,6 +231,8 @@
             ,a.tvamShowerRoomCount
             ,a.tvamState
             ,a.tvamCity
+            ,a.tvamLat
+            ,a.tvamLng
             ,a.tvamTelNumber
             ,a.tvamAddressFull
             ,a.tvamCheckInTime
