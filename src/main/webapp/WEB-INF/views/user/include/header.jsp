@@ -87,7 +87,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -235,7 +234,7 @@ $("#logout").on("click",function(){
 	const chatuserList = ref(database, 'chatrooms/');
     onChildAdded(chatuserList, (data) => {
 	if(data.val().userseq == UserSeq ) {
-            var divDataChat = '    <a href="/host/hostDm?tvmmSeq='+data.val().userseq+'">\n' +
+            var divDataChat = '    <a href="/dm?tvmmSeq='+data.val().hostseq+'">\n' +
                                 '        <div class="d-flex align-items-center">\n' +
                                 '            <div class="flex-shrink-0 user-img online align-self-center me-3">\n' +
                                 '                <div class="avatar-sm align-self-center">\n' +
@@ -246,7 +245,7 @@ $("#logout").on("click",function(){
                                 '                <span class="user-status"></span>\n' +
                                 '            </div>\n' +
                                 '            <div class="flex-grow-1 overflow-hidden">\n' +
-                                '                <h5 class="text-truncate font-size-14 mb-0">'+data.val().username+'</h5>\n' +
+                                '                <h5 class="text-truncate font-size-14 mb-0">'+data.val().hostname+'</h5>\n' +
                                 '            </div>\n' +
                                 '            <div class="flex-shrink-0">\n' +
                                 '            </div>\n' +

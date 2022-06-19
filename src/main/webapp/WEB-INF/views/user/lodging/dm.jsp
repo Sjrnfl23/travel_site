@@ -339,7 +339,7 @@ body {
     	</div>
     <div class="bottom_wrapper clearfix">
         <div class="message_input_wrapper"><input type="text" name="message" id="message" class="message_input" placeholder="Type your message here..." /></div>
-        <button id="submit" class="send_message">
+        <button id="submit" class="send_message submit">
             <div class="icon"></div>
             <div class="text">Send</div>
         </button>
@@ -357,7 +357,6 @@ body {
         <script src="../../resources/host/libs/eva-icons/eva.min.js"></script>
 
         <script src="../../resources/host/js/app.js"></script>
-        
         <script type="module">
     // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
@@ -398,6 +397,15 @@ body {
 	var HostSeq = '<c:out value="${item.tvmmSeq}"/>';
 	var UserSeq = '<c:out value="${sessSeq}"/>';
 
+
+	
+	message.addEventListener("keypress", function(event) {
+  	if (event.key === "Enter") {
+    	event.preventDefault();
+    	document.getElementById("submit").click();
+  	}
+	});
+
     submit.addEventListener('click', (e) => {
         var message = document.getElementById('message').value;
         var username_s = myName;
@@ -426,9 +434,14 @@ body {
 			userseq: userseq_s
         });
         document.getElementById('message').value = "";
-        alert('message has sent');
 
     });
+	message.addEventListener("keypress", function(event) {
+ 	if (event.key === "Enter") {
+    	event.preventDefault();
+    	document.getElementById(".submit").click();
+  	}
+	});
 
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
@@ -439,7 +452,7 @@ body {
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content">\n' +
-                                '                    <div class="conversation-name"><span class="name">'+data.val().sendname+'</span><span class="time">10:04</span></div>\n' +
+                                '                    <div class="conversation-name"><span class="name">'+data.val().sendname+'</span></div>\n' +
                                 '                    <p class="mb-0 msg_cotainer">\n' +
                                 '                        '+data.val().message+'' +
                                 '                    </p>\n' +
@@ -470,7 +483,7 @@ body {
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content" id="sendDiv">\n' +
-                                '                    <div class="conversation-name">'+data.val().sendname+'<span class="time">10:02</span></div>\n' +
+                                '                    <div class="conversation-name">'+data.val().sendname+'</div>\n' +
                                 '                    <p class="mb-0 text-start">\n' +
                                 '                        '+data.val().message+'' +
                                 '                    </p>\n' +
@@ -498,14 +511,7 @@ body {
 			$('.messages').scrollTop($('.messages')[0].scrollHeight);
         }
     });
-</script>
 
-<script>
-    $(document).ready(function () {
-        $('#action_menu_btn').click(function () {
-            $('.action_menu').toggle();
-        });
-    });
 </script>
 </body>
 </html>
