@@ -418,7 +418,7 @@ body {
         const id = push(child(ref(database), 'messages')).key;
         
 
-        set(ref(database, 'chatrooms/' + hostname_s+ '_'+ username_s), {
+        set(ref(database, 'chatrooms/' + hostname_s+ hostseq_s+'_'+ username_s+userseq_s), {
 			hostname: hostname_s,
             username: username_s,
 			hostseq: hostseq_s,

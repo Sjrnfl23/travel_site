@@ -360,7 +360,6 @@
 
                                     <div class="chat-conversation p-3" data-simplebar>
 						                <div class="card-body msg_card_body" id="bodyContent">
-						
 						                </div>
                                     </div>
 									<!-- original code Start-->
