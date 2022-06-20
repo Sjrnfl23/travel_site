@@ -67,5 +67,7 @@ public class HostDao {
 	
 	// Dm
 	public Host selectHostDm(HostVo vo) {return sqlSession.selectOne(namespace + ".selectHostDm", vo);}
+	public int selectCountUploaded(Host dto) { return sqlSession.selectOne(namespace+".selectCountUploaded",dto); }
+	public int deleteUploaded(Host dto) {return sqlSession.delete(namespace+".deleteUploaded",dto); }
 }
 

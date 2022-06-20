@@ -4,21 +4,21 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.helpme.travel.common.util.UtilUpload;
 import com.helpme.travel.module.admin.Admin;
 import com.helpme.travel.module.admin.AdminVo;
 
-
 @Service
-public class HostServiceImpl implements HostService{
-	
+public class HostServiceImpl extends UtilUpload implements HostService {
+
 	@Autowired
 	HostDao dao;
 
-	//coupon
-	
+	// coupon
+
 	@Override
 	public List<Host> selectCoupon(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -30,7 +30,7 @@ public class HostServiceImpl implements HostService{
 		// TODO Auto-generated method stub
 		return dao.selectOneCoupon(vo);
 	}
-	
+
 	@Override
 	public List<Host> selectCouponOption(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -55,8 +55,8 @@ public class HostServiceImpl implements HostService{
 		return dao.deleteCoupon(vo);
 	}
 
-	//lodging
-	
+	// lodging
+
 	@Override
 	public List<Host> selectlodging(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -71,19 +71,18 @@ public class HostServiceImpl implements HostService{
 
 	@Override
 	public int insertlodging(Host dto) throws Exception {
-		
+
 		dao.insertLodging(dto);
-		
-		
+
 		int j = 0;
-		for(MultipartFile multipartFile : dto.getFile0() ) {
+		for (MultipartFile multipartFile : dto.getFile0()) {
 //			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
 			UtilUpload.uploadHostLodging(multipartFile, dto);
 			dto.setTableName("tvLodgingUploaded");
 			dto.setType(0);
-			if(j==0) {
+			if (j == 0) {
 				dto.setDefaultNy(1);
-			}else {
+			} else {
 				dto.setDefaultNy(0);
 			}
 			dto.setSort(j);
@@ -97,25 +96,47 @@ public class HostServiceImpl implements HostService{
 	@Override
 	public int updatelodging(Host dto) throws Exception {
 		dao.updateLodging(dto);
-		
+
+		int a = dao.selectCountUploaded(dto);
+		System.out.println(a);
+		System.out.println(a);
+		System.out.println(a);
+		System.out.println(a);
+		System.out.println(a);
 		int j = 0;
-		for(MultipartFile multipartFile : dto.getFile0() ) {
-			
-			//String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-			UtilUpload.uploadHostLodging(multipartFile, dto);
-			dto.setTableName("tvLodgingUploaded");
-			dto.setType(0);
-			if(j==0) {
-				dto.setDefaultNy(1);
-			}else {
-				dto.setDefaultNy(0);
+		//j<a
+		
+
+			for (MultipartFile multipartFile : dto.getFile0()) { //
+
+				UtilUpload.uploadHostLodging(multipartFile, dto);
+				dto.setTableName("tvLodgingUploaded");
+				dto.setType(0);
+				if (j == 0) {
+					dto.setDefaultNy(1);
+				} else {
+					dto.setDefaultNy(0);
+				}
+				dto.setSort(j);
+				dto.setTvamSeq(dto.getTvamSeq());
+				if (j >= a) { //업데이트할 데이터가 없는 상황이므로 insert
+					dao.insertUploadedLodging(dto);
+				} else {
+					dao.updateUploadedLodging(dto);
+				}
+				j++;
 			}
-			dto.setSort(j);
-			dto.setTvamSeq(dto.getTvamSeq());
-			dao.updateUploadedLodging(dto);
-			j++;
+			if(j<a) { // j=a 일때 pass
+				for (int i = j; i < a; i++) {
+					dto.setTvamSeq(i);
+					dto.setSort(i);
+					dao.deleteUploaded(dto);
+				}	
+			}
 			
-		}
+		
+
+	
 		return dao.updateLodging(dto);
 	}
 
@@ -125,16 +146,13 @@ public class HostServiceImpl implements HostService{
 		return dao.deleteLodging(vo);
 	}
 
-	
-
-	
-	
-	//Reservation
+	// Reservation
 	@Override
 	public List<Host> selectReservation(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectReservation(vo);
 	}
+
 	@Override
 	public Host selectOneReservation(Host dto) throws Exception {
 		// TODO Auto-generated method stub
@@ -158,9 +176,8 @@ public class HostServiceImpl implements HostService{
 		// TODO Auto-generated method stub
 		return dao.deleteReservation(vo);
 	}
-	
 
-	 //paging
+	// paging
 
 	@Override
 	public int selectOneCountLodging(HostVo vo) throws Exception {
@@ -168,44 +185,41 @@ public class HostServiceImpl implements HostService{
 		return dao.selectOneCountLodging(vo);
 	}
 
-
 	@Override
 	public int selectOneCountCoupon(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectOneCountCoupon(vo);
 	}
+
 	@Override
 	public int selectOneCountReservation(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectOneCountReservation(vo);
 	}
-	//login
+
+	// login
 	@Override
 	public Host selectOneLogin(Host dto) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectOneLogin(dto);
 	}
-	
-	//signUp
+
+	// signUp
 	@Override
 	public int insertHost(Host dto) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.insertHost(dto);
 	}
 
-	
+	// uploaded
 
-	//uploaded
-	
 	@Override
 	public Host selectOneUploaded(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectOneUploaded(vo);
 	}
-	
 
-	
-	//hostInfoView
+	// hostInfoView
 	@Override
 	public Host selectOneHost(HostVo vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -214,10 +228,10 @@ public class HostServiceImpl implements HostService{
 
 	@Override
 	public int updateHost(Host dto) throws Exception {
-		 dao.updateHost(dto); 
-		
+		dao.updateHost(dto);
+
 		int j = 0;
-		for(MultipartFile multipartFile : dto.getFile0() ) {
+		for (MultipartFile multipartFile : dto.getFile0()) {
 //			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
 			UtilUpload.uploadHostMember(multipartFile, dto);
 			dto.setTableName("tvMemberUploaded");
@@ -226,26 +240,20 @@ public class HostServiceImpl implements HostService{
 			dto.setSort(j);
 			dto.setDefaultNy(0);
 			dto.setPseq(dto.getTvmmSeq());
-			
+
 			dao.updateUploaded(dto);
 			j++;
 		}
-	
-	return dao.updateHost(dto);
-	
+
+		return dao.updateHost(dto);
+
 	}
 
 	// Dm
 	@Override
 	public Host selectHostDm(HostVo vo) throws Exception {
-		
+
 		return dao.selectHostDm(vo);
 	}
 
-	
-	
-	
-
-
 }
-

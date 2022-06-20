@@ -143,7 +143,7 @@
 													
 													<th>주소</th>
 													<th>전화번호</th>
-													<th>최대인원</th>
+													<!-- <th>최대인원</th> -->
 													<th>등록일</th>
 													<th>Action</th>
 												</tr>
@@ -165,7 +165,7 @@
 														
 														<td><c:out value="${rt.tvamAddressFull}"/></td>
 														<td><c:out value="${rt.tvamTelNumber}"/></td>
-														<td><c:out value="${rt.tvamMaxPersonCount}"/>명</td>
+														<%-- <td><c:out value="${rt.tvamMaxPersonCount}"/>명</td> --%>
 														<td>2022-05-10</td>
 														<td>
 															<div class="d-flex gap-3">

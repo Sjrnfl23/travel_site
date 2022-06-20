@@ -345,6 +345,7 @@
 			where 1=1
 				and tvamDelNy=0
 				and tvamSeq=#{tvamSeq} 
+				
 		
 	</update>
 
@@ -632,6 +633,9 @@
 			,#{tvamSeq}
 	)
 	</insert>
+	<delete id="deleteUploaded">
+	delete from tvLodgingUploaded where tvamSeq=#{tvamSeq} and sort=#{sort}
+	</delete>
 	<select id="selectOneUploaded" resultMap="resultMapObj">
 		select
 			type
@@ -650,6 +654,11 @@
 		where 1=1
 			and tvmmSeq = #{tvmmSeq} 		
 	</select>
+	<select id="selectCountUploaded" resultType="Integer">
+	select count(*) from tvLodging a
+	left join tvLodgingUploaded b on a.tvamSeq= b.tvamSeq
+	where a.tvamSeq= #{tvamSeq}
+	</select>
 	<update id="updateUploadedLodging">
 	
 		update tvLodgingUploaded set
@@ -667,6 +676,40 @@
 			, tvamSeq = #{tvamSeq}
 		where 1=1
 			and tvamSeq = #{tvamSeq}
+			and sort = #{sort}
+		<!--	 <if test="sort == null">
+            insert into tvLodgingUploaded(
+			type
+			, defaultNy
+			, sort
+			, originalName
+			, uuidName
+			, ext
+			, size
+			, delNy
+			, year
+			, month
+			, day
+			, tvamSeq
+		)values(
+			 #{type}
+			,#{defaultNy}
+			,#{sort}
+			,#{originalName}
+			,#{uuidName}
+			,#{ext}
+			,#{size}
+			,0
+			,#{year}
+			,#{month}
+			,#{day}
+			,#{tvamSeq}
+	)
+                   
+                </if>-->
+			<!-- <if test="swLng != '' and swLng != null and neLng != '' and neLng != null">
+                    AND tvamLng BETWEEN #{swLng} AND #{neLng}
+                </if>-->
 			
 	</update>
 	<!-- uploaded e -->

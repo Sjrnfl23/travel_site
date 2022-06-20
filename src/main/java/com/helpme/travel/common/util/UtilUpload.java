@@ -3,15 +3,28 @@ package com.helpme.travel.common.util;
 import java.io.File;
 import java.util.UUID;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.helpme.travel.common.contants.Constants;
 import com.helpme.travel.module.admin.Admin;
 import com.helpme.travel.module.host.Host;
+import com.helpme.travel.module.host.HostDao;
+import com.helpme.travel.module.host.HostVo;
 import com.helpme.travel.module.user.User;
 
 public class UtilUpload {
-
+	 private static HostDao staticDao;
+	 
+	  @Autowired
+	  private HostDao dao;
+	 
+	  @PostConstruct     
+	  private void initStaticDao () {
+	     staticDao = this.dao;
+	  }
 	public static void upload (MultipartFile multipartFile, String className, User dto) throws Exception {
 		String fileName = multipartFile.getOriginalFilename();
 		System.out.println("fileName::::::::::::: "+fileName);
@@ -222,5 +235,9 @@ public class UtilUpload {
 		} else {
 			// by pass
 		}
+	}
+	
+	public static int selectOneCountUploaded(Host dto) {
+		return staticDao.selectCountUploaded(dto);
 	}
 }
