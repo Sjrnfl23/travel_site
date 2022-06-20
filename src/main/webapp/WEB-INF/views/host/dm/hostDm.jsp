@@ -87,15 +87,8 @@
                                    <div class="text-center bg-light rounded px-4 py-3">
                                             <div class="text-end">
                                                 <div class="dropdown chat-noti-dropdown">
-                                                    <button class="btn dropdown-toggle p-0" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="bx bx-cog"></i>
+                                                    <button class="btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     </button>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">Profile</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Add Contact</a>
-                                                        <a class="dropdown-item" href="#">Setting</a>
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="chat-user-status">
@@ -325,34 +318,6 @@
                                             </div>
                                             <div class="col-xl-8 col-5">
                                                 <ul class="list-inline user-chat-nav text-end mb-0">
-                                                    <li class="list-inline-item">
-                                                        <div class="dropdown">
-                                                            <button class="btn nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="bx bx-search"></i>
-                                                            </button>
-                                                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-md p-2">
-                                                                <form class="px-2">
-                                                                    <div>
-                                                                        <input type="text" class="form-control border bg-soft-light" placeholder="Search...">
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-    
-                                                    <li class="list-inline-item">
-                                                        <div class="dropdown">
-                                                            <button class="btn nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="bx bx-dots-horizontal-rounded"></i>
-                                                            </button>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <a class="dropdown-item" href="#">Profile</a>
-                                                                <a class="dropdown-item" href="#">Archive</a>
-                                                                <a class="dropdown-item" href="#">Muted</a>
-                                                                <a class="dropdown-item" href="#">Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
                                                 </ul>                                                                                                                                                                                                                                                                                        
                                             </div>
                                         </div>
@@ -450,12 +415,17 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
+	const date = new Date();
+	
+	const hour = date.getHours();
+	const minutes = date.getMinutes();
 
 
     var myName = '<c:out value="${sessName}"/>';
 	var HostName = '<c:out value="${sessName}"/>';
 	var username = '<c:out value="${item2.tvmmName}"/>';
 	var sendUser = '<c:out value="${sessName}"/>';
+	const sendtime = hour +':'+minutes;
 
 	var HostSeq = '<c:out value="${sessSeq}"/>';
 	var UserSeq = '<c:out value="${item2.tvmmSeq}"/>';
@@ -465,6 +435,7 @@
 		var hostname_s = myName;
 		var username_s = username;
 		var sendname_s = myName;
+		var sendtime_s = sendtime;
 
 		var hostseq_s = HostSeq;
 		var userseq_s = UserSeq;
@@ -477,6 +448,7 @@
             username: username_s,
             message: message,
 			sendname: sendname_s,
+			sendtime: sendtime_s,
 			hostseq: hostseq_s,
 			userseq: userseq_s
         });
@@ -500,21 +472,10 @@
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content">\n' +
-                                '                    <div class="conversation-name"><span class="name">'+data.val().sendname+'</span></div>\n' +
+                                '                    <div class="conversation-name"><span class="name">'+data.val().sendname+'</span><span class="time">'+data.val().sendtime+'</span></div>\n' +
                                 '                    <p class="mb-0 msg_cotainer">\n' +
                                 '                        '+data.val().message+'' +
                                 '                    </p>\n' +
-                                '                </div>\n' +
-                                '                <div class="dropdown align-self-start">\n' +
-                                '                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
-                                '                        <i class="bx bx-dots-vertical-rounded"></i>\n' +
-                                '                    </a>\n' +
-                                '                    <div class="dropdown-menu">\n' +
-                                '                        <a class="dropdown-item" href="#">Copy</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Save</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Forward</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Delete</a>\n' +
-                                '                    </div>\n' +
                                 '                </div>\n' +
                                 '            </div>\n' +
                                 '        </div>\n' +
@@ -522,33 +483,22 @@
                                 '</div>';
             var d1 = document.getElementById('bodyContent');
             d1.insertAdjacentHTML('beforebegin', divData);
-        }else if(data.val().sendname == myName && data.val().hostseq == HostSeq && data.val().userseq == UserSeq){
+        } else if (data.val().sendname == myName && data.val().hostseq == HostSeq && data.val().userseq == UserSeq){
             var divData = '<li class="right">\n' +
 								'<div class="conversation-list">\n' +
                                 '    <div class="d-flex">\n' +
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content" id="sendDiv">\n' +
-                                '                    <div class="conversation-name">'+data.val().sendname+'<span class="time">10:02</span></div>\n' +
+                                '                    <div class="conversation-name">'+data.val().sendname+'<span class="time">'+data.val().sendtime+'</span></div>\n' +
                                 '                    <p class="mb-0 text-start">\n' +
                                 '                        '+data.val().message+'' +
                                 '                        <span class="msg_time_send"></span>\n' +
                                 '                    </p>\n' +
                                 '                </div>\n' +
-                                '                <div class="dropdown align-self-start">\n' +
-                                '                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
-                                '                        <i class="bx bx-dots-vertical-rounded"></i>\n' +
-                                '                    </a>\n' +
-                                '                    <div class="dropdown-menu">\n' +
-                                '                        <a class="dropdown-item" href="#">Copy</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Save</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Forward</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Delete</a>\n' +
-                                '                    </div>\n' +
-                                '                </div>\n' +
                                 '            </div>\n' +
                                 '        </div>\n' +
-                                '        <img src="../../resources/host/images/users/avatar-3.jpg" class="rounded-circle avatar" alt="">\n' +
+								'        <img src="/resources/uploaded/member/<c:out value="${sessYear}"/>/<c:out value="${sessMonth}"/>/<c:out value="${sessDay}"/>/<c:out value="${sessUuidName}"/>" class="rounded-circle avatar" alt="">\n' +
                                 '    </div>\n' +
                                 '</div>\n' +
 								'</li>';

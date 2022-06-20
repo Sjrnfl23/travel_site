@@ -388,16 +388,21 @@ body {
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
-
+	const date = new Date();
+	
+	const hour = date.getHours();
+	const minutes = date.getMinutes();
+	
 
     var myName = '<c:out value="${sessName}"/>';
     var HostName = '<c:out value="${item.tvmmName}"/>';
     var sendUser = '<c:out value="${sessName}"/>';
+	const sendtime = hour +':'+minutes;
 
 	var HostSeq = '<c:out value="${item.tvmmSeq}"/>';
 	var UserSeq = '<c:out value="${sessSeq}"/>';
 
-
+	
 	
 	message.addEventListener("keypress", function(event) {
   	if (event.key === "Enter") {
@@ -411,6 +416,7 @@ body {
         var username_s = myName;
 		var hostname_s = HostName;
 		var sendname_s = myName;
+		var sendtime_s = sendtime;
 
 		var hostseq_s = HostSeq;
 		var userseq_s = UserSeq;
@@ -430,19 +436,13 @@ body {
             username: username_s,
             message: message,
 			sendname: sendname_s,
+			sendtime: sendtime_s,
 			hostseq: hostseq_s,
 			userseq: userseq_s
         });
         document.getElementById('message').value = "";
 
     });
-	message.addEventListener("keypress", function(event) {
- 	if (event.key === "Enter") {
-    	event.preventDefault();
-    	document.getElementById(".submit").click();
-  	}
-	});
-
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
         if(data.val().sendname != myName && data.val().hostseq == HostSeq && data.val().userseq == UserSeq) {
@@ -452,21 +452,10 @@ body {
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content">\n' +
-                                '                    <div class="conversation-name"><span class="name">'+data.val().sendname+'</span></div>\n' +
+                                '                    <div class="conversation-name"><span class="name">'+data.val().sendname+'</span><span class="time">'+data.val().sendtime+'</span></div>\n' +
                                 '                    <p class="mb-0 msg_cotainer">\n' +
                                 '                        '+data.val().message+'' +
                                 '                    </p>\n' +
-                                '                </div>\n' +
-                                '                <div class="dropdown align-self-start">\n' +
-                                '                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
-                                '                        <i class="bx bx-dots-vertical-rounded"></i>\n' +
-                                '                    </a>\n' +
-                                '                    <div class="dropdown-menu">\n' +
-                                '                        <a class="dropdown-item" href="#">Copy</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Save</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Forward</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Delete</a>\n' +
-                                '                    </div>\n' +
                                 '                </div>\n' +
                                 '            </div>\n' +
                                 '        </div>\n' +
@@ -483,21 +472,10 @@ body {
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content" id="sendDiv">\n' +
-                                '                    <div class="conversation-name">'+data.val().sendname+'</div>\n' +
+                                '                    <div class="conversation-name">'+data.val().sendname+'<span class="time">'+data.val().sendtime+'</span></div>\n' +
                                 '                    <p class="mb-0 text-start">\n' +
                                 '                        '+data.val().message+'' +
                                 '                    </p>\n' +
-                                '                </div>\n' +
-                                '                <div class="dropdown align-self-start">\n' +
-                                '                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
-                                '                        <i class="bx bx-dots-vertical-rounded"></i>\n' +
-                                '                    </a>\n' +
-                                '                    <div class="dropdown-menu">\n' +
-                                '                        <a class="dropdown-item" href="#">Copy</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Save</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Forward</a>\n' +
-                                '                        <a class="dropdown-item" href="#">Delete</a>\n' +
-                                '                    </div>\n' +
                                 '                </div>\n' +
                                 '            </div>\n' +
                                 '        </div>\n' +
