@@ -360,7 +360,6 @@
 
                                     <div class="chat-conversation p-3" data-simplebar>
 						                <div class="card-body msg_card_body" id="bodyContent">
-						
 						                </div>
                                     </div>
 									<!-- original code Start-->
@@ -372,7 +371,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-auto">
-                                                <button id="submit" class="btn btn-primary chat-send w-md waves-effect waves-light"><span class="d-none d-sm-inline-block me-2">전송</span> <i class="mdi mdi-send float-end"></i></button>
+                                                <button id="submit" class="btn btn-primary submit chat-send w-md waves-effect waves-light"><span class="d-none d-sm-inline-block me-2">전송</span> <i class="mdi mdi-send float-end"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -420,7 +419,6 @@
 
         <script src="../../resources/host/js/app.js"></script>
 
-    </body>
 <script type="module">
     // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
@@ -483,11 +481,16 @@
 			userseq: userseq_s
         });
         document.getElementById('message').value = "";
-        alert('message has sent');
 
     });
 
-	alert("데이터" + username);
+		message.addEventListener("keypress", function(event) {
+ 		if (event.key === "Enter") {
+    		event.preventDefault();
+    		document.getElementById("submit").click();
+  		}
+	});
+
     const newMsg = ref(database, 'messages/');
     onChildAdded(newMsg, (data) => {
         if(data.val().sendname != myName && data.val().hostseq == HostSeq && data.val().userseq == UserSeq) {
@@ -497,7 +500,7 @@
                                 '        <div class="flex-1">\n' +
                                 '            <div class="ctext-wrap">\n' +
                                 '                <div class="ctext-wrap-content">\n' +
-                                '                    <div class="conversation-name"><span class="name">'+data.val().sendname+'</span><span class="time">10:04</span></div>\n' +
+                                '                    <div class="conversation-name"><span class="name">'+data.val().sendname+'</span></div>\n' +
                                 '                    <p class="mb-0 msg_cotainer">\n' +
                                 '                        '+data.val().message+'' +
                                 '                    </p>\n' +
@@ -529,7 +532,7 @@
                                 '                    <div class="conversation-name">'+data.val().sendname+'<span class="time">10:02</span></div>\n' +
                                 '                    <p class="mb-0 text-start">\n' +
                                 '                        '+data.val().message+'' +
-                                '                        <span class="msg_time_send">8:55 AM, Today</span>\n' +
+                                '                        <span class="msg_time_send"></span>\n' +
                                 '                    </p>\n' +
                                 '                </div>\n' +
                                 '                <div class="dropdown align-self-start">\n' +
@@ -579,12 +582,5 @@
 }
     });
 </script>
-
-<script>
-    $(document).ready(function () {
-        $('#action_menu_btn').click(function () {
-            $('.action_menu').toggle();
-        });
-    });
-</script>
+    </body>
 </html>
