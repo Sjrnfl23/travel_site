@@ -64,10 +64,12 @@ public class HostDao {
 	public Host selectOneUploaded(HostVo vo) {return sqlSession.selectOne(namespace + ".selectOneUploaded", vo);}
 	public int insertUploadedLodging(Host dto) {return sqlSession.insert(namespace + ".insertUploadedLodging", dto);}
 	public int updateUploadedLodging(Host dto) {return sqlSession.update(namespace+".updateUploadedLodging", dto); }
+	public int selectCountUploaded(Host dto) { return sqlSession.selectOne(namespace+".selectCountUploaded",dto); }
+	public int deleteUploaded(Host dto) {return sqlSession.delete(namespace+".deleteUploaded",dto); }
 	
 	// Dm
 	public Host selectHostDm(HostVo vo) {return sqlSession.selectOne(namespace + ".selectHostDm", vo);}
-	public int selectCountUploaded(Host dto) { return sqlSession.selectOne(namespace+".selectCountUploaded",dto); }
-	public int deleteUploaded(Host dto) {return sqlSession.delete(namespace+".deleteUploaded",dto); }
+	
+	
 }
 

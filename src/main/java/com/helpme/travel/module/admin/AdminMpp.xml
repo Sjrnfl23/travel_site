@@ -755,6 +755,46 @@
 			and tvamSeq = #{tvamSeq}
 			
 	</update>
+	
+	<select id="selectCountUploaded" resultType="Integer">
+	select count(*) from tvLodging a
+	left join tvLodgingUploaded b on a.tvamSeq= b.tvamSeq
+	where a.tvamSeq= #{tvamSeq}
+	</select>
+	<insert id="insertUploadedLodging">
+	insert into tvLodgingUploaded(
+			type
+			, defaultNy
+			, sort
+			, originalName
+			, uuidName
+			, ext
+			, size
+			, delNy
+			, year
+			, month
+			, day
+			, tvamSeq
+		)values(
+			 #{type}
+			,#{defaultNy}
+			,#{sort}
+			,#{originalName}
+			,#{uuidName}
+			,#{ext}
+			,#{size}
+			,0
+			,#{year}
+			,#{month}
+			,#{day}
+			,#{tvamSeq}
+	)
+	</insert>
+	<delete id="deleteUploaded">
+	delete from tvLodgingUploaded where tvamSeq=#{tvamSeq} and sort=#{sort}
+	</delete>
+	
+	
 	<!-- uploaded e -->
 
 

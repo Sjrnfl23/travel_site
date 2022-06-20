@@ -7,6 +7,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.helpme.travel.module.host.Host;
+import com.helpme.travel.module.host.HostVo;
+
 
 
 @Repository
@@ -90,4 +93,7 @@ public class AdminDao {
 	public int updateUploaded(Admin dto) {return sqlSession.update(namespace + ".updateUploaded", dto);}
 	public Admin selectOneUploaded(AdminVo vo){return sqlSession.selectOne(namespace + ".selectOneUploaded", vo);}
 	public int updateUploadedLodging(Admin dto) {return sqlSession.update(namespace+".updateUploadedLodging",dto); }
+	public int insertUploadedLodging(Admin dto) {return sqlSession.insert(namespace + ".insertUploadedLodging", dto);}
+	public int deleteUploaded(Admin dto) {return sqlSession.delete(namespace+".deleteUploaded",dto); }
+	public int selectCountUploaded(Admin dto) { return sqlSession.selectOne(namespace+".selectCountUploaded",dto); }
 }

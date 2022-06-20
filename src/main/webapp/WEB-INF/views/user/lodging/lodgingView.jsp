@@ -176,26 +176,30 @@
         
         <div class="swiper-container justify-content-center">
             <div class="swiper-wrapper justify-content-center">
+            
 	            <div class="swiper-slide justify-content-center">
 	                	<table>
+	                		
 	                		<tr>
-		                		<c:forEach items="${lodglist}" var="rt" varStatus="status">
+		                	<c:forEach items="${lodglist}" var="rt" varStatus="status">
 			                		<td>
 					                    <a href="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="grid image-link">
-					                        <img src="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" style="height: 370px; " alt="#">
+					                        <img src="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" style="height: 370px; width:635px;" alt="#">
 					                    </a>
 			                		</td>
 		               			</c:forEach>
 	               			</tr>
+	               			  
 	               		</table>
 	               </div>
+	             
              </div>
         </div>
             <!-- Add Pagination -->
-            <div class="swiper-pagination swiper-pagination-white"></div>
+          <!--   <div class="swiper-pagination swiper-pagination-white"></div> -->
             <!-- Add Arrows -->
-            <div class="swiper-button-next swiper-button-white"></div>
-            <div class="swiper-button-prev swiper-button-white"></div>
+  <!--           <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div> -->
         </div> 
         
         </div> 

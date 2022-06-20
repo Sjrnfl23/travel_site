@@ -164,7 +164,8 @@
 														<td><c:out value="${rt.tvamLodgingName}"/></td>
 														
 														<td><c:out value="${rt.tvamAddressFull}"/></td>
-														<td><c:out value="${rt.tvamTelNumber}"/></td>
+														<td>${fn:substring(rt.tvamTelNumber,0,3)}-${fn:substring(rt.tvamTelNumber,3,7)}-${fn:substring(rt.tvamTelNumber,7,11)}
+														</td>
 														<%-- <td><c:out value="${rt.tvamMaxPersonCount}"/>명</td> --%>
 														<td>2022-05-10</td>
 														<td>

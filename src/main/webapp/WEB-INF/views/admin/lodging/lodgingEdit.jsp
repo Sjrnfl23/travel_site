@@ -549,7 +549,31 @@ function findAddr(){
     }).open();
 }
 </script> 
-    
+        <script>
+$("#btnSubmit").on("click",function(){
+	
+	var fileCount = $("#file0")[0].files.length; 
+	if(fileCount<3){
+		alert("사진을 3장 이상 넣어주세요");
+		return false;	
+	}
+	
+	if($("#tvamCategoryCd").val() == 0){
+		alert("카테고리를 선택해주세요.");
+		return false;
+	}
+	
+	if(document.getElementById("tvamAddress1").value == null || document.getElementById("tvamAddress1").value == "" ){
+		alert("주소를 입력해주세요");
+		return false;
+	}
+	
+	
+	
+})
+
+
+</script>  
     
     
     

@@ -553,11 +553,11 @@ delLi = function(seq, index){
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 
                 </script>
-                    <script>
+                   <script>
 $("#btnSubmit").on("click",function(){
 	
 	var fileCount = $("#file0")[0].files.length; 
-	if(fileCount==0){
+	if(fileCount<3){
 		alert("사진을 1장 이상 넣어주세요");
 		return false;	
 	}

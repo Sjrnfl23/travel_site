@@ -555,7 +555,7 @@ delLi = function(seq, index){
 $("#btnSubmit").on("click",function(){
 	
 	var fileCount = $("#file0")[0].files.length; 
-	if(fileCount==0){
+	if(fileCount<3){
 		alert("사진을 1장 이상 넣어주세요");
 		return false;	
 	}

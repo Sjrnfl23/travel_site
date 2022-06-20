@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.helpme.travel.common.util.UtilDateTime;
 import com.helpme.travel.common.util.UtilUpload;
+import com.helpme.travel.module.host.Host;
 
 
 @Service
@@ -81,36 +82,50 @@ public class AdminServiceImpl implements AdminService{
 	public Admin selectOneLodging(AdminVo vo) throws Exception {
 		return dao.selectOneLodging(vo); 
 	}
-	
 	@Override
 	public int updateLodging(Admin dto) throws Exception {
 		dao.updateLodging(dto);
-		
+
+		int a = dao.selectCountUploaded(dto);
+	
 		int j = 0;
-		for(MultipartFile multipartFile : dto.getFile0() ) {
-			
-//			String pathModule = host;
-//			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
-			UtilUpload.uploadAdminLodging(multipartFile, dto);
-			dto.setTableName("tvLodgingUploaded");
-			dto.setType(0);
-			if(j==0) {
-				dto.setDefaultNy(1);
-			}else {
-				dto.setDefaultNy(0);
+		//j<a
+
+			for (MultipartFile multipartFile : dto.getFile0()) { 
+				
+				//if(dto.getOriginalName().equals("") || dto.getOriginalName().equals(null)) { //값만 바꿀때 사진은 그대로 유지하기 위해 
+				//    break;
+				// }
+				
+				UtilUpload.uploadAdminLodging(multipartFile, dto);
+				dto.setTableName("tvLodgingUploaded");
+				dto.setType(0);
+				if (j == 0) {
+					dto.setDefaultNy(1);
+				} else {
+					dto.setDefaultNy(0);
+				}
+				dto.setSort(j);
+				dto.setTvamSeq(dto.getTvamSeq());
+				if (j >= a) { //업데이트할 데이터가 없는 상황이므로 insert
+					dao.insertUploadedLodging(dto);
+				} else {
+					dao.updateUploadedLodging(dto);
+				}
+				 
+				j++;
 			}
-			dto.setSort(j);
-			dto.setTvamSeq(dto.getTvamSeq());
-			if(dto.getOriginalName().equals("") || dto.getOriginalName().equals(null)) { //값만 바꿀때 사진은 그대로 유지하기 위해 
-				break;
+			if(j<a) { // j=a 일때 pass
+				for (int i = j; i < a; i++) {
+					dto.setTvamSeq(String.valueOf(i));
+					dto.setSort(i);
+					dao.deleteUploaded(dto);
+				}	
 			}
-			dao.updateUploadedLodging(dto);
-			j++;
 			
-		}
-		
 		return dao.updateLodging(dto);
-	}	
+	}
+
 	@Override
 	public int DeleteLodging(AdminVo vo) throws Exception {
 		return dao.DeleteLodging(vo);
