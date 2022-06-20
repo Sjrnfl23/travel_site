@@ -98,11 +98,7 @@ public class HostServiceImpl extends UtilUpload implements HostService {
 		dao.updateLodging(dto);
 
 		int a = dao.selectCountUploaded(dto);
-		System.out.println(a);
-		System.out.println(a);
-		System.out.println(a);
-		System.out.println(a);
-		System.out.println(a);
+	
 		int j = 0;
 		//j<a
 		
