@@ -101,7 +101,6 @@ public class HostServiceImpl extends UtilUpload implements HostService {
 	
 		int j = 0;
 		//j<a
-		
 
 			for (MultipartFile multipartFile : dto.getFile0()) { //
 
@@ -130,9 +129,6 @@ public class HostServiceImpl extends UtilUpload implements HostService {
 				}	
 			}
 			
-		
-
-	
 		return dao.updateLodging(dto);
 	}
 
