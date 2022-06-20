@@ -62,7 +62,7 @@ public interface UserService {
 	public int insertReview(User dto) throws Exception;
 	public List<User> selectListReview(UserVo vo) throws Exception;
 	public int selectReviewCount(UserVo vo) throws Exception;
-	
+	public double selectOneReviewAvg(UserVo vo) throws Exception;
 
 	public List<User> selectListLodgingUploaded(UserVo vo) throws Exception;
 

@@ -527,6 +527,10 @@
     )
     
     </insert>
+    
+    <select id="selectOneReviewAvg" resultType="Double">
+    select avg(starpoint)/2 as starpointAvg from tvReview where tvamSeq = #{tvamSeq}
+    </select>
         
     <select id="selectListReview" resultMap="resultMapObj">
     
@@ -535,6 +539,7 @@
     ,a.tvarDate
     ,b.tvmmName
     ,a.starpoint
+    
     from
         tvReview a
         
@@ -548,9 +553,7 @@
     limit #{startRnumForMysql}, #{rowNumToShow}
       
     </select>
-    
-    <!--Review End-->
-    <select id="selectReviewCount" resultType="Integer">
+     <select id="selectReviewCount" resultType="Integer">
     
     select count(*) from tvReview a
     
@@ -561,6 +564,8 @@
         and c.tvamSeq = #{tvamSeq}
         
     </select>
+    <!--Review End-->
+   
     
     <!-- dm -->
     <select id="selectHostDm" resultMap="resultMapObj">

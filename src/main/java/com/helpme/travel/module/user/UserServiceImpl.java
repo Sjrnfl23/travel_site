@@ -72,7 +72,11 @@ public class UserServiceImpl implements UserService{
 	return dao.selectOneLodgingView(vo);
 		}
 	
-
+	@Override
+	public List<User> selectListLodgingUploaded(UserVo vo) throws Exception{
+		// TODO Auto-generated method stub
+		return dao.selectListLodgingUploaded(vo);
+	}
 	
 //		// 결제
 	@Override
@@ -276,7 +280,8 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return dao.selectOneGlogin(dto);
 	}
-
+	
+	//review
 	@Override
 	public int insertReview(User dto) throws Exception {
 		// TODO Auto-generated method stub
@@ -294,12 +299,14 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return dao.selectReviewCount(vo);
 	}
-
 	@Override
-	public List<User> selectListLodgingUploaded(UserVo vo) throws Exception{
+	public double selectOneReviewAvg(UserVo vo) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.selectListLodgingUploaded(vo);
+		return dao.selectOneReviewAvg(vo);
 	}
+	
+
+	
 	
 	// Dm
 	@Override
@@ -307,6 +314,7 @@ public class UserServiceImpl implements UserService{
 		
 		return dao.selectHostDm(vo);
 	}
+
 	
 	
 	

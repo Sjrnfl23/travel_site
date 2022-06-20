@@ -71,13 +71,13 @@ public class UserDao {
 	public int insertReview(User dto) { return sqlSession.insert(namespace+".insertReview",dto); }
 	public List<User> selectListReview(UserVo vo) { return sqlSession.selectList(namespace+".selectListReview",vo); } 
 	public int selectReviewCount(UserVo vo) { return sqlSession.selectOne(namespace + ".selectReviewCount", vo); }
-	
+	public double selectOneReviewAvg(UserVo vo) { return sqlSession.selectOne(namespace+".selectOneReviewAvg",vo); }
 
 	//image
 	public List<User> selectListLodgingUploaded (UserVo vo) { return sqlSession.selectList(namespace+".selectListLodgingUploaded",vo); }
 
 	// Dm
 	public User selectHostDm(UserVo vo) {return sqlSession.selectOne(namespace + ".selectHostDm", vo);}
-
+	
 	
 }

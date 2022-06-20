@@ -245,7 +245,7 @@
                 <div class="col-md-1">
                     <div class="reserve-seat-block">
                         <div class="reserve-rating mx-0 mx-md-3">
-                            <span>4.96<%-- <c:out value="${rt.starpoint}"/> --%></span>
+                            <span><c:out value="${avg}"/></span>
                         </div>
                     </div>
                 </div>
