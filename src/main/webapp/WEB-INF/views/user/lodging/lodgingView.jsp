@@ -182,7 +182,7 @@
 		                		<c:forEach items="${lodglist}" var="rt" varStatus="status">
 			                		<td>
 					                    <a href="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" class="grid image-link">
-					                        <img src="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" style="width: 500px; height: 370px; " alt="#">
+					                        <img src="/resources/uploaded/lodging/<c:out value="${rt.year}"/>/<c:out value="${rt.month}"/>/<c:out value="${rt.day}"/>/<c:out value="${rt.uuidName}"/>" style="height: 370px; " alt="#">
 					                    </a>
 			                		</td>
 		               			</c:forEach>
