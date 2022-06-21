@@ -81,6 +81,7 @@
             <when test="shlctValue == '충북'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
             <when test="shlctValue == '충남'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
             <when test="shlctValue == '제주'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+            <when test="shlctValue == '부산'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
             </choose>
      </select>
      <select id="selectListSearchFlex" resultMap="resultMapObj">
@@ -120,6 +121,18 @@
                     <when test="shlctValue == '부산'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
                     <when test="shlctValue == '진해'"> AND tvamCity LIKE concat('%',#{shlctValue},'%')</when>
                 </choose>
+                  <choose>
+            <when test="shlctValue == '경기'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+            <when test="shlctValue == '강원'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+            <when test="shlctValue == '전북'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+            <when test="shlctValue == '전남'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+            <when test="shlctValue == '경북'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+            <when test="shlctValue == '경남'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+            <when test="shlctValue == '충북'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+            <when test="shlctValue == '충남'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+            <when test="shlctValue == '제주'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+            <when test="shlctValue == '부산'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
+            </choose>
     </select>
     <!-- Search -->
     <select id="selectListSearch" resultMap="resultMapObj">
