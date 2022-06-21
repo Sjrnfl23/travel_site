@@ -93,7 +93,7 @@
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <p class="mb-0">계정이 없으신가요? <a href="" class="fw-medium text-primary"> 회원가입 </a> </p>
+                                            <p class="mb-0">관리 부서: <a href="" class="fw-medium text-primary"> 인프라 운영팀 </a> (070-1234-1234)</p>
                                         </div>
                                     </form>
                                 </div>
@@ -152,10 +152,10 @@ $("#btnLogin").on("click" , function(){
 				
 				 location.href = "/admin/mainView"; 	
 			} else if(response.rt == "fail"){
-				alert("회원 없음");
+				alert("회원 정보가 존재하지 않습니다.");
 				
 			}else{
-				alert("권한 없음");
+				alert("접속 권한이 없습니다.");
 			}
 		}
 		,error : function(jqXHR, textStatus, errorThrown){

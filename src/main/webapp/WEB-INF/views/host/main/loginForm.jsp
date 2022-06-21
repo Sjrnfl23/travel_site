@@ -153,9 +153,9 @@ $("#btnLogin").on("click" , function(){
 				 location.href = "/host/mainView"; 
 				
 			} else if(response.rt == "fail"){
-				alert("회원 없음");
+				alert("회원 정보가 존재하지 않습니다.");
 			}else{
-				alert("권한 없음");
+				alert("접속 권한이 없습니다.");
 			}
 		}
 		,error : function(jqXHR, textStatus, errorThrown){

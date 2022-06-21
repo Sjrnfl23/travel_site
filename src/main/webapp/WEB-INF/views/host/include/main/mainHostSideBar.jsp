@@ -45,14 +45,14 @@
                             <li class="menu-title" data-key="t-applications">MANAGEMENT</li>
 
                             <li>
-                                <a href="/host/lodgingList" class="has-arrow">
+                                <a href="/host/lodgingList" >
                                     <i class="bx bx-store icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-ecommerce">숙소관리</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="/host/couponList" class="has-arrow">
+                                <a href="/host/couponList" >
                                     <i class="bx bx-receipt icon nav-icon"></i>
                                     <span class="menu-item" data-key="t-invoices">쿠폰관리</span>
                                 </a>

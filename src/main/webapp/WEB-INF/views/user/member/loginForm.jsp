@@ -224,7 +224,7 @@ function onSignIn(googleUser) {
 				if(response.rt == "success") {
 					location.href = "../";
 				} else {
-					alert("회원가입 바람");
+					alert("회원가입이 필요합니다.");
 					location.href = "/signupForm";
 				}
 			}
