@@ -540,7 +540,7 @@
     </insert>
     
     <select id="selectOneReviewAvg" resultType="Double">
-    select avg(starpoint)/2 as starpointAvg from tvReview where tvamSeq = #{tvamSeq}
+	select avg(starpoint)/2 as starpointAvg from tvReview where tvamSeq = #{tvamSeq}
     </select>
         
     <select id="selectListReview" resultMap="resultMapObj">
