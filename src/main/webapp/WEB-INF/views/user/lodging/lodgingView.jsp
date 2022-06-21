@@ -381,35 +381,31 @@
                                 
                             </div>
                             <div class="customer-content-wrap">
-                       
-
-<div class="starpoint_wrap">
-  <div class="starpoint_box">
-    <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
-    <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
-    <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
-    <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
-    <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
-    <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
-    <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
-    <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
-    <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
-    <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
-    <input type="radio" value="1" name="starpoint" id="starpoint_1" class="star_radio">
-    <input type="radio" value="2" name="starpoint" id="starpoint_2" class="star_radio">
-    <input type="radio" value="3" name="starpoint" id="starpoint_3" class="star_radio">
-    <input type="radio" value="4" name="starpoint" id="starpoint_4" class="star_radio">
-    <input type="radio" value="5" name="starpoint" id="starpoint_5" class="star_radio">
-    <input type="radio" value="6" name="starpoint" id="starpoint_6" class="star_radio">
-    <input type="radio" value="7" name="starpoint" id="starpoint_7" class="star_radio">
-    <input type="radio" value="8" name="starpoint" id="starpoint_8" class="star_radio">
-    <input type="radio" value="9" name="starpoint" id="starpoint_9" class="star_radio">
-    <input type="radio" value="10" name="starpoint" id="starpoint_10" class="star_radio">
-    <span class="starpoint_bg"></span>
-  </div>
-</div>
-
-
+								<div class="starpoint_wrap">
+								  <div class="starpoint_box">
+								    <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+								    <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+								    <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+								    <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+								    <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+								    <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+								    <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+								    <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+								    <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+								    <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+								    <input type="radio" value="1" name="starpoint" id="starpoint_1" class="star_radio">
+								    <input type="radio" value="2" name="starpoint" id="starpoint_2" class="star_radio">
+								    <input type="radio" value="3" name="starpoint" id="starpoint_3" class="star_radio">
+								    <input type="radio" value="4" name="starpoint" id="starpoint_4" class="star_radio">
+								    <input type="radio" value="5" name="starpoint" id="starpoint_5" class="star_radio">
+								    <input type="radio" value="6" name="starpoint" id="starpoint_6" class="star_radio">
+								    <input type="radio" value="7" name="starpoint" id="starpoint_7" class="star_radio">
+								    <input type="radio" value="8" name="starpoint" id="starpoint_8" class="star_radio">
+								    <input type="radio" value="9" name="starpoint" id="starpoint_9" class="star_radio">
+								    <input type="radio" value="10" name="starpoint" id="starpoint_10" class="star_radio">
+								    <span class="starpoint_bg"></span>
+								  </div>
+								</div>
 
                                 <div class="your-comment-wrap">
                                     <textarea name="tvarReview" name="tvarReview" class="your-rating-content" placeholder="리뷰를 입력해주세요."></textarea>
@@ -481,8 +477,6 @@
                                    
                                 </div>
                                 <p class="customer-text"><c:out value="${item.tvarReview}"/></p>
-
-                             
 
                             </div>
                         </div>
@@ -576,6 +570,7 @@
                            <div class="contact-info">
 						<div class="booking-summary-box">
 							<h4><c:out value="${item.tvamLodgingName}"/></h4>
+							<h4><fmt:formatNumber value="${item.tvamAdultPrice}"/>원 / 박</h4>
 							<span style="font-size: 18px;"><c:out value="${item.tvamCity}"/></span>
 							<div class="booking-summary_contact">
 								<p style="font-size: 18px;"><c:out value="${item.tvamTelNumber}"/></p>
@@ -852,6 +847,13 @@
 				var stDate = new Date(selected1);	// 받아온 값 stDate로 선언
 				var btMs1 = stDate.getTime();		// 받아온 값 시간(밀리세컨드)으로 변환
 				
+				var nowDate = new Date();		// 오늘날짜
+				
+				if(stDate < nowDate){				
+					alert('지난 날짜는 선택할 수 없습니다.');
+					return false;
+				} 					
+				
 				$('#hiddenDay1').val(btMs1);			// hiddenDay에 btMs1 전역변수 담기
 
 			   /* alert(selected1); */
@@ -875,11 +877,23 @@
 				 $('#endDate').empty();
 				 
 				var selected2 = $(this).val();		// 선택된 종료날짜 값 받아오기
+				
 				var btMs1 = $('#hiddenDay1').val();	// hiddenDay에 담은 btMs1 값 가져오기
+				
+				if(btMs1 == null || btMs1 == ""){
+					alert('시작일을 먼저 선택해주세요.');
+					return false;
+				} 				
 			   
 				var edDate = new Date(selected2);	// 받아온 종료날짜 값 edDate로 선언
 				var btMs2 = edDate.getTime() - btMs1;	// 받아온 종료날짜 값 시간(밀리세컨드)으로 변환해서 시작날짜값(밀리세컨드)만큼 차감
 				var vtDay = btMs2 / (1000*60*60*24);	// 일수로 계산
+				
+				if(btMs2 < 0 || btMs2 ==0){
+					alert('종료일은 시작일 이후의 날짜로 선택해주세요.');
+					return false;
+				} 				
+				
 				
 			   /* alert(selected2); */
 			   $('#price').empty();

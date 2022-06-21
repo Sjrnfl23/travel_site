@@ -379,7 +379,7 @@
                                             <div class="mt-3 pt-1 text-center">
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                     		<button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md">수정</button>
+                                                     		<button type="submit" id="btnSubmit" class="btn btn-primary btn-rounded waves-effect waves-light mb-2 me-2 w-md">수정</button>
                                                     </li>
                                                     <li class="list-inline-item">
                                                     	<a href="/admin/lodgingView">
@@ -549,7 +549,7 @@ function findAddr(){
     }).open();
 }
 </script> 
-        <script>
+<script>
 $("#btnSubmit").on("click",function(){
 	
 	var fileCount = $("#file0")[0].files.length; 
@@ -574,9 +574,7 @@ $("#btnSubmit").on("click",function(){
 
 
 </script>  
-    
-    
-    
-    </body>
+
+</body>
 
 </html>
