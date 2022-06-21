@@ -44,7 +44,7 @@
 
                     <div class="d-flex">
 
-                        <div class="dropdown d-inline-block">
+<!--                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item noti-icon"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bx bx-search icon-sm align-middle"></i>
@@ -119,7 +119,7 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
             
                        <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item user text-start d-flex align-items-center" id="page-header-user-dropdown-v"
@@ -136,7 +136,7 @@
                                 <a class="dropdown-item" href="hostInfoView"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">회원정보</span></a>
 <!--                                 <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Messages</span></a> -->
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle" id="logOut">로그아웃</span></a>
+                                <a class="dropdown-item" href=""><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle" id="logOut">로그아웃</span></a>
                             </div>
                         </div>
                     </div>

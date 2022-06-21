@@ -64,23 +64,23 @@
                                         </div>
                 
                                         <div class="mb-3">
-                                            <div class="float-end">
+<!--                                             <div class="float-end">
                                                 <a href="password" class="text-muted text-decoration-underline">비밀번호 찾기</a>
-                                            </div>
+                                            </div> -->
                                             <label class="form-label" for="password-input" >Password</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
                                                 <input type="password" class="form-control" name="tvmmPassword" id="tvmmPassword" placeholder="비밀번호를 입력해주세요" value="54321">
                                                 <button type="button" class="btn btn-link position-absolute h-100 end-0 top-0" id="password-addon">
-                                                    <i class="mdi mdi-eye-outline font-size-18 text-muted"></i>
+                                                    <!-- <i class="mdi mdi-eye-outline font-size-18 text-muted"></i> -->
                                                 </button>
                                             </div>
                                         </div>
                 
-                                        <div class="form-check py-1">
+<!--                                         <div class="form-check py-1">
                                             <input type="checkbox" class="form-check-input" id="auth-remember-check">
                                             <label class="form-check-label" for="auth-remember-check">아이디 저장하기</label>
-                                        </div>
+                                        </div> -->
                                         
                                         <div class="mt-3">
                                            <button id="btnLogin" class="btn btn-primary w-100 waves-effect waves-light">로그인</button>
@@ -93,7 +93,7 @@
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <p class="mb-0">계정이 없으신가요? <a href="" class="fw-medium text-primary"> 회원가입 </a> </p>
+                                            <p class="mb-0">관리 부서: <a href="" class="fw-medium text-primary"> 인프라 운영팀 </a> (070-1234-1234)</p>
                                         </div>
                                     </form>
                                 </div>
@@ -152,10 +152,10 @@ $("#btnLogin").on("click" , function(){
 				
 				 location.href = "/admin/mainView"; 	
 			} else if(response.rt == "fail"){
-				alert("회원 없음");
+				alert("회원 정보가 존재하지 않습니다.");
 				
 			}else{
-				alert("권한 없음");
+				alert("접속 권한이 없습니다.");
 			}
 		}
 		,error : function(jqXHR, textStatus, errorThrown){
