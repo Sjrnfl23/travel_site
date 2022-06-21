@@ -161,64 +161,37 @@ select:disabled {
             </div>
            <form id="formList" >
               <div class="row">
-                <div class="col-md-12">
-                    
+                <div class="col-md-5" style="margin-left: 29%;">
                         <div class="search-box">
                             <div class="row">
-                                <div class="col-md-10 search-box_line">
+                                <div class="col-md-8">
                                     <div class="search-box1">
                                         <div class="search-box-title">
                                             <label>위치</label><br>
-                                            <select class="form-select" id="tvamState" name="tvamState" style="width:600px;">
-                                                            		<option value="0" selected>::지역을 선택해주세요::</option>
-                                                            		<option value="서울">서울</option>
-                                                            		<option value="경기">경기</option>
-                                                            		<option value="강원">강원</option>
-                                                            		<option value="충북">충북</option>
-                                                            		<option value="충남">충남</option>
-                                                            		<option value="전북">전북</option>
-                                                            		<option value="전남">전남</option>
-                                                            		<option value="경북">경북</option>
-                                                            		<option value="경남">경남</option>
-                                                            		<option value="부산">부산</option>
-                                                            		<option value="제주">제주</option>
-                                                            	</select>
+                                            <select class="form-select" id="tvamState" name="tvamState" style="width:300px;">
+                                          		<option value="0" selected>::지역을 선택해주세요::</option>
+                                          		<option value="서울">서울</option>
+                                          		<option value="경기">경기</option>
+                                          		<option value="강원">강원</option>
+                                          		<option value="충북">충북</option>
+                                          		<option value="충남">충남</option>
+                                          		<option value="전북">전북</option>
+                                          		<option value="전남">전남</option>
+                                          		<option value="경북">경북</option>
+                                          		<option value="경남">경남</option>
+                                          		<option value="부산">부산</option>
+                                          		<option value="제주">제주</option>
+                                          	</select>
                                         </div>
                                     </div>
                                 </div>
-                               <!--  <div class="col-md-3 search-box_line">
-                                    <div class="search-box1">
-                                        <div class="search-box-title">
-                                            <label>체크인</label><br>
-                                            <input type="text" name="#" id="" class="search-form" placeholder="2022-07-26">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 search-box_line">
-                                    <div class="search-box1">
-                                        <div class="search-box-title">
-                                            <label>체크아웃</label><br>
-                                            <input type="text" name="#" id="" class="search-form" placeholder="2022-07-30">
-                                        </div>
-                                    </div>
-                                </div> -->
-                             <!--   <div class="col-md-4">
-                                    <div class="search-box1">
-                                        <div class="search-box-title">
-                                            <label>인원</label><br>
-                                            <input type="text" name="#" id="" class="search-form" placeholder="성인 1명">
-                                        </div>
-                                    </div>
-                                </div> --> 
-                            </div>
+                        		<div class="col-md-4">
+                        			<div class="btn-search" style="margin-top:10%; margin-right:20px;">
+                            			<a id="btnSearch" href="#" class="btn btn-simple" style="width:100px; padding: 10px; ">검색</a>
+                        			</div>
+                        		</div>
+                        	</div>
                         </div>
-                        
-                        <div class="btn-search" style="margin-top:20px; margin-right:20px;">
-                       
-                            <a id="btnSearch" href="#" class="btn btn-simple" style="width:100px; padding-left:0; padding-right: 0; ">검색</a>
-                      
-                        </div>
-                    
                     <!-- <p class="search-bottom-title">By using this website, you are agreeing to our <a href="#"> terms and conditions</a></p> -->
                 </div>
             </div> 
