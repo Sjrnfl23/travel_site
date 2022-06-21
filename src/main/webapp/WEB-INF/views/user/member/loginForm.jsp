@@ -65,23 +65,23 @@
                                         </div>
                 
                                         <div class="mb-3">
-                                            <div class="float-end">
+<!--                                             <div class="float-end">
                                                 <a href="password.html" class="text-muted text-decoration-underline">비밀번호 찾기</a>
-                                            </div>
+                                            </div> -->
                                             <label class="form-label" for="password-input">비밀번호</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 <span class="bx bx-lock-alt"></span>
                                                 <input type="password" class="form-control" id="tvmmPassword" name="tvmmPassword" value="12345" placeholder="비밀번호를 입력해주세요">
                                                 <button type="button" class="btn btn-link position-absolute h-100 end-0 top-0" id="password-addon">
-                                                    <i class="mdi mdi-eye-outline font-size-18 text-muted"></i>
+                                                    <!-- <i class="mdi mdi-eye-outline font-size-18 text-muted"></i> -->
                                                 </button>
                                             </div>
                                         </div>
                 
-                                        <div class="form-check py-1">
+<!--                                         <div class="form-check py-1">
                                             <input type="checkbox" class="form-check-input" id="auth-remember-check">
                                             <label class="form-check-label" for="auth-remember-check">아이디 저장하기</label>
-                                        </div>
+                                        </div> -->
                                         
                                         <div class="mt-3">
                                         
