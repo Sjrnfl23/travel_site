@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -171,10 +172,14 @@ public class UserController {
 
 	@RequestMapping(value = "/lodgingView")
 	public String UserLodgingView(@ModelAttribute("vo")UserVo vo, User dto, Model model) throws Exception {
-		
-		
-		Double avg=service.selectOneReviewAvg(vo);
-		model.addAttribute("avg",avg);
+		Double avgReview=2.5;
+		try {
+			avgReview=service.selectOneReviewAvg(vo);
+			
+		}catch(Exception e) {
+			
+		}
+		model.addAttribute("avgReview",avgReview);
 		int count = service.selectReviewCount(vo);
 		vo.setParamsPaging(count);
 		 if(count != 0) {										
@@ -403,7 +408,7 @@ public class UserController {
 	}
 	@ResponseBody //구글 로그인
 	@RequestMapping(value = "/GloginProc")
-	public Map<String, Object> GloginProc(@RequestParam("tvmmEmailAccount")String email,@ModelAttribute("dto")User dto, HttpSession httpSession) throws Exception {
+	public Map<String, Object> GloginProc(@RequestParam("tvmmEmailAccount")String email,@ModelAttribute("dto")User dto, HttpSession httpSession,Model model) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		System.out.println(email);
 		  dto.setTvmmEmailAccount(email);
@@ -414,6 +419,7 @@ public class UserController {
 			  httpSession.setAttribute("sessName",user.getTvmmName());
 			  httpSession.setAttribute("sessId",user.getTvmmEmailAccount());
 			  returnMap.put("rt", "success");
+			  
 			  
 		  }else {
 			  returnMap.put("rt","signUp");

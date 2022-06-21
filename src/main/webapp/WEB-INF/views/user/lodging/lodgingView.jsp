@@ -249,7 +249,7 @@
                 <div class="col-md-1">
                     <div class="reserve-seat-block">
                         <div class="reserve-rating mx-0 mx-md-3">
-                            <span><c:out value="${avg}"/></span>
+                            <span><fmt:formatNumber value="${avgReview}" pattern=".00"/></span>
                         </div>
                     </div>
                 </div>

@@ -180,6 +180,7 @@ select:disabled {
                                                             		<option value="전남">전남</option>
                                                             		<option value="경북">경북</option>
                                                             		<option value="경남">경남</option>
+                                                            		<option value="부산">부산</option>
                                                             		<option value="제주">제주</option>
                                                             	</select>
                                         </div>
