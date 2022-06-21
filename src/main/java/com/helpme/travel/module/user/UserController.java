@@ -23,7 +23,7 @@ import com.helpme.travel.common.contants.Constants;
 public class UserController {
 	@Autowired
 	UserServiceImpl service;
-	 String a;
+	
 	/*
 	 * private static final Logger logger =
 	 * LoggerFactory.getLogger(UserController.class);
@@ -40,13 +40,9 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/signupForm")
-	public String UserSignupForm(Model model) throws Exception {
-		try{
-			model.addAttribute("email",a);	
-		}catch(Exception e) {
-			
-		}
-		a=null;
+	public String UserSignupForm(Model model,HttpServletRequest request) throws Exception {
+		String email=request.getParameter("tvmmEmailAccount");
+		model.addAttribute("email",email);
 		return "user/member/signupForm";
 	}
 
@@ -407,7 +403,7 @@ public class UserController {
 			  
 			  
 		  }else {
-			  a=email;
+			
 			  returnMap.put("rt","signUp");
 		  }
 		 

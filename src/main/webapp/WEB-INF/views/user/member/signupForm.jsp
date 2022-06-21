@@ -182,7 +182,7 @@
                                         </div>
 
                                         <div class="mt-4 text-center">
-                                            <p class="mb-0">이미 계정이 존재합니까 ? <a href="../member/loginForm" class="fw-medium text-primary">로그인하기</a></p>
+                                            <p class="mb-0">이미 계정이 존재합니까 ? <a href="loginForm" class="fw-medium text-primary">로그인하기</a></p>
                                         </div>
                                     </form>
                                 </div>

@@ -223,7 +223,7 @@ function onSignIn(googleUser) {
 					location.href = "../";
 				} else {
 					alert("회원가입이 필요합니다.");					
-					location.href = "/signupForm";
+					location.href = "/signupForm?tvmmEmailAccount="+profile.getEmail();
 				}
 			}
 			,error : function(jqXHR, textStatus, errorThrown){
