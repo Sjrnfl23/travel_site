@@ -74,7 +74,6 @@
             <choose>
             <when test="shlctValue == '경기'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
             <when test="shlctValue == '강원'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
-            
             <when test="shlctValue == '전북'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
             <when test="shlctValue == '전남'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
             <when test="shlctValue == '경북'"> AND tvamState LIKE concat('%',#{shlctValue},'%')</when>
