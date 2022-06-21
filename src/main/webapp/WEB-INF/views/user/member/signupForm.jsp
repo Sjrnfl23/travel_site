@@ -198,6 +198,7 @@
                         <div class="text-center p-4">
                             <p>© <script>document.write(new Date().getFullYear())</script> now travel. Created <i class="mdi mdi-heart text-danger"></i> by 살려조</p>
                         </div>
+                        
                     </div>
                 </div>
 
