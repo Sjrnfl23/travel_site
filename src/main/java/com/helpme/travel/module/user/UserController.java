@@ -173,9 +173,8 @@ public class UserController {
 	public String UserLodgingView(@ModelAttribute("vo")UserVo vo, User dto, Model model) throws Exception {
 		
 		
-		/*
-		 * Double avg=service.selectOneReviewAvg(vo); model.addAttribute("avg",avg);
-		 */
+		Double avg=service.selectOneReviewAvg(vo);
+		model.addAttribute("avg",avg);
 		int count = service.selectReviewCount(vo);
 		vo.setParamsPaging(count);
 		 if(count != 0) {										
