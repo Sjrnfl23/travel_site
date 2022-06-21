@@ -120,7 +120,7 @@
                                       
 
                                         <div class="form-check py-1">
-                                            <input type="checkbox" class="form-check-input" id="auth-terms-condition-check">
+                                            <input type="checkbox" class="form-check-input" value="1" id="auth-terms-condition-check">
                                             <label class="form-check-label" for="auth-terms-condition-check">now travel의 <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">회원약관</a>에 동의합니다.</label>
                                                  <!-- Modal -->
 										<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -156,7 +156,7 @@
                                         </div>
                                         
                                         <div class="mt-3">
-                                            <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">가입완료</button>
+                                            <button class="btn btn-primary w-100 waves-effect waves-light" id="btnSubmit" type="submit">가입완료</button>
                                         </div>
 
                                         <div class="mt-4 text-center">
@@ -213,7 +213,8 @@
         <script src="../../resources/host/libs/metismenujs/metismenujs.min.js"></script>
         <script src="../../resources/host/libs/simplebar/simplebar.min.js"></script>
         <script src="../../resources/host/libs/eva-icons/eva.min.js"></script>
-
+		<script src="/resources/common/vaildation/vaildation.js"></script>
+		
     </body>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -259,5 +260,39 @@
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 
                 </script>
+                
+	 <!-- vaildation -->
+               <script>
+               
+               $("#btnSubmit").on("click",function(){
+            	   if(!checkNull($("#tvmmName"),$("#tvmmName").val(),"이름을 입력해주세요")) {
+           			return false;
+           		}
+            	   
+            	if(!checkNull($("#tvmmEmailAccount"),$("#tvmmEmailAccount").val(),"이메일을 입력해주세요")) {
+            			return false;
+            	}
+            	if(!checkNull($("#tvmmAddress1"),$("#tvmmAddress1").val(),"주소를 입력해주세요")) {
+        			return false;
+        		}
+            	if($("#tvmmPassword1").val() != $("#tvmmPassword2").val()){
+            		alert("비밀번호가 서로 다릅니다.");
+            		return false;
+            	}
+            	if(!checkNull($("#tvmmTelNumber"),$("#tvmmTelNumber").val(),"전화번호를 입력해주세요")) {
+        			return false;
+        		}
+            	if(!checkNull($("#tvmmDob"),$("#tvmmDob").val(),"생년월일을 입력해주세요")) {
+        			return false;
+        		}
+            	if($("#auth-terms-condition-check").val() != 1){
+            		alert("회원 약관에 동의해주세요");
+            		return false;
+            	}      
+            	   
+            	   
+               })
+               
+               </script>
                 
 </html>

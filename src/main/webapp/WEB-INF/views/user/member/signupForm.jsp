@@ -258,7 +258,7 @@
                 
                 </script>
                
-               <!-- vaildation -->
+            <!-- vaildation -->
                <script>
                
                $("#btnSubmit").on("click",function(){
@@ -269,7 +269,23 @@
             	if(!checkNull($("#tvmmEmailAccount"),$("#tvmmEmailAccount").val(),"이메일을 입력해주세요")) {
             			return false;
             	}
-            	   
+            	if(!checkNull($("#tvmmAddress1"),$("#tvmmAddress1").val(),"주소를 입력해주세요")) {
+        			return false;
+        		}
+            	if($("#tvmmPassword1").val() != $("#tvmmPassword2").val()){
+            		alert("비밀번호가 서로 다릅니다.");
+            		return false;
+            	}
+            	if(!checkNull($("#tvmmTelNumber"),$("#tvmmTelNumber").val(),"전화번호를 입력해주세요")) {
+        			return false;
+        		}
+            	if(!checkNull($("#tvmmDob"),$("#tvmmDob").val(),"생년월일을 입력해주세요")) {
+        			return false;
+        		}
+            	if($("#auth-terms-condition-check").val() != 1){
+            		alert("회원 약관에 동의해주세요");
+            		return false;
+            	}      
             	   
             	   
                })

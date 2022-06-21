@@ -33,6 +33,49 @@
     <link href="/resources/user/css/set1.css" rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="/resources/user/css/style.css">
+    
+       <style>
+   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  
+  font-family: "Noto Sansf KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  
+  color: #444;
+  background-color: #fff;
+  
+  padding: .6em 1.4em .5em .8em;
+  margin: 0;
+  
+  border: 1px solid #aaa;
+  border-radius: .5em;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+}
+
+select:hover {
+  border-color: #888;
+}
+
+select:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+select:disabled {
+  opacity: 0.5;
+}
+
+
+       </style>
 </head>
 
 <body>
@@ -116,21 +159,33 @@
                     <h3>당신의 여행지를 검색해보세요. </h3>
                 </div>
             </div>
- <!--            <form>
+           <form id="formList" >
               <div class="row">
                 <div class="col-md-12">
                     
                         <div class="search-box">
                             <div class="row">
-                                <div class="col-md-3 search-box_line">
+                                <div class="col-md-10 search-box_line">
                                     <div class="search-box1">
                                         <div class="search-box-title">
                                             <label>위치</label><br>
-                                            <input type="text" name="#" id="" class="search-form" placeholder="제주도">
+                                            <select class="form-select" id="tvamState" name="tvamState" style="width:600px;">
+                                                            		<option value="0" selected>::지역을 선택해주세요::</option>
+                                                            		<option value="서울">서울</option>
+                                                            		<option value="경기">경기</option>
+                                                            		<option value="강원">강원</option>
+                                                            		<option value="충북">충북</option>
+                                                            		<option value="충남">충남</option>
+                                                            		<option value="전북">전북</option>
+                                                            		<option value="전남">전남</option>
+                                                            		<option value="경북">경북</option>
+                                                            		<option value="경남">경남</option>
+                                                            		<option value="제주">제주</option>
+                                                            	</select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 search-box_line">
+                               <!--  <div class="col-md-3 search-box_line">
                                     <div class="search-box1">
                                         <div class="search-box-title">
                                             <label>체크인</label><br>
@@ -145,25 +200,28 @@
                                             <input type="text" name="#" id="" class="search-form" placeholder="2022-07-30">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-2">
+                                </div> -->
+                             <!--   <div class="col-md-4">
                                     <div class="search-box1">
                                         <div class="search-box-title">
                                             <label>인원</label><br>
                                             <input type="text" name="#" id="" class="search-form" placeholder="성인 1명">
                                         </div>
                                     </div>
-                                </div>
+                                </div> --> 
                             </div>
                         </div>
-                        <div class="btn-search">
-                            <a href="#" class="btn btn-simple" style="width:100px; padding-left:0; padding-right: 0;">검색</a>
+                        
+                        <div class="btn-search" style="margin-top:20px; margin-right:20px;">
+                       
+                            <a id="btnSearch" href="#" class="btn btn-simple" style="width:100px; padding-left:0; padding-right: 0; ">검색</a>
+                      
                         </div>
                     
-                    <p class="search-bottom-title">By using this website, you are agreeing to our <a href="#"> terms and conditions</a></p>
+                    <!-- <p class="search-bottom-title">By using this website, you are agreeing to our <a href="#"> terms and conditions</a></p> -->
                 </div>
             </div> 
-            </form> -->
+            </form> 
         </div>
     </section>
     <!--//END MAIN TITLE -->
@@ -374,6 +432,18 @@
     <script src="/resources/user/js/popper.min.js"></script>
     <script src="/resources/user/js/bootstrap.min.js"></script>
 
+<script>
+
+$("#btnSearch").on("click",function(){
+	var a =$("#tvamState option:selected").val();
+	if(a==0){
+		alert("지역을 선택해주세요");
+		return false;
+	}
+	location.href="searchFlex?shlctValue="+a ;
+})
+
+</script>
 
 </body>
 
