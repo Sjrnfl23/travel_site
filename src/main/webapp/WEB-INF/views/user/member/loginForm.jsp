@@ -206,14 +206,12 @@ function onSignIn(googleUser) {
 		, method:'POST'
 	})
 	.done(function(e){
-        //프로필을 가져온다.
-     
 		 var profile = googleUser.getBasicProfile();
-		/* console.log(profile); */
-		var id= profile.getId();
-		var username = profile.getName();
-		
-		console.log(username);
+			/* console.log(profile); */
+			var id= profile.getId();
+			var username = profile.getName();
+        //프로필을 가져온다.	
+				
 		$.ajax({
 			async: true 
 			,cache: false
@@ -224,7 +222,7 @@ function onSignIn(googleUser) {
 				if(response.rt == "success") {
 					location.href = "../";
 				} else {
-					alert("회원가입이 필요합니다.");
+					alert("회원가입이 필요합니다.");					
 					location.href = "/signupForm";
 				}
 			}

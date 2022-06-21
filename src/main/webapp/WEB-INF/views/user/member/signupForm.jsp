@@ -66,7 +66,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="useremail">이메일주소</label>
                                             <div class="position-relative input-custom-icon">
-                                                <input type="email" class="form-control" id="tvmmEmailAccount" name="tvmmEmailAccount" placeholder="이메일주소를 입력해주세요.">  
+                                                <input type="email" class="form-control" id="tvmmEmailAccount" name="tvmmEmailAccount" <c:if test="${not empty email}">value="<c:out value="${email}"/>" readonly</c:if> placeholder="이메일주소를 입력해주세요.">  
                                                 <span class="bx bx-mail-send"></span>
                                             </div>     
                                         </div>                
@@ -257,7 +257,9 @@
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 
                 </script>
+               <script>
                
+               </script>
             <!-- vaildation -->
                <script>
                

@@ -1,50 +1,29 @@
 package com.helpme.travel.module.user;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.HashMap;
-
-
-
 import java.util.List;
-
-
-import java.util.Locale;
 import java.util.Map;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import org.springframework.web.context.support.HttpRequestHandlerServlet;
-
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.helpme.travel.common.contants.Constants;
-import com.helpme.travel.module.admin.Admin;
-import com.helpme.travel.module.host.Host;
-import com.helpme.travel.module.user.User;
-import com.helpme.travel.module.user.UserVo;
-
-import com.helpme.travel.module.user.UserServiceImpl;
 
 
 @Controller
 public class UserController {
 	@Autowired
 	UserServiceImpl service;
+	 String a;
 	/*
 	 * private static final Logger logger =
 	 * LoggerFactory.getLogger(UserController.class);
@@ -62,7 +41,12 @@ public class UserController {
 
 	@RequestMapping(value = "/signupForm")
 	public String UserSignupForm(Model model) throws Exception {
-
+		try{
+			model.addAttribute("email",a);	
+		}catch(Exception e) {
+			
+		}
+		a=null;
 		return "user/member/signupForm";
 	}
 
@@ -413,6 +397,7 @@ public class UserController {
 		System.out.println(email);
 		  dto.setTvmmEmailAccount(email);
 		  int userNy=service.selectGoogleNy(dto);
+		  
 		  if(userNy==1) {
 			  User user=service.selectOneGlogin(dto);
 			  httpSession.setAttribute("sessSeq",user.getTvmmSeq());
@@ -422,6 +407,7 @@ public class UserController {
 			  
 			  
 		  }else {
+			  a=email;
 			  returnMap.put("rt","signUp");
 		  }
 		 
