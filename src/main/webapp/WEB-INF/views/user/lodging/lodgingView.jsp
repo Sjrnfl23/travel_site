@@ -984,7 +984,7 @@
 			alert('인원을 선택해주세요.');
 			return false;
 		}
-		
+		var rtn=false;
 	 	 $.ajax({
 			async: true 
 			,cache: false
@@ -1003,6 +1003,8 @@
 					if(answer ==true){
 						
 						location.href="/loginForm"
+					}else{
+						return false;
 					}
 					}
 				}
@@ -1010,6 +1012,7 @@
 				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 			}
 		});
+	 	return rtn;
 	});   
 	
 	</script>
@@ -1036,6 +1039,8 @@
 					if(answer ==true){
 						
 						location.href="/loginForm"
+					}else{
+						return false;
 					}
 					}
 				}
@@ -1043,6 +1048,7 @@
 				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 			}
 		});
+	 	
 	});   
 	
 	</script>
@@ -1050,7 +1056,38 @@
 	<script type="text/javascript">
 	
 	$("#insertReview").click(function () {
-	       $("form").attr("action", "insertReview");
+		var rtn = false;
+		 $.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/loginCheck"
+				,data : {}
+				,success: function(response) {
+					
+					if(response.rt == "pass") {
+						 /* location.href = "/dm" */
+						$("#formReservation").attr("action", "insertReview");
+						$("#formReservation").submit();
+						
+					}else{
+						
+						 let answer=confirm("로그인이 필요합니다. 하시겠습니까?"); 
+						 
+						 if(answer ==true){							
+							location.href="/loginForm"
+						}else{		
+						rtn=false;
+							 } 
+							
+						
+						}
+					}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+	       return rtn;
 	});
 	 
 	
