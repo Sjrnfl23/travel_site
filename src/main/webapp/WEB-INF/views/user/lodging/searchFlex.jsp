@@ -205,9 +205,11 @@
 									<c:when test="${item.avgReview ne 0}"> 
 										<fmt:formatNumber value="${item.avgReview}" pattern=".00"/>
 									</c:when> 
+									
 									<c:otherwise> 
 										2.50
 									</c:otherwise> 
+									
 									</c:choose>
 	                                        </li>
 	                                    </ul>
