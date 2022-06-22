@@ -87,7 +87,7 @@ public class AdminServiceImpl implements AdminService{
 		dao.updateLodging(dto);
 
 		int a = dao.selectCountUploaded(dto);
-	
+		
 		int j = 0;
 		//j<a
 

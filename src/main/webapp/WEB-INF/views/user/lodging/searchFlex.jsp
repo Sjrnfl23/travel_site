@@ -200,7 +200,16 @@
 	                                <div class="card-body" style="height: 269px;">
 	                                    <h5 class="card-title"><c:out value="${item.tvamLodgingName}"/></h5>
 	                                    <ul class="card-rating">
-	                                        <li>5.0</li>
+	                                        <li>
+								 <c:choose>  
+									<c:when test="${item.avgReview ne 0}"> 
+										<fmt:formatNumber value="${item.avgReview}" pattern=".00"/>
+									</c:when> 
+									<c:otherwise> 
+										2.50
+									</c:otherwise> 
+									</c:choose>
+	                                        </li>
 	                                    </ul>
 	                                    <p class="card-text">
 	                                    <c:out value="${item.tvamDesc}"/>

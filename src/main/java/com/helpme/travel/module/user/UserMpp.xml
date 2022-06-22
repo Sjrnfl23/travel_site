@@ -101,6 +101,7 @@
                 ,b.year
                 ,b.month
                 ,b.day
+                ,(select avg(c.starpoint)/2 from tvReview c where c.tvamSeq = a.tvamSeq) as avgReview
             FROM
                 tvLodging a
             left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq
@@ -154,6 +155,7 @@
                 ,b.year
                 ,b.month
                 ,b.day
+                ,(select avg(c.starpoint)/2 from tvReview c where c.tvamSeq = a.tvamSeq) as avgReview
             FROM
                 tvLodging a
                 left join tvLodgingUploaded b on a.tvamSeq = b.tvamSeq

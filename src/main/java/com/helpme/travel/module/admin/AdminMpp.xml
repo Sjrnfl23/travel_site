@@ -715,6 +715,7 @@
 			, tvmmSeq = #{tvmmSeq}
 		where 1=1
 			and tvmmSeq = #{tvmmSeq}
+			
 	</update>
 	
 	<select id="selectOneUploaded" resultMap="resultMapObj">
@@ -753,6 +754,7 @@
 			, tvamSeq = #{tvamSeq}
 		where 1=1
 			and tvamSeq = #{tvamSeq}
+			and sort=#{sort}
 			
 	</update>
 	

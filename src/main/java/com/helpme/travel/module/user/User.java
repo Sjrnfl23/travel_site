@@ -52,7 +52,7 @@ public class User extends Base{
 	private Integer tvamPetNy;
 	private Integer tvamPartyNy;
 	private Integer delNy;
-	
+	private double avgReview;
 	private Date regDateTime;
 	private Date regDateTimeSvr;
 	private Date modDateTime;
@@ -901,6 +901,12 @@ public class User extends Base{
 	}
 	public void setStarpoint(String starpoint) {
 		this.starpoint = starpoint;
+	}
+	public double getAvgReview() {
+		return avgReview;
+	}
+	public void setAvgReview(double avgReview) {
+		this.avgReview = avgReview;
 	}
 	
 	

@@ -83,7 +83,7 @@ public class UserController {
 	// Search
 	@RequestMapping(value = "/search")
 	public String UserSearch(Model model, UserVo vo) throws Exception {
-
+		
 		//User list = service.selectOneLodgingView(vo);
 		//model.addAttribute("item", list);
 		
@@ -92,7 +92,8 @@ public class UserController {
 
 	@RequestMapping(value = "/searchFlex")
 	public String UserSearchFlex(@ModelAttribute("vo") UserVo vo, Model model) throws Exception {
-
+		
+		
 		int count = service.selectSearchFlexCount(vo);
 		vo.setParamsPaging(count);
 		
@@ -113,6 +114,7 @@ public class UserController {
 	@RequestMapping(value = "locationAjaxList")
 	public Map<String, Object> locationAjaxList(Model model, UserVo vo, User dto) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
 		
 
 		vo.setParamsPaging(service.selectSearchCount(vo));
