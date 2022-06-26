@@ -29,11 +29,11 @@ public class UserServiceImpl implements UserService{
 		return dao.insertMember(dto);
 	}
 		// 회원정보
-//	@Override
-//	public int updateMember(User dto) throws Exception {
-//		// TODO Auto-generated method stub
-//		return dao.updateMember(dto);
-//	}
+	@Override
+	public int updateMember(User dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.updateMember(dto);
+	}
 
 	@Override
 		public User selectOneMember(UserVo vo) throws Exception {

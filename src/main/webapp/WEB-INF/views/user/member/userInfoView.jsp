@@ -158,7 +158,7 @@
                                  <div class="col-md-12">
                                     <div class="form-group">
                                         <label>주소</label>
-                                        <p class="form-control"><c:out value="${item.tvmmAddress1}"/></p> 
+                                        <p class="form-control"><c:out value="${item.tvmmAddressFull}"/></p> 
                                     </div>
                                 </div>
                                  <div class="col-md-12">

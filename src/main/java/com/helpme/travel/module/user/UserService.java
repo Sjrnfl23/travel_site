@@ -15,7 +15,7 @@ public interface UserService {
 	public int insertMember(User dto) throws Exception;
 //	
 //	// 회원정보
-//	public int updateMember(User dto) throws Exception;
+	public int updateMember(User dto) throws Exception;
 	public User selectOneMember(UserVo vo) throws Exception;
 //	int deleteMember(UserVo vo) throws Exception;
 //	

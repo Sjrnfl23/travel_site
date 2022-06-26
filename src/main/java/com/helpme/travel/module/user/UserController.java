@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.helpme.travel.common.contants.Constants;
@@ -69,9 +70,22 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/userInfoEdit")
-	public String UserSignupEdit(Model model) throws Exception {
-
+	public String UserInfoEdit(Model model,UserVo vo,HttpSession httpSession) throws Exception {
+		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
+		vo.setTvmmSeq(sessSeq);
+		
+		User item= service.selectOneMember(vo);
+		model.addAttribute("item",item);
+		
 		return "user/member/userInfoEdit";
+	}
+	@RequestMapping(value = "/userInfoUpdate")
+	public String UserInfoUpdate(Model model,HttpSession httpSession,User dto) throws Exception {
+		String sessSeq = String.valueOf(httpSession.getAttribute("sessSeq").toString());
+		dto.setTvmmSeq(sessSeq);
+		service.updateMember(dto);
+		
+		return "redirect:user/member/userInfoView";
 	}
 
 	@RequestMapping(value = "/SignupDelete")

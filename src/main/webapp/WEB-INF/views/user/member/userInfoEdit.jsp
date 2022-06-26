@@ -123,11 +123,12 @@
     <!--// SUBPAGE HEADER BG -->
     <!--============================= ADD LISTING =============================-->
     <section class="main-block">
+
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="listing-wrap">
-                        <form action="#">
+                        <form action="memberUpdate">
                             <!-- General Information -->
                             <div class="listing-title">
                                 <span class="ti-files"></span>
@@ -140,50 +141,50 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>이름</label>
-                                        <input type="text" class="form-control" value="김이젠"> 
+                                        <input type="text" class="form-control"  name="tvmmName" id="tvmmName" value="<c:out value="${item.tvmmName}"/>"> 
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>전화번호</label>
-                                          <input type="text" class="form-control" value="010-2324-2342" >  
+                                          <input type="text" class="form-control"  name="tvmmTelNumber" id="tvmmTelNumber" value="<c:out value="${item.tvmmTelNumber}"/>">  
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>비밀번호</label>
-                                          <input type="password" class="form-control" value="010-2324-2342" >  
+                                          <input type="password" class="form-control" id="tvmmPassword" name="tvmmPassword" value="<c:out value="${item.tvmmPassword}"/>">  
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>비밀번호 확인</label>
-                                          <input type="password" class="form-control" value="010-2324-2342" >  
+                                          <input type="password" class="form-control"  id="tvmmPassword2" name="tvmmPassword2" value="<c:out value="${item.tvmmPassword}"/>">  
                                     </div>
                                 </div>
                                  <div class="col-md-12">
                                     <div class="form-group">
                                         <label>이메일</label>
-                                        <input type="text" class="form-control" value="ezen@gmail.com"> 
+                                        <input type="text" class="form-control" id="tvmmEmailAccount" name="tvmmEmailAccount" value="<c:out value="${item.tvmmEmailAccount}"/>"> 
                                     </div>
                                 </div>
                                  <div class="col-md-12">
                                     <div class="form-group">
                                         <label>주소</label>
                                         <div class="input-group mb-3" >
-											<input type="text" class="form-control" id="ifmaAddress1" name="ifmaAddress1" placeholder="서울시 서초구 서초로 234">
+											<input type="text" class="form-control" id="tvmmAddress1" name="tvmmAddress1"  value="<c:out value="${item.tvmmAddress1}"/>">
 											<button onClick="sample4_execDaumPostcode()" class="btn btn-outline-secondary" type="button">주소검색</button>
 										</div>
-											<input  type="text"	class="form-control" id="ifmaAddress1" name="ifmaAddress1"	placeholder="상세주소"> 
+											<input  type="text"	class="form-control" id="tvmmAddress2" name="tvmmAddress2"	placeholder="상세주소" value="<c:out value="${item.tvmmAddress2}"/>"> 
                                     </div>
                                 </div>
                                  <div class="col-md-12">
                                     <div class="form-group">
                                         <label>생년월일</label>
-                                         <input type="date" class="form-control" value="1969-09-09"> 
+                                         <input type="date" class="form-control"  name="tvmmDob" id="tvmmDob" value="<c:out value="${item.tvmmDob}"/>"> 
                                     </div>
                                     
-                                       <a href="userInfoEdit"  style="margin-top:10px;" class="btn btn-primary float-right">수정</a>
+                                       <button type="submit" id="btnSubmit" style="margin-top:10px;" class="btn btn-primary float-right">수정</button>
                                 </div>
                              
                             </div>
@@ -224,7 +225,82 @@
     <script src="/resources/user/js/popper.min.js"></script>
     <script src="/resources/user/js/bootstrap.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/resources/common/vaildation/vaildation.js"></script>
 
+
+<script>
+
+    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+
+  var roadAddr;
+    function sample4_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+               roadAddr = data.roadAddress; // 도로명 주소 변수
+                var extraRoadAddr = ''; // 참고 항목 변수
+
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+               
+                document.getElementById("tvmmAddress1").value = roadAddr;
+            }                     
+        }).open();
+        
+        }
+                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+                
+                </script>
+               <script>
+               
+               </script>
+            <!-- vaildation -->
+               <script>
+               
+               $("#btnSubmit").on("click",function(){
+            	   if(!checkNull($("#tvmmName"),$("#tvmmName").val(),"이름을 입력해주세요")) {
+           			return false;
+           		}
+            	   
+            	if(!checkNull($("#tvmmEmailAccount"),$("#tvmmEmailAccount").val(),"이메일을 입력해주세요")) {
+            		return false;
+            	}
+            	if(!checkNull($("#tvmmAddress1"),$("#tvmmAddress1").val(),"주소를 입력해주세요")) {
+        			return false;
+        		}
+            	if($("#tvmmPassword").val() != $("#tvmmPassword2").val()){
+            		alert("비밀번호가 서로 다릅니다.");
+            		return false;
+            	}
+            	if(!checkNull($("#tvmmTelNumber"),$("#tvmmTelNumber").val(),"전화번호를 입력해주세요")) {
+        			return false;
+        		}
+            	if(!checkNull($("#tvmmDob"),$("#tvmmDob").val(),"생년월일을 입력해주세요")) {
+        			return false;
+        		}
+            	   
+            	   
+            	   
+               })
+               
+               </script>
 
 </body>
 

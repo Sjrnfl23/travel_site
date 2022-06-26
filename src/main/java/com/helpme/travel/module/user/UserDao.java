@@ -23,7 +23,7 @@ public class UserDao {
 	
 	// 회원정보
 	public int insertMember(User dto) {return sqlSession.insert( namespace + ".insertMember", dto);}
-//	public int updateMember(User dto) {return sqlSession.update( namespace + ".updateMember", dto);}
+	public int updateMember(User dto) {return sqlSession.update( namespace + ".updateMember", dto);}
 	public User selectOneMember(UserVo vo) { return sqlSession.selectOne(namespace + ".selectOneMember", vo);}
 //	public int deleteMember(UserVo vo) {return sqlSession.delete( namespace + ".delete", vo);}
 	

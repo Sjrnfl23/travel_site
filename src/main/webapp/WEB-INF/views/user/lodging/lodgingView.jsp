@@ -985,6 +985,7 @@
 			return false;
 		}
 		var rtn=false;
+		
 	 	 $.ajax({
 			async: true 
 			,cache: false
@@ -1042,6 +1043,7 @@
 					}else{
 						return false;
 					}
+					
 					}
 				}
 			,error : function(jqXHR, textStatus, errorThrown){
@@ -1076,9 +1078,11 @@
 						 
 						 if(answer ==true){							
 							location.href="/loginForm"
-						}else{		
+						}else{	
+							
 						rtn=false;
-							 } 
+							
+						} 
 							
 						
 						}
